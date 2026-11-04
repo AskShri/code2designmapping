@@ -35,6 +35,10 @@ The tool uses the classic DFD element set with a few security-oriented attribute
 | Data flow          | Directed movement of data between two elements, with a protocol and a data classification.        | Call edges between elements, request/response schemas, message payload types. |
 | Trust boundary     | A line across which the level of trust changes. Contains elements.                                | Network edge (ingress), process/container boundary, auth middleware, IAM role, VPC/subnet from IaC. |
 | Control            | A security-relevant mechanism attached to a flow or element.                                      | Auth middleware, input validation, TLS config, rate limiter, encryption calls, authorization checks. |
+| Asset              | Something worth protecting: sensitive data, a credential or key, a privileged function.           | Schema fields with sensitive data classes, the stores that hold them, secrets read from config. |
+| Threat agent       | Who could attack, with their access level, location and goals. Defaults are derived, one per way into the system, and edited by the team. | Public entry points (anonymous and authenticated callers), each trust boundary (insider), each external dependency (hostile responder). |
+
+The asset, threat agent, control and trust boundary elements, together with the component diagram, are the "security model of the system" that Black Duck's threat modeling guidance asks for; `threat-modeling-alignment.md` maps that guidance step by step.
 
 **Levels.**
 * **L0 (context):** the whole repository as one process, plus every external entity and data store it touches.
@@ -220,7 +224,8 @@ Synthesis turns flat facts into the hierarchical IR. It is deterministic and doe
 4. **Security attributes.** Each flow gets `authentication` (none, credentials, session_id, token, client_certificate, two_factor, unknown) and `encryption` (tls, none, unknown), derived from the controls on its entry point, the protocol, and client configuration (for example `rejectUnauthorized: false` yields `encryption: none` plus a weakness). Each store gets `encryption_at_rest` (yes, no, unknown) from IaC when available. The vocabulary matches Threagile's so the export is lossless.
 5. **Payloads.** Flows pick up a payload type from `schema` facts attached to the entry point, ORM model, or message type. Data classification is computed from field names using a rule list (`email`, `ssn`, `card_number`, `password`, `token`), then optionally refined by the LLM stage with a rationale.
 6. **Boundaries.** Boundaries are built from `boundary_hint` facts: each container/service is a boundary; each IaM role or network segment from IaC is a boundary; the public ingress is the outermost. Entities are placed outside all boundaries unless IaC places them inside (an RDS instance inside the VPC). A flow that crosses a boundary gets `crosses_boundary: [ids]`.
-7. **Controls and weaknesses.** `weakness` facts become entries in the `weaknesses` collection, attached to the element or flow they concern. `control` facts attach to the entry points or flows they guard, resolved through middleware registration order.
+7. **Assets and threat agents.** Assets are derived from schema fields with sensitive data classes (grouped by class), the stores that hold them, and secrets read from config. Default threat agents are derived one per way in: an anonymous caller at each public entry point, an authenticated caller where an `authn` control exists, an insider per trust boundary, and a potentially hostile responder per external dependency. Both carry `origin: inferred` until the team declares or edits them in overrides.
+8. **Controls and weaknesses.** `weakness` facts become entries in the `weaknesses` collection, attached to the element or flow they concern. `control` facts attach to the entry points or flows they guard, resolved through middleware registration order.
 
 **LLM enrichment (constrained).** Runs after synthesis with the IR and relevant source excerpts as input, and returns a list of *proposals* in a fixed JSON format:
 
@@ -281,6 +286,8 @@ Two layers, both blocking:
 | Flow carries `pii`/`secret` over `http` (not `https`) | warning | Security hygiene.                           |
 | Diagram exceeds node budget    | info     | Triggers automatic collapsing.                              |
 | Override targets missing ID    | warning  | Stale annotations.                                          |
+| Asset reachable by an agent with no effective control | warning | Surfaced from the traceability matrix; gate-able in CI. |
+| Threat agent with `origin: inferred` older than N releases | info | Derived agents should be reviewed and declared. |
 
 **Evidence verification** re-opens every evidence span at the recorded commit, checks that the referenced symbol still exists there, and compares the span's `content_hash`; a mismatch is reported as "evidence changed" even when the lines still resolve. Lint errors veto the run before any quality score is computed (the veto-then-rubric ordering from drawing-agent).
 
@@ -306,6 +313,7 @@ Formats:
 | OWASP Threat Dragon JSON | Direct import into Threat Dragon for threat enumeration.      |
 | pytm Python       | OWASP pytm script, so its rule engine can run on the model. `order`, `isResponse` and `sourceFiles` are populated from `call_chain`, `direction` and evidence. |
 | STRIDE table (Markdown/CSV) | One row per element with applicable STRIDE categories, data classes handled, boundary crossings, and existing controls. |
+| Traceability matrix (Markdown/CSV) | One row per (threat agent, asset) pair: shortest control path, controls crossed, controls effective against that agent, verdict. Black Duck's "traceability matrix of missing or weak security controls," computed deterministically from the IR. |
 | HTML report       | Self-contained page with all views, legend, coverage, and the inferred-items list. |
 
 Rendering rules: nodes sorted by ID within each subgraph; edge labels `protocol: payload [data-class]`; inferred elements dashed; boundaries as nested subgraphs; a legend block in every diagram.
@@ -354,6 +362,8 @@ Model
   controls[]   { id, kind, name, applies_to[], origin, evidence[] }
   weaknesses[] { id, kind, name, applies_to[], origin, evidence[] }
   schemas[]    { id, name, fields[]: {name, type, data_class?}, evidence[] }
+  assets[]     { id, name, kind, data_classes[], held_by[], processed_by[], origin, evidence[] }
+  threat_agents[] { id, name, access, location?, entry[], passes_controls[], goals[], origin, evidence[] }
   gaps[]       { kind: unresolved|unsupported_file|no_boundary_info, path?, detail }
 ```
 
@@ -389,6 +399,7 @@ The model already contains what STRIDE-per-element needs. The exporter adds:
 
 * **Element applicability table.** External entity: S, R. Process: S, T, R, I, D, E. Data store: T, R, I, D. Data flow: T, I, D. Standard STRIDE mapping.
 * **Priority hints.** Exit points first (flows to an external entity carrying `pii`, `financial`, `credential` or `secret`; LLM API clients called out), then weaknesses, then flows that cross a boundary without a control or with unknown authentication or encryption, stores holding sensitive classes, and entry points without `authn`.
+* **Control-path traceability matrix.** For every threat agent and asset, the path from the agent's entry to the asset's holder and the controls on it, worst first. This answers "can a threat agent reach an asset without going through a control" mechanically; see `threat-modeling-alignment.md`.
 * **Data asset view.** For each data class, where it is processed and where it is stored (Threagile's `data_assets_processed` and `data_assets_stored`), so a reviewer can answer "where does PII live" without reading the diagram.
 * **Threat Dragon export** preserves IDs in `properties.code2design_id` so re-exports update rather than duplicate.
 * **pytm export** emits `Boundary`, `Actor`, `Server`, `Datastore`, `Dataflow` objects with `protocol`, `data`, `isEncrypted`, `authenticatesSource` populated from controls, so pytm's built-in threat library can run unchanged.

@@ -19,5 +19,5 @@ from source to IR to rendered diagram.
 ## Intended uses
 
 * Understanding an unfamiliar service or a large PR quickly.
-* Threat modeling: export to OWASP Threat Dragon, pytm, or a STRIDE-per-element table.
+* Threat modeling: assets, threat agents, controls and trust boundaries are first-class, so the tool emits a STRIDE-per-element table and a control-path traceability matrix (see [docs/threat-modeling-alignment.md](docs/threat-modeling-alignment.md)), and exports to OTM, Threagile, OWASP Threat Dragon and pytm.
 * Architecture drift detection: a PR comment that lists new external entities, new data stores, new boundary crossings, and removed controls.

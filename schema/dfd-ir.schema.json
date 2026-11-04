@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://code2design.dev/schema/dfd-ir.schema.json",
   "title": "code2design intermediate representation (DFD IR)",
-  "description": "Canonical, renderer-independent model of a system's data flow design. Every element must carry evidence. Elements with origin 'inferred' must carry confidence and rationale.",
+  "description": "Canonical, renderer-independent model of a system's data flow design. Every element must carry evidence. Elements with origin 'inferred' must carry confidence and rationale. Assets, threat agents, controls and trust boundaries are first-class so the model can drive a control-path traceability matrix.",
   "type": "object",
   "required": [
     "version",
@@ -16,7 +16,9 @@
     "controls",
     "weaknesses",
     "schemas",
-    "gaps"
+    "gaps",
+    "assets",
+    "threat_agents"
   ],
   "additionalProperties": false,
   "properties": {
@@ -80,6 +82,18 @@
         "$ref": "#/$defs/data_schema"
       }
     },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    },
+    "threat_agents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/threat_agent"
+      }
+    },
     "gaps": {
       "type": "array",
       "items": {
@@ -91,7 +105,7 @@
     "id": {
       "type": "string",
       "description": "Stable content-addressed id: <kind>:<base32(sha256(identity tuple))[:10]>",
-      "pattern": "^(proc|ext|store|bnd|flow|ep|ctl|wk|sch):[a-z2-7]{10}$"
+      "pattern": "^(proc|ext|store|bnd|flow|ep|ctl|wk|sch|asset|agent):[a-z2-7]{10}$"
     },
     "origin": {
       "type": "string",
@@ -337,6 +351,36 @@
           "additionalProperties": {
             "type": "string",
             "pattern": "^sha256:[0-9a-f]{64}$"
+          }
+        },
+        "scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Scope and depth of analysis, recorded so the model states what it covers",
+          "properties": {
+            "include": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "exclude": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "depth": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 2
+            },
+            "out_of_scope_elements": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/id"
+              }
+            }
           }
         }
       }
@@ -783,6 +827,121 @@
               "items": {
                 "$ref": "#/$defs/id"
               }
+            }
+          }
+        }
+      ]
+    },
+    "asset_kind": {
+      "type": "string",
+      "enum": [
+        "data",
+        "credential",
+        "key",
+        "privileged_function",
+        "system"
+      ]
+    },
+    "asset": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/evidenced"
+        },
+        {
+          "type": "object",
+          "required": [
+            "name",
+            "kind"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "kind": {
+              "$ref": "#/$defs/asset_kind"
+            },
+            "data_classes": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/data_class"
+              }
+            },
+            "held_by": {
+              "type": "array",
+              "description": "Stores (or processes, for in-memory secrets) that hold the asset",
+              "items": {
+                "$ref": "#/$defs/id"
+              }
+            },
+            "processed_by": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/id"
+              }
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "agent_access": {
+      "type": "string",
+      "enum": [
+        "anonymous",
+        "authenticated",
+        "insider",
+        "third_party",
+        "physical"
+      ]
+    },
+    "threat_agent": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/evidenced"
+        },
+        {
+          "type": "object",
+          "required": [
+            "name",
+            "access",
+            "entry"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "access": {
+              "$ref": "#/$defs/agent_access"
+            },
+            "location": {
+              "$ref": "#/$defs/id",
+              "description": "Boundary the agent sits in; absent means outside every boundary"
+            },
+            "entry": {
+              "type": "array",
+              "minItems": 1,
+              "description": "Elements the agent can reach directly",
+              "items": {
+                "$ref": "#/$defs/id"
+              }
+            },
+            "passes_controls": {
+              "type": "array",
+              "description": "Control kinds this agent legitimately satisfies (an authenticated user passes authn)",
+              "items": {
+                "$ref": "#/$defs/control_kind"
+              }
+            },
+            "goals": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "description": {
+              "type": "string"
             }
           }
         }

@@ -4,6 +4,17 @@
     "tool_version": "0.2.0-design",
     "commit": "0000000000000000000000000000000000000000",
     "generated_from": "examples/orders-service/app",
+    "scope": {
+      "include": [
+        "src/**",
+        "docker-compose.yml",
+        "Dockerfile",
+        "package.json"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
     "input_hashes": {
       "docker-compose.yml": "sha256:425687e2aeafb95a8d3d1d7a25915fda48a6469a8c26594123dd4cbc21741eb0",
       "package.json": "sha256:6866b1b92ec61c395b3ffb62d3fe1bae0f8bec47777339ac428c4e5e9f0c1205",
@@ -1179,6 +1190,263 @@
           "detector": "sql-literals@1.0",
           "content_hash": "sha256:651b4f6a5cd404bb1d4bd9c6ad0494fe0ee1ea956a466df2505ca57f50882f11",
           "fact_id": "fact_011"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset:3jy2pc5xds",
+      "identity": [
+        "asset",
+        "credential",
+        "STRIPE_SECRET_KEY"
+      ],
+      "origin": "observed",
+      "name": "Stripe secret key",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:uzzaxddqn3"
+      ],
+      "processed_by": [
+        "proc:uzzaxddqn3"
+      ],
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "env-secrets@1.0",
+          "content_hash": "sha256:783634d1b1bf6afdd72134927ace8fa9a3e9498f4f161e8f1b782047bdfd3e4a",
+          "fact_id": "fact_020"
+        }
+      ]
+    },
+    {
+      "id": "asset:jz4nahgsoa",
+      "identity": [
+        "asset",
+        "data",
+        "pii"
+      ],
+      "origin": "observed",
+      "name": "Customer PII (email, shipping address)",
+      "kind": "data",
+      "data_classes": [
+        "pii"
+      ],
+      "held_by": [
+        "store:pljbgfzdky",
+        "store:ligqz7jge4"
+      ],
+      "processed_by": [
+        "proc:3prgjq6md2",
+        "proc:7mtmyvbvbl",
+        "proc:3s7cqqa6uy"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 6,
+          "end_line": 7,
+          "detector": "zod-schemas@1.0",
+          "content_hash": "sha256:e0a3defe5c328e486e5f57ab1252d828c2c1123cfff35f7219346443742b2fc9",
+          "fact_id": "fact_010"
+        },
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "sql-literals@1.0",
+          "content_hash": "sha256:651b4f6a5cd404bb1d4bd9c6ad0494fe0ee1ea956a466df2505ca57f50882f11",
+          "fact_id": "fact_011"
+        }
+      ]
+    },
+    {
+      "id": "asset:q5ifntstez",
+      "identity": [
+        "asset",
+        "data",
+        "financial"
+      ],
+      "origin": "observed",
+      "name": "Payment data (card token, amounts, charge ids)",
+      "kind": "data",
+      "data_classes": [
+        "financial"
+      ],
+      "held_by": [
+        "store:pljbgfzdky",
+        "store:ligqz7jge4"
+      ],
+      "processed_by": [
+        "proc:3prgjq6md2",
+        "proc:7mtmyvbvbl",
+        "proc:uzzaxddqn3",
+        "proc:3s7cqqa6uy"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "zod-schemas@1.0",
+          "content_hash": "sha256:aedcebda6fb03d11857877feb31f31aec9b0a54bd68a74ccd1be49ff1240de35",
+          "fact_id": "fact_010"
+        },
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "stripe-sdk@1.0",
+          "content_hash": "sha256:bb4b958d4b59860e65fa9e3d3f696b2bfbf25a9c5a4ecc170117fa69c7f26ca6",
+          "fact_id": "fact_012"
+        }
+      ]
+    }
+  ],
+  "threat_agents": [
+    {
+      "id": "agent:n2icups5hk",
+      "identity": [
+        "agent",
+        "anonymous",
+        "ext:http-client"
+      ],
+      "origin": "inferred",
+      "name": "Anonymous internet user",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "read or alter other customers' orders",
+        "charge cards without authorization"
+      ],
+      "confidence": 0.9,
+      "rationale": "Public HTTP listener (src/index.ts:12, compose port 8080) implies unauthenticated callers reach the auth middleware",
+      "evidence": [
+        {
+          "path": "src/index.ts",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "express-routes@1.2",
+          "content_hash": "sha256:3333b75aa6b3aaea19e762040e29251b8db82f01ac331dcd0ec0c46972e816eb"
+        },
+        {
+          "path": "docker-compose.yml",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "compose@1.0",
+          "content_hash": "sha256:e578c3feb6c6df684eb3fb31f5d6a138fb64fd44e513638ebae4b4a9620e41af",
+          "fact_id": "fact_024"
+        }
+      ]
+    },
+    {
+      "id": "agent:nwkirjn5v2",
+      "identity": [
+        "agent",
+        "authenticated",
+        "ext:http-client"
+      ],
+      "origin": "inferred",
+      "name": "Authenticated API client (valid JWT)",
+      "access": "authenticated",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [
+        "authn"
+      ],
+      "goals": [
+        "access orders belonging to other users",
+        "abuse the charge path"
+      ],
+      "confidence": 0.9,
+      "rationale": "Entry points are guarded by requireJwt, so a holder of a valid token is a distinct agent",
+      "evidence": [
+        {
+          "path": "src/infra/auth.ts",
+          "start_line": 4,
+          "end_line": 11,
+          "detector": "express-middleware@1.1",
+          "content_hash": "sha256:46ec7d70912175aab2c1ca186ec8526366a1a2216998542becc50c7548d52876",
+          "fact_id": "fact_007"
+        }
+      ]
+    },
+    {
+      "id": "agent:se2jbys653",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:container:api"
+      ],
+      "origin": "inferred",
+      "name": "Insider or attacker with api container access",
+      "access": "insider",
+      "location": "bnd:uvq3irjstn",
+      "entry": [
+        "proc:7mtmyvbvbl",
+        "proc:3s7cqqa6uy",
+        "proc:uzzaxddqn3"
+      ],
+      "passes_controls": [
+        "authn",
+        "rate_limit",
+        "input_validation"
+      ],
+      "goals": [
+        "read the database directly",
+        "exfiltrate the Stripe key"
+      ],
+      "confidence": 0.8,
+      "rationale": "One agent per trust boundary, placed inside it",
+      "evidence": [
+        {
+          "path": "docker-compose.yml",
+          "start_line": 2,
+          "end_line": 7,
+          "detector": "compose@1.0",
+          "content_hash": "sha256:ddda00452167fe726a28719cbd539db234d7bf78713728e5e5248308de668106",
+          "fact_id": "fact_024"
+        }
+      ]
+    },
+    {
+      "id": "agent:vypbg7uwd5",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:stripe"
+      ],
+      "origin": "inferred",
+      "name": "Compromised or malicious third party (Stripe API)",
+      "access": "third_party",
+      "entry": [
+        "ext:plsra3tach"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return forged charge results",
+        "harvest card tokens"
+      ],
+      "confidence": 0.8,
+      "rationale": "Every outbound dependency is modeled as a potential hostile responder",
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "stripe-sdk@1.0",
+          "content_hash": "sha256:bb4b958d4b59860e65fa9e3d3f696b2bfbf25a9c5a4ecc170117fa69c7f26ca6",
+          "fact_id": "fact_019"
         }
       ]
     }

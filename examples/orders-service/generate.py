@@ -207,10 +207,41 @@ EP_GET = node("ep", ("entry_point", "http", "GET", "/orders/:id"), process=P_GET
 for c in (C_JWT, C_RL): c["applies_to"] = [EP_POST["id"], EP_GET["id"]]
 C_VAL["applies_to"] = [EP_POST["id"]]
 
+# ---- assets (what is worth protecting), derived from schema fields, stores and secrets
+A_PII = node("asset", ("asset", "data", "pii"), name="Customer PII (email, shipping address)", kind="data", data_classes=["pii"],
+             held_by=[S_PG["id"], S_RD["id"]], processed_by=[P_POST["id"], P_CRE["id"], P_GETO["id"]],
+             evidence=[ev("src/orders/routes.ts", 6, 7, "zod-schemas@1.0", fact_id=f_sch_req), ev("src/orders/service.ts", 14, 14, "sql-literals@1.0", fact_id=f_sch_row)])
+A_FIN = node("asset", ("asset", "data", "financial"), name="Payment data (card token, amounts, charge ids)", kind="data", data_classes=["financial"],
+             held_by=[S_PG["id"], S_RD["id"]], processed_by=[P_POST["id"], P_CRE["id"], P_CHG["id"], P_GETO["id"]],
+             evidence=[ev("src/orders/routes.ts", 9, 9, "zod-schemas@1.0", fact_id=f_sch_req), ev("src/payments/stripe.ts", 6, 6, "stripe-sdk@1.0", fact_id=f_sch_chg)])
+A_KEY = node("asset", ("asset", "credential", "STRIPE_SECRET_KEY"), name="Stripe secret key", kind="credential", data_classes=["secret"],
+             held_by=[P_CHG["id"]], processed_by=[P_CHG["id"]],
+             evidence=[ev("src/payments/stripe.ts", 3, 3, "env-secrets@1.0", fact_id=f_secret)])
+
+# ---- threat agents: derived defaults (one per way into the system), for the team to edit via overrides
+AG_ANON = node("agent", ("agent", "anonymous", "ext:http-client"), name="Anonymous internet user", access="anonymous",
+               entry=[E_CLIENT["id"]], passes_controls=[], goals=["read or alter other customers' orders", "charge cards without authorization"],
+               origin="inferred", confidence=0.9, rationale="Public HTTP listener (src/index.ts:12, compose port 8080) implies unauthenticated callers reach the auth middleware",
+               evidence=[ev("src/index.ts", 12, 12, "express-routes@1.2"), ev("docker-compose.yml", 4, 4, "compose@1.0", fact_id=f_bnd_api)])
+AG_USER = node("agent", ("agent", "authenticated", "ext:http-client"), name="Authenticated API client (valid JWT)", access="authenticated",
+               entry=[E_CLIENT["id"]], passes_controls=["authn"], goals=["access orders belonging to other users", "abuse the charge path"],
+               origin="inferred", confidence=0.9, rationale="Entry points are guarded by requireJwt, so a holder of a valid token is a distinct agent",
+               evidence=[ev("src/infra/auth.ts", 4, 11, "express-middleware@1.1", fact_id=f_ctl_jwt)])
+AG_3RD = node("agent", ("agent", "third_party", "ext:stripe"), name="Compromised or malicious third party (Stripe API)", access="third_party",
+              entry=[E_STRIPE["id"]], passes_controls=[], goals=["return forged charge results", "harvest card tokens"],
+              origin="inferred", confidence=0.8, rationale="Every outbound dependency is modeled as a potential hostile responder",
+              evidence=[ev("src/payments/stripe.ts", 6, 6, "stripe-sdk@1.0", fact_id=f_out_stripe)])
+AG_INS = node("agent", ("agent", "insider", "bnd:container:api"), name="Insider or attacker with api container access", access="insider",
+              location=B_API["id"], entry=[P_CRE["id"], P_GETO["id"], P_CHG["id"]], passes_controls=["authn", "rate_limit", "input_validation"],
+              goals=["read the database directly", "exfiltrate the Stripe key"],
+              origin="inferred", confidence=0.8, rationale="One agent per trust boundary, placed inside it",
+              evidence=[ev("docker-compose.yml", 2, 7, "compose@1.0", fact_id=f_bnd_api)])
+
 by_id = lambda xs: sorted(xs, key=lambda x: x["id"])
 ir = OrderedDict(
     version="0.1",
     provenance=OrderedDict(tool_version="0.2.0-design", commit=COMMIT, generated_from="examples/orders-service/app",
+        scope=OrderedDict(include=["src/**", "docker-compose.yml", "Dockerfile", "package.json"], exclude=[], depth=2, out_of_scope_elements=[]),
         input_hashes=OrderedDict(sorted((f["evidence"]["path"], "sha256:" + hashlib.sha256((APP / f["evidence"]["path"]).read_bytes()).hexdigest()) for f in facts)),
         detectors=sorted({e["detector"] for f in facts for e in [f["evidence"]]}),
         llm=OrderedDict(model="claude-sonnet-5-5", prompt_hash="sha256:examplepromptpin", proposals_accepted=1, proposals_rejected=0)),
@@ -223,6 +254,8 @@ ir = OrderedDict(
     controls=by_id([C_JWT, C_RL, C_VAL]),
     weaknesses=by_id([W_SECRET]),
     schemas=by_id([SCH_REQ, SCH_ROW, SCH_CHG]),
+    assets=by_id([A_PII, A_FIN, A_KEY]),
+    threat_agents=by_id([AG_ANON, AG_USER, AG_3RD, AG_INS]),
     gaps=[OrderedDict(kind="no_boundary_info", detail="No IaC found for the public ingress; 'container: api' used as the outermost boundary."),
           OrderedDict(kind="unresolved", path="src/infra/auth.ts", line=8, detail="JWT_PUBLIC_KEY read from env; key source (secret store vs. file) not determinable statically."),
           OrderedDict(kind="unknown_attribute", path="src/infra/db.ts", line=3, detail="Question for the team: is the Postgres link TLS (sslmode) and is the volume encrypted at rest?"),
@@ -236,7 +269,9 @@ jsonschema.Draft202012Validator(schema).validate(ir)
 print("IR validates against schema")
 
 # ---------------------------------------------------------------- lint (subset)
-ids = {n["id"] for k in ("processes","entities","stores","boundaries","flows","entry_points","controls","weaknesses","schemas") for n in ir[k]}
+ids = {n["id"] for k in ("processes","entities","stores","boundaries","flows","entry_points","controls","weaknesses","schemas","assets","threat_agents") for n in ir[k]}
+for a in ir["assets"]: assert all(x in ids for x in a["held_by"] + a["processed_by"]), a
+for t in ir["threat_agents"]: assert all(x in ids for x in t["entry"]), t
 for f in ir["flows"]:
     assert f["source"] in ids and f["target"] in ids, f
     kinds = (f["source"].split(":")[0], f["target"].split(":")[0])
@@ -389,4 +424,59 @@ for dc in ("pii", "financial", "credential", "secret"):
     if proc_ or stored or exits:
         assets.append(f'| {dc} | {", ".join(proc_) or "-"} | {", ".join(stored) or "-"} | {", ".join(exits) or "-"} |')
 (OUT / "stride-table.md").write_text("# STRIDE per element: orders-service\n\nRows are ordered by priority hint (exit points and weaknesses first).\n\n" + "\n".join(rows) + "\n" + "\n".join(assets) + "\n")
+# ---------------------------------------------------------------- control-path traceability matrix
+# For every (threat agent, asset) pair: shortest path over the flow graph from the agent's entry
+# elements to an element that holds or processes the asset, the controls crossed on the way, and
+# whether any of them would halt this agent. Deterministic: BFS with ID-ordered neighbours.
+from collections import deque
+adj = {}
+for f in ir["flows"]:
+    adj.setdefault(f["source"], []).append((f["target"], f)); adj.setdefault(f["target"], []).append((f["source"], f))
+for k in adj: adj[k].sort(key=lambda x: (x[0], x[1]["id"]))
+def shortest_path(starts, goals):
+    """BFS over flows; returns (node path, traversed flows). Deterministic: ID-ordered starts and neighbours."""
+    q = deque((s_, [s_], []) for s_ in sorted(starts)); seen = set(starts)
+    while q:
+        cur, path, flows_ = q.popleft()
+        if cur in goals: return path, flows_
+        for nxt, f in adj.get(cur, []):
+            if nxt in seen: continue
+            seen.add(nxt); q.append((nxt, path + [nxt], flows_ + [f]))
+    return None, None
+mrows = []
+for ag in ir["threat_agents"]:
+    for a in ir["assets"]:
+        # prefer the elements that hold the asset; fall back to the ones that only process it
+        path, flows_ = shortest_path(set(ag["entry"]), set(a["held_by"]))
+        if path is None: path, flows_ = shortest_path(set(ag["entry"]), set(a["processed_by"]))
+        if path is None:
+            mrows.append((3, ag, a, "no path", "-", "-", "unreachable from this agent")); continue
+        crossed = [ctl[c]["name"] for f in flows_ for c in f["controls"]]
+        effective = [ctl[c]["name"] for f in flows_ for c in f["controls"] if ctl[c]["kind"] not in ag.get("passes_controls", [])]
+        unknown = [f for f in flows_ if f["protocol"] != "in_process" and (f["authentication"] == "unknown" or f["encryption"] == "unknown")]
+        if len(path) == 1:
+            verdict, rank = "agent starts at the asset holder: no control can apply", 0
+        elif not effective:
+            verdict, rank = "NO EFFECTIVE CONTROL on the path: potential attack path", 0
+        elif unknown:
+            verdict, rank = "controlled at entry; " + "; ".join(f'{nodes[f["source"]]["name"]} -> {nodes[f["target"]]["name"]} link has unknown authentication/encryption' for f in unknown), 1
+        else:
+            verdict, rank = "controlled", 2
+        shown = nodes[path[0]]["name"] + " (inside)" if len(path) == 1 else " -> ".join(nodes[x]["name"] for x in path)
+        mrows.append((rank, ag, a, shown, ", ".join(crossed) or "none", ", ".join(effective) or "none", verdict))
+mrows.sort(key=lambda r: (r[0], r[1]["id"], r[2]["id"]))
+lines_ = ["# Control-path traceability matrix: orders-service", "",
+          "One row per (threat agent, asset) pair. The path is the shortest route over the data flows from where the agent starts to an element that holds or processes the asset. 'Effective controls' excludes controls the agent legitimately passes (an authenticated client passes authn). Rows are ordered worst first.", "",
+          "| Threat agent | Asset | Shortest path | Controls crossed | Effective controls | Verdict |", "|---|---|---|---|---|---|"]
+for _, ag, a, path, crossed, eff, verdict in mrows:
+    lines_.append(f'| {ag["name"]} | {a["name"]} | {path} | {crossed} | {eff} | {verdict} |')
+lines_ += ["", "## Threat agent profiles", "", "| Agent | Access | Location | Starts at | Passes | Goals | Origin |", "|---|---|---|---|---|---|---|"]
+bn = {b["id"]: b["name"] for b in ir["boundaries"]}
+for ag in ir["threat_agents"]:
+    lines_.append(f'| {ag["name"]} | {ag["access"]} | {bn.get(ag.get("location"), "outside all boundaries")} | {", ".join(nodes[x]["name"] for x in ag["entry"])} | {", ".join(ag.get("passes_controls", [])) or "-"} | {"; ".join(ag["goals"])} | {ag["origin"]} |')
+lines_ += ["", "## Assets", "", "| Asset | Kind | Data classes | Held by | Processed by |", "|---|---|---|---|---|"]
+for a in ir["assets"]:
+    lines_.append(f'| {a["name"]} | {a["kind"]} | {", ".join(a["data_classes"])} | {", ".join(nodes[x]["name"] for x in a["held_by"])} | {", ".join(nodes[x]["name"] for x in a["processed_by"])} |')
+(OUT / "traceability-matrix.md").write_text("\n".join(lines_) + "\n")
+
 print("wrote", sorted(p.name for p in OUT.iterdir()))

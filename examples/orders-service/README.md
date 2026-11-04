@@ -47,6 +47,8 @@ node scripts/check-mermaid.js examples/orders-service/output
 | controls | 3 | authn, rate_limit, input_validation. |
 | weaknesses | 1 | `STRIPE_SECRET_KEY` read at module import (a provable negative finding). |
 | schemas | 3 | Request body, `orders` row, Stripe charge request. Fields carry data classes. |
+| assets | 3 | Customer PII, payment data, the Stripe secret key. |
+| threat_agents | 4 | Derived defaults: anonymous caller, authenticated caller, insider in the api container, hostile Stripe responder. |
 | gaps | 4 | No ingress IaC; JWT key source unresolved; two `unknown_attribute` questions for the team (TLS and encryption at rest on the Postgres and Redis links). |
 
 IDs are `kind:base32(sha256(identity tuple))[:10]`, and the identity tuple is kept in the clear. Every evidence span carries a `content_hash` of its text, and `provenance.input_hashes` records every file that produced a fact. Flows carry `authentication` and `encryption` (Threagile-compatible values, `unknown` when not derivable from code); stores carry `encryption_at_rest`. The `create order` process carries `origin: inferred` because its description came from the enrichment stage; it renders dashed.
@@ -90,6 +92,10 @@ flowchart LR
 
 One row per element with the applicable STRIDE categories, data classes, boundary crossings and existing controls. Rows with a priority hint come first: the Stripe call is an *exit point* (financial data leaves the system), the secret-at-import weakness, and the store links whose authentication and encryption are `unknown` and therefore listed as questions for the team. A data-asset table at the end answers "where is PII processed, stored, and where does it leave" without reading the diagram.
 
-## 6. What a PR would show
+## 6. Traceability matrix (`output/traceability-matrix.md`)
+
+For every threat agent and asset: the shortest path through the flows, the controls crossed, the controls that are effective against that agent, and a verdict, worst first. This is the "traceability matrix of missing or weak security controls" from Black Duck's threat modeling guidance, computed from the IR rather than filled in by hand.
+
+## 7. What a PR would show
 
 If a later PR added an SMS notification via Twilio in `createOrder`, the design delta would list one new external entity, one new flow from `create order` to it carrying `pii` (the phone number) across the `api` boundary with no control, and nothing else. The 10 existing flows keep their IDs because their identity tuples are unchanged.
