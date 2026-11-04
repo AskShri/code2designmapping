@@ -45,10 +45,11 @@ node scripts/check-mermaid.js examples/orders-service/output
 | flows | 10 | Stored at the finest level (L2); L1 and L0 views roll them up to ancestors. |
 | entry_points | 2 | With ordered `controls` and `call_chain`. |
 | controls | 3 | authn, rate_limit, input_validation. |
+| weaknesses | 1 | `STRIPE_SECRET_KEY` read at module import (a provable negative finding). |
 | schemas | 3 | Request body, `orders` row, Stripe charge request. Fields carry data classes. |
-| gaps | 2 | No ingress IaC; JWT key source unresolved. |
+| gaps | 4 | No ingress IaC; JWT key source unresolved; two `unknown_attribute` questions for the team (TLS and encryption at rest on the Postgres and Redis links). |
 
-IDs are `kind:base32(sha256(identity tuple))[:10]`, and the identity tuple is kept in the clear. The `create order` process carries `origin: inferred` because its description came from the enrichment stage; it renders dashed.
+IDs are `kind:base32(sha256(identity tuple))[:10]`, and the identity tuple is kept in the clear. Every evidence span carries a `content_hash` of its text, and `provenance.input_hashes` records every file that produced a fact. Flows carry `authentication` and `encryption` (Threagile-compatible values, `unknown` when not derivable from code); stores carry `encryption_at_rest`. The `create order` process carries `origin: inferred` because its description came from the enrichment stage; it renders dashed.
 
 ## 4. Diagrams
 
@@ -87,7 +88,7 @@ flowchart LR
 
 ## 5. Threat model export (`output/stride-table.md`)
 
-One row per element with the applicable STRIDE categories, data classes, boundary crossings and existing controls. Rows with a priority hint come first: the Stripe call crosses the container boundary with no detected control, and the store links carry PII over `sql`/`redis` where TLS could not be confirmed from code. Those are exactly the questions a threat-modeling session should start with.
+One row per element with the applicable STRIDE categories, data classes, boundary crossings and existing controls. Rows with a priority hint come first: the Stripe call is an *exit point* (financial data leaves the system), the secret-at-import weakness, and the store links whose authentication and encryption are `unknown` and therefore listed as questions for the team. A data-asset table at the end answers "where is PII processed, stored, and where does it leave" without reading the diagram.
 
 ## 6. What a PR would show
 

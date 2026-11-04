@@ -15,8 +15,13 @@ def sid(kind, *identity):
     h = hashlib.sha256(json.dumps([kind, *identity]).encode()).digest()
     return f"{kind}:{base64.b32encode(h).decode().lower()[:10]}"
 
+APP = ROOT / "examples/orders-service/app"
+def span_hash(path, start, end):
+    lines = (APP / path).read_text().splitlines()[start - 1:end]
+    return "sha256:" + hashlib.sha256(" ".join(" ".join(l.split()) for l in lines).encode()).hexdigest()
+
 def ev(path, start, end, detector, symbol=None, fact_id=None):
-    e = OrderedDict(path=path, start_line=start, end_line=end, detector=detector)
+    e = OrderedDict(path=path, start_line=start, end_line=end, detector=detector, content_hash=span_hash(path, start, end))
     if symbol: e["symbol"] = symbol
     if fact_id: e["fact_id"] = fact_id
     return e
@@ -114,10 +119,10 @@ E_CLIENT = node("ext", ("external", "http-client", "inbound"), name="API client 
 E_STRIPE = node("ext", ("external", "stripe", "outbound"), name="Stripe API", kind="system", host="api.stripe.com", sdk_service="stripe",
                 evidence=[ev("src/payments/stripe.ts", 6, 6, "stripe-sdk@1.0", fact_id=f_out_stripe)])
 
-S_PG = node("store", ("store", "postgres", "orders"), name="Postgres: orders", technology="postgres", logical_name="orders",
+S_PG = node("store", ("store", "postgres", "orders"), name="Postgres: orders", technology="postgres", logical_name="orders", encryption_at_rest="unknown",
             data_classes=["pii", "financial"],
             evidence=[ev("src/infra/db.ts", 3, 3, "pg-driver@1.1", fact_id=f_store_pg_client), ev("src/orders/service.ts", 13, 16, "pg-driver@1.1", fact_id=f_pg_ins), ev("src/orders/service.ts", 24, 24, "pg-driver@1.1", fact_id=f_pg_sel)])
-S_RD = node("store", ("store", "redis", "order:*"), name="Redis: order:*", technology="redis", logical_name="order:*",
+S_RD = node("store", ("store", "redis", "order:*"), name="Redis: order:*", technology="redis", logical_name="order:*", encryption_at_rest="unknown",
             data_classes=["pii", "financial"],
             evidence=[ev("src/infra/cache.ts", 3, 3, "ioredis@1.0", fact_id=f_redis_client), ev("src/orders/service.ts", 17, 17, "ioredis@1.0", fact_id=f_redis_set), ev("src/orders/service.ts", 22, 22, "ioredis@1.0", fact_id=f_redis_get)])
 
@@ -135,6 +140,10 @@ C_RL  = node("ctl", ("control", "rate_limit", "src/index.ts::rateLimit"), kind="
              evidence=[ev("src/index.ts", 9, 9, "express-middleware@1.1", fact_id=f_ctl_rl)])
 C_VAL = node("ctl", ("control", "input_validation", "src/orders/routes.ts::CreateOrderRequest.parse"), kind="input_validation", name="zod CreateOrderRequest",
              evidence=[ev("src/orders/routes.ts", 15, 15, "zod-validation@1.0", fact_id=f_ctl_val)])
+
+W_SECRET = node("wk", ("weakness", "secret_in_env_at_import", "src/payments/stripe.ts:3"), kind="secret_in_env_at_import",
+                name="STRIPE_SECRET_KEY read at module import", applies_to=[E_STRIPE["id"]],
+                evidence=[ev("src/payments/stripe.ts", 3, 3, "env-secrets@1.0", fact_id=f_secret)])
 
 SCH_REQ = node("sch", ("schema", "src/orders/routes.ts", "CreateOrderRequest"), name="CreateOrderRequest",
                fields=[{"name":"customerEmail","type":"string","data_class":"pii"},{"name":"shippingAddress","type":"string","data_class":"pii"},
@@ -155,9 +164,10 @@ def payload(sch, classes, name=None):
     p["data_classes"] = classes
     return p
 
-def flow(src, dst, protocol, direction, evidence, crosses=(), controls=(), **kw):
+def flow(src, dst, protocol, direction, evidence, crosses=(), controls=(), authentication="unknown", encryption="unknown", **kw):
     ptype = kw.get("payload", {}).get("name") or (kw.get("payload", {}).get("schema_ref") or "")
-    f = node("flow", ("flow", src["id"], dst["id"], protocol, ptype), source=src["id"], target=dst["id"], protocol=protocol, direction=direction)
+    f = node("flow", ("flow", src["id"], dst["id"], protocol, ptype), source=src["id"], target=dst["id"], protocol=protocol, direction=direction,
+             authentication=authentication, encryption=encryption)
     f.update(kw)
     f["crosses_boundary"] = list(crosses); f["controls"] = list(controls)
     f["evidence"] = evidence
@@ -165,19 +175,19 @@ def flow(src, dst, protocol, direction, evidence, crosses=(), controls=(), **kw)
 
 flows = [
     flow(E_CLIENT, P_POST, "https", "request_response", [ev("src/orders/routes.ts", 14, 18, "express-routes@1.2", fact_id=f_ep_post)],
-         crosses=[B_API["id"]], controls=[C_JWT["id"], C_RL["id"], C_VAL["id"]], purpose="Create an order",
+         crosses=[B_API["id"]], controls=[C_JWT["id"], C_RL["id"], C_VAL["id"]], purpose="Create an order", authentication="token", encryption="tls",
          payload=payload(SCH_REQ, ["pii", "financial"]), response_payload=payload(SCH_ROW, ["pii", "financial"])),
     flow(E_CLIENT, P_GET, "https", "request_response", [ev("src/orders/routes.ts", 20, 24, "express-routes@1.2", fact_id=f_ep_get)],
-         crosses=[B_API["id"]], controls=[C_JWT["id"], C_RL["id"]], purpose="Fetch an order by id",
+         crosses=[B_API["id"]], controls=[C_JWT["id"], C_RL["id"]], purpose="Fetch an order by id", authentication="token", encryption="tls",
          payload=payload(None, ["internal"], name="order id"), response_payload=payload(SCH_ROW, ["pii", "financial"])),
     flow(P_POST, P_CRE, "in_process", "request_response", [ev("src/orders/routes.ts", 16, 16, "scip-typescript@0.3", fact_id=f_ce[("src/orders/routes.ts::ordersRouter.post#/", "src/orders/service.ts::createOrder")])],
-         payload=payload(SCH_REQ, ["pii", "financial"])),
+         authentication="none", encryption="none", payload=payload(SCH_REQ, ["pii", "financial"])),
     flow(P_GET, P_GETO, "in_process", "request_response", [ev("src/orders/routes.ts", 21, 21, "scip-typescript@0.3", fact_id=f_ce[("src/orders/routes.ts::ordersRouter.get#/:id", "src/orders/service.ts::getOrder")])],
-         payload=payload(None, ["internal"], name="order id")),
+         authentication="none", encryption="none", payload=payload(None, ["internal"], name="order id")),
     flow(P_CRE, P_CHG, "in_process", "request_response", [ev("src/orders/service.ts", 12, 12, "scip-typescript@0.3", fact_id=f_ce[("src/orders/service.ts::createOrder", "src/payments/stripe.ts::chargeCard")])],
-         payload=payload(None, ["financial"], name="card token, amount")),
+         authentication="none", encryption="none", payload=payload(None, ["financial"], name="card token, amount")),
     flow(P_CHG, E_STRIPE, "https", "request_response", [ev("src/payments/stripe.ts", 6, 6, "stripe-sdk@1.0", fact_id=f_out_stripe)],
-         crosses=[B_API["id"]], purpose="Charge the card", payload=payload(SCH_CHG, ["financial"]), response_payload=payload(None, ["internal"], name="charge id")),
+         crosses=[B_API["id"]], purpose="Charge the card", authentication="credentials", encryption="tls", payload=payload(SCH_CHG, ["financial"]), response_payload=payload(None, ["internal"], name="charge id")),
     flow(P_CRE, S_PG, "sql", "one_way", [ev("src/orders/service.ts", 13, 16, "pg-driver@1.1", fact_id=f_pg_ins)],
          crosses=[B_API["id"], B_DB["id"]], purpose="Insert order", payload=payload(SCH_ROW, ["pii", "financial"])),
     flow(P_CRE, S_RD, "redis", "one_way", [ev("src/orders/service.ts", 17, 17, "ioredis@1.0", fact_id=f_redis_set)],
@@ -200,7 +210,8 @@ C_VAL["applies_to"] = [EP_POST["id"]]
 by_id = lambda xs: sorted(xs, key=lambda x: x["id"])
 ir = OrderedDict(
     version="0.1",
-    provenance=OrderedDict(tool_version="0.1.0-design", commit=COMMIT, generated_from="examples/orders-service/app",
+    provenance=OrderedDict(tool_version="0.2.0-design", commit=COMMIT, generated_from="examples/orders-service/app",
+        input_hashes=OrderedDict(sorted((f["evidence"]["path"], "sha256:" + hashlib.sha256((APP / f["evidence"]["path"]).read_bytes()).hexdigest()) for f in facts)),
         detectors=sorted({e["detector"] for f in facts for e in [f["evidence"]]}),
         llm=OrderedDict(model="claude-sonnet-5-5", prompt_hash="sha256:examplepromptpin", proposals_accepted=1, proposals_rejected=0)),
     processes=by_id([P_ROOT, P_ORD, P_PAY, P_POST, P_GET, P_CRE, P_GETO, P_CHG]),
@@ -210,9 +221,12 @@ ir = OrderedDict(
     flows=by_id(flows),
     entry_points=by_id([EP_POST, EP_GET]),
     controls=by_id([C_JWT, C_RL, C_VAL]),
+    weaknesses=by_id([W_SECRET]),
     schemas=by_id([SCH_REQ, SCH_ROW, SCH_CHG]),
     gaps=[OrderedDict(kind="no_boundary_info", detail="No IaC found for the public ingress; 'container: api' used as the outermost boundary."),
-          OrderedDict(kind="unresolved", path="src/infra/auth.ts", line=8, detail="JWT_PUBLIC_KEY read from env; key source (secret store vs. file) not determinable statically.")],
+          OrderedDict(kind="unresolved", path="src/infra/auth.ts", line=8, detail="JWT_PUBLIC_KEY read from env; key source (secret store vs. file) not determinable statically."),
+          OrderedDict(kind="unknown_attribute", path="src/infra/db.ts", line=3, detail="Question for the team: is the Postgres link TLS (sslmode) and is the volume encrypted at rest?"),
+          OrderedDict(kind="unknown_attribute", path="src/infra/cache.ts", line=3, detail="Question for the team: is the Redis link TLS (rediss://) and does the cache require AUTH?")],
 )
 (OUT / "model.ir.json").write_text(json.dumps(ir, indent=2) + "\n")
 
@@ -222,7 +236,7 @@ jsonschema.Draft202012Validator(schema).validate(ir)
 print("IR validates against schema")
 
 # ---------------------------------------------------------------- lint (subset)
-ids = {n["id"] for k in ("processes","entities","stores","boundaries","flows","entry_points","controls","schemas") for n in ir[k]}
+ids = {n["id"] for k in ("processes","entities","stores","boundaries","flows","entry_points","controls","weaknesses","schemas") for n in ir[k]}
 for f in ir["flows"]:
     assert f["source"] in ids and f["target"] in ids, f
     kinds = (f["source"].split(":")[0], f["target"].split(":")[0])
@@ -351,14 +365,28 @@ for s in ir["stores"]:
     inb = ", ".join(b["name"] for b in ir["boundaries"] if s["id"] in b["contains"])
     hint_rows.append((0, f'| {s["name"]} | Data store | {STRIDE["store"]} | {", ".join(s["data_classes"])} | in {inb} | none detected (encryption at rest unknown) | holds pii+financial; confirm encryption at rest and retention |'))
 bnames = {b["id"]: b["name"] for b in ir["boundaries"]}
+for w in ir["weaknesses"]:
+    hint_rows.append((0, f'| {w["name"]} | Weakness | - | - | - | - | {w["kind"]} at {w["evidence"][0]["path"]}:{w["evidence"][0]["start_line"]}; applies to {", ".join(nodes[a]["name"] for a in w["applies_to"])} |'))
+SENSITIVE = ("pii", "financial", "credential", "secret")
 for f in ir["flows"]:
     if f["protocol"] == "in_process": continue
     dc = ", ".join(f.get("payload", {}).get("data_classes", []))
     hint = []
+    if f["target"].startswith("ext") and any(c in dc for c in SENSITIVE):
+        hint.append("EXIT POINT: sensitive data leaves the system" + (" to an LLM API" if nodes[f["target"]].get("kind") == "llm_api" else ""))
     if f["crosses_boundary"] and not f["controls"]: hint.append("crosses boundary without a control")
-    if any(c in dc for c in ("pii", "financial", "credential", "secret")) and f["protocol"] in ("http", "sql", "redis"):
-        hint.append(f"sensitive data over {f['protocol']}; confirm TLS on the link")
+    if f["crosses_boundary"] and (f["authentication"] == "unknown" or f["encryption"] == "unknown"):
+        hint.append(f"authentication={f['authentication']}, encryption={f['encryption']}: question for the team")
     hint_rows.append((0 if hint else 2, f'| {nodes[f["source"]]["name"]} -> {nodes[f["target"]]["name"]} | Data flow | {STRIDE["flow"]} | {dc} | {", ".join(bnames[b] for b in f["crosses_boundary"])} | {fmt_ctls(f["controls"])} | {"; ".join(hint)} |'))
 rows += [r for _, r in sorted(hint_rows, key=lambda x: x[0])]
-(OUT / "stride-table.md").write_text("# STRIDE per element: orders-service\n\nRows are ordered by priority hint (flagged items first).\n\n" + "\n".join(rows) + "\n")
+# data asset view: where each data class is processed and stored
+assets = ["", "## Data assets", "", "| Data class | Processed by | Stored in | Leaves the system via |", "|---|---|---|---|"]
+for dc in ("pii", "financial", "credential", "secret"):
+    proc_ = sorted({nodes[f["target"]]["name"] for f in ir["flows"] if dc in f.get("payload", {}).get("data_classes", []) and f["target"].startswith("proc")} |
+                   {nodes[f["source"]]["name"] for f in ir["flows"] if dc in f.get("payload", {}).get("data_classes", []) and f["source"].startswith("proc")})
+    stored = sorted(s_["name"] for s_ in ir["stores"] if dc in s_.get("data_classes", []))
+    exits = sorted(nodes[f["target"]]["name"] for f in ir["flows"] if f["target"].startswith("ext") and dc in f.get("payload", {}).get("data_classes", []))
+    if proc_ or stored or exits:
+        assets.append(f'| {dc} | {", ".join(proc_) or "-"} | {", ".join(stored) or "-"} | {", ".join(exits) or "-"} |')
+(OUT / "stride-table.md").write_text("# STRIDE per element: orders-service\n\nRows are ordered by priority hint (exit points and weaknesses first).\n\n" + "\n".join(rows) + "\n" + "\n".join(assets) + "\n")
 print("wrote", sorted(p.name for p in OUT.iterdir()))

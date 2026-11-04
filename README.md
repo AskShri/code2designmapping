@@ -11,7 +11,7 @@ The transformation is built around three properties:
 | Consistent  | A single canonical intermediate representation (IR) with content-addressed stable IDs, a deterministic pipeline, and determinism tests. Same input, same bytes out. |
 | Clear       | Leveled diagrams (L0/L1/L2) with hard node budgets, explicit trust boundaries, a fixed notation, and controlled naming. |
 
-Start with [docs/design.md](docs/design.md). The IR is specified in
+Start with [docs/design.md](docs/design.md). [docs/research.md](docs/research.md) surveys the existing tools and papers (Code2DFD, CodeBoarding, GitDiagram, Threagile, pytm, OTM, Apiiro, AppMap and others) and lists what the design borrowed from each. The IR is specified in
 [schema/dfd-ir.schema.json](schema/dfd-ir.schema.json), and
 [examples/orders-service](examples/orders-service) walks one small service
 from source to IR to rendered diagram.

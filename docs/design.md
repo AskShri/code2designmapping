@@ -1,6 +1,6 @@
 # code2design: Design Document
 
-**Status:** Proposal, v0.1
+**Status:** Proposal, v0.2 (v0.1 plus the changes from `research.md`)
 **Scope:** A tool that takes a repository snapshot or a pull request and produces a design view of the system: a leveled data flow diagram (DFD), per-entry-point control flows, and a machine-readable element inventory suitable for threat modeling.
 
 ---
@@ -51,12 +51,14 @@ This section is the heart of the design. Everything in later sections exists to 
 
 ### 3.1 Accuracy
 
-**Evidence-first model.** The IR forbids an element or flow without at least one `evidence` entry (`path`, `line range`, `commit`, and the detector that produced it). The renderer refuses to draw an unevidenced element. This is a schema constraint, not a convention.
+**Evidence-first model.** The IR forbids an element or flow without at least one `evidence` entry (`path`, `line range`, the detector that produced it, and a `content_hash` of the referenced text). The renderer refuses to draw an unevidenced element. This is a schema constraint, not a convention. The hash lets `verify` report elements whose underlying code changed even when the line numbers still resolve (the pattern vibeX uses for "anchored" claims).
 
 **Observed vs. inferred.** Every element and flow carries `origin: observed | inferred | declared`:
 * `observed` comes from a deterministic detector reading code or config.
 * `declared` comes from a human override file checked into the repo.
 * `inferred` comes from the LLM enrichment stage or from a heuristic. It carries a `confidence` in [0,1] and a `rationale` string. Inferred items render with a dashed outline and are listed separately in the report.
+
+**Say "unknown" explicitly.** Security attributes that a detector cannot determine (`authentication`, `encryption`, `encryption_at_rest`) are recorded as `unknown`, never guessed, and the report lists each unknown as a question for the team, the way FlowStrider reports missing metadata.
 
 **Static analysis does the structure; the language model does the labeling.** The call graph, entry points, store clients, and outbound clients are found by parsers and framework recognizers. The language model is only allowed to: name and describe processes, group functions into a process when the module structure is ambiguous, classify data sensitivity of a schema, and propose a purpose for a flow. It cannot create an element or a flow. Every LLM proposal must reference existing fact IDs; proposals that reference nothing are discarded.
 
@@ -78,6 +80,8 @@ This section is the heart of the design. Everything in later sections exists to 
 
 IDs survive refactors that move files only when the identity tuple is unchanged; a rename is a delete plus an add, which is what a reviewer would expect. Renames can be reconciled in the override file.
 
+**Run manifest.** `provenance` records the commit, the tool and recognizer versions, the hash of every input file that produced a fact, and the LLM model and prompt hash, so two runs can be compared and a changed output can be attributed.
+
 **Deterministic pipeline.** No wall-clock time, no random seeds, no map iteration order leaks. All collections are sorted by ID before serialization and before layout. The LLM stage runs at temperature 0 with a pinned model, its output is cached by input hash, and its proposals are *validated and canonicalized* before entering the IR, so an upstream model change can alter a label but never the graph structure.
 
 **Deterministic layout.** Rendering uses explicit ordering (by level, then by ID) and fixed subgraph nesting. Mermaid and DOT output are text, so diffs between runs are reviewable. For PR mode we diff the IR, never the picture.
@@ -88,7 +92,7 @@ IDs survive refactors that move files only when the identity tuple is unchanged;
 
 ### 3.3 Clarity
 
-**Leveling with hard budgets.** Each rendered diagram has a maximum of 25 nodes and 40 edges by default. When an L1 view exceeds the budget, the tool collapses the smallest processes into their parent and emits an L2 view for the parent instead. Collapsing is deterministic (smallest by evidence count, ties by ID).
+**Leveling with hard budgets.** Each rendered diagram has a maximum of 25 nodes and 40 edges by default. When an L1 view exceeds the budget, the tool collapses the smallest processes into their parent and emits an L2 view for the parent instead. Collapsing is deterministic (smallest by evidence count, ties by ID), and a collapsed node is drawn as *expandable* with the count of hidden children ("payments (+4)") rather than silently removed.
 
 **One notation.** Gane-Sarson shapes: rectangles for external entities, rounded rectangles for processes, open-ended rectangles for stores, dashed boxes for trust boundaries. Edge labels carry `protocol: payload`. A legend is always rendered.
 
@@ -181,6 +185,7 @@ Fact kinds:
 | `module`          | Package/module structure with a size metric.                                                   |
 | `schema`          | Request/response/message/row types: TypeScript interfaces, Pydantic models, protobufs, OpenAPI, JSON Schema, ORM models. Field names and types are kept for data classification. |
 | `control`         | Auth middleware registration, validation decorators, TLS settings, rate limiters, crypto calls, authorization checks (`@PreAuthorize`, `requireRole`). |
+| `weakness`        | Negative findings a detector can prove: plaintext credentials in code or config, `http://` to a non-local host, TLS verification disabled, an entry point registered before any auth middleware, a secret read from env at import time. Modeled after Code2DFD's `plaintext_credentials`, `ssl` and `http_security` extractors. |
 | `boundary_hint`   | Dockerfiles, compose services, Kubernetes manifests, Terraform resources (VPC, subnet, security group, IAM role), serverless configs, env-var reads of secrets. |
 | `config_value`    | Resolved string constants for hosts, ports, bucket names, topic names, table names, when they are literal or trace to an env var name. |
 
@@ -199,6 +204,11 @@ Design rules for detectors:
 | Go         | net/http, chi, gin, gRPC servers, cobra       | net/http client, database/sql, GORM, go-redis, sarama, aws-sdk-go |
 | Java       | Spring MVC/WebFlux, JAX-RS, Kafka listeners   | RestTemplate, WebClient, JPA, JDBC, Lettuce, Kafka producers   |
 | Config     | OpenAPI, protobuf, GraphQL SDL                | Dockerfile, compose, Kubernetes, Terraform, serverless.yml     |
+| LLM APIs   | n/a                                           | OpenAI, Anthropic, Bedrock, Vertex SDK clients, recognized as external entities of kind `llm_api` so that PII reaching a model provider is an explicit exit point |
+
+Two ways to add recognizers without touching the core, borrowed from Structurizr's component-finder strategies and Semgrep rule packs:
+* **Declarative recognizers** in YAML: a tree-sitter query or a Semgrep pattern plus the fact it emits (`kind`, `technology`, `operation`, `protocol`). Teams can add their in-house HTTP client or ORM wrapper in a few lines.
+* **Rule-pack import.** A detector runs a curated Semgrep (or CodeQL) rule pack whose sink and source definitions already cover the mainstream frameworks, and converts matches to facts. This covers most of the catalog above at low cost and is the Phase 2 path to breadth.
 
 ### 5.3 Model synthesis
 
@@ -207,9 +217,10 @@ Synthesis turns flat facts into the hierarchical IR. It is deterministic and doe
 1. **Process tree.** Build the process hierarchy from module structure. Repo root is the L0 process. L1 processes are chosen by repo shape: one per service in a monorepo (detected via workspaces, compose services, or `cmd/*`), else one per top-level package. L2 processes are entry-point handlers and the internal modules they call, discovered by walking `call_edge` facts from each entry point with a bounded depth.
 2. **Entity and store nodes.** `outbound_call` facts become external entities keyed by canonical host or SDK service. `store_access` facts become stores keyed by technology plus logical name. Multiple facts with the same identity tuple merge into one node with multiple evidence entries.
 3. **Flows.** Flows are always recorded between the finest-level elements (L2 processes, entities, stores). Higher-level views roll flows up to the ancestor process at that level and merge duplicates, so one IR serves every level. For each entry point, the caller is an external entity named by the protocol and any auth control (`HTTP client (authenticated)`), unless a consumer is identified elsewhere in the repo. Each `store_access` reachable from a process becomes a flow in the direction of the operation (read: store to process; write: process to store; unknown: bidirectional and flagged). Each `outbound_call` becomes a flow to the external entity, with a response flow back if the call site uses the result.
-4. **Payloads.** Flows pick up a payload type from `schema` facts attached to the entry point, ORM model, or message type. Data classification is computed from field names using a rule list (`email`, `ssn`, `card_number`, `password`, `token`), then optionally refined by the LLM stage with a rationale.
-5. **Boundaries.** Boundaries are built from `boundary_hint` facts: each container/service is a boundary; each IaM role or network segment from IaC is a boundary; the public ingress is the outermost. Entities are placed outside all boundaries unless IaC places them inside (an RDS instance inside the VPC). A flow that crosses a boundary gets `crosses_boundary: [ids]`.
-6. **Controls.** `control` facts attach to the entry points or flows they guard, resolved through middleware registration order.
+4. **Security attributes.** Each flow gets `authentication` (none, credentials, session_id, token, client_certificate, two_factor, unknown) and `encryption` (tls, none, unknown), derived from the controls on its entry point, the protocol, and client configuration (for example `rejectUnauthorized: false` yields `encryption: none` plus a weakness). Each store gets `encryption_at_rest` (yes, no, unknown) from IaC when available. The vocabulary matches Threagile's so the export is lossless.
+5. **Payloads.** Flows pick up a payload type from `schema` facts attached to the entry point, ORM model, or message type. Data classification is computed from field names using a rule list (`email`, `ssn`, `card_number`, `password`, `token`), then optionally refined by the LLM stage with a rationale.
+6. **Boundaries.** Boundaries are built from `boundary_hint` facts: each container/service is a boundary; each IaM role or network segment from IaC is a boundary; the public ingress is the outermost. Entities are placed outside all boundaries unless IaC places them inside (an RDS instance inside the VPC). A flow that crosses a boundary gets `crosses_boundary: [ids]`.
+7. **Controls and weaknesses.** `weakness` facts become entries in the `weaknesses` collection, attached to the element or flow they concern. `control` facts attach to the entry points or flows they guard, resolved through middleware registration order.
 
 **LLM enrichment (constrained).** Runs after synthesis with the IR and relevant source excerpts as input, and returns a list of *proposals* in a fixed JSON format:
 
@@ -219,7 +230,7 @@ Synthesis turns flat facts into the hierarchical IR. It is deterministic and doe
 {"op": "group", "targets": ["proc_1", "proc_2"], "name": "Payment processing", "confidence": 0.6, "refs": ["fact_3"]}
 ```
 
-Allowed ops are only: `set_description`, `set_display_name` (when the identifier is uninformative), `set_data_class`, `set_purpose`, `group`. Proposals that reference unknown facts, target unknown nodes, or use any other op are rejected and logged. Accepted proposals are applied with `origin: inferred`. Prompts and model are pinned and recorded in provenance. The stage is optional (`--no-llm`), and the tool is fully functional without it.
+Allowed ops are only: `set_description`, `set_display_name` (when the identifier is uninformative), `set_data_class`, `set_purpose`, `group`. Proposals that reference unknown facts, target unknown nodes, or use any other op are rejected and kept in an `unverified` list in the report (StrideGPT's pattern), so reviewers can see what the model wanted to add without it ever entering the IR. Accepted proposals are applied with `origin: inferred`. Prompts and model are pinned and recorded in provenance. The stage is optional (`--no-llm`), and the tool is fully functional without it.
 
 **Override merge.** A checked-in `.code2design/overrides.yaml` lets a team correct and extend the model durably:
 
@@ -227,18 +238,28 @@ Allowed ops are only: `set_description`, `set_display_name` (when the identifier
 rename:
   - from: "ext:api.stripe.com"
     to: "Stripe Payments API"
+    author: "a.person@example.com"
 add_boundary:
   - name: "PCI zone"
     contains: ["proc:src/payments", "store:postgres:payments"]
+    author: "a.person@example.com"
 suppress:
   - id: "ext:localhost:9229"
     reason: "debugger, not a dependency"
+    author: "a.person@example.com"
+    expires: 2027-06-30
+set_attribute:
+  - id: "flow:...:stripe"
+    encryption: tls
+    authentication: credentials
+    author: "a.person@example.com"
 set_data_class:
   - id: "flow:...:ordersrow"
     value: "pii"
+    author: "a.person@example.com"
 ```
 
-Overrides are applied last, carry `origin: declared`, and are validated against the IR (an override for an ID that no longer exists is a warning that shows up in the report, which is how stale annotations are caught).
+Overrides are applied last, carry `origin: declared`, and are validated against the IR. Every entry names an `author`; an optional `expires` date turns the entry into a warning after that date. An override for an ID that no longer exists is a warning in the report. Both are how stale human assertions are caught (vibeX's "asserted" claims with expiry).
 
 ### 5.4 Validation
 
@@ -254,13 +275,14 @@ Two layers, both blocking:
 | Flow endpoint missing          | error    | Graph integrity.                                            |
 | Store to store direct flow     | error    | DFD rule; a process must mediate.                           |
 | Entity to entity direct flow   | error    | Same.                                                       |
+| Flow with `authentication: unknown` or `encryption: unknown` crossing a boundary | warning | Listed as a question for the team in the report. |
 | Process with inputs but no outputs (or vice versa) | warning | "Black hole" / "miracle" processes usually indicate a missing detector. |
 | Flow crosses boundary with no control | warning | Highlighted for threat modeling.                      |
 | Flow carries `pii`/`secret` over `http` (not `https`) | warning | Security hygiene.                           |
 | Diagram exceeds node budget    | info     | Triggers automatic collapsing.                              |
 | Override targets missing ID    | warning  | Stale annotations.                                          |
 
-**Evidence verification** re-opens every evidence span at the recorded commit and checks that the referenced symbol still exists there.
+**Evidence verification** re-opens every evidence span at the recorded commit, checks that the referenced symbol still exists there, and compares the span's `content_hash`; a mismatch is reported as "evidence changed" even when the lines still resolve. Lint errors veto the run before any quality score is computed (the veto-then-rubric ordering from drawing-agent).
 
 ### 5.5 Rendering and exports
 
@@ -279,8 +301,10 @@ Formats:
 | Graphviz DOT      | Higher-quality layout for large views; SVG/PNG output.              |
 | PlantUML          | Teams already standardised on it.                                   |
 | Structurizr DSL   | For teams that keep C4 models; L0/L1 map onto Context and Container. |
+| Open Threat Model (OTM) | IriusRisk's open interchange format (CC-BY-SA, schema 0.2.0). Boundaries map to trust zones, elements to components with a single parent, flows to dataflows, schemas to assets, evidence to `code` representations with `file` and `line`. Consumed by IriusRisk and StartLeft tooling. |
+| Threagile YAML    | Technical assets, communication links (protocol, authentication, authorization, data assets sent/received), data assets and trust boundaries, so Threagile's rule set runs unchanged. |
 | OWASP Threat Dragon JSON | Direct import into Threat Dragon for threat enumeration.      |
-| pytm Python       | OWASP pytm script, so its rule engine can run on the model.          |
+| pytm Python       | OWASP pytm script, so its rule engine can run on the model. `order`, `isResponse` and `sourceFiles` are populated from `call_chain`, `direction` and evidence. |
 | STRIDE table (Markdown/CSV) | One row per element with applicable STRIDE categories, data classes handled, boundary crossings, and existing controls. |
 | HTML report       | Self-contained page with all views, legend, coverage, and the inferred-items list. |
 
@@ -288,7 +312,7 @@ Rendering rules: nodes sorted by ID within each subgraph; edge labels `protocol:
 
 ### 5.6 PR mode and design diff
 
-In PR mode the tool runs on base and head and diffs the two IRs by stable ID. The diff is itself a schema'd document and is rendered as a PR comment:
+In PR mode the tool runs on base and head and diffs the two IRs by stable ID. The base IR is cached by commit, and head is computed incrementally: files outside the PR's change set reuse their cached facts, so a PR run costs roughly the size of the change rather than the size of the repository (CodeBoarding's incremental mode). The diff is itself a schema'd document and is rendered as a PR comment:
 
 ```
 ## Design delta for #482 (3 files changed in scope)
@@ -307,7 +331,7 @@ In PR mode the tool runs on base and head and diffs the two IRs by stable ID. Th
 [L1 diagram with changes highlighted]
 ```
 
-Severity hints in the delta are rule-based (new boundary crossing without control, removed control, new store, new external entity, new PII in a payload) and are listed before cosmetic changes. The delta is what makes the tool useful in review: a reviewer sees architectural change, not a diagram to re-read.
+Severity hints in the delta are rule-based (new boundary crossing without control, removed control, new store, new external entity, new weakness, new PII in a payload, and new *exit points*: flows to an external entity carrying `pii`, `financial`, `credential` or `secret`, with LLM API clients called out separately) and are listed before cosmetic changes. The delta is what makes the tool useful in review: a reviewer sees architectural change, not a diagram to re-read.
 
 Scope handling: the diff is computed on the whole IR, but the comment lists only elements whose evidence intersects the PR's changed files, plus any element whose flows changed. The full diff is attached as a file.
 
@@ -322,12 +346,13 @@ Model
   provenance   { tool_version, commit, inputs, detectors[], llm?: {model, prompt_hash} }
   processes[]  { id, name, display_name?, level, parent?, module, description?, origin, confidence?, evidence[] }
   entities[]   { id, name, kind: human|system, host?, sdk_service?, origin, evidence[] }
-  stores[]     { id, name, technology, logical_name?, origin, evidence[] }
+  stores[]     { id, name, technology, logical_name?, encryption_at_rest, origin, evidence[] }
   boundaries[] { id, name, kind, contains[], parent?, origin, evidence[] }
-  flows[]      { id, source, target, protocol, direction, payload?: {schema_ref, data_classes[]},
-                 crosses_boundary[], controls[], origin, confidence?, evidence[] }
+  flows[]      { id, source, target, protocol, direction, authentication, encryption,
+                 payload?: {schema_ref, data_classes[]}, crosses_boundary[], controls[], origin, confidence?, evidence[] }
   entry_points[] { id, process, protocol, method?, path?, topic?, command?, controls[], evidence[] }
   controls[]   { id, kind, name, applies_to[], origin, evidence[] }
+  weaknesses[] { id, kind, name, applies_to[], origin, evidence[] }
   schemas[]    { id, name, fields[]: {name, type, data_class?}, evidence[] }
   gaps[]       { kind: unresolved|unsupported_file|no_boundary_info, path?, detail }
 ```
@@ -338,6 +363,9 @@ Enumerations (closed, extensible only by a schema change):
 * `technology` (stores): `postgres`, `mysql`, `sqlite`, `mssql`, `mongodb`, `dynamodb`, `redis`, `memcached`, `elasticsearch`, `kafka`, `rabbitmq`, `sqs`, `s3`, `gcs`, `filesystem`, `unknown`
 * `data_class`: `public`, `internal`, `pii`, `financial`, `health`, `credential`, `secret`, `unknown`
 * `control.kind`: `authn`, `authz`, `input_validation`, `rate_limit`, `tls`, `encryption_at_rest`, `signing`, `audit_log`, `csrf`, `cors`
+* `weakness.kind`: `plaintext_credentials`, `unencrypted_transport`, `tls_verification_disabled`, `unauthenticated_entry_point`, `secret_in_env_at_import`, `permissive_cors`
+* `flow.authentication`: `none`, `credentials`, `session_id`, `token`, `client_certificate`, `two_factor`, `unknown` (Threagile-compatible)
+* `flow.encryption`: `tls`, `none`, `unknown`; `store.encryption_at_rest`: `yes`, `no`, `unknown`
 * `boundary.kind`: `internet`, `network_segment`, `host`, `container`, `process`, `iam_role`, `auth_context`, `repository`
 * `origin`: `observed`, `inferred`, `declared`
 
@@ -360,7 +388,8 @@ The tool is designed so that corrections are cheap and durable:
 The model already contains what STRIDE-per-element needs. The exporter adds:
 
 * **Element applicability table.** External entity: S, R. Process: S, T, R, I, D, E. Data store: T, R, I, D. Data flow: T, I, D. Standard STRIDE mapping.
-* **Priority hints.** Flows that cross a boundary without a control, flows carrying `pii`/`credential`/`secret`, stores holding those classes, and entry points without `authn` are listed first.
+* **Priority hints.** Exit points first (flows to an external entity carrying `pii`, `financial`, `credential` or `secret`; LLM API clients called out), then weaknesses, then flows that cross a boundary without a control or with unknown authentication or encryption, stores holding sensitive classes, and entry points without `authn`.
+* **Data asset view.** For each data class, where it is processed and where it is stored (Threagile's `data_assets_processed` and `data_assets_stored`), so a reviewer can answer "where does PII live" without reading the diagram.
 * **Threat Dragon export** preserves IDs in `properties.code2design_id` so re-exports update rather than duplicate.
 * **pytm export** emits `Boundary`, `Actor`, `Server`, `Datastore`, `Dataflow` objects with `protocol`, `data`, `isEncrypted`, `authenticatesSource` populated from controls, so pytm's built-in threat library can run unchanged.
 
@@ -381,6 +410,8 @@ code2design lint <ir.json>
 code2design verify <ir.json> --repo <path>
 ```
 
+**MCP server and assistant skill.** `code2design serve --mcp` exposes `analyze`, `query` (elements, flows, neighborhoods by ID or name) and `diff` so coding assistants can ask "what does this handler talk to" and get evidence-backed answers; a thin Claude Code skill wraps the same commands. This is how the most-adopted tools in this space are used today.
+
 **GitHub Action** runs `analyze` on base and head, posts the design delta as a sticky PR comment, uploads the HTML report as an artifact, and can fail the check on configurable lint severities (for example, "new boundary crossing without control" blocks until an override with a reason is added).
 
 **Configuration** (`.code2design/config.yaml`): node budget, LLM on/off and model, recognizers to enable, data-class rules, paths to ignore, severity gates.
@@ -391,8 +422,10 @@ code2design verify <ir.json> --repo <path>
 
 | What is measured             | How                                                                                         | Target for v1 |
 |------------------------------|---------------------------------------------------------------------------------------------|---------------|
-| Node precision / recall      | Against hand-made ground-truth IRs for 20 benchmark repos (small, mid, monorepo) across the four languages. Matched by identity tuple. | P ≥ 0.9, R ≥ 0.8 for entities and stores; R ≥ 0.7 for L2 processes |
-| Flow precision / recall      | Same benchmark.                                                                             | P ≥ 0.85, R ≥ 0.75 |
+| Node precision / recall      | Against ground-truth IRs: microSecEnD's 17 hand-made, security-annotated Java microservice DFDs (TUHH, MSR 2023) plus hand-made IRs for 8 TypeScript/Python/Go repos. Matched by identity tuple. | P ≥ 0.9, R ≥ 0.8 for entities and stores; R ≥ 0.7 for L2 processes |
+| Flow precision / recall (headline) | Same benchmark, edge-level F1. Reported twice: with and without the LLM stage, as an ablation. | F1 ≥ 0.8 |
+| Security attribute accuracy  | `authentication`, `encryption`, controls and weaknesses against microSecEnD's annotations. `unknown` counts as neither hit nor miss but is reported as a coverage figure. | P ≥ 0.9 on non-unknown values |
+| Clarity rubric               | Automated score per diagram: node budget respected, every boundary labeled, no edge without protocol and payload, no name collisions, legend present. | 100% on benchmark |
 | Determinism                  | Run twice per benchmark repo, compare bytes.                                               | 100% |
 | Stability under no-op change | Apply whitespace/comment-only commits; IR diff must be empty.                              | 100% |
 | Stability under file move    | Move a module; only `evidence.path` changes.                                                | 100% |
@@ -423,11 +456,11 @@ Testing layers: unit tests per detector with fixture files; golden IR tests per 
 
 **Phase 1 (MVP, ~6 weeks).** TypeScript/Express and Python/FastAPI recognizers; stores: Postgres drivers, Redis, S3; outbound: fetch/axios/requests/httpx. IR, lint, Mermaid L0/L1, STRIDE table. Benchmark with 6 repos. No LLM.
 
-**Phase 2.** L2 and control-flow views; boundaries from Dockerfile/compose/Kubernetes; overrides; PR mode and GitHub Action; HTML report; Threat Dragon export.
+**Phase 2.** L2 and control-flow views; boundaries from Dockerfile/compose/Kubernetes; overrides with author and expiry; PR mode with cached base IR, design delta and GitHub Action; HTML report with unknowns and unverified proposals; Semgrep rule-pack fact source; OTM and Threat Dragon exports.
 
-**Phase 3.** Go and Java recognizers; Terraform boundaries; LLM enrichment with proposal validation; pytm and Structurizr exports; evaluation study on clarity.
+**Phase 3.** Go and Java recognizers (Java validated on microSecEnD); Terraform boundaries with reference-derived flows (StartLeft-style mappings); LLM enrichment with proposal validation; declarative YAML recognizers; pytm, Threagile and Structurizr exports; MCP server; evaluation study on clarity.
 
-**Phase 4.** Optional runtime evidence (OpenTelemetry traces) to confirm or add flows; CodeQL/Semgrep fact sources; monorepo cross-service flows resolved through service discovery config.
+**Phase 4.** Optional runtime evidence (OpenTelemetry traces, AppMap recordings) to confirm or add flows; CodeQL or Joern taint queries from schema fields to outbound call sites for field-level payload accuracy; monorepo cross-service flows resolved through service discovery config; compliance mode that diffs a declared model (overrides or an imported OTM file) against the extracted one.
 
 ---
 
@@ -438,6 +471,7 @@ Testing layers: unit tests per detector with fixture files; golden IR tests per 
 * **Over-collapsing.** Node budgets can hide important detail. Mitigation: focus views and a per-view budget override.
 * **LLM drift.** A new model version could change labels across the whole repo in one run. Mitigation: pinned model, cache by input hash, labels only (never structure), and the diff shows label-only changes as cosmetic.
 * **Ground truth cost.** Hand-made DFDs for 20 repos are expensive. Start with 6 and grow with real user corrections from `overrides.yaml`.
+* **Prior art says the hard part is not the first diagram but keeping it true.** Every tool surveyed in `research.md` that is used in anger (Apiiro, AppMap, CodeBoarding, vibeX) converged on continuous regeneration and drift detection. The first full model still needs a human read; from then on the tool guards it.
 * **Open question:** should L1 processes in a single-service repo be packages or bounded contexts? Packages are deterministic; bounded contexts are clearer. Proposal: packages by default, with an override to group them, and use that override data to inform a later heuristic.
 
 ---
