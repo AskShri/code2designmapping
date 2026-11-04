@@ -1,0 +1,30 @@
+%% L1 diagram: orders-service
+flowchart LR
+  subgraph bnd_li56z6okmf["container: db"]
+    store_pljbgfzdky[("Postgres: orders")]
+  end
+  subgraph bnd_quz6xm3rfj["container: cache"]
+    store_ligqz7jge4[("Redis: order:*")]
+  end
+  subgraph bnd_uvq3irjstn["container: api"]
+    proc_7hcvlzq6va(["payments"])
+    proc_tv5mzaefoi(["orders"])
+  end
+  ext_plsra3tach["Stripe API"]
+  ext_sga4qktkap["API client (JWT bearer)"]
+  ext_sga4qktkap -->|"https: CreateOrderRequest [pii,financial]<br/>https: order id"| proc_tv5mzaefoi
+  proc_7hcvlzq6va -->|"https: StripeChargeRequest [financial]"| ext_plsra3tach
+  proc_tv5mzaefoi -->|"in_process: card token, amount [financial]"| proc_7hcvlzq6va
+  proc_tv5mzaefoi -->|"redis: orders (row) [pii,financial]"| store_ligqz7jge4
+  proc_tv5mzaefoi -->|"sql: orders (row) [pii,financial]"| store_pljbgfzdky
+  store_ligqz7jge4 -->|"redis: orders (row) [pii,financial]"| proc_tv5mzaefoi
+  store_pljbgfzdky -->|"sql: orders (row) [pii,financial]"| proc_tv5mzaefoi
+  style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none
+  style bnd_quz6xm3rfj stroke-dasharray: 8 4,fill:none
+  style bnd_uvq3irjstn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

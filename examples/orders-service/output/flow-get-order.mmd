@@ -1,0 +1,18 @@
+%% Control flow: GET /orders/:id
+sequenceDiagram
+  autonumber
+  participant C as API client (JWT bearer)
+  participant ctl_gh4jc2ci3f as JWT bearer (requireJwt)
+  participant ctl_cgmuu2h63w as rate limit 100/min
+  participant proc_vsjckb53ud as GET /orders/:id handler
+  participant proc_3s7cqqa6uy as get order
+  participant store_ligqz7jge4 as Redis: order:*
+  participant store_pljbgfzdky as Postgres: orders
+  C->>ctl_gh4jc2ci3f: GET /orders/:id (authn)
+  ctl_gh4jc2ci3f->>ctl_cgmuu2h63w: GET /orders/:id (rate_limit)
+  ctl_cgmuu2h63w->>proc_vsjckb53ud: dispatch
+  proc_vsjckb53ud->>proc_3s7cqqa6uy: in_process: order id
+  store_ligqz7jge4-->>proc_3s7cqqa6uy: redis: orders (row) [pii,financial]
+  store_pljbgfzdky-->>proc_3s7cqqa6uy: sql: orders (row) [pii,financial]
+  proc_3s7cqqa6uy-->>proc_vsjckb53ud: result
+  proc_vsjckb53ud-->>C: 200 orders (row) [pii,financial]

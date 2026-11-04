@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://code2design.dev/schema/dfd-ir.schema.json",
+  "title": "code2design intermediate representation (DFD IR)",
+  "description": "Canonical, renderer-independent model of a system's data flow design. Every element must carry evidence. Elements with origin 'inferred' must carry confidence and rationale.",
+  "type": "object",
+  "required": ["version", "provenance", "processes", "entities", "stores", "boundaries", "flows", "entry_points", "controls", "schemas", "gaps"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "const": "0.1" },
+    "provenance": { "$ref": "#/$defs/provenance" },
+    "processes": { "type": "array", "items": { "$ref": "#/$defs/process" } },
+    "entities": { "type": "array", "items": { "$ref": "#/$defs/entity" } },
+    "stores": { "type": "array", "items": { "$ref": "#/$defs/store" } },
+    "boundaries": { "type": "array", "items": { "$ref": "#/$defs/boundary" } },
+    "flows": { "type": "array", "items": { "$ref": "#/$defs/flow" } },
+    "entry_points": { "type": "array", "items": { "$ref": "#/$defs/entry_point" } },
+    "controls": { "type": "array", "items": { "$ref": "#/$defs/control" } },
+    "schemas": { "type": "array", "items": { "$ref": "#/$defs/data_schema" } },
+    "gaps": { "type": "array", "items": { "$ref": "#/$defs/gap" } }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "description": "Stable content-addressed id: <kind>:<base32(sha256(identity tuple))[:10]>",
+      "pattern": "^(proc|ext|store|bnd|flow|ep|ctl|sch):[a-z2-7]{10}$"
+    },
+    "origin": { "type": "string", "enum": ["observed", "inferred", "declared"] },
+    "protocol": {
+      "type": "string",
+      "enum": ["http", "https", "grpc", "graphql", "websocket", "amqp", "kafka", "sqs", "pubsub", "sql", "redis", "mongo", "file", "s3", "smtp", "cli", "in_process", "unknown"]
+    },
+    "technology": {
+      "type": "string",
+      "enum": ["postgres", "mysql", "sqlite", "mssql", "mongodb", "dynamodb", "redis", "memcached", "elasticsearch", "kafka", "rabbitmq", "sqs", "s3", "gcs", "filesystem", "unknown"]
+    },
+    "data_class": {
+      "type": "string",
+      "enum": ["public", "internal", "pii", "financial", "health", "credential", "secret", "unknown"]
+    },
+    "control_kind": {
+      "type": "string",
+      "enum": ["authn", "authz", "input_validation", "rate_limit", "tls", "encryption_at_rest", "signing", "audit_log", "csrf", "cors"]
+    },
+    "boundary_kind": {
+      "type": "string",
+      "enum": ["internet", "network_segment", "host", "container", "process", "iam_role", "auth_context", "repository"]
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["path", "start_line", "end_line", "detector"],
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string", "description": "Repository-relative path" },
+        "start_line": { "type": "integer", "minimum": 1 },
+        "end_line": { "type": "integer", "minimum": 1 },
+        "symbol": { "type": "string", "description": "Fully qualified symbol, path::name" },
+        "detector": { "type": "string", "description": "Detector name and version, e.g. express-routes@1.2" },
+        "fact_id": { "type": "string" }
+      }
+    },
+    "evidenced": {
+      "type": "object",
+      "required": ["id", "origin", "evidence"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "identity": {
+          "type": "array",
+          "description": "Identity tuple the id was hashed from, kept in the clear for debugging.",
+          "items": { "type": "string" }
+        },
+        "origin": { "$ref": "#/$defs/origin" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "rationale": { "type": "string" },
+        "evidence": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/evidence" } }
+      },
+      "if": { "properties": { "origin": { "const": "inferred" } } },
+      "then": { "required": ["confidence", "rationale"] }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["tool_version", "commit", "generated_from", "detectors"],
+      "additionalProperties": false,
+      "properties": {
+        "tool_version": { "type": "string" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+        "generated_from": { "type": "string", "description": "Repository URL or local path identifier" },
+        "detectors": { "type": "array", "items": { "type": "string" } },
+        "llm": {
+          "type": "object",
+          "required": ["model", "prompt_hash"],
+          "additionalProperties": false,
+          "properties": {
+            "model": { "type": "string" },
+            "prompt_hash": { "type": "string" },
+            "proposals_accepted": { "type": "integer", "minimum": 0 },
+            "proposals_rejected": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "overrides_file": { "type": "string" }
+      }
+    },
+    "process": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenced" },
+        {
+          "type": "object",
+          "required": ["name", "level", "module"],
+          "properties": {
+            "name": { "type": "string", "description": "Derived from the code identifier" },
+            "display_name": { "type": "string", "description": "Optional friendlier label; inferred or declared" },
+            "level": { "type": "integer", "minimum": 0, "maximum": 2 },
+            "parent": { "$ref": "#/$defs/id" },
+            "module": { "type": "string", "description": "Repository-relative module or package path" },
+            "description": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "entity": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenced" },
+        {
+          "type": "object",
+          "required": ["name", "kind"],
+          "properties": {
+            "name": { "type": "string" },
+            "kind": { "type": "string", "enum": ["human", "system"] },
+            "host": { "type": "string" },
+            "sdk_service": { "type": "string" },
+            "description": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "store": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenced" },
+        {
+          "type": "object",
+          "required": ["name", "technology"],
+          "properties": {
+            "name": { "type": "string" },
+            "technology": { "$ref": "#/$defs/technology" },
+            "logical_name": { "type": "string", "description": "Table, bucket, topic, collection, key prefix" },
+            "data_classes": { "type": "array", "items": { "$ref": "#/$defs/data_class" } },
+            "description": { "type": "string" }
+          }
+        }
+      ]
+    },
+    "boundary": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenced" },
+        {
+          "type": "object",
+          "required": ["name", "kind", "contains"],
+          "properties": {
+            "name": { "type": "string" },
+            "kind": { "$ref": "#/$defs/boundary_kind" },
+            "contains": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+            "parent": { "$ref": "#/$defs/id" }
+          }
+        }
+      ]
+    },
+    "payload": {
+      "type": "object",
+      "required": ["data_classes"],
+      "additionalProperties": false,
+      "properties": {
+        "schema_ref": { "$ref": "#/$defs/id" },
+        "name": { "type": "string" },
+        "data_classes": { "type": "array", "items": { "$ref": "#/$defs/data_class" } }
+      }
+    },
+    "flow": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenced" },
+        {
+          "type": "object",
+          "required": ["source", "target", "protocol", "direction"],
+          "properties": {
+            "source": { "$ref": "#/$defs/id" },
+            "target": { "$ref": "#/$defs/id" },
+            "protocol": { "$ref": "#/$defs/protocol" },
+            "direction": { "type": "string", "enum": ["one_way", "request_response", "unknown"] },
+            "purpose": { "type": "string" },
+            "payload": { "$ref": "#/$defs/payload" },
+            "response_payload": { "$ref": "#/$defs/payload" },
+            "crosses_boundary": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+            "controls": { "type": "array", "items": { "$ref": "#/$defs/id" } }
+          }
+        }
+      ]
+    },
+    "entry_point": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenced" },
+        {
+          "type": "object",
+          "required": ["process", "protocol"],
+          "properties": {
+            "process": { "$ref": "#/$defs/id" },
+            "protocol": { "$ref": "#/$defs/protocol" },
+            "method": { "type": "string" },
+            "path": { "type": "string" },
+            "topic": { "type": "string" },
+            "command": { "type": "string" },
+            "controls": { "type": "array", "items": { "$ref": "#/$defs/id" } },
+            "call_chain": {
+              "type": "array",
+              "description": "Ordered process ids the request passes through; drives the control-flow view",
+              "items": { "$ref": "#/$defs/id" }
+            }
+          }
+        }
+      ]
+    },
+    "control": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenced" },
+        {
+          "type": "object",
+          "required": ["kind", "name", "applies_to"],
+          "properties": {
+            "kind": { "$ref": "#/$defs/control_kind" },
+            "name": { "type": "string" },
+            "applies_to": { "type": "array", "items": { "$ref": "#/$defs/id" } }
+          }
+        }
+      ]
+    },
+    "data_schema": {
+      "allOf": [
+        { "$ref": "#/$defs/evidenced" },
+        {
+          "type": "object",
+          "required": ["name", "fields"],
+          "properties": {
+            "name": { "type": "string" },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name", "type"],
+                "additionalProperties": false,
+                "properties": {
+                  "name": { "type": "string" },
+                  "type": { "type": "string" },
+                  "data_class": { "$ref": "#/$defs/data_class" }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "gap": {
+      "type": "object",
+      "required": ["kind", "detail"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "type": "string", "enum": ["unresolved", "unsupported_file", "no_boundary_info", "override_target_missing"] },
+        "path": { "type": "string" },
+        "line": { "type": "integer", "minimum": 1 },
+        "detail": { "type": "string" }
+      }
+    }
+  }
+}
