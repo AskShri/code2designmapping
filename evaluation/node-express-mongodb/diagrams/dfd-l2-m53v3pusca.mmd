@@ -4,12 +4,7 @@ flowchart LR
     proc_jtcosnfmpa(["routes (+7)"])
     proc_zzqivqwuzv(["tutorial.controller"])
   end
-  store_3ufptbo5k3[("MongoDB")]
-  store_uujc2npyud[("MongoDB: tutorials")]
   proc_jtcosnfmpa -->|"in_process"| proc_zzqivqwuzv
-  proc_zzqivqwuzv -->|"mongo"| store_3ufptbo5k3
-  proc_zzqivqwuzv -->|"mongo"| store_uujc2npyud
-  store_uujc2npyud -->|"mongo"| proc_zzqivqwuzv
   style bnd_fg4rasskqa stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

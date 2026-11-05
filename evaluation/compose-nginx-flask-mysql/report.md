@@ -21,14 +21,14 @@ Facts: app_entry 1, boundary_hint 4, dependencies 1, entry_point 1, schema 2, st
 | entities | 1 |
 | stores | 3 |
 | boundaries | 3 |
-| flows | 5 |
+| flows | 6 |
 | entry_points | 1 |
 | controls | 0 |
 | weaknesses | 2 |
 | schemas | 1 |
 | assets | 0 |
 | threat_agents | 2 |
-| gaps | 4 |
+| gaps | 5 |
 
 ## Attack surface
 
@@ -55,7 +55,7 @@ Entry points are where a threat agent first touches the system; exit points are 
 | Store | Technology | Data classes | Boundary |
 |---|---|---|---|
 | MySQL: blog | mysql | - | container: db |
-| MySQL | mysql | - | container: db |
+| MySQL (collection unresolved) | mysql | - | container: db |
 | MySQL: IF | mysql | - | container: db |
 
 ## Lint
@@ -63,10 +63,9 @@ Entry points are where a threat agent first touches the system; exit points are 
 - **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET / handler
 - **warning** `unknown-link-attributes` hello -> MySQL: IF: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` MySQL: blog -> hello: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` hello -> MySQL: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` hello -> MySQL (collection unresolved): authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` hello -> MySQL: blog: authentication=unknown, encryption=unknown
 - **warning** `weakness` plaintext_credentials: MYSQL_ROOT_PASSWORD_FILE set in compose service 'db' (compose.yaml:22)
-- **info** `black-hole-or-miracle` process GET / handler has only inputs; a detector may be missing
 
 ## Inferred elements (dashed in diagrams)
 
@@ -76,7 +75,8 @@ Entry points are where a threat agent first touches the system; exit points are 
 
 ## Gaps and questions
 
+- `unresolved` backend/hello.py:23: mysql access through a document or connection variable whose collection could not be resolved; shown as a separate store
 - `unknown_attribute` backend/hello.py: Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered.
 - `unknown_attribute` backend/hello.py:20: Question for the team: how is the link to MySQL: IF authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
 - `unknown_attribute` backend/hello.py:21: Question for the team: how is the link to MySQL: blog authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
-- `unknown_attribute` backend/hello.py:23: Question for the team: how is the link to MySQL authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
+- `unknown_attribute` backend/hello.py:23: Question for the team: how is the link to MySQL (collection unresolved) authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)

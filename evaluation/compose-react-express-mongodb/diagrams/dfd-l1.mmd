@@ -4,21 +4,14 @@ flowchart LR
     proc_yss4bddki6(["backend (+3)"])
   end
   subgraph bnd_x2cs4alpd7["container: mongo"]
-    store_3ufptbo5k3[("MongoDB")]
     store_lsfwjprw56[("MongoDB: Todo")]
   end
-  subgraph bnd_yy7r6ylpud["container: frontend"]
-    proc_27yhxonl43(["frontend (+2)"])
-  end
-  ext_miziwfdicw["Unresolved HTTP target"]
   ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http"| proc_yss4bddki6
-  proc_27yhxonl43 -->|"unknown"| ext_miziwfdicw
-  proc_yss4bddki6 -->|"mongo"| store_3ufptbo5k3
+  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_yss4bddki6
+  proc_yss4bddki6 -->|"mongo"| store_lsfwjprw56
   store_lsfwjprw56 -->|"mongo"| proc_yss4bddki6
   style bnd_j3ktzp2k6o stroke-dasharray: 8 4,fill:none
   style bnd_x2cs4alpd7 stroke-dasharray: 8 4,fill:none
-  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])

@@ -10,10 +10,10 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | hello -> MySQL: IF | Data flow | T I D | - | container: backend, container: db | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET / handler | Data flow | T I D | - | container: backend | none | inbound crossing with no control; authentication=none, encryption=unknown: question for the team |
 | MySQL: blog -> hello | Data flow | T I D | - | container: backend, container: db | none | authentication=unknown, encryption=unknown: question for the team |
-| hello -> MySQL | Data flow | T I D | - | container: backend, container: db | none | authentication=unknown, encryption=unknown: question for the team |
+| hello -> MySQL (collection unresolved) | Data flow | T I D | - | container: backend, container: db | none | authentication=unknown, encryption=unknown: question for the team |
 | hello -> MySQL: blog | Data flow | T I D | - | container: backend, container: db | none | authentication=unknown, encryption=unknown: question for the team |
 | MySQL: blog | Data store | T R I D | - | in container: db | encryption at rest: unknown |  |
-| MySQL | Data store | T R I D | - | in container: db | encryption at rest: unknown |  |
+| MySQL (collection unresolved) | Data store | T R I D | - | in container: db | encryption at rest: unknown |  |
 | MySQL: IF | Data store | T R I D | - | in container: db | encryption at rest: unknown |  |
 | GET / handler | Process | S T R I D E | - | - | none | entry point |
 | hello | Process | S T R I D E | - | - | n/a (internal) |  |

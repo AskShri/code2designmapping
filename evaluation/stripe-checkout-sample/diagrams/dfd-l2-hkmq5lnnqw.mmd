@@ -9,9 +9,9 @@ flowchart LR
   end
   ext_sga4qktkap["HTTP client"]
   ext_slqdx4hifp["Stripe API"]
-  ext_sga4qktkap -->|"http"| proc_3iekuswqcb
-  ext_sga4qktkap -->|"http"| proc_bjdbw6trkc
-  ext_sga4qktkap -->|"http"| proc_p55vaxl2qp
+  ext_sga4qktkap -->|"http: request fields"| proc_3iekuswqcb
+  ext_sga4qktkap -->|"http: request fields"| proc_bjdbw6trkc
+  ext_sga4qktkap -->|"http: request fields"| proc_p55vaxl2qp
   ext_sga4qktkap -->|"http"| proc_ti2alnjshr
   ext_sga4qktkap -->|"http"| proc_va6muegoss
   proc_3iekuswqcb -->|"https"| ext_slqdx4hifp

@@ -11,6 +11,10 @@ sequenceDiagram
   participant ctl_w2u3d3at3m as cors
   participant ctl_z53teauknq as helmet
   participant proc_gebofgbst2 as POST /v1/auth/register handler
+  participant proc_mjittvvds2 as token.service
+  participant store_yc7brpyrnt as MongoDB - Token
+  participant proc_bncx6ofqo5 as user.service
+  participant store_x3kis6s6op as MongoDB - User
   ext_sga4qktkap->>ctl_4grkuzoeeq: POST /v1/auth/register (audit_log)
   ctl_4grkuzoeeq->>ctl_6rjh2cbjvh: POST /v1/auth/register (input_validation)
   ctl_6rjh2cbjvh->>ctl_ejhqmeshhb: POST /v1/auth/register (input_validation)
@@ -20,4 +24,12 @@ sequenceDiagram
   ctl_opfkkjkizy->>ctl_w2u3d3at3m: POST /v1/auth/register (cors)
   ctl_w2u3d3at3m->>ctl_z53teauknq: POST /v1/auth/register (input_validation)
   ctl_z53teauknq->>proc_gebofgbst2: dispatch
+  proc_gebofgbst2->>proc_mjittvvds2: in_process
+  proc_mjittvvds2->>store_yc7brpyrnt: unknown
+  store_yc7brpyrnt-->>proc_mjittvvds2: unknown
+  proc_mjittvvds2-->>proc_gebofgbst2: response
+  proc_gebofgbst2->>proc_bncx6ofqo5: in_process
+  proc_bncx6ofqo5->>store_x3kis6s6op: unknown
+  store_x3kis6s6op-->>proc_bncx6ofqo5: unknown
+  proc_bncx6ofqo5-->>proc_gebofgbst2: response
   proc_gebofgbst2-->>ext_sga4qktkap: response

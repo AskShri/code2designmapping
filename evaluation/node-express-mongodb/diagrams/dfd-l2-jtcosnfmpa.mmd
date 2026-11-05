@@ -11,6 +11,7 @@ flowchart LR
     proc_zfnmjioymc(["DELETE /:id handler"])
   end
   ext_sga4qktkap["HTTP client"]
+  store_uujc2npyud[("MongoDB: tutorials")]
   ext_sga4qktkap -->|"http"| proc_4m2ysdt4j4
   ext_sga4qktkap -->|"http"| proc_asmvuz3gji
   ext_sga4qktkap -->|"http"| proc_r3saircepp
@@ -18,13 +19,13 @@ flowchart LR
   ext_sga4qktkap -->|"http"| proc_tm2f7cfmv3
   ext_sga4qktkap -->|"http"| proc_uz7oqxeuuh
   ext_sga4qktkap -->|"http"| proc_zfnmjioymc
-  proc_4m2ysdt4j4 -->|"in_process"| proc_m53v3pusca
-  proc_asmvuz3gji -->|"in_process"| proc_m53v3pusca
-  proc_r3saircepp -->|"in_process"| proc_m53v3pusca
-  proc_s2dv344aux -->|"in_process"| proc_m53v3pusca
-  proc_tm2f7cfmv3 -->|"in_process"| proc_m53v3pusca
-  proc_uz7oqxeuuh -->|"in_process"| proc_m53v3pusca
+  proc_r3saircepp -->|"mongo"| store_uujc2npyud
+  proc_tm2f7cfmv3 -->|"mongo"| store_uujc2npyud
+  proc_uz7oqxeuuh -->|"mongo"| store_uujc2npyud
   proc_zfnmjioymc -->|"in_process"| proc_m53v3pusca
+  store_uujc2npyud -->|"mongo"| proc_4m2ysdt4j4
+  store_uujc2npyud -->|"mongo"| proc_asmvuz3gji
+  store_uujc2npyud -->|"mongo"| proc_s2dv344aux
   style bnd_fg4rasskqa stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

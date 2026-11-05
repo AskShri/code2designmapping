@@ -8,8 +8,8 @@ DET = "py@0.3"
 STORE_PKGS = {"psycopg2": "postgres", "psycopg": "postgres", "asyncpg": "postgres", "aiopg": "postgres", "pymysql": "mysql", "mysql.connector": "mysql", "mysql": "mysql", "MySQLdb": "mysql", "aiomysql": "mysql", "sqlite3": "sqlite", "aiosqlite": "sqlite", "pyodbc": "mssql", "pymongo": "mongodb", "motor": "mongodb", "mongoengine": "mongodb", "flask_pymongo": "mongodb", "flask_mongoengine": "mongodb", "redis": "redis", "aioredis": "redis", "flask_caching": "unknown", "pymemcache": "memcached", "elasticsearch": "elasticsearch", "kafka": "kafka", "confluent_kafka": "kafka", "aiokafka": "kafka", "pika": "rabbitmq", "aio_pika": "rabbitmq", "kombu": "rabbitmq", "celery": "unknown", "sqlalchemy": "unknown", "flask_sqlalchemy": "unknown", "sqlmodel": "unknown", "peewee": "unknown", "tortoise": "unknown", "django.db": "unknown", "databases": "unknown", "langchain_google_alloydb_pg": "postgres", "langchain_postgres": "postgres", "pgvector": "postgres", "chromadb": "unknown", "pinecone": "unknown", "qdrant_client": "unknown", "weaviate": "unknown"}
 SDK_PKGS = {"stripe": ("Stripe API", "api.stripe.com", "system"), "twilio": ("Twilio API", "api.twilio.com", "system"), "sendgrid": ("SendGrid API", "api.sendgrid.com", "system"), "openai": ("OpenAI API", "api.openai.com", "llm_api"), "anthropic": ("Anthropic API", "api.anthropic.com", "llm_api"), "google.generativeai": ("Google Gemini API", "generativelanguage.googleapis.com", "llm_api"), "cohere": ("Cohere API", "api.cohere.ai", "llm_api"), "langchain_openai": ("OpenAI API", "api.openai.com", "llm_api"), "langchain_anthropic": ("Anthropic API", "api.anthropic.com", "llm_api"), "langchain_google_genai": ("Google Gemini API", "generativelanguage.googleapis.com", "llm_api"), "langchain_google_vertexai": ("Google Vertex AI", None, "llm_api"), "vertexai": ("Google Vertex AI", None, "llm_api"), "google.genai": ("Google Gemini API", "generativelanguage.googleapis.com", "llm_api"), "groq": ("Groq API", "api.groq.com", "llm_api"), "mistralai": ("Mistral API", "api.mistral.ai", "llm_api"), "huggingface_hub": ("Hugging Face API", "huggingface.co", "llm_api"), "boto3": ("AWS SDK", None, "system"), "botocore": ("AWS SDK", None, "system"), "google.cloud": ("Google Cloud APIs", None, "system"), "slack_sdk": ("Slack API", "slack.com", "system"), "github": ("GitHub API", "api.github.com", "system"), "sentry_sdk": ("Sentry", None, "system"), "smtplib": ("SMTP mail relay", None, "system"), "flask_mail": ("SMTP mail relay", None, "system"), "opentelemetry.exporter": ("OTLP collector", None, "system")}
 HTTP_CLIENT_PKGS = {"requests", "httpx", "aiohttp", "urllib3", "urllib.request", "urllib"}
-WRITE_RX = re.compile(r"^(add|add_all|commit|insert|insert_one|insert_many|update|update_one|update_many|replace_one|delete|delete_one|delete_many|save|create|bulk_create|set|hset|setex|lpush|rpush|sadd|incr|delete|execute|put_object|upload_file|put_item|send_message|publish|produce|basic_publish|index|remove|merge|flush)$")
-READ_RX = re.compile(r"^(get|query|filter|all|first|one|find|find_one|find_many|aggregate|count|count_documents|fetchone|fetchall|fetch|select|hget|hgetall|mget|lrange|smembers|get_object|get_item|scan|search|exists|keys)$")
+WRITE_RX = re.compile(r"^(add_texts|add_documents|from_documents|add|add_all|commit|insert|insert_one|insert_many|update|update_one|update_many|replace_one|delete|delete_one|delete_many|save|create|bulk_create|set|hset|setex|lpush|rpush|sadd|incr|delete|execute|put_object|upload_file|put_item|send_message|publish|produce|basic_publish|index|remove|merge|flush)$")
+READ_RX = re.compile(r"^(similarity_search|similarity_search_with_score|max_marginal_relevance_search|as_retriever|from_instance|get|query|filter|all|first|one|find|find_one|find_many|aggregate|count|count_documents|fetchone|fetchall|fetch|select|hget|hgetall|mget|lrange|smembers|get_object|get_item|scan|search|exists|keys)$")
 SQL_TABLE_RX = re.compile(r"\b(?:FROM|INTO|UPDATE|JOIN|TABLE)\s+[`\"']?([A-Za-z_][A-Za-z0-9_.]*)", re.I)
 
 
@@ -90,6 +90,13 @@ def _file(idx, sf, facts):
             if left is not None and right is not None and left.type == "identifier" and re.search(r"(environ|getenv)", sf.node_text(right)):
                 m = re.search(r"['\"]([A-Z0-9_]+)['\"]", sf.node_text(right))
                 if m: env_of_var[sf.node_text(left)] = m.group(1)
+    # request fields read by handlers: request.json['x'], request.form.get('x'), request.args['q']
+    req_fields = {}
+    for m in re.finditer(r"request\.(json|form|args|values|get_json\(\))(?:\.get\(|\[)\s*['\"](\w+)['\"]", sf.text):
+        line = sf.text[:m.start()].count("\n") + 1
+        req_fields.setdefault(line, []).append(m.group(2))
+    for line, flds in sorted(req_fields.items()):
+        facts.add("schema", DET, [_ev(sf, line, line)], name="request fields", fields=[{"name": f_, "type": "request"} for f_ in sorted(set(flds))], file=sf.path, schema_kind="validation")
     routes = []
     app_controls = []
     for n in walk(root):
@@ -189,7 +196,11 @@ def _file(idx, sf, facts):
                     txt = sf.node_text(nargs[0])
                     m2 = re.match(r"f?['\"](https?)://([^/:\s{}]+)", txt)
                     if m2: host, scheme = m2.group(2).lower(), m2.group(1)
-                    else: host = "variable:" + txt[:40]
+                    else:
+                        host = "variable:" + txt[:40]
+                        for var in re.findall(r"\{\s*([A-Za-z_]\w*)", txt) + ([txt] if re.match(r"^[A-Za-z_]\w*$", txt) else []):
+                            if var in env_of_var:
+                                host = "env:" + env_of_var[var]; break
                 if url and url.startswith("/"):
                     continue
                 facts.add("outbound_call", DET, [_ev(sf, sf.line(n), sf.line(n))], sdk_service=None, host=host, entity_kind="system", protocol=scheme or "unknown", package=sf.bindings.get(rootid, rootid).split(":")[0], file=sf.path, operation=members[-1] if members else "request", handler=_handler_of(n, routes), url=url[:120] if url else None)
@@ -208,7 +219,7 @@ def _file(idx, sf, facts):
                     name = f"AWS {svc.upper()}"
                 facts.add("outbound_call", DET, [_ev(sf, sf.line(n), sf.line(n))], sdk_service=name, host=host, entity_kind=kind, protocol="https" if "SMTP" not in name else "smtp", package=local_sdk[rootid], file=sf.path, operation=".".join(members)[:60], handler=_handler_of(n, routes))
             # store usage
-            if (rootid in local_store or rootid in ("db", "session", "cursor", "cur", "c", "conn", "connection", "redis_client", "r", "rdb", "cache", "client", "collection", "mongo", "pool", "engine", "table", "bucket")) and members and (store_specs or local_store):
+            if (rootid in local_store or rootid in ("db", "session", "cursor", "cur", "c", "conn", "connection", "redis_client", "r", "rdb", "cache", "client", "collection", "mongo", "pool", "engine", "table", "bucket", "vector_store", "vectorstore", "store", "retriever")) and members and (store_specs or local_store):
                 op = members[-1]
                 if WRITE_RX.match(op) or READ_RX.match(op):
                     operation = "write" if WRITE_RX.match(op) else "read"

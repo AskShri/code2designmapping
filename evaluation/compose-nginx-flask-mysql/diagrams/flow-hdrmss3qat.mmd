@@ -3,5 +3,15 @@ sequenceDiagram
   autonumber
   participant ext_sga4qktkap as HTTP client
   participant proc_dukamseyo3 as GET / handler
+  participant proc_on4df6f6pv as hello
+  participant store_mj5mpprmqf as MySQL - IF
+  participant store_ahjjfkyans as MySQL - blog
+  participant store_hxhbxcitka as MySQL (collection unresolved)
   ext_sga4qktkap->>proc_dukamseyo3: dispatch
+  proc_dukamseyo3->>proc_on4df6f6pv: in_process
+  proc_on4df6f6pv->>store_mj5mpprmqf: sql
+  proc_on4df6f6pv->>store_ahjjfkyans: sql
+  proc_on4df6f6pv->>store_hxhbxcitka: sql
+  store_ahjjfkyans-->>proc_on4df6f6pv: sql
+  proc_on4df6f6pv-->>proc_dukamseyo3: response
   proc_dukamseyo3-->>ext_sga4qktkap: response

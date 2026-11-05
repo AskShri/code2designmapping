@@ -6,11 +6,12 @@ flowchart LR
   end
   subgraph bnd_li56z6okmf["container: db"]
     store_ahjjfkyans[("MySQL: blog")]
-    store_hxhbxcitka[("MySQL")]
+    store_hxhbxcitka[("MySQL (collection unresolved)")]
     store_mj5mpprmqf[("MySQL: IF")]
   end
   ext_sga4qktkap["HTTP client"]
   ext_sga4qktkap -->|"http"| proc_dukamseyo3
+  proc_dukamseyo3 -->|"in_process"| proc_on4df6f6pv
   proc_on4df6f6pv -->|"sql"| store_ahjjfkyans
   proc_on4df6f6pv -->|"sql"| store_hxhbxcitka
   proc_on4df6f6pv -->|"sql"| store_mj5mpprmqf

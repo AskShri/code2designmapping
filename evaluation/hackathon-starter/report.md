@@ -1,6 +1,6 @@
 # code2design report: hackathon-starter
 
-Commit `fb53b17c28c9`, tool 0.3.0-prototype, 0.4s.
+Commit `fb53b17c28c9`, tool 0.3.0-prototype, 1.3s.
 
 ## Coverage
 
@@ -11,7 +11,7 @@ Commit `fb53b17c28c9`, tool 0.3.0-prototype, 0.4s.
 
 Detectors that ran: config@0.3, js@0.3
 
-Facts: app_entry 1, config_value 34, control 69, dependencies 1, entry_point 101, listener 1, module 1, outbound_call 88, schema 8, store_access 87
+Facts: app_entry 1, config_value 34, control 69, dependencies 1, entry_point 101, listener 1, module 1, outbound_call 88, schema 67, store_access 87
 
 ## Model
 
@@ -21,14 +21,14 @@ Facts: app_entry 1, config_value 34, control 69, dependencies 1, entry_point 101
 | entities | 28 |
 | stores | 2 |
 | boundaries | 1 |
-| flows | 240 |
+| flows | 262 |
 | entry_points | 101 |
 | controls | 12 |
 | weaknesses | 88 |
-| schemas | 3 |
+| schemas | 10 |
 | assets | 21 |
 | threat_agents | 30 |
-| gaps | 23 |
+| gaps | 24 |
 
 ## Attack surface
 
@@ -142,72 +142,92 @@ Entry points are where a threat agent first touches the system; exit points are 
 
 | Store | Technology | Data classes | Boundary |
 |---|---|---|---|
-| MongoDB | mongodb | - | - |
+| MongoDB (collection unresolved) | mongodb | - | - |
 | MongoDB: User | mongodb | - | - |
 
 ## Lint
 
-- **warning** `unknown-link-attributes` api -> news.ycombinator.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` ai -> MongoDB: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` user -> MongoDB: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` ai-agent -> MongoDB: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /reset/:token handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /login/2fa/resend handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /reset/:token handler -> SMTP mail relay: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /account/password handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /login/2fa handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /login/webauthn-verify handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /login/webauthn-verify handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/pubchem handler -> pubchem.ncbi.nlm.nih.gov: authentication=unknown, encryption=tls
+- **warning** `unknown-link-attributes` ai -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /account/delete handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> GET /login/verify/:token handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/nyt handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/tumblr handler -> api.tumblr.com: authentication=unknown, encryption=tls
+- **warning** `unknown-link-attributes` ai-agent -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` api -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB -> passport: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /account/2fa/totp/setup handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/2fa/email/remove handler: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` contact -> SMTP mail relay: authentication=credentials, encryption=unknown
+- **warning** `unknown-link-attributes` POST /login handler -> SMTP mail relay: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` MongoDB: User -> webauthn: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` passport -> MongoDB: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/profile handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /account/profile handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /forgot handler -> SMTP mail relay: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /forgot handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/2fa/totp/remove handler: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` passport -> api.linkedin.com: authentication=unknown, encryption=tls
 - **warning** `unknown-link-attributes` token-revocation -> Unresolved HTTP target: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /signup handler -> MongoDB: User: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` contact -> Unresolved HTTP target: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /login/2fa/totp handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/quickbooks handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` passport -> graph.microsoft.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` app -> MongoDB: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB -> ai: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB -> webauthn: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> GET /reset/:token handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` app -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB (collection unresolved) -> ai: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/lob handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/2fa/totp/setup handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /signup handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/tumblr handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> GET /account/2fa/totp/setup handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> GET /login/2fa handler: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` passport -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB -> User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB (collection unresolved) -> User: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` user -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /account/2fa/email/enable handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/paypal/success handler -> api.sandbox.paypal.com: authentication=unknown, encryption=tls
 - **warning** `unknown-link-attributes` MongoDB: User -> user: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> GET /login/2fa/totp handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/password handler: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` api -> api.sandbox.paypal.com: authentication=unknown, encryption=tls
+- **warning** `unknown-link-attributes` POST /login/2fa handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /account/verify handler -> SMTP mail relay: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` MongoDB: User -> passport: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` nodemailer -> SMTP mail relay: authentication=credentials, encryption=unknown
+- **warning** `unknown-link-attributes` POST /account/webauthn/register handler -> MongoDB: User: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` passport -> discord.com: authentication=unknown, encryption=tls
+- **warning** `unknown-link-attributes` GET /account/unlink/:provider handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` passport -> MongoDB: User: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` user -> SMTP mail relay: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB -> user: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` webauthn -> MongoDB: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` api -> graph.facebook.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` api -> pubchem.ncbi.nlm.nih.gov: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` api -> api.tumblr.com: authentication=unknown, encryption=tls
+- **warning** `unknown-link-attributes` POST /login handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /reset/:token handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /login/2fa handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /ai/rag handler -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /account/2fa/totp/remove handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> GET /account/unlink/:provider handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/scraping handler -> news.ycombinator.com: authentication=unknown, encryption=tls
+- **warning** `unknown-link-attributes` POST /account/2fa/email/remove handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /login/verify/:token handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/chart handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/2fa/email/enable handler: authentication=unknown, encryption=unknown
 - **warning** `unknown-link-attributes` api -> api.twitch.tv: authentication=unknown, encryption=tls
 - **warning** `unknown-link-attributes` ai -> api.groq.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` MongoDB -> ai-agent: authentication=unknown, encryption=unknown
-- **info** `black-hole-or-miracle` process GET /auth/quickbooks/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/steam handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET / handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/x handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/twitch/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/github handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/quickbooks handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/github/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/google handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/tumblr/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/microsoft handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/microsoft/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /account/webauthn/register handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/discord handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/discord/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /login/webauthn-start handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process User has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/google/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/tumblr handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/linkedin/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/linkedin handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/facebook/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/facebook handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/steam/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/twitch handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process app has only outputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/x/callback handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /auth/failure handler has only inputs; a detector may be missing
+- **warning** `unknown-link-attributes` MongoDB (collection unresolved) -> ai-agent: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` POST /forgot handler -> MongoDB: User: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/paypal handler -> api.sandbox.paypal.com: authentication=unknown, encryption=tls
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /login/2fa/resend handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/giphy handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` MongoDB: User -> POST /login handler: authentication=unknown, encryption=unknown
+- **warning** `unknown-link-attributes` GET /api/facebook handler -> graph.facebook.com: authentication=unknown, encryption=tls
+- **warning** `unknown-link-attributes` POST /ai/rag/ingest handler -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
+- ... 34 more
 
 ## Inferred elements (dashed in diagrams)
 
@@ -252,9 +272,10 @@ Entry points are where a threat agent first touches the system; exit points are 
 - `unresolved` controllers/api.js:384: outbound call target is a variable:recentGamesURL expression; host not resolvable statically
 - `unresolved` controllers/api.js:399: outbound call target is a variable:achievementsURL expression; host not resolvable statically
 - `unresolved` controllers/api.js:1090: outbound call target is a variable:urlToCheck expression; host not resolvable statically
+- `unresolved` app.js:150: mongodb access through a document or connection variable whose collection could not be resolved; shown as a separate store
 - `no_boundary_info` : No compose, Dockerfile or Kubernetes manifests found; the repository is the only trust boundary.
 - `unknown_attribute` app.js: Question for the team: is TLS terminated in front of the HTTP listener on port app.get('port')? Inbound flows are marked encryption=unknown until answered.
-- `unknown_attribute` app.js:150: Question for the team: how is the link to MongoDB authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
+- `unknown_attribute` app.js:150: Question for the team: how is the link to MongoDB (collection unresolved) authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
 - `unknown_attribute` config/passport.js:23: Question for the team: how is the link to MongoDB: User authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
 - `unknown_attribute` config/nodemailer.js:17: Question for the team: how is the link to SMTP mail relay authenticated and is it encrypted in transit? (authentication=credentials, encryption=unknown)
 - `unknown_attribute` config/passport.js:446: Question for the team: how is the link to api.linkedin.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)

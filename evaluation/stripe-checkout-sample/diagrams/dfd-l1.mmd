@@ -1,20 +1,28 @@
 %% L1: stripe-checkout-sample
 flowchart LR
   subgraph bnd_fwz6ntc2oh["repository: stripe-checkout-sample"]
+    proc_33b6t5jaql(["go (+6)"])
     proc_fa6pgh7omk(["nextjs (+2)"])
     proc_hkmq5lnnqw(["node (+6)"])
     proc_icrskoynef(["client (+2)"])
+    proc_ksro7v4eqn(["dotnet (+5)"])
     proc_len65pegl7(["python (+6)"])
+    proc_pmcllhmzlf(["java (+1)"])
   end
   ext_miziwfdicw["Unresolved HTTP target"]
   ext_sga4qktkap["HTTP client"]
   ext_slqdx4hifp["Stripe API"]
-  ext_sga4qktkap -->|"http"| proc_hkmq5lnnqw
+  ext_sga4qktkap -->|"http"| proc_33b6t5jaql
+  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_hkmq5lnnqw
+  ext_sga4qktkap -->|"http"| proc_ksro7v4eqn
   ext_sga4qktkap -->|"http"| proc_len65pegl7
+  proc_33b6t5jaql -->|"https"| ext_slqdx4hifp
   proc_fa6pgh7omk -->|"https"| ext_slqdx4hifp
   proc_hkmq5lnnqw -->|"https"| ext_slqdx4hifp
   proc_icrskoynef -->|"unknown"| ext_miziwfdicw
+  proc_ksro7v4eqn -->|"https"| ext_slqdx4hifp
   proc_len65pegl7 -->|"https"| ext_slqdx4hifp
+  proc_pmcllhmzlf -->|"https"| ext_slqdx4hifp
   style bnd_fwz6ntc2oh stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

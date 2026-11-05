@@ -1,6 +1,6 @@
 # code2design report: node-express-realworld
 
-Commit `30b68e1e8814`, tool 0.3.0-prototype, 0.1s.
+Commit `30b68e1e8814`, tool 0.3.0-prototype, 0.2s.
 
 ## Coverage
 
@@ -12,7 +12,7 @@ Commit `30b68e1e8814`, tool 0.3.0-prototype, 0.1s.
 
 Detectors that ran: config@0.3, js@0.3
 
-Facts: app_entry 1, config_value 3, control 18, dependencies 1, entry_point 20, listener 1, module 1, router_mount 5, schema 4, store_access 36, weakness 1
+Facts: app_entry 1, config_value 3, control 18, dependencies 1, entry_point 20, listener 1, module 1, router_mount 5, router_prefix 1, schema 12, store_access 36, weakness 1
 
 ## Model
 
@@ -26,7 +26,7 @@ Facts: app_entry 1, config_value 3, control 18, dependencies 1, entry_point 20, 
 | entry_points | 20 |
 | controls | 7 |
 | weaknesses | 6 |
-| schemas | 4 |
+| schemas | 6 |
 | assets | 1 |
 | threat_agents | 3 |
 | gaps | 6 |

@@ -658,6 +658,17 @@
               "items": {
                 "$ref": "#/$defs/id"
               }
+            },
+            "infrastructure": {
+              "type": "boolean",
+              "description": "Health checks, CORS preflight, docs, metrics: real listeners, kept out of the main views and attack-surface counts"
+            },
+            "reaches": {
+              "type": "array",
+              "description": "Stores, external entities and services this entry point's handler reaches through its own call graph",
+              "items": {
+                "$ref": "#/$defs/id"
+              }
             }
           }
         }
@@ -687,6 +698,10 @@
               "items": {
                 "$ref": "#/$defs/id"
               }
+            },
+            "conditional": {
+              "type": "boolean",
+              "description": "Registered inside a condition (e.g. only in production); counted as applying, flagged for review"
             }
           }
         }
@@ -771,7 +786,8 @@
         "tls_verification_disabled",
         "unauthenticated_entry_point",
         "secret_in_env_at_import",
-        "permissive_cors"
+        "permissive_cors",
+        "csrf_disabled"
       ]
     },
     "authentication": {

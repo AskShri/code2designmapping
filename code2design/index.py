@@ -1,19 +1,22 @@
 """Repository index: file walk, language detection, tree-sitter parsing, import resolution."""
 import os, re, fnmatch
 from collections import OrderedDict
-import tree_sitter, tree_sitter_javascript, tree_sitter_typescript, tree_sitter_python
+import tree_sitter, tree_sitter_javascript, tree_sitter_typescript, tree_sitter_python, tree_sitter_go, tree_sitter_java, tree_sitter_c_sharp
 
 LANGS = {
     "javascript": tree_sitter.Language(tree_sitter_javascript.language()),
     "typescript": tree_sitter.Language(tree_sitter_typescript.language_typescript()),
     "tsx": tree_sitter.Language(tree_sitter_typescript.language_tsx()),
     "python": tree_sitter.Language(tree_sitter_python.language()),
+    "go": tree_sitter.Language(tree_sitter_go.language()),
+    "java": tree_sitter.Language(tree_sitter_java.language()),
+    "c_sharp": tree_sitter.Language(tree_sitter_c_sharp.language()),
 }
 EXT_LANG = {".js": "javascript", ".mjs": "javascript", ".cjs": "javascript", ".jsx": "javascript",
-            ".ts": "typescript", ".mts": "typescript", ".cts": "typescript", ".tsx": "tsx", ".py": "python"}
-UNSUPPORTED_SOURCE = {".go", ".java", ".kt", ".cs", ".rb", ".php", ".rs", ".scala", ".swift", ".c", ".cc", ".cpp", ".h", ".ex", ".exs", ".dart"}
+            ".ts": "typescript", ".mts": "typescript", ".cts": "typescript", ".tsx": "tsx", ".py": "python", ".go": "go", ".java": "java", ".cs": "c_sharp"}
+UNSUPPORTED_SOURCE = {".kt", ".rb", ".php", ".rs", ".scala", ".swift", ".c", ".cc", ".cpp", ".h", ".ex", ".exs", ".dart"}
 IGNORE_DIRS = {"node_modules", ".git", "dist", "build", "vendor", ".next", "coverage", "__pycache__", ".venv", "venv", "env", "target", "bin", "obj", ".idea", ".vscode", "third_party", "site-packages", "bower_components", ".cache", "out"}
-TEST_RX = re.compile(r"(^|/)(tests?|__tests__|spec|specs|e2e|fixtures?|mocks?|__mocks__)(/|$)|\.(test|spec)\.[jt]sx?$|_test\.py$|^test_.*\.py$")
+TEST_RX = re.compile(r"(^|/)(serviceWorker|registerServiceWorker|reportWebVitals|setupTests)\.[jt]sx?$|(^|/)(tests?|__tests__|spec|specs|e2e|fixtures?|mocks?|__mocks__|testdata)(/|$)|\.(test|spec)\.[jt]sx?$|_test\.py$|(^|/)test_[^/]*\.py$|_test\.go$|Tests?\.(java|cs)$|\.pb\.go$|_pb2(_grpc)?\.py$|\.g\.cs$")
 CONFIG_FILES = ("docker-compose", "compose.yaml", "compose.yml", "Dockerfile", "package.json", ".env", "schema.prisma", "serverless.yml", "requirements.txt", "pyproject.toml", "go.mod", "pom.xml", "build.gradle")
 
 _parsers = {k: tree_sitter.Parser(v) for k, v in LANGS.items()}
@@ -113,7 +116,7 @@ class RepoIndex:
         for sf in self.files.values():
             if sf.lang == "python":
                 self._py_imports(sf)
-            else:
+            elif sf.lang in ("javascript", "typescript", "tsx"):
                 self._js_imports(sf)
 
     def _js_imports(self, sf):
@@ -189,6 +192,8 @@ class RepoIndex:
         """Resolve an import spec to a repo-relative file path, or None for packages."""
         if sf.lang == "python":
             return self._resolve_py(sf, spec)
+        if sf.lang in ("go", "java", "c_sharp"):
+            return None
         if not spec.startswith("."):
             # tsconfig-style aliases are not resolved in the prototype
             return None

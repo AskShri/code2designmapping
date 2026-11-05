@@ -24,8 +24,7 @@
       "backend/src/database.js": "sha256:78d33a4722fcf32c0353ce9f093a00afeaf7d29f16043ee377047f3ec93d5418",
       "backend/src/server.js": "sha256:b1536bfa63e06c73ee5a93f84bcaf621252a2ae867a73f45b2847b915ab0ce9b",
       "compose.yaml": "sha256:c18155224235f7124b7b6744bf13f6e28bc49ba106f14ead500847b370fe42b3",
-      "frontend/package.json": "sha256:bd09fe50e640dab279e9f874b17c93ae68d8d3112b86d855f0adda91988fbc48",
-      "frontend/src/serviceWorker.js": "sha256:7e69a464f5a007022f5efd313b15a3790fead1ab01abf7a3f00e53cd445676f4"
+      "frontend/package.json": "sha256:bd09fe50e640dab279e9f874b17c93ae68d8d3112b86d855f0adda91988fbc48"
     }
   },
   "processes": [
@@ -94,28 +93,6 @@
         }
       ],
       "parent": "proc:yss4bddki6"
-    },
-    {
-      "id": "proc:blr2ioda52",
-      "identity": [
-        "process",
-        "frontend/src/serviceWorker.js",
-        "serviceWorker"
-      ],
-      "origin": "observed",
-      "name": "serviceWorker",
-      "level": 2,
-      "module": "frontend/src/serviceWorker.js",
-      "evidence": [
-        {
-          "path": "frontend/src/serviceWorker.js",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:8559f04c7610a4c00b6617bf8aaee5effe5dfcb60d97f822f6e8dd714bd4b45a"
-        }
-      ],
-      "parent": "proc:27yhxonl43"
     },
     {
       "id": "proc:jnzaqgvgi5",
@@ -201,13 +178,6 @@
           "end_line": 10,
           "detector": "js@0.3",
           "content_hash": "sha256:1ffa788bbeac0236b00b6ae4a9a13a63f76d492dfb15aa9f64c10ea0f7b05e36"
-        },
-        {
-          "path": "frontend/src/serviceWorker.js",
-          "start_line": 103,
-          "end_line": 103,
-          "detector": "js@0.3",
-          "content_hash": "sha256:cc0af1318df7f21b3a1cb4278ec3d837edc01071cf00e434c6bffa1f79997ac4"
         }
       ],
       "sdk_service": "Unresolved HTTP target"
@@ -351,8 +321,7 @@
       "name": "container: frontend",
       "kind": "container",
       "contains": [
-        "proc:27yhxonl43",
-        "proc:blr2ioda52"
+        "proc:27yhxonl43"
       ],
       "evidence": [
         {
@@ -396,37 +365,6 @@
           "end_line": 27,
           "detector": "js@0.3",
           "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
-        }
-      ]
-    },
-    {
-      "id": "flow:kye6dir6j3",
-      "identity": [
-        "flow",
-        "proc:blr2ioda52",
-        "ext:miziwfdicw",
-        "unknown",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:blr2ioda52",
-      "target": "ext:miziwfdicw",
-      "protocol": "unknown",
-      "direction": "request_response",
-      "authentication": "unknown",
-      "encryption": "unknown",
-      "purpose": "request",
-      "crosses_boundary": [
-        "bnd:yy7r6ylpud"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "frontend/src/serviceWorker.js",
-          "start_line": 103,
-          "end_line": 103,
-          "detector": "js@0.3",
-          "content_hash": "sha256:cc0af1318df7f21b3a1cb4278ec3d837edc01071cf00e434c6bffa1f79997ac4"
         }
       ]
     },
@@ -524,7 +462,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
         }
-      ]
+      ],
+      "infrastructure": true,
+      "reaches": []
     },
     {
       "id": "ep:v6iwio3w7w",
@@ -554,7 +494,8 @@
           "detector": "js@0.3",
           "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
         }
-      ]
+      ],
+      "reaches": []
     }
   ],
   "controls": [
@@ -650,29 +591,6 @@
           "end_line": 12,
           "detector": "config@0.3",
           "content_hash": "sha256:13de90a64599f66feaf9eca92d19f60322d54b6f2e629577a1458c0c04286643"
-        }
-      ]
-    },
-    {
-      "id": "wk:vlbhpgxapd",
-      "identity": [
-        "weakness",
-        "unauthenticated_entry_point",
-        "ep:rajxkpkrc5"
-      ],
-      "origin": "observed",
-      "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on GET /healthz",
-      "applies_to": [
-        "ep:rajxkpkrc5"
-      ],
-      "evidence": [
-        {
-          "path": "backend/src/server.js",
-          "start_line": 29,
-          "end_line": 34,
-          "detector": "js@0.3",
-          "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
         }
       ]
     },
@@ -869,7 +787,7 @@
       "access": "insider",
       "location": "bnd:yy7r6ylpud",
       "entry": [
-        "proc:blr2ioda52"
+        "proc:27yhxonl43"
       ],
       "passes_controls": [
         "authn",
@@ -900,12 +818,6 @@
       "path": "backend/healthcheck.js",
       "line": 10,
       "detail": "outbound call target is a variable:options expression; host not resolvable statically"
-    },
-    {
-      "kind": "unresolved",
-      "path": "frontend/src/serviceWorker.js",
-      "line": 103,
-      "detail": "outbound call target is a variable:swUrl expression; host not resolvable statically"
     },
     {
       "kind": "unresolved",

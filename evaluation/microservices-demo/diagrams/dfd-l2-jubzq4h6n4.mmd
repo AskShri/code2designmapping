@@ -1,15 +1,19 @@
 %% L2: emailservice
 flowchart LR
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_cs5kcq4nvf(["checkoutservice (+2)"])
+  end
   subgraph bnd_owyzrxhpvm["container: emailservice"]
-    proc_75jd4q6d4k(["gRPC HealthServicer handler"])
-    proc_kg2rjsdf2w(["gRPC EmailServiceServicer handler"])
+    proc_7lgnx7lyho(["gRPC EmailService handler"])
+    proc_jubzq4h6n4(["emailservice (+2)"])
     proc_yru6p2ypcz(["email_server"])
   end
   ext_5glqr7zsb5["OTLP collector"]
   ext_sqc242xzn7["gRPC client"]
-  ext_sqc242xzn7 -->|"grpc"| proc_75jd4q6d4k
-  ext_sqc242xzn7 -->|"grpc"| proc_kg2rjsdf2w
+  ext_sqc242xzn7 -->|"grpc"| proc_7lgnx7lyho
+  proc_cs5kcq4nvf -->|"grpc"| proc_jubzq4h6n4
   proc_yru6p2ypcz -->|"https"| ext_5glqr7zsb5
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
   style bnd_owyzrxhpvm stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

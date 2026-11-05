@@ -26,6 +26,7 @@
       "src/app.js": "sha256:6ac6eee9937e21e6e0ba78122b180e3adb48c6dde2ab2096c4d587e8376cfcc1",
       "src/config/config.js": "sha256:26f18c5f221dca610b444b98dc2ad1e104fd874895b43e780a3470fe1932c80d",
       "src/config/passport.js": "sha256:fe8b0ef32c2c088fadc0f6b6cb87077c5bf550fee9370d7aa213d55714d8fd37",
+      "src/controllers/auth.controller.js": "sha256:8ff9a7d77acf891c0b0f015c7ee456bec6b994d4862ab3cc845a75c24981b0da",
       "src/index.js": "sha256:56dd591c1ea327b5617c10fe6e5363fc0dab5629b9991331001f3a93f6b9c15c",
       "src/middlewares/error.js": "sha256:0903f07ae86505012c1cdbc4734229e5bfa909c1147e0c3ecb67604b16d79986",
       "src/models/token.model.js": "sha256:6acb332640c5eec02c864f502038ee1004c6df2728641dd584a6337a560dc74a",
@@ -820,42 +821,6 @@
   ],
   "stores": [
     {
-      "id": "store:3ufptbo5k3",
-      "identity": [
-        "store",
-        "mongodb",
-        ""
-      ],
-      "origin": "observed",
-      "name": "MongoDB",
-      "technology": "mongodb",
-      "data_classes": [],
-      "encryption_at_rest": "unknown",
-      "evidence": [
-        {
-          "path": "src/services/auth.service.js",
-          "start_line": 32,
-          "end_line": 32,
-          "detector": "js@0.3",
-          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
-        },
-        {
-          "path": "src/services/auth.service.js",
-          "start_line": 47,
-          "end_line": 47,
-          "detector": "js@0.3",
-          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
-        },
-        {
-          "path": "docker-compose.yml",
-          "start_line": 8,
-          "end_line": 8,
-          "detector": "config@0.3",
-          "content_hash": "sha256:5aace194718ea8324db1d6c9cfab8bf92a136892be4e2f2a83b3b9305dc95b23"
-        }
-      ]
-    },
-    {
       "id": "store:x3kis6s6op",
       "identity": [
         "store",
@@ -882,6 +847,13 @@
           "end_line": 14,
           "detector": "js@0.3",
           "content_hash": "sha256:81492161af0126213f9fff9382b702c5a5d5b44533c722cc70de4f514197ac89"
+        },
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 27,
+          "end_line": 27,
+          "detector": "js@0.3",
+          "content_hash": "sha256:24e7041bd3ca4517c5c922da0cedbde48ed2d2e2d8c28b6a027b81cf804cd326"
         },
         {
           "path": "src/services/user.service.js",
@@ -929,6 +901,20 @@
         },
         {
           "path": "src/services/auth.service.js",
+          "start_line": 32,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
+        },
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 47,
+          "end_line": 47,
+          "detector": "js@0.3",
+          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
+        },
+        {
+          "path": "src/services/auth.service.js",
           "start_line": 68,
           "end_line": 68,
           "detector": "js@0.3",
@@ -947,20 +933,6 @@
           "end_line": 38,
           "detector": "js@0.3",
           "content_hash": "sha256:b9f18c5e94c26e421faa0d2b4e9547cc825a38ab3e95e2e23d20c60719b95cce"
-        },
-        {
-          "path": "src/services/token.service.js",
-          "start_line": 56,
-          "end_line": 56,
-          "detector": "js@0.3",
-          "content_hash": "sha256:3f15b5446ceac16f561273bc303a36df82a386eba07e756a878dc4a9aec77bd4"
-        },
-        {
-          "path": "docker-compose.yml",
-          "start_line": 8,
-          "end_line": 8,
-          "detector": "config@0.3",
-          "content_hash": "sha256:5aace194718ea8324db1d6c9cfab8bf92a136892be4e2f2a83b3b9305dc95b23"
         }
       ]
     }
@@ -977,7 +949,6 @@
       "name": "container: mongodb",
       "kind": "container",
       "contains": [
-        "store:3ufptbo5k3",
         "store:x3kis6s6op",
         "store:yc7brpyrnt"
       ],
@@ -1088,6 +1059,66 @@
       ]
     },
     {
+      "id": "flow:2qultkb3i4",
+      "identity": [
+        "flow",
+        "proc:gebofgbst2",
+        "proc:mjittvvds2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:gebofgbst2",
+      "target": "proc:mjittvvds2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls saveToken",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
+          "symbol": "src/services/token.service.js::saveToken"
+        }
+      ]
+    },
+    {
+      "id": "flow:2y6rccfrca",
+      "identity": [
+        "flow",
+        "proc:5o77py4ksy",
+        "proc:mjittvvds2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:5o77py4ksy",
+      "target": "proc:mjittvvds2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls saveToken",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
+          "symbol": "src/services/token.service.js::saveToken"
+        }
+      ]
+    },
+    {
       "id": "flow:5daekry3cc",
       "identity": [
         "flow",
@@ -1160,6 +1191,96 @@
       ]
     },
     {
+      "id": "flow:6c4y5ad5vh",
+      "identity": [
+        "flow",
+        "proc:brrysidewt",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:brrysidewt",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getUserById",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
+          "symbol": "src/services/user.service.js::getUserById"
+        }
+      ]
+    },
+    {
+      "id": "flow:6sixecevi2",
+      "identity": [
+        "flow",
+        "proc:rbsc3643ue",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:rbsc3643ue",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getUserById",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
+          "symbol": "src/services/user.service.js::getUserById"
+        }
+      ]
+    },
+    {
+      "id": "flow:6zw4fmdbbq",
+      "identity": [
+        "flow",
+        "proc:6mgeike7w7",
+        "proc:7jcs3blmyf",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6mgeike7w7",
+      "target": "proc:7jcs3blmyf",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls verifyEmail",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 79,
+          "end_line": 79,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:0abd43213691a94a8077cbbc809ebe880fb9615f2c182ceef8fb964c0c5c721d",
+          "symbol": "src/services/auth.service.js::verifyEmail"
+        }
+      ]
+    },
+    {
       "id": "flow:7ur4tecrn2",
       "identity": [
         "flow",
@@ -1194,6 +1315,96 @@
           "end_line": 14,
           "detector": "js@0.3",
           "content_hash": "sha256:43debca764c570b1715152eb3fbd9512210fff7cad318e8c7a19063ccd0d7845"
+        }
+      ]
+    },
+    {
+      "id": "flow:arxoyrhyru",
+      "identity": [
+        "flow",
+        "proc:6arldspcqf",
+        "proc:xutosa5i4g",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6arldspcqf",
+      "target": "proc:xutosa5i4g",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls sendEmail",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:8635d35ac51774ef19664b14b388d1a48b2dacb0e4418f42914ca9c8f7c5b658",
+          "symbol": "src/services/email.service.js::sendEmail"
+        }
+      ]
+    },
+    {
+      "id": "flow:ca5yy3c5aw",
+      "identity": [
+        "flow",
+        "proc:5o77py4ksy",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:5o77py4ksy",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getUserByEmail",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:da7adc864f4817190d3237c2a95d84186bd3422d23200f1ff6314e57ad533971",
+          "symbol": "src/services/user.service.js::getUserByEmail"
+        }
+      ]
+    },
+    {
+      "id": "flow:cbnsohfpvx",
+      "identity": [
+        "flow",
+        "proc:bhe2uamvnb",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:bhe2uamvnb",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getUserById",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
+          "symbol": "src/services/user.service.js::getUserById"
         }
       ]
     },
@@ -1253,13 +1464,20 @@
       "direction": "one_way",
       "authentication": "unknown",
       "encryption": "unknown",
-      "purpose": "findById",
+      "purpose": "paginate",
       "crosses_boundary": [
         "bnd:3bw6z3ysco",
         "bnd:4tjp4yui4o"
       ],
       "controls": [],
       "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 27,
+          "end_line": 27,
+          "detector": "js@0.3",
+          "content_hash": "sha256:24e7041bd3ca4517c5c922da0cedbde48ed2d2e2d8c28b6a027b81cf804cd326"
+        },
         {
           "path": "src/services/user.service.js",
           "start_line": 37,
@@ -1273,6 +1491,74 @@
           "end_line": 46,
           "detector": "js@0.3",
           "content_hash": "sha256:7ca685e72bf85a7c1b19d3897b0dc3509ade757863047e17ae9166f5f1ed5719"
+        }
+      ]
+    },
+    {
+      "id": "flow:giqdjhqozd",
+      "identity": [
+        "flow",
+        "proc:iygmdrw3kl",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:iygmdrw3kl",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls queryUsers",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:8f86863cb17a8fcc951b42c68442c43f162dbf7b6044d3bd82f2570700d78d8c",
+          "symbol": "src/services/user.service.js::queryUsers"
+        }
+      ]
+    },
+    {
+      "id": "flow:guxv3pycst",
+      "identity": [
+        "flow",
+        "proc:yr5tyhlhoj",
+        "proc:mjittvvds2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:yr5tyhlhoj",
+      "target": "proc:mjittvvds2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls verifyToken",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:4e75ca12c0220a0f7628ad01602b7df2e999974413a1eaae3d87069097b48ae7",
+          "symbol": "src/services/token.service.js::verifyToken"
+        },
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
+          "symbol": "src/services/token.service.js::saveToken"
         }
       ]
     },
@@ -1364,13 +1650,27 @@
       "direction": "one_way",
       "authentication": "unknown",
       "encryption": "unknown",
-      "purpose": "deleteMany",
+      "purpose": "remove",
       "crosses_boundary": [
         "bnd:3bw6z3ysco",
         "bnd:4tjp4yui4o"
       ],
       "controls": [],
       "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 32,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
+        },
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 47,
+          "end_line": 47,
+          "detector": "js@0.3",
+          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
+        },
         {
           "path": "src/services/auth.service.js",
           "start_line": 68,
@@ -1428,6 +1728,96 @@
       ]
     },
     {
+      "id": "flow:kpd346jpx7",
+      "identity": [
+        "flow",
+        "proc:yr5tyhlhoj",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:yr5tyhlhoj",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getUserById",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
+          "symbol": "src/services/user.service.js::getUserById"
+        }
+      ]
+    },
+    {
+      "id": "flow:kwxivumofn",
+      "identity": [
+        "flow",
+        "proc:6mgeike7w7",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6mgeike7w7",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getUserById",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
+          "symbol": "src/services/user.service.js::getUserById"
+        }
+      ]
+    },
+    {
+      "id": "flow:mbntvvaswa",
+      "identity": [
+        "flow",
+        "proc:6arldspcqf",
+        "proc:mjittvvds2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6arldspcqf",
+      "target": "proc:mjittvvds2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls saveToken",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
+          "symbol": "src/services/token.service.js::saveToken"
+        }
+      ]
+    },
+    {
       "id": "flow:miy6vot3od",
       "identity": [
         "flow",
@@ -1464,35 +1854,6 @@
           "end_line": 12,
           "detector": "js@0.3",
           "content_hash": "sha256:b36db25551d56f99b431cf26ad782a3111ef45ea4dc2ddf5365efa97952f8b05"
-        }
-      ]
-    },
-    {
-      "id": "flow:mncmbmf65m",
-      "identity": [
-        "flow",
-        "proc:mjittvvds2",
-        "proc:bncx6ofqo5",
-        "in_process",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:mjittvvds2",
-      "target": "proc:bncx6ofqo5",
-      "protocol": "in_process",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "none",
-      "purpose": "uses userService",
-      "crosses_boundary": [],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "src/services/token.service.js",
-          "start_line": 5,
-          "end_line": 5,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:57921b886c2ebc5d3156fdbfa1aac9e3f683fcf290617772bc1d67f713af1dc4"
         }
       ]
     },
@@ -1567,6 +1928,36 @@
       ]
     },
     {
+      "id": "flow:o5rckrgnux",
+      "identity": [
+        "flow",
+        "proc:s6g67h4qsr",
+        "proc:7jcs3blmyf",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:s6g67h4qsr",
+      "target": "proc:7jcs3blmyf",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls logout",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 27,
+          "end_line": 27,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1a15084eee8f21b2b90beeb44813d6e47601f9965cec999d9d4267819ceb2753",
+          "symbol": "src/services/auth.service.js::logout"
+        }
+      ]
+    },
+    {
       "id": "flow:pffj73s3c4",
       "identity": [
         "flow",
@@ -1622,16 +2013,47 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses userService",
+      "purpose": "calls getUserById",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/services/auth.service.js",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:57921b886c2ebc5d3156fdbfa1aac9e3f683fcf290617772bc1d67f713af1dc4"
+          "path": "src/services/user.service.js",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
+          "symbol": "src/services/user.service.js::getUserById"
+        }
+      ]
+    },
+    {
+      "id": "flow:pwa536txas",
+      "identity": [
+        "flow",
+        "proc:zdjjxm2w7b",
+        "proc:mjittvvds2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:zdjjxm2w7b",
+      "target": "proc:mjittvvds2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls verifyToken",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:4e75ca12c0220a0f7628ad01602b7df2e999974413a1eaae3d87069097b48ae7",
+          "symbol": "src/services/token.service.js::verifyToken"
         }
       ]
     },
@@ -1664,45 +2086,6 @@
           "end_line": 16,
           "detector": "js@0.3",
           "content_hash": "sha256:89fc4e4e147557f2d270332ee86f2801c550f9c615df23f89f2153a19da794e0"
-        }
-      ]
-    },
-    {
-      "id": "flow:rt437weinc",
-      "identity": [
-        "flow",
-        "proc:7jcs3blmyf",
-        "store:3ufptbo5k3",
-        "mongo",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:7jcs3blmyf",
-      "target": "store:3ufptbo5k3",
-      "protocol": "mongo",
-      "direction": "one_way",
-      "authentication": "unknown",
-      "encryption": "unknown",
-      "purpose": "remove",
-      "crosses_boundary": [
-        "bnd:3bw6z3ysco",
-        "bnd:4tjp4yui4o"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "src/services/auth.service.js",
-          "start_line": 32,
-          "end_line": 32,
-          "detector": "js@0.3",
-          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
-        },
-        {
-          "path": "src/services/auth.service.js",
-          "start_line": 47,
-          "end_line": 47,
-          "detector": "js@0.3",
-          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
         }
       ]
     },
@@ -1743,6 +2126,126 @@
           "end_line": 11,
           "detector": "js@0.3",
           "content_hash": "sha256:b86a07215575852562bb64716f95676ffe7214eb07a7d5927572a8c7ec17bcec"
+        }
+      ]
+    },
+    {
+      "id": "flow:sltksqntvt",
+      "identity": [
+        "flow",
+        "proc:zdjjxm2w7b",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:zdjjxm2w7b",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getUserById",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
+          "symbol": "src/services/user.service.js::getUserById"
+        }
+      ]
+    },
+    {
+      "id": "flow:szmjyben2c",
+      "identity": [
+        "flow",
+        "proc:gebofgbst2",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:gebofgbst2",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls createUser",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:c9060271de59cbcb5c5e6bcc73a9afc1bedc2cb796eb498db261054dedd78108",
+          "symbol": "src/services/user.service.js::createUser"
+        }
+      ]
+    },
+    {
+      "id": "flow:t7fro7ovps",
+      "identity": [
+        "flow",
+        "proc:6ld6rj35b6",
+        "proc:xutosa5i4g",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6ld6rj35b6",
+      "target": "proc:xutosa5i4g",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls sendEmail",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:8635d35ac51774ef19664b14b388d1a48b2dacb0e4418f42914ca9c8f7c5b658",
+          "symbol": "src/services/email.service.js::sendEmail"
+        }
+      ]
+    },
+    {
+      "id": "flow:uc2byck67t",
+      "identity": [
+        "flow",
+        "proc:yr5tyhlhoj",
+        "proc:7jcs3blmyf",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:yr5tyhlhoj",
+      "target": "proc:7jcs3blmyf",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls refreshAuth",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 40,
+          "end_line": 40,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:6799cb4aba34d983cb02e543c55ea91a8d9a7cdbd46ed123055164d9bd7f5cdd",
+          "symbol": "src/services/auth.service.js::refreshAuth"
         }
       ]
     },
@@ -1907,6 +2410,66 @@
       ]
     },
     {
+      "id": "flow:vc2d7botlf",
+      "identity": [
+        "flow",
+        "proc:6mgeike7w7",
+        "proc:mjittvvds2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6mgeike7w7",
+      "target": "proc:mjittvvds2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls verifyToken",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:4e75ca12c0220a0f7628ad01602b7df2e999974413a1eaae3d87069097b48ae7",
+          "symbol": "src/services/token.service.js::verifyToken"
+        }
+      ]
+    },
+    {
+      "id": "flow:vlkz4zkech",
+      "identity": [
+        "flow",
+        "proc:qmofjuihf5",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:qmofjuihf5",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls createUser",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:c9060271de59cbcb5c5e6bcc73a9afc1bedc2cb796eb498db261054dedd78108",
+          "symbol": "src/services/user.service.js::createUser"
+        }
+      ]
+    },
+    {
       "id": "flow:vsddsrvv4t",
       "identity": [
         "flow",
@@ -1948,6 +2511,96 @@
           "end_line": 23,
           "detector": "js@0.3",
           "content_hash": "sha256:292f7544c94f95367114d4ad90479dca0d2c649f7b482edcb900fc223f91827a"
+        }
+      ]
+    },
+    {
+      "id": "flow:w275ma4xlk",
+      "identity": [
+        "flow",
+        "proc:zdjjxm2w7b",
+        "proc:7jcs3blmyf",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:zdjjxm2w7b",
+      "target": "proc:7jcs3blmyf",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls resetPassword",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 60,
+          "end_line": 60,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:f5cfa2f8d73b9beffb4f95d58f073f8c15eebd689c4a46d46935245f91e9da21",
+          "symbol": "src/services/auth.service.js::resetPassword"
+        }
+      ]
+    },
+    {
+      "id": "flow:w2fa4drclp",
+      "identity": [
+        "flow",
+        "proc:6ld6rj35b6",
+        "proc:mjittvvds2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6ld6rj35b6",
+      "target": "proc:mjittvvds2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls saveToken",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
+          "symbol": "src/services/token.service.js::saveToken"
+        }
+      ]
+    },
+    {
+      "id": "flow:wwssa7e5j5",
+      "identity": [
+        "flow",
+        "proc:6ld6rj35b6",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6ld6rj35b6",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getUserByEmail",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:da7adc864f4817190d3237c2a95d84186bd3422d23200f1ff6314e57ad533971",
+          "symbol": "src/services/user.service.js::getUserByEmail"
         }
       ]
     },
@@ -1999,16 +2652,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses tokenService",
+      "purpose": "calls verifyToken",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/services/auth.service.js",
-          "start_line": 2,
-          "end_line": 2,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:c738af7294c4206e9f1ee72d2d84ca87ea51e125ec10e16729996c47b0bb5639"
+          "path": "src/services/token.service.js",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:4e75ca12c0220a0f7628ad01602b7df2e999974413a1eaae3d87069097b48ae7",
+          "symbol": "src/services/token.service.js::verifyToken"
         }
       ]
     },
@@ -2079,7 +2733,9 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:gebofgbst2"
+        "proc:gebofgbst2",
+        "proc:bncx6ofqo5",
+        "proc:mjittvvds2"
       ],
       "evidence": [
         {
@@ -2089,6 +2745,10 @@
           "detector": "js@0.3",
           "content_hash": "sha256:b9187f530072cadd415406391db75df90b89687b970a6fdccfe1eefb9bd52224"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op",
+        "store:yc7brpyrnt"
       ]
     },
     {
@@ -2116,7 +2776,8 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:bhe2uamvnb"
+        "proc:bhe2uamvnb",
+        "proc:bncx6ofqo5"
       ],
       "evidence": [
         {
@@ -2126,6 +2787,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:4bbfa2706b23ca95b224679b03e464fb11d4cb95a6afab2ba947aa137fa34c3d"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op"
       ]
     },
     {
@@ -2153,7 +2817,8 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:qmofjuihf5"
+        "proc:qmofjuihf5",
+        "proc:bncx6ofqo5"
       ],
       "evidence": [
         {
@@ -2163,6 +2828,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:25816d2d153c619c236366f6ed639ee84de5f46b61e6baf73c5671c93b134328"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op"
       ]
     },
     {
@@ -2190,7 +2858,9 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:5o77py4ksy"
+        "proc:5o77py4ksy",
+        "proc:bncx6ofqo5",
+        "proc:mjittvvds2"
       ],
       "evidence": [
         {
@@ -2200,6 +2870,10 @@
           "detector": "js@0.3",
           "content_hash": "sha256:66898451a5fb0aafa6d42e4dc18e6b67059fa299f5fd400b0148a9a2d8df565f"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op",
+        "store:yc7brpyrnt"
       ]
     },
     {
@@ -2227,7 +2901,10 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:6ld6rj35b6"
+        "proc:6ld6rj35b6",
+        "proc:bncx6ofqo5",
+        "proc:mjittvvds2",
+        "proc:xutosa5i4g"
       ],
       "evidence": [
         {
@@ -2237,6 +2914,11 @@
           "detector": "js@0.3",
           "content_hash": "sha256:d5b48cde227701714f2f56fd9438c4cafa6dc19a6057f47b82c21e72f4c946eb"
         }
+      ],
+      "reaches": [
+        "ext:l2biskukaq",
+        "store:x3kis6s6op",
+        "store:yc7brpyrnt"
       ]
     },
     {
@@ -2264,7 +2946,10 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:yr5tyhlhoj"
+        "proc:yr5tyhlhoj",
+        "proc:7jcs3blmyf",
+        "proc:bncx6ofqo5",
+        "proc:mjittvvds2"
       ],
       "evidence": [
         {
@@ -2274,6 +2959,10 @@
           "detector": "js@0.3",
           "content_hash": "sha256:b36db25551d56f99b431cf26ad782a3111ef45ea4dc2ddf5365efa97952f8b05"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op",
+        "store:yc7brpyrnt"
       ]
     },
     {
@@ -2309,7 +2998,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:43debca764c570b1715152eb3fbd9512210fff7cad318e8c7a19063ccd0d7845"
         }
-      ]
+      ],
+      "infrastructure": true,
+      "reaches": []
     },
     {
       "id": "ep:micgxni76r",
@@ -2336,7 +3027,8 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:rbsc3643ue"
+        "proc:rbsc3643ue",
+        "proc:bncx6ofqo5"
       ],
       "evidence": [
         {
@@ -2346,6 +3038,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:2b7fc76ee1aeaacd0ea48bfa0784d24e5199da16b2ba5c38544d6615ae703bcf"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op"
       ]
     },
     {
@@ -2373,7 +3068,9 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:6arldspcqf"
+        "proc:6arldspcqf",
+        "proc:mjittvvds2",
+        "proc:xutosa5i4g"
       ],
       "evidence": [
         {
@@ -2383,6 +3080,10 @@
           "detector": "js@0.3",
           "content_hash": "sha256:34bd0bf328cbfe9f12ce0f345bfb9a586c9c79c0a4ec595cf3db832b980c597b"
         }
+      ],
+      "reaches": [
+        "ext:l2biskukaq",
+        "store:yc7brpyrnt"
       ]
     },
     {
@@ -2410,7 +3111,10 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:s6g67h4qsr"
+        "proc:s6g67h4qsr",
+        "proc:7jcs3blmyf",
+        "proc:bncx6ofqo5",
+        "proc:mjittvvds2"
       ],
       "evidence": [
         {
@@ -2420,6 +3124,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:b86a07215575852562bb64716f95676ffe7214eb07a7d5927572a8c7ec17bcec"
         }
+      ],
+      "reaches": [
+        "store:yc7brpyrnt"
       ]
     },
     {
@@ -2455,7 +3162,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
         }
-      ]
+      ],
+      "infrastructure": true,
+      "reaches": []
     },
     {
       "id": "ep:vjq34mdgzh",
@@ -2482,7 +3191,8 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:brrysidewt"
+        "proc:brrysidewt",
+        "proc:bncx6ofqo5"
       ],
       "evidence": [
         {
@@ -2492,6 +3202,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:43164364df94f9c3950f2b99b5547f0abb9f9ddf7ef3fe7d38973e9e95034728"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op"
       ]
     },
     {
@@ -2519,7 +3232,8 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:iygmdrw3kl"
+        "proc:iygmdrw3kl",
+        "proc:bncx6ofqo5"
       ],
       "evidence": [
         {
@@ -2529,6 +3243,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:bcd5b83dfd04b2458a79eea8281ef030d2c516f001a73c65c9f454c6e1336678"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op"
       ]
     },
     {
@@ -2556,7 +3273,10 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:6mgeike7w7"
+        "proc:6mgeike7w7",
+        "proc:7jcs3blmyf",
+        "proc:bncx6ofqo5",
+        "proc:mjittvvds2"
       ],
       "evidence": [
         {
@@ -2566,6 +3286,10 @@
           "detector": "js@0.3",
           "content_hash": "sha256:b507c2bbef89347a12680dc3ac44e253c81f2f274c5e562c8bcd76420c58932e"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op",
+        "store:yc7brpyrnt"
       ]
     },
     {
@@ -2593,7 +3317,10 @@
         "ctl:z53teauknq"
       ],
       "call_chain": [
-        "proc:zdjjxm2w7b"
+        "proc:zdjjxm2w7b",
+        "proc:7jcs3blmyf",
+        "proc:bncx6ofqo5",
+        "proc:mjittvvds2"
       ],
       "evidence": [
         {
@@ -2603,6 +3330,10 @@
           "detector": "js@0.3",
           "content_hash": "sha256:66e2e753d85c592d8676441a9a969b02624f302798c680639f4a22555300b34d"
         }
+      ],
+      "reaches": [
+        "store:x3kis6s6op",
+        "store:yc7brpyrnt"
       ]
     }
   ],
@@ -2642,7 +3373,8 @@
           "detector": "js@0.3",
           "content_hash": "sha256:163185fd5a3e176be472feca97afaef4579bb1a579de5145161be10b3cc6c498"
         }
-      ]
+      ],
+      "conditional": true
     },
     {
       "id": "ctl:6rjh2cbjvh",
@@ -2768,7 +3500,8 @@
           "detector": "js@0.3",
           "content_hash": "sha256:2d076013b12170367309ad46383b80eb6fdb5480dbc1570d8fcce7f67fbd9040"
         }
-      ]
+      ],
+      "conditional": true
     },
     {
       "id": "ctl:fc4fb7kr2n",
@@ -2798,7 +3531,8 @@
           "detector": "js@0.3",
           "content_hash": "sha256:b4fb147cec1660e1a3b2c5d24b8643dd726457c0fbc2878ab948ccae7d004c1f"
         }
-      ]
+      ],
+      "conditional": true
     },
     {
       "id": "ctl:hup62ggipp",
@@ -2987,52 +3721,6 @@
           "end_line": 14,
           "detector": "js@0.3",
           "content_hash": "sha256:66e2e753d85c592d8676441a9a969b02624f302798c680639f4a22555300b34d"
-        }
-      ]
-    },
-    {
-      "id": "wk:36dc2lvqlb",
-      "identity": [
-        "weakness",
-        "unauthenticated_entry_point",
-        "ep:uinlxtaykc"
-      ],
-      "origin": "observed",
-      "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on OPTIONS *",
-      "applies_to": [
-        "ep:uinlxtaykc"
-      ],
-      "evidence": [
-        {
-          "path": "src/app.js",
-          "start_line": 42,
-          "end_line": 42,
-          "detector": "js@0.3",
-          "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
-        }
-      ]
-    },
-    {
-      "id": "wk:7atdmrgloc",
-      "identity": [
-        "weakness",
-        "unauthenticated_entry_point",
-        "ep:ihqiefa6bi"
-      ],
-      "origin": "observed",
-      "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on GET /v1/docs",
-      "applies_to": [
-        "ep:ihqiefa6bi"
-      ],
-      "evidence": [
-        {
-          "path": "src/routes/v1/docs.route.js",
-          "start_line": 14,
-          "end_line": 14,
-          "detector": "js@0.3",
-          "content_hash": "sha256:43debca764c570b1715152eb3fbd9512210fff7cad318e8c7a19063ccd0d7845"
         }
       ]
     },
@@ -3373,6 +4061,37 @@
       ]
     },
     {
+      "id": "sch:gmuqd4k2t6",
+      "identity": [
+        "schema",
+        "src/controllers/auth.controller.js",
+        "request fields"
+      ],
+      "origin": "observed",
+      "name": "request fields",
+      "fields": [
+        {
+          "name": "email",
+          "type": "request",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "request",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/controllers/auth.controller.js",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a39e2dc595f96069b6082a8e90381a36689d6e9b92edaab652ca4776ee47bd20"
+        }
+      ]
+    },
+    {
       "id": "sch:gpixjdumql",
       "identity": [
         "schema",
@@ -3629,12 +4348,6 @@
       "path": "src/services/auth.service.js",
       "line": 28,
       "detail": "Question for the team: how is the link to MongoDB: Token authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
-    },
-    {
-      "kind": "unknown_attribute",
-      "path": "src/services/auth.service.js",
-      "line": 32,
-      "detail": "Question for the team: how is the link to MongoDB authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
     },
     {
       "kind": "unknown_attribute",

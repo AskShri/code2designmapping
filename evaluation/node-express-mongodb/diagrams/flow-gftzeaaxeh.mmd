@@ -5,13 +5,8 @@ sequenceDiagram
   participant ctl_4t7pejypjk as cors
   participant proc_zfnmjioymc as DELETE / -id handler
   participant proc_zzqivqwuzv as tutorial.controller
-  participant store_3ufptbo5k3 as MongoDB
-  participant store_uujc2npyud as MongoDB - tutorials
   ext_sga4qktkap->>ctl_4t7pejypjk: DELETE / -id (cors)
   ctl_4t7pejypjk->>proc_zfnmjioymc: dispatch
   proc_zfnmjioymc->>proc_zzqivqwuzv: in_process
-  proc_zzqivqwuzv->>store_3ufptbo5k3: mongo
-  store_uujc2npyud-->>proc_zzqivqwuzv: mongo
-  proc_zzqivqwuzv->>store_uujc2npyud: mongo
   proc_zzqivqwuzv-->>proc_zfnmjioymc: response
   proc_zfnmjioymc-->>ext_sga4qktkap: response

@@ -1,0 +1,42 @@
+%% L2: productcatalogservice
+flowchart LR
+  subgraph bnd_3nvgex5y4a["container: productcatalogservice"]
+    proc_2uufxv56vs(["catalog_loader"])
+    proc_blh2elsftr(["productcatalogservice"])
+    proc_elkmlzs7bq(["productcatalogservice (+3)"])
+    proc_vrmaexfpo6(["gRPC ProductCatalogService handler"])
+  end
+  subgraph bnd_c76yxdhq2j["container: recommendationservice"]
+    proc_tcmo7ook3a(["recommendationservice (+3)"])
+  end
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_cs5kcq4nvf(["checkoutservice (+2)"])
+  end
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_pmttplr5qk(["frontend (+14)"])
+  end
+  ext_5glqr7zsb5["OTLP collector"]
+  ext_sqc242xzn7["gRPC client"]
+  ext_wnxd2gtvsa["Google Cloud Profiler"]
+  ext_xwfpv7zyiv["Unresolved grpc target"]
+  store_ctwgzvsuvh[("Postgres")]
+  ext_sqc242xzn7 -->|"grpc"| proc_vrmaexfpo6
+  proc_blh2elsftr -->|"https"| ext_5glqr7zsb5
+  proc_blh2elsftr -->|"https"| ext_wnxd2gtvsa
+  proc_blh2elsftr -->|"grpc"| ext_xwfpv7zyiv
+  proc_cs5kcq4nvf -->|"grpc"| proc_elkmlzs7bq
+  proc_pmttplr5qk -->|"grpc"| proc_elkmlzs7bq
+  proc_tcmo7ook3a -->|"grpc"| proc_elkmlzs7bq
+  proc_vrmaexfpo6 -->|"in_process"| proc_2uufxv56vs
+  proc_vrmaexfpo6 -->|"in_process"| proc_blh2elsftr
+  store_ctwgzvsuvh -->|"sql"| proc_2uufxv56vs
+  style bnd_3nvgex5y4a stroke-dasharray: 8 4,fill:none
+  style bnd_c76yxdhq2j stroke-dasharray: 8 4,fill:none
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

@@ -6,6 +6,9 @@
     "generated_from": "stripe-checkout-sample",
     "detectors": [
       "config@0.3",
+      "csharp@0.1",
+      "go@0.1",
+      "java@0.1",
       "js@0.3",
       "py@0.3"
     ],
@@ -21,6 +24,9 @@
       "client/html/success.js": "sha256:82c9bd95d4d748afbb739230956b0261ea82989aec2c29d5f2535f1fd86e9224",
       "client/react-cra/package.json": "sha256:b53cbf2829ac373e2ebe39b72e0457206ee48eb98ecf0f2501210025ccfabece",
       "client/react-cra/src/components/Success.jsx": "sha256:7a9fd5cab47fdd070aecdc29eeaa2723857a738e207fcb44c7abe16ea9be0f6b",
+      "server/dotnet/Program.cs": "sha256:a50aa6b3665091e82f8307ddadaf976599cec8882436f608c677bc1bbce21bd6",
+      "server/go/server.go": "sha256:0db21c06e08c4d773116e645220b33d157b7d815f27569fc2737372acb0af0d7",
+      "server/java/src/main/java/com/stripe/sample/Server.java": "sha256:ec36c32401ca8680019cf134a046d3aa851fb3f65c4682a2c55d7c786e6c36c0",
       "server/nextjs/app/api/webhook/route.ts": "sha256:d231026693a9623ef2813a82b6052747051708079de29aacaf0b32be245809bf",
       "server/nextjs/lib/stripe.ts": "sha256:56e6c7e082757a03519ea46cb9ef3599d6921128ef0908fbe6cda8bf2eeb3006",
       "server/nextjs/package.json": "sha256:05985360d84f013e733d0a83733fadb934501e24f67a031e9b651cc46e425655",
@@ -75,6 +81,50 @@
       "parent": "proc:len65pegl7"
     },
     {
+      "id": "proc:33b6t5jaql",
+      "identity": [
+        "process",
+        "server/go",
+        "go"
+      ],
+      "origin": "observed",
+      "name": "go",
+      "level": 1,
+      "module": "server/go",
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:512843855fcc92a51c810b1b58e0731c01eac9a6a23c157bfa02aad71edffbe7"
+        }
+      ],
+      "parent": "proc:2rswcknxkr"
+    },
+    {
+      "id": "proc:3bx2sztjzm",
+      "identity": [
+        "process",
+        "server/dotnet/Program.cs",
+        "Program"
+      ],
+      "origin": "observed",
+      "name": "Program",
+      "level": 2,
+      "module": "server/dotnet/Program.cs",
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4196d901f4d1ded7475e1273fb1663c6a2277e7ca12f5cdbd7ef43ebe4015fc1"
+        }
+      ],
+      "parent": "proc:ksro7v4eqn"
+    },
+    {
       "id": "proc:3iekuswqcb",
       "identity": [
         "process",
@@ -117,6 +167,50 @@
         }
       ],
       "parent": "proc:2rswcknxkr"
+    },
+    {
+      "id": "proc:5pzsfrm23b",
+      "identity": [
+        "process",
+        "server/go/server.go",
+        "ANY /webhook"
+      ],
+      "origin": "observed",
+      "name": "ANY /webhook handler",
+      "level": 2,
+      "module": "server/go/server.go",
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "go@0.1",
+          "content_hash": "sha256:5ee8bf12d80388c5a46446dbe207760ed59e70a77d8ca2e1abbb360ff0e13466"
+        }
+      ],
+      "parent": "proc:33b6t5jaql"
+    },
+    {
+      "id": "proc:5rdibj3wtc",
+      "identity": [
+        "process",
+        "server/go/server.go",
+        "go"
+      ],
+      "origin": "observed",
+      "name": "go",
+      "level": 2,
+      "module": "server/go/server.go",
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:512843855fcc92a51c810b1b58e0731c01eac9a6a23c157bfa02aad71edffbe7"
+        }
+      ],
+      "parent": "proc:33b6t5jaql"
     },
     {
       "id": "proc:6abckc6ruq",
@@ -183,6 +277,28 @@
         }
       ],
       "parent": "proc:hkmq5lnnqw"
+    },
+    {
+      "id": "proc:cimmsjvudn",
+      "identity": [
+        "process",
+        "server/dotnet/Program.cs",
+        "POST webhook"
+      ],
+      "origin": "observed",
+      "name": "POST webhook handler",
+      "level": 2,
+      "module": "server/dotnet/Program.cs",
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 90,
+          "end_line": 90,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:43de7ae5182b1b0e3e37cf5eae1fce8e024a1982cd7dd13273b67bd8b1a5c2e6"
+        }
+      ],
+      "parent": "proc:ksro7v4eqn"
     },
     {
       "id": "proc:f3hlc73arh",
@@ -295,6 +411,28 @@
       "parent": "proc:2rswcknxkr"
     },
     {
+      "id": "proc:jkavoqdxxh",
+      "identity": [
+        "process",
+        "server/dotnet/Program.cs",
+        "POST /create-checkout-session"
+      ],
+      "origin": "observed",
+      "name": "POST /create-checkout-session handler",
+      "level": 2,
+      "module": "server/dotnet/Program.cs",
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:b8dbfb38bb59e06da1d272857613e845af4880b4202cb842aa2e6a3ee371df84"
+        }
+      ],
+      "parent": "proc:ksro7v4eqn"
+    },
+    {
       "id": "proc:jxdndc7atr",
       "identity": [
         "process",
@@ -315,6 +453,28 @@
         }
       ],
       "parent": "proc:icrskoynef"
+    },
+    {
+      "id": "proc:ksro7v4eqn",
+      "identity": [
+        "process",
+        "server/dotnet",
+        "dotnet"
+      ],
+      "origin": "observed",
+      "name": "dotnet",
+      "level": 1,
+      "module": "server/dotnet",
+      "evidence": [
+        {
+          "path": "server/dotnet/Configuration/StripeOptions.cs",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:ac4d149636fbcc5888b127eb9ddd94b2956a8b491d1af2b65bb44fc7a8c81611"
+        }
+      ],
+      "parent": "proc:2rswcknxkr"
     },
     {
       "id": "proc:len65pegl7",
@@ -361,6 +521,28 @@
       "parent": "proc:len65pegl7"
     },
     {
+      "id": "proc:nedbzx5vkz",
+      "identity": [
+        "process",
+        "server/go/server.go",
+        "ANY /config"
+      ],
+      "origin": "observed",
+      "name": "ANY /config handler",
+      "level": 2,
+      "module": "server/go/server.go",
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 43,
+          "end_line": 43,
+          "detector": "go@0.1",
+          "content_hash": "sha256:34d0ad204bde5bda7bc77f7b1999c4e27de32ad287a18a47986da94e888aceab"
+        }
+      ],
+      "parent": "proc:33b6t5jaql"
+    },
+    {
       "id": "proc:nzprilxlvp",
       "identity": [
         "process",
@@ -381,6 +563,28 @@
         }
       ],
       "parent": "proc:icrskoynef"
+    },
+    {
+      "id": "proc:opbigmu2un",
+      "identity": [
+        "process",
+        "server/dotnet/Program.cs",
+        "GET /checkout-session"
+      ],
+      "origin": "observed",
+      "name": "GET /checkout-session handler",
+      "level": 2,
+      "module": "server/dotnet/Program.cs",
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 61,
+          "end_line": 61,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:86b209d5d8541b146ab366978605c990b533b10765ce8cc0cbe84025fe6755c0"
+        }
+      ],
+      "parent": "proc:ksro7v4eqn"
     },
     {
       "id": "proc:p55vaxl2qp",
@@ -405,6 +609,50 @@
       "parent": "proc:hkmq5lnnqw"
     },
     {
+      "id": "proc:pmcllhmzlf",
+      "identity": [
+        "process",
+        "server/java",
+        "java"
+      ],
+      "origin": "observed",
+      "name": "java",
+      "level": 1,
+      "module": "server/java",
+      "evidence": [
+        {
+          "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4d8cdf9a3b98b2e084a8842c1c9e9299716a4b2ff1034488037bee484d58e558"
+        }
+      ],
+      "parent": "proc:2rswcknxkr"
+    },
+    {
+      "id": "proc:q3wbnussyl",
+      "identity": [
+        "process",
+        "server/go/server.go",
+        "ANY /create-checkout-session"
+      ],
+      "origin": "observed",
+      "name": "ANY /create-checkout-session handler",
+      "level": 2,
+      "module": "server/go/server.go",
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b02a77cfe284608d2b10bcd7e890b7c87dc237a4a448ab94aa4967dc80be3fb8"
+        }
+      ],
+      "parent": "proc:33b6t5jaql"
+    },
+    {
       "id": "proc:s774cdt6a2",
       "identity": [
         "process",
@@ -425,6 +673,28 @@
         }
       ],
       "parent": "proc:len65pegl7"
+    },
+    {
+      "id": "proc:swgk3awnt6",
+      "identity": [
+        "process",
+        "server/dotnet/Program.cs",
+        "GET /config"
+      ],
+      "origin": "observed",
+      "name": "GET /config handler",
+      "level": 2,
+      "module": "server/dotnet/Program.cs",
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 48,
+          "end_line": 48,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:a0fddda795443dd473fc3cef27818422214b081d1cb017760d46a2c2542764a2"
+        }
+      ],
+      "parent": "proc:ksro7v4eqn"
     },
     {
       "id": "proc:ti2alnjshr",
@@ -471,6 +741,50 @@
       "parent": "proc:hkmq5lnnqw"
     },
     {
+      "id": "proc:wev4vzsqqt",
+      "identity": [
+        "process",
+        "server/java/src/main/java/com/stripe/sample/Server.java",
+        "Server"
+      ],
+      "origin": "observed",
+      "name": "Server",
+      "level": 2,
+      "module": "server/java/src/main/java/com/stripe/sample/Server.java",
+      "evidence": [
+        {
+          "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4d8cdf9a3b98b2e084a8842c1c9e9299716a4b2ff1034488037bee484d58e558"
+        }
+      ],
+      "parent": "proc:pmcllhmzlf"
+    },
+    {
+      "id": "proc:xxpjvfutdf",
+      "identity": [
+        "process",
+        "server/go/server.go",
+        "ANY /"
+      ],
+      "origin": "observed",
+      "name": "ANY / handler",
+      "level": 2,
+      "module": "server/go/server.go",
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "go@0.1",
+          "content_hash": "sha256:7685033822f06ad5cb5f9084e28190de4c2a030cfeeaad841aa06803b9ee04f5"
+        }
+      ],
+      "parent": "proc:33b6t5jaql"
+    },
+    {
       "id": "proc:ynulmyp3re",
       "identity": [
         "process",
@@ -513,6 +827,28 @@
         }
       ],
       "parent": "proc:fa6pgh7omk"
+    },
+    {
+      "id": "proc:zora65zork",
+      "identity": [
+        "process",
+        "server/go/server.go",
+        "ANY /checkout-session"
+      ],
+      "origin": "observed",
+      "name": "ANY /checkout-session handler",
+      "level": 2,
+      "module": "server/go/server.go",
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 44,
+          "end_line": 44,
+          "detector": "go@0.1",
+          "content_hash": "sha256:768627ab6ea8c2df9dfa5c4a68381b4e5f9ede0b2c485e4d3c23fcf50b75aa02"
+        }
+      ],
+      "parent": "proc:33b6t5jaql"
     }
   ],
   "entities": [
@@ -653,26 +989,41 @@
       "contains": [
         "proc:2rswcknxkr",
         "proc:2w7axhugkg",
+        "proc:33b6t5jaql",
+        "proc:3bx2sztjzm",
         "proc:3iekuswqcb",
         "proc:4hcwixw6ne",
+        "proc:5pzsfrm23b",
+        "proc:5rdibj3wtc",
         "proc:6abckc6ruq",
         "proc:6ntqdalddj",
         "proc:bjdbw6trkc",
+        "proc:cimmsjvudn",
         "proc:f3hlc73arh",
         "proc:fa6pgh7omk",
         "proc:hkmq5lnnqw",
         "proc:hx52pjrcfp",
         "proc:icrskoynef",
+        "proc:jkavoqdxxh",
         "proc:jxdndc7atr",
+        "proc:ksro7v4eqn",
         "proc:len65pegl7",
         "proc:mwtjgfacnc",
+        "proc:nedbzx5vkz",
         "proc:nzprilxlvp",
+        "proc:opbigmu2un",
         "proc:p55vaxl2qp",
+        "proc:pmcllhmzlf",
+        "proc:q3wbnussyl",
         "proc:s774cdt6a2",
+        "proc:swgk3awnt6",
         "proc:ti2alnjshr",
         "proc:va6muegoss",
+        "proc:wev4vzsqqt",
+        "proc:xxpjvfutdf",
         "proc:ynulmyp3re",
-        "proc:yvk7b5fv4l"
+        "proc:yvk7b5fv4l",
+        "proc:zora65zork"
       ],
       "evidence": [
         {
@@ -749,6 +1100,106 @@
       ]
     },
     {
+      "id": "flow:auqdutsnzq",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:3iekuswqcb",
+        "http",
+        "request fields"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:3iekuswqcb",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /create-checkout-session",
+      "payload": {
+        "schema_ref": "sch:kzktogzz2d",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/node/server.js",
+          "start_line": 60,
+          "end_line": 86,
+          "detector": "js@0.3",
+          "content_hash": "sha256:901207f81d5f309276bc5ad1595ff8c0bc8d2df02fc71e9073272e7f4f2a9b7e"
+        }
+      ]
+    },
+    {
+      "id": "flow:burh3n4ukp",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:opbigmu2un",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:opbigmu2un",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /checkout-session",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 61,
+          "end_line": 61,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:86b209d5d8541b146ab366978605c990b533b10765ce8cc0cbe84025fe6755c0"
+        }
+      ]
+    },
+    {
+      "id": "flow:c5ypvw7dow",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:cimmsjvudn",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:cimmsjvudn",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST webhook",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 90,
+          "end_line": 90,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:43de7ae5182b1b0e3e37cf5eae1fce8e024a1982cd7dd13273b67bd8b1a5c2e6"
+        }
+      ]
+    },
+    {
       "id": "flow:d5mxjnbtbo",
       "identity": [
         "flow",
@@ -811,33 +1262,64 @@
       ]
     },
     {
-      "id": "flow:fhtldr7wt4",
+      "id": "flow:elnxkzew6n",
       "identity": [
         "flow",
         "ext:sga4qktkap",
-        "proc:3iekuswqcb",
+        "proc:q3wbnussyl",
         "http",
         ""
       ],
       "origin": "observed",
       "source": "ext:sga4qktkap",
-      "target": "proc:3iekuswqcb",
+      "target": "proc:q3wbnussyl",
       "protocol": "http",
       "direction": "request_response",
       "authentication": "none",
       "encryption": "unknown",
-      "purpose": "POST /create-checkout-session",
+      "purpose": "ANY /create-checkout-session",
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
       "controls": [],
       "evidence": [
         {
-          "path": "server/node/server.js",
-          "start_line": 60,
-          "end_line": 86,
-          "detector": "js@0.3",
-          "content_hash": "sha256:901207f81d5f309276bc5ad1595ff8c0bc8d2df02fc71e9073272e7f4f2a9b7e"
+          "path": "server/go/server.go",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b02a77cfe284608d2b10bcd7e890b7c87dc237a4a448ab94aa4967dc80be3fb8"
+        }
+      ]
+    },
+    {
+      "id": "flow:f67q6oewyw",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:xxpjvfutdf",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:xxpjvfutdf",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "ANY /",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "go@0.1",
+          "content_hash": "sha256:7685033822f06ad5cb5f9084e28190de4c2a030cfeeaad841aa06803b9ee04f5"
         }
       ]
     },
@@ -904,13 +1386,13 @@
       ]
     },
     {
-      "id": "flow:he3cfbdfoc",
+      "id": "flow:gv42kmjhlk",
       "identity": [
         "flow",
         "ext:sga4qktkap",
         "proc:p55vaxl2qp",
         "http",
-        ""
+        "request fields"
       ],
       "origin": "observed",
       "source": "ext:sga4qktkap",
@@ -920,6 +1402,13 @@
       "authentication": "none",
       "encryption": "unknown",
       "purpose": "GET /checkout-session",
+      "payload": {
+        "schema_ref": "sch:kzktogzz2d",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
@@ -931,6 +1420,72 @@
           "end_line": 58,
           "detector": "js@0.3",
           "content_hash": "sha256:f198e84473539bbbc41dc2999a31f44ae8ff53e11fd8bd1de694406b95f16241"
+        }
+      ]
+    },
+    {
+      "id": "flow:hdtdccrkid",
+      "identity": [
+        "flow",
+        "proc:wev4vzsqqt",
+        "ext:slqdx4hifp",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:wev4vzsqqt",
+      "target": "ext:slqdx4hifp",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "java@0.1",
+          "content_hash": "sha256:5e1396c70e8962cd2a726ec89e9928fd4b150f1a18d699970b39c900c58b9c75"
+        },
+        {
+          "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "java@0.1",
+          "content_hash": "sha256:c410bc0356471200c09196893258bb77a7479f39cab637806b149bacf206ea32"
+        },
+        {
+          "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "java@0.1",
+          "content_hash": "sha256:79bca2551d81b285701704ed7be8a21a6e470f715539c02e2fe56327d6e7a466"
+        },
+        {
+          "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+          "start_line": 27,
+          "end_line": 27,
+          "detector": "java@0.1",
+          "content_hash": "sha256:a9dadddd830f5293681fb6d196b66cf50be3f79d31588ea44e030a3e51c642ba"
+        },
+        {
+          "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "java@0.1",
+          "content_hash": "sha256:c3f9b34138c0dcf634c9a9e9c34c2f0fb3d2e8de82256e8bae02bba9163538b2"
+        },
+        {
+          "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+          "start_line": 29,
+          "end_line": 29,
+          "detector": "java@0.1",
+          "content_hash": "sha256:2b1625a7ec674d45fbd31efbdb1aff0ca477c45f82bf4aa9c7d3763bd3a4032c"
         }
       ]
     },
@@ -997,33 +1552,64 @@
       ]
     },
     {
-      "id": "flow:l6rhqssuc6",
+      "id": "flow:kquecphgv4",
       "identity": [
         "flow",
         "ext:sga4qktkap",
-        "proc:bjdbw6trkc",
+        "proc:zora65zork",
         "http",
         ""
       ],
       "origin": "observed",
       "source": "ext:sga4qktkap",
-      "target": "proc:bjdbw6trkc",
+      "target": "proc:zora65zork",
       "protocol": "http",
       "direction": "request_response",
       "authentication": "none",
       "encryption": "unknown",
-      "purpose": "POST /webhook",
+      "purpose": "ANY /checkout-session",
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
       "controls": [],
       "evidence": [
         {
-          "path": "server/node/server.js",
-          "start_line": 89,
-          "end_line": 123,
-          "detector": "js@0.3",
-          "content_hash": "sha256:f5ec60bac369dd2e41907c55befeb52073cb3e4a78b83fa4d9973c610134d519"
+          "path": "server/go/server.go",
+          "start_line": 44,
+          "end_line": 44,
+          "detector": "go@0.1",
+          "content_hash": "sha256:768627ab6ea8c2df9dfa5c4a68381b4e5f9ede0b2c485e4d3c23fcf50b75aa02"
+        }
+      ]
+    },
+    {
+      "id": "flow:lgx5amrivp",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:nedbzx5vkz",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:nedbzx5vkz",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "ANY /config",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 43,
+          "end_line": 43,
+          "detector": "go@0.1",
+          "content_hash": "sha256:34d0ad204bde5bda7bc77f7b1999c4e27de32ad287a18a47986da94e888aceab"
         }
       ]
     },
@@ -1214,6 +1800,113 @@
       ]
     },
     {
+      "id": "flow:qvqkrfvc23",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:swgk3awnt6",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:swgk3awnt6",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /config",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 48,
+          "end_line": 48,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:a0fddda795443dd473fc3cef27818422214b081d1cb017760d46a2c2542764a2"
+        }
+      ]
+    },
+    {
+      "id": "flow:sd2hlopyk4",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:bjdbw6trkc",
+        "http",
+        "request fields"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:bjdbw6trkc",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /webhook",
+      "payload": {
+        "schema_ref": "sch:kzktogzz2d",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/node/server.js",
+          "start_line": 89,
+          "end_line": 123,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f5ec60bac369dd2e41907c55befeb52073cb3e4a78b83fa4d9973c610134d519"
+        }
+      ]
+    },
+    {
+      "id": "flow:sp257pwoqk",
+      "identity": [
+        "flow",
+        "proc:3bx2sztjzm",
+        "ext:slqdx4hifp",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:3bx2sztjzm",
+      "target": "ext:slqdx4hifp",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:c7d3574f2b80da1f53cf1f78e4741317556f504ec15c918ba4d6b9ca1b2e0efd"
+        },
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:01daefb605b91921cd6f60dfe55ffe207704dbf0d66eace3c13b85d57ad4efc2"
+        }
+      ]
+    },
+    {
       "id": "flow:tchrak5hv6",
       "identity": [
         "flow",
@@ -1369,6 +2062,37 @@
       ]
     },
     {
+      "id": "flow:xmqis7hjkm",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:5pzsfrm23b",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:5pzsfrm23b",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "ANY /webhook",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "go@0.1",
+          "content_hash": "sha256:5ee8bf12d80388c5a46446dbe207760ed59e70a77d8ca2e1abbb360ff0e13466"
+        }
+      ]
+    },
+    {
       "id": "flow:xr4ga3cb3e",
       "identity": [
         "flow",
@@ -1398,9 +2122,121 @@
           "content_hash": "sha256:0c25b12cd0b3bb4740c90c982f38f30e38600f9c9ec82fa971ffefdd13e79e9f"
         }
       ]
+    },
+    {
+      "id": "flow:y6en3uifyc",
+      "identity": [
+        "flow",
+        "proc:5rdibj3wtc",
+        "ext:slqdx4hifp",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:5rdibj3wtc",
+      "target": "ext:slqdx4hifp",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.1",
+          "content_hash": "sha256:84d3526061c60eaca4d2bdf2006e8a5df2bd5c272fbd21a702a017add8567c7b"
+        },
+        {
+          "path": "server/go/server.go",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "go@0.1",
+          "content_hash": "sha256:8be2ed835615884683f72f9c8f6c883b088f78dace8dad0b983806f74a3599b1"
+        },
+        {
+          "path": "server/go/server.go",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "go@0.1",
+          "content_hash": "sha256:cb3eb677acb9db5e268fcad1413fc039b6bd306eff4717d28b0a58478addcfd1"
+        },
+        {
+          "path": "server/go/server.go",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "go@0.1",
+          "content_hash": "sha256:be68af0e4d16264d2ef3e2b2786b807ed122289d77e127ee1cd7498cfabbeced"
+        }
+      ]
+    },
+    {
+      "id": "flow:zyvfh77s3l",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:jkavoqdxxh",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:jkavoqdxxh",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /create-checkout-session",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:b8dbfb38bb59e06da1d272857613e845af4880b4202cb842aa2e6a3ee371df84"
+        }
+      ]
     }
   ],
   "entry_points": [
+    {
+      "id": "ep:4oahfsjhc3",
+      "identity": [
+        "entry_point",
+        "http",
+        "ANY",
+        "/webhook",
+        "server/go/server.go"
+      ],
+      "origin": "observed",
+      "process": "proc:5pzsfrm23b",
+      "protocol": "http",
+      "method": "ANY",
+      "path": "/webhook",
+      "controls": [],
+      "call_chain": [
+        "proc:5pzsfrm23b"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "go@0.1",
+          "content_hash": "sha256:5ee8bf12d80388c5a46446dbe207760ed59e70a77d8ca2e1abbb360ff0e13466"
+        }
+      ],
+      "reaches": []
+    },
     {
       "id": "ep:7kbiedxs6r",
       "identity": [
@@ -1427,6 +2263,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:73964c3d25145578eefd0c472b74bc20132395f45b1e58b47665b1860d72a66e"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
       ]
     },
     {
@@ -1455,7 +2294,39 @@
           "detector": "js@0.3",
           "content_hash": "sha256:f198e84473539bbbc41dc2999a31f44ae8ff53e11fd8bd1de694406b95f16241"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
       ]
+    },
+    {
+      "id": "ep:7n3qjht6do",
+      "identity": [
+        "entry_point",
+        "http",
+        "ANY",
+        "/",
+        "server/go/server.go"
+      ],
+      "origin": "observed",
+      "process": "proc:xxpjvfutdf",
+      "protocol": "http",
+      "method": "ANY",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:xxpjvfutdf"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "go@0.1",
+          "content_hash": "sha256:7685033822f06ad5cb5f9084e28190de4c2a030cfeeaad841aa06803b9ee04f5"
+        }
+      ],
+      "reaches": []
     },
     {
       "id": "ep:af3xopia6f",
@@ -1483,7 +2354,39 @@
           "detector": "py@0.3",
           "content_hash": "sha256:8b568646d460cf23da02c57ba588171114ffcce7e78e83890d3b21bf233ac110"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
       ]
+    },
+    {
+      "id": "ep:b5ty6gvzxi",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "webhook",
+        "server/dotnet/Program.cs"
+      ],
+      "origin": "observed",
+      "process": "proc:cimmsjvudn",
+      "protocol": "http",
+      "method": "POST",
+      "path": "webhook",
+      "controls": [],
+      "call_chain": [
+        "proc:cimmsjvudn"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 90,
+          "end_line": 90,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:43de7ae5182b1b0e3e37cf5eae1fce8e024a1982cd7dd13273b67bd8b1a5c2e6"
+        }
+      ],
+      "reaches": []
     },
     {
       "id": "ep:b6pv24xutf",
@@ -1511,7 +2414,39 @@
           "detector": "py@0.3",
           "content_hash": "sha256:b21447d2a137e9b311897ea1b8321784c8c325447580fa2e3e13ed5b351d58de"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
       ]
+    },
+    {
+      "id": "ep:d3hxv3rw6q",
+      "identity": [
+        "entry_point",
+        "http",
+        "ANY",
+        "/create-checkout-session",
+        "server/go/server.go"
+      ],
+      "origin": "observed",
+      "process": "proc:q3wbnussyl",
+      "protocol": "http",
+      "method": "ANY",
+      "path": "/create-checkout-session",
+      "controls": [],
+      "call_chain": [
+        "proc:q3wbnussyl"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b02a77cfe284608d2b10bcd7e890b7c87dc237a4a448ab94aa4967dc80be3fb8"
+        }
+      ],
+      "reaches": []
     },
     {
       "id": "ep:dcumycpppc",
@@ -1539,6 +2474,9 @@
           "detector": "py@0.3",
           "content_hash": "sha256:572390578eee5e704d5578fa833226194e764d8d825ec95a19c7f2963682f51c"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
       ]
     },
     {
@@ -1567,7 +2505,66 @@
           "detector": "py@0.3",
           "content_hash": "sha256:37fe7f30efe30d761f278a93c8b1b9375e0407fd912facae7e0260e7ac29e398"
         }
-      ]
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:fgjkruilwb",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/checkout-session",
+        "server/dotnet/Program.cs"
+      ],
+      "origin": "observed",
+      "process": "proc:opbigmu2un",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/checkout-session",
+      "controls": [],
+      "call_chain": [
+        "proc:opbigmu2un"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 61,
+          "end_line": 61,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:86b209d5d8541b146ab366978605c990b533b10765ce8cc0cbe84025fe6755c0"
+        }
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:h7dobdenx2",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/create-checkout-session",
+        "server/dotnet/Program.cs"
+      ],
+      "origin": "observed",
+      "process": "proc:jkavoqdxxh",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/create-checkout-session",
+      "controls": [],
+      "call_chain": [
+        "proc:jkavoqdxxh"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:b8dbfb38bb59e06da1d272857613e845af4880b4202cb842aa2e6a3ee371df84"
+        }
+      ],
+      "reaches": []
     },
     {
       "id": "ep:ra445qt7ue",
@@ -1595,7 +2592,39 @@
           "detector": "js@0.3",
           "content_hash": "sha256:f5ec60bac369dd2e41907c55befeb52073cb3e4a78b83fa4d9973c610134d519"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
       ]
+    },
+    {
+      "id": "ep:sqsmwsrzky",
+      "identity": [
+        "entry_point",
+        "http",
+        "ANY",
+        "/config",
+        "server/go/server.go"
+      ],
+      "origin": "observed",
+      "process": "proc:nedbzx5vkz",
+      "protocol": "http",
+      "method": "ANY",
+      "path": "/config",
+      "controls": [],
+      "call_chain": [
+        "proc:nedbzx5vkz"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 43,
+          "end_line": 43,
+          "detector": "go@0.1",
+          "content_hash": "sha256:34d0ad204bde5bda7bc77f7b1999c4e27de32ad287a18a47986da94e888aceab"
+        }
+      ],
+      "reaches": []
     },
     {
       "id": "ep:vpxawcoco2",
@@ -1623,7 +2652,66 @@
           "detector": "js@0.3",
           "content_hash": "sha256:43e8c590ad647e6821e5326bd064e0716db69cb4f304ed9a1106194e8a11f0e6"
         }
-      ]
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:wmox42bjey",
+      "identity": [
+        "entry_point",
+        "http",
+        "ANY",
+        "/checkout-session",
+        "server/go/server.go"
+      ],
+      "origin": "observed",
+      "process": "proc:zora65zork",
+      "protocol": "http",
+      "method": "ANY",
+      "path": "/checkout-session",
+      "controls": [],
+      "call_chain": [
+        "proc:zora65zork"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 44,
+          "end_line": 44,
+          "detector": "go@0.1",
+          "content_hash": "sha256:768627ab6ea8c2df9dfa5c4a68381b4e5f9ede0b2c485e4d3c23fcf50b75aa02"
+        }
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:x75ynv27up",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/config",
+        "server/dotnet/Program.cs"
+      ],
+      "origin": "observed",
+      "process": "proc:swgk3awnt6",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/config",
+      "controls": [],
+      "call_chain": [
+        "proc:swgk3awnt6"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 48,
+          "end_line": 48,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:a0fddda795443dd473fc3cef27818422214b081d1cb017760d46a2c2542764a2"
+        }
+      ],
+      "reaches": []
     },
     {
       "id": "ep:xvleyqkcys",
@@ -1651,6 +2739,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:901207f81d5f309276bc5ad1595ff8c0bc8d2df02fc71e9073272e7f4f2a9b7e"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
       ]
     },
     {
@@ -1679,6 +2770,9 @@
           "detector": "py@0.3",
           "content_hash": "sha256:51bdaf191ac5b8707d3eaf44a97e7133b20507a0d91f7c16756f88293a89e689"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
       ]
     }
   ],
@@ -1731,6 +2825,29 @@
       ]
     },
     {
+      "id": "wk:ac5s5jhv7o",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:7n3qjht6do"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on ANY /",
+      "applies_to": [
+        "ep:7n3qjht6do"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "go@0.1",
+          "content_hash": "sha256:7685033822f06ad5cb5f9084e28190de4c2a030cfeeaad841aa06803b9ee04f5"
+        }
+      ]
+    },
+    {
       "id": "wk:atqrzzolcw",
       "identity": [
         "weakness",
@@ -1750,6 +2867,29 @@
           "end_line": 42,
           "detector": "py@0.3",
           "content_hash": "sha256:572390578eee5e704d5578fa833226194e764d8d825ec95a19c7f2963682f51c"
+        }
+      ]
+    },
+    {
+      "id": "wk:ayzd62u2mk",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:fgjkruilwb"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /checkout-session",
+      "applies_to": [
+        "ep:fgjkruilwb"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 61,
+          "end_line": 61,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:86b209d5d8541b146ab366978605c990b533b10765ce8cc0cbe84025fe6755c0"
         }
       ]
     },
@@ -1800,6 +2940,52 @@
       ]
     },
     {
+      "id": "wk:ez5bckbmhm",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:h7dobdenx2"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /create-checkout-session",
+      "applies_to": [
+        "ep:h7dobdenx2"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:b8dbfb38bb59e06da1d272857613e845af4880b4202cb842aa2e6a3ee371df84"
+        }
+      ]
+    },
+    {
+      "id": "wk:fe2qlgdys2",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:4oahfsjhc3"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on ANY /webhook",
+      "applies_to": [
+        "ep:4oahfsjhc3"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "go@0.1",
+          "content_hash": "sha256:5ee8bf12d80388c5a46446dbe207760ed59e70a77d8ca2e1abbb360ff0e13466"
+        }
+      ]
+    },
+    {
       "id": "wk:fo3qdr5ijf",
       "identity": [
         "weakness",
@@ -1819,6 +3005,29 @@
           "end_line": 15,
           "detector": "js@0.3",
           "content_hash": "sha256:98ec27e782a13a4a33b724f2fa2366fe27d61c042af64de021d2dff974d88570"
+        }
+      ]
+    },
+    {
+      "id": "wk:ii6f22uek5",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:b5ty6gvzxi"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST webhook",
+      "applies_to": [
+        "ep:b5ty6gvzxi"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 90,
+          "end_line": 90,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:43de7ae5182b1b0e3e37cf5eae1fce8e024a1982cd7dd13273b67bd8b1a5c2e6"
         }
       ]
     },
@@ -1869,6 +3078,29 @@
       ]
     },
     {
+      "id": "wk:ls3a7yt6ee",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:wmox42bjey"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on ANY /checkout-session",
+      "applies_to": [
+        "ep:wmox42bjey"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 44,
+          "end_line": 44,
+          "detector": "go@0.1",
+          "content_hash": "sha256:768627ab6ea8c2df9dfa5c4a68381b4e5f9ede0b2c485e4d3c23fcf50b75aa02"
+        }
+      ]
+    },
+    {
       "id": "wk:lturlozk2f",
       "identity": [
         "weakness",
@@ -1888,6 +3120,75 @@
           "end_line": 41,
           "detector": "js@0.3",
           "content_hash": "sha256:43e8c590ad647e6821e5326bd064e0716db69cb4f304ed9a1106194e8a11f0e6"
+        }
+      ]
+    },
+    {
+      "id": "wk:ou2ewbjrjm",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:d3hxv3rw6q"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on ANY /create-checkout-session",
+      "applies_to": [
+        "ep:d3hxv3rw6q"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b02a77cfe284608d2b10bcd7e890b7c87dc237a4a448ab94aa4967dc80be3fb8"
+        }
+      ]
+    },
+    {
+      "id": "wk:rtikw4f7fs",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:sqsmwsrzky"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on ANY /config",
+      "applies_to": [
+        "ep:sqsmwsrzky"
+      ],
+      "evidence": [
+        {
+          "path": "server/go/server.go",
+          "start_line": 43,
+          "end_line": 43,
+          "detector": "go@0.1",
+          "content_hash": "sha256:34d0ad204bde5bda7bc77f7b1999c4e27de32ad287a18a47986da94e888aceab"
+        }
+      ]
+    },
+    {
+      "id": "wk:sgtrb46zxr",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:x75ynv27up"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /config",
+      "applies_to": [
+        "ep:x75ynv27up"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 48,
+          "end_line": 48,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:a0fddda795443dd473fc3cef27818422214b081d1cb017760d46a2c2542764a2"
         }
       ]
     },
@@ -1984,7 +3285,60 @@
       ]
     }
   ],
-  "schemas": [],
+  "schemas": [
+    {
+      "id": "sch:b6mszc3efx",
+      "identity": [
+        "schema",
+        "server/python/server.py",
+        "request fields"
+      ],
+      "origin": "observed",
+      "name": "request fields",
+      "fields": [
+        {
+          "name": "sessionId",
+          "type": "request",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 53,
+          "end_line": 53,
+          "detector": "py@0.3",
+          "content_hash": "sha256:920fc60d1df8a31d3729185020f9d71a90b4371035de8976e825733d61024294"
+        }
+      ]
+    },
+    {
+      "id": "sch:kzktogzz2d",
+      "identity": [
+        "schema",
+        "server/node/server.js",
+        "request fields"
+      ],
+      "origin": "observed",
+      "name": "request fields",
+      "fields": [
+        {
+          "name": "sessionId",
+          "type": "request",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "server/node/server.js",
+          "start_line": 55,
+          "end_line": 55,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3de4ef39360c9908a5c16494438927543c892554a087932dca6020fa922c4ce9"
+        }
+      ]
+    }
+  ],
   "assets": [
     {
       "id": "asset:3jy2pc5xds",
@@ -2002,12 +3356,16 @@
       "held_by": [
         "proc:yvk7b5fv4l",
         "proc:6abckc6ruq",
-        "proc:hx52pjrcfp"
+        "proc:hx52pjrcfp",
+        "proc:3bx2sztjzm",
+        "proc:5rdibj3wtc"
       ],
       "processed_by": [
         "proc:yvk7b5fv4l",
         "proc:6abckc6ruq",
-        "proc:hx52pjrcfp"
+        "proc:hx52pjrcfp",
+        "proc:3bx2sztjzm",
+        "proc:5rdibj3wtc"
       ],
       "evidence": [
         {
@@ -2035,12 +3393,16 @@
       "held_by": [
         "proc:f3hlc73arh",
         "proc:6abckc6ruq",
-        "proc:hx52pjrcfp"
+        "proc:hx52pjrcfp",
+        "proc:3bx2sztjzm",
+        "proc:5rdibj3wtc"
       ],
       "processed_by": [
         "proc:f3hlc73arh",
         "proc:6abckc6ruq",
-        "proc:hx52pjrcfp"
+        "proc:hx52pjrcfp",
+        "proc:3bx2sztjzm",
+        "proc:5rdibj3wtc"
       ],
       "evidence": [
         {
@@ -2063,7 +3425,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "10 http entry points, 10 without a detected authn control",
+      "rationale": "19 http entry points, 19 without a detected authn control",
       "name": "Anonymous HTTP caller",
       "access": "anonymous",
       "entry": [
@@ -2158,21 +3520,25 @@
       "location": "bnd:fwz6ntc2oh",
       "entry": [
         "proc:2w7axhugkg",
+        "proc:3bx2sztjzm",
         "proc:3iekuswqcb",
+        "proc:5pzsfrm23b",
+        "proc:5rdibj3wtc",
         "proc:6abckc6ruq",
         "proc:6ntqdalddj",
         "proc:bjdbw6trkc",
+        "proc:cimmsjvudn",
         "proc:f3hlc73arh",
         "proc:hx52pjrcfp",
+        "proc:jkavoqdxxh",
         "proc:jxdndc7atr",
         "proc:mwtjgfacnc",
+        "proc:nedbzx5vkz",
         "proc:nzprilxlvp",
+        "proc:opbigmu2un",
         "proc:p55vaxl2qp",
-        "proc:s774cdt6a2",
-        "proc:ti2alnjshr",
-        "proc:va6muegoss",
-        "proc:ynulmyp3re",
-        "proc:yvk7b5fv4l"
+        "proc:q3wbnussyl",
+        "proc:s774cdt6a2"
       ],
       "passes_controls": [
         "authn",
@@ -2204,21 +3570,6 @@
     },
     {
       "kind": "unsupported_file",
-      "path": "server/dotnet/Program.cs",
-      "detail": "no recognizer for .cs: 3 file(s), e.g. server/dotnet/Program.cs, server/dotnet/Configuration/StripeOptions.cs, server/dotnet/Models/ConfigResponse.cs"
-    },
-    {
-      "kind": "unsupported_file",
-      "path": "server/go/server.go",
-      "detail": "no recognizer for .go: 1 file(s), e.g. server/go/server.go"
-    },
-    {
-      "kind": "unsupported_file",
-      "path": "server/java/src/main/java/com/stripe/sample/Server.java",
-      "detail": "no recognizer for .java: 1 file(s), e.g. server/java/src/main/java/com/stripe/sample/Server.java"
-    },
-    {
-      "kind": "unsupported_file",
       "path": "server/php/public/create-checkout-session.php",
       "detail": "no recognizer for .php: 4 file(s), e.g. server/php/public/create-checkout-session.php, server/php/public/get-checkout-session.php, server/php/public/shared.php"
     },
@@ -2230,13 +3581,19 @@
     {
       "kind": "unknown_attribute",
       "path": "server/node/server.js",
-      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port (port=4242, debug=True), 4242? Inbound flows are marked encryption=unknown until answered."
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port \"0.0.0.0:4242\", (port=4242, debug=True), 4242, ?? Inbound flows are marked encryption=unknown until answered."
     },
     {
       "kind": "unknown_attribute",
       "path": "client/html/success.js",
       "line": 5,
       "detail": "Question for the team: how is the link to Unresolved HTTP target authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "server/java/src/main/java/com/stripe/sample/Server.java",
+      "line": 24,
+      "detail": "Question for the team: how is the link to Stripe API authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)"
     }
   ]
 }

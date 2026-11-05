@@ -6,6 +6,9 @@
     "generated_from": "microservices-demo",
     "detectors": [
       "config@0.3",
+      "csharp@0.1",
+      "go@0.1",
+      "java@0.1",
       "js@0.3",
       "py@0.3"
     ],
@@ -47,8 +50,16 @@
       "kustomize/components/without-loadgenerator/delete-loadgenerator.patch.yaml": "sha256:6d9964a977266ee68852bad1e4818363cf12783e384449ab7d90fac5dc45fe22",
       "release/kubernetes-manifests.yaml": "sha256:ae3c20181c051048e6a5cae51fa530681affa4043ba60ae95d4f39e1262f2744",
       "src/adservice/Dockerfile": "sha256:298774ff7d60cc6d1d6f1e86602211ae7804e796ad430180e841a6c9e71c714d",
+      "src/adservice/src/main/java/hipstershop/AdService.java": "sha256:1123688864c953494dd2625abcd8123c0ce7c7c5a233a1676e2d901f80b6be50",
+      "src/adservice/src/main/java/hipstershop/AdServiceClient.java": "sha256:75b8b2fef3350c7831ac0cfb65d3b48f1c14e3b870c6017f44044e19ff48f2f4",
       "src/cartservice/src/Dockerfile": "sha256:2b79faa2ddc46ef1c4f1e480385991f1b1d10a7073119c9757b8dccfab6b9ceb",
+      "src/cartservice/src/Program.cs": "sha256:d3c4754449155f7522bd9f92c7c71836635523a32bb40a9a3fea6e9cb103a453",
+      "src/cartservice/src/Startup.cs": "sha256:84096b280c9435b2be1c19eb691556930199731a8cace52d517c1a3aeecac4ad",
+      "src/cartservice/src/cartstore/AlloyDBCartStore.cs": "sha256:35101d96d55d784904a9647fa57b53cffe7a169b6dbd2f233dfe3eeacc4066f2",
+      "src/cartservice/src/cartstore/RedisCartStore.cs": "sha256:266b42a97526d1790ddb308453bdf0bfb74cc398676b56a978d685db0e3c6ce6",
+      "src/cartservice/src/cartstore/SpannerCartStore.cs": "sha256:271fa47f361153564f9d68c2f68eddf2c4e9b342418c2c160a7d7c8b16a90187",
       "src/checkoutservice/Dockerfile": "sha256:78ae8494baa4b8efe062dd2afa2ed85265d31403c40e35e30c4a4527fd54585c",
+      "src/checkoutservice/main.go": "sha256:332ba3030a15489d6acb6aa4b7b74d37a2f90a6ed313d5b7738b245e56f38645",
       "src/currencyservice/Dockerfile": "sha256:a726f1bc990cbef1539cc8869a0076249733e6f0644e0053e9af58bdcd9b14a1",
       "src/currencyservice/package.json": "sha256:55ce04d89842901925939b12cfb9ec1a76cf36676fe72524de45f4c7bee62f8b",
       "src/currencyservice/server.js": "sha256:a454283f8c5f8c22cbb22a0b6ad5d8c2cef416572be3eb02396b8c67e7937c16",
@@ -56,17 +67,23 @@
       "src/emailservice/email_server.py": "sha256:942ad730bdc04007c84b7cda038b58b68498f344d8233a0384a40991ccd574f4",
       "src/emailservice/requirements.txt": "sha256:5b8b1c8de44d4b3afdd157e286b149926b2841063f339af0dfe40c25aeb84509",
       "src/frontend/Dockerfile": "sha256:6d689c6e16b6a5e5ee3b7aeda565d8eb606586bddbcbb3dae8696eb0d454b75b",
+      "src/frontend/handlers.go": "sha256:eb52a7173055e3a838587f706feab54c75fd519a2922c71d6504d1d03158fd51",
+      "src/frontend/main.go": "sha256:b3a1476945d381773b5d3359ec894592af28e7657db2d172b4f86f03e28b4545",
+      "src/frontend/rpc.go": "sha256:656d019a11d885bdeb02574d5cc9f7c941beab23de976474f6e0e3b2e96ba56d",
       "src/loadgenerator/requirements.txt": "sha256:fd656832b559a637618012fcd4678e5eae2862d76add97f0a47a2c03368381e1",
       "src/paymentservice/Dockerfile": "sha256:d44569cf2ba19a7bd98873e0999b60f7b848e8c21bc700895385682493699a44",
       "src/paymentservice/index.js": "sha256:d80c28bb507bead5518bcbba8189aec35b0a515a0a31ac20430ee6b80cef30c7",
       "src/paymentservice/package.json": "sha256:78eefae0e7f1d442b3c5696c402bed7884312ac24651378c23355f6e16e5a88e",
       "src/paymentservice/server.js": "sha256:5a343b700277f070977293f9dc5ff359405b8a8979478abaa957c60ca95a204d",
       "src/productcatalogservice/Dockerfile": "sha256:4546b6e3cf0212efbd2f76b7de0346ff8d35565aa377dceee10760f6ac3793bb",
+      "src/productcatalogservice/catalog_loader.go": "sha256:c37a169b74faf6be29f1ae9999ea2a22daf8f2d7dd676b4706459b36cf95a4a4",
+      "src/productcatalogservice/server.go": "sha256:2d52d47db2a00c743470b94b1f7b970b190e9d45f9e4b76d0a345f5d00272b5a",
       "src/recommendationservice/Dockerfile": "sha256:792d11800044f9f9121719a80353b434f464e6165aecf06f2032d47f33af94ec",
       "src/recommendationservice/client.py": "sha256:945db6a7ba6f96025c01079040b7a7d2d56c85dc968041415d1e2ecb5e57cdb6",
       "src/recommendationservice/recommendation_server.py": "sha256:15c411c2430cc975f6baa55da197821c61eaa39769e07fdbc23e56f202a3448a",
       "src/recommendationservice/requirements.txt": "sha256:779af6a62daf6659db2128fdabeaad9aa63052f3b600361a13a72b2ff96d2540",
       "src/shippingservice/Dockerfile": "sha256:1836b58267af43129b56f3efd32ab03cb2fd126a4805dc53d8d5a3a1109c5e4f",
+      "src/shippingservice/main.go": "sha256:397fdae43e9734e5392ea491b13357a67144beb4821c9d022c8b02eefc1cbccc",
       "src/shoppingassistantservice/Dockerfile": "sha256:a98d38990ea8622ccf726c512c0cf3ffb3a70bd8202f8634b03515ce806e817c",
       "src/shoppingassistantservice/requirements.txt": "sha256:fdb75dd4104b0a60bb67c86217e635003a130ae06ab89ade76c88da667340694",
       "src/shoppingassistantservice/shoppingassistantservice.py": "sha256:22d96c7c43c3f3dd51cb97a973eaa3d28bee7ff60345b5882bcf76d55c55fd4a"
@@ -74,26 +91,158 @@
   },
   "processes": [
     {
-      "id": "proc:4xkowmegqv",
+      "id": "proc:26oeqa2wel",
+      "identity": [
+        "process",
+        "src/cartservice/src/Startup.cs",
+        "gRPC CartService"
+      ],
+      "origin": "observed",
+      "name": "gRPC CartService handler",
+      "level": 2,
+      "module": "src/cartservice/src/Startup.cs",
+      "evidence": [
+        {
+          "path": "src/cartservice/src/Startup.cs",
+          "start_line": 74,
+          "end_line": 74,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:79af17c90a2011bf57bc568faaf91920bc8ece92ff51206f84b4451969b504c8"
+        }
+      ],
+      "parent": "proc:kr6mc2kkqn"
+    },
+    {
+      "id": "proc:2uufxv56vs",
+      "identity": [
+        "process",
+        "src/productcatalogservice/catalog_loader.go",
+        "catalog_loader"
+      ],
+      "origin": "observed",
+      "name": "catalog_loader",
+      "level": 2,
+      "module": "src/productcatalogservice/catalog_loader.go",
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/catalog_loader.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:b6e5416388241de549730a12e15eb81d4ad89d64c2760af04f8a2ddae80053d5"
+        }
+      ],
+      "parent": "proc:elkmlzs7bq"
+    },
+    {
+      "id": "proc:3pgv7tbhzj",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "GET /assistant"
+      ],
+      "origin": "observed",
+      "name": "GET /assistant handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 158,
+          "end_line": 158,
+          "detector": "go@0.1",
+          "content_hash": "sha256:6a105bfe8d55fb8ae5100892eca39f7bc8c937f392eee56046abb120cfd411b6"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:4gkhchyt7q",
+      "identity": [
+        "process",
+        "src/shippingservice/main.go",
+        "shippingservice"
+      ],
+      "origin": "observed",
+      "name": "shippingservice",
+      "level": 2,
+      "module": "src/shippingservice/main.go",
+      "evidence": [
+        {
+          "path": "src/shippingservice/main.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
+        }
+      ],
+      "parent": "proc:ymvedgp7hs"
+    },
+    {
+      "id": "proc:4lxewk2tkj",
+      "identity": [
+        "process",
+        "src/recommendationservice/recommendation_server.py",
+        "gRPC RecommendationService"
+      ],
+      "origin": "observed",
+      "name": "gRPC RecommendationService handler",
+      "level": 2,
+      "module": "src/recommendationservice/recommendation_server.py",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 143,
+          "end_line": 143,
+          "detector": "py@0.3",
+          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
+        }
+      ],
+      "parent": "proc:tcmo7ook3a"
+    },
+    {
+      "id": "proc:4wjsqi57wn",
       "identity": [
         "process",
         "src/paymentservice/server.js",
-        "gRPC hipsterShopPackage.PaymentService"
+        "gRPC Health"
       ],
       "origin": "observed",
-      "name": "gRPC hipsterShopPackage.PaymentService handler",
+      "name": "gRPC Health handler",
       "level": 2,
       "module": "src/paymentservice/server.js",
       "evidence": [
         {
           "path": "src/paymentservice/server.js",
-          "start_line": 88,
-          "end_line": 93,
+          "start_line": 95,
+          "end_line": 100,
           "detector": "js@0.3",
-          "content_hash": "sha256:d77061e6e55988934b3b4ebf6c5ee696bdb6ba43a588080eca4d0ee9d0417e6e"
+          "content_hash": "sha256:1769beccefcafdd451826a78a1e75c75273a784391df29c05bf59a6ded7934c7"
         }
       ],
       "parent": "proc:5pxrkmisyz"
+    },
+    {
+      "id": "proc:5lg2gl2pkb",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "POST /cart/checkout"
+      ],
+      "origin": "observed",
+      "name": "POST /cart/checkout handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 157,
+          "end_line": 157,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b5f213701c3b17fafd081a436add12825e038fcd91885a109eee0b3d0fd30589"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
     },
     {
       "id": "proc:5pxrkmisyz",
@@ -118,26 +267,48 @@
       "parent": "proc:n5rg6wc7ft"
     },
     {
-      "id": "proc:75jd4q6d4k",
+      "id": "proc:6iiijjfu7y",
       "identity": [
         "process",
-        "src/emailservice/email_server.py",
-        "gRPC HealthServicer"
+        "src/checkoutservice/main.go",
+        "gRPC Health"
       ],
       "origin": "observed",
-      "name": "gRPC HealthServicer handler",
+      "name": "gRPC Health handler",
       "level": 2,
-      "module": "src/emailservice/email_server.py",
+      "module": "src/checkoutservice/main.go",
       "evidence": [
         {
-          "path": "src/emailservice/email_server.py",
-          "start_line": 127,
-          "end_line": 127,
-          "detector": "py@0.3",
-          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+          "path": "src/checkoutservice/main.go",
+          "start_line": 144,
+          "end_line": 144,
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
         }
       ],
-      "parent": "proc:jubzq4h6n4"
+      "parent": "proc:cs5kcq4nvf"
+    },
+    {
+      "id": "proc:7c5cp5bkj5",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "POST /cart"
+      ],
+      "origin": "observed",
+      "name": "POST /cart handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 153,
+          "end_line": 153,
+          "detector": "go@0.1",
+          "content_hash": "sha256:bcf6edc40c98c0bb7be15d24c72f2309b0a76cade59d6ca29579ce0d51f549e2"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
     },
     {
       "id": "proc:7fw3xudbvr",
@@ -162,26 +333,268 @@
       "parent": "proc:msq7vvbu6s"
     },
     {
-      "id": "proc:gemltuekbd",
+      "id": "proc:7lgnx7lyho",
       "identity": [
         "process",
-        "src/currencyservice/server.js",
-        "gRPC healthProto.Health"
+        "src/emailservice/email_server.py",
+        "gRPC EmailService"
       ],
       "origin": "observed",
-      "name": "gRPC healthProto.Health handler",
+      "name": "gRPC EmailService handler",
       "level": 2,
-      "module": "src/currencyservice/server.js",
+      "module": "src/emailservice/email_server.py",
       "evidence": [
         {
-          "path": "src/currencyservice/server.js",
-          "start_line": 186,
-          "end_line": 186,
-          "detector": "js@0.3",
-          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
+          "path": "src/emailservice/email_server.py",
+          "start_line": 126,
+          "end_line": 126,
+          "detector": "py@0.3",
+          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
         }
       ],
-      "parent": "proc:kycw6edgj7"
+      "parent": "proc:jubzq4h6n4"
+    },
+    {
+      "id": "proc:7z56ywsylw",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "GET /cart"
+      ],
+      "origin": "observed",
+      "name": "GET /cart handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 152,
+          "end_line": 152,
+          "detector": "go@0.1",
+          "content_hash": "sha256:a9814b6efcb37723eccfbb001835ab233d95170e9d700cdf8f0f72c06a8854eb"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:bjfib2irxy",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "POST /bot"
+      ],
+      "origin": "observed",
+      "name": "POST /bot handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 163,
+          "end_line": 163,
+          "detector": "go@0.1",
+          "content_hash": "sha256:11d19845a9c1b413b16019c76f78bafa97cd20ec00fc3a8d7bf5cdff09dba15d"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:blh2elsftr",
+      "identity": [
+        "process",
+        "src/productcatalogservice/server.go",
+        "productcatalogservice"
+      ],
+      "origin": "observed",
+      "name": "productcatalogservice",
+      "level": 2,
+      "module": "src/productcatalogservice/server.go",
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
+        }
+      ],
+      "parent": "proc:elkmlzs7bq"
+    },
+    {
+      "id": "proc:blykk22cry",
+      "identity": [
+        "process",
+        "src/cartservice/src/Startup.cs",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "src/cartservice/src/Startup.cs",
+      "evidence": [
+        {
+          "path": "src/cartservice/src/Startup.cs",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:fe07ba916b20c2fa3a767140ed9ff4a78589d4eeea1811f9e85664f21e4fefce"
+        }
+      ],
+      "parent": "proc:kr6mc2kkqn"
+    },
+    {
+      "id": "proc:btwmiumndu",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "ANY /_healthz"
+      ],
+      "origin": "observed",
+      "name": "ANY /_healthz handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 161,
+          "end_line": 161,
+          "detector": "go@0.1",
+          "content_hash": "sha256:49cfefa81ab27c76e86488ef69979551d98adb5e5ba363bdd1035124bb3b8fac"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:cs5kcq4nvf",
+      "identity": [
+        "process",
+        "src/checkoutservice",
+        "checkoutservice"
+      ],
+      "origin": "observed",
+      "name": "checkoutservice",
+      "level": 1,
+      "module": "src/checkoutservice",
+      "evidence": [
+        {
+          "path": "src/checkoutservice/genproto/demo.pb.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:f87ba3be63973c32bf8c0561fb5838b777c1c483cfc621c22f1cd7b3e9c81694"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:elkmlzs7bq",
+      "identity": [
+        "process",
+        "src/productcatalogservice",
+        "productcatalogservice"
+      ],
+      "origin": "observed",
+      "name": "productcatalogservice",
+      "level": 1,
+      "module": "src/productcatalogservice",
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/catalog_loader.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:b6e5416388241de549730a12e15eb81d4ad89d64c2760af04f8a2ddae80053d5"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:fe6thnypcj",
+      "identity": [
+        "process",
+        "src/shippingservice/main.go",
+        "gRPC Health"
+      ],
+      "origin": "observed",
+      "name": "gRPC Health handler",
+      "level": 2,
+      "module": "src/shippingservice/main.go",
+      "evidence": [
+        {
+          "path": "src/shippingservice/main.go",
+          "start_line": 94,
+          "end_line": 94,
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
+        }
+      ],
+      "parent": "proc:ymvedgp7hs"
+    },
+    {
+      "id": "proc:fmusmjjgda",
+      "identity": [
+        "process",
+        "src/cartservice/src/cartstore/RedisCartStore.cs",
+        "RedisCartStore"
+      ],
+      "origin": "observed",
+      "name": "RedisCartStore",
+      "level": 2,
+      "module": "src/cartservice/src/cartstore/RedisCartStore.cs",
+      "evidence": [
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
+        }
+      ],
+      "parent": "proc:kr6mc2kkqn"
+    },
+    {
+      "id": "proc:gh6vmgtwje",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "GET /logout"
+      ],
+      "origin": "observed",
+      "name": "GET /logout handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 156,
+          "end_line": 156,
+          "detector": "go@0.1",
+          "content_hash": "sha256:dde9041a2f6a6536e9537d8037f126b19df29758704a988d34083ed3e2da227e"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:hdlp5jsex2",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "frontend"
+      ],
+      "origin": "observed",
+      "name": "frontend",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
     },
     {
       "id": "proc:hra4z6usi2",
@@ -204,6 +617,50 @@
         }
       ],
       "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:hv6jurubfm",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "ANY /robots.txt"
+      ],
+      "origin": "observed",
+      "name": "ANY /robots.txt handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 160,
+          "end_line": 160,
+          "detector": "go@0.1",
+          "content_hash": "sha256:802e878b77fa5b5b5d69e2127c77e27dbf3da8d482550052993983fbd817e8ae"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:j4kc4y2rtv",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "POST /setCurrency"
+      ],
+      "origin": "observed",
+      "name": "POST /setCurrency handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 155,
+          "end_line": 155,
+          "detector": "go@0.1",
+          "content_hash": "sha256:bb5c1df3c8aafa8ef27cbfb46af1630cf6b12a3dc26b64c30b830679d380aa4b"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
     },
     {
       "id": "proc:jubzq4h6n4",
@@ -250,48 +707,48 @@
       "parent": "proc:tcmo7ook3a"
     },
     {
-      "id": "proc:kg2rjsdf2w",
+      "id": "proc:kkmjsrcwpd",
       "identity": [
         "process",
-        "src/emailservice/email_server.py",
-        "gRPC EmailServiceServicer"
+        "src/checkoutservice/main.go",
+        "checkoutservice"
       ],
       "origin": "observed",
-      "name": "gRPC EmailServiceServicer handler",
+      "name": "checkoutservice",
       "level": 2,
-      "module": "src/emailservice/email_server.py",
+      "module": "src/checkoutservice/main.go",
       "evidence": [
         {
-          "path": "src/emailservice/email_server.py",
-          "start_line": 126,
-          "end_line": 126,
-          "detector": "py@0.3",
-          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
+          "path": "src/checkoutservice/main.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
         }
       ],
-      "parent": "proc:jubzq4h6n4"
+      "parent": "proc:cs5kcq4nvf"
     },
     {
-      "id": "proc:kjz4w7dkct",
+      "id": "proc:kr6mc2kkqn",
       "identity": [
         "process",
-        "src/recommendationservice/recommendation_server.py",
-        "gRPC RecommendationServiceServicer"
+        "src/cartservice",
+        "cartservice"
       ],
       "origin": "observed",
-      "name": "gRPC RecommendationServiceServicer handler",
-      "level": 2,
-      "module": "src/recommendationservice/recommendation_server.py",
+      "name": "cartservice",
+      "level": 1,
+      "module": "src/cartservice",
       "evidence": [
         {
-          "path": "src/recommendationservice/recommendation_server.py",
-          "start_line": 143,
-          "end_line": 143,
-          "detector": "py@0.3",
-          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
+          "path": "src/cartservice/src/Program.cs",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:f87ba3be63973c32bf8c0561fb5838b777c1c483cfc621c22f1cd7b3e9c81694"
         }
       ],
-      "parent": "proc:tcmo7ook3a"
+      "parent": "proc:n5rg6wc7ft"
     },
     {
       "id": "proc:krvoyrn5l7",
@@ -381,6 +838,182 @@
       ]
     },
     {
+      "id": "proc:o626ryimzw",
+      "identity": [
+        "process",
+        "src/frontend/rpc.go",
+        "rpc"
+      ],
+      "origin": "observed",
+      "name": "rpc",
+      "level": 2,
+      "module": "src/frontend/rpc.go",
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:og256x4wab",
+      "identity": [
+        "process",
+        "src/checkoutservice/main.go",
+        "gRPC CheckoutService"
+      ],
+      "origin": "observed",
+      "name": "gRPC CheckoutService handler",
+      "level": 2,
+      "module": "src/checkoutservice/main.go",
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 142,
+          "end_line": 142,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b0ac877798adff59140285ebdac0501a7f188f1bc1de8dc6fbf137bbfd221eb5"
+        }
+      ],
+      "parent": "proc:cs5kcq4nvf"
+    },
+    {
+      "id": "proc:oi33662qnj",
+      "identity": [
+        "process",
+        "src/paymentservice/server.js",
+        "gRPC PaymentService"
+      ],
+      "origin": "observed",
+      "name": "gRPC PaymentService handler",
+      "level": 2,
+      "module": "src/paymentservice/server.js",
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 88,
+          "end_line": 93,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d77061e6e55988934b3b4ebf6c5ee696bdb6ba43a588080eca4d0ee9d0417e6e"
+        }
+      ],
+      "parent": "proc:5pxrkmisyz"
+    },
+    {
+      "id": "proc:ol6mertuou",
+      "identity": [
+        "process",
+        "src/currencyservice/server.js",
+        "gRPC Health"
+      ],
+      "origin": "observed",
+      "name": "gRPC Health handler",
+      "level": 2,
+      "module": "src/currencyservice/server.js",
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 186,
+          "end_line": 186,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
+        }
+      ],
+      "parent": "proc:kycw6edgj7"
+    },
+    {
+      "id": "proc:otewwpxrsv",
+      "identity": [
+        "process",
+        "src/adservice/src/main/java/hipstershop/AdService.java",
+        "gRPC AdService"
+      ],
+      "origin": "observed",
+      "name": "gRPC AdService handler",
+      "level": 2,
+      "module": "src/adservice/src/main/java/hipstershop/AdService.java",
+      "evidence": [
+        {
+          "path": "src/adservice/src/main/java/hipstershop/AdService.java",
+          "start_line": 59,
+          "end_line": 59,
+          "detector": "java@0.1",
+          "content_hash": "sha256:1369a05a65f8366cb7ad43dd9d37f125bf53b21523ec2f00fe7c43ae4c673b8f"
+        }
+      ],
+      "parent": "proc:qprs6ysqdp"
+    },
+    {
+      "id": "proc:pbos6hquuo",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "GET /product/{id}"
+      ],
+      "origin": "observed",
+      "name": "GET /product/{id} handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "go@0.1",
+          "content_hash": "sha256:9d8d2c67abfb3f9e7a98b92f476c17c4dbdf0c3a6f6f071b7989b6de9b892fc0"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:pmttplr5qk",
+      "identity": [
+        "process",
+        "src/frontend",
+        "frontend"
+      ],
+      "origin": "observed",
+      "name": "frontend",
+      "level": 1,
+      "module": "src/frontend",
+      "evidence": [
+        {
+          "path": "src/frontend/deployment_details.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:512843855fcc92a51c810b1b58e0731c01eac9a6a23c157bfa02aad71edffbe7"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:qprs6ysqdp",
+      "identity": [
+        "process",
+        "src/adservice",
+        "adservice"
+      ],
+      "origin": "observed",
+      "name": "adservice",
+      "level": 1,
+      "module": "src/adservice",
+      "evidence": [
+        {
+          "path": "src/adservice/src/main/java/hipstershop/AdService.java",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
       "id": "proc:ro7fqscxno",
       "identity": [
         "process",
@@ -401,6 +1034,72 @@
         }
       ],
       "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:s5oe5fhitn",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "POST /cart/empty"
+      ],
+      "origin": "observed",
+      "name": "POST /cart/empty handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 154,
+          "end_line": 154,
+          "detector": "go@0.1",
+          "content_hash": "sha256:63e9965dc161cb3adad4ed848018c2a3486778ad1d45d2747744c4c9574ec76b"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:s5vzaryqiv",
+      "identity": [
+        "process",
+        "src/frontend/handlers.go",
+        "handlers"
+      ],
+      "origin": "observed",
+      "name": "handlers",
+      "level": 2,
+      "module": "src/frontend/handlers.go",
+      "evidence": [
+        {
+          "path": "src/frontend/handlers.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:sos5aztwo4",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "GET /product-meta/{ids}"
+      ],
+      "origin": "observed",
+      "name": "GET /product-meta/{ids} handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 162,
+          "end_line": 162,
+          "detector": "go@0.1",
+          "content_hash": "sha256:f71338d8f31a6ef9f7d22d70f109f01e8e9065af56cefb3d45fb1cf0b76c056f"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
     },
     {
       "id": "proc:t6witxqxz4",
@@ -447,14 +1146,124 @@
       "parent": "proc:n5rg6wc7ft"
     },
     {
-      "id": "proc:v4qfaty2kb",
+      "id": "proc:vbkvyhzo7y",
+      "identity": [
+        "process",
+        "src/recommendationservice/recommendation_server.py",
+        "gRPC Health"
+      ],
+      "origin": "observed",
+      "name": "gRPC Health handler",
+      "level": 2,
+      "module": "src/recommendationservice/recommendation_server.py",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 144,
+          "end_line": 144,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ],
+      "parent": "proc:tcmo7ook3a"
+    },
+    {
+      "id": "proc:vpfsrd2gk5",
+      "identity": [
+        "process",
+        "src/frontend/main.go",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "src/frontend/main.go",
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 150,
+          "end_line": 150,
+          "detector": "go@0.1",
+          "content_hash": "sha256:135fc4471d5e5a593acd784ccd7383662ac0801fa676a4be06a56332ebb94590"
+        }
+      ],
+      "parent": "proc:pmttplr5qk"
+    },
+    {
+      "id": "proc:vrmaexfpo6",
+      "identity": [
+        "process",
+        "src/productcatalogservice/server.go",
+        "gRPC ProductCatalogService"
+      ],
+      "origin": "observed",
+      "name": "gRPC ProductCatalogService handler",
+      "level": 2,
+      "module": "src/productcatalogservice/server.go",
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 143,
+          "end_line": 143,
+          "detector": "go@0.1",
+          "content_hash": "sha256:042c020e250f64bf5b9a491f4890920d44f519d15deadebe56c56161d64f2446"
+        }
+      ],
+      "parent": "proc:elkmlzs7bq"
+    },
+    {
+      "id": "proc:wmkpueuoua",
+      "identity": [
+        "process",
+        "src/shippingservice/main.go",
+        "gRPC ShippingService"
+      ],
+      "origin": "observed",
+      "name": "gRPC ShippingService handler",
+      "level": 2,
+      "module": "src/shippingservice/main.go",
+      "evidence": [
+        {
+          "path": "src/shippingservice/main.go",
+          "start_line": 92,
+          "end_line": 92,
+          "detector": "go@0.1",
+          "content_hash": "sha256:a9f918824d6ba46adc0215555ddfd14b27b902d5c14c0722d72928836b9ca84b"
+        }
+      ],
+      "parent": "proc:ymvedgp7hs"
+    },
+    {
+      "id": "proc:x3mugobsva",
+      "identity": [
+        "process",
+        "src/emailservice/email_server.py",
+        "gRPC Health"
+      ],
+      "origin": "observed",
+      "name": "gRPC Health handler",
+      "level": 2,
+      "module": "src/emailservice/email_server.py",
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 127,
+          "end_line": 127,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ],
+      "parent": "proc:jubzq4h6n4"
+    },
+    {
+      "id": "proc:xzwr7xvmbg",
       "identity": [
         "process",
         "src/currencyservice/server.js",
-        "gRPC shopProto.CurrencyService"
+        "gRPC CurrencyService"
       ],
       "origin": "observed",
-      "name": "gRPC shopProto.CurrencyService handler",
+      "name": "gRPC CurrencyService handler",
       "level": 2,
       "module": "src/currencyservice/server.js",
       "evidence": [
@@ -469,26 +1278,70 @@
       "parent": "proc:kycw6edgj7"
     },
     {
-      "id": "proc:vtfanv77tp",
+      "id": "proc:ykerzgiqo6",
       "identity": [
         "process",
-        "src/recommendationservice/recommendation_server.py",
-        "gRPC HealthServicer"
+        "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
+        "AdServiceClient"
       ],
       "origin": "observed",
-      "name": "gRPC HealthServicer handler",
+      "name": "AdServiceClient",
       "level": 2,
-      "module": "src/recommendationservice/recommendation_server.py",
+      "module": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
       "evidence": [
         {
-          "path": "src/recommendationservice/recommendation_server.py",
-          "start_line": 144,
-          "end_line": 144,
-          "detector": "py@0.3",
-          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+          "path": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
-      "parent": "proc:tcmo7ook3a"
+      "parent": "proc:qprs6ysqdp"
+    },
+    {
+      "id": "proc:ykqatm4kms",
+      "identity": [
+        "process",
+        "src/productcatalogservice/server.go",
+        "gRPC Health"
+      ],
+      "origin": "observed",
+      "name": "gRPC Health handler",
+      "level": 2,
+      "module": "src/productcatalogservice/server.go",
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 145,
+          "end_line": 145,
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
+        }
+      ],
+      "parent": "proc:elkmlzs7bq"
+    },
+    {
+      "id": "proc:ymvedgp7hs",
+      "identity": [
+        "process",
+        "src/shippingservice",
+        "shippingservice"
+      ],
+      "origin": "observed",
+      "name": "shippingservice",
+      "level": 1,
+      "module": "src/shippingservice",
+      "evidence": [
+        {
+          "path": "src/shippingservice/genproto/demo.pb.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:f87ba3be63973c32bf8c0561fb5838b777c1c483cfc621c22f1cd7b3e9c81694"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
     },
     {
       "id": "proc:yru6p2ypcz",
@@ -511,28 +1364,6 @@
         }
       ],
       "parent": "proc:jubzq4h6n4"
-    },
-    {
-      "id": "proc:zf7chersix",
-      "identity": [
-        "process",
-        "src/paymentservice/server.js",
-        "gRPC healthPackage.Health"
-      ],
-      "origin": "observed",
-      "name": "gRPC healthPackage.Health handler",
-      "level": 2,
-      "module": "src/paymentservice/server.js",
-      "evidence": [
-        {
-          "path": "src/paymentservice/server.js",
-          "start_line": 95,
-          "end_line": 100,
-          "detector": "js@0.3",
-          "content_hash": "sha256:1769beccefcafdd451826a78a1e75c75273a784391df29c05bf59a6ded7934c7"
-        }
-      ],
-      "parent": "proc:5pxrkmisyz"
     }
   ],
   "entities": [
@@ -560,6 +1391,27 @@
           "end_line": 38,
           "detector": "py@0.3",
           "content_hash": "sha256:23076a1747755067cdd987192d93bc4b7a3166ab638431923332f7ec36714c2d"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 40,
+          "end_line": 40,
+          "detector": "go@0.1",
+          "content_hash": "sha256:2aa1d2fb16c97110b2cd5fb214314c2a33187691a0a8c40ddedc436bbe151c83"
+        },
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.1",
+          "content_hash": "sha256:2aa1d2fb16c97110b2cd5fb214314c2a33187691a0a8c40ddedc436bbe151c83"
+        },
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "go@0.1",
+          "content_hash": "sha256:2aa1d2fb16c97110b2cd5fb214314c2a33187691a0a8c40ddedc436bbe151c83"
         }
       ],
       "sdk_service": "OTLP collector"
@@ -610,6 +1462,20 @@
           "end_line": 66,
           "detector": "py@0.3",
           "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
+        },
+        {
+          "path": "src/cartservice/src/Startup.cs",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:fe07ba916b20c2fa3a767140ed9ff4a78589d4eeea1811f9e85664f21e4fefce"
+        },
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 150,
+          "end_line": 150,
+          "detector": "go@0.1",
+          "content_hash": "sha256:135fc4471d5e5a593acd784ccd7383662ac0801fa676a4be06a56332ebb94590"
         }
       ]
     },
@@ -697,26 +1563,46 @@
       "sdk_service": "Google Cloud APIs"
     },
     {
-      "id": "ext:xbo3iznjz7",
+      "id": "ext:wnxd2gtvsa",
       "identity": [
         "external",
-        "productcatalogservice service",
+        "Google Cloud Profiler",
         "outbound"
       ],
       "origin": "observed",
-      "name": "productcatalogservice service",
+      "name": "Google Cloud Profiler",
       "kind": "system",
       "evidence": [
         {
-          "path": "src/recommendationservice/recommendation_server.py",
-          "start_line": 135,
-          "end_line": 135,
-          "detector": "py@0.3",
-          "content_hash": "sha256:0a72ce5fbabdef61ce08466b3e88df8d787c4cb8c68ab84fee79fe6b14376ca3"
+          "path": "src/checkoutservice/main.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
+        },
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
+        },
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
+        },
+        {
+          "path": "src/shippingservice/main.go",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
         }
       ],
-      "host": "productcatalogservice",
-      "sdk_service": "productcatalogservice service"
+      "sdk_service": "Google Cloud Profiler"
     },
     {
       "id": "ext:xwfpv7zyiv",
@@ -735,6 +1621,20 @@
           "end_line": 33,
           "detector": "py@0.3",
           "content_hash": "sha256:262c8fc45da46022baf51033e17f4f79430110a2b8527e3372dad185893f76b6"
+        },
+        {
+          "path": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "java@0.1",
+          "content_hash": "sha256:3d3eee7ff0680b1a4d5f145b8eb078c1d9cea42abe939f884ae0ac36f41778fe"
+        },
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 211,
+          "end_line": 211,
+          "detector": "go@0.1",
+          "content_hash": "sha256:8c07db29b9774e12bf4707e0504a82d35558915b81b185b5ef70e12fb1df40de"
         }
       ],
       "sdk_service": "Unresolved grpc target"
@@ -742,19 +1642,82 @@
   ],
   "stores": [
     {
-      "id": "store:xloe757iea",
+      "id": "store:ctwgzvsuvh",
       "identity": [
         "store",
-        "redis",
-        "redis-cart"
+        "postgres",
+        ""
       ],
       "origin": "observed",
-      "name": "Redis: redis-cart",
-      "technology": "redis",
-      "logical_name": "redis-cart",
+      "name": "Postgres",
+      "technology": "postgres",
       "data_classes": [],
       "encryption_at_rest": "unknown",
       "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 41,
+          "end_line": 41,
+          "detector": "py@0.3",
+          "content_hash": "sha256:d03a5485d54ecc96c3b50c490595ebe585897df923b4e183e2477728f56c3b91"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 91,
+          "end_line": 91,
+          "detector": "py@0.3",
+          "content_hash": "sha256:6f3adcb89a6a019da2b8449d7cb23083eb339e4c264b3e869bd67308eaad8cda"
+        },
+        {
+          "path": "src/productcatalogservice/catalog_loader.go",
+          "start_line": 133,
+          "end_line": 133,
+          "detector": "go@0.1",
+          "content_hash": "sha256:13d178d48ad3e6510b0330de5d2ae94233ff7b127e52a9eee79392471da759dd"
+        }
+      ]
+    },
+    {
+      "id": "store:uvgsvq5qlm",
+      "identity": [
+        "store",
+        "redis",
+        ""
+      ],
+      "origin": "observed",
+      "name": "Redis",
+      "technology": "redis",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 40,
+          "end_line": 40,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:abd8e7dad801c81b4a494844e1f5d7bc12d9c005a9c536e4f915ddbc2d34670c"
+        },
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 60,
+          "end_line": 60,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:c7434331ff367b56dd9cdfbcf39c012f546734bb0c4033fe8289c1cdcd9767be"
+        },
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 75,
+          "end_line": 75,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:c7434331ff367b56dd9cdfbcf39c012f546734bb0c4033fe8289c1cdcd9767be"
+        },
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 90,
+          "end_line": 90,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:abd8e7dad801c81b4a494844e1f5d7bc12d9c005a9c536e4f915ddbc2d34670c"
+        },
         {
           "path": "kubernetes-manifests/cartservice.yaml",
           "start_line": 92,
@@ -768,19 +1731,38 @@
           "end_line": 92,
           "detector": "config@0.3",
           "content_hash": "sha256:8f5f2f711a71babb1a269ec21fab70fa7bc352431095e80fc4781f6ce0464f83"
-        },
-        {
-          "path": "release/kubernetes-manifests.yaml",
-          "start_line": 842,
-          "end_line": 842,
-          "detector": "config@0.3",
-          "content_hash": "sha256:8f5f2f711a71babb1a269ec21fab70fa7bc352431095e80fc4781f6ce0464f83"
         }
-      ],
-      "description": "declared as service 'redis-cart' in kubernetes-manifests/cartservice.yaml"
+      ]
     }
   ],
   "boundaries": [
+    {
+      "id": "bnd:3nvgex5y4a",
+      "identity": [
+        "boundary",
+        "container",
+        "productcatalogservice"
+      ],
+      "origin": "observed",
+      "name": "container: productcatalogservice",
+      "kind": "container",
+      "contains": [
+        "proc:2uufxv56vs",
+        "proc:blh2elsftr",
+        "proc:elkmlzs7bq",
+        "proc:vrmaexfpo6",
+        "proc:ykqatm4kms"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/productcatalogservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:774e965b30bf4e6cacd7c8e92863a5e2c478083e58d9bf2f4e243d814af5d2a7"
+        }
+      ]
+    },
     {
       "id": "bnd:57uwq6gika",
       "identity": [
@@ -843,9 +1825,9 @@
       "name": "container: paymentservice",
       "kind": "container",
       "contains": [
-        "proc:4xkowmegqv",
+        "proc:4wjsqi57wn",
         "proc:5pxrkmisyz",
-        "proc:zf7chersix"
+        "proc:oi33662qnj"
       ],
       "evidence": [
         {
@@ -868,11 +1850,11 @@
       "name": "container: recommendationservice",
       "kind": "container",
       "contains": [
+        "proc:4lxewk2tkj",
         "proc:k6rhwk7raj",
-        "proc:kjz4w7dkct",
         "proc:krvoyrn5l7",
         "proc:tcmo7ook3a",
-        "proc:vtfanv77tp"
+        "proc:vbkvyhzo7y"
       ],
       "evidence": [
         {
@@ -881,6 +1863,83 @@
           "end_line": 18,
           "detector": "config@0.3",
           "content_hash": "sha256:ea61f7015c640da596d6662a4d0ed4e70be00ced035fc7b98def833124a4e031"
+        }
+      ]
+    },
+    {
+      "id": "bnd:fpjzao3hbx",
+      "identity": [
+        "boundary",
+        "container",
+        "shippingservice"
+      ],
+      "origin": "observed",
+      "name": "container: shippingservice",
+      "kind": "container",
+      "contains": [
+        "proc:4gkhchyt7q",
+        "proc:fe6thnypcj",
+        "proc:wmkpueuoua",
+        "proc:ymvedgp7hs"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/shippingservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:63e96b0f80a20618bf1238f8d4d8e2e1ab83787a6297d381ab21ffbd3497bacf"
+        }
+      ]
+    },
+    {
+      "id": "bnd:frkw6dgzr7",
+      "identity": [
+        "boundary",
+        "container",
+        "cartservice"
+      ],
+      "origin": "observed",
+      "name": "container: cartservice",
+      "kind": "container",
+      "contains": [
+        "proc:26oeqa2wel",
+        "proc:blykk22cry",
+        "proc:fmusmjjgda",
+        "proc:kr6mc2kkqn"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/cartservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:9a6abd46e6a6b27ba398fe7a45b4a10c55eff387a78d14084bfafe1b3e3a03c5"
+        }
+      ]
+    },
+    {
+      "id": "bnd:fxo55nvvpf",
+      "identity": [
+        "boundary",
+        "container",
+        "adservice"
+      ],
+      "origin": "observed",
+      "name": "container: adservice",
+      "kind": "container",
+      "contains": [
+        "proc:otewwpxrsv",
+        "proc:qprs6ysqdp",
+        "proc:ykerzgiqo6"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/adservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:cf6c49ffca2f7cf93c46d2d1a27a603960428bbc77f33b4d0827e1d91d710242"
         }
       ]
     },
@@ -908,6 +1967,32 @@
       ]
     },
     {
+      "id": "bnd:njyecf7fkf",
+      "identity": [
+        "boundary",
+        "container",
+        "checkoutservice"
+      ],
+      "origin": "observed",
+      "name": "container: checkoutservice",
+      "kind": "container",
+      "contains": [
+        "proc:6iiijjfu7y",
+        "proc:cs5kcq4nvf",
+        "proc:kkmjsrcwpd",
+        "proc:og256x4wab"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/checkoutservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:aec4b148062537e52edc7e78d3f9ac85191674ec4fe07352e7198b21fcb2393b"
+        }
+      ]
+    },
+    {
       "id": "bnd:owyzrxhpvm",
       "identity": [
         "boundary",
@@ -918,9 +2003,9 @@
       "name": "container: emailservice",
       "kind": "container",
       "contains": [
-        "proc:75jd4q6d4k",
+        "proc:7lgnx7lyho",
         "proc:jubzq4h6n4",
-        "proc:kg2rjsdf2w",
+        "proc:x3mugobsva",
         "proc:yru6p2ypcz"
       ],
       "evidence": [
@@ -944,9 +2029,9 @@
       "name": "container: currencyservice",
       "kind": "container",
       "contains": [
-        "proc:gemltuekbd",
         "proc:kycw6edgj7",
-        "proc:v4qfaty2kb"
+        "proc:ol6mertuou",
+        "proc:xzwr7xvmbg"
       ],
       "evidence": [
         {
@@ -957,9 +2042,290 @@
           "content_hash": "sha256:b93dd47a87b5bd5cee911534216cbb93859b947642f8199f6bfa72508db63a3f"
         }
       ]
+    },
+    {
+      "id": "bnd:yy7r6ylpud",
+      "identity": [
+        "boundary",
+        "container",
+        "frontend"
+      ],
+      "origin": "observed",
+      "name": "container: frontend",
+      "kind": "container",
+      "contains": [
+        "proc:3pgv7tbhzj",
+        "proc:5lg2gl2pkb",
+        "proc:7c5cp5bkj5",
+        "proc:7z56ywsylw",
+        "proc:bjfib2irxy",
+        "proc:btwmiumndu",
+        "proc:gh6vmgtwje",
+        "proc:hdlp5jsex2",
+        "proc:hv6jurubfm",
+        "proc:j4kc4y2rtv",
+        "proc:o626ryimzw",
+        "proc:pbos6hquuo",
+        "proc:pmttplr5qk",
+        "proc:s5oe5fhitn",
+        "proc:s5vzaryqiv",
+        "proc:sos5aztwo4",
+        "proc:vpfsrd2gk5"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/frontend.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:cf1654f90e3a3c99fe11b0aa1378998da46aed036eaac5b7041d32c9b29bbfa3"
+        }
+      ]
     }
   ],
   "flows": [
+    {
+      "id": "flow:244aq3l5ci",
+      "identity": [
+        "flow",
+        "proc:o626ryimzw",
+        "proc:kycw6edgj7",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:o626ryimzw",
+      "target": "proc:kycw6edgj7",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "grpc CurrencyService currencyservice",
+      "crosses_boundary": [
+        "bnd:seoeqgkskf",
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.1",
+          "content_hash": "sha256:9e88a6e25c353da062d291e6d6d72126fb11e4057f005727962e79947327e03e"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 81,
+          "end_line": 81,
+          "detector": "go@0.1",
+          "content_hash": "sha256:a49f3b872a79c6a167b6a858f097bffca2c2d682e018d39e635a5ea2d6b8e8ad"
+        }
+      ]
+    },
+    {
+      "id": "flow:24i7cyavnx",
+      "identity": [
+        "flow",
+        "proc:kkmjsrcwpd",
+        "proc:kr6mc2kkqn",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:kkmjsrcwpd",
+      "target": "proc:kr6mc2kkqn",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc CartService cartservice",
+      "crosses_boundary": [
+        "bnd:frkw6dgzr7",
+        "bnd:njyecf7fkf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 325,
+          "end_line": 325,
+          "detector": "go@0.1",
+          "content_hash": "sha256:10bec12e26a9888dde26ecd7816da95f3acaf3ea10585e74e94d49e036729e58"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 333,
+          "end_line": 333,
+          "detector": "go@0.1",
+          "content_hash": "sha256:2265449dcaf4c68019f285d56990f115a1895d7657a810b5d00bdc3cbc56304e"
+        }
+      ]
+    },
+    {
+      "id": "flow:2croxq6qos",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:7lgnx7lyho",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:7lgnx7lyho",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc EmailService",
+      "crosses_boundary": [
+        "bnd:owyzrxhpvm"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 126,
+          "end_line": 126,
+          "detector": "py@0.3",
+          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
+        }
+      ]
+    },
+    {
+      "id": "flow:2ha2hnkpxh",
+      "identity": [
+        "flow",
+        "proc:kkmjsrcwpd",
+        "proc:elkmlzs7bq",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:kkmjsrcwpd",
+      "target": "proc:elkmlzs7bq",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc ProductCatalogService productcatalogservice",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a",
+        "bnd:njyecf7fkf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 341,
+          "end_line": 341,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b94e40c6cc3da27732a836db07f243632e91584d9238a609eed9123646234807"
+        }
+      ]
+    },
+    {
+      "id": "flow:2yhhsi64ik",
+      "identity": [
+        "flow",
+        "proc:7z56ywsylw",
+        "proc:o626ryimzw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:7z56ywsylw",
+      "target": "proc:o626ryimzw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls convertCurrency",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:8fad6235a3d62b8a10738a0f1b0921b14895478804213867918a0140fb2d9fa3",
+          "symbol": "src/frontend/rpc.go::convertCurrency"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 57,
+          "end_line": 57,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5fb91a4d5851c6feff353bf667030fbe2d0cf8428ed6c2a37836b3454ac91b9d",
+          "symbol": "src/frontend/rpc.go::getCart"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
+          "symbol": "src/frontend/rpc.go::getCurrencies"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 51,
+          "end_line": 51,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
+          "symbol": "src/frontend/rpc.go::getProduct"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 99,
+          "end_line": 99,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:f68d1352bb25a3ad613ddeb1bdac77a108bd41a40b9aa7f514d6323f88978faf",
+          "symbol": "src/frontend/rpc.go::getRecommendations"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 87,
+          "end_line": 87,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:7889f5f1a21e7e20bd269c72e0c9cb26cf609a14eafa7c939e1df6c888b31fc7",
+          "symbol": "src/frontend/rpc.go::getShippingQuote"
+        }
+      ]
+    },
+    {
+      "id": "flow:36efeygp2l",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:4lxewk2tkj",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:4lxewk2tkj",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc RecommendationService",
+      "crosses_boundary": [
+        "bnd:c76yxdhq2j"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 143,
+          "end_line": 143,
+          "detector": "py@0.3",
+          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
+        }
+      ]
+    },
     {
       "id": "flow:3ihcvm4tmw",
       "identity": [
@@ -999,22 +2365,457 @@
       ]
     },
     {
-      "id": "flow:aibcboawrb",
+      "id": "flow:4emq3vwoqp",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:7c5cp5bkj5",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:7c5cp5bkj5",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /cart",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 153,
+          "end_line": 153,
+          "detector": "go@0.1",
+          "content_hash": "sha256:bcf6edc40c98c0bb7be15d24c72f2309b0a76cade59d6ca29579ce0d51f549e2"
+        }
+      ]
+    },
+    {
+      "id": "flow:4o334k6enx",
+      "identity": [
+        "flow",
+        "proc:blh2elsftr",
+        "ext:5glqr7zsb5",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:blh2elsftr",
+      "target": "ext:5glqr7zsb5",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "go@0.1",
+          "content_hash": "sha256:2aa1d2fb16c97110b2cd5fb214314c2a33187691a0a8c40ddedc436bbe151c83"
+        }
+      ]
+    },
+    {
+      "id": "flow:56hkzaq6od",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:vpfsrd2gk5",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:vpfsrd2gk5",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 150,
+          "end_line": 150,
+          "detector": "go@0.1",
+          "content_hash": "sha256:135fc4471d5e5a593acd784ccd7383662ac0801fa676a4be06a56332ebb94590"
+        }
+      ]
+    },
+    {
+      "id": "flow:5iear7dzb6",
+      "identity": [
+        "flow",
+        "proc:hdlp5jsex2",
+        "ext:5glqr7zsb5",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:hdlp5jsex2",
+      "target": "ext:5glqr7zsb5",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.1",
+          "content_hash": "sha256:2aa1d2fb16c97110b2cd5fb214314c2a33187691a0a8c40ddedc436bbe151c83"
+        }
+      ]
+    },
+    {
+      "id": "flow:6bhxi7qp2x",
+      "identity": [
+        "flow",
+        "proc:kkmjsrcwpd",
+        "proc:5pxrkmisyz",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:kkmjsrcwpd",
+      "target": "proc:5pxrkmisyz",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc PaymentService paymentservice",
+      "crosses_boundary": [
+        "bnd:blo2xu3bom",
+        "bnd:njyecf7fkf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 370,
+          "end_line": 370,
+          "detector": "go@0.1",
+          "content_hash": "sha256:0c175b63f37b1c67ce8bfa771ba86ef9baa2f70f54ec865d789f8130cf933990"
+        }
+      ]
+    },
+    {
+      "id": "flow:7lt66aqly2",
+      "identity": [
+        "flow",
+        "proc:kkmjsrcwpd",
+        "proc:kycw6edgj7",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:kkmjsrcwpd",
+      "target": "proc:kycw6edgj7",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc CurrencyService currencyservice",
+      "crosses_boundary": [
+        "bnd:njyecf7fkf",
+        "bnd:seoeqgkskf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 360,
+          "end_line": 360,
+          "detector": "go@0.1",
+          "content_hash": "sha256:3af73a9d8166f8585069096046489d600fe91b42aa7b85a9c1b0dabafb6346ff"
+        }
+      ]
+    },
+    {
+      "id": "flow:7yh56u2tiz",
       "identity": [
         "flow",
         "ext:sqc242xzn7",
-        "proc:v4qfaty2kb",
+        "proc:vbkvyhzo7y",
         "grpc",
         ""
       ],
       "origin": "observed",
       "source": "ext:sqc242xzn7",
-      "target": "proc:v4qfaty2kb",
+      "target": "proc:vbkvyhzo7y",
       "protocol": "grpc",
       "direction": "request_response",
       "authentication": "none",
       "encryption": "unknown",
-      "purpose": "grpc shopProto.CurrencyService",
+      "purpose": "grpc Health",
+      "crosses_boundary": [
+        "bnd:c76yxdhq2j"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 144,
+          "end_line": 144,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ]
+    },
+    {
+      "id": "flow:ayfq7vazze",
+      "identity": [
+        "flow",
+        "proc:hdlp5jsex2",
+        "ext:wnxd2gtvsa",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:hdlp5jsex2",
+      "target": "ext:wnxd2gtvsa",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
+        }
+      ]
+    },
+    {
+      "id": "flow:b7iok2z7s4",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:blykk22cry",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:blykk22cry",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:frkw6dgzr7"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/cartservice/src/Startup.cs",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:fe07ba916b20c2fa3a767140ed9ff4a78589d4eeea1811f9e85664f21e4fefce"
+        }
+      ]
+    },
+    {
+      "id": "flow:bodkxkygcy",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:otewwpxrsv",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:otewwpxrsv",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc AdService",
+      "crosses_boundary": [
+        "bnd:fxo55nvvpf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/adservice/src/main/java/hipstershop/AdService.java",
+          "start_line": 59,
+          "end_line": 59,
+          "detector": "java@0.1",
+          "content_hash": "sha256:1369a05a65f8366cb7ad43dd9d37f125bf53b21523ec2f00fe7c43ae4c673b8f"
+        }
+      ]
+    },
+    {
+      "id": "flow:buzvzsgaba",
+      "identity": [
+        "flow",
+        "proc:5lg2gl2pkb",
+        "proc:o626ryimzw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:5lg2gl2pkb",
+      "target": "proc:o626ryimzw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getCurrencies",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
+          "symbol": "src/frontend/rpc.go::getCurrencies"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 99,
+          "end_line": 99,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:f68d1352bb25a3ad613ddeb1bdac77a108bd41a40b9aa7f514d6323f88978faf",
+          "symbol": "src/frontend/rpc.go::getRecommendations"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 51,
+          "end_line": 51,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
+          "symbol": "src/frontend/rpc.go::getProduct"
+        }
+      ]
+    },
+    {
+      "id": "flow:c2awa3j7ej",
+      "identity": [
+        "flow",
+        "proc:blh2elsftr",
+        "ext:wnxd2gtvsa",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:blh2elsftr",
+      "target": "ext:wnxd2gtvsa",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
+        }
+      ]
+    },
+    {
+      "id": "flow:cbk65ljgdd",
+      "identity": [
+        "flow",
+        "proc:o626ryimzw",
+        "proc:kr6mc2kkqn",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:o626ryimzw",
+      "target": "proc:kr6mc2kkqn",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "grpc CartService cartservice",
+      "crosses_boundary": [
+        "bnd:frkw6dgzr7",
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 58,
+          "end_line": 58,
+          "detector": "go@0.1",
+          "content_hash": "sha256:6691fcff761cab6684d4c0f001cfb01102716ea02a6ff760343bc9f4e31548e6"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 63,
+          "end_line": 63,
+          "detector": "go@0.1",
+          "content_hash": "sha256:f4ed3d0ea1e4fb8a806d680dafbfe67ceb28dbd12b82ab3d9bb9b6a26232e7a2"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "go@0.1",
+          "content_hash": "sha256:131582882ba886d1fd18b7d1ec06bfa36c4f8f2d9787a6ea7bed9849498f16d8"
+        }
+      ]
+    },
+    {
+      "id": "flow:cgutinlwpf",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:xzwr7xvmbg",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:xzwr7xvmbg",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc CurrencyService",
       "crosses_boundary": [
         "bnd:seoeqgkskf"
       ],
@@ -1026,6 +2827,106 @@
           "end_line": 185,
           "detector": "js@0.3",
           "content_hash": "sha256:07c897307b4864eabaeb75695c2721eff557c0ec029e6879ebc5c1746ba51626"
+        }
+      ]
+    },
+    {
+      "id": "flow:cgy6jf6dvs",
+      "identity": [
+        "flow",
+        "store:uvgsvq5qlm",
+        "proc:fmusmjjgda",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:uvgsvq5qlm",
+      "target": "proc:fmusmjjgda",
+      "protocol": "unknown",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "GetAsync",
+      "crosses_boundary": [
+        "bnd:frkw6dgzr7"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 40,
+          "end_line": 40,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:abd8e7dad801c81b4a494844e1f5d7bc12d9c005a9c536e4f915ddbc2d34670c"
+        },
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 90,
+          "end_line": 90,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:abd8e7dad801c81b4a494844e1f5d7bc12d9c005a9c536e4f915ddbc2d34670c"
+        }
+      ]
+    },
+    {
+      "id": "flow:chxmzl2k5g",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:fe6thnypcj",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:fe6thnypcj",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc Health",
+      "crosses_boundary": [
+        "bnd:fpjzao3hbx"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/shippingservice/main.go",
+          "start_line": 94,
+          "end_line": 94,
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
+        }
+      ]
+    },
+    {
+      "id": "flow:cwawoz7bsm",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:ol6mertuou",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:ol6mertuou",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc Health",
+      "crosses_boundary": [
+        "bnd:seoeqgkskf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 186,
+          "end_line": 186,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
         }
       ]
     },
@@ -1061,146 +2962,85 @@
       ]
     },
     {
-      "id": "flow:ejyijgv5c4",
+      "id": "flow:disay54g6t",
       "identity": [
         "flow",
-        "ext:sqc242xzn7",
-        "proc:75jd4q6d4k",
-        "grpc",
+        "ext:sga4qktkap",
+        "proc:btwmiumndu",
+        "http",
         ""
       ],
       "origin": "observed",
-      "source": "ext:sqc242xzn7",
-      "target": "proc:75jd4q6d4k",
-      "protocol": "grpc",
+      "source": "ext:sga4qktkap",
+      "target": "proc:btwmiumndu",
+      "protocol": "http",
       "direction": "request_response",
       "authentication": "none",
       "encryption": "unknown",
-      "purpose": "grpc HealthServicer",
+      "purpose": "ANY /_healthz",
       "crosses_boundary": [
-        "bnd:owyzrxhpvm"
+        "bnd:yy7r6ylpud"
       ],
       "controls": [],
       "evidence": [
         {
-          "path": "src/emailservice/email_server.py",
-          "start_line": 127,
-          "end_line": 127,
-          "detector": "py@0.3",
-          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+          "path": "src/frontend/main.go",
+          "start_line": 161,
+          "end_line": 161,
+          "detector": "go@0.1",
+          "content_hash": "sha256:49cfefa81ab27c76e86488ef69979551d98adb5e5ba363bdd1035124bb3b8fac"
         }
       ]
     },
     {
-      "id": "flow:hav34b7ryo",
+      "id": "flow:djxnzmrtto",
       "identity": [
         "flow",
-        "ext:sqc242xzn7",
-        "proc:gemltuekbd",
+        "proc:o626ryimzw",
+        "proc:tcmo7ook3a",
         "grpc",
         ""
       ],
       "origin": "observed",
-      "source": "ext:sqc242xzn7",
-      "target": "proc:gemltuekbd",
+      "source": "proc:o626ryimzw",
+      "target": "proc:tcmo7ook3a",
       "protocol": "grpc",
       "direction": "request_response",
-      "authentication": "none",
+      "authentication": "unknown",
       "encryption": "unknown",
-      "purpose": "grpc healthProto.Health",
+      "purpose": "grpc RecommendationService recommendationservice",
       "crosses_boundary": [
-        "bnd:seoeqgkskf"
+        "bnd:c76yxdhq2j",
+        "bnd:yy7r6ylpud"
       ],
       "controls": [],
       "evidence": [
         {
-          "path": "src/currencyservice/server.js",
-          "start_line": 186,
-          "end_line": 186,
-          "detector": "js@0.3",
-          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
+          "path": "src/frontend/rpc.go",
+          "start_line": 100,
+          "end_line": 100,
+          "detector": "go@0.1",
+          "content_hash": "sha256:ea63743371995bac487a91c7a12f8ce519fcb305a8e90c5abc9716aec9b64196"
         }
       ]
     },
     {
-      "id": "flow:mukjzdq7ye",
+      "id": "flow:dmkqza4fqj",
       "identity": [
         "flow",
         "ext:sqc242xzn7",
-        "proc:kg2rjsdf2w",
+        "proc:oi33662qnj",
         "grpc",
         ""
       ],
       "origin": "observed",
       "source": "ext:sqc242xzn7",
-      "target": "proc:kg2rjsdf2w",
+      "target": "proc:oi33662qnj",
       "protocol": "grpc",
       "direction": "request_response",
       "authentication": "none",
       "encryption": "unknown",
-      "purpose": "grpc EmailServiceServicer",
-      "crosses_boundary": [
-        "bnd:owyzrxhpvm"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "src/emailservice/email_server.py",
-          "start_line": 126,
-          "end_line": 126,
-          "detector": "py@0.3",
-          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
-        }
-      ]
-    },
-    {
-      "id": "flow:n2pah7mzrh",
-      "identity": [
-        "flow",
-        "ext:sqc242xzn7",
-        "proc:kjz4w7dkct",
-        "grpc",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sqc242xzn7",
-      "target": "proc:kjz4w7dkct",
-      "protocol": "grpc",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "unknown",
-      "purpose": "grpc RecommendationServiceServicer",
-      "crosses_boundary": [
-        "bnd:c76yxdhq2j"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "src/recommendationservice/recommendation_server.py",
-          "start_line": 143,
-          "end_line": 143,
-          "detector": "py@0.3",
-          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
-        }
-      ]
-    },
-    {
-      "id": "flow:n2xaw4izq6",
-      "identity": [
-        "flow",
-        "ext:sqc242xzn7",
-        "proc:4xkowmegqv",
-        "grpc",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sqc242xzn7",
-      "target": "proc:4xkowmegqv",
-      "protocol": "grpc",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "unknown",
-      "purpose": "grpc hipsterShopPackage.PaymentService",
+      "purpose": "grpc PaymentService",
       "crosses_boundary": [
         "bnd:blo2xu3bom"
       ],
@@ -1216,33 +3056,969 @@
       ]
     },
     {
-      "id": "flow:obsq3mrazi",
+      "id": "flow:dqz6dcwwem",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:5lg2gl2pkb",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:5lg2gl2pkb",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /cart/checkout",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 157,
+          "end_line": 157,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b5f213701c3b17fafd081a436add12825e038fcd91885a109eee0b3d0fd30589"
+        }
+      ]
+    },
+    {
+      "id": "flow:dxd4jvtqxn",
+      "identity": [
+        "flow",
+        "proc:5lg2gl2pkb",
+        "proc:cs5kcq4nvf",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:5lg2gl2pkb",
+      "target": "proc:cs5kcq4nvf",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "grpc CheckoutService checkoutservice",
+      "crosses_boundary": [
+        "bnd:njyecf7fkf",
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/handlers.go",
+          "start_line": 354,
+          "end_line": 354,
+          "detector": "go@0.1",
+          "content_hash": "sha256:2d3a4df31c04aaaff827c054caa8403f30ee73912b5740f19254e32ae591f00e"
+        }
+      ]
+    },
+    {
+      "id": "flow:ed4xfumutb",
       "identity": [
         "flow",
         "ext:sqc242xzn7",
-        "proc:vtfanv77tp",
+        "proc:wmkpueuoua",
         "grpc",
         ""
       ],
       "origin": "observed",
       "source": "ext:sqc242xzn7",
-      "target": "proc:vtfanv77tp",
+      "target": "proc:wmkpueuoua",
       "protocol": "grpc",
       "direction": "request_response",
       "authentication": "none",
       "encryption": "unknown",
-      "purpose": "grpc HealthServicer",
+      "purpose": "grpc ShippingService",
       "crosses_boundary": [
-        "bnd:c76yxdhq2j"
+        "bnd:fpjzao3hbx"
       ],
       "controls": [],
       "evidence": [
         {
-          "path": "src/recommendationservice/recommendation_server.py",
+          "path": "src/shippingservice/main.go",
+          "start_line": 92,
+          "end_line": 92,
+          "detector": "go@0.1",
+          "content_hash": "sha256:a9f918824d6ba46adc0215555ddfd14b27b902d5c14c0722d72928836b9ca84b"
+        }
+      ]
+    },
+    {
+      "id": "flow:ej7yscfhoc",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:7z56ywsylw",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:7z56ywsylw",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /cart",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 152,
+          "end_line": 152,
+          "detector": "go@0.1",
+          "content_hash": "sha256:a9814b6efcb37723eccfbb001835ab233d95170e9d700cdf8f0f72c06a8854eb"
+        }
+      ]
+    },
+    {
+      "id": "flow:esczqgn7ep",
+      "identity": [
+        "flow",
+        "proc:kkmjsrcwpd",
+        "ext:wnxd2gtvsa",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:kkmjsrcwpd",
+      "target": "ext:wnxd2gtvsa",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:njyecf7fkf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
+        }
+      ]
+    },
+    {
+      "id": "flow:evv4cv2ymv",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:6iiijjfu7y",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:6iiijjfu7y",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc Health",
+      "crosses_boundary": [
+        "bnd:njyecf7fkf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
           "start_line": 144,
           "end_line": 144,
-          "detector": "py@0.3",
-          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
+        }
+      ]
+    },
+    {
+      "id": "flow:f5dmfqg3dc",
+      "identity": [
+        "flow",
+        "proc:otewwpxrsv",
+        "proc:ykerzgiqo6",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:otewwpxrsv",
+      "target": "proc:ykerzgiqo6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls AdServiceClient",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
+          "start_line": 40,
+          "end_line": 40,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:f082a41bb6c56343d766ec7ce0754ccb6f780a73b06eaa7aac6065efc542f4dd",
+          "symbol": "src/adservice/src/main/java/hipstershop/AdServiceClient.java::AdServiceClient"
+        }
+      ]
+    },
+    {
+      "id": "flow:g5wps7qayt",
+      "identity": [
+        "flow",
+        "proc:ykerzgiqo6",
+        "ext:xwfpv7zyiv",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:ykerzgiqo6",
+      "target": "ext:xwfpv7zyiv",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc channel",
+      "crosses_boundary": [
+        "bnd:fxo55nvvpf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "java@0.1",
+          "content_hash": "sha256:3d3eee7ff0680b1a4d5f145b8eb078c1d9cea42abe939f884ae0ac36f41778fe"
+        }
+      ]
+    },
+    {
+      "id": "flow:gmoicwol22",
+      "identity": [
+        "flow",
+        "proc:6iiijjfu7y",
+        "proc:kkmjsrcwpd",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:6iiijjfu7y",
+      "target": "proc:kkmjsrcwpd",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls chargeCard",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 369,
+          "end_line": 369,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:9afb1e9fa095a04a8f1c1c567d2f925ee6d0bb95bca6fe9139dcb2213f99b7a5",
+          "symbol": "src/checkoutservice/main.go::chargeCard"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 332,
+          "end_line": 332,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:d2c871ca5eaaee7d5cae5e687a17cca22eebb9202fa6e2e36fcc9661e5f3ed23",
+          "symbol": "src/checkoutservice/main.go::emptyUserCart"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 379,
+          "end_line": 379,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1ce27ab5da03e1744287aa5bceb8a6d535bb31e0945715556952fc12bdfa261b",
+          "symbol": "src/checkoutservice/main.go::sendOrderConfirmation"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 386,
+          "end_line": 386,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:d75bce64e5484f151ab18e0d06944a6518269e8090422bf2bc5c84ff82c8ed9f",
+          "symbol": "src/checkoutservice/main.go::shipOrder"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 359,
+          "end_line": 359,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:e0fb89b87eb1f23cef353e150710b1df76b7815cd986cdf7063afc5296cdbbd8",
+          "symbol": "src/checkoutservice/main.go::convertCurrency"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 324,
+          "end_line": 324,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:ff5c301a99ec662543455d159feeabe5c4df4977d51198f13679a2f1ecd712f6",
+          "symbol": "src/checkoutservice/main.go::getUserCart"
+        }
+      ]
+    },
+    {
+      "id": "flow:h7dqufbk66",
+      "identity": [
+        "flow",
+        "proc:kkmjsrcwpd",
+        "ext:5glqr7zsb5",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:kkmjsrcwpd",
+      "target": "ext:5glqr7zsb5",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:njyecf7fkf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 40,
+          "end_line": 40,
+          "detector": "go@0.1",
+          "content_hash": "sha256:2aa1d2fb16c97110b2cd5fb214314c2a33187691a0a8c40ddedc436bbe151c83"
+        }
+      ]
+    },
+    {
+      "id": "flow:iy3wuhbjvp",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:26oeqa2wel",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:26oeqa2wel",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc CartService",
+      "crosses_boundary": [
+        "bnd:frkw6dgzr7"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/cartservice/src/Startup.cs",
+          "start_line": 74,
+          "end_line": 74,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:79af17c90a2011bf57bc568faaf91920bc8ece92ff51206f84b4451969b504c8"
+        }
+      ]
+    },
+    {
+      "id": "flow:jf75m6ehs2",
+      "identity": [
+        "flow",
+        "proc:o626ryimzw",
+        "proc:qprs6ysqdp",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:o626ryimzw",
+      "target": "proc:qprs6ysqdp",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "grpc AdService adservice",
+      "crosses_boundary": [
+        "bnd:fxo55nvvpf",
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 123,
+          "end_line": 123,
+          "detector": "go@0.1",
+          "content_hash": "sha256:6863ce39241405bbf47c2f685c47a84abae37d27f7879f76b0b84845ee59f133"
+        }
+      ]
+    },
+    {
+      "id": "flow:jk3xixiwhp",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:bjfib2irxy",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:bjfib2irxy",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /bot",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 163,
+          "end_line": 163,
+          "detector": "go@0.1",
+          "content_hash": "sha256:11d19845a9c1b413b16019c76f78bafa97cd20ec00fc3a8d7bf5cdff09dba15d"
+        }
+      ]
+    },
+    {
+      "id": "flow:ki7cjk5dy6",
+      "identity": [
+        "flow",
+        "proc:blh2elsftr",
+        "ext:xwfpv7zyiv",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:blh2elsftr",
+      "target": "ext:xwfpv7zyiv",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc dial",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 211,
+          "end_line": 211,
+          "detector": "go@0.1",
+          "content_hash": "sha256:8c07db29b9774e12bf4707e0504a82d35558915b81b185b5ef70e12fb1df40de"
+        }
+      ]
+    },
+    {
+      "id": "flow:kn52odjzuq",
+      "identity": [
+        "flow",
+        "proc:26oeqa2wel",
+        "proc:fmusmjjgda",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:26oeqa2wel",
+      "target": "proc:fmusmjjgda",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls AddItemAsync",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:6fa6560bc8955c494f0c2b190e5da8ad6bbcd6389785d176a43b06f8c88c6025",
+          "symbol": "src/cartservice/src/cartstore/RedisCartStore.cs::AddItemAsync"
+        },
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:49ea9bea6a31e7b41b559301ce46c4c539e9b58b6bcccce35e34c3a661e2321d",
+          "symbol": "src/cartservice/src/cartstore/RedisCartStore.cs::EmptyCartAsync"
+        },
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 83,
+          "end_line": 83,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:d7ae674700543e4fdb0a5cc71e870ff7fba789afd6de6de0ba68b1f2e9608093",
+          "symbol": "src/cartservice/src/cartstore/RedisCartStore.cs::GetCartAsync"
+        }
+      ]
+    },
+    {
+      "id": "flow:kqstigpsij",
+      "identity": [
+        "flow",
+        "proc:4gkhchyt7q",
+        "ext:wnxd2gtvsa",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:4gkhchyt7q",
+      "target": "ext:wnxd2gtvsa",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:fpjzao3hbx"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/shippingservice/main.go",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
+        }
+      ]
+    },
+    {
+      "id": "flow:lg67tmab3p",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:gh6vmgtwje",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:gh6vmgtwje",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /logout",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 156,
+          "end_line": 156,
+          "detector": "go@0.1",
+          "content_hash": "sha256:dde9041a2f6a6536e9537d8037f126b19df29758704a988d34083ed3e2da227e"
+        }
+      ]
+    },
+    {
+      "id": "flow:lour4hnlcj",
+      "identity": [
+        "flow",
+        "proc:s5oe5fhitn",
+        "proc:o626ryimzw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:s5oe5fhitn",
+      "target": "proc:o626ryimzw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls emptyCart",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 62,
+          "end_line": 62,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:870763dc2c51176fa108e125eed83cfef4927bf4ccecce9dc700c8ad5368151a",
+          "symbol": "src/frontend/rpc.go::emptyCart"
+        }
+      ]
+    },
+    {
+      "id": "flow:lq4xzn3bdz",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:sos5aztwo4",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:sos5aztwo4",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /product-meta/{ids}",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 162,
+          "end_line": 162,
+          "detector": "go@0.1",
+          "content_hash": "sha256:f71338d8f31a6ef9f7d22d70f109f01e8e9065af56cefb3d45fb1cf0b76c056f"
+        }
+      ]
+    },
+    {
+      "id": "flow:m27suesta7",
+      "identity": [
+        "flow",
+        "store:ctwgzvsuvh",
+        "proc:2uufxv56vs",
+        "sql",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:ctwgzvsuvh",
+      "target": "proc:2uufxv56vs",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Query",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/catalog_loader.go",
+          "start_line": 133,
+          "end_line": 133,
+          "detector": "go@0.1",
+          "content_hash": "sha256:13d178d48ad3e6510b0330de5d2ae94233ff7b127e52a9eee79392471da759dd"
+        }
+      ]
+    },
+    {
+      "id": "flow:mm2ebudctz",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:vrmaexfpo6",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:vrmaexfpo6",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc ProductCatalogService",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 143,
+          "end_line": 143,
+          "detector": "go@0.1",
+          "content_hash": "sha256:042c020e250f64bf5b9a491f4890920d44f519d15deadebe56c56161d64f2446"
+        }
+      ]
+    },
+    {
+      "id": "flow:mx67q4gzhp",
+      "identity": [
+        "flow",
+        "proc:og256x4wab",
+        "proc:kkmjsrcwpd",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:og256x4wab",
+      "target": "proc:kkmjsrcwpd",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls chargeCard",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 369,
+          "end_line": 369,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:9afb1e9fa095a04a8f1c1c567d2f925ee6d0bb95bca6fe9139dcb2213f99b7a5",
+          "symbol": "src/checkoutservice/main.go::chargeCard"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 332,
+          "end_line": 332,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:d2c871ca5eaaee7d5cae5e687a17cca22eebb9202fa6e2e36fcc9661e5f3ed23",
+          "symbol": "src/checkoutservice/main.go::emptyUserCart"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 379,
+          "end_line": 379,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1ce27ab5da03e1744287aa5bceb8a6d535bb31e0945715556952fc12bdfa261b",
+          "symbol": "src/checkoutservice/main.go::sendOrderConfirmation"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 386,
+          "end_line": 386,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:d75bce64e5484f151ab18e0d06944a6518269e8090422bf2bc5c84ff82c8ed9f",
+          "symbol": "src/checkoutservice/main.go::shipOrder"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 359,
+          "end_line": 359,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:e0fb89b87eb1f23cef353e150710b1df76b7815cd986cdf7063afc5296cdbbd8",
+          "symbol": "src/checkoutservice/main.go::convertCurrency"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 324,
+          "end_line": 324,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:ff5c301a99ec662543455d159feeabe5c4df4977d51198f13679a2f1ecd712f6",
+          "symbol": "src/checkoutservice/main.go::getUserCart"
+        }
+      ]
+    },
+    {
+      "id": "flow:nw2mth7yye",
+      "identity": [
+        "flow",
+        "proc:kkmjsrcwpd",
+        "proc:jubzq4h6n4",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:kkmjsrcwpd",
+      "target": "proc:jubzq4h6n4",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc EmailService emailservice",
+      "crosses_boundary": [
+        "bnd:njyecf7fkf",
+        "bnd:owyzrxhpvm"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 380,
+          "end_line": 380,
+          "detector": "go@0.1",
+          "content_hash": "sha256:351975022fc2f68d8df19bed7b0e9fb4288db900c512917943122ff2f3ae858b"
+        }
+      ]
+    },
+    {
+      "id": "flow:o7f5tcpb6z",
+      "identity": [
+        "flow",
+        "proc:7c5cp5bkj5",
+        "proc:o626ryimzw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:7c5cp5bkj5",
+      "target": "proc:o626ryimzw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getProduct",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 51,
+          "end_line": 51,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
+          "symbol": "src/frontend/rpc.go::getProduct"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 67,
+          "end_line": 67,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:6ee983f1a358b97e5ffe83c4b63a686a3c9d328b6dbf0e994be4dc18f99b1e8c",
+          "symbol": "src/frontend/rpc.go::insertCart"
+        }
+      ]
+    },
+    {
+      "id": "flow:osqy76v7zi",
+      "identity": [
+        "flow",
+        "proc:4lxewk2tkj",
+        "proc:krvoyrn5l7",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:4lxewk2tkj",
+      "target": "proc:krvoyrn5l7",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls <module>",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118",
+          "symbol": "src/recommendationservice/recommendation_server.py::<module>"
+        }
+      ]
+    },
+    {
+      "id": "flow:pgrtv542c5",
+      "identity": [
+        "flow",
+        "proc:vpfsrd2gk5",
+        "proc:o626ryimzw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:vpfsrd2gk5",
+      "target": "proc:o626ryimzw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls convertCurrency",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:8fad6235a3d62b8a10738a0f1b0921b14895478804213867918a0140fb2d9fa3",
+          "symbol": "src/frontend/rpc.go::convertCurrency"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 57,
+          "end_line": 57,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5fb91a4d5851c6feff353bf667030fbe2d0cf8428ed6c2a37836b3454ac91b9d",
+          "symbol": "src/frontend/rpc.go::getCart"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
+          "symbol": "src/frontend/rpc.go::getCurrencies"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:ba5b37c8b953b207b421eb87b6fd10f831f6019cc1209a5d7b31bb40c9814b31",
+          "symbol": "src/frontend/rpc.go::getProducts"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 119,
+          "end_line": 119,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:430ed346e16350322d88675bcc4c332ef5600bc824ad82dfbaa2552a8dbc0597",
+          "symbol": "src/frontend/rpc.go::getAd"
+        }
+      ]
+    },
+    {
+      "id": "flow:pqqgqbef7l",
+      "identity": [
+        "flow",
+        "proc:ykqatm4kms",
+        "proc:2uufxv56vs",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:ykqatm4kms",
+      "target": "proc:2uufxv56vs",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls loadCatalogFromAlloyDB",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/catalog_loader.go",
+          "start_line": 85,
+          "end_line": 85,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:23f8424c95063de6575135a70800b54e0d7fb81b46b2f6e3775e055aa36c229a",
+          "symbol": "src/productcatalogservice/catalog_loader.go::loadCatalogFromAlloyDB"
         }
       ]
     },
@@ -1274,6 +4050,169 @@
           "end_line": 33,
           "detector": "py@0.3",
           "content_hash": "sha256:262c8fc45da46022baf51033e17f4f79430110a2b8527e3372dad185893f76b6"
+        }
+      ]
+    },
+    {
+      "id": "flow:pznmrvwohj",
+      "identity": [
+        "flow",
+        "proc:kkmjsrcwpd",
+        "proc:ymvedgp7hs",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:kkmjsrcwpd",
+      "target": "proc:ymvedgp7hs",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc ShippingService shippingservice",
+      "crosses_boundary": [
+        "bnd:fpjzao3hbx",
+        "bnd:njyecf7fkf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 314,
+          "end_line": 314,
+          "detector": "go@0.1",
+          "content_hash": "sha256:91ed39ab19c00dac6e9f3258e7d65dfcaa29970b2f9b6f0594d8e724b06ea297"
+        },
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 387,
+          "end_line": 387,
+          "detector": "go@0.1",
+          "content_hash": "sha256:39cb93e0708553bc3efd4116bf1518f96136cd31d60e224eccc5a52a3e66c304"
+        }
+      ]
+    },
+    {
+      "id": "flow:qhvyeexocf",
+      "identity": [
+        "flow",
+        "proc:ykqatm4kms",
+        "proc:blh2elsftr",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:ykqatm4kms",
+      "target": "proc:blh2elsftr",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls mustConnGRPC",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 207,
+          "end_line": 207,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:9a62d0879c99cada3498de6392ecad349804f717c1d03e5fa1c16d1e97d49189",
+          "symbol": "src/productcatalogservice/server.go::mustConnGRPC"
+        }
+      ]
+    },
+    {
+      "id": "flow:qkjsa77qbi",
+      "identity": [
+        "flow",
+        "proc:o626ryimzw",
+        "proc:ymvedgp7hs",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:o626ryimzw",
+      "target": "proc:ymvedgp7hs",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "grpc ShippingService shippingservice",
+      "crosses_boundary": [
+        "bnd:fpjzao3hbx",
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 88,
+          "end_line": 88,
+          "detector": "go@0.1",
+          "content_hash": "sha256:0e28c60e1cde35372059d749fe0c523e154c249173f97113f51f342db16109c9"
+        }
+      ]
+    },
+    {
+      "id": "flow:qoo7vveutq",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:hv6jurubfm",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:hv6jurubfm",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "ANY /robots.txt",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 160,
+          "end_line": 160,
+          "detector": "go@0.1",
+          "content_hash": "sha256:802e878b77fa5b5b5d69e2127c77e27dbf3da8d482550052993983fbd817e8ae"
+        }
+      ]
+    },
+    {
+      "id": "flow:qwhaaxg6dr",
+      "identity": [
+        "flow",
+        "store:ctwgzvsuvh",
+        "proc:t6witxqxz4",
+        "sql",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:ctwgzvsuvh",
+      "target": "proc:t6witxqxz4",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "similarity_search",
+      "crosses_boundary": [
+        "bnd:7n55q7x47r"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 91,
+          "end_line": 91,
+          "detector": "py@0.3",
+          "content_hash": "sha256:6f3adcb89a6a019da2b8449d7cb23083eb339e4c264b3e869bd67308eaad8cda"
         }
       ]
     },
@@ -1337,33 +4276,187 @@
       ]
     },
     {
-      "id": "flow:szsntxg36k",
+      "id": "flow:sb2p7tfmdi",
       "identity": [
         "flow",
         "ext:sqc242xzn7",
-        "proc:zf7chersix",
+        "proc:og256x4wab",
         "grpc",
         ""
       ],
       "origin": "observed",
       "source": "ext:sqc242xzn7",
-      "target": "proc:zf7chersix",
+      "target": "proc:og256x4wab",
       "protocol": "grpc",
       "direction": "request_response",
       "authentication": "none",
       "encryption": "unknown",
-      "purpose": "grpc healthPackage.Health",
+      "purpose": "grpc CheckoutService",
       "crosses_boundary": [
-        "bnd:blo2xu3bom"
+        "bnd:njyecf7fkf"
       ],
       "controls": [],
       "evidence": [
         {
-          "path": "src/paymentservice/server.js",
-          "start_line": 95,
-          "end_line": 100,
-          "detector": "js@0.3",
-          "content_hash": "sha256:1769beccefcafdd451826a78a1e75c75273a784391df29c05bf59a6ded7934c7"
+          "path": "src/checkoutservice/main.go",
+          "start_line": 142,
+          "end_line": 142,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b0ac877798adff59140285ebdac0501a7f188f1bc1de8dc6fbf137bbfd221eb5"
+        }
+      ]
+    },
+    {
+      "id": "flow:sfkta57kko",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:j4kc4y2rtv",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:j4kc4y2rtv",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /setCurrency",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 155,
+          "end_line": 155,
+          "detector": "go@0.1",
+          "content_hash": "sha256:bb5c1df3c8aafa8ef27cbfb46af1630cf6b12a3dc26b64c30b830679d380aa4b"
+        }
+      ]
+    },
+    {
+      "id": "flow:soohj4kvc5",
+      "identity": [
+        "flow",
+        "store:ctwgzvsuvh",
+        "proc:7fw3xudbvr",
+        "sql",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:ctwgzvsuvh",
+      "target": "proc:7fw3xudbvr",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "from_instance",
+      "crosses_boundary": [
+        "bnd:7n55q7x47r"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 41,
+          "end_line": 41,
+          "detector": "py@0.3",
+          "content_hash": "sha256:d03a5485d54ecc96c3b50c490595ebe585897df923b4e183e2477728f56c3b91"
+        }
+      ]
+    },
+    {
+      "id": "flow:ssqvsabn3r",
+      "identity": [
+        "flow",
+        "proc:krvoyrn5l7",
+        "proc:elkmlzs7bq",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:krvoyrn5l7",
+      "target": "proc:elkmlzs7bq",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc_channel productcatalogservice",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a",
+        "bnd:c76yxdhq2j"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 135,
+          "end_line": 135,
+          "detector": "py@0.3",
+          "content_hash": "sha256:0a72ce5fbabdef61ce08466b3e88df8d787c4cb8c68ab84fee79fe6b14376ca3"
+        }
+      ]
+    },
+    {
+      "id": "flow:su6zrmg6q4",
+      "identity": [
+        "flow",
+        "proc:sos5aztwo4",
+        "proc:o626ryimzw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:sos5aztwo4",
+      "target": "proc:o626ryimzw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getProduct",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 51,
+          "end_line": 51,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
+          "symbol": "src/frontend/rpc.go::getProduct"
+        }
+      ]
+    },
+    {
+      "id": "flow:t4ntny4rbc",
+      "identity": [
+        "flow",
+        "proc:vrmaexfpo6",
+        "proc:2uufxv56vs",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:vrmaexfpo6",
+      "target": "proc:2uufxv56vs",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls loadCatalogFromAlloyDB",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/catalog_loader.go",
+          "start_line": 85,
+          "end_line": 85,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:23f8424c95063de6575135a70800b54e0d7fb81b46b2f6e3775e055aa36c229a",
+          "symbol": "src/productcatalogservice/catalog_loader.go::loadCatalogFromAlloyDB"
         }
       ]
     },
@@ -1399,33 +4492,233 @@
       ]
     },
     {
-      "id": "flow:tjxvsnqrso",
+      "id": "flow:tjgktawxrm",
       "identity": [
         "flow",
-        "proc:krvoyrn5l7",
-        "ext:xbo3iznjz7",
-        "grpc",
+        "ext:sga4qktkap",
+        "proc:s5oe5fhitn",
+        "http",
         ""
       ],
       "origin": "observed",
-      "source": "proc:krvoyrn5l7",
-      "target": "ext:xbo3iznjz7",
-      "protocol": "grpc",
+      "source": "ext:sga4qktkap",
+      "target": "proc:s5oe5fhitn",
+      "protocol": "http",
       "direction": "request_response",
-      "authentication": "unknown",
-      "encryption": "none",
-      "purpose": "grpc_channel",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /cart/empty",
       "crosses_boundary": [
-        "bnd:c76yxdhq2j"
+        "bnd:yy7r6ylpud"
       ],
       "controls": [],
       "evidence": [
         {
+          "path": "src/frontend/main.go",
+          "start_line": 154,
+          "end_line": 154,
+          "detector": "go@0.1",
+          "content_hash": "sha256:63e9965dc161cb3adad4ed848018c2a3486778ad1d45d2747744c4c9574ec76b"
+        }
+      ]
+    },
+    {
+      "id": "flow:ugtxz7dkng",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:3pgv7tbhzj",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:3pgv7tbhzj",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /assistant",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 158,
+          "end_line": 158,
+          "detector": "go@0.1",
+          "content_hash": "sha256:6a105bfe8d55fb8ae5100892eca39f7bc8c937f392eee56046abb120cfd411b6"
+        }
+      ]
+    },
+    {
+      "id": "flow:uugk2mjepg",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:4wjsqi57wn",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:4wjsqi57wn",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc Health",
+      "crosses_boundary": [
+        "bnd:blo2xu3bom"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 95,
+          "end_line": 100,
+          "detector": "js@0.3",
+          "content_hash": "sha256:1769beccefcafdd451826a78a1e75c75273a784391df29c05bf59a6ded7934c7"
+        }
+      ]
+    },
+    {
+      "id": "flow:vngfbef4kd",
+      "identity": [
+        "flow",
+        "proc:fmusmjjgda",
+        "store:uvgsvq5qlm",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:fmusmjjgda",
+      "target": "store:uvgsvq5qlm",
+      "protocol": "unknown",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "SetAsync",
+      "crosses_boundary": [
+        "bnd:frkw6dgzr7"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 60,
+          "end_line": 60,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:c7434331ff367b56dd9cdfbcf39c012f546734bb0c4033fe8289c1cdcd9767be"
+        },
+        {
+          "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+          "start_line": 75,
+          "end_line": 75,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:c7434331ff367b56dd9cdfbcf39c012f546734bb0c4033fe8289c1cdcd9767be"
+        }
+      ]
+    },
+    {
+      "id": "flow:vuu2xn5czr",
+      "identity": [
+        "flow",
+        "proc:vbkvyhzo7y",
+        "proc:krvoyrn5l7",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:vbkvyhzo7y",
+      "target": "proc:krvoyrn5l7",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls <module>",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
           "path": "src/recommendationservice/recommendation_server.py",
-          "start_line": 135,
-          "end_line": 135,
-          "detector": "py@0.3",
-          "content_hash": "sha256:0a72ce5fbabdef61ce08466b3e88df8d787c4cb8c68ab84fee79fe6b14376ca3"
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118",
+          "symbol": "src/recommendationservice/recommendation_server.py::<module>"
+        }
+      ]
+    },
+    {
+      "id": "flow:whmwpvrz5t",
+      "identity": [
+        "flow",
+        "proc:pbos6hquuo",
+        "proc:o626ryimzw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:pbos6hquuo",
+      "target": "proc:o626ryimzw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls convertCurrency",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:8fad6235a3d62b8a10738a0f1b0921b14895478804213867918a0140fb2d9fa3",
+          "symbol": "src/frontend/rpc.go::convertCurrency"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 57,
+          "end_line": 57,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5fb91a4d5851c6feff353bf667030fbe2d0cf8428ed6c2a37836b3454ac91b9d",
+          "symbol": "src/frontend/rpc.go::getCart"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
+          "symbol": "src/frontend/rpc.go::getCurrencies"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 51,
+          "end_line": 51,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
+          "symbol": "src/frontend/rpc.go::getProduct"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 99,
+          "end_line": 99,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:f68d1352bb25a3ad613ddeb1bdac77a108bd41a40b9aa7f514d6323f88978faf",
+          "symbol": "src/frontend/rpc.go::getRecommendations"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 119,
+          "end_line": 119,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:430ed346e16350322d88675bcc4c332ef5600bc824ad82dfbaa2552a8dbc0597",
+          "symbol": "src/frontend/rpc.go::getAd"
         }
       ]
     },
@@ -1459,138 +4752,313 @@
           "content_hash": "sha256:23076a1747755067cdd987192d93bc4b7a3166ab638431923332f7ec36714c2d"
         }
       ]
+    },
+    {
+      "id": "flow:ymu5wei7nw",
+      "identity": [
+        "flow",
+        "proc:o626ryimzw",
+        "proc:elkmlzs7bq",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:o626ryimzw",
+      "target": "proc:elkmlzs7bq",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "grpc ProductCatalogService productcatalogservice",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a",
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "go@0.1",
+          "content_hash": "sha256:1e63fb2252771b7c7845219f81f8a49baa68959cd5b1f495231d8e6489d975fa"
+        },
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 52,
+          "end_line": 52,
+          "detector": "go@0.1",
+          "content_hash": "sha256:1e63fb2252771b7c7845219f81f8a49baa68959cd5b1f495231d8e6489d975fa"
+        }
+      ]
+    },
+    {
+      "id": "flow:yyt4thynq5",
+      "identity": [
+        "flow",
+        "proc:3pgv7tbhzj",
+        "proc:o626ryimzw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:3pgv7tbhzj",
+      "target": "proc:o626ryimzw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls getCurrencies",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/rpc.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
+          "symbol": "src/frontend/rpc.go::getCurrencies"
+        }
+      ]
+    },
+    {
+      "id": "flow:yyuxz547ri",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:ykqatm4kms",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:ykqatm4kms",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc Health",
+      "crosses_boundary": [
+        "bnd:3nvgex5y4a"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 145,
+          "end_line": 145,
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
+        }
+      ]
+    },
+    {
+      "id": "flow:zeqwmlvstz",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:pbos6hquuo",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:pbos6hquuo",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /product/{id}",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "go@0.1",
+          "content_hash": "sha256:9d8d2c67abfb3f9e7a98b92f476c17c4dbdf0c3a6f6f071b7989b6de9b892fc0"
+        }
+      ]
+    },
+    {
+      "id": "flow:zkqg7xu34p",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:x3mugobsva",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:x3mugobsva",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc Health",
+      "crosses_boundary": [
+        "bnd:owyzrxhpvm"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 127,
+          "end_line": 127,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ]
+    },
+    {
+      "id": "flow:ztnl5ujeyb",
+      "identity": [
+        "flow",
+        "proc:bjfib2irxy",
+        "proc:msq7vvbu6s",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:bjfib2irxy",
+      "target": "proc:msq7vvbu6s",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "http shoppingassistantservice",
+      "crosses_boundary": [
+        "bnd:7n55q7x47r",
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/frontend/handlers.go",
+          "start_line": 464,
+          "end_line": 464,
+          "detector": "go@0.1",
+          "content_hash": "sha256:494ac344e529ba088b46ac65538fac1ea9d0fd9d5e1620253b9c6462b65c4c25"
+        }
+      ]
+    },
+    {
+      "id": "flow:zxddhvcj3q",
+      "identity": [
+        "flow",
+        "proc:vrmaexfpo6",
+        "proc:blh2elsftr",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:vrmaexfpo6",
+      "target": "proc:blh2elsftr",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls mustConnGRPC",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 207,
+          "end_line": 207,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:9a62d0879c99cada3498de6392ecad349804f717c1d03e5fa1c16d1e97d49189",
+          "symbol": "src/productcatalogservice/server.go::mustConnGRPC"
+        }
+      ]
     }
   ],
   "entry_points": [
     {
-      "id": "ep:6vft6mjeec",
+      "id": "ep:322zrtu5av",
       "identity": [
         "entry_point",
         "grpc",
         "grpc",
-        "RecommendationServiceServicer",
-        "src/recommendationservice/recommendation_server.py"
+        "CartService",
+        "src/cartservice/src/Startup.cs"
       ],
       "origin": "observed",
-      "process": "proc:kjz4w7dkct",
+      "process": "proc:26oeqa2wel",
       "protocol": "grpc",
       "method": "grpc",
-      "path": "RecommendationServiceServicer",
+      "path": "CartService",
       "controls": [],
       "call_chain": [
-        "proc:kjz4w7dkct"
+        "proc:26oeqa2wel",
+        "proc:fmusmjjgda"
       ],
       "evidence": [
         {
-          "path": "src/recommendationservice/recommendation_server.py",
-          "start_line": 143,
-          "end_line": 143,
-          "detector": "py@0.3",
-          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
+          "path": "src/cartservice/src/Startup.cs",
+          "start_line": 74,
+          "end_line": 74,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:79af17c90a2011bf57bc568faaf91920bc8ece92ff51206f84b4451969b504c8"
         }
+      ],
+      "reaches": [
+        "store:uvgsvq5qlm"
       ]
     },
     {
-      "id": "ep:dspukbeyse",
+      "id": "ep:3icycpeexd",
       "identity": [
         "entry_point",
-        "grpc",
-        "grpc",
-        "hipsterShopPackage.PaymentService",
-        "src/paymentservice/server.js"
+        "http",
+        "POST",
+        "/bot",
+        "src/frontend/main.go"
       ],
       "origin": "observed",
-      "process": "proc:4xkowmegqv",
-      "protocol": "grpc",
-      "method": "grpc",
-      "path": "hipsterShopPackage.PaymentService",
+      "process": "proc:bjfib2irxy",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/bot",
       "controls": [],
       "call_chain": [
-        "proc:4xkowmegqv"
+        "proc:bjfib2irxy"
       ],
       "evidence": [
         {
-          "path": "src/paymentservice/server.js",
-          "start_line": 88,
-          "end_line": 93,
-          "detector": "js@0.3",
-          "content_hash": "sha256:d77061e6e55988934b3b4ebf6c5ee696bdb6ba43a588080eca4d0ee9d0417e6e"
+          "path": "src/frontend/main.go",
+          "start_line": 163,
+          "end_line": 163,
+          "detector": "go@0.1",
+          "content_hash": "sha256:11d19845a9c1b413b16019c76f78bafa97cd20ec00fc3a8d7bf5cdff09dba15d"
         }
+      ],
+      "reaches": [
+        "proc:msq7vvbu6s"
       ]
     },
     {
-      "id": "ep:eltpwacw3p",
+      "id": "ep:4cx2qnf7u7",
       "identity": [
         "entry_point",
         "grpc",
         "grpc",
-        "healthProto.Health",
+        "CurrencyService",
         "src/currencyservice/server.js"
       ],
       "origin": "observed",
-      "process": "proc:gemltuekbd",
+      "process": "proc:xzwr7xvmbg",
       "protocol": "grpc",
       "method": "grpc",
-      "path": "healthProto.Health",
+      "path": "CurrencyService",
       "controls": [],
       "call_chain": [
-        "proc:gemltuekbd"
-      ],
-      "evidence": [
-        {
-          "path": "src/currencyservice/server.js",
-          "start_line": 186,
-          "end_line": 186,
-          "detector": "js@0.3",
-          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
-        }
-      ]
-    },
-    {
-      "id": "ep:fcybzems6s",
-      "identity": [
-        "entry_point",
-        "grpc",
-        "grpc",
-        "EmailServiceServicer",
-        "src/emailservice/email_server.py"
-      ],
-      "origin": "observed",
-      "process": "proc:kg2rjsdf2w",
-      "protocol": "grpc",
-      "method": "grpc",
-      "path": "EmailServiceServicer",
-      "controls": [],
-      "call_chain": [
-        "proc:kg2rjsdf2w"
-      ],
-      "evidence": [
-        {
-          "path": "src/emailservice/email_server.py",
-          "start_line": 126,
-          "end_line": 126,
-          "detector": "py@0.3",
-          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
-        }
-      ]
-    },
-    {
-      "id": "ep:gxbeievhub",
-      "identity": [
-        "entry_point",
-        "grpc",
-        "grpc",
-        "shopProto.CurrencyService",
-        "src/currencyservice/server.js"
-      ],
-      "origin": "observed",
-      "process": "proc:v4qfaty2kb",
-      "protocol": "grpc",
-      "method": "grpc",
-      "path": "shopProto.CurrencyService",
-      "controls": [],
-      "call_chain": [
-        "proc:v4qfaty2kb"
+        "proc:xzwr7xvmbg"
       ],
       "evidence": [
         {
@@ -1600,53 +5068,289 @@
           "detector": "js@0.3",
           "content_hash": "sha256:07c897307b4864eabaeb75695c2721eff557c0ec029e6879ebc5c1746ba51626"
         }
-      ]
+      ],
+      "reaches": []
     },
     {
-      "id": "ep:sccykkxcpa",
+      "id": "ep:4iqbialmqn",
       "identity": [
         "entry_point",
         "grpc",
         "grpc",
-        "HealthServicer",
+        "ProductCatalogService",
+        "src/productcatalogservice/server.go"
+      ],
+      "origin": "observed",
+      "process": "proc:vrmaexfpo6",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "ProductCatalogService",
+      "controls": [],
+      "call_chain": [
+        "proc:vrmaexfpo6",
+        "proc:2uufxv56vs",
+        "proc:blh2elsftr"
+      ],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 143,
+          "end_line": 143,
+          "detector": "go@0.1",
+          "content_hash": "sha256:042c020e250f64bf5b9a491f4890920d44f519d15deadebe56c56161d64f2446"
+        }
+      ],
+      "reaches": [
+        "ext:xwfpv7zyiv",
+        "store:ctwgzvsuvh"
+      ]
+    },
+    {
+      "id": "ep:5cmwjlgm3q",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/cart/empty",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:s5oe5fhitn",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/cart/empty",
+      "controls": [],
+      "call_chain": [
+        "proc:s5oe5fhitn",
+        "proc:o626ryimzw"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 154,
+          "end_line": 154,
+          "detector": "go@0.1",
+          "content_hash": "sha256:63e9965dc161cb3adad4ed848018c2a3486778ad1d45d2747744c4c9574ec76b"
+        }
+      ],
+      "reaches": [
+        "proc:kr6mc2kkqn"
+      ]
+    },
+    {
+      "id": "ep:62sdstd6n5",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "RecommendationService",
         "src/recommendationservice/recommendation_server.py"
       ],
       "origin": "observed",
-      "process": "proc:vtfanv77tp",
+      "process": "proc:4lxewk2tkj",
       "protocol": "grpc",
       "method": "grpc",
-      "path": "HealthServicer",
+      "path": "RecommendationService",
       "controls": [],
       "call_chain": [
-        "proc:vtfanv77tp"
+        "proc:4lxewk2tkj",
+        "proc:krvoyrn5l7"
       ],
       "evidence": [
         {
           "path": "src/recommendationservice/recommendation_server.py",
-          "start_line": 144,
-          "end_line": 144,
+          "start_line": 143,
+          "end_line": 143,
           "detector": "py@0.3",
-          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
         }
+      ],
+      "reaches": [
+        "proc:elkmlzs7bq"
       ]
     },
     {
-      "id": "ep:tekh2ykhg5",
+      "id": "ep:6hnov2fskc",
       "identity": [
         "entry_point",
         "grpc",
         "grpc",
-        "healthPackage.Health",
+        "EmailService",
+        "src/emailservice/email_server.py"
+      ],
+      "origin": "observed",
+      "process": "proc:7lgnx7lyho",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "EmailService",
+      "controls": [],
+      "call_chain": [
+        "proc:7lgnx7lyho"
+      ],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 126,
+          "end_line": 126,
+          "detector": "py@0.3",
+          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
+        }
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:7kzqikj76r",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:vpfsrd2gk5",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:vpfsrd2gk5",
+        "proc:o626ryimzw"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 150,
+          "end_line": 150,
+          "detector": "go@0.1",
+          "content_hash": "sha256:135fc4471d5e5a593acd784ccd7383662ac0801fa676a4be06a56332ebb94590"
+        }
+      ],
+      "reaches": [
+        "proc:elkmlzs7bq",
+        "proc:kr6mc2kkqn",
+        "proc:kycw6edgj7",
+        "proc:qprs6ysqdp"
+      ]
+    },
+    {
+      "id": "ep:a3v5q6lndk",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "Health",
+        "src/productcatalogservice/server.go"
+      ],
+      "origin": "observed",
+      "process": "proc:ykqatm4kms",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "Health",
+      "controls": [],
+      "call_chain": [
+        "proc:ykqatm4kms",
+        "proc:2uufxv56vs",
+        "proc:blh2elsftr"
+      ],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 145,
+          "end_line": 145,
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
+        }
+      ],
+      "infrastructure": true,
+      "reaches": [
+        "ext:xwfpv7zyiv",
+        "store:ctwgzvsuvh"
+      ]
+    },
+    {
+      "id": "ep:b2q2loyqsv",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "ShippingService",
+        "src/shippingservice/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:wmkpueuoua",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "ShippingService",
+      "controls": [],
+      "call_chain": [
+        "proc:wmkpueuoua"
+      ],
+      "evidence": [
+        {
+          "path": "src/shippingservice/main.go",
+          "start_line": 92,
+          "end_line": 92,
+          "detector": "go@0.1",
+          "content_hash": "sha256:a9f918824d6ba46adc0215555ddfd14b27b902d5c14c0722d72928836b9ca84b"
+        }
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:ilhdjyihyg",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "CheckoutService",
+        "src/checkoutservice/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:og256x4wab",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "CheckoutService",
+      "controls": [],
+      "call_chain": [
+        "proc:og256x4wab",
+        "proc:kkmjsrcwpd"
+      ],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 142,
+          "end_line": 142,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b0ac877798adff59140285ebdac0501a7f188f1bc1de8dc6fbf137bbfd221eb5"
+        }
+      ],
+      "reaches": [
+        "proc:5pxrkmisyz",
+        "proc:elkmlzs7bq",
+        "proc:jubzq4h6n4",
+        "proc:kr6mc2kkqn",
+        "proc:kycw6edgj7",
+        "proc:ymvedgp7hs"
+      ]
+    },
+    {
+      "id": "ep:jcvznpqwk7",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "Health",
         "src/paymentservice/server.js"
       ],
       "origin": "observed",
-      "process": "proc:zf7chersix",
+      "process": "proc:4wjsqi57wn",
       "protocol": "grpc",
       "method": "grpc",
-      "path": "healthPackage.Health",
+      "path": "Health",
       "controls": [],
       "call_chain": [
-        "proc:zf7chersix"
+        "proc:4wjsqi57wn"
       ],
       "evidence": [
         {
@@ -1656,6 +5360,457 @@
           "detector": "js@0.3",
           "content_hash": "sha256:1769beccefcafdd451826a78a1e75c75273a784391df29c05bf59a6ded7934c7"
         }
+      ],
+      "infrastructure": true,
+      "reaches": []
+    },
+    {
+      "id": "ep:ju3cijgk7p",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "Health",
+        "src/checkoutservice/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:6iiijjfu7y",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "Health",
+      "controls": [],
+      "call_chain": [
+        "proc:6iiijjfu7y",
+        "proc:kkmjsrcwpd"
+      ],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 144,
+          "end_line": 144,
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
+        }
+      ],
+      "infrastructure": true,
+      "reaches": [
+        "proc:5pxrkmisyz",
+        "proc:elkmlzs7bq",
+        "proc:jubzq4h6n4",
+        "proc:kr6mc2kkqn",
+        "proc:kycw6edgj7",
+        "proc:ymvedgp7hs"
+      ]
+    },
+    {
+      "id": "ep:krixl6kbyn",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/assistant",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:3pgv7tbhzj",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/assistant",
+      "controls": [],
+      "call_chain": [
+        "proc:3pgv7tbhzj",
+        "proc:o626ryimzw"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 158,
+          "end_line": 158,
+          "detector": "go@0.1",
+          "content_hash": "sha256:6a105bfe8d55fb8ae5100892eca39f7bc8c937f392eee56046abb120cfd411b6"
+        }
+      ],
+      "reaches": [
+        "proc:kycw6edgj7"
+      ]
+    },
+    {
+      "id": "ep:nf2rrulknb",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/product/{id}",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:pbos6hquuo",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/product/{id}",
+      "controls": [],
+      "call_chain": [
+        "proc:pbos6hquuo",
+        "proc:o626ryimzw"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "go@0.1",
+          "content_hash": "sha256:9d8d2c67abfb3f9e7a98b92f476c17c4dbdf0c3a6f6f071b7989b6de9b892fc0"
+        }
+      ],
+      "reaches": [
+        "proc:elkmlzs7bq",
+        "proc:kr6mc2kkqn",
+        "proc:kycw6edgj7",
+        "proc:qprs6ysqdp",
+        "proc:tcmo7ook3a"
+      ]
+    },
+    {
+      "id": "ep:ntyhqphkdo",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "Health",
+        "src/recommendationservice/recommendation_server.py"
+      ],
+      "origin": "observed",
+      "process": "proc:vbkvyhzo7y",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "Health",
+      "controls": [],
+      "call_chain": [
+        "proc:vbkvyhzo7y",
+        "proc:krvoyrn5l7"
+      ],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 144,
+          "end_line": 144,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ],
+      "infrastructure": true,
+      "reaches": [
+        "proc:elkmlzs7bq"
+      ]
+    },
+    {
+      "id": "ep:o7nevm2aeb",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "Health",
+        "src/currencyservice/server.js"
+      ],
+      "origin": "observed",
+      "process": "proc:ol6mertuou",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "Health",
+      "controls": [],
+      "call_chain": [
+        "proc:ol6mertuou"
+      ],
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 186,
+          "end_line": 186,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
+        }
+      ],
+      "infrastructure": true,
+      "reaches": []
+    },
+    {
+      "id": "ep:oyavzkyy4t",
+      "identity": [
+        "entry_point",
+        "http",
+        "ANY",
+        "/_healthz",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:btwmiumndu",
+      "protocol": "http",
+      "method": "ANY",
+      "path": "/_healthz",
+      "controls": [],
+      "call_chain": [
+        "proc:btwmiumndu"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 161,
+          "end_line": 161,
+          "detector": "go@0.1",
+          "content_hash": "sha256:49cfefa81ab27c76e86488ef69979551d98adb5e5ba363bdd1035124bb3b8fac"
+        }
+      ],
+      "infrastructure": true,
+      "reaches": []
+    },
+    {
+      "id": "ep:py22axs4wn",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/cart/checkout",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:5lg2gl2pkb",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/cart/checkout",
+      "controls": [],
+      "call_chain": [
+        "proc:5lg2gl2pkb",
+        "proc:o626ryimzw"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 157,
+          "end_line": 157,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b5f213701c3b17fafd081a436add12825e038fcd91885a109eee0b3d0fd30589"
+        }
+      ],
+      "reaches": [
+        "proc:cs5kcq4nvf",
+        "proc:elkmlzs7bq",
+        "proc:kycw6edgj7",
+        "proc:tcmo7ook3a"
+      ]
+    },
+    {
+      "id": "ep:q26ct7enb6",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/logout",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:gh6vmgtwje",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/logout",
+      "controls": [],
+      "call_chain": [
+        "proc:gh6vmgtwje"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 156,
+          "end_line": 156,
+          "detector": "go@0.1",
+          "content_hash": "sha256:dde9041a2f6a6536e9537d8037f126b19df29758704a988d34083ed3e2da227e"
+        }
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:r3fh4l7643",
+      "identity": [
+        "entry_point",
+        "http",
+        "ANY",
+        "/robots.txt",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:hv6jurubfm",
+      "protocol": "http",
+      "method": "ANY",
+      "path": "/robots.txt",
+      "controls": [],
+      "call_chain": [
+        "proc:hv6jurubfm"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 160,
+          "end_line": 160,
+          "detector": "go@0.1",
+          "content_hash": "sha256:802e878b77fa5b5b5d69e2127c77e27dbf3da8d482550052993983fbd817e8ae"
+        }
+      ],
+      "infrastructure": true,
+      "reaches": []
+    },
+    {
+      "id": "ep:r3was3la5c",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "PaymentService",
+        "src/paymentservice/server.js"
+      ],
+      "origin": "observed",
+      "process": "proc:oi33662qnj",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "PaymentService",
+      "controls": [],
+      "call_chain": [
+        "proc:oi33662qnj"
+      ],
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 88,
+          "end_line": 93,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d77061e6e55988934b3b4ebf6c5ee696bdb6ba43a588080eca4d0ee9d0417e6e"
+        }
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:sk4dink5yo",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "src/cartservice/src/Startup.cs"
+      ],
+      "origin": "observed",
+      "process": "proc:blykk22cry",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:blykk22cry"
+      ],
+      "evidence": [
+        {
+          "path": "src/cartservice/src/Startup.cs",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:fe07ba916b20c2fa3a767140ed9ff4a78589d4eeea1811f9e85664f21e4fefce"
+        }
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:ufd4mrkeoc",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "AdService",
+        "src/adservice/src/main/java/hipstershop/AdService.java"
+      ],
+      "origin": "observed",
+      "process": "proc:otewwpxrsv",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "AdService",
+      "controls": [],
+      "call_chain": [
+        "proc:otewwpxrsv",
+        "proc:ykerzgiqo6"
+      ],
+      "evidence": [
+        {
+          "path": "src/adservice/src/main/java/hipstershop/AdService.java",
+          "start_line": 59,
+          "end_line": 59,
+          "detector": "java@0.1",
+          "content_hash": "sha256:1369a05a65f8366cb7ad43dd9d37f125bf53b21523ec2f00fe7c43ae4c673b8f"
+        }
+      ],
+      "reaches": [
+        "ext:xwfpv7zyiv"
+      ]
+    },
+    {
+      "id": "ep:v7bn5fv5ji",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "Health",
+        "src/emailservice/email_server.py"
+      ],
+      "origin": "observed",
+      "process": "proc:x3mugobsva",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "Health",
+      "controls": [],
+      "call_chain": [
+        "proc:x3mugobsva"
+      ],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 127,
+          "end_line": 127,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ],
+      "infrastructure": true,
+      "reaches": []
+    },
+    {
+      "id": "ep:vg4oyf7xpg",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/cart",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:7z56ywsylw",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/cart",
+      "controls": [],
+      "call_chain": [
+        "proc:7z56ywsylw",
+        "proc:o626ryimzw"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 152,
+          "end_line": 152,
+          "detector": "go@0.1",
+          "content_hash": "sha256:a9814b6efcb37723eccfbb001835ab233d95170e9d700cdf8f0f72c06a8854eb"
+        }
+      ],
+      "reaches": [
+        "proc:elkmlzs7bq",
+        "proc:kr6mc2kkqn",
+        "proc:kycw6edgj7",
+        "proc:tcmo7ook3a",
+        "proc:ymvedgp7hs"
       ]
     },
     {
@@ -1684,39 +5839,231 @@
           "detector": "py@0.3",
           "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
         }
+      ],
+      "reaches": [
+        "ext:e2lwbbcouh",
+        "store:ctwgzvsuvh"
       ]
     },
     {
-      "id": "ep:xe4idxq2l4",
+      "id": "ep:wsb37cnoja",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/setCurrency",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:j4kc4y2rtv",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/setCurrency",
+      "controls": [],
+      "call_chain": [
+        "proc:j4kc4y2rtv"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 155,
+          "end_line": 155,
+          "detector": "go@0.1",
+          "content_hash": "sha256:bb5c1df3c8aafa8ef27cbfb46af1630cf6b12a3dc26b64c30b830679d380aa4b"
+        }
+      ],
+      "reaches": []
+    },
+    {
+      "id": "ep:xdo4mdgjfg",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/product-meta/{ids}",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:sos5aztwo4",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/product-meta/{ids}",
+      "controls": [],
+      "call_chain": [
+        "proc:sos5aztwo4",
+        "proc:o626ryimzw"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 162,
+          "end_line": 162,
+          "detector": "go@0.1",
+          "content_hash": "sha256:f71338d8f31a6ef9f7d22d70f109f01e8e9065af56cefb3d45fb1cf0b76c056f"
+        }
+      ],
+      "reaches": [
+        "proc:elkmlzs7bq"
+      ]
+    },
+    {
+      "id": "ep:ygjhq563f4",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/cart",
+        "src/frontend/main.go"
+      ],
+      "origin": "observed",
+      "process": "proc:7c5cp5bkj5",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/cart",
+      "controls": [],
+      "call_chain": [
+        "proc:7c5cp5bkj5",
+        "proc:o626ryimzw"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 153,
+          "end_line": 153,
+          "detector": "go@0.1",
+          "content_hash": "sha256:bcf6edc40c98c0bb7be15d24c72f2309b0a76cade59d6ca29579ce0d51f549e2"
+        }
+      ],
+      "reaches": [
+        "proc:elkmlzs7bq",
+        "proc:kr6mc2kkqn"
+      ]
+    },
+    {
+      "id": "ep:zv4zxkt2u7",
       "identity": [
         "entry_point",
         "grpc",
         "grpc",
-        "HealthServicer",
-        "src/emailservice/email_server.py"
+        "Health",
+        "src/shippingservice/main.go"
       ],
       "origin": "observed",
-      "process": "proc:75jd4q6d4k",
+      "process": "proc:fe6thnypcj",
       "protocol": "grpc",
       "method": "grpc",
-      "path": "HealthServicer",
+      "path": "Health",
       "controls": [],
       "call_chain": [
-        "proc:75jd4q6d4k"
+        "proc:fe6thnypcj"
       ],
       "evidence": [
         {
-          "path": "src/emailservice/email_server.py",
-          "start_line": 127,
-          "end_line": 127,
-          "detector": "py@0.3",
-          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+          "path": "src/shippingservice/main.go",
+          "start_line": 94,
+          "end_line": 94,
+          "detector": "go@0.1",
+          "content_hash": "sha256:28cfb789cdcf2c3d2f7b800d3276a5e43db625870ca0a1dc5ff0ae32ae83ed78"
         }
-      ]
+      ],
+      "infrastructure": true,
+      "reaches": []
     }
   ],
   "controls": [],
   "weaknesses": [
+    {
+      "id": "wk:273c5cikia",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:ygjhq563f4"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /cart",
+      "applies_to": [
+        "ep:ygjhq563f4"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 153,
+          "end_line": 153,
+          "detector": "go@0.1",
+          "content_hash": "sha256:bcf6edc40c98c0bb7be15d24c72f2309b0a76cade59d6ca29579ce0d51f549e2"
+        }
+      ]
+    },
+    {
+      "id": "wk:53fzrhdfrn",
+      "identity": [
+        "weakness",
+        "unencrypted_transport",
+        "src/adservice/src/main/java/hipstershop/AdServiceClient.java:45"
+      ],
+      "origin": "observed",
+      "kind": "unencrypted_transport",
+      "name": "gRPC channel usePlaintext()",
+      "applies_to": [
+        "proc:ykerzgiqo6"
+      ],
+      "evidence": [
+        {
+          "path": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "java@0.1",
+          "content_hash": "sha256:ef5f10136216bc5a4d88b73f296065b4199d7f345f34885a3e1c38c65015a9f6"
+        }
+      ]
+    },
+    {
+      "id": "wk:5q5ihal5md",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:3icycpeexd"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /bot",
+      "applies_to": [
+        "ep:3icycpeexd"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 163,
+          "end_line": 163,
+          "detector": "go@0.1",
+          "content_hash": "sha256:11d19845a9c1b413b16019c76f78bafa97cd20ec00fc3a8d7bf5cdff09dba15d"
+        }
+      ]
+    },
+    {
+      "id": "wk:5vjznfy7i5",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:5cmwjlgm3q"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /cart/empty",
+      "applies_to": [
+        "ep:5cmwjlgm3q"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 154,
+          "end_line": 154,
+          "detector": "go@0.1",
+          "content_hash": "sha256:63e9965dc161cb3adad4ed848018c2a3486778ad1d45d2747744c4c9574ec76b"
+        }
+      ]
+    },
     {
       "id": "wk:72idl5xmip",
       "identity": [
@@ -1728,9 +6075,9 @@
       "kind": "unencrypted_transport",
       "name": "grpc.insecure_channel",
       "applies_to": [
-        "proc:kjz4w7dkct",
+        "proc:4lxewk2tkj",
         "proc:krvoyrn5l7",
-        "proc:vtfanv77tp"
+        "proc:vbkvyhzo7y"
       ],
       "evidence": [
         {
@@ -1766,6 +6113,169 @@
       ]
     },
     {
+      "id": "wk:bfsdw7ibjp",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:py22axs4wn"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /cart/checkout",
+      "applies_to": [
+        "ep:py22axs4wn"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 157,
+          "end_line": 157,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b5f213701c3b17fafd081a436add12825e038fcd91885a109eee0b3d0fd30589"
+        }
+      ]
+    },
+    {
+      "id": "wk:bjl3ze4t7z",
+      "identity": [
+        "weakness",
+        "unencrypted_transport",
+        "src/productcatalogservice/server.go:212"
+      ],
+      "origin": "observed",
+      "kind": "unencrypted_transport",
+      "name": "gRPC client with insecure credentials",
+      "applies_to": [
+        "proc:blh2elsftr",
+        "proc:vrmaexfpo6",
+        "proc:ykqatm4kms"
+      ],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/server.go",
+          "start_line": 212,
+          "end_line": 212,
+          "detector": "go@0.1",
+          "content_hash": "sha256:7a9edbd3bd9e2a85be70778d01018c4e1feb295cf46bd30b4e55b271daaab0d9"
+        }
+      ]
+    },
+    {
+      "id": "wk:jnlx2zihax",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:q26ct7enb6"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /logout",
+      "applies_to": [
+        "ep:q26ct7enb6"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 156,
+          "end_line": 156,
+          "detector": "go@0.1",
+          "content_hash": "sha256:dde9041a2f6a6536e9537d8037f126b19df29758704a988d34083ed3e2da227e"
+        }
+      ]
+    },
+    {
+      "id": "wk:kmmvvkryhj",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:krixl6kbyn"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /assistant",
+      "applies_to": [
+        "ep:krixl6kbyn"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 158,
+          "end_line": 158,
+          "detector": "go@0.1",
+          "content_hash": "sha256:6a105bfe8d55fb8ae5100892eca39f7bc8c937f392eee56046abb120cfd411b6"
+        }
+      ]
+    },
+    {
+      "id": "wk:lwclbgsadj",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:vg4oyf7xpg"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /cart",
+      "applies_to": [
+        "ep:vg4oyf7xpg"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 152,
+          "end_line": 152,
+          "detector": "go@0.1",
+          "content_hash": "sha256:a9814b6efcb37723eccfbb001835ab233d95170e9d700cdf8f0f72c06a8854eb"
+        }
+      ]
+    },
+    {
+      "id": "wk:mfy5j6qavp",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:wsb37cnoja"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /setCurrency",
+      "applies_to": [
+        "ep:wsb37cnoja"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 155,
+          "end_line": 155,
+          "detector": "go@0.1",
+          "content_hash": "sha256:bb5c1df3c8aafa8ef27cbfb46af1630cf6b12a3dc26b64c30b830679d380aa4b"
+        }
+      ]
+    },
+    {
+      "id": "wk:pvx7snpbvl",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:7kzqikj76r"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:7kzqikj76r"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 150,
+          "end_line": 150,
+          "detector": "go@0.1",
+          "content_hash": "sha256:135fc4471d5e5a593acd784ccd7383662ac0801fa676a4be06a56332ebb94590"
+        }
+      ]
+    },
+    {
       "id": "wk:qjwq7pwfxe",
       "identity": [
         "weakness",
@@ -1785,6 +6295,113 @@
           "end_line": 18,
           "detector": "config@0.3",
           "content_hash": "sha256:ab3c62b00bbb7d58691d49f266836f3cf4213fe936c9a4e8a9d367ea7ed19521"
+        }
+      ]
+    },
+    {
+      "id": "wk:re7xqq2os5",
+      "identity": [
+        "weakness",
+        "unencrypted_transport",
+        "src/frontend/main.go:230"
+      ],
+      "origin": "observed",
+      "kind": "unencrypted_transport",
+      "name": "gRPC client with insecure credentials",
+      "applies_to": [
+        "proc:3pgv7tbhzj",
+        "proc:5lg2gl2pkb",
+        "proc:7c5cp5bkj5",
+        "proc:7z56ywsylw",
+        "proc:bjfib2irxy",
+        "proc:btwmiumndu",
+        "proc:gh6vmgtwje",
+        "proc:hdlp5jsex2",
+        "proc:hv6jurubfm",
+        "proc:j4kc4y2rtv",
+        "proc:pbos6hquuo",
+        "proc:s5oe5fhitn",
+        "proc:sos5aztwo4",
+        "proc:vpfsrd2gk5"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 230,
+          "end_line": 230,
+          "detector": "go@0.1",
+          "content_hash": "sha256:7a9edbd3bd9e2a85be70778d01018c4e1feb295cf46bd30b4e55b271daaab0d9"
+        }
+      ]
+    },
+    {
+      "id": "wk:sfyom7kkqh",
+      "identity": [
+        "weakness",
+        "unencrypted_transport",
+        "src/checkoutservice/main.go:215"
+      ],
+      "origin": "observed",
+      "kind": "unencrypted_transport",
+      "name": "gRPC client with insecure credentials",
+      "applies_to": [
+        "proc:6iiijjfu7y",
+        "proc:kkmjsrcwpd",
+        "proc:og256x4wab"
+      ],
+      "evidence": [
+        {
+          "path": "src/checkoutservice/main.go",
+          "start_line": 215,
+          "end_line": 215,
+          "detector": "go@0.1",
+          "content_hash": "sha256:7a9edbd3bd9e2a85be70778d01018c4e1feb295cf46bd30b4e55b271daaab0d9"
+        }
+      ]
+    },
+    {
+      "id": "wk:vmvpapspku",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:sk4dink5yo"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:sk4dink5yo"
+      ],
+      "evidence": [
+        {
+          "path": "src/cartservice/src/Startup.cs",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "csharp@0.1",
+          "content_hash": "sha256:fe07ba916b20c2fa3a767140ed9ff4a78589d4eeea1811f9e85664f21e4fefce"
+        }
+      ]
+    },
+    {
+      "id": "wk:xcl74dn6ay",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:xdo4mdgjfg"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /product-meta/{ids}",
+      "applies_to": [
+        "ep:xdo4mdgjfg"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 162,
+          "end_line": 162,
+          "detector": "go@0.1",
+          "content_hash": "sha256:f71338d8f31a6ef9f7d22d70f109f01e8e9065af56cefb3d45fb1cf0b76c056f"
         }
       ]
     },
@@ -1810,10 +6427,90 @@
           "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
         }
       ]
+    },
+    {
+      "id": "wk:yzx5stjowy",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:nf2rrulknb"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /product/{id}",
+      "applies_to": [
+        "ep:nf2rrulknb"
+      ],
+      "evidence": [
+        {
+          "path": "src/frontend/main.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "go@0.1",
+          "content_hash": "sha256:9d8d2c67abfb3f9e7a98b92f476c17c4dbdf0c3a6f6f071b7989b6de9b892fc0"
+        }
+      ]
     }
   ],
-  "schemas": [],
-  "assets": [],
+  "schemas": [
+    {
+      "id": "sch:nfdks43bc5",
+      "identity": [
+        "schema",
+        "src/shoppingassistantservice/shoppingassistantservice.py",
+        "request fields"
+      ],
+      "origin": "observed",
+      "name": "request fields",
+      "fields": [
+        {
+          "name": "message",
+          "type": "request",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "py@0.3",
+          "content_hash": "sha256:210fdbf0ebe1a3dfa828c6693b5341a22e77c09b0ac75e469b66cfbeb79fb303"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset:qwgouzgmwa",
+      "identity": [
+        "asset",
+        "credential",
+        "ALLOYDB_SECRET_NAME"
+      ],
+      "origin": "observed",
+      "name": "Secret ALLOYDB_SECRET_NAME",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:2uufxv56vs"
+      ],
+      "processed_by": [
+        "proc:2uufxv56vs"
+      ],
+      "evidence": [
+        {
+          "path": "src/productcatalogservice/catalog_loader.go",
+          "start_line": 94,
+          "end_line": 94,
+          "detector": "go@0.1",
+          "content_hash": "sha256:b19a982e0e496a438941bdc2c804ac631a4975f3193c509c398101f8cd870a5e"
+        }
+      ]
+    }
+  ],
   "threat_agents": [
     {
       "id": "agent:2f6rsa7bnh",
@@ -1829,8 +6526,8 @@
       "access": "insider",
       "location": "bnd:seoeqgkskf",
       "entry": [
-        "proc:gemltuekbd",
-        "proc:v4qfaty2kb"
+        "proc:ol6mertuou",
+        "proc:xzwr7xvmbg"
       ],
       "passes_controls": [
         "authn",
@@ -1923,6 +6620,46 @@
       ]
     },
     {
+      "id": "agent:6s4vm2bzxu",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:fpjzao3hbx"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: shippingservice",
+      "access": "insider",
+      "location": "bnd:fpjzao3hbx",
+      "entry": [
+        "proc:4gkhchyt7q",
+        "proc:fe6thnypcj",
+        "proc:wmkpueuoua"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/shippingservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:63e96b0f80a20618bf1238f8d4d8e2e1ab83787a6297d381ab21ffbd3497bacf"
+        }
+      ]
+    },
+    {
       "id": "agent:b6yz2gkzrj",
       "identity": [
         "agent",
@@ -1961,6 +6698,45 @@
       ]
     },
     {
+      "id": "agent:fk7f34f7tk",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:fxo55nvvpf"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: adservice",
+      "access": "insider",
+      "location": "bnd:fxo55nvvpf",
+      "entry": [
+        "proc:otewwpxrsv",
+        "proc:ykerzgiqo6"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/adservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:cf6c49ffca2f7cf93c46d2d1a27a603960428bbc77f33b4d0827e1d91d710242"
+        }
+      ]
+    },
+    {
       "id": "agent:hhvsovsynh",
       "identity": [
         "agent",
@@ -1969,7 +6745,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "8 grpc entry points, 8 without a detected authn control",
+      "rationale": "16 grpc entry points, 16 without a detected authn control",
       "name": "Anonymous GRPC caller",
       "access": "anonymous",
       "entry": [
@@ -1990,6 +6766,46 @@
       ]
     },
     {
+      "id": "agent:hsl43izutw",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:njyecf7fkf"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: checkoutservice",
+      "access": "insider",
+      "location": "bnd:njyecf7fkf",
+      "entry": [
+        "proc:6iiijjfu7y",
+        "proc:kkmjsrcwpd",
+        "proc:og256x4wab"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/checkoutservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:aec4b148062537e52edc7e78d3f9ac85191674ec4fe07352e7198b21fcb2393b"
+        }
+      ]
+    },
+    {
       "id": "agent:iz42vhqvjp",
       "identity": [
         "agent",
@@ -1998,7 +6814,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "1 http entry points, 1 without a detected authn control",
+      "rationale": "15 http entry points, 15 without a detected authn control",
       "name": "Anonymous HTTP caller",
       "access": "anonymous",
       "entry": [
@@ -2131,8 +6947,8 @@
       "access": "insider",
       "location": "bnd:owyzrxhpvm",
       "entry": [
-        "proc:75jd4q6d4k",
-        "proc:kg2rjsdf2w",
+        "proc:7lgnx7lyho",
+        "proc:x3mugobsva",
         "proc:yru6p2ypcz"
       ],
       "passes_controls": [
@@ -2158,19 +6974,100 @@
       ]
     },
     {
-      "id": "agent:vfivyim42m",
+      "id": "agent:ukvqv4o4g5",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:3nvgex5y4a"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: productcatalogservice",
+      "access": "insider",
+      "location": "bnd:3nvgex5y4a",
+      "entry": [
+        "proc:2uufxv56vs",
+        "proc:blh2elsftr",
+        "proc:vrmaexfpo6",
+        "proc:ykqatm4kms"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/productcatalogservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:774e965b30bf4e6cacd7c8e92863a5e2c478083e58d9bf2f4e243d814af5d2a7"
+        }
+      ]
+    },
+    {
+      "id": "agent:ut72bwbtbl",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:frkw6dgzr7"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: cartservice",
+      "access": "insider",
+      "location": "bnd:frkw6dgzr7",
+      "entry": [
+        "proc:26oeqa2wel",
+        "proc:blykk22cry",
+        "proc:fmusmjjgda"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/cartservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:9a6abd46e6a6b27ba398fe7a45b4a10c55eff387a78d14084bfafe1b3e3a03c5"
+        }
+      ]
+    },
+    {
+      "id": "agent:vbmbv5trhq",
       "identity": [
         "agent",
         "third_party",
-        "ext:xbo3iznjz7"
+        "ext:wnxd2gtvsa"
       ],
       "origin": "inferred",
       "confidence": 0.7,
       "rationale": "every outbound dependency is modeled as a potentially hostile responder",
-      "name": "Compromised third party: productcatalogservice service",
+      "name": "Compromised third party: Google Cloud Profiler",
       "access": "third_party",
       "entry": [
-        "ext:xbo3iznjz7"
+        "ext:wnxd2gtvsa"
       ],
       "passes_controls": [],
       "goals": [
@@ -2179,11 +7076,64 @@
       ],
       "evidence": [
         {
-          "path": "src/recommendationservice/recommendation_server.py",
-          "start_line": 135,
-          "end_line": 135,
-          "detector": "py@0.3",
-          "content_hash": "sha256:0a72ce5fbabdef61ce08466b3e88df8d787c4cb8c68ab84fee79fe6b14376ca3"
+          "path": "src/checkoutservice/main.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.1",
+          "content_hash": "sha256:596e0e12b826dcd0b1d1a6619817d21d1c3e618ecba57191ed013097123fffec"
+        }
+      ]
+    },
+    {
+      "id": "agent:vjr2437xzg",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:yy7r6ylpud"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: frontend",
+      "access": "insider",
+      "location": "bnd:yy7r6ylpud",
+      "entry": [
+        "proc:3pgv7tbhzj",
+        "proc:5lg2gl2pkb",
+        "proc:7c5cp5bkj5",
+        "proc:7z56ywsylw",
+        "proc:bjfib2irxy",
+        "proc:btwmiumndu",
+        "proc:gh6vmgtwje",
+        "proc:hdlp5jsex2",
+        "proc:hv6jurubfm",
+        "proc:j4kc4y2rtv",
+        "proc:o626ryimzw",
+        "proc:pbos6hquuo",
+        "proc:s5oe5fhitn",
+        "proc:s5vzaryqiv",
+        "proc:sos5aztwo4",
+        "proc:vpfsrd2gk5"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/frontend.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:cf1654f90e3a3c99fe11b0aa1378998da46aed036eaac5b7041d32c9b29bbfa3"
         }
       ]
     },
@@ -2201,8 +7151,8 @@
       "access": "insider",
       "location": "bnd:blo2xu3bom",
       "entry": [
-        "proc:4xkowmegqv",
-        "proc:zf7chersix"
+        "proc:4wjsqi57wn",
+        "proc:oi33662qnj"
       ],
       "passes_controls": [
         "authn",
@@ -2240,10 +7190,10 @@
       "access": "insider",
       "location": "bnd:c76yxdhq2j",
       "entry": [
+        "proc:4lxewk2tkj",
         "proc:k6rhwk7raj",
-        "proc:kjz4w7dkct",
         "proc:krvoyrn5l7",
-        "proc:vtfanv77tp"
+        "proc:vbkvyhzo7y"
       ],
       "passes_controls": [
         "authn",
@@ -2301,29 +7251,38 @@
   "gaps": [
     {
       "kind": "unresolved",
-      "path": "kubernetes-manifests/cartservice.yaml",
-      "line": 92,
-      "detail": "Redis: redis-cart is declared but no code access to it was detected (unsupported language, dynamic client, or a missing recognizer)"
+      "path": "src/cartservice/src/Startup.cs",
+      "line": 77,
+      "detail": "router for GET / is not mounted from a detected app entry; path shown without prefix"
     },
     {
-      "kind": "unsupported_file",
-      "path": "src/cartservice/src/Program.cs",
-      "detail": "no recognizer for .cs: 9 file(s), e.g. src/cartservice/src/Program.cs, src/cartservice/src/Startup.cs, src/cartservice/src/cartstore/AlloyDBCartStore.cs"
+      "kind": "unresolved",
+      "path": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
+      "line": 42,
+      "detail": "outbound call target is a variable:host expression; host not resolvable statically"
     },
     {
-      "kind": "unsupported_file",
-      "path": "src/checkoutservice/main.go",
-      "detail": "no recognizer for .go: 29 file(s), e.g. src/checkoutservice/main.go, src/checkoutservice/genproto/demo.pb.go, src/checkoutservice/genproto/demo_grpc.pb.go"
-    },
-    {
-      "kind": "unsupported_file",
-      "path": "src/adservice/src/main/java/hipstershop/AdService.java",
-      "detail": "no recognizer for .java: 2 file(s), e.g. src/adservice/src/main/java/hipstershop/AdService.java, src/adservice/src/main/java/hipstershop/AdServiceClient.java"
+      "kind": "unresolved",
+      "path": "src/productcatalogservice/server.go",
+      "line": 211,
+      "detail": "outbound call target is a variable:addr expression; host not resolvable statically"
     },
     {
       "kind": "unknown_attribute",
       "path": "src/paymentservice/index.js",
-      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port '[::]:'+port, (host='0.0.0.0', port=8080), ?? Inbound flows are marked encryption=unknown until answered."
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port '[::]:'+port, (host='0.0.0.0', port=8080), ?, addr+\":\"+srvPort, fmt.Sprintf(\":%s\", port, port? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+      "line": 41,
+      "detail": "Question for the team: how is the link to Postgres authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
+      "line": 40,
+      "detail": "Question for the team: how is the link to Redis authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
     },
     {
       "kind": "unknown_attribute",
@@ -2339,12 +7298,6 @@
     },
     {
       "kind": "unknown_attribute",
-      "path": "src/recommendationservice/recommendation_server.py",
-      "line": 135,
-      "detail": "Question for the team: how is the link to productcatalogservice service authenticated and is it encrypted in transit? (authentication=unknown, encryption=none)"
-    },
-    {
-      "kind": "unknown_attribute",
       "path": "src/shoppingassistantservice/shoppingassistantservice.py",
       "line": 35,
       "detail": "Question for the team: how is the link to Google Cloud APIs authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)"
@@ -2354,6 +7307,12 @@
       "path": "src/shoppingassistantservice/shoppingassistantservice.py",
       "line": 82,
       "detail": "Question for the team: how is the link to Google Gemini API authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/checkoutservice/main.go",
+      "line": 24,
+      "detail": "Question for the team: how is the link to Google Cloud Profiler authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)"
     }
   ]
 }

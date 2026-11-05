@@ -1,0 +1,28 @@
+%% L2: shippingservice
+flowchart LR
+  subgraph bnd_fpjzao3hbx["container: shippingservice"]
+    proc_4gkhchyt7q(["shippingservice"])
+    proc_wmkpueuoua(["gRPC ShippingService handler"])
+    proc_ymvedgp7hs(["shippingservice (+2)"])
+  end
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_cs5kcq4nvf(["checkoutservice (+2)"])
+  end
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_pmttplr5qk(["frontend (+14)"])
+  end
+  ext_sqc242xzn7["gRPC client"]
+  ext_wnxd2gtvsa["Google Cloud Profiler"]
+  ext_sqc242xzn7 -->|"grpc"| proc_wmkpueuoua
+  proc_4gkhchyt7q -->|"https"| ext_wnxd2gtvsa
+  proc_cs5kcq4nvf -->|"grpc"| proc_ymvedgp7hs
+  proc_pmttplr5qk -->|"grpc"| proc_ymvedgp7hs
+  style bnd_fpjzao3hbx stroke-dasharray: 8 4,fill:none
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

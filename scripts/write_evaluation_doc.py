@@ -39,6 +39,21 @@ for x in r:
     rows.append(f"| [{x['name']}](../evaluation/{x['name']}/report.md) | {c['processes']} | {c['entities']} | {c['stores']} | {c['boundaries']} | {c['flows']} | {c['entry_points']} | {c['controls']} | {c['weaknesses']} | {c['assets']} | {c['threat_agents']} | {c['gaps']} | {'yes' if x['deterministic'] else 'NO'} | {'ok' if x['schema_ok'] else 'FAIL'} | {x['lint_errors']} | {x['mermaid_files']} ok / {len(x['mermaid_failures'])} fail | {len(x['expect_hits'])}/{len(x['expect_hits']) + len(x['expect_misses'])}{(' (miss: ' + ', '.join(x['expect_misses']) + ')') if x['expect_misses'] else ''} | {x['elapsed']} |")
 body = "\n".join(rows)
 
+gt_rows = ["", "## Precision and recall against hand-written ground truth", "", "Ground truth (`evaluation/ground-truth/`) was written by reading the source of five samples. Edges are *reachability* edges: the handler of an entry point reaches a store, an external entity or another service through its own call graph. P = precision, R = recall.", "",
+           "| Sample | Entry points P/R | Infrastructure P/R | Stores P/R | Entities P/R | Reachability edges P/R | Missed edges (first few) | Spurious (first few) |", "|---|---|---|---|---|---|---|---|"]
+for x in r:
+    g = x.get("ground_truth")
+    if not g:
+        continue
+    def pr(k):
+        v = g[k]
+        if v["truth"] == 0 and v["predicted"] == 0: return "n/a"
+        return f"{v['precision'] if v['precision'] is not None else 'n/a'} / {v['recall'] if v['recall'] is not None else 'n/a'} ({v['predicted']} pred, {v['truth']} true)"
+    miss = "; ".join(f"{a} -> {b}" for a, b in g["edges"]["missed"][:4]) or "-"
+    spur = "; ".join(f"{a} -> {b}" for a, b in g["edges"]["spurious"][:4]) or "-"
+    gt_rows.append(f"| {x['name']} | {pr('entry_points')} | {pr('infrastructure')} | {pr('stores')} | {pr('entities')} | {pr('edges')} | {miss} | {spur} |")
+body += "\n" + "\n".join(gt_rows)
+
 notes = """
 
 Per-sample outputs are committed under `evaluation/<sample>/` (model, report, STRIDE table, traceability matrix, L0/L1/L2 diagrams and the first five sequence diagrams).
@@ -69,14 +84,26 @@ Per-sample outputs are committed under `evaluation/<sample>/` (model, report, ST
 | 11 | The Mermaid render check silently reported 0 files when the mermaid module was missing | harness | Pinned `mermaid` dev dependency in `package.json` |
 | 12 | `passport.initialize`, `express-session` and body parsers were credited as authentication | node-express-boilerplate, hackathon-starter | Plumbing names are excluded from control classification |
 
+## Limitations addressed since the first run
+
+| Limitation (first run) | What changed |
+|---|---|
+| Control attribution was path-based and credited plumbing | App-level middleware now applies only to routers mounted (or routes defined) after its registration line; session and parser plumbing is excluded; controls registered inside a condition are marked `conditional`; classification uses the callee name only, so `validate(authValidation.register)` is validation, not authentication |
+| Store and outbound calls were attributed at file level with depth-3 propagation along imports | A function-level call graph (JavaScript/TypeScript, Python, Go, Java, C#) with re-export following attributes every access to the function that performs it; handlers own the facts in their own function (inline or referenced controller), reach other modules through real call edges, and each entry point carries a `reaches` list of the stores, entities and services its handler reaches |
+| Go, Java and C# were invisible | Recognizers for net/http, gorilla, gin, chi, gRPC servers and clients (`pb.NewXClient` with env-mapped addresses), database/sql, GORM, go-redis, Mongo, Spring MVC and Security, JPA entities, grpc-java, ASP.NET attributes and minimal APIs, `MapGrpcService`, EF Core and StackExchange.Redis |
+| No schemas meant no assets | Request fields read in handlers (`req.body.email`, `request.json['x']`) become request schemas; the overrides file can declare assets, threat agents, boundaries, attributes and renames, with author and expiry |
+| Infrastructure entry points polluted views and counts | Health, readiness, metrics, docs, robots and CORS preflight routes are tagged `infrastructure`, hidden from L1/L2 views and counted separately |
+| Hosts held in variables were unresolved | Variables and template strings traced to env reads and `axios.create({ baseURL })`; env names resolved through Kubernetes manifests; the service's own listen address and loopbacks are dropped |
+| No precision or edge-level recall measurement | Ground truth for five samples and a scorer for entry points, stores, entities and reachability edges (table above) |
+| Design items not implemented: overrides, verify, OTM export | `--overrides` (default `.code2design/overrides.yaml`), `verify` (content-hash re-check of every evidence span), `export --format otm` |
+
 ## Known limitations observed
 
-* **Control attribution is path-based, not flow-sensitive.** App-level middleware is attached to every route it precedes (by path prefix when one is given). Session and parser plumbing (`passport.initialize`, `express-session`, body parsers) is excluded from controls, so authn is only credited to explicit guards (`auth(...)`, `isAuthenticated`, `passport.authenticate`, `jwt_required`, `Depends(get_current_user)`). Conditional registration (`if (env === 'production') app.use(...)`) is counted unconditionally.
-* **File-level attribution of flows.** Store and outbound calls inside non-handler modules are attributed to the module, and request data classes are propagated along import edges (depth 3). This over-approximates which handler touches which store; the payload is labelled "request fields (propagated)" so the reader can tell.
-* **Unsupported languages are visible but absent.** Go, Java, C#, Ruby and PHP services appear only as boundaries (from manifests) or named entities (from other services' clients). The report and gaps say so.
-* **No schemas means no assets.** Where no validation schema, ORM model, SQL column list or secret is found, the asset list is empty and the matrix has no rows. Overrides are the intended way to declare assets in that case; the overrides file is not yet implemented in the prototype.
-* **Entry-point noise.** `app.options('*', cors())` and health-check gRPC services are reported as entry points. They are real listeners, but a future "infrastructure" tag would keep them out of the L1 view.
-* **Hosts are hostnames.** Outbound calls to URLs built from variables are reported as "Unresolved HTTP target" with a gap; relative URLs in frontend code are skipped.
+* **Module-level DFD, function-level reach.** The diagram still draws flows between modules (a module process to a store), because that is the readable level; the per-entry-point `reaches` list and the traceability matrix are where function-level precision shows. A module shared by several handlers therefore appears connected to every store any of them reaches.
+* **gRPC service reach is package-level.** For a gRPC server registered in a Go, Java or C# package, every function in the package counts as reachable from that service; for Node and Python, every function in the registering file. This is right at service granularity and coarse within a service.
+* **Ruby, PHP, Kotlin and Rust** are still reported as unanalyzed files.
+* **Conditional middleware** is counted as applying and flagged; the condition itself is not evaluated.
+* **Ground truth is small.** Five samples, written by one reader of the code; the microservices edges cover the frontend, checkout, recommendation, cart and assistant services only.
 
 ## How this relates to the design's targets
 

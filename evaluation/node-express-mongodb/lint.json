@@ -2,25 +2,67 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:3haziohken",
-    "message": "MongoDB: tutorials -> tutorial.controller: authentication=unknown, encryption=unknown"
+    "id": "flow:7pqcnsvetc",
+    "message": "PUT /:id handler -> MongoDB: tutorials: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:kjz26uoabu",
-    "message": "tutorial.controller -> MongoDB: authentication=unknown, encryption=unknown"
+    "id": "flow:jzmifykkyt",
+    "message": "POST / handler -> MongoDB: tutorials: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:zkldm5bfnj",
-    "message": "tutorial.controller -> MongoDB: tutorials: authentication=unknown, encryption=unknown"
+    "id": "flow:n4ey6igglz",
+    "message": "MongoDB: tutorials -> GET /published handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:pgqpnhitai",
+    "message": "MongoDB: tutorials -> GET / handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vnwrxbsqot",
+    "message": "DELETE / handler -> MongoDB: tutorials: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vyvkg6qb4y",
+    "message": "MongoDB: tutorials -> GET /:id handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:4m2ysdt4j4",
+    "message": "process GET /:id handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:asmvuz3gji",
+    "message": "process GET / handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
     "id": "proc:mjnlaho6vq",
     "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:s2dv344aux",
+    "message": "process GET /published handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:zzqivqwuzv",
+    "message": "process tutorial.controller has only inputs; a detector may be missing"
   }
 ]

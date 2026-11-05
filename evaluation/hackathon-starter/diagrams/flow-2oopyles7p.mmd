@@ -10,8 +10,7 @@ sequenceDiagram
   participant proc_rstqv7mbdm as GET /ai/llm-camera handler
   participant proc_swmrttykth as ai
   participant ext_yydkmj7yh6 as Hugging Face Inference API
-  participant store_3ufptbo5k3 as MongoDB
-  participant ext_nggth6fowo as Groq API
+  participant store_3ufptbo5k3 as MongoDB (collection unresolved)
   participant ext_643kbz6icq as api.groq.com
   ext_sga4qktkap->>ctl_e5husc6g2u: GET /ai/llm-camera (rate_limit)
   ctl_e5husc6g2u->>ctl_e5qh2tqtwp: GET /ai/llm-camera (csrf)
@@ -24,8 +23,6 @@ sequenceDiagram
   ext_yydkmj7yh6-->>proc_swmrttykth: response
   proc_swmrttykth->>store_3ufptbo5k3: mongo
   store_3ufptbo5k3-->>proc_swmrttykth: mongo
-  proc_swmrttykth->>ext_nggth6fowo: https
-  ext_nggth6fowo-->>proc_swmrttykth: response
   proc_swmrttykth->>ext_643kbz6icq: https
   ext_643kbz6icq-->>proc_swmrttykth: response
   proc_swmrttykth-->>proc_rstqv7mbdm: response

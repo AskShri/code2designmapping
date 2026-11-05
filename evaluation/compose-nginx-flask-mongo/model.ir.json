@@ -270,7 +270,8 @@
           "detector": "py@0.3",
           "content_hash": "sha256:a77e3d5206fc5b77eabaf599ee7d9529c4917312a25e4e792e50497d9c300fbc"
         }
-      ]
+      ],
+      "reaches": []
     }
   ],
   "controls": [],

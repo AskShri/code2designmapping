@@ -4,8 +4,8 @@ flowchart LR
     proc_rlda3c52k2(["stripe"])
     proc_tv5mzaefoi(["orders (+3)"])
   end
-  ext_slqdx4hifp["Stripe API"]
-  proc_rlda3c52k2 -->|"https: request fields (propagated) (financial,pii)"| ext_slqdx4hifp
+  ext_slqdx4hifp["Stripe Payments API"]
+  proc_rlda3c52k2 -->|"https: request fields (via call path) (financial,pii)"| ext_slqdx4hifp
   proc_tv5mzaefoi -->|"in_process"| proc_rlda3c52k2
   style bnd_uvq3irjstn stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]

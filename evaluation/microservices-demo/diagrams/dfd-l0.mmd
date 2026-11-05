@@ -1,22 +1,27 @@
 %% L0 context: microservices-demo
 flowchart LR
   subgraph bnd_57uwq6gika["repository: microservices-demo"]
-    proc_n5rg6wc7ft(["microservices-demo (+7)"])
+    proc_n5rg6wc7ft(["microservices-demo (+13)"])
   end
   ext_5glqr7zsb5["OTLP collector"]
   ext_e2lwbbcouh["Google Gemini API"]
   ext_sga4qktkap["HTTP client"]
   ext_sqc242xzn7["gRPC client"]
   ext_vpmyo25x2y["Google Cloud APIs"]
-  ext_xbo3iznjz7["productcatalogservice service"]
+  ext_wnxd2gtvsa["Google Cloud Profiler"]
   ext_xwfpv7zyiv["Unresolved grpc target"]
+  store_ctwgzvsuvh[("Postgres")]
+  store_uvgsvq5qlm[("Redis")]
   ext_sga4qktkap -->|"http"| proc_n5rg6wc7ft
   ext_sqc242xzn7 -->|"grpc"| proc_n5rg6wc7ft
   proc_n5rg6wc7ft -->|"https"| ext_5glqr7zsb5
   proc_n5rg6wc7ft -->|"https"| ext_e2lwbbcouh
   proc_n5rg6wc7ft -->|"https"| ext_vpmyo25x2y
-  proc_n5rg6wc7ft -->|"grpc"| ext_xbo3iznjz7
+  proc_n5rg6wc7ft -->|"https"| ext_wnxd2gtvsa
   proc_n5rg6wc7ft -->|"grpc"| ext_xwfpv7zyiv
+  proc_n5rg6wc7ft -->|"unknown"| store_uvgsvq5qlm
+  store_ctwgzvsuvh -->|"sql"| proc_n5rg6wc7ft
+  store_uvgsvq5qlm -->|"unknown"| proc_n5rg6wc7ft
   style bnd_57uwq6gika stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

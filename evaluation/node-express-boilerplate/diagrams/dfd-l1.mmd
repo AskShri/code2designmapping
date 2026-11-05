@@ -1,22 +1,19 @@
 %% L1: node-express-boilerplate
 flowchart LR
   subgraph bnd_3bw6z3ysco["container: mongodb"]
-    store_3ufptbo5k3[("MongoDB")]
     store_x3kis6s6op[("MongoDB: User")]
     store_yc7brpyrnt[("MongoDB: Token")]
   end
   subgraph bnd_4tjp4yui4o["container: node-app"]
-    proc_5223ztx4g2(["node-app (+1)"])
-    proc_5vydvlkasi(["routes (+14)"])
+    proc_5vydvlkasi(["routes (+13)"])
     proc_bpqq5xqdm5(["config (+1)"])
     proc_rqphn3okpc(["services (+4)"])
   end
   ext_l2biskukaq["SMTP mail relay"]
   ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http"| proc_5223ztx4g2
   ext_sga4qktkap -->|"http"| proc_5vydvlkasi
+  proc_5vydvlkasi -->|"in_process"| proc_rqphn3okpc
   proc_rqphn3okpc -->|"smtp"| ext_l2biskukaq
-  proc_rqphn3okpc -->|"mongo"| store_3ufptbo5k3
   proc_rqphn3okpc -->|"unknown"| store_x3kis6s6op
   proc_rqphn3okpc -->|"mongo<br/>unknown"| store_yc7brpyrnt
   store_x3kis6s6op -->|"unknown"| proc_bpqq5xqdm5

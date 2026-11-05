@@ -1,0 +1,28 @@
+%% Control flow: POST /cart/empty
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant proc_s5oe5fhitn as POST /cart/empty handler
+  participant proc_o626ryimzw as rpc
+  participant proc_kycw6edgj7 as currencyservice
+  participant proc_elkmlzs7bq as productcatalogservice
+  participant proc_kr6mc2kkqn as cartservice
+  participant proc_ymvedgp7hs as shippingservice
+  participant proc_tcmo7ook3a as recommendationservice
+  participant proc_qprs6ysqdp as adservice
+  ext_sga4qktkap->>proc_s5oe5fhitn: dispatch
+  proc_s5oe5fhitn->>proc_o626ryimzw: in_process
+  proc_o626ryimzw->>proc_kycw6edgj7: grpc
+  proc_kycw6edgj7-->>proc_o626ryimzw: response
+  proc_o626ryimzw->>proc_elkmlzs7bq: grpc
+  proc_elkmlzs7bq-->>proc_o626ryimzw: response
+  proc_o626ryimzw->>proc_kr6mc2kkqn: grpc
+  proc_kr6mc2kkqn-->>proc_o626ryimzw: response
+  proc_o626ryimzw->>proc_ymvedgp7hs: grpc
+  proc_ymvedgp7hs-->>proc_o626ryimzw: response
+  proc_o626ryimzw->>proc_tcmo7ook3a: grpc
+  proc_tcmo7ook3a-->>proc_o626ryimzw: response
+  proc_o626ryimzw->>proc_qprs6ysqdp: grpc
+  proc_qprs6ysqdp-->>proc_o626ryimzw: response
+  proc_o626ryimzw-->>proc_s5oe5fhitn: response
+  proc_s5oe5fhitn-->>ext_sga4qktkap: response

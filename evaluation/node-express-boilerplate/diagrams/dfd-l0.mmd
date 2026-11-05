@@ -1,7 +1,6 @@
 %% L0 context: node-express-boilerplate
 flowchart LR
   subgraph bnd_3bw6z3ysco["container: mongodb"]
-    store_3ufptbo5k3[("MongoDB")]
     store_x3kis6s6op[("MongoDB: User")]
     store_yc7brpyrnt[("MongoDB: Token")]
   end
@@ -12,7 +11,6 @@ flowchart LR
   ext_sga4qktkap["HTTP client"]
   ext_sga4qktkap -->|"http"| proc_oqwmbqrkng
   proc_oqwmbqrkng -->|"smtp"| ext_l2biskukaq
-  proc_oqwmbqrkng -->|"mongo"| store_3ufptbo5k3
   proc_oqwmbqrkng -->|"unknown"| store_x3kis6s6op
   proc_oqwmbqrkng -->|"mongo<br/>unknown"| store_yc7brpyrnt
   store_x3kis6s6op -->|"unknown"| proc_oqwmbqrkng

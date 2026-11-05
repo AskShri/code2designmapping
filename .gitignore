@@ -1,4 +1,8 @@
 node_modules/
-__pycache__/
-.code2design/
 package-lock.json
+__pycache__/
+# tool output directories, but keep checked-in overrides
+.code2design/*
+**/.code2design/*
+!.code2design/overrides.yaml
+!**/.code2design/overrides.yaml

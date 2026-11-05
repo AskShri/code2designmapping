@@ -20,6 +20,12 @@ def analyze(args):
         det(idx, facts)
     name = args.name or os.path.basename(root.rstrip("/"))
     ir = synthesize(idx, facts, name=name, scope={"include": args.include or ["**"], "exclude": args.exclude or []})
+    from . import overrides as ov
+    ov_path = args.overrides or os.path.join(root, ".code2design", "overrides.yaml")
+    loaded, ov_gaps = ov.load(ov_path)
+    if loaded:
+        ir = ov.apply(ir, loaded, os.path.relpath(ov_path, root))
+    ir["gaps"] = ir["gaps"] + ov_gaps
     rows = lint(ir)
     out = args.out or os.path.join(root, ".code2design")
     os.makedirs(os.path.join(out, "diagrams"), exist_ok=True)
@@ -47,10 +53,39 @@ def analyze(args):
     return 1 if errors else 0
 
 
+def verify(args):
+    """Re-open every evidence span and compare its content hash; report what changed or vanished."""
+    from .model import span_hash
+    ir = json.load(open(args.ir))
+    changed, missing, ok = [], [], 0
+    for k in ("processes", "entities", "stores", "boundaries", "flows", "entry_points", "controls", "weaknesses", "schemas", "assets", "threat_agents"):
+        for n in ir[k]:
+            for e in n.get("evidence", []):
+                if e["path"] == ".":
+                    continue
+                full = os.path.join(args.repo, e["path"])
+                if not os.path.exists(full):
+                    missing.append((k, n.get("name", n["id"]), e["path"])); continue
+                lines = open(full, encoding="utf-8", errors="replace").read().splitlines()
+                h = span_hash(lines[e["start_line"] - 1:e["end_line"]])
+                if h != e.get("content_hash"):
+                    changed.append((k, n.get("name", n["id"]), f"{e['path']}:{e['start_line']}-{e['end_line']}"))
+                else:
+                    ok += 1
+    print(f"## Evidence verification\n\n{ok} spans unchanged, {len(changed)} changed, {len(missing)} files missing.\n")
+    for k, nm, where in changed[:200]:
+        print(f"- changed: {k[:-1]} {nm} at {where}")
+    for k, nm, where in missing[:200]:
+        print(f"- missing: {k[:-1]} {nm} ({where})")
+    return 1 if (changed or missing) else 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="code2design")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    a = sub.add_parser("analyze"); a.add_argument("path"); a.add_argument("--out"); a.add_argument("--name"); a.add_argument("--include", action="append"); a.add_argument("--exclude", action="append")
+    a = sub.add_parser("analyze"); a.add_argument("path"); a.add_argument("--out"); a.add_argument("--name"); a.add_argument("--include", action="append"); a.add_argument("--exclude", action="append"); a.add_argument("--overrides")
+    v = sub.add_parser("verify"); v.add_argument("ir"); v.add_argument("--repo", required=True)
+    x = sub.add_parser("export"); x.add_argument("ir"); x.add_argument("--format", default="otm", choices=["otm"]); x.add_argument("--repo-url")
     d = sub.add_parser("diff"); d.add_argument("base"); d.add_argument("head"); d.add_argument("--title", default="Design delta")
     l = sub.add_parser("lint"); l.add_argument("ir")
     args = ap.parse_args(argv)
@@ -59,6 +94,11 @@ def main(argv=None):
     if args.cmd == "diff":
         from .diff import markdown
         print(markdown(json.load(open(args.base)), json.load(open(args.head)), args.title)); return 0
+    if args.cmd == "verify":
+        return verify(args)
+    if args.cmd == "export":
+        from .export_otm import to_otm
+        print(json.dumps(to_otm(json.load(open(args.ir)), args.repo_url), indent=2)); return 0
     if args.cmd == "lint":
         from .lint import lint
         rows = lint(json.load(open(args.ir)))

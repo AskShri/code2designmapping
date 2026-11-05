@@ -1,0 +1,21 @@
+# Human overrides for the orders-service example. Every entry names an author; `expires` turns an
+# entry into a warning after that date. Targets are element IDs or exact element names.
+set_attribute:
+  - target: "service -> Postgres: orders"     # not an element name: this entry is deliberately stale
+    encryption: tls
+    author: a.person@example.com
+  - target: "Postgres: orders"
+    encryption_at_rest: "yes"
+    author: a.person@example.com
+    expires: 2027-06-30
+rename:
+  - target: "Stripe API"
+    to: "Stripe Payments API"
+    author: a.person@example.com
+add_threat_agent:
+  - name: "Rogue merchant operator"
+    access: insider
+    entry: ["POST /orders handler"]
+    passes_controls: [authn, rate_limit]
+    goals: ["create fraudulent orders"]
+    author: a.person@example.com

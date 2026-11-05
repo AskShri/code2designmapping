@@ -180,7 +180,7 @@
         ""
       ],
       "origin": "observed",
-      "name": "MySQL",
+      "name": "MySQL (collection unresolved)",
       "technology": "mysql",
       "data_classes": [],
       "encryption_at_rest": "unknown",
@@ -406,6 +406,44 @@
       ]
     },
     {
+      "id": "flow:uk4ctqpfvw",
+      "identity": [
+        "flow",
+        "proc:dukamseyo3",
+        "proc:on4df6f6pv",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:dukamseyo3",
+      "target": "proc:on4df6f6pv",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls populate_db",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/hello.py",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:310d7115cd801d33ff44bf05bf119f1fc5e82a2378b5d1c49a3c69e84abde9ac",
+          "symbol": "backend/hello.py::populate_db"
+        },
+        {
+          "path": "backend/hello.py",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:f02f7c9550c52151c1e13059027957e1464ade1056ea4031b7f6361951041d31",
+          "symbol": "backend/hello.py::query_titles"
+        }
+      ]
+    },
+    {
       "id": "flow:upfr4ls7hx",
       "identity": [
         "flow",
@@ -487,7 +525,8 @@
       "path": "/",
       "controls": [],
       "call_chain": [
-        "proc:dukamseyo3"
+        "proc:dukamseyo3",
+        "proc:on4df6f6pv"
       ],
       "evidence": [
         {
@@ -497,6 +536,11 @@
           "detector": "py@0.3",
           "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
         }
+      ],
+      "reaches": [
+        "store:ahjjfkyans",
+        "store:hxhbxcitka",
+        "store:mj5mpprmqf"
       ]
     }
   ],
@@ -655,6 +699,12 @@
   ],
   "gaps": [
     {
+      "kind": "unresolved",
+      "path": "backend/hello.py",
+      "line": 23,
+      "detail": "mysql access through a document or connection variable whose collection could not be resolved; shown as a separate store"
+    },
+    {
       "kind": "unknown_attribute",
       "path": "backend/hello.py",
       "detail": "Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered."
@@ -675,7 +725,7 @@
       "kind": "unknown_attribute",
       "path": "backend/hello.py",
       "line": 23,
-      "detail": "Question for the team: how is the link to MySQL authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+      "detail": "Question for the team: how is the link to MySQL (collection unresolved) authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
     }
   ]
 }

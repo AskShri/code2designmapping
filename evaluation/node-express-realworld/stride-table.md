@@ -12,11 +12,11 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | no authn control detected on POST /api/users | Weakness | - | - | - | - | unauthenticated_entry_point at src/app/routes/auth/auth.controller.ts:14 |
 | HTTP client | External entity | S R | - | - | - | inbound caller; verify authentication on every entry point |
 | HTTP client -> DELETE /api/articles/:slug handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
-| HTTP client -> POST /api/users/login handler | Data flow | T I D | - | repository: @api/source | cors | authentication=none, encryption=unknown: question for the team |
+| HTTP client -> GET /api/articles/feed handler | Data flow | T I D | internal | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
+| HTTP client -> POST /api/users handler | Data flow | T I D | internal | repository: @api/source | cors | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /api/user handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> DELETE /api/articles/:slug/favorite handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET / handler | Data flow | T I D | - | repository: @api/source | cors | authentication=none, encryption=unknown: question for the team |
-| HTTP client -> GET /api/articles/feed handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /api/articles handler | Data flow | T I D | - | repository: @api/source | auth.optional, cors | authentication=credentials, encryption=unknown: question for the team |
 | article.service -> Postgres: Article | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
 | Postgres: Comment -> article.service | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
@@ -24,22 +24,22 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | auth.service -> Postgres: User | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
 | Postgres: Article -> article.service | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
 | Postgres: User -> auth.service | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
+| HTTP client -> PUT /api/articles/:slug handler | Data flow | T I D | internal | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | Postgres: Tag -> tag.service | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
-| HTTP client -> PUT /api/articles/:slug handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
+| HTTP client -> POST /api/articles/:slug/comments handler | Data flow | T I D | internal | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /api/articles/:slug handler | Data flow | T I D | - | repository: @api/source | auth.optional, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> POST /api/articles/:slug/favorite handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> POST /api/profiles/:username/follow handler | Data flow | T I D | - | repository: @api/source | cors, auth.required | authentication=credentials, encryption=unknown: question for the team |
+| HTTP client -> POST /api/articles handler | Data flow | T I D | internal | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /api/articles/:slug/comments handler | Data flow | T I D | - | repository: @api/source | auth.optional, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> DELETE /api/articles/:slug/comments/:id handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /api/tags handler | Data flow | T I D | - | repository: @api/source | cors, auth.optional | authentication=credentials, encryption=unknown: question for the team |
 | Postgres: User -> profile.service | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
+| HTTP client -> PUT /api/user handler | Data flow | T I D | internal | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> DELETE /api/profiles/:username/follow handler | Data flow | T I D | - | repository: @api/source | cors, auth.required | authentication=credentials, encryption=unknown: question for the team |
 | profile.service -> Postgres: User | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
-| HTTP client -> POST /api/articles handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
 | article.service -> Postgres: Comment | Data flow | T I D | - | repository: @api/source | none | authentication=unknown, encryption=unknown: question for the team |
-| HTTP client -> POST /api/articles/:slug/comments handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
-| HTTP client -> PUT /api/user handler | Data flow | T I D | - | repository: @api/source | auth.required, cors | authentication=credentials, encryption=unknown: question for the team |
-| HTTP client -> POST /api/users handler | Data flow | T I D | - | repository: @api/source | cors | authentication=none, encryption=unknown: question for the team |
+| HTTP client -> POST /api/users/login handler | Data flow | T I D | internal | repository: @api/source | cors | authentication=none, encryption=unknown: question for the team |
 | Postgres: Comment | Data store | T R I D | - | in no boundary | encryption at rest: unknown |  |
 | Postgres: Tag | Data store | T R I D | - | in no boundary | encryption at rest: unknown |  |
 | Postgres: User | Data store | T R I D | - | in no boundary | encryption at rest: unknown |  |

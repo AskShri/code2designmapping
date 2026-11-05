@@ -123,63 +123,90 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | HTTP client -> GET /auth/steam/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, passport.authorize, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/linkedin/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> POST /ai/ai-agent/chat handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| MongoDB: User -> POST /reset/:token handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| POST /login/2fa/resend handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /login/2fa handler | Data flow | T I D | - | repository: hackathon-starter | login2FALimiter, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| POST /reset/:token handler -> SMTP mail relay | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| POST /account/password handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/github handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| api -> news.ycombinator.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | HTTP client -> GET / handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| MongoDB: User -> POST /login/2fa handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /logout handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/discord handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| POST /login/webauthn-verify handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /login/webauthn-verify handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/google/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /login/verify/:token handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, loginLimiter, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| GET /api/pubchem handler -> pubchem.ncbi.nlm.nih.gov | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | HTTP client -> GET /auth/microsoft/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> POST /account/profile handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> POST /account/webauthn/verify handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
-| ai -> MongoDB | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
-| user -> MongoDB | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| ai -> MongoDB (collection unresolved) | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /ai/ai-agent/reset handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| POST /account/delete handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /account/2fa/email/enable handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
+| MongoDB: User -> GET /login/verify/:token handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/steam handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> GET /ai handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| GET /api/nyt handler -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /api/tumblr handler -> api.tumblr.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | HTTP client -> GET /api/google/drive handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> GET /account/verify/:token handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> POST /contact handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| ai-agent -> MongoDB | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| ai-agent -> MongoDB (collection unresolved) | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | api -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| POST /account/2fa/totp/setup handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /login/2fa/resend handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, strictLimiter, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| MongoDB -> passport | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /account/2fa/email/remove handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /ai/rag handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | contact -> SMTP mail relay | Data flow | T I D | - | repository: hackathon-starter | none | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /api/paypal/success handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> POST /account/logout-everywhere handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
+| POST /login handler -> SMTP mail relay | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | MongoDB: User -> webauthn | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /account/profile handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| POST /account/profile handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /forgot handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /login/2fa/totp handler | Data flow | T I D | - | repository: hackathon-starter | login2FALimiter, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| POST /forgot handler -> SMTP mail relay | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /forgot handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /ai/rag/ingest handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /api/lob handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/facebook/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /api/twitch handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/tumblr handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| passport -> MongoDB | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /account/2fa/totp/remove handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/x/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /account/2fa/totp/setup handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> POST /login handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, loginLimiter, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | passport -> api.linkedin.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | token-revocation -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| POST /signup handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/giphy handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | contact -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /login/2fa/totp handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /api/quickbooks handler -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | passport -> graph.microsoft.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
+| MongoDB: User -> GET /reset/:token handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/tumblr/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, passport.authorize, morganLogger | authentication=none, encryption=unknown: question for the team |
-| app -> MongoDB | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
-| MongoDB -> ai | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| app -> MongoDB (collection unresolved) | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB (collection unresolved) -> ai | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/paypal/cancel handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| MongoDB -> webauthn | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /api/lob handler -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /account/2fa/totp/setup handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /signup handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /api/tumblr handler -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> GET /account/2fa/totp/setup handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/paypal handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/twitch handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /login handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| MongoDB: User -> GET /login/2fa handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | passport -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
-| MongoDB -> User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB (collection unresolved) -> User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | user -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /ai/llm-classifier handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| POST /account/2fa/email/enable handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /api/paypal/success handler -> api.sandbox.paypal.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | HTTP client -> GET /api/wikipedia handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> POST /login/webauthn-start handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, loginLimiter, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | MongoDB: User -> user | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
@@ -187,8 +214,12 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | HTTP client -> GET /account/webauthn/register handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/github/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /api/chart handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| MongoDB: User -> GET /login/2fa/totp handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB: User -> POST /account/password handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | api -> api.sandbox.paypal.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | HTTP client -> POST /account/webauthn/register handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
+| POST /login/2fa handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /account/verify handler -> SMTP mail relay | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | MongoDB: User -> passport | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/twitch/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger | authentication=credentials, encryption=unknown: question for the team |
@@ -203,32 +234,41 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | HTTP client -> POST /account/2fa/totp/remove handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | nodemailer -> SMTP mail relay | Data flow | T I D | - | repository: hackathon-starter | none | authentication=credentials, encryption=unknown: question for the team |
 | HTTP client -> GET /api/facebook handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
+| POST /account/webauthn/register handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | passport -> discord.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
+| GET /account/unlink/:provider handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/scraping handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /api/tumblr handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> GET /api/twilio handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| passport -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /account/unlink/:provider handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> GET /api/upload handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | user -> SMTP mail relay | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| POST /login handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| POST /reset/:token handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /login/2fa handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /login/webauthn-verify handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, loginLimiter, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /login/webauthn-start handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| GET /ai/rag handler -> MongoDB (collection unresolved) | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/lastfm handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| POST /account/2fa/totp/remove handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /login/2fa/totp handler | Data flow | T I D | - | repository: hackathon-starter | login2FALimiter, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/facebook handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| MongoDB: User -> GET /account/unlink/:provider handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /api/stripe handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| GET /api/scraping handler -> news.ycombinator.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | HTTP client -> POST /signup handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| MongoDB -> user | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| POST /account/2fa/email/remove handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /account/verify handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> POST /ai/llm-classifier handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /account handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
-| webauthn -> MongoDB | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /login/2fa handler | Data flow | T I D | - | repository: hackathon-starter | login2FALimiter, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| api -> graph.facebook.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
-| api -> pubchem.ncbi.nlm.nih.gov | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
+| GET /login/verify/:token handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /api/chart handler -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/google/sheets handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
+| MongoDB: User -> POST /account/2fa/email/enable handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/google handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /api/nyt handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| api -> api.tumblr.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | api -> api.twitch.tv | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | HTTP client -> POST /account/delete handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> POST /ai/llm-camera handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca, lusca.xframe, strictLimiter, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
@@ -239,7 +279,7 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | HTTP client -> GET /auth/microsoft handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> POST /api/twilio handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> POST /ai/rag/ask handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| MongoDB -> ai-agent | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB (collection unresolved) -> ai-agent | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /account/2fa/email/remove handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> GET /api/stripe handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /ai/ai-agent handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
@@ -247,31 +287,42 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | HTTP client -> GET /contact handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, strictLimiter, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /api/github handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /api/google-maps handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| POST /forgot handler -> MongoDB: User | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /api/upload handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca, lusca.xframe, strictLimiter, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| GET /api/paypal handler -> api.sandbox.paypal.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
 | HTTP client -> GET /api/here-maps handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| MongoDB: User -> POST /login/2fa/resend handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/quickbooks handler | Data flow | T I D | - | repository: hackathon-starter | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=session_id, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/quickbooks/callback handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, passport.authorize, morganLogger | authentication=none, encryption=unknown: question for the team |
+| GET /api/giphy handler -> Unresolved HTTP target | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /api/foursquare handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/linkedin handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
+| MongoDB: User -> POST /login handler | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| GET /api/facebook handler -> graph.facebook.com | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=tls: question for the team |
+| POST /ai/rag/ingest handler -> MongoDB (collection unresolved) | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> GET /auth/x handler | Data flow | T I D | - | repository: hackathon-starter | limiter, lusca.xframe, lusca.xssProtection, morganLogger | authentication=none, encryption=unknown: question for the team |
-| MongoDB | Data store | T R I D | - | in no boundary | encryption at rest: unknown |  |
+| POST /ai/rag/ask handler -> MongoDB (collection unresolved) | Data flow | T I D | - | repository: hackathon-starter | none | authentication=unknown, encryption=unknown: question for the team |
+| MongoDB (collection unresolved) | Data store | T R I D | - | in no boundary | encryption at rest: unknown |  |
 | MongoDB: User | Data store | T R I D | - | in no boundary | encryption at rest: unknown |  |
-| api -> Stripe API | Data flow | T I D | - | repository: hackathon-starter | none |  |
+| GET /api/google/drive handler -> Google Drive API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | passport -> Github2 identity provider | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | api -> Last.fm API | Data flow | T I D | - | repository: hackathon-starter | none |  |
-| api -> Lob API | Data flow | T I D | - | repository: hackathon-starter | none |  |
-| api -> Twilio API | Data flow | T I D | - | repository: hackathon-starter | none |  |
+| GET /api/lob handler -> Lob API | Data flow | T I D | - | repository: hackathon-starter | none |  |
+| POST /api/stripe handler -> Stripe API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | ai -> Hugging Face Inference API | Data flow | T I D | - | repository: hackathon-starter | none |  |
+| POST /ai/rag/ask handler -> Groq API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | ai-agent -> Groq API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | passport -> Oauth2 Refresh identity provider | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | api -> GitHub API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | passport -> Google Oauth identity provider | Data flow | T I D | - | repository: hackathon-starter | none |  |
-| ai -> Groq API | Data flow | T I D | - | repository: hackathon-starter | none |  |
+| GET /api/google/sheets handler -> Google Drive API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | passport -> Oauth1 identity provider | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | passport -> Steam Openid identity provider | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | api -> Google Drive API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | api -> Google Sheets API | Data flow | T I D | - | repository: hackathon-starter | none |  |
+| GET /api/google/sheets handler -> Google Sheets API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | passport -> Facebook identity provider | Data flow | T I D | - | repository: hackathon-starter | none |  |
+| POST /api/twilio handler -> Twilio API | Data flow | T I D | - | repository: hackathon-starter | none |  |
 | POST /account/webauthn/verify handler | Process | S T R I D E | - | - | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger | entry point |
 | token-revocation | Process | S T R I D E | - | - | n/a (internal) |  |
 | GET /login handler | Process | S T R I D E | - | - | limiter, lusca.xframe, lusca.xssProtection, morganLogger | entry point |

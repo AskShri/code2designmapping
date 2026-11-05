@@ -1,13 +1,17 @@
 %% L2: paymentservice
 flowchart LR
   subgraph bnd_blo2xu3bom["container: paymentservice"]
-    proc_4xkowmegqv(["gRPC hipsterShopPackage.PaymentService handler"])
-    proc_zf7chersix(["gRPC healthPackage.Health handler"])
+    proc_5pxrkmisyz(["paymentservice (+1)"])
+    proc_oi33662qnj(["gRPC PaymentService handler"])
+  end
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_cs5kcq4nvf(["checkoutservice (+2)"])
   end
   ext_sqc242xzn7["gRPC client"]
-  ext_sqc242xzn7 -->|"grpc"| proc_4xkowmegqv
-  ext_sqc242xzn7 -->|"grpc"| proc_zf7chersix
+  ext_sqc242xzn7 -->|"grpc"| proc_oi33662qnj
+  proc_cs5kcq4nvf -->|"grpc"| proc_5pxrkmisyz
   style bnd_blo2xu3bom stroke-dasharray: 8 4,fill:none
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])

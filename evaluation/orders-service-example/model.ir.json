@@ -2,7 +2,7 @@
   "version": "0.1",
   "provenance": {
     "tool_version": "0.3.0-prototype",
-    "commit": "05fad9d339c80c96730bed6aef6f9eb9344b946d",
+    "commit": "bee778ff5e8c7897b366b0a773b38a7ac19f3715",
     "generated_from": "orders-service-example",
     "detectors": [
       "config@0.3",
@@ -26,7 +26,8 @@
       "src/orders/routes.ts": "sha256:9ffe50b849482591a1e9b26cdb781867af87dbaa0b88830cccd697db383b2f7f",
       "src/orders/service.ts": "sha256:06f84b8c7cfdbcb62462d1764d5ac32e8635ffec9508dc8aad86ea5fb2548b36",
       "src/payments/stripe.ts": "sha256:e82de69cd5bec164a28d7c6ea388838e07d7a79d56f2f314a7f6040804e45378"
-    }
+    },
+    "overrides_file": ".code2design/overrides.yaml"
   },
   "processes": [
     {
@@ -262,8 +263,8 @@
         "Stripe API",
         "outbound"
       ],
-      "origin": "observed",
-      "name": "Stripe API",
+      "origin": "declared",
+      "name": "Stripe Payments API",
       "kind": "system",
       "evidence": [
         {
@@ -272,6 +273,13 @@
           "end_line": 6,
           "detector": "js@0.3",
           "content_hash": "sha256:bb4b958d4b59860e65fa9e3d3f696b2bfbf25a9c5a4ecc170117fa69c7f26ca6"
+        },
+        {
+          "path": ".code2design/overrides.yaml",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "overrides@0.3",
+          "content_hash": "sha256:31945e46042a49306eafb2e3017e314bb6d4cb89fc2c3b161e071752c82bf4fa"
         }
       ],
       "host": "api.stripe.com",
@@ -286,7 +294,7 @@
         "postgres",
         "order"
       ],
-      "origin": "observed",
+      "origin": "declared",
       "name": "Postgres: orders",
       "technology": "postgres",
       "logical_name": "orders",
@@ -294,7 +302,7 @@
         "financial",
         "pii"
       ],
-      "encryption_at_rest": "unknown",
+      "encryption_at_rest": "yes",
       "evidence": [
         {
           "path": "src/orders/service.ts",
@@ -316,6 +324,13 @@
           "end_line": 6,
           "detector": "config@0.3",
           "content_hash": "sha256:c0bf8e33ab21b3f88515d2db5ecdc3476da739f25b5858661c12c523072dc5b9"
+        },
+        {
+          "path": ".code2design/overrides.yaml",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "overrides@0.3",
+          "content_hash": "sha256:e510f55c2b0774d9d2380ddadca1963d7757a0b0e14a1cb75911429afba2c7bb"
         }
       ]
     },
@@ -441,6 +456,36 @@
   ],
   "flows": [
     {
+      "id": "flow:cxj7gkzie4",
+      "identity": [
+        "flow",
+        "proc:uiamsfd5ja",
+        "proc:rlda3c52k2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:uiamsfd5ja",
+      "target": "proc:rlda3c52k2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls chargeCard",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:b0611038cf69ecbc3ec5ea25d3cea6193f8e4049e5b2752a5c72a64f5f9dec0a",
+          "symbol": "src/payments/stripe.ts::chargeCard"
+        }
+      ]
+    },
+    {
       "id": "flow:e4rceghxul",
       "identity": [
         "flow",
@@ -471,7 +516,7 @@
         }
       ],
       "payload": {
-        "name": "request fields (propagated)",
+        "name": "request fields (via call path)",
         "data_classes": [
           "financial",
           "pii"
@@ -528,16 +573,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses createOrder",
+      "purpose": "calls createOrder",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/orders/routes.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:46cc67d9490226bda616688299bec29c93c55d71b7195c4341be5fe3cf9f8b2d"
+          "path": "src/orders/service.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1abc8043809bd7f0c49fa45a487dcb81ae0833940bafa93c46bda8663bbeb8b6",
+          "symbol": "src/orders/service.ts::createOrder"
         }
       ]
     },
@@ -635,16 +681,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses getOrder",
+      "purpose": "calls getOrder",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/orders/routes.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:46cc67d9490226bda616688299bec29c93c55d71b7195c4341be5fe3cf9f8b2d"
+          "path": "src/orders/service.ts",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:29f2e0810eb483e728e3a1140ce312bca04f8e1837bcfa6a51fc444c38e2b3ce",
+          "symbol": "src/orders/service.ts::getOrder"
         }
       ]
     },
@@ -680,7 +727,7 @@
         }
       ],
       "payload": {
-        "name": "request fields (propagated)",
+        "name": "request fields (via call path)",
         "data_classes": [
           "financial",
           "pii"
@@ -703,16 +750,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses chargeCard",
+      "purpose": "calls chargeCard",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/orders/service.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:6ebbdd316ce4a9d1e6f9b45f97ee8486a63c352ec8c575f05096822c4264c324"
+          "path": "src/payments/stripe.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:b0611038cf69ecbc3ec5ea25d3cea6193f8e4049e5b2752a5c72a64f5f9dec0a",
+          "symbol": "src/payments/stripe.ts::chargeCard"
         }
       ]
     },
@@ -790,7 +838,7 @@
         }
       ],
       "payload": {
-        "name": "request fields (propagated)",
+        "name": "request fields (via call path)",
         "data_classes": [
           "financial",
           "pii"
@@ -830,6 +878,10 @@
           "detector": "js@0.3",
           "content_hash": "sha256:0f17f4a7380b276307ee6f67a48767b47f96bfdce32a3b0178022784fb370b89"
         }
+      ],
+      "reaches": [
+        "store:2whm26363j",
+        "store:ligqz7jge4"
       ]
     },
     {
@@ -863,6 +915,11 @@
           "detector": "js@0.3",
           "content_hash": "sha256:a0d9c02c595fbb2d498c47828f4997c9d601b0e353899e54eb3452f0ee6d1d7e"
         }
+      ],
+      "reaches": [
+        "ext:slqdx4hifp",
+        "store:2whm26363j",
+        "store:ligqz7jge4"
       ]
     }
   ],
@@ -1258,6 +1315,36 @@
       ]
     },
     {
+      "id": "agent:p3ujnftqe3",
+      "identity": [
+        "agent",
+        "insider",
+        "Rogue merchant operator"
+      ],
+      "origin": "declared",
+      "name": "Rogue merchant operator",
+      "access": "insider",
+      "entry": [
+        "proc:uiamsfd5ja"
+      ],
+      "passes_controls": [
+        "authn",
+        "rate_limit"
+      ],
+      "goals": [
+        "create fraudulent orders"
+      ],
+      "evidence": [
+        {
+          "path": ".code2design/overrides.yaml",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "overrides@0.3",
+          "content_hash": "sha256:fcab30841fafaf3def40812a5772f3869a0b2a2d45e6d4edf4539509e0884bda"
+        }
+      ]
+    },
+    {
       "id": "agent:ro6hlangl4",
       "identity": [
         "agent",
@@ -1307,6 +1394,11 @@
       "path": "src/orders/service.ts",
       "line": 17,
       "detail": "Question for the team: how is the link to Redis: order:* authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "override_target_missing",
+      "path": ".code2design/overrides.yaml",
+      "detail": "set_attribute override targets 'service -> Postgres: orders' which no longer exists in the model"
     }
   ]
 }

@@ -2,43 +2,19 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:7drtnwcnc4",
-    "message": "App -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+    "id": "flow:4i6hau7apq",
+    "message": "POST /api/todos handler -> MongoDB: Todo: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:ctfvosmhzj",
-    "message": "POST /todos handler -> MongoDB: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:fe4s2ohaux",
-    "message": "MongoDB: Todo -> GET / handler: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:kye6dir6j3",
-    "message": "serviceWorker -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+    "id": "flow:pwgnag6hrk",
+    "message": "MongoDB: Todo -> GET /api handler: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:blr2ioda52",
-    "message": "process serviceWorker has only outputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:hek3xxknmp",
-    "message": "process App has only outputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:iyy6jw4wzp",
-    "message": "process GET / handler has only inputs; a detector may be missing"
+    "id": "proc:oc7mi556ml",
+    "message": "process GET /api handler has only inputs; a detector may be missing"
   }
 ]

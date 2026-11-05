@@ -2,10 +2,12 @@
 import os, re, subprocess, hashlib
 from collections import OrderedDict, deque
 from .model import sid, classify_field, sorted_by_id, TECH_PROTOCOL
+from .callgraph import CallGraph
 from . import __version__
 
 TECH_LABEL = {"postgres": "Postgres", "mysql": "MySQL", "sqlite": "SQLite", "mssql": "SQL Server", "mongodb": "MongoDB", "dynamodb": "DynamoDB", "redis": "Redis", "memcached": "Memcached", "elasticsearch": "Elasticsearch", "kafka": "Kafka", "rabbitmq": "RabbitMQ", "sqs": "SQS", "s3": "S3", "gcs": "GCS", "filesystem": "Filesystem", "unknown": "Database"}
 WRAPPER_DIRS = {"src", "lib", "app", "server", "backend", "api", "source"}
+INFRA_PATH_RX = re.compile(r"(^|/)(_?health[a-z]*|_?ready[a-z]*|_?live[a-z]*|metrics|ping|status|version|favicon\.ico|robots\.txt|docs|api-docs|swagger[\w./-]*|openapi[\w./-]*)/?$", re.I)
 
 
 def _git_commit(root):
@@ -29,6 +31,7 @@ class Synth:
         self.name = name or os.path.basename(idx.root.rstrip("/"))
         self.scope = scope or {}
         self.gaps = []
+        self.flow_facts = {}
         self.ev_of = {f["id"]: f for f in facts.facts}
 
     # ---------------------------------------------------------------- grouping
@@ -49,10 +52,12 @@ class Synth:
                 continue
             name = f["name"] if f.get("source") != "dockerfile" else (os.path.basename(ctx) if ctx != "." else self.name)
             by_ctx[ctx] = name
+        # a Dockerfile-only context nested inside a compose/k8s context belongs to that service
+        strong = {ctx for ctx, name in by_ctx.items() if any(f.get("source") in ("compose", "k8s") and (f.get("context") or ".").rstrip("/") == ctx for f in hints)}
+        for ctx in list(by_ctx):
+            if ctx not in strong and any(ctx.startswith(sc + "/") for sc in strong if sc != "."):
+                del by_ctx[ctx]
         svcs = OrderedDict((name, ctx) for ctx, name in by_ctx.items())
-        # a root context swallows every nested one when it is the only app container
-        if "." in by_ctx and len(by_ctx) > 1 and all(not any(p.startswith(c + "/") for p in self.idx.files) or c == "." for c in by_ctx):
-            pass
         return svcs
 
     def _service_of(self, path, svcs):
@@ -125,6 +130,21 @@ class Synth:
         for m in mounts:
             if m["file"] in prefix_of and m.get("target_file"):
                 mounted_prefixes[m["target_file"]] = _join(prefix_of[m["file"]], m["prefix"])
+        cg = CallGraph(idx)
+        self.cg = cg
+        root_mount_line, app_file_of = {}, {}
+        for af in app_files:
+            app_file_of[af] = af
+        q2 = deque(app_files); seen2 = set(app_files)
+        while q2:
+            cur = q2.popleft()
+            for m in mounts:
+                if m["file"] == cur and m.get("target_file") and m["target_file"] not in seen2:
+                    seen2.add(m["target_file"])
+                    root_mount_line[m["target_file"]] = root_mount_line.get(cur) or m["evidence"][0]["start_line"]
+                    app_file_of[m["target_file"]] = app_file_of[cur]
+                    q2.append(m["target_file"])
+        local_prefix = {(m["file"], m["local"]): m["prefix"] for m in facts.by_kind("router_prefix")}
         app_controls = [c for c in facts.by_kind("control") if c.get("scope") in ("app", "file")]
         router_controls = [c for c in facts.by_kind("control") if c.get("scope") == "router"]
         ctl_ids = {}
@@ -134,18 +154,24 @@ class Synth:
             if key not in ctl_ids:
                 cid = sid("ctl", "control", c["control_kind"], f'{c["file"]}::{c["name"]}')
                 controls[cid] = OrderedDict(id=cid, identity=["control", c["control_kind"], f'{c["file"]}::{c["name"]}'], origin="observed", kind=c["control_kind"], name=c["name"], applies_to=[], evidence=list(c["evidence"]))
+                if c.get("conditional"):
+                    controls[cid]["conditional"] = True
                 ctl_ids[key] = cid
             return ctl_ids[key]
 
         handler_proc_of_fact = {}
+        handler_key = {}
         listener_tls = any(l.get("tls") for l in facts.by_kind("listener"))
         for ep in facts.by_kind("entry_point"):
             f = ep["file"]
             if ep["protocol"] == "http":
+                lp = local_prefix.get((f, ep.get("router")), "")
                 if f in prefix_of:
-                    full = _join(prefix_of[f], ep["path"])
+                    full = _join(_join(prefix_of[f], lp), ep["path"])
                 elif f in mounted_prefixes:
-                    full = _join(mounted_prefixes[f], ep["path"])
+                    full = _join(_join(mounted_prefixes[f], lp), ep["path"])
+                elif lp:
+                    full = _join(lp, ep["path"])
                 elif ep.get("router") in ("django", "drf") or ep["file"].endswith(".py"):
                     full = ep["path"]
                 else:
@@ -153,7 +179,10 @@ class Synth:
                     self.gaps.append(OrderedDict(kind="unresolved", path=f, line=ep["evidence"][0]["start_line"], detail=f"router for {ep['method']} {ep['path']} is not mounted from a detected app entry; path shown without prefix"))
                 label = f"{ep['method']} {full}"
             else:
-                full = ep["path"]; label = f"gRPC {ep['path']}"
+                full = re.sub(r"(Servicer|Impl)$", "", ep["path"].split(".")[-1])
+                if full and not full.endswith("Service") and full.lower() != "health":
+                    full += "Service"
+                label = f"gRPC {full}"
             l1 = l1_ids[l1_of_file[f]]
             pid = self._proc(processes, ("process", f, label), f"{label} handler", 2, l1, f, list(ep["evidence"]))
             handler_proc_of_fact[ep["id"]] = pid
@@ -167,6 +196,16 @@ class Synth:
                     continue
                 if self._service_of(c["file"], svcs) != self._service_of(f, svcs):
                     continue
+                if c.get("scope") == "app" and c["file"] in app_files:
+                    c_line = c["evidence"][0]["start_line"]
+                    if f == c["file"]:
+                        if c_line > ep["evidence"][0]["start_line"]:
+                            continue
+                    elif app_file_of.get(f) == c["file"]:
+                        if c_line > root_mount_line.get(f, 10**9):
+                            continue
+                    elif f in app_file_of:
+                        continue
                 ctls.append(control_id(c))
             for c in router_controls:
                 if c["file"] == f:
@@ -174,6 +213,24 @@ class Synth:
             ctls = sorted(set(ctls))
             eid = sid("ep", "entry_point", ep["protocol"], ep["method"], full, f)
             entry_points[eid] = OrderedDict(id=eid, identity=["entry_point", ep["protocol"], ep["method"], full, f], origin="observed", process=pid, protocol=ep["protocol"], method=ep["method"], path=full, controls=ctls, call_chain=[pid], evidence=list(ep["evidence"]))
+            if ep["method"] == "OPTIONS" or INFRA_PATH_RX.search(full or "") or (ep["protocol"] == "grpc" and "health" in full.lower()):
+                entry_points[eid]["infrastructure"] = True
+            if ep.get("handler_span"):
+                hline = idx.files[f].bytes[:ep["handler_span"][0]].count(b"\n") + 1
+                hkey = cg.enclosing(f, hline)
+            elif ep.get("handler_ref") and f in idx.files and idx.files[f].lang in ("javascript", "typescript", "tsx", "python"):
+                hkey = cg.resolve_ref(idx.files[f], ep["handler_ref"]) or ((ep["handler_module"], "<module>") if ep.get("handler_module") else None)
+            elif ep.get("handler_module") and ep.get("handler_symbol") and ep["handler_module"] in idx.files:
+                hkey = cg.function_at(ep["handler_module"], ep["handler_symbol"])
+                if hkey is None and idx.files[ep["handler_module"]].lang in ("go", "java", "c_sharp"):
+                    tf = cg._by_dir_name.get((os.path.dirname(ep["handler_module"]), ep["handler_symbol"]))
+                    hkey = cg.function_at(tf, ep["handler_symbol"]) if tf else None
+                hkey = hkey or (ep["handler_module"], "<module>")
+            elif ep["protocol"] == "grpc":
+                hkey = (f, "<grpc>")  # service implementation: all functions of the package (Go/Java/C#) or file (JS/Python)
+            else:
+                hkey = None
+            handler_key[ep["id"]] = hkey
             for c in ctls:
                 controls[c]["applies_to"].append(eid)
         # module processes for fact-bearing files
@@ -196,12 +253,46 @@ class Synth:
         for f in sorted(fact_files):
             module_process(f)
 
-        # entities & stores from usage facts -> flows
-        def proc_for(fct):
+        # usage facts are attributed to the function performing them; handlers own their own function's facts
+        owner_of = {}
+        for fct in facts.facts:
+            if fct["kind"] in usage_kinds and fct.get("file") in idx.files and fct.get("operation") not in ("client_init", "service_definition", "model_definition", "sdk_import"):
+                owner_of[fct["id"]] = cg.enclosing(fct["file"], fct["evidence"][0]["start_line"])
+        handlers_of_key = {}
+        for fid, key in handler_key.items():
+            if key:
+                handlers_of_key.setdefault(key, []).append(fid)
+        def reach_for(fid, key):
+            if not key:
+                return []
+            if key[1] == "<grpc>":
+                f = key[0]
+                if idx.files[f].lang in ("go", "java", "c_sharp"):
+                    svc_dir = l1_of_file[f][1]
+                    funcs = sorted(k for k in cg.functions if (k[0] == svc_dir or k[0].startswith(svc_dir.rstrip("/") + "/") or svc_dir == ".") and not k[1].startswith("<") and idx.files[k[0]].lang == idx.files[f].lang)
+                else:
+                    funcs = sorted(k for k in cg.functions if k[0] == f)
+                out = []
+                for k in funcs:
+                    for r in cg.reach(k, 6):
+                        if r not in out:
+                            out.append(r)
+                return out
+            return cg.reach(key)
+        reach_of_handler = {fid: reach_for(fid, key) for fid, key in handler_key.items()}
+        reached_by = {}
+        for fid, keys in reach_of_handler.items():
+            for k in keys:
+                reached_by.setdefault(k, set()).add(fid)
+
+        def sources_for(fct):
             h = fct.get("handler")
             if h and h in handler_proc_of_fact:
-                return handler_proc_of_fact[h]
-            return module_process(fct["file"])
+                return [handler_proc_of_fact[h]]
+            owner = owner_of.get(fct["id"])
+            if owner in handlers_of_key:
+                return sorted({handler_proc_of_fact[fid] for fid in handlers_of_key[owner]})
+            return [module_process(fct["file"])]
         inbound_clients = {}
         for eid, ep in entry_points.items():
             key = "http-client" if ep["protocol"] == "http" else "grpc-client"
@@ -270,14 +361,14 @@ class Synth:
                 st = store_for(tech, fct.get("logical_name"), fct["evidence"][0])
                 continue
             st = store_for(tech, fct.get("logical_name"), fct["evidence"][0])
-            src = proc_for(fct)
             proto = TECH_PROTOCOL.get(tech, "unknown")
-            if op == "read":
-                self._flow(flows, st, src, proto, "one_way", "unknown", "unknown", list(fct["evidence"]), purpose=f"{fct.get('method', 'read')}")
-            elif op == "write":
-                self._flow(flows, src, st, proto, "one_way", "unknown", "unknown", list(fct["evidence"]), purpose=f"{fct.get('method', 'write')}")
-            else:
-                self._flow(flows, src, st, proto, "unknown", "unknown", "unknown", list(fct["evidence"]), purpose=f"{fct.get('method', 'access')} (direction unknown)")
+            for src in sources_for(fct):
+                if op == "read":
+                    self._flow(flows, st, src, proto, "one_way", "unknown", "unknown", list(fct["evidence"]), purpose=f"{fct.get('method', 'read')}", fact_id=fct["id"])
+                elif op == "write":
+                    self._flow(flows, src, st, proto, "one_way", "unknown", "unknown", list(fct["evidence"]), purpose=f"{fct.get('method', 'write')}", fact_id=fct["id"])
+                else:
+                    self._flow(flows, src, st, proto, "unknown", "unknown", "unknown", list(fct["evidence"]), purpose=f"{fct.get('method', 'access')} (direction unknown)", fact_id=fct["id"])
         # outbound
         ent_ids = {}
         def entity_for(name, host, kind, ev):
@@ -301,79 +392,63 @@ class Synth:
             host = fct.get("host"); name = fct.get("sdk_service")
             if host and host.startswith("env:") and host[4:] in env_hosts:
                 host = env_hosts[host[4:]]
+            if host and host.startswith("env:") and re.search(r"(LISTEN|^env:PORT$|_PORT$|BIND)", host):
+                continue  # the service's own listen address
             if host and host.lower() in ("localhost", "127.0.0.1", "0.0.0.0", "::1", "::", "[::]") and not name:
                 continue  # loopback target: not an external dependency
-            src = proc_for(fct) if fct.get("operation") != "sdk_import" else module_process(fct["file"])
+            if host and host.startswith("svc:"):
+                hint = host[4:].lower()
+                cands = [hint, hint + "service", hint.replace("service", "") + "service"]
+                hit = next((c for c in cands if c in host_to_service), None)
+                host = hit or None
+                name = name or (None if hit else f"{fct['host'][4:]} service")
+            srcs = sources_for(fct) if fct.get("operation") != "sdk_import" else [module_process(fct["file"])]
             proto = fct.get("protocol") or "unknown"
             enc = "tls" if proto in ("https",) else ("none" if proto in ("http",) or fct.get("insecure") else "unknown")
             auth = "credentials" if (name and fct["file"] in secret_files) else "unknown"
-            target = None
-            # cross-service resolution via compose / k8s hostnames
-            if host and host in host_to_service and host not in ("localhost",):
-                hf = host_to_service[host]
-                if hf.get("holds_store"):
-                    target = store_for(hf["technology"], None, hf["evidence"][0])
-                    self._flow(flows, src, target, TECH_PROTOCOL.get(hf["technology"], proto), "unknown", auth, enc, list(fct["evidence"]), purpose=fct.get("operation") or "access")
+            for src in srcs:
+                self._outbound_flow(flows, src, host, name, fct, proto, enc, auth, host_to_service, l1_ids, store_for, entity_for, entities, stores)
+        # in-process flows from the call graph: handler -> each fact-bearing function it reaches (by module),
+        # module -> module along reached call edges; import references as a fallback for dynamic dispatch.
+        fact_funcs = {}
+        for fid_, owner in owner_of.items():
+            fact_funcs.setdefault(owner, []).append(fid_)
+        modules_reached_by = {}
+        for fid, keys in reach_of_handler.items():
+            hpid = handler_proc_of_fact[fid]; hkey = handler_key[fid]
+            found = False
+            for k in keys:
+                if k == hkey or k not in fact_funcs or k in handlers_of_key:
                     continue
-                ctx = hf.get("context")
-                tgt_key = next((k for k in l1_ids if ctx and (k[1] == ctx or k[1].startswith(ctx + "/"))), None) if ctx else None
-                if tgt_key is None:
-                    tgt_key = next((k for k in l1_ids if k[0] == hf["name"]), None)
-                if tgt_key:
-                    target = l1_ids[tgt_key]
-                    self._flow(flows, src, target, "grpc" if proto == "grpc" else proto if proto != "unknown" else "http", "request_response", auth, enc, list(fct["evidence"]), purpose=f"{fct.get('operation') or 'call'} {host}")
-                    continue
-                # a known service host with no source in the repo: external system named by the host
-                name = name or f"{hf['name']} service"
-            if host and host.startswith("variable:"):
-                self.gaps.append(OrderedDict(kind="unresolved", path=fct["file"], line=fct["evidence"][0]["start_line"], detail=f"outbound call target is a {host} expression; host not resolvable statically"))
-                name = name or "Unresolved HTTP target"
-            if host and host.startswith("env:"):
-                name = name or f"Service at ${host[4:]}"
-            if not host and not name:
-                name = f"Unresolved {proto if proto != 'unknown' else 'HTTP'} target"
-            eid = entity_for(name, host, fct.get("entity_kind"), fct["evidence"][0])
-            self._flow(flows, src, eid, proto if proto in ("https", "http", "grpc", "smtp") else "unknown", "request_response", auth, enc, list(fct["evidence"]), purpose=fct.get("operation") or "call")
-
-        # handlers that reference a controller in another file: flow handler -> that module only
-        for fid, pid in handler_proc_of_fact.items():
-            ep = self.ev_of[fid]
-            hm = ep.get("handler_module")
-            if hm and hm in idx.files:
-                if hm not in module_proc:
-                    reached = self._reach(idx, hm, set(module_proc), 2)
-                    for g in reached:
-                        self._flow(flows, pid, module_proc[g], "in_process", "request_response", "none", "none", [self._file_ev(ep["file"])], purpose=f"handler {ep.get('handler_ref')}")
-                else:
-                    self._flow(flows, pid, module_proc[hm], "in_process", "request_response", "none", "none", [self._file_ev(ep["file"])], purpose=f"handler {ep.get('handler_ref')}")
-        # in-process flows along imports: handler/module -> imported fact-bearing module (depth 3)
-        fact_bearing = set(module_proc)
-        for f, sf in idx.files.items():
-            sources = []
-            if f in module_proc:
-                sources.append((module_proc[f], None))
-            for fid, pid in handler_proc_of_fact.items():
-                ep = self.ev_of[fid]
-                if ep["file"] == f:
-                    span = ep.get("handler_span")
-                    if span is None and ep.get("handler_module"):
-                        continue  # already linked to its controller module above
-                    sources.append((pid, sf.text[span[0]:span[1]] if span else (ep.get("handler_ref") or "")))
-            if not sources:
+                found = True
+                mp = module_process(k[0])
+                if mp != hpid:
+                    self._flow(flows, hpid, mp, "in_process", "request_response", "none", "none", [self._fn_ev(k)], purpose=f"calls {k[1]}")
+                    modules_reached_by.setdefault(mp, set()).add(fid)
+            for k in keys:
+                for nx in cg.calls.get(k, ()):
+                    if nx in keys and nx in fact_funcs and k in fact_funcs and k != hkey and nx not in handlers_of_key and k[0] != nx[0]:
+                        self._flow(flows, module_process(k[0]), module_process(nx[0]), "in_process", "request_response", "none", "none", [self._fn_ev(nx)], purpose=f"calls {nx[1]}")
+            if not found and not fact_funcs.get(hkey):
+                ep = self.ev_of[fid]; sf = idx.files[ep["file"]]
+                span = ep.get("handler_span"); htxt = sf.text[span[0]:span[1]] if span else (ep.get("handler_ref") or "")
+                for local, spec in sorted(sf.bindings.items()):
+                    tgt = idx.resolve(sf, spec)
+                    if not tgt or not re.search(r"\b" + re.escape(local.split(":")[0]) + r"\b", htxt):
+                        continue
+                    for g in self._reach(idx, tgt, set(module_proc), 3):
+                        if module_proc[g] != hpid:
+                            self._flow(flows, hpid, module_proc[g], "in_process", "request_response", "none", "none", [self._file_ev(ep["file"], sf, local)], purpose=f"uses {local}")
+                            modules_reached_by.setdefault(module_proc[g], set()).add(fid)
+        # module -> module along imports for modules no handler reaches (background work)
+        for f in sorted(module_proc):
+            sf = idx.files[f]
+            if any(k in reached_by for k in fact_funcs if k[0] == f):
                 continue
             for local, spec in sorted(sf.bindings.items()):
                 tgt = idx.resolve(sf, spec)
-                if not tgt or tgt == f:
-                    continue
-                reached = self._reach(idx, tgt, fact_bearing, 3)
-                for g in reached:
-                    for pid, htxt in sources:
-                        if htxt is not None and not re.search(r"\b" + re.escape(local.split(":")[0]) + r"\b", htxt):
-                            continue
-                        if module_proc[g] == pid:
-                            continue
-                        self._flow(flows, pid, module_proc[g], "in_process", "request_response", "none", "none", [self._file_ev(f, sf, local)], purpose=f"uses {local}")
-        # call chains for entry points
+                if tgt and tgt in module_proc and tgt != f and re.search(r"\b" + re.escape(local.split(":")[0]) + r"\b", sf.text):
+                    self._flow(flows, module_proc[f], module_proc[tgt], "in_process", "request_response", "none", "none", [self._file_ev(f, sf, local)], purpose=f"uses {local}")
         adj = {}
         for fl in flows.values():
             if fl["protocol"] == "in_process":
@@ -387,6 +462,28 @@ class Synth:
                         seen.add(nx); chain.append(nx); q.append(nx)
             ep["call_chain"] = chain
 
+        # per-entry-point reach set over the handler's own call graph (precise, unlike the module-level flows)
+        ep_of_proc = {e["process"]: e for e in entry_points.values()}
+        for fid, keys in reach_of_handler.items():
+            hpid = handler_proc_of_fact[fid]
+            ep = ep_of_proc.get(hpid)
+            if ep is None:
+                continue
+            keyset = set(keys)
+            reached = set()
+            for fl in flows.values():
+                if fl["protocol"] == "in_process":
+                    continue
+                backing = self.flow_facts.get(fl["id"], set())
+                hit = fl["source"] == hpid or fl["target"] == hpid or any(owner_of.get(x) in keyset for x in backing)
+                if not hit:
+                    continue
+                for end in (fl["source"], fl["target"]):
+                    if end in inbound_clients.values():
+                        continue
+                    if end != hpid and (end in stores or end in entities or (end in processes and processes[end]["level"] == 1)):
+                        reached.add(end)
+            ep["reaches"] = sorted(reached)
         # schemas -> store data classes
         for sc in schemas.values():
             classes = sorted({f["data_class"] for f in sc["fields"] if f.get("data_class") not in (None, "internal", "public")})
@@ -400,41 +497,35 @@ class Synth:
             if fl["target"] in stores and fl.get("payload"):
                 st = stores[fl["target"]]
                 st["data_classes"] = sorted(set(st["data_classes"]) | {c for c in fl["payload"]["data_classes"] if c not in ("internal", "public")})
-        # propagate request data classes from handlers along in-process edges (depth 3) to the store writes
-        # and outbound calls those modules perform. File-level approximation; payload is named accordingly.
+        # request data classes follow the call graph: an access performed by a function reached from a
+        # handler carries that handler's request data classes
         classes_of = {}
         for fl in flows.values():
             if fl["source"] in inbound_clients.values() and fl.get("payload"):
                 cls = {c for c in fl["payload"]["data_classes"] if c not in ("internal", "public")}
                 if cls:
                     classes_of.setdefault(fl["target"], set()).update(cls)
-        inproc = {}
-        for fl in flows.values():
-            if fl["protocol"] == "in_process":
-                inproc.setdefault(fl["source"], []).append(fl["target"])
-        frontier = list(classes_of.items())
-        for _ in range(3):
-            nxt = []
-            for pid, cls in frontier:
-                for t in inproc.get(pid, []):
-                    before = set(classes_of.get(t, set()))
-                    classes_of.setdefault(t, set()).update(cls)
-                    if classes_of[t] != before:
-                        nxt.append((t, classes_of[t]))
-            frontier = nxt
+        for mp, fids in modules_reached_by.items():
+            for fid in fids:
+                classes_of.setdefault(mp, set()).update(classes_of.get(handler_proc_of_fact[fid], set()))
         for fl in flows.values():
             if fl.get("payload") or fl["protocol"] == "in_process":
                 continue
             src = fl["source"]
-            if src in classes_of and (fl["target"] in stores or fl["target"] in entities):
+            if src in classes_of and classes_of[src] and (fl["target"] in stores or fl["target"] in entities):
                 cls = sorted(classes_of[src])
-                fl["payload"] = OrderedDict(name="request fields (propagated)", data_classes=cls)
-                if fl["target"] in stores and fl["direction"] != "one_way" or (fl["target"] in stores and fl["source"] == src):
+                fl["payload"] = OrderedDict(name="request fields (via call path)" if src in modules_reached_by else "request fields", data_classes=cls)
+                if fl["target"] in stores:
                     stores[fl["target"]]["data_classes"] = sorted(set(stores[fl["target"]]["data_classes"]) | set(cls))
         for fl in flows.values():
             if fl["source"] in stores and not fl.get("payload") and stores[fl["source"]]["data_classes"]:
                 fl["payload"] = OrderedDict(name=stores[fl["source"]]["name"] + " record", data_classes=list(stores[fl["source"]]["data_classes"]))
 
+        # a store with no logical name next to named stores of the same technology is an unresolved collection
+        for st in stores.values():
+            if not st.get("logical_name") and any(o.get("logical_name") and o["technology"] == st["technology"] for o in stores.values()):
+                st["name"] = f"{TECH_LABEL.get(st['technology'], st['technology'])} (collection unresolved)"
+                self.gaps.append(OrderedDict(kind="unresolved", path=st["evidence"][0]["path"], line=st["evidence"][0]["start_line"], detail=f"{st['technology']} access through a document or connection variable whose collection could not be resolved; shown as a separate store"))
         # boundaries
         all_l1 = set(l1_ids.values())
         proc_children = {}
@@ -495,7 +586,7 @@ class Synth:
             if not applies: applies.append(P_ROOT)
             weaknesses[wid] = OrderedDict(id=wid, identity=["weakness", w["weakness_kind"], f'{w["file"]}:{w["evidence"][0]["start_line"]}'], origin="observed", kind=w["weakness_kind"], name=w["name"], applies_to=sorted(set(applies)), evidence=list(w["evidence"]))
         for ep in entry_points.values():
-            if ep["protocol"] == "http" and not any(controls[c]["kind"] == "authn" for c in ep["controls"]):
+            if ep["protocol"] == "http" and not ep.get("infrastructure") and not any(controls[c]["kind"] == "authn" for c in ep["controls"]):
                 wid = sid("wk", "weakness", "unauthenticated_entry_point", ep["id"])
                 weaknesses[wid] = OrderedDict(id=wid, identity=["weakness", "unauthenticated_entry_point", ep["id"]], origin="observed", kind="unauthenticated_entry_point", name=f"no authn control detected on {ep['method']} {ep['path']}", applies_to=[ep["id"]], evidence=list(ep["evidence"]))
         # secrets at import -> weakness + credential asset
@@ -592,6 +683,36 @@ class Synth:
             c["applies_to"] = sorted(set(c["applies_to"]))
         return ir
 
+    def _outbound_flow(self, flows, src, host, name, fct, proto, enc, auth, host_to_service, l1_ids, store_for, entity_for, entities, stores):
+        """One flow from `src` to the resolved target of an outbound fact: a compose/k8s service (store or
+        service process), or an external entity named by SDK service or host."""
+        if host and host in host_to_service and host != "localhost":
+            hf = host_to_service[host]
+            if hf.get("holds_store"):
+                target = store_for(hf["technology"], None, hf["evidence"][0])
+                self._flow(flows, src, target, TECH_PROTOCOL.get(hf["technology"], proto), "unknown", auth, enc, list(fct["evidence"]), purpose=fct.get("operation") or "access", fact_id=fct["id"])
+                return
+            ctx = hf.get("context")
+            tgt_key = next((k for k in l1_ids if ctx and (k[1] == ctx or k[1].startswith(ctx + "/"))), None) if ctx else None
+            if tgt_key is None:
+                tgt_key = next((k for k in l1_ids if k[0] == hf["name"]), None)
+            if tgt_key:
+                target = l1_ids[tgt_key]
+                self._flow(flows, src, target, "grpc" if proto == "grpc" else (proto if proto != "unknown" else "http"), "request_response", auth, enc, list(fct["evidence"]), purpose=f"{fct.get('operation') or 'call'} {host}", fact_id=fct["id"])
+                return
+            name = name or f"{hf['name']} service"
+        if host and host.startswith("variable:"):
+            self.gaps.append(OrderedDict(kind="unresolved", path=fct["file"], line=fct["evidence"][0]["start_line"], detail=f"outbound call target is a {host} expression; host not resolvable statically"))
+            name = name or f"Unresolved {proto if proto != 'unknown' else 'HTTP'} target"
+        if host and host.startswith("env:"):
+            name = name or f"Service at ${host[4:]}"
+        if host and not re.match(r"^[A-Za-z0-9._:$-]+$", host):
+            host = None
+        if not host and not name:
+            name = f"Unresolved {proto if proto != 'unknown' else 'HTTP'} target"
+        eid = entity_for(name, host, fct.get("entity_kind"), fct["evidence"][0])
+        self._flow(flows, src, eid, proto if proto in ("https", "http", "grpc", "smtp") else "unknown", "request_response", auth, enc, list(fct["evidence"]), purpose=fct.get("operation") or "call", fact_id=fct["id"])
+
     # ---------------------------------------------------------------- helpers
     def _proc(self, processes, identity, name, level, parent, module, ev):
         pid = sid("proc", *identity)
@@ -601,9 +722,11 @@ class Synth:
             processes[pid] = p
         return pid
 
-    def _flow(self, flows, src, dst, protocol, direction, auth, enc, ev, controls=None, payload=None, purpose=None):
+    def _flow(self, flows, src, dst, protocol, direction, auth, enc, ev, controls=None, payload=None, purpose=None, fact_id=None):
         ptype = (payload or {}).get("name", "")
         fid = sid("flow", "flow", src, dst, protocol, ptype)
+        if fact_id:
+            self.flow_facts.setdefault(fid, set()).add(fact_id)
         if fid in flows:
             f = flows[fid]
             if len(f["evidence"]) < 6 and ev[0] not in f["evidence"]:
@@ -666,6 +789,12 @@ class Synth:
                 if t and t not in seen:
                     seen.add(t); q.append((t, d + 1))
         return sorted(set(out))
+
+    def _fn_ev(self, key):
+        from .model import evidence
+        sf = self.idx.files[key[0]]
+        start, end = self.cg.functions.get(key, (1, 1))
+        return evidence(sf, start, start, "callgraph@0.3", symbol=f"{key[0]}::{key[1]}")
 
     def _file_ev(self, path, sf=None, local=None):
         from .model import evidence

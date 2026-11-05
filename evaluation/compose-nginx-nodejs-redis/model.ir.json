@@ -399,6 +399,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
         }
+      ],
+      "reaches": [
+        "store:jfszlpemqt"
       ]
     }
   ],

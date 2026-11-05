@@ -4,10 +4,8 @@ flowchart LR
     proc_2k4qri4gz2(["node-express-mongodb (+5)"])
   end
   ext_sga4qktkap["HTTP client"]
-  store_3ufptbo5k3[("MongoDB")]
   store_uujc2npyud[("MongoDB: tutorials")]
   ext_sga4qktkap -->|"http"| proc_2k4qri4gz2
-  proc_2k4qri4gz2 -->|"mongo"| store_3ufptbo5k3
   proc_2k4qri4gz2 -->|"mongo"| store_uujc2npyud
   store_uujc2npyud -->|"mongo"| proc_2k4qri4gz2
   style bnd_fg4rasskqa stroke-dasharray: 8 4,fill:none

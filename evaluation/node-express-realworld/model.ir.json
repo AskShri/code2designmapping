@@ -1039,39 +1039,6 @@
       ]
     },
     {
-      "id": "flow:3bhew2mfkg",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:enaoju7zyg",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:enaoju7zyg",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "unknown",
-      "purpose": "POST /api/users/login",
-      "crosses_boundary": [
-        "bnd:uphokatav4"
-      ],
-      "controls": [
-        "ctl:vdl4e7tx4i"
-      ],
-      "evidence": [
-        {
-          "path": "src/app/routes/auth/auth.controller.ts",
-          "start_line": 30,
-          "end_line": 37,
-          "detector": "js@0.3",
-          "content_hash": "sha256:e7a1ae24542f39f4211d556b248bcb7b42500fc1d2dcbd0f2841f7da04d75091"
-        }
-      ]
-    },
-    {
       "id": "flow:3tcue3jf62",
       "identity": [
         "flow",
@@ -1087,16 +1054,58 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses favoriteArticle",
+      "purpose": "calls favoriteArticle",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 562,
+          "end_line": 562,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:4d55a0f0b89b3330a8498d7ed3fdb711ae589b57e0ae12d3337303f28b4c3e17",
+          "symbol": "src/app/routes/article/article.service.ts::favoriteArticle"
+        }
+      ]
+    },
+    {
+      "id": "flow:5fjfsz4bzg",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:ugzhdzeci5",
+        "http",
+        "request fields"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:ugzhdzeci5",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles/feed",
+      "payload": {
+        "schema_ref": "sch:pguzmubuur",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:uphokatav4"
+      ],
+      "controls": [
+        "ctl:t55owpk6li",
+        "ctl:vdl4e7tx4i"
+      ],
+      "evidence": [
+        {
           "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "start_line": 45,
+          "end_line": 60,
+          "detector": "js@0.3",
+          "content_hash": "sha256:cb59c22e7c12135218dd6f49dd964e41e11cedd43e8119bcdecb4fdc4e20f8bb"
         }
       ]
     },
@@ -1116,16 +1125,57 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses getArticles",
+      "purpose": "calls getArticles",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 69,
+          "end_line": 69,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:7d2914f12f3522d14674ec3ede4dfcb6c9680b1b2da26ba04135fbe4c5ba6417",
+          "symbol": "src/app/routes/article/article.service.ts::getArticles"
+        }
+      ]
+    },
+    {
+      "id": "flow:5jza7qjfyu",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:saamtmdbbb",
+        "http",
+        "request fields"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:saamtmdbbb",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/users",
+      "payload": {
+        "schema_ref": "sch:uxz5sybbve",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:uphokatav4"
+      ],
+      "controls": [
+        "ctl:vdl4e7tx4i"
+      ],
+      "evidence": [
+        {
+          "path": "src/app/routes/auth/auth.controller.ts",
+          "start_line": 14,
+          "end_line": 21,
+          "detector": "js@0.3",
+          "content_hash": "sha256:c76f4d9c7c300a7114b7f1bd0e448bde3737da21aa1916e84828495a55c10594"
         }
       ]
     },
@@ -1145,16 +1195,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses getCommentsByArticle",
+      "purpose": "calls getCommentsByArticle",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 416,
+          "end_line": 416,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5c15e2493a390308ea50fa5eb5fcf8814105a9f915e2579f4989ac65fb03b51e",
+          "symbol": "src/app/routes/article/article.service.ts::getCommentsByArticle"
         }
       ]
     },
@@ -1208,16 +1259,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses getTags",
+      "purpose": "calls getTags",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/tag/tag.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:603c38ebb0120e0b4b1033cec890846736a3444f9ccf6478b6edde286b41a553"
+          "path": "src/app/routes/tag/tag.service.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:5a9454ed2bfc56c600a2330f8f52303ef734aa724d08273d08b5b1b69eb55de7",
+          "symbol": "src/app/routes/tag/tag.service.ts::getTags"
         }
       ]
     },
@@ -1285,40 +1337,6 @@
           "end_line": 23,
           "detector": "js@0.3",
           "content_hash": "sha256:7898cf67a029092c07525a6320e93937484506f1d00580a5045601baaeb62d11"
-        }
-      ]
-    },
-    {
-      "id": "flow:f7i2efrsb3",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:ugzhdzeci5",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:ugzhdzeci5",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "credentials",
-      "encryption": "unknown",
-      "purpose": "GET /api/articles/feed",
-      "crosses_boundary": [
-        "bnd:uphokatav4"
-      ],
-      "controls": [
-        "ctl:t55owpk6li",
-        "ctl:vdl4e7tx4i"
-      ],
-      "evidence": [
-        {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 45,
-          "end_line": 60,
-          "detector": "js@0.3",
-          "content_hash": "sha256:cb59c22e7c12135218dd6f49dd964e41e11cedd43e8119bcdecb4fdc4e20f8bb"
         }
       ]
     },
@@ -1541,16 +1559,25 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses updateArticle",
+      "purpose": "calls updateArticle",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 289,
+          "end_line": 289,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:f5b414e3c803ec587687dacc59f5a35a05473efefa552ea3ecdbbb07acc23c6e",
+          "symbol": "src/app/routes/article/article.service.ts::updateArticle"
+        },
+        {
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 276,
+          "end_line": 276,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:81b64f8c90b8ff5405de9e7bbf7dc656e49074864ee0df7beef9e0d6479f683b",
+          "symbol": "src/app/routes/article/article.service.ts::disconnectArticlesTags"
         }
       ]
     },
@@ -1688,16 +1715,58 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses addComment",
+      "purpose": "calls addComment",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 473,
+          "end_line": 473,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:09e8badcc341e550a2c73ecd7a9f541c8bf5291da61223d3243f788f64323665",
+          "symbol": "src/app/routes/article/article.service.ts::addComment"
+        }
+      ]
+    },
+    {
+      "id": "flow:hzusqtepi5",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:fh4kfgx3nd",
+        "http",
+        "request fields"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:fh4kfgx3nd",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PUT /api/articles/:slug",
+      "payload": {
+        "schema_ref": "sch:pguzmubuur",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:uphokatav4"
+      ],
+      "controls": [
+        "ctl:t55owpk6li",
+        "ctl:vdl4e7tx4i"
+      ],
+      "evidence": [
+        {
           "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "start_line": 110,
+          "end_line": 121,
+          "detector": "js@0.3",
+          "content_hash": "sha256:5dbf59a2a83759d62cbb8cc5d147531b5d0d0b2b5a8166cd4a9599c84334c17a"
         }
       ]
     },
@@ -1748,16 +1817,25 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses createUser",
+      "purpose": "calls createUser",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/auth/auth.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:dbd99517dfb0fe65a2bf0c3bfc0b08b83d0e75ae2870602a1a43ed21758d032e"
+          "path": "src/app/routes/auth/auth.service.ts",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:1cdd6e2f80751fe3431c35fedf1f1e7c8863f659580b2ee255fd4cdb0dacd227",
+          "symbol": "src/app/routes/auth/auth.service.ts::createUser"
+        },
+        {
+          "path": "src/app/routes/auth/auth.service.ts",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:ced217e0a9cee6aef990a6c0a6045fcf321c40bf3fb548256c2c4a6530b34ee7",
+          "symbol": "src/app/routes/auth/auth.service.ts::checkUserUniqueness"
         }
       ]
     },
@@ -1777,16 +1855,58 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses updateUser",
+      "purpose": "calls updateUser",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/auth/auth.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:dbd99517dfb0fe65a2bf0c3bfc0b08b83d0e75ae2870602a1a43ed21758d032e"
+          "path": "src/app/routes/auth/auth.service.ts",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:0a4b524520717fedb55d9f3bae018161abc17fe973fbb4112dccb1d6f8d9b492",
+          "symbol": "src/app/routes/auth/auth.service.ts::updateUser"
+        }
+      ]
+    },
+    {
+      "id": "flow:izgvoc26do",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:4avlk6bgn4",
+        "http",
+        "request fields"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:4avlk6bgn4",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/articles/:slug/comments",
+      "payload": {
+        "schema_ref": "sch:pguzmubuur",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:uphokatav4"
+      ],
+      "controls": [
+        "ctl:t55owpk6li",
+        "ctl:vdl4e7tx4i"
+      ],
+      "evidence": [
+        {
+          "path": "src/app/routes/article/article.controller.ts",
+          "start_line": 170,
+          "end_line": 181,
+          "detector": "js@0.3",
+          "content_hash": "sha256:14ee81949675190d9bb139ccf6d2968b9d9eabc97a85fce8243b91ed348dd493"
         }
       ]
     },
@@ -1806,50 +1926,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses getArticle",
+      "purpose": "calls getArticle",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
-        }
-      ]
-    },
-    {
-      "id": "flow:jf25gquyr5",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:fh4kfgx3nd",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:fh4kfgx3nd",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "credentials",
-      "encryption": "unknown",
-      "purpose": "PUT /api/articles/:slug",
-      "crosses_boundary": [
-        "bnd:uphokatav4"
-      ],
-      "controls": [
-        "ctl:t55owpk6li",
-        "ctl:vdl4e7tx4i"
-      ],
-      "evidence": [
-        {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 110,
-          "end_line": 121,
-          "detector": "js@0.3",
-          "content_hash": "sha256:5dbf59a2a83759d62cbb8cc5d147531b5d0d0b2b5a8166cd4a9599c84334c17a"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 241,
+          "end_line": 241,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:9459d8169371f3661e1d514b0dd96910b0f2933e2622f38c4f1379b66bcab3cd",
+          "symbol": "src/app/routes/article/article.service.ts::getArticle"
         }
       ]
     },
@@ -1869,16 +1956,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses getProfile",
+      "purpose": "calls getProfile",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/profile/profile.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:abda985e9725bdf44cb03305113c4a958a5a2ffac1b3334883901bb0dd391872"
+          "path": "src/app/routes/profile/profile.service.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:c4540bed7eee07195edd7d0d7ab84a9ecf7a5491ecde4a7b4a10cc148f83ab56",
+          "symbol": "src/app/routes/profile/profile.service.ts::getProfile"
         }
       ]
     },
@@ -1985,6 +2073,47 @@
       ]
     },
     {
+      "id": "flow:n45wepwfjw",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:nr7tfyp5kd",
+        "http",
+        "request fields"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:nr7tfyp5kd",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/articles",
+      "payload": {
+        "schema_ref": "sch:pguzmubuur",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:uphokatav4"
+      ],
+      "controls": [
+        "ctl:t55owpk6li",
+        "ctl:vdl4e7tx4i"
+      ],
+      "evidence": [
+        {
+          "path": "src/app/routes/article/article.controller.ts",
+          "start_line": 71,
+          "end_line": 78,
+          "detector": "js@0.3",
+          "content_hash": "sha256:c7cf7845c236210b719504a99e96da41c6bf1c2b65a0a9e652201db9abfe4778"
+        }
+      ]
+    },
+    {
       "id": "flow:n7racalh26",
       "identity": [
         "flow",
@@ -2000,16 +2129,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses login",
+      "purpose": "calls login",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/auth/auth.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:dbd99517dfb0fe65a2bf0c3bfc0b08b83d0e75ae2870602a1a43ed21758d032e"
+          "path": "src/app/routes/auth/auth.service.ts",
+          "start_line": 84,
+          "end_line": 84,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:c7889117ba5b2539e33b16d6af2dcef35e581c1bdd8ba51a7cc0858a9bf614c6",
+          "symbol": "src/app/routes/auth/auth.service.ts::login"
         }
       ]
     },
@@ -2063,16 +2193,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses deleteComment",
+      "purpose": "calls deleteComment",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 527,
+          "end_line": 527,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:952416fdc7c857d9b77d8bde4ac249f4dccd00c249d55e94de2e9746fcfff9e1",
+          "symbol": "src/app/routes/article/article.service.ts::deleteComment"
         }
       ]
     },
@@ -2092,16 +2223,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses unfollowUser",
+      "purpose": "calls unfollowUser",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/profile/profile.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:abda985e9725bdf44cb03305113c4a958a5a2ffac1b3334883901bb0dd391872"
+          "path": "src/app/routes/profile/profile.service.ts",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:a50ba3d6b8113803dfb3310fe45d3a042776d001236be2b4cb152173302cba02",
+          "symbol": "src/app/routes/profile/profile.service.ts::unfollowUser"
         }
       ]
     },
@@ -2205,6 +2337,47 @@
       ]
     },
     {
+      "id": "flow:qtnpt2po6x",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:gvm2ys7uda",
+        "http",
+        "request fields"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:gvm2ys7uda",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PUT /api/user",
+      "payload": {
+        "schema_ref": "sch:uxz5sybbve",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:uphokatav4"
+      ],
+      "controls": [
+        "ctl:a5t2mkkvy3",
+        "ctl:vdl4e7tx4i"
+      ],
+      "evidence": [
+        {
+          "path": "src/app/routes/auth/auth.controller.ts",
+          "start_line": 61,
+          "end_line": 68,
+          "detector": "js@0.3",
+          "content_hash": "sha256:8bd1e6b03fc8105264838f86fca5d6bc2c87fd061986c140e40ed4f3783786ec"
+        }
+      ]
+    },
+    {
       "id": "flow:rkm2xwpcgq",
       "identity": [
         "flow",
@@ -2220,16 +2393,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses createArticle",
+      "purpose": "calls createArticle",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 162,
+          "end_line": 162,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:47583e69be15479bcb341d00546ee72fb6cefac481792d78103730fcc76dcd25",
+          "symbol": "src/app/routes/article/article.service.ts::createArticle"
         }
       ]
     },
@@ -2283,16 +2457,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses unfavoriteArticle",
+      "purpose": "calls unfavoriteArticle",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 608,
+          "end_line": 608,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:8323e76e905f3889fb4f0c89fcbbccac9748cba7bbd61edf1bbff18d226de6f1",
+          "symbol": "src/app/routes/article/article.service.ts::unfavoriteArticle"
         }
       ]
     },
@@ -2350,16 +2525,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses followUser",
+      "purpose": "calls followUser",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/profile/profile.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:abda985e9725bdf44cb03305113c4a958a5a2ffac1b3334883901bb0dd391872"
+          "path": "src/app/routes/profile/profile.service.ts",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:4caab8c333cdbdef4abf1038208fc312c17ccbd2955d24b6f5370b3a4d80767c",
+          "symbol": "src/app/routes/profile/profile.service.ts::followUser"
         }
       ]
     },
@@ -2379,50 +2555,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses getCurrentUser",
+      "purpose": "calls getCurrentUser",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/auth/auth.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:dbd99517dfb0fe65a2bf0c3bfc0b08b83d0e75ae2870602a1a43ed21758d032e"
-        }
-      ]
-    },
-    {
-      "id": "flow:valnr6iu4z",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:nr7tfyp5kd",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:nr7tfyp5kd",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "credentials",
-      "encryption": "unknown",
-      "purpose": "POST /api/articles",
-      "crosses_boundary": [
-        "bnd:uphokatav4"
-      ],
-      "controls": [
-        "ctl:t55owpk6li",
-        "ctl:vdl4e7tx4i"
-      ],
-      "evidence": [
-        {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 71,
-          "end_line": 78,
-          "detector": "js@0.3",
-          "content_hash": "sha256:c7cf7845c236210b719504a99e96da41c6bf1c2b65a0a9e652201db9abfe4778"
+          "path": "src/app/routes/auth/auth.service.ts",
+          "start_line": 131,
+          "end_line": 131,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:51e7df2e935b0ebcaca070002f4fa42155a5a11a8b7ed22d8ea9e8a04123edc8",
+          "symbol": "src/app/routes/auth/auth.service.ts::getCurrentUser"
         }
       ]
     },
@@ -2442,16 +2585,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses deleteArticle",
+      "purpose": "calls deleteArticle",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 385,
+          "end_line": 385,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:3fb2208afbaefadb6739ac0943af32e6ea5e451f75ecc5e9f6af2b5a07e224db",
+          "symbol": "src/app/routes/article/article.service.ts::deleteArticle"
         }
       ]
     },
@@ -2494,70 +2638,42 @@
       ]
     },
     {
-      "id": "flow:vxrq2nzphw",
+      "id": "flow:xqao25lsnq",
       "identity": [
         "flow",
         "ext:sga4qktkap",
-        "proc:4avlk6bgn4",
+        "proc:enaoju7zyg",
         "http",
-        ""
+        "request fields"
       ],
       "origin": "observed",
       "source": "ext:sga4qktkap",
-      "target": "proc:4avlk6bgn4",
+      "target": "proc:enaoju7zyg",
       "protocol": "http",
       "direction": "request_response",
-      "authentication": "credentials",
+      "authentication": "none",
       "encryption": "unknown",
-      "purpose": "POST /api/articles/:slug/comments",
+      "purpose": "POST /api/users/login",
+      "payload": {
+        "schema_ref": "sch:uxz5sybbve",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      },
       "crosses_boundary": [
         "bnd:uphokatav4"
       ],
       "controls": [
-        "ctl:t55owpk6li",
-        "ctl:vdl4e7tx4i"
-      ],
-      "evidence": [
-        {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 170,
-          "end_line": 181,
-          "detector": "js@0.3",
-          "content_hash": "sha256:14ee81949675190d9bb139ccf6d2968b9d9eabc97a85fce8243b91ed348dd493"
-        }
-      ]
-    },
-    {
-      "id": "flow:x5jbi5z27i",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:gvm2ys7uda",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:gvm2ys7uda",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "credentials",
-      "encryption": "unknown",
-      "purpose": "PUT /api/user",
-      "crosses_boundary": [
-        "bnd:uphokatav4"
-      ],
-      "controls": [
-        "ctl:a5t2mkkvy3",
         "ctl:vdl4e7tx4i"
       ],
       "evidence": [
         {
           "path": "src/app/routes/auth/auth.controller.ts",
-          "start_line": 61,
-          "end_line": 68,
+          "start_line": 30,
+          "end_line": 37,
           "detector": "js@0.3",
-          "content_hash": "sha256:8bd1e6b03fc8105264838f86fca5d6bc2c87fd061986c140e40ed4f3783786ec"
+          "content_hash": "sha256:e7a1ae24542f39f4211d556b248bcb7b42500fc1d2dcbd0f2841f7da04d75091"
         }
       ]
     },
@@ -2577,49 +2693,17 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "uses getFeed",
+      "purpose": "calls getFeed",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "src/app/routes/article/article.controller.ts",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:e0cbdab303939db3db5ed1394f8cc7d9c814984d13f730431eb0cabd77c9e204"
-        }
-      ]
-    },
-    {
-      "id": "flow:zxmo7mming",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:saamtmdbbb",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:saamtmdbbb",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "unknown",
-      "purpose": "POST /api/users",
-      "crosses_boundary": [
-        "bnd:uphokatav4"
-      ],
-      "controls": [
-        "ctl:vdl4e7tx4i"
-      ],
-      "evidence": [
-        {
-          "path": "src/app/routes/auth/auth.controller.ts",
-          "start_line": 14,
-          "end_line": 21,
-          "detector": "js@0.3",
-          "content_hash": "sha256:c76f4d9c7c300a7114b7f1bd0e448bde3737da21aa1916e84828495a55c10594"
+          "path": "src/app/routes/article/article.service.ts",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "callgraph@0.3",
+          "content_hash": "sha256:eb63fe79c1e87ceb9fc004214e29bfdabc334fb06da6fe607221241cce6ac959",
+          "symbol": "src/app/routes/article/article.service.ts::getFeed"
         }
       ]
     }
@@ -2655,6 +2739,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:c7cf7845c236210b719504a99e96da41c6bf1c2b65a0a9e652201db9abfe4778"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -2687,6 +2774,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:502936a2440b7bbbdf5933bd944cdb112bf95fed531298f784328bd8dc6afd06"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -2719,6 +2809,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:047c09f1e5a57eadf19c46c3656320958bb795645992b2ac94b4d473900fadda"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -2750,6 +2843,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:e7a1ae24542f39f4211d556b248bcb7b42500fc1d2dcbd0f2841f7da04d75091"
         }
+      ],
+      "reaches": [
+        "store:tvae56uepz"
       ]
     },
     {
@@ -2782,6 +2878,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:321d2d2f1a3af58a2af79864bd7be28cc368fc298e7d18b176abef6cef3e80f6"
         }
+      ],
+      "reaches": [
+        "store:tvae56uepz"
       ]
     },
     {
@@ -2814,6 +2913,10 @@
           "detector": "js@0.3",
           "content_hash": "sha256:14ee81949675190d9bb139ccf6d2968b9d9eabc97a85fce8243b91ed348dd493"
         }
+      ],
+      "reaches": [
+        "store:rkhg3lsuir",
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -2846,6 +2949,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:e59cd9948241497e5b58d316749a5df8b50536bb6d0aba60c6cac32b6bcd4d5e"
         }
+      ],
+      "reaches": [
+        "store:tvae56uepz"
       ]
     },
     {
@@ -2878,6 +2984,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:26acdf5935b92487655f4afc7b73e19fb11e76af12875ed44cf8e153efcc9d31"
         }
+      ],
+      "reaches": [
+        "store:rkhg3lsuir"
       ]
     },
     {
@@ -2910,6 +3019,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:c504e48ff76744cd8d9024d14d5a867a2a98554d2b443a4b9104f7e82ec0e95e"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -2942,6 +3054,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:cb59c22e7c12135218dd6f49dd964e41e11cedd43e8119bcdecb4fdc4e20f8bb"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -2973,6 +3088,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:c76f4d9c7c300a7114b7f1bd0e448bde3737da21aa1916e84828495a55c10594"
         }
+      ],
+      "reaches": [
+        "store:tvae56uepz"
       ]
     },
     {
@@ -3005,6 +3123,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:1ba9a64f7dd12b802e260add78821ccadfe348878149bc414c63a8177a9c9b17"
         }
+      ],
+      "reaches": [
+        "store:tvae56uepz"
       ]
     },
     {
@@ -3037,6 +3158,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:d801aa29d457ff708fca43d23cceeb2bb47e3160d852c6c465aaa5ace247a93b"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -3069,6 +3193,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:8bd1e6b03fc8105264838f86fca5d6bc2c87fd061986c140e40ed4f3783786ec"
         }
+      ],
+      "reaches": [
+        "store:tvae56uepz"
       ]
     },
     {
@@ -3101,6 +3228,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:9f5a92d87fe36737dbc3e7eba77d6b2c097a59b1d14a056703b356d684e1ff78"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -3133,6 +3263,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:46db7a168149bcec57612456045ff5be0579476d278b2024b9fde17a34d05ad0"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -3165,6 +3298,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:5dbf59a2a83759d62cbb8cc5d147531b5d0d0b2b5a8166cd4a9599c84334c17a"
         }
+      ],
+      "reaches": [
+        "store:yhtoa6pgwu"
       ]
     },
     {
@@ -3195,7 +3331,8 @@
           "detector": "js@0.3",
           "content_hash": "sha256:7898cf67a029092c07525a6320e93937484506f1d00580a5045601baaeb62d11"
         }
-      ]
+      ],
+      "reaches": []
     },
     {
       "id": "ep:x4su7mpwoy",
@@ -3227,6 +3364,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:605650683d7e9df205d2eff58ec7cd1a9404ca5c69d69c555323900985df870d"
         }
+      ],
+      "reaches": [
+        "store:th364fo75v"
       ]
     },
     {
@@ -3259,6 +3399,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:32eaf64fde64222e6bd4459233d54d32f87ada52189c508754ad80eaa3dfcead"
         }
+      ],
+      "reaches": [
+        "store:tvae56uepz"
       ]
     }
   ],
@@ -3678,6 +3821,32 @@
       ]
     },
     {
+      "id": "sch:pguzmubuur",
+      "identity": [
+        "schema",
+        "src/app/routes/article/article.controller.ts",
+        "request fields"
+      ],
+      "origin": "observed",
+      "name": "request fields",
+      "fields": [
+        {
+          "name": "offset",
+          "type": "request",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/app/routes/article/article.controller.ts",
+          "start_line": 51,
+          "end_line": 51,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0b621000e5ec7ca29504e9f53b617eccd4fb3d39d1672d65923d33b37f1f103e"
+        }
+      ]
+    },
+    {
       "id": "sch:pkqq4dcr2i",
       "identity": [
         "schema",
@@ -3852,6 +4021,32 @@
           "end_line": 41,
           "detector": "config@0.3",
           "content_hash": "sha256:4b3993268be5d96844b569863b822a45ac1ea1275f1471dde4678d51662ffce9"
+        }
+      ]
+    },
+    {
+      "id": "sch:uxz5sybbve",
+      "identity": [
+        "schema",
+        "src/app/routes/auth/auth.controller.ts",
+        "request fields"
+      ],
+      "origin": "observed",
+      "name": "request fields",
+      "fields": [
+        {
+          "name": "user",
+          "type": "request",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/app/routes/auth/auth.controller.ts",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:647000c78e088d3d2ce3a76c3850a463bf384284dafe5e192ef8ca1d2c073163"
         }
       ]
     }

@@ -97,6 +97,19 @@ The matrix answers Black Duck's three questions directly: the "no effective cont
 
 Each row is a question the team can answer with an override (for example, declaring the Postgres link as `encryption: tls, authentication: credentials` from the infrastructure they know), after which the row's verdict changes on the next run.
 
+## Status of the earlier limitations
+
+The first evaluation listed six limitations against this alignment. Their status after the second iteration (details in `evaluation.md`):
+
+| Limitation | Status |
+|---|---|
+| Controls credited by path, including plumbing | Fixed: registration-order aware, plumbing excluded, conditional registration flagged |
+| File-level attribution of accesses | Fixed: function-level call graph; each entry point lists what its handler reaches |
+| Go, Java, C# invisible | Fixed at recognizer level for the mainstream frameworks; Ruby, PHP, Kotlin, Rust remain gaps |
+| No schemas, no assets | Fixed: request fields read in handlers become schemas; overrides can declare assets and agents |
+| Infrastructure routes polluting the attack surface | Fixed: tagged and counted separately |
+| No precision/recall measurement | Fixed: ground truth for five samples; reachability-edge precision and recall reported |
+
 ## Not covered on purpose
 
 * **Risk rating and prioritization** (likelihood, impact, CVSS, DREAD). Black Duck's process scores threats after the matrix; that belongs in the downstream tool, and the IR carries no scores.

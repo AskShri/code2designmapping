@@ -1,43 +1,99 @@
 %% L1: microservices-demo
 flowchart LR
+  subgraph bnd_3nvgex5y4a["container: productcatalogservice"]
+    proc_elkmlzs7bq(["productcatalogservice (+3)"])
+  end
   subgraph bnd_7n55q7x47r["container: shoppingassistantservice"]
     proc_msq7vvbu6s(["shoppingassistantservice (+2)"])
   end
   subgraph bnd_blo2xu3bom["container: paymentservice"]
-    proc_5pxrkmisyz(["paymentservice (+2)"])
+    proc_5pxrkmisyz(["paymentservice (+1)"])
   end
   subgraph bnd_c76yxdhq2j["container: recommendationservice"]
-    proc_tcmo7ook3a(["recommendationservice (+4)"])
+    proc_tcmo7ook3a(["recommendationservice (+3)"])
+  end
+  subgraph bnd_fpjzao3hbx["container: shippingservice"]
+    proc_ymvedgp7hs(["shippingservice (+2)"])
+  end
+  subgraph bnd_frkw6dgzr7["container: cartservice"]
+    proc_kr6mc2kkqn(["cartservice (+3)"])
+  end
+  subgraph bnd_fxo55nvvpf["container: adservice"]
+    proc_qprs6ysqdp(["adservice (+2)"])
+  end
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_cs5kcq4nvf(["checkoutservice (+2)"])
   end
   subgraph bnd_owyzrxhpvm["container: emailservice"]
-    proc_jubzq4h6n4(["emailservice (+3)"])
+    proc_jubzq4h6n4(["emailservice (+2)"])
   end
   subgraph bnd_seoeqgkskf["container: currencyservice"]
-    proc_kycw6edgj7(["currencyservice (+2)"])
+    proc_kycw6edgj7(["currencyservice (+1)"])
+  end
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_pmttplr5qk(["frontend (+14)"])
   end
   ext_5glqr7zsb5["OTLP collector"]
   ext_e2lwbbcouh["Google Gemini API"]
   ext_sga4qktkap["HTTP client"]
   ext_sqc242xzn7["gRPC client"]
   ext_vpmyo25x2y["Google Cloud APIs"]
-  ext_xbo3iznjz7["productcatalogservice service"]
+  ext_wnxd2gtvsa["Google Cloud Profiler"]
   ext_xwfpv7zyiv["Unresolved grpc target"]
+  store_ctwgzvsuvh[("Postgres")]
+  store_uvgsvq5qlm[("Redis")]
+  %% 5 lower-weight edges omitted (edge budget 40)
+  ext_sga4qktkap -->|"http"| proc_kr6mc2kkqn
   ext_sga4qktkap -->|"http"| proc_msq7vvbu6s
+  ext_sga4qktkap -->|"http"| proc_pmttplr5qk
   ext_sqc242xzn7 -->|"grpc"| proc_5pxrkmisyz
+  ext_sqc242xzn7 -->|"grpc"| proc_cs5kcq4nvf
+  ext_sqc242xzn7 -->|"grpc"| proc_elkmlzs7bq
   ext_sqc242xzn7 -->|"grpc"| proc_jubzq4h6n4
+  ext_sqc242xzn7 -->|"grpc"| proc_kr6mc2kkqn
   ext_sqc242xzn7 -->|"grpc"| proc_kycw6edgj7
+  ext_sqc242xzn7 -->|"grpc"| proc_qprs6ysqdp
   ext_sqc242xzn7 -->|"grpc"| proc_tcmo7ook3a
+  ext_sqc242xzn7 -->|"grpc"| proc_ymvedgp7hs
+  proc_cs5kcq4nvf -->|"https"| ext_5glqr7zsb5
+  proc_cs5kcq4nvf -->|"https"| ext_wnxd2gtvsa
+  proc_cs5kcq4nvf -->|"grpc"| proc_5pxrkmisyz
+  proc_cs5kcq4nvf -->|"grpc"| proc_elkmlzs7bq
+  proc_cs5kcq4nvf -->|"grpc"| proc_jubzq4h6n4
+  proc_cs5kcq4nvf -->|"grpc"| proc_kr6mc2kkqn
+  proc_cs5kcq4nvf -->|"grpc"| proc_kycw6edgj7
+  proc_cs5kcq4nvf -->|"grpc"| proc_ymvedgp7hs
+  proc_elkmlzs7bq -->|"https"| ext_5glqr7zsb5
+  proc_elkmlzs7bq -->|"https"| ext_wnxd2gtvsa
+  proc_elkmlzs7bq -->|"grpc"| ext_xwfpv7zyiv
   proc_jubzq4h6n4 -->|"https"| ext_5glqr7zsb5
+  proc_kr6mc2kkqn -->|"unknown"| store_uvgsvq5qlm
   proc_msq7vvbu6s -->|"https"| ext_e2lwbbcouh
   proc_msq7vvbu6s -->|"https"| ext_vpmyo25x2y
+  proc_pmttplr5qk -->|"https"| ext_5glqr7zsb5
+  proc_pmttplr5qk -->|"https"| ext_wnxd2gtvsa
+  proc_pmttplr5qk -->|"grpc"| proc_cs5kcq4nvf
+  proc_pmttplr5qk -->|"grpc"| proc_elkmlzs7bq
+  proc_pmttplr5qk -->|"grpc"| proc_kr6mc2kkqn
+  proc_pmttplr5qk -->|"grpc"| proc_kycw6edgj7
+  proc_pmttplr5qk -->|"http"| proc_msq7vvbu6s
+  proc_pmttplr5qk -->|"grpc"| proc_qprs6ysqdp
+  proc_pmttplr5qk -->|"grpc"| proc_tcmo7ook3a
+  proc_pmttplr5qk -->|"grpc"| proc_ymvedgp7hs
+  proc_qprs6ysqdp -->|"grpc"| ext_xwfpv7zyiv
   proc_tcmo7ook3a -->|"https"| ext_5glqr7zsb5
-  proc_tcmo7ook3a -->|"grpc"| ext_xbo3iznjz7
-  proc_tcmo7ook3a -->|"grpc"| ext_xwfpv7zyiv
+  store_ctwgzvsuvh -->|"sql"| proc_msq7vvbu6s
+  style bnd_3nvgex5y4a stroke-dasharray: 8 4,fill:none
   style bnd_7n55q7x47r stroke-dasharray: 8 4,fill:none
   style bnd_blo2xu3bom stroke-dasharray: 8 4,fill:none
   style bnd_c76yxdhq2j stroke-dasharray: 8 4,fill:none
+  style bnd_fpjzao3hbx stroke-dasharray: 8 4,fill:none
+  style bnd_frkw6dgzr7 stroke-dasharray: 8 4,fill:none
+  style bnd_fxo55nvvpf stroke-dasharray: 8 4,fill:none
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
   style bnd_owyzrxhpvm stroke-dasharray: 8 4,fill:none
   style bnd_seoeqgkskf stroke-dasharray: 8 4,fill:none
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])

@@ -10,11 +10,11 @@ flowchart LR
     proc_3itjy7ij4t(["orders-service (+4)"])
   end
   ext_sga4qktkap["HTTP client"]
-  ext_slqdx4hifp["Stripe API"]
+  ext_slqdx4hifp["Stripe Payments API"]
   ext_sga4qktkap -->|"http<br/>http: CreateOrderRequest (financial,pii)"| proc_3itjy7ij4t
-  proc_3itjy7ij4t -->|"https: request fields (propagated) (financial,pii)"| ext_slqdx4hifp
-  proc_3itjy7ij4t -->|"sql: request fields (propagated) (financial,pii)"| store_2whm26363j
-  proc_3itjy7ij4t -->|"redis: request fields (propagated) (financial,pii)"| store_ligqz7jge4
+  proc_3itjy7ij4t -->|"https: request fields (via call path) (financial,pii)"| ext_slqdx4hifp
+  proc_3itjy7ij4t -->|"sql: request fields (via call path) (financial,pii)"| store_2whm26363j
+  proc_3itjy7ij4t -->|"redis: request fields (via call path) (financial,pii)"| store_ligqz7jge4
   store_2whm26363j -->|"sql: Postgres: orders record (financial,pii)"| proc_3itjy7ij4t
   store_ligqz7jge4 -->|"redis: Redis: order:* record (financial,pii)"| proc_3itjy7ij4t
   style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none

@@ -1,0 +1,24 @@
+%% Control flow: grpc ProductCatalogService
+sequenceDiagram
+  autonumber
+  participant ext_sqc242xzn7 as gRPC client
+  participant proc_vrmaexfpo6 as gRPC ProductCatalogService handler
+  participant proc_2uufxv56vs as catalog_loader
+  participant store_ctwgzvsuvh as Postgres
+  participant proc_blh2elsftr as productcatalogservice
+  participant ext_wnxd2gtvsa as Google Cloud Profiler
+  participant ext_5glqr7zsb5 as OTLP collector
+  participant ext_xwfpv7zyiv as Unresolved grpc target
+  ext_sqc242xzn7->>proc_vrmaexfpo6: dispatch
+  proc_vrmaexfpo6->>proc_2uufxv56vs: in_process
+  store_ctwgzvsuvh-->>proc_2uufxv56vs: sql
+  proc_2uufxv56vs-->>proc_vrmaexfpo6: response
+  proc_vrmaexfpo6->>proc_blh2elsftr: in_process
+  proc_blh2elsftr->>ext_wnxd2gtvsa: https
+  ext_wnxd2gtvsa-->>proc_blh2elsftr: response
+  proc_blh2elsftr->>ext_5glqr7zsb5: https
+  ext_5glqr7zsb5-->>proc_blh2elsftr: response
+  proc_blh2elsftr->>ext_xwfpv7zyiv: grpc
+  ext_xwfpv7zyiv-->>proc_blh2elsftr: response
+  proc_blh2elsftr-->>proc_vrmaexfpo6: response
+  proc_vrmaexfpo6-->>ext_sqc242xzn7: response

@@ -1,3 +1,3 @@
-from . import js, py, config
+from . import js, py, config, gojavacs
 
-ALL = [config.run, js.run, py.run]
+ALL = [config.run, js.run, py.run, gojavacs.run]

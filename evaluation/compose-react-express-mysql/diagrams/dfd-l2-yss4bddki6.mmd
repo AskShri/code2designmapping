@@ -2,12 +2,10 @@
 flowchart LR
   subgraph bnd_j3ktzp2k6o["container: backend"]
     proc_achqengmr6(["healthcheck"])
-    proc_acpcyekf6e(["GET /healthz handler"])
     proc_jnzaqgvgi5(["GET / handler"])
   end
   ext_miziwfdicw["Unresolved HTTP target"]
   ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http"| proc_acpcyekf6e
   ext_sga4qktkap -->|"http"| proc_jnzaqgvgi5
   proc_achqengmr6 -->|"unknown"| ext_miziwfdicw
   style bnd_j3ktzp2k6o stroke-dasharray: 8 4,fill:none

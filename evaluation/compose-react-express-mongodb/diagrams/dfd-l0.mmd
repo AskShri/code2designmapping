@@ -4,14 +4,11 @@ flowchart LR
     proc_ffzsuhqh7o(["compose-react-express-mongodb (+2)"])
   end
   subgraph bnd_x2cs4alpd7["container: mongo"]
-    store_3ufptbo5k3[("MongoDB")]
     store_lsfwjprw56[("MongoDB: Todo")]
   end
-  ext_miziwfdicw["Unresolved HTTP target"]
   ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http"| proc_ffzsuhqh7o
-  proc_ffzsuhqh7o -->|"unknown"| ext_miziwfdicw
-  proc_ffzsuhqh7o -->|"mongo"| store_3ufptbo5k3
+  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_ffzsuhqh7o
+  proc_ffzsuhqh7o -->|"mongo"| store_lsfwjprw56
   store_lsfwjprw56 -->|"mongo"| proc_ffzsuhqh7o
   style bnd_4gv2hvqsrv stroke-dasharray: 8 4,fill:none
   style bnd_x2cs4alpd7 stroke-dasharray: 8 4,fill:none

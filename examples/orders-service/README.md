@@ -92,10 +92,14 @@ flowchart LR
 
 One row per element with the applicable STRIDE categories, data classes, boundary crossings and existing controls. Rows with a priority hint come first: the Stripe call is an *exit point* (financial data leaves the system), the secret-at-import weakness, and the store links whose authentication and encryption are `unknown` and therefore listed as questions for the team. A data-asset table at the end answers "where is PII processed, stored, and where does it leave" without reading the diagram.
 
-## 6. Traceability matrix (`output/traceability-matrix.md`)
+## 6. Overrides (`app/.code2design/overrides.yaml`)
+
+The example ships an overrides file: it declares the Postgres volume as encrypted at rest (with an author and an expiry date), renames the Stripe entity, adds a "rogue merchant operator" threat agent, and contains one deliberately stale entry whose target no longer exists. Running the prototype on `app/` applies the valid entries (origin `declared`) and reports the stale one as an `override_target_missing` gap.
+
+## 7. Traceability matrix (`output/traceability-matrix.md`)
 
 For every threat agent and asset: the shortest path through the flows, the controls crossed, the controls that are effective against that agent, and a verdict, worst first. This is the "traceability matrix of missing or weak security controls" from Black Duck's threat modeling guidance, computed from the IR rather than filled in by hand.
 
-## 7. What a PR would show
+## 8. What a PR would show
 
 If a later PR added an SMS notification via Twilio in `createOrder`, the design delta would list one new external entity, one new flow from `create order` to it carrying `pii` (the phone number) across the `api` boundary with no control, and nothing else. The 10 existing flows keep their IDs because their identity tuples are unchanged.

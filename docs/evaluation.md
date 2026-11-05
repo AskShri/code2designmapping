@@ -21,27 +21,39 @@ The samples span single-service Express apps (JavaScript and TypeScript), a larg
 
 ## Results
 
-Totals: 17 samples, 180 entry points, 410 flows, 56 external entities, 23 data stores, 187 diagrams rendered, 0 render failures, 0 lint errors, 0 expectation misses, all runs deterministic: yes.
+Totals: 17 samples, 211 entry points, 530 flows, 55 external entities, 21 data stores, 225 diagrams rendered, 0 render failures, 0 lint errors, 0 expectation misses, all runs deterministic: yes.
 
 | Sample | Processes | Entities | Stores | Boundaries | Flows | Entry points | Controls | Weaknesses | Assets | Agents | Gaps | Deterministic | Schema | Lint errors | Diagrams | Expectations | Time (s) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| [orders-service-example](../evaluation/orders-service-example/report.md) | 9 | 2 | 2 | 3 | 10 | 2 | 2 | 1 | 3 | 4 | 3 | yes | ok | 0 | 6 ok / 0 fail | 6/6 | 0.05 |
-| [node-express-boilerplate](../evaluation/node-express-boilerplate/report.md) | 32 | 2 | 3 | 2 | 27 | 15 | 11 | 10 | 0 | 4 | 5 | yes | ok | 0 | 21 ok / 0 fail | 6/6 | 0.1 |
-| [node-express-realworld](../evaluation/node-express-realworld/report.md) | 31 | 1 | 4 | 1 | 48 | 20 | 7 | 6 | 1 | 3 | 6 | yes | ok | 0 | 24 ok / 0 fail | 3/3 | 0.07 |
-| [node-express-mongodb](../evaluation/node-express-mongodb/report.md) | 14 | 1 | 2 | 1 | 18 | 8 | 1 | 8 | 0 | 2 | 11 | yes | ok | 0 | 12 ok / 0 fail | 2/2 | 0.02 |
-| [hackathon-starter](../evaluation/hackathon-starter/report.md) | 118 | 28 | 2 | 1 | 240 | 101 | 12 | 88 | 21 | 30 | 23 | yes | ok | 0 | 45 ok / 0 fail | 10/10 | 0.46 |
-| [stripe-checkout-sample](../evaluation/stripe-checkout-sample/report.md) | 22 | 3 | 0 | 1 | 23 | 10 | 0 | 13 | 2 | 4 | 8 | yes | ok | 0 | 16 ok / 0 fail | 2/2 | 0.04 |
-| [microservices-demo](../evaluation/microservices-demo/report.md) | 21 | 7 | 1 | 7 | 15 | 9 | 0 | 4 | 0 | 14 | 10 | yes | ok | 0 | 16 ok / 0 fail | 2/2 | 0.28 |
-| [compose-react-express-mongodb](../evaluation/compose-react-express-mongodb/report.md) | 8 | 2 | 2 | 4 | 6 | 2 | 1 | 3 | 0 | 4 | 7 | yes | ok | 0 | 6 ok / 0 fail | 2/2 | 0.03 |
-| [compose-react-express-mysql](../evaluation/compose-react-express-mysql/report.md) | 7 | 2 | 1 | 4 | 4 | 2 | 1 | 6 | 1 | 4 | 5 | yes | ok | 0 | 6 ok / 0 fail | 2/2 | 0.02 |
-| [compose-nginx-nodejs-redis](../evaluation/compose-nginx-nodejs-redis/report.md) | 4 | 1 | 1 | 4 | 3 | 1 | 0 | 1 | 0 | 3 | 2 | yes | ok | 0 | 4 ok / 0 fail | 2/2 | 0.01 |
+| [orders-service-example](../evaluation/orders-service-example/report.md) | 9 | 2 | 2 | 3 | 11 | 2 | 2 | 1 | 3 | 5 | 4 | yes | ok | 0 | 6 ok / 0 fail | 6/6 | 0.06 |
+| [node-express-boilerplate](../evaluation/node-express-boilerplate/report.md) | 32 | 2 | 2 | 2 | 49 | 15 | 11 | 8 | 0 | 4 | 4 | yes | ok | 0 | 21 ok / 0 fail | 6/6 | 0.23 |
+| [node-express-realworld](../evaluation/node-express-realworld/report.md) | 31 | 1 | 4 | 1 | 48 | 20 | 7 | 6 | 1 | 3 | 6 | yes | ok | 0 | 24 ok / 0 fail | 3/3 | 0.16 |
+| [node-express-mongodb](../evaluation/node-express-mongodb/report.md) | 14 | 1 | 1 | 1 | 15 | 8 | 1 | 8 | 0 | 2 | 10 | yes | ok | 0 | 12 ok / 0 fail | 2/2 | 0.02 |
+| [hackathon-starter](../evaluation/hackathon-starter/report.md) | 118 | 28 | 2 | 1 | 262 | 101 | 12 | 88 | 21 | 30 | 24 | yes | ok | 0 | 45 ok / 0 fail | 10/10 | 1.3 |
+| [stripe-checkout-sample](../evaluation/stripe-checkout-sample/report.md) | 37 | 3 | 0 | 1 | 35 | 19 | 0 | 22 | 2 | 4 | 6 | yes | ok | 0 | 28 ok / 0 fail | 2/2 | 0.09 |
+| [microservices-demo](../evaluation/microservices-demo/report.md) | 58 | 7 | 2 | 13 | 83 | 31 | 0 | 20 | 1 | 20 | 11 | yes | ok | 0 | 44 ok / 0 fail | 2/2 | 0.98 |
+| [compose-react-express-mongodb](../evaluation/compose-react-express-mongodb/report.md) | 6 | 1 | 1 | 4 | 4 | 2 | 1 | 3 | 0 | 3 | 2 | yes | ok | 0 | 5 ok / 0 fail | 2/2 | 0.04 |
+| [compose-react-express-mysql](../evaluation/compose-react-express-mysql/report.md) | 6 | 2 | 1 | 4 | 3 | 2 | 1 | 5 | 1 | 4 | 4 | yes | ok | 0 | 5 ok / 0 fail | 2/2 | 0.03 |
+| [compose-nginx-nodejs-redis](../evaluation/compose-nginx-nodejs-redis/report.md) | 4 | 1 | 1 | 4 | 3 | 1 | 0 | 1 | 0 | 3 | 2 | yes | ok | 0 | 4 ok / 0 fail | 2/2 | 0.02 |
 | [compose-flask](../evaluation/compose-flask/report.md) | 3 | 1 | 0 | 2 | 1 | 1 | 0 | 1 | 0 | 2 | 1 | yes | ok | 0 | 4 ok / 0 fail | 1/1 | 0.01 |
 | [compose-flask-redis](../evaluation/compose-flask-redis/report.md) | 4 | 1 | 1 | 2 | 3 | 1 | 0 | 1 | 0 | 2 | 2 | yes | ok | 0 | 4 ok / 0 fail | 2/2 | 0.01 |
 | [compose-nginx-flask-mongo](../evaluation/compose-nginx-flask-mongo/report.md) | 3 | 1 | 1 | 3 | 1 | 1 | 0 | 1 | 0 | 2 | 2 | yes | ok | 0 | 4 ok / 0 fail | 2/2 | 0.01 |
-| [compose-nginx-flask-mysql](../evaluation/compose-nginx-flask-mysql/report.md) | 4 | 1 | 3 | 3 | 5 | 1 | 0 | 2 | 0 | 2 | 4 | yes | ok | 0 | 4 ok / 0 fail | 2/2 | 0.01 |
+| [compose-nginx-flask-mysql](../evaluation/compose-nginx-flask-mysql/report.md) | 4 | 1 | 3 | 3 | 6 | 1 | 0 | 2 | 0 | 2 | 5 | yes | ok | 0 | 4 ok / 0 fail | 2/2 | 0.01 |
 | [compose-fastapi](../evaluation/compose-fastapi/report.md) | 3 | 1 | 0 | 1 | 1 | 1 | 0 | 1 | 0 | 2 | 1 | yes | ok | 0 | 4 ok / 0 fail | 1/1 | 0.01 |
-| [compose-django](../evaluation/compose-django/report.md) | 4 | 1 | 0 | 2 | 1 | 1 | 0 | 2 | 1 | 2 | 1 | yes | ok | 0 | 4 ok / 0 fail | 1/1 | 0.01 |
+| [compose-django](../evaluation/compose-django/report.md) | 4 | 1 | 0 | 2 | 1 | 1 | 0 | 2 | 1 | 2 | 1 | yes | ok | 0 | 4 ok / 0 fail | 1/1 | 0.02 |
 | [compose-nginx-wsgi-flask](../evaluation/compose-nginx-wsgi-flask/report.md) | 6 | 1 | 0 | 2 | 4 | 4 | 0 | 4 | 0 | 2 | 1 | yes | ok | 0 | 7 ok / 0 fail | 1/1 | 0.01 |
+
+## Precision and recall against hand-written ground truth
+
+Ground truth (`evaluation/ground-truth/`) was written by reading the source of five samples. Edges are *reachability* edges: the handler of an entry point reaches a store, an external entity or another service through its own call graph. P = precision, R = recall.
+
+| Sample | Entry points P/R | Infrastructure P/R | Stores P/R | Entities P/R | Reachability edges P/R | Missed edges (first few) | Spurious (first few) |
+|---|---|---|---|---|---|---|---|
+| orders-service-example | 1.0 / 1.0 (2 pred, 2 true) | n/a | 1.0 / 1.0 (2 pred, 2 true) | 1.0 / 1.0 (1 pred, 1 true) | 1.0 / 1.0 (5 pred, 5 true) | - | - |
+| node-express-boilerplate | 1.0 / 1.0 (13 pred, 13 true) | 1.0 / 1.0 (2 pred, 2 true) | 1.0 / 1.0 (2 pred, 2 true) | 1.0 / 1.0 (1 pred, 1 true) | 1.0 / 1.0 (21 pred, 21 true) | - | - |
+| microservices-demo | 1.0 / 1.0 (21 pred, 21 true) | 1.0 / 1.0 (3 pred, 3 true) | 1.0 / 1.0 (2 pred, 2 true) | 0.8 / 1.0 (5 pred, 3 true) | 0.95 / 1.0 (37 pred, 35 true) | - | grpc AdService -> Unresolved grpc target; grpc ProductCatalogService -> Unresolved grpc target |
+| compose-react-express-mongodb | 1.0 / 1.0 (2 pred, 2 true) | n/a | 1.0 / 1.0 (1 pred, 1 true) | n/a | 1.0 / 1.0 (2 pred, 2 true) | - | - |
+| compose-flask-redis | 1.0 / 1.0 (1 pred, 1 true) | n/a | 1.0 / 1.0 (1 pred, 1 true) | n/a | 1.0 / 1.0 (1 pred, 1 true) | - | - |
 
 Per-sample outputs are committed under `evaluation/<sample>/` (model, report, STRIDE table, traceability matrix, L0/L1/L2 diagrams and the first five sequence diagrams).
 
@@ -71,14 +83,26 @@ Per-sample outputs are committed under `evaluation/<sample>/` (model, report, ST
 | 11 | The Mermaid render check silently reported 0 files when the mermaid module was missing | harness | Pinned `mermaid` dev dependency in `package.json` |
 | 12 | `passport.initialize`, `express-session` and body parsers were credited as authentication | node-express-boilerplate, hackathon-starter | Plumbing names are excluded from control classification |
 
+## Limitations addressed since the first run
+
+| Limitation (first run) | What changed |
+|---|---|
+| Control attribution was path-based and credited plumbing | App-level middleware now applies only to routers mounted (or routes defined) after its registration line; session and parser plumbing is excluded; controls registered inside a condition are marked `conditional`; classification uses the callee name only, so `validate(authValidation.register)` is validation, not authentication |
+| Store and outbound calls were attributed at file level with depth-3 propagation along imports | A function-level call graph (JavaScript/TypeScript, Python, Go, Java, C#) with re-export following attributes every access to the function that performs it; handlers own the facts in their own function (inline or referenced controller), reach other modules through real call edges, and each entry point carries a `reaches` list of the stores, entities and services its handler reaches |
+| Go, Java and C# were invisible | Recognizers for net/http, gorilla, gin, chi, gRPC servers and clients (`pb.NewXClient` with env-mapped addresses), database/sql, GORM, go-redis, Mongo, Spring MVC and Security, JPA entities, grpc-java, ASP.NET attributes and minimal APIs, `MapGrpcService`, EF Core and StackExchange.Redis |
+| No schemas meant no assets | Request fields read in handlers (`req.body.email`, `request.json['x']`) become request schemas; the overrides file can declare assets, threat agents, boundaries, attributes and renames, with author and expiry |
+| Infrastructure entry points polluted views and counts | Health, readiness, metrics, docs, robots and CORS preflight routes are tagged `infrastructure`, hidden from L1/L2 views and counted separately |
+| Hosts held in variables were unresolved | Variables and template strings traced to env reads and `axios.create({ baseURL })`; env names resolved through Kubernetes manifests; the service's own listen address and loopbacks are dropped |
+| No precision or edge-level recall measurement | Ground truth for five samples and a scorer for entry points, stores, entities and reachability edges (table above) |
+| Design items not implemented: overrides, verify, OTM export | `--overrides` (default `.code2design/overrides.yaml`), `verify` (content-hash re-check of every evidence span), `export --format otm` |
+
 ## Known limitations observed
 
-* **Control attribution is path-based, not flow-sensitive.** App-level middleware is attached to every route it precedes (by path prefix when one is given). Session and parser plumbing (`passport.initialize`, `express-session`, body parsers) is excluded from controls, so authn is only credited to explicit guards (`auth(...)`, `isAuthenticated`, `passport.authenticate`, `jwt_required`, `Depends(get_current_user)`). Conditional registration (`if (env === 'production') app.use(...)`) is counted unconditionally.
-* **File-level attribution of flows.** Store and outbound calls inside non-handler modules are attributed to the module, and request data classes are propagated along import edges (depth 3). This over-approximates which handler touches which store; the payload is labelled "request fields (propagated)" so the reader can tell.
-* **Unsupported languages are visible but absent.** Go, Java, C#, Ruby and PHP services appear only as boundaries (from manifests) or named entities (from other services' clients). The report and gaps say so.
-* **No schemas means no assets.** Where no validation schema, ORM model, SQL column list or secret is found, the asset list is empty and the matrix has no rows. Overrides are the intended way to declare assets in that case; the overrides file is not yet implemented in the prototype.
-* **Entry-point noise.** `app.options('*', cors())` and health-check gRPC services are reported as entry points. They are real listeners, but a future "infrastructure" tag would keep them out of the L1 view.
-* **Hosts are hostnames.** Outbound calls to URLs built from variables are reported as "Unresolved HTTP target" with a gap; relative URLs in frontend code are skipped.
+* **Module-level DFD, function-level reach.** The diagram still draws flows between modules (a module process to a store), because that is the readable level; the per-entry-point `reaches` list and the traceability matrix are where function-level precision shows. A module shared by several handlers therefore appears connected to every store any of them reaches.
+* **gRPC service reach is package-level.** For a gRPC server registered in a Go, Java or C# package, every function in the package counts as reachable from that service; for Node and Python, every function in the registering file. This is right at service granularity and coarse within a service.
+* **Ruby, PHP, Kotlin and Rust** are still reported as unanalyzed files.
+* **Conditional middleware** is counted as applying and flagged; the condition itself is not evaluated.
+* **Ground truth is small.** Five samples, written by one reader of the code; the microservices edges cover the frontend, checkout, recommendation, cart and assistant services only.
 
 ## How this relates to the design's targets
 

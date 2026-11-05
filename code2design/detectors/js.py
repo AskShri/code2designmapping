@@ -42,8 +42,8 @@ SDK_PKGS = {  # package -> (service name, host, kind)
 }
 IDP_RX = re.compile(r"^passport-(?P<p>[a-z0-9-]+)$")
 GRPC_PKGS = {"@grpc/grpc-js", "grpc"}
-READ_OPS = {"find", "findOne", "findById", "findMany", "findUnique", "findFirst", "get", "hget", "hgetall", "mget", "lrange", "smembers", "query", "select", "aggregate", "count", "countDocuments", "exists", "scan", "search", "all", "first", "where", "read", "getItem", "getObject", "listObjects", "receiveMessage", "lindex", "zrange", "keys", "exec"}
-WRITE_OPS = {"save", "create", "insert", "insertOne", "insertMany", "update", "updateOne", "updateMany", "findOneAndUpdate", "findByIdAndUpdate", "upsert", "set", "hset", "hmset", "mset", "lpush", "rpush", "sadd", "zadd", "incr", "incrby", "decr", "del", "delete", "deleteOne", "deleteMany", "findOneAndDelete", "findByIdAndDelete", "remove", "destroy", "run", "put", "putItem", "putObject", "deleteObject", "upload", "sendMessage", "publish", "send", "produce", "expire", "setex", "add", "bulkCreate", "truncate", "drop"}
+READ_OPS = {"find", "findOne", "findById", "findMany", "findUnique", "findFirst", "paginate", "findAndCountAll", "findAll", "findByPk", "findOneAndUpdate", "get", "hget", "hgetall", "mget", "lrange", "smembers", "query", "select", "aggregate", "count", "countDocuments", "exists", "scan", "search", "all", "first", "where", "read", "getItem", "getObject", "listObjects", "receiveMessage", "lindex", "zrange", "keys", "exec"}
+WRITE_OPS = {"save", "create", "insert", "insertOne", "insertMany", "update", "updateOne", "updateMany", "findByIdAndUpdate", "upsert", "set", "hset", "hmset", "mset", "lpush", "rpush", "sadd", "zadd", "incr", "incrby", "decr", "del", "delete", "deleteOne", "deleteMany", "findOneAndDelete", "findByIdAndDelete", "remove", "destroy", "run", "put", "putItem", "putObject", "deleteObject", "upload", "sendMessage", "publish", "send", "produce", "expire", "setex", "add", "bulkCreate", "truncate", "drop"}
 SQL_TABLE_RX = re.compile(r"\b(?:FROM|INTO|UPDATE|JOIN|TABLE)\s+[`\"']?([A-Za-z_][A-Za-z0-9_.]*)", re.I)
 SECRET_LITERAL_RX = re.compile(r"(secret|password|passwd|api_?key|private_?key|token)\s*[:=]\s*['\"]([^'\"]{6,})['\"]", re.I)
 
@@ -157,38 +157,43 @@ def _file(idx, sf, facts):
         if sdks and local not in sdk_locals and local[:1].islower() and not techs and any(local.lower().startswith(k) for k in ("stripe", "twilio", "mailer", "openai", "anthropic", "sendgrid", "slack", "s3", "ses", "sns")):
             sdk_locals[local] = sdks[0]
 
-    # alias pass (run twice so chains resolve): const pool = new Pool(); const stripe = new Stripe(); const Tutorial = db.tutorials
-    for _pass in (0, 1):
-      for n in walk(root):
-          if n.type == "variable_declarator":
-              nm = n.child_by_field_name("name"); val = n.child_by_field_name("value")
-              if nm is None or val is None or nm.type != "identifier":
-                  continue
-              v = val
-              while v is not None and v.type in ("await_expression", "parenthesized_expression", "as_expression", "non_null_expression"):
-                  v = v.named_children[0] if v.named_children else None
-              if v is None:
-                  continue
-              rootname = None
-              if v.type == "new_expression":
-                  c = v.child_by_field_name("constructor"); rootname = sf.node_text(c).split(".")[0] if c is not None else None
-              elif v.type == "call_expression":
-                  f = v.child_by_field_name("function"); rootname = sf.node_text(f).split(".")[0].split("(")[0] if f is not None else None
-              elif v.type == "member_expression":
-                  rootname = sf.node_text(v).split(".")[0]
-                  if rootname in store_locals and sf.node_text(nm) not in model_locals:
-                      model_locals[sf.node_text(nm)] = (sf.node_text(v).split(".")[-1], store_locals[rootname])
-              if not rootname:
-                  continue
-              local = sf.node_text(nm)
-              if rootname in store_locals and local not in store_locals:
-                  store_locals[local] = store_locals[rootname]
-              elif rootname in sdk_locals and local not in sdk_locals:
-                  sdk_locals[local] = sdk_locals[rootname]
-              elif rootname in client_locals:
-                  client_locals.add(local)
-              elif rootname in grpc_locals:
-                  grpc_locals.add(local)
+    def alias_pass():
+        for _pass in (0, 1):
+          for n in walk(root):
+              if n.type == "variable_declarator":
+                  nm = n.child_by_field_name("name"); val = n.child_by_field_name("value")
+                  if nm is None or val is None or nm.type != "identifier":
+                      continue
+                  v = val
+                  while v is not None and v.type in ("await_expression", "parenthesized_expression", "as_expression", "non_null_expression"):
+                      v = v.named_children[0] if v.named_children else None
+                  if v is None:
+                      continue
+                  rootname = None
+                  if v.type == "new_expression":
+                      c = v.child_by_field_name("constructor"); rootname = sf.node_text(c).split(".")[0] if c is not None else None
+                  elif v.type == "call_expression":
+                      f = v.child_by_field_name("function"); rootname = sf.node_text(f).split(".")[0].split("(")[0] if f is not None else None
+                  elif v.type == "member_expression":
+                      rootname = sf.node_text(v).split(".")[0]
+                      if rootname in store_locals and sf.node_text(nm) not in model_locals:
+                          model_locals[sf.node_text(nm)] = (sf.node_text(v).split(".")[-1], store_locals[rootname])
+                  if not rootname:
+                      continue
+                  local = sf.node_text(nm)
+                  if rootname in model_locals and local != rootname and (local not in model_locals or model_locals[local][0] is None):
+                      model_locals[local] = model_locals[rootname]   # const doc = await Model.findOne(); const todo = new Todo()
+                      store_locals[local] = model_locals[rootname][1]
+                  if rootname in store_locals and local not in store_locals:
+                      store_locals[local] = store_locals[rootname]
+                  elif rootname in sdk_locals and local not in sdk_locals:
+                      sdk_locals[local] = sdk_locals[rootname]
+                  elif rootname in client_locals:
+                      client_locals.add(local)
+                  elif rootname in grpc_locals:
+                      grpc_locals.add(local)
+    alias_pass()
+
     # pass 1: find handler function spans for route calls, express() app var, routers
     routes = []
     for n in walk(root):
@@ -249,13 +254,43 @@ def _file(idx, sf, facts):
         if spec.startswith(".") and re.search(r"model", spec, re.I) and nm[:1].isupper():
             model_locals.setdefault(nm, (nm, "mongodb" if "mongoose" in idx.files.get(idx.resolve(sf, spec) or "", sf).bindings.values() or any("mongoose" in v for v in idx.files[idx.resolve(sf, spec)].bindings.values()) else "unknown") if idx.resolve(sf, spec) else (nm, "unknown"))
 
-    # variables assigned from env: const addr = process.env.X || 'localhost:1'
+    # axios.create({ baseURL: ... }) clients and variables assigned from env
+    base_url_of = {}
+    for n in walk(root):
+        if n.type == "call_expression" and sf.node_text(n.child_by_field_name("function")).replace(" ", "") in ("axios.create", "got.extend", "ky.create", "ky.extend"):
+            args_ = n.child_by_field_name("arguments")
+            p_ = n.parent
+            if args_ is not None and args_.named_child_count and args_.named_children[0].type == "object" and p_ is not None and p_.type == "variable_declarator":
+                local = sf.node_text(p_.child_by_field_name("name"))
+                client_locals.add(local)
+                for pr in args_.named_children[0].named_children:
+                    if pr.type == "pair" and sf.node_text(pr.child_by_field_name("key")).strip("'\"") in ("baseURL", "prefixUrl", "baseUrl"):
+                        v = sf.node_text(pr.child_by_field_name("value"))
+                        h, _ = _host_from_url(v.strip("'\"`"))
+                        m = re.search(r"process\.env\.([A-Z0-9_]+)", v)
+                        base_url_of[local] = h or ("env:" + m.group(1) if m else "variable:" + v[:30])
     env_of_var = {}
     for n in walk(root):
         if n.type == "variable_declarator":
             nm = n.child_by_field_name("name"); val = n.child_by_field_name("value")
             if nm is not None and val is not None and nm.type == "identifier" and "process.env." in sf.node_text(val):
                 env_of_var[sf.node_text(nm)] = sf.node_text(val)
+    # request fields read by handlers: req.body.email, const { email, password } = req.body, req.query.q
+    req_fields = {}
+    for n in walk(root):
+        txt = None
+        if n.type == "member_expression" and re.match(r"^(req|request|ctx\.request)\.(body|query)\.\w+$", sf.node_text(n).replace(" ", "")):
+            fields = [sf.node_text(n).replace(" ", "").split(".")[-1]]
+        elif n.type == "variable_declarator" and n.child_by_field_name("value") is not None and re.match(r"^(req|request|ctx\.request)\.(body|query)$", sf.node_text(n.child_by_field_name("value")).replace(" ", "")) and n.child_by_field_name("name").type == "object_pattern":
+            fields = [sf.node_text(c) for c in walk(n.child_by_field_name("name")) if c.type in ("shorthand_property_identifier_pattern",)]
+        else:
+            continue
+        for fld in fields:
+            req_fields.setdefault(sf.line(n), []).append(fld)
+    if req_fields:
+        for line, flds in sorted(req_fields.items()):
+            facts.add("schema", DET, [_ev(sf, line, line)], name="request fields", fields=[{"name": f_, "type": "request"} for f_ in sorted(set(flds))], file=sf.path, schema_kind="validation")
+    alias_pass()  # again, now that model locals (mongoose.model, imported models) are known
     # pass 2: everything else
     for n in walk(root):
         # secrets from env
@@ -351,7 +386,7 @@ def _file(idx, sf, facts):
                             kind = classify_control(at.split("(")[0])
                             middleware_order.append((at, sf.line(n), kind, path))
                             if kind:
-                                facts.add("control", DET, [_ev(sf, sf.line(n), sf.line(n))], control_kind=kind, name=at.split("(")[0], scope="app" if rootid in express_locals else "router", path_prefix=path, file=sf.path, order=len(middleware_order))
+                                facts.add("control", DET, [_ev(sf, sf.line(n), sf.line(n))], control_kind=kind, name=at.split("(")[0], scope="app" if rootid in express_locals else "router", path_prefix=path, file=sf.path, order=len(middleware_order), conditional=_in_condition(n))
                     continue
                 if verb == "route":
                     continue  # app.route('/x').get(...) handled by the chained call below
@@ -391,7 +426,10 @@ def _file(idx, sf, facts):
                     for a in nargs[:-1]:
                         at = sf.node_text(a); kind = classify_control(at.split("(")[0])
                         if kind: controls.append(facts.add("control", DET, [_ev(sf, sf.line(a), sf.line(a))], control_kind=kind, name=at.split("(")[0][:60], scope="route", file=sf.path))
-                    fid = facts.add("entry_point", DET, [_ev(sf, sf.line(n), sf.end_line(n))], protocol="http", method=verb.upper(), path=path, file=sf.path, router=_callee_parts(sf, obj.child_by_field_name("function"))[0], handler_span=span, route_controls=controls, handler_ref=None)
+                    href = sf.node_text(handler) if (handler is not None and span is None) else None
+                    hroot = href.split(".")[0].split("(")[0] if href else None
+                    hmod = idx.resolve(sf, sf.bindings[hroot]) if hroot and hroot in sf.bindings else None
+                    fid = facts.add("entry_point", DET, [_ev(sf, sf.line(n), sf.end_line(n))], protocol="http", method=verb.upper(), path=path, file=sf.path, router=_callee_parts(sf, obj.child_by_field_name("function"))[0], handler_span=span, route_controls=controls, handler_ref=href, handler_module=hmod, handler_symbol=(href.split(".")[-1] if href else None))
                     routes.append((span, fid))
         # app-level middleware without path: app.use(mw)
         if verb == "use" and (rootid in express_locals or rootid in router_locals) and nargs and nargs[0].type not in ("string", "template_string"):
@@ -406,7 +444,7 @@ def _file(idx, sf, facts):
                         continue
                 middleware_order.append((at, sf.line(n), kind, None))
                 if kind:
-                    facts.add("control", DET, [_ev(sf, sf.line(n), sf.line(n))], control_kind=kind, name=re.sub(r"\(.*", "", at)[:60], scope="app" if rootid in express_locals else "router", path_prefix=None, file=sf.path, order=len(middleware_order))
+                    facts.add("control", DET, [_ev(sf, sf.line(n), sf.line(n))], control_kind=kind, name=re.sub(r"\(.*", "", at)[:60], scope="app" if rootid in express_locals else "router", path_prefix=None, file=sf.path, order=len(middleware_order), conditional=_in_condition(n))
                 if re.match(r"cors\(\s*\)", at) or re.search(r"origin:\s*['\"]\*['\"]", at):
                     facts.add("weakness", DET, [_ev(sf, sf.line(n), sf.line(n))], weakness_kind="permissive_cors", name="cors() with default or wildcard origin", file=sf.path)
         # listen / https
@@ -451,7 +489,8 @@ def _file(idx, sf, facts):
                         facts.add("schema", DET, [_ev(sf, sf.line(a), sf.end_line(a))], name=m.group(1), fields=[{"name": c, "type": "column"} for c in cols], file=sf.path, schema_kind="sql")
         # outbound http: axios.get(url) / fetch(url) / got(url) / http(s).request
         is_fetch = ftxt in ("fetch", "window.fetch", "globalThis.fetch")
-        if rootid in client_locals or is_fetch or ftxt in ("http.request", "https.request", "http.get", "https.get"):
+        http_method = (not members) or members[-1] in ("get", "post", "put", "patch", "delete", "head", "options", "request", "fetch", "json", "text", "stream", "paginate")
+        if (rootid in client_locals and http_method) or is_fetch or ftxt in ("http.request", "https.request", "http.get", "https.get"):
             url = _string_value(sf, nargs[0]) if nargs else None
             if url is None and nargs and nargs[0].type == "object":
                 for pr in nargs[0].named_children:
@@ -460,6 +499,15 @@ def _file(idx, sf, facts):
             host, scheme = _host_from_url(url)
             if url and not host and nargs[0].type == "template_string" and "process.env." in url:
                 host = "env:" + re.search(r"process\.env\.([A-Z0-9_]+)", url).group(1)
+            if url and not host and nargs[0].type == "template_string":
+                for var in re.findall(r"\$\{\s*([A-Za-z_]\w*)", url):
+                    if var in env_of_var:
+                        m = re.search(r"process\.env\.([A-Z0-9_]+)", env_of_var[var])
+                        if m: host = "env:" + m.group(1); break
+                    if var in base_url_of:
+                        host = base_url_of[var]; break
+            if url is None and rootid in base_url_of:
+                host = base_url_of[rootid]
             if url and not host and url.startswith("/"):
                 continue  # relative URL: same-origin call from frontend code, not an outbound dependency
             if url is None and nargs and nargs[0].type in ("identifier", "member_expression"):
@@ -490,6 +538,9 @@ def _file(idx, sf, facts):
                 for p2, t2, f2, l2 in expand(tgt, depth + 1):
                     out.append((("/" + prefix.strip("/") if prefix.strip("/") else "") + ("/" + p2.strip("/") if p2.strip("/") else ""), t2, f2, l2))
         return out
+    for src, prefix, tgt, tfile, line in raw_mounts:
+        if tfile is None and tgt in router_locals and prefix:
+            facts.add("router_prefix", DET, [_ev(sf, line, line)], file=sf.path, local=tgt, prefix=prefix)
     emitted = set()
     roots = [r for r in by_source if r in express_locals or r == "__default__"]
     # anonymous/exported routers ("Router", "express") and any local router that nothing else mounts are roots too
@@ -522,6 +573,15 @@ def _chain_owner(sf, node, rootid):
     if p is not None and p.type == "assignment_expression" and sf.node_text(p.child_by_field_name("left")).startswith("module.exports"):
         return "__default__"
     return rootid
+
+
+def _in_condition(node):
+    p = node.parent
+    while p is not None and p.type not in ("program", "function_declaration", "arrow_function", "function_expression", "method_definition"):
+        if p.type in ("if_statement", "ternary_expression", "conditional_expression"):
+            return True
+        p = p.parent
+    return False
 
 
 def _handler_of(node, routes):

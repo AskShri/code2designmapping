@@ -32,6 +32,7 @@ class View:
         self.sch = {s["id"]: s for s in ir["schemas"]}
         self.ctl = {c["id"]: c for c in ir["controls"]}
         self.bnames = {b["id"]: b["name"] for b in ir["boundaries"]}
+        self.infra_procs = {e["process"] for e in ir["entry_points"] if e.get("infrastructure")}
         self.children = {}
         for p in self.procs.values():
             if p.get("parent"):
@@ -61,6 +62,8 @@ class View:
         """Roll flows up to `level`. With focus=<L1 id>, show that process's L2 children and their neighbours."""
         rolled = OrderedDict()
         for f in self.ir["flows"]:
+            if f["source"] in self.infra_procs or f["target"] in self.infra_procs:
+                continue
             s = self.ancestor_at(f["source"], level) if f["source"].startswith("proc") else f["source"]
             t = self.ancestor_at(f["target"], level) if f["target"].startswith("proc") else f["target"]
             if focus:
@@ -134,7 +137,9 @@ class View:
 
     def _node_with_count(self, nid, level):
         if nid.startswith("proc") and self.procs[nid]["level"] < 2 and self.children.get(nid):
-            hidden = sum(1 for c in self.children[nid])
+            hidden = sum(1 for c in self.children[nid] if c not in self.infra_procs)
+            if not hidden:
+                return self.mm_node(nid)
             return self.mm_node(nid, f'{self.procs[nid]["name"]} (+{hidden})')
         return self.mm_node(nid)
 
@@ -296,8 +301,10 @@ class View:
         for ep in ir["entry_points"]:
             by_proto.setdefault(ep["protocol"], []).append(ep)
         for proto, eps in sorted(by_proto.items()):
-            noauth = sum(1 for e in eps if not any(self.ctl[c]["kind"] == "authn" for c in e["controls"]))
-            out.append(f"- **{proto}**: {len(eps)} entry points, {noauth} without a detected authn control")
+            main = [e for e in eps if not e.get("infrastructure")]
+            noauth = sum(1 for e in main if not any(self.ctl[c]["kind"] == "authn" for c in e["controls"]))
+            cond = sum(1 for e in main if any(self.ctl[c].get("conditional") for c in e["controls"]))
+            out.append(f"- **{proto}**: {len(main)} entry points, {noauth} without a detected authn control" + (f", {cond} guarded only by conditionally registered middleware" if cond else "") + (f"; {len(eps) - len(main)} infrastructure entry points (health, preflight, docs) not counted" if len(eps) != len(main) else ""))
         listeners = [f for f in facts.by_kind("listener")]
         if listeners:
             out.append("- **listeners**: " + ", ".join(sorted({f"{l['file']} port {l.get('port')}{' (TLS)' if l.get('tls') else ''}" for l in listeners})))
@@ -309,7 +316,7 @@ class View:
             out.append(f"- **third-party dependencies**: {total} declared in {', '.join(sorted({d['file'] for d in deps}))}; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodeled attack surface")
         out += ["", "### Entry points", "", "| Entry point | Controls |", "|---|---|"]
         for ep in ir["entry_points"][:60]:
-            out.append(f'| {ep["method"]} {ep["path"]} | {", ".join(self.ctl[c]["name"] for c in ep["controls"]) or "none"} |')
+            out.append(f'| {ep["method"]} {ep["path"]}{" (infrastructure)" if ep.get("infrastructure") else ""} | {", ".join(self.ctl[c]["name"] + (" (conditional)" if self.ctl[c].get("conditional") else "") for c in ep["controls"]) or "none"} |')
         if len(ir["entry_points"]) > 60: out.append(f"| ... {len(ir['entry_points']) - 60} more | |")
         out += ["", "### External entities", "", "| Entity | Kind | Host |", "|---|---|---|"]
         for e in ir["entities"]:

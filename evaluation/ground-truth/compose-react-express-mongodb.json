@@ -1,0 +1,3 @@
+{"entry_points": ["POST /api/todos", "GET /api"], "infrastructure": [],
+ "stores": ["mongodb:todo"], "entities": [],
+ "edges": [["POST /api/todos", "mongodb:todo"], ["GET /api", "mongodb:todo"]]}

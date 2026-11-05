@@ -2,26 +2,86 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:43bcns7add",
-    "message": "api -> news.ycombinator.com: authentication=unknown, encryption=tls"
+    "id": "flow:2vo2g5gulu",
+    "message": "MongoDB: User -> POST /reset/:token handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:35yk53jbzd",
+    "message": "POST /login/2fa/resend handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3ikqk6vzff",
+    "message": "POST /reset/:token handler -> SMTP mail relay: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3mrlvnyntv",
+    "message": "POST /account/password handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:4b6vmyamdb",
+    "message": "MongoDB: User -> POST /login/2fa handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5n564bsi3k",
+    "message": "POST /login/webauthn-verify handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5w3lgowne4",
+    "message": "MongoDB: User -> POST /login/webauthn-verify handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:6hvbc2lcvh",
+    "message": "GET /api/pubchem handler -> pubchem.ncbi.nlm.nih.gov: authentication=unknown, encryption=tls"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
     "id": "flow:6wpt25s32d",
-    "message": "ai -> MongoDB: authentication=unknown, encryption=unknown"
+    "message": "ai -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:7cj4547iqk",
-    "message": "user -> MongoDB: authentication=unknown, encryption=unknown"
+    "id": "flow:7ghef6z54l",
+    "message": "POST /account/delete handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7kwomj52iv",
+    "message": "MongoDB: User -> GET /login/verify/:token handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ac4btvcy3y",
+    "message": "GET /api/nyt handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:afgk4pv7zp",
+    "message": "GET /api/tumblr handler -> api.tumblr.com: authentication=unknown, encryption=tls"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
     "id": "flow:ax7s4npifz",
-    "message": "ai-agent -> MongoDB: authentication=unknown, encryption=unknown"
+    "message": "ai-agent -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -32,8 +92,14 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:bjxsochwvx",
-    "message": "MongoDB -> passport: authentication=unknown, encryption=unknown"
+    "id": "flow:bhxqbrniue",
+    "message": "POST /account/2fa/totp/setup handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:bkd6gndchk",
+    "message": "MongoDB: User -> POST /account/2fa/email/remove handler: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -44,14 +110,44 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
+    "id": "flow:c3hyzhd6s5",
+    "message": "POST /login handler -> SMTP mail relay: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
     "id": "flow:cdtedxeccm",
     "message": "MongoDB: User -> webauthn: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:ehmqyapjll",
-    "message": "passport -> MongoDB: authentication=unknown, encryption=unknown"
+    "id": "flow:cek6eyo26k",
+    "message": "MongoDB: User -> POST /account/profile handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:cfgpu5cwls",
+    "message": "POST /account/profile handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:d5rx7el72s",
+    "message": "POST /forgot handler -> SMTP mail relay: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:d7n4pci7by",
+    "message": "MongoDB: User -> POST /forgot handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:egxziejuqo",
+    "message": "MongoDB: User -> POST /account/2fa/totp/remove handler: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -68,8 +164,26 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
+    "id": "flow:ew6ilgz6y3",
+    "message": "POST /signup handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
     "id": "flow:f5utoawbsj",
     "message": "contact -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:f6qh5r5xcx",
+    "message": "MongoDB: User -> POST /login/2fa/totp handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:f74qkut5gy",
+    "message": "GET /api/quickbooks handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -80,20 +194,56 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
+    "id": "flow:fipr6gyuw3",
+    "message": "MongoDB: User -> GET /reset/:token handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
     "id": "flow:g277clgsvl",
-    "message": "app -> MongoDB: authentication=unknown, encryption=unknown"
+    "message": "app -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
     "id": "flow:gezmd7e6et",
-    "message": "MongoDB -> ai: authentication=unknown, encryption=unknown"
+    "message": "MongoDB (collection unresolved) -> ai: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:hgud2jpfcv",
-    "message": "MongoDB -> webauthn: authentication=unknown, encryption=unknown"
+    "id": "flow:hpptjy4ydc",
+    "message": "GET /api/lob handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hw33k7qd2g",
+    "message": "MongoDB: User -> POST /account/2fa/totp/setup handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hzgu57hdth",
+    "message": "MongoDB: User -> POST /signup handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:i6s35aqs4q",
+    "message": "GET /api/tumblr handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:i7khwv4zzk",
+    "message": "MongoDB: User -> GET /account/2fa/totp/setup handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ixtpetjgjs",
+    "message": "MongoDB: User -> GET /login/2fa handler: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -105,7 +255,7 @@
     "severity": "warning",
     "rule": "unknown-link-attributes",
     "id": "flow:jag2hplsyy",
-    "message": "MongoDB -> User: authentication=unknown, encryption=unknown"
+    "message": "MongoDB (collection unresolved) -> User: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -116,14 +266,50 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
+    "id": "flow:jq7s5hrjw4",
+    "message": "POST /account/2fa/email/enable handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:jqxmck64xw",
+    "message": "GET /api/paypal/success handler -> api.sandbox.paypal.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
     "id": "flow:juinunnnyh",
     "message": "MongoDB: User -> user: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
+    "id": "flow:kunanwoyl6",
+    "message": "MongoDB: User -> GET /login/2fa/totp handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kusdptw66b",
+    "message": "MongoDB: User -> POST /account/password handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
     "id": "flow:kzfh2njuxj",
     "message": "api -> api.sandbox.paypal.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:l3d3gdzxss",
+    "message": "POST /login/2fa handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:maeiraiof4",
+    "message": "GET /account/verify handler -> SMTP mail relay: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -140,8 +326,26 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
+    "id": "flow:oenhf754wt",
+    "message": "POST /account/webauthn/register handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
     "id": "flow:orzoazxswu",
     "message": "passport -> discord.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:oxuq5oqunz",
+    "message": "GET /account/unlink/:provider handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:poi7yddoxc",
+    "message": "passport -> MongoDB: User: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -152,32 +356,68 @@
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:tkguo6ndq5",
-    "message": "MongoDB -> user: authentication=unknown, encryption=unknown"
+    "id": "flow:qa62mlvspp",
+    "message": "POST /login handler -> MongoDB: User: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:u3tdepnjqt",
-    "message": "webauthn -> MongoDB: authentication=unknown, encryption=unknown"
+    "id": "flow:qgf2574dma",
+    "message": "POST /reset/:token handler -> MongoDB: User: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:ug6rropkwb",
-    "message": "api -> graph.facebook.com: authentication=unknown, encryption=tls"
+    "id": "flow:qqkzfvuglq",
+    "message": "GET /login/2fa handler -> MongoDB: User: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:upvfzmrx6q",
-    "message": "api -> pubchem.ncbi.nlm.nih.gov: authentication=unknown, encryption=tls"
+    "id": "flow:rszuh7ezia",
+    "message": "GET /ai/rag handler -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
     "rule": "unknown-link-attributes",
-    "id": "flow:vhcjrc72nw",
-    "message": "api -> api.tumblr.com: authentication=unknown, encryption=tls"
+    "id": "flow:rwrjkmppmi",
+    "message": "POST /account/2fa/totp/remove handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:sqwmuzpb4a",
+    "message": "MongoDB: User -> GET /account/unlink/:provider handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:swqlqp3kdk",
+    "message": "GET /api/scraping handler -> news.ycombinator.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:tclijaviwn",
+    "message": "POST /account/2fa/email/remove handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ujv4cwn2dp",
+    "message": "GET /login/verify/:token handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:uojwwyhfux",
+    "message": "GET /api/chart handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:uuxfn726fd",
+    "message": "MongoDB: User -> POST /account/2fa/email/enable handler: authentication=unknown, encryption=unknown"
   },
   {
     "severity": "warning",
@@ -195,7 +435,55 @@
     "severity": "warning",
     "rule": "unknown-link-attributes",
     "id": "flow:wyprvzjwp3",
-    "message": "MongoDB -> ai-agent: authentication=unknown, encryption=unknown"
+    "message": "MongoDB (collection unresolved) -> ai-agent: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xvduz6rjey",
+    "message": "POST /forgot handler -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xy5ysok2qm",
+    "message": "GET /api/paypal handler -> api.sandbox.paypal.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:yg66dzlzp3",
+    "message": "MongoDB: User -> POST /login/2fa/resend handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zdiau2vcr2",
+    "message": "GET /api/giphy handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zq2j3hvvnm",
+    "message": "MongoDB: User -> POST /login handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zsofimoohl",
+    "message": "GET /api/facebook handler -> graph.facebook.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zx7u7na2us",
+    "message": "POST /ai/rag/ingest handler -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zzgjfgsohy",
+    "message": "POST /ai/rag/ask handler -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown"
   },
   {
     "severity": "info",
@@ -308,14 +596,32 @@
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
+    "id": "proc:q4gx4vahyi",
+    "message": "process webauthn has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
     "id": "proc:qk2e7zgvmc",
     "message": "process GET /auth/tumblr handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
+    "id": "proc:rsnnkceznp",
+    "message": "process GET /account/2fa/totp/setup handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
     "id": "proc:slas2utfvm",
     "message": "process GET /auth/linkedin/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:smwgaqa6ut",
+    "message": "process GET /reset/:token handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
@@ -328,6 +634,12 @@
     "rule": "black-hole-or-miracle",
     "id": "proc:t4soqax3vj",
     "message": "process GET /auth/facebook/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:uguokyo7qx",
+    "message": "process GET /login/2fa/totp handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
@@ -358,6 +670,12 @@
     "rule": "black-hole-or-miracle",
     "id": "proc:xfuxpvlk66",
     "message": "process GET /auth/x/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:zm4n7gzhsf",
+    "message": "process POST /login/2fa/totp handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",

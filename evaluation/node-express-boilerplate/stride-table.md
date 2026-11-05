@@ -5,8 +5,6 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | Element | Type | STRIDE | Data classes | Boundary crossings | Existing controls | Priority hint |
 |---|---|---|---|---|---|---|
 | no authn control detected on POST /v1/auth/reset-password | Weakness | - | - | - | - | unauthenticated_entry_point at src/routes/v1/auth.route.js:14 |
-| no authn control detected on OPTIONS * | Weakness | - | - | - | - | unauthenticated_entry_point at src/app.js:42 |
-| no authn control detected on GET /v1/docs | Weakness | - | - | - | - | unauthenticated_entry_point at src/routes/v1/docs.route.js:14 |
 | no authn control detected on POST /v1/auth/logout | Weakness | - | - | - | - | unauthenticated_entry_point at src/routes/v1/auth.route.js:11 |
 | no authn control detected on POST /v1/auth/refresh-tokens | Weakness | - | - | - | - | unauthenticated_entry_point at src/routes/v1/auth.route.js:12 |
 | no authn control detected on POST /v1/auth/login | Weakness | - | - | - | - | unauthenticated_entry_point at src/routes/v1/auth.route.js:10 |
@@ -31,7 +29,6 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | token.service -> MongoDB: Token | Data flow | T I D | - | container: mongodb, container: node-app | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /v1/auth/reset-password handler | Data flow | T I D | - | container: node-app | morgan.errorHandler, mongoSanitize, validate, morgan.successHandler, authLimiter, xss, cors, helmet | authentication=none, encryption=unknown: question for the team |
 | MongoDB: User -> passport | Data flow | T I D | - | container: mongodb, container: node-app | none | authentication=unknown, encryption=unknown: question for the team |
-| auth.service -> MongoDB | Data flow | T I D | - | container: mongodb, container: node-app | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /v1/auth/logout handler | Data flow | T I D | - | container: node-app | morgan.errorHandler, mongoSanitize, validate, morgan.successHandler, authLimiter, xss, cors, helmet | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> POST /v1/auth/login handler | Data flow | T I D | - | container: node-app | morgan.errorHandler, mongoSanitize, validate, morgan.successHandler, authLimiter, xss, cors, helmet | authentication=none, encryption=unknown: question for the team |
 | HTTP client -> GET /v1/users handler | Data flow | T I D | - | container: node-app | morgan.errorHandler, mongoSanitize, morgan.successHandler, validate, xss, auth, cors, helmet | authentication=credentials, encryption=unknown: question for the team |
@@ -40,7 +37,6 @@ Rows are ordered by priority hint (exit points and weaknesses first).
 | email.service -> SMTP mail relay | Data flow | T I D | - | container: node-app | none | authentication=unknown, encryption=unknown: question for the team |
 | MongoDB: Token -> auth.service | Data flow | T I D | - | container: mongodb, container: node-app | none | authentication=unknown, encryption=unknown: question for the team |
 | HTTP client -> POST /v1/auth/verify-email handler | Data flow | T I D | - | container: node-app | morgan.errorHandler, mongoSanitize, validate, morgan.successHandler, authLimiter, xss, cors, helmet | authentication=none, encryption=unknown: question for the team |
-| MongoDB | Data store | T R I D | - | in container: mongodb | encryption at rest: unknown |  |
 | MongoDB: User | Data store | T R I D | - | in container: mongodb | encryption at rest: unknown |  |
 | MongoDB: Token | Data store | T R I D | - | in container: mongodb | encryption at rest: unknown |  |
 | OPTIONS * handler | Process | S T R I D E | - | - | morgan.errorHandler, mongoSanitize, morgan.successHandler, xss, cors, helmet | entry point |

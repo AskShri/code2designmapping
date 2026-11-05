@@ -6,7 +6,7 @@ flowchart LR
     proc_o4bhgqznry(["models (+1)"])
     proc_xh4r43p4iq(["config (+3)"])
   end
-  ext_jersuzximo["Google Oauth identity provider"]
+  ext_2x56m65xpx["Google Sheets API"]
   ext_l2biskukaq["SMTP mail relay"]
   ext_miziwfdicw["Unresolved HTTP target"]
   ext_muqplzhwb7["Github2 identity provider"]
@@ -25,29 +25,37 @@ flowchart LR
   ext_uuhu7borqt["api.sandbox.paypal.com"]
   ext_yydkmj7yh6["Hugging Face Inference API"]
   ext_z53v3sf3pz["Oauth2 Refresh identity provider"]
-  store_3ufptbo5k3[("MongoDB")]
+  store_3ufptbo5k3[("MongoDB (collection unresolved)")]
   store_x3kis6s6op[("MongoDB: User")]
+  %% 3 lower-weight edges omitted (edge budget 40)
   ext_sga4qktkap -->|"http"| proc_dsb5vsfubj
+  proc_bceau7fabt -->|"https"| ext_2x56m65xpx
   proc_bceau7fabt -->|"smtp"| ext_l2biskukaq
   proc_bceau7fabt -->|"unknown"| ext_miziwfdicw
   proc_bceau7fabt -->|"https"| ext_nggth6fowo
-  proc_bceau7fabt -->|"https"| ext_nswlxsx7xw
   proc_bceau7fabt -->|"https"| ext_pbm532avbp
   proc_bceau7fabt -->|"https"| ext_q7bc76pjhv
-  proc_bceau7fabt -->|"https"| ext_slqdx4hifp
   proc_bceau7fabt -->|"https"| ext_summary
   proc_bceau7fabt -->|"https"| ext_tq5xvm2pwe
-  proc_bceau7fabt -->|"https"| ext_u6x5oiec77
   proc_bceau7fabt -->|"https"| ext_uuhu7borqt
   proc_bceau7fabt -->|"https"| ext_yydkmj7yh6
-  proc_bceau7fabt -->|"in_process"| proc_o4bhgqznry
   proc_bceau7fabt -->|"in_process"| proc_xh4r43p4iq
   proc_bceau7fabt -->|"mongo"| store_3ufptbo5k3
   proc_bceau7fabt -->|"mongo"| store_x3kis6s6op
+  proc_dsb5vsfubj -->|"https"| ext_2x56m65xpx
+  proc_dsb5vsfubj -->|"smtp"| ext_l2biskukaq
+  proc_dsb5vsfubj -->|"unknown"| ext_miziwfdicw
+  proc_dsb5vsfubj -->|"https"| ext_nggth6fowo
+  proc_dsb5vsfubj -->|"https"| ext_nswlxsx7xw
+  proc_dsb5vsfubj -->|"https"| ext_q7bc76pjhv
+  proc_dsb5vsfubj -->|"https"| ext_slqdx4hifp
+  proc_dsb5vsfubj -->|"https"| ext_summary
+  proc_dsb5vsfubj -->|"https"| ext_u6x5oiec77
+  proc_dsb5vsfubj -->|"https"| ext_uuhu7borqt
   proc_dsb5vsfubj -->|"in_process"| proc_bceau7fabt
   proc_dsb5vsfubj -->|"in_process"| proc_xh4r43p4iq
   proc_dsb5vsfubj -->|"mongo"| store_3ufptbo5k3
-  proc_xh4r43p4iq -->|"https"| ext_jersuzximo
+  proc_dsb5vsfubj -->|"mongo"| store_x3kis6s6op
   proc_xh4r43p4iq -->|"smtp"| ext_l2biskukaq
   proc_xh4r43p4iq -->|"unknown"| ext_miziwfdicw
   proc_xh4r43p4iq -->|"https"| ext_muqplzhwb7
@@ -57,12 +65,9 @@ flowchart LR
   proc_xh4r43p4iq -->|"https"| ext_summary
   proc_xh4r43p4iq -->|"https"| ext_z53v3sf3pz
   proc_xh4r43p4iq -->|"in_process"| proc_o4bhgqznry
-  proc_xh4r43p4iq -->|"mongo"| store_3ufptbo5k3
   store_3ufptbo5k3 -->|"mongo"| proc_bceau7fabt
-  store_3ufptbo5k3 -->|"mongo"| proc_o4bhgqznry
-  store_3ufptbo5k3 -->|"mongo"| proc_xh4r43p4iq
   store_x3kis6s6op -->|"mongo"| proc_bceau7fabt
-  store_x3kis6s6op -->|"mongo"| proc_xh4r43p4iq
+  store_x3kis6s6op -->|"mongo"| proc_dsb5vsfubj
   style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

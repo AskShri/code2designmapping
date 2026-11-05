@@ -1,0 +1,24 @@
+%% L2: adservice
+flowchart LR
+  subgraph bnd_fxo55nvvpf["container: adservice"]
+    proc_otewwpxrsv(["gRPC AdService handler"])
+    proc_qprs6ysqdp(["adservice (+2)"])
+    proc_ykerzgiqo6(["AdServiceClient"])
+  end
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_pmttplr5qk(["frontend (+14)"])
+  end
+  ext_sqc242xzn7["gRPC client"]
+  ext_xwfpv7zyiv["Unresolved grpc target"]
+  ext_sqc242xzn7 -->|"grpc"| proc_otewwpxrsv
+  proc_otewwpxrsv -->|"in_process"| proc_ykerzgiqo6
+  proc_pmttplr5qk -->|"grpc"| proc_qprs6ysqdp
+  proc_ykerzgiqo6 -->|"grpc"| ext_xwfpv7zyiv
+  style bnd_fxo55nvvpf stroke-dasharray: 8 4,fill:none
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

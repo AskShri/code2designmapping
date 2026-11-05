@@ -371,28 +371,6 @@
   ],
   "stores": [
     {
-      "id": "store:3ufptbo5k3",
-      "identity": [
-        "store",
-        "mongodb",
-        ""
-      ],
-      "origin": "observed",
-      "name": "MongoDB",
-      "technology": "mongodb",
-      "data_classes": [],
-      "encryption_at_rest": "unknown",
-      "evidence": [
-        {
-          "path": "app/controllers/tutorial.controller.js",
-          "start_line": 20,
-          "end_line": 20,
-          "detector": "js@0.3",
-          "content_hash": "sha256:fe30030e102ecf8fab72edd523758d54b314224d81ef9f50265efeac824fb56e"
-        }
-      ]
-    },
-    {
       "id": "store:uujc2npyud",
       "identity": [
         "store",
@@ -406,6 +384,13 @@
       "data_classes": [],
       "encryption_at_rest": "unknown",
       "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "js@0.3",
+          "content_hash": "sha256:fe30030e102ecf8fab72edd523758d54b314224d81ef9f50265efeac824fb56e"
+        },
         {
           "path": "app/controllers/tutorial.controller.js",
           "start_line": 38,
@@ -534,36 +519,36 @@
       "direction": "request_response",
       "authentication": "none",
       "encryption": "none",
-      "purpose": "handler tutorials.delete",
+      "purpose": "uses tutorials",
       "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
           "path": "app/routes/turorial.routes.js",
-          "start_line": 1,
-          "end_line": 1,
+          "start_line": 2,
+          "end_line": 2,
           "detector": "synth@0.3",
-          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+          "content_hash": "sha256:fe2e42204fa8e2e549503e6ad19a3b99a1c1cb98e12741656f86d9b14444dcef"
         }
       ]
     },
     {
-      "id": "flow:3haziohken",
+      "id": "flow:7pqcnsvetc",
       "identity": [
         "flow",
+        "proc:r3saircepp",
         "store:uujc2npyud",
-        "proc:zzqivqwuzv",
         "mongo",
         ""
       ],
       "origin": "observed",
-      "source": "store:uujc2npyud",
-      "target": "proc:zzqivqwuzv",
+      "source": "proc:r3saircepp",
+      "target": "store:uujc2npyud",
       "protocol": "mongo",
       "direction": "one_way",
       "authentication": "unknown",
       "encryption": "unknown",
-      "purpose": "find",
+      "purpose": "findByIdAndUpdate",
       "crosses_boundary": [
         "bnd:fg4rasskqa"
       ],
@@ -571,24 +556,10 @@
       "evidence": [
         {
           "path": "app/controllers/tutorial.controller.js",
-          "start_line": 38,
-          "end_line": 38,
+          "start_line": 77,
+          "end_line": 77,
           "detector": "js@0.3",
-          "content_hash": "sha256:a9d1b3b97a0ca61a5861bbe50f921536400623340ed90ec166e2a753b183f0b1"
-        },
-        {
-          "path": "app/controllers/tutorial.controller.js",
-          "start_line": 54,
-          "end_line": 54,
-          "detector": "js@0.3",
-          "content_hash": "sha256:8d0a87ff29f17ee878945697afe9d84d02ea5f5e63dcdcbdfc92b6165de6bf8e"
-        },
-        {
-          "path": "app/controllers/tutorial.controller.js",
-          "start_line": 133,
-          "end_line": 133,
-          "detector": "js@0.3",
-          "content_hash": "sha256:0e8314422b9ed04a57ef8c1edf604fa8de1ccdfe491235bf86450d74b2769d53"
+          "content_hash": "sha256:016f3896c3f3a11b002b930e9dad085ecfc4a5d20b1a3a0854d4f97c8ed897bf"
         }
       ]
     },
@@ -692,35 +663,6 @@
       ]
     },
     {
-      "id": "flow:f6do4kcz3s",
-      "identity": [
-        "flow",
-        "proc:uz7oqxeuuh",
-        "proc:zzqivqwuzv",
-        "in_process",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:uz7oqxeuuh",
-      "target": "proc:zzqivqwuzv",
-      "protocol": "in_process",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "none",
-      "purpose": "handler tutorials.deleteAll",
-      "crosses_boundary": [],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "app/routes/turorial.routes.js",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
-        }
-      ]
-    },
-    {
       "id": "flow:i5umjusnv3",
       "identity": [
         "flow",
@@ -787,17 +729,17 @@
       ]
     },
     {
-      "id": "flow:kjz26uoabu",
+      "id": "flow:jzmifykkyt",
       "identity": [
         "flow",
-        "proc:zzqivqwuzv",
-        "store:3ufptbo5k3",
+        "proc:tm2f7cfmv3",
+        "store:uujc2npyud",
         "mongo",
         ""
       ],
       "origin": "observed",
-      "source": "proc:zzqivqwuzv",
-      "target": "store:3ufptbo5k3",
+      "source": "proc:tm2f7cfmv3",
+      "target": "store:uujc2npyud",
       "protocol": "mongo",
       "direction": "one_way",
       "authentication": "unknown",
@@ -818,89 +760,64 @@
       ]
     },
     {
-      "id": "flow:msc4wgtmic",
+      "id": "flow:n4ey6igglz",
       "identity": [
         "flow",
-        "proc:tm2f7cfmv3",
-        "proc:zzqivqwuzv",
-        "in_process",
+        "store:uujc2npyud",
+        "proc:s2dv344aux",
+        "mongo",
         ""
       ],
       "origin": "observed",
-      "source": "proc:tm2f7cfmv3",
-      "target": "proc:zzqivqwuzv",
-      "protocol": "in_process",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "none",
-      "purpose": "handler tutorials.create",
-      "crosses_boundary": [],
+      "source": "store:uujc2npyud",
+      "target": "proc:s2dv344aux",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "find",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
       "controls": [],
       "evidence": [
         {
-          "path": "app/routes/turorial.routes.js",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 133,
+          "end_line": 133,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0e8314422b9ed04a57ef8c1edf604fa8de1ccdfe491235bf86450d74b2769d53"
         }
       ]
     },
     {
-      "id": "flow:qikxvtmqyf",
+      "id": "flow:pgqpnhitai",
       "identity": [
         "flow",
-        "proc:4m2ysdt4j4",
-        "proc:zzqivqwuzv",
-        "in_process",
+        "store:uujc2npyud",
+        "proc:asmvuz3gji",
+        "mongo",
         ""
       ],
       "origin": "observed",
-      "source": "proc:4m2ysdt4j4",
-      "target": "proc:zzqivqwuzv",
-      "protocol": "in_process",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "none",
-      "purpose": "handler tutorials.findOne",
-      "crosses_boundary": [],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "app/routes/turorial.routes.js",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
-        }
-      ]
-    },
-    {
-      "id": "flow:uebtsanaud",
-      "identity": [
-        "flow",
-        "proc:r3saircepp",
-        "proc:zzqivqwuzv",
-        "in_process",
-        ""
+      "source": "store:uujc2npyud",
+      "target": "proc:asmvuz3gji",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "find",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
       ],
-      "origin": "observed",
-      "source": "proc:r3saircepp",
-      "target": "proc:zzqivqwuzv",
-      "protocol": "in_process",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "none",
-      "purpose": "handler tutorials.update",
-      "crosses_boundary": [],
       "controls": [],
       "evidence": [
         {
-          "path": "app/routes/turorial.routes.js",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a9d1b3b97a0ca61a5861bbe50f921536400623340ed90ec166e2a753b183f0b1"
         }
       ]
     },
@@ -938,6 +855,68 @@
       ]
     },
     {
+      "id": "flow:vnwrxbsqot",
+      "identity": [
+        "flow",
+        "proc:uz7oqxeuuh",
+        "store:uujc2npyud",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:uz7oqxeuuh",
+      "target": "store:uujc2npyud",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "deleteMany",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 117,
+          "end_line": 117,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f4eedee93aa16f5addbae3fea1f50c00ab92809694365dd34b8fb38c07d1f73f"
+        }
+      ]
+    },
+    {
+      "id": "flow:vyvkg6qb4y",
+      "identity": [
+        "flow",
+        "store:uujc2npyud",
+        "proc:4m2ysdt4j4",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:uujc2npyud",
+      "target": "proc:4m2ysdt4j4",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findById",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "js@0.3",
+          "content_hash": "sha256:8d0a87ff29f17ee878945697afe9d84d02ea5f5e63dcdcbdfc92b6165de6bf8e"
+        }
+      ]
+    },
+    {
       "id": "flow:ykzt4akmq7",
       "identity": [
         "flow",
@@ -969,102 +948,6 @@
           "content_hash": "sha256:895d876962165f861e2e25f1febe87d4c3ef98b4783d5adb97f3490ef408649b"
         }
       ]
-    },
-    {
-      "id": "flow:yyf53zydfh",
-      "identity": [
-        "flow",
-        "proc:asmvuz3gji",
-        "proc:zzqivqwuzv",
-        "in_process",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:asmvuz3gji",
-      "target": "proc:zzqivqwuzv",
-      "protocol": "in_process",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "none",
-      "purpose": "handler tutorials.findAll",
-      "crosses_boundary": [],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "app/routes/turorial.routes.js",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
-        }
-      ]
-    },
-    {
-      "id": "flow:z3pqvi53vq",
-      "identity": [
-        "flow",
-        "proc:s2dv344aux",
-        "proc:zzqivqwuzv",
-        "in_process",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:s2dv344aux",
-      "target": "proc:zzqivqwuzv",
-      "protocol": "in_process",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "none",
-      "purpose": "handler tutorials.findAllPublished",
-      "crosses_boundary": [],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "app/routes/turorial.routes.js",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
-        }
-      ]
-    },
-    {
-      "id": "flow:zkldm5bfnj",
-      "identity": [
-        "flow",
-        "proc:zzqivqwuzv",
-        "store:uujc2npyud",
-        "mongo",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:zzqivqwuzv",
-      "target": "store:uujc2npyud",
-      "protocol": "mongo",
-      "direction": "one_way",
-      "authentication": "unknown",
-      "encryption": "unknown",
-      "purpose": "findByIdAndUpdate",
-      "crosses_boundary": [
-        "bnd:fg4rasskqa"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "app/controllers/tutorial.controller.js",
-          "start_line": 77,
-          "end_line": 77,
-          "detector": "js@0.3",
-          "content_hash": "sha256:016f3896c3f3a11b002b930e9dad085ecfc4a5d20b1a3a0854d4f97c8ed897bf"
-        },
-        {
-          "path": "app/controllers/tutorial.controller.js",
-          "start_line": 117,
-          "end_line": 117,
-          "detector": "js@0.3",
-          "content_hash": "sha256:f4eedee93aa16f5addbae3fea1f50c00ab92809694365dd34b8fb38c07d1f73f"
-        }
-      ]
     }
   ],
   "entry_points": [
@@ -1086,8 +969,7 @@
         "ctl:4t7pejypjk"
       ],
       "call_chain": [
-        "proc:r3saircepp",
-        "proc:zzqivqwuzv"
+        "proc:r3saircepp"
       ],
       "evidence": [
         {
@@ -1097,6 +979,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:96dabfd76d40680221f1e4f387691d07bcfa38f5186c452f7db698cf3a866891"
         }
+      ],
+      "reaches": [
+        "store:uujc2npyud"
       ]
     },
     {
@@ -1117,8 +1002,7 @@
         "ctl:4t7pejypjk"
       ],
       "call_chain": [
-        "proc:s2dv344aux",
-        "proc:zzqivqwuzv"
+        "proc:s2dv344aux"
       ],
       "evidence": [
         {
@@ -1128,6 +1012,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:6edfa66da9f4a8eddb394e816d7897d5771fe2ba277ce5161adc8ef2887d3bf3"
         }
+      ],
+      "reaches": [
+        "store:uujc2npyud"
       ]
     },
     {
@@ -1159,7 +1046,8 @@
           "detector": "js@0.3",
           "content_hash": "sha256:895d876962165f861e2e25f1febe87d4c3ef98b4783d5adb97f3490ef408649b"
         }
-      ]
+      ],
+      "reaches": []
     },
     {
       "id": "ep:tk2t3kubo4",
@@ -1179,8 +1067,7 @@
         "ctl:4t7pejypjk"
       ],
       "call_chain": [
-        "proc:tm2f7cfmv3",
-        "proc:zzqivqwuzv"
+        "proc:tm2f7cfmv3"
       ],
       "evidence": [
         {
@@ -1190,6 +1077,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:4b5b95d5bddcfe8ed345dd6d43287fd0b7e61e84577ee0d17b5d70ea3ae3c808"
         }
+      ],
+      "reaches": [
+        "store:uujc2npyud"
       ]
     },
     {
@@ -1210,8 +1100,7 @@
         "ctl:4t7pejypjk"
       ],
       "call_chain": [
-        "proc:uz7oqxeuuh",
-        "proc:zzqivqwuzv"
+        "proc:uz7oqxeuuh"
       ],
       "evidence": [
         {
@@ -1221,6 +1110,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:a34f6c755bbbd55366f67f1e1be4cf7cf98c8597837e32a4063958e64f2fb878"
         }
+      ],
+      "reaches": [
+        "store:uujc2npyud"
       ]
     },
     {
@@ -1241,8 +1133,7 @@
         "ctl:4t7pejypjk"
       ],
       "call_chain": [
-        "proc:asmvuz3gji",
-        "proc:zzqivqwuzv"
+        "proc:asmvuz3gji"
       ],
       "evidence": [
         {
@@ -1252,6 +1143,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:f95d185ea54ef0cb2c36dd650c3872d06b6e87d8f59b16d45cd8a0afbc7a1c6e"
         }
+      ],
+      "reaches": [
+        "store:uujc2npyud"
       ]
     },
     {
@@ -1282,7 +1176,8 @@
           "detector": "js@0.3",
           "content_hash": "sha256:83b1788cc30001b696a69d3512e250b99fc42ebe0936b1e463aff59a8596a159"
         }
-      ]
+      ],
+      "reaches": []
     },
     {
       "id": "ep:xxhfmkg2fv",
@@ -1302,8 +1197,7 @@
         "ctl:4t7pejypjk"
       ],
       "call_chain": [
-        "proc:4m2ysdt4j4",
-        "proc:zzqivqwuzv"
+        "proc:4m2ysdt4j4"
       ],
       "evidence": [
         {
@@ -1313,6 +1207,9 @@
           "detector": "js@0.3",
           "content_hash": "sha256:1274f9a54cc096141f44439ba290c6600ae563a289e25a7da606087c15e01c6a"
         }
+      ],
+      "reaches": [
+        "store:uujc2npyud"
       ]
     }
   ],
@@ -1534,7 +1431,34 @@
       ]
     }
   ],
-  "schemas": [],
+  "schemas": [
+    {
+      "id": "sch:4wbvzydqss",
+      "identity": [
+        "schema",
+        "app/controllers/tutorial.controller.js",
+        "request fields"
+      ],
+      "origin": "observed",
+      "name": "request fields",
+      "fields": [
+        {
+          "name": "title",
+          "type": "request",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f25c4670a64daff7970cd2538bf173dbe26b8a0165db8e4e3f8057452fb19a0b"
+        }
+      ]
+    }
+  ],
   "assets": [],
   "threat_agents": [
     {
@@ -1669,12 +1593,6 @@
       "kind": "unknown_attribute",
       "path": "app/controllers/tutorial.controller.js",
       "line": 20,
-      "detail": "Question for the team: how is the link to MongoDB authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
-    },
-    {
-      "kind": "unknown_attribute",
-      "path": "app/controllers/tutorial.controller.js",
-      "line": 38,
       "detail": "Question for the team: how is the link to MongoDB: tutorials authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
     }
   ]

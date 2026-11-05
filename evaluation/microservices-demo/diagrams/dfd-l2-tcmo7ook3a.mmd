@@ -1,21 +1,29 @@
 %% L2: recommendationservice
 flowchart LR
+  subgraph bnd_3nvgex5y4a["container: productcatalogservice"]
+    proc_elkmlzs7bq(["productcatalogservice (+3)"])
+  end
   subgraph bnd_c76yxdhq2j["container: recommendationservice"]
+    proc_4lxewk2tkj(["gRPC RecommendationService handler"])
     proc_k6rhwk7raj(["client"])
-    proc_kjz4w7dkct(["gRPC RecommendationServiceServicer handler"])
     proc_krvoyrn5l7(["recommendation_server"])
-    proc_vtfanv77tp(["gRPC HealthServicer handler"])
+    proc_tcmo7ook3a(["recommendationservice (+3)"])
+  end
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_pmttplr5qk(["frontend (+14)"])
   end
   ext_5glqr7zsb5["OTLP collector"]
   ext_sqc242xzn7["gRPC client"]
-  ext_xbo3iznjz7["productcatalogservice service"]
   ext_xwfpv7zyiv["Unresolved grpc target"]
-  ext_sqc242xzn7 -->|"grpc"| proc_kjz4w7dkct
-  ext_sqc242xzn7 -->|"grpc"| proc_vtfanv77tp
+  ext_sqc242xzn7 -->|"grpc"| proc_4lxewk2tkj
+  proc_4lxewk2tkj -->|"in_process"| proc_krvoyrn5l7
   proc_k6rhwk7raj -->|"grpc"| ext_xwfpv7zyiv
   proc_krvoyrn5l7 -->|"https"| ext_5glqr7zsb5
-  proc_krvoyrn5l7 -->|"grpc"| ext_xbo3iznjz7
+  proc_krvoyrn5l7 -->|"grpc"| proc_elkmlzs7bq
+  proc_pmttplr5qk -->|"grpc"| proc_tcmo7ook3a
+  style bnd_3nvgex5y4a stroke-dasharray: 8 4,fill:none
   style bnd_c76yxdhq2j stroke-dasharray: 8 4,fill:none
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])

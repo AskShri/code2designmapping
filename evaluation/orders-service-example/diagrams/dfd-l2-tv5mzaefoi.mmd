@@ -17,8 +17,9 @@ flowchart LR
   ext_sga4qktkap -->|"http: CreateOrderRequest (financial,pii)"| proc_uiamsfd5ja
   proc_atbhcslotu -->|"in_process"| proc_extghcvbbw
   proc_extghcvbbw -->|"in_process"| proc_7hcvlzq6va
-  proc_extghcvbbw -->|"sql: request fields (propagated) (financial,pii)"| store_2whm26363j
-  proc_extghcvbbw -->|"redis: request fields (propagated) (financial,pii)"| store_ligqz7jge4
+  proc_extghcvbbw -->|"sql: request fields (via call path) (financial,pii)"| store_2whm26363j
+  proc_extghcvbbw -->|"redis: request fields (via call path) (financial,pii)"| store_ligqz7jge4
+  proc_uiamsfd5ja -->|"in_process"| proc_7hcvlzq6va
   proc_uiamsfd5ja -->|"in_process"| proc_extghcvbbw
   store_2whm26363j -->|"sql: Postgres: orders record (financial,pii)"| proc_extghcvbbw
   store_ligqz7jge4 -->|"redis: Redis: order:* record (financial,pii)"| proc_extghcvbbw

@@ -11,6 +11,8 @@ sequenceDiagram
   participant ctl_w2u3d3at3m as cors
   participant ctl_z53teauknq as helmet
   participant proc_qmofjuihf5 as POST /v1/users handler
+  participant proc_bncx6ofqo5 as user.service
+  participant store_x3kis6s6op as MongoDB - User
   ext_sga4qktkap->>ctl_4grkuzoeeq: POST /v1/users (audit_log)
   ctl_4grkuzoeeq->>ctl_6rjh2cbjvh: POST /v1/users (input_validation)
   ctl_6rjh2cbjvh->>ctl_eqfryw4thb: POST /v1/users (audit_log)
@@ -20,4 +22,8 @@ sequenceDiagram
   ctl_v3wsxwd66x->>ctl_w2u3d3at3m: POST /v1/users (cors)
   ctl_w2u3d3at3m->>ctl_z53teauknq: POST /v1/users (input_validation)
   ctl_z53teauknq->>proc_qmofjuihf5: dispatch
+  proc_qmofjuihf5->>proc_bncx6ofqo5: in_process
+  proc_bncx6ofqo5->>store_x3kis6s6op: unknown
+  store_x3kis6s6op-->>proc_bncx6ofqo5: unknown
+  proc_bncx6ofqo5-->>proc_qmofjuihf5: response
   proc_qmofjuihf5-->>ext_sga4qktkap: response

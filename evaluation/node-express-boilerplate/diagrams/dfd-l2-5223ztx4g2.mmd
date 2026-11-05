@@ -1,11 +1,5 @@
 %% L2: node-app
 flowchart LR
-  subgraph bnd_4tjp4yui4o["container: node-app"]
-    proc_4qlcdwoif3(["OPTIONS * handler"])
-  end
-  ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http"| proc_4qlcdwoif3
-  style bnd_4tjp4yui4o stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])

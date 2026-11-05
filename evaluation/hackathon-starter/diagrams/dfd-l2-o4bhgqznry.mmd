@@ -1,12 +1,10 @@
 %% L2: models
 flowchart LR
   subgraph bnd_wsjnfagnyn["repository: hackathon-starter"]
-    proc_bceau7fabt(["controllers (+6)"])
     proc_oh6krts3of(["User"])
     proc_xh4r43p4iq(["config (+3)"])
   end
-  store_3ufptbo5k3[("MongoDB")]
-  proc_bceau7fabt -->|"in_process"| proc_oh6krts3of
+  store_3ufptbo5k3[("MongoDB (collection unresolved)")]
   proc_xh4r43p4iq -->|"in_process"| proc_oh6krts3of
   store_3ufptbo5k3 -->|"mongo"| proc_oh6krts3of
   style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none

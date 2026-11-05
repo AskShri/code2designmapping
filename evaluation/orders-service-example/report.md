@@ -1,6 +1,6 @@
 # code2design report: orders-service-example
 
-Commit `05fad9d339c8`, tool 0.3.0-prototype, 0.0s.
+Commit `bee778ff5e8c`, tool 0.3.0-prototype, 0.0s.
 
 ## Coverage
 
@@ -21,14 +21,14 @@ Facts: app_entry 1, boundary_hint 4, config_value 1, control 2, dependencies 1, 
 | entities | 2 |
 | stores | 2 |
 | boundaries | 3 |
-| flows | 10 |
+| flows | 11 |
 | entry_points | 2 |
 | controls | 2 |
 | weaknesses | 1 |
 | schemas | 3 |
 | assets | 3 |
-| threat_agents | 4 |
-| gaps | 3 |
+| threat_agents | 5 |
+| gaps | 4 |
 
 ## Attack surface
 
@@ -36,7 +36,7 @@ Entry points are where a threat agent first touches the system; exit points are 
 
 - **http**: 2 entry points, 0 without a detected authn control
 - **listeners**: src/index.ts port 8080
-- **exit points carrying sensitive data**: Stripe API
+- **exit points carrying sensitive data**: Stripe Payments API
 - **third-party dependencies**: 7 declared in package.json; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodeled attack surface
 
 ### Entry points
@@ -51,7 +51,7 @@ Entry points are where a threat agent first touches the system; exit points are 
 | Entity | Kind | Host |
 |---|---|---|
 | HTTP client | system | - |
-| Stripe API | system | api.stripe.com |
+| Stripe Payments API | system | api.stripe.com |
 
 ### Data stores
 
@@ -79,3 +79,4 @@ Entry points are where a threat agent first touches the system; exit points are 
 - `unknown_attribute` src/index.ts: Question for the team: is TLS terminated in front of the HTTP listener on port 8080? Inbound flows are marked encryption=unknown until answered.
 - `unknown_attribute` src/orders/service.ts:13: Question for the team: how is the link to Postgres: orders authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
 - `unknown_attribute` src/orders/service.ts:17: Question for the team: how is the link to Redis: order:* authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
+- `override_target_missing` .code2design/overrides.yaml: set_attribute override targets 'service -> Postgres: orders' which no longer exists in the model

@@ -1,0 +1,13 @@
+%% Control flow: grpc CartService
+sequenceDiagram
+  autonumber
+  participant ext_sqc242xzn7 as gRPC client
+  participant proc_26oeqa2wel as gRPC CartService handler
+  participant proc_fmusmjjgda as RedisCartStore
+  participant store_uvgsvq5qlm as Redis
+  ext_sqc242xzn7->>proc_26oeqa2wel: dispatch
+  proc_26oeqa2wel->>proc_fmusmjjgda: in_process
+  store_uvgsvq5qlm-->>proc_fmusmjjgda: unknown
+  proc_fmusmjjgda->>store_uvgsvq5qlm: unknown
+  proc_fmusmjjgda-->>proc_26oeqa2wel: response
+  proc_26oeqa2wel-->>ext_sqc242xzn7: response

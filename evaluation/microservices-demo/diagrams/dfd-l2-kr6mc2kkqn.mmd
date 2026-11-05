@@ -1,0 +1,33 @@
+%% L2: cartservice
+flowchart LR
+  subgraph bnd_frkw6dgzr7["container: cartservice"]
+    proc_26oeqa2wel(["gRPC CartService handler"])
+    proc_blykk22cry(["GET / handler"])
+    proc_fmusmjjgda(["RedisCartStore"])
+    proc_kr6mc2kkqn(["cartservice (+3)"])
+  end
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_cs5kcq4nvf(["checkoutservice (+2)"])
+  end
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_pmttplr5qk(["frontend (+14)"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sqc242xzn7["gRPC client"]
+  store_uvgsvq5qlm[("Redis")]
+  ext_sga4qktkap -->|"http"| proc_blykk22cry
+  ext_sqc242xzn7 -->|"grpc"| proc_26oeqa2wel
+  proc_26oeqa2wel -->|"in_process"| proc_fmusmjjgda
+  proc_cs5kcq4nvf -->|"grpc"| proc_kr6mc2kkqn
+  proc_fmusmjjgda -->|"unknown"| store_uvgsvq5qlm
+  proc_pmttplr5qk -->|"grpc"| proc_kr6mc2kkqn
+  store_uvgsvq5qlm -->|"unknown"| proc_fmusmjjgda
+  style bnd_frkw6dgzr7 stroke-dasharray: 8 4,fill:none
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

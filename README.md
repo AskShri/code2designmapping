@@ -18,12 +18,14 @@ from source to IR to rendered diagram.
 
 ## Prototype
 
-`code2design/` is a working prototype of the pipeline (tree-sitter parsing; detectors for Express-style JavaScript/TypeScript, Flask/FastAPI/Django Python, gRPC, docker compose, Kubernetes, Dockerfiles, Prisma and package manifests; synthesis; lint; Mermaid, STRIDE, traceability-matrix and report renderers; IR diff). It is deterministic and evidence-backed by construction, and it is evaluated on 17 sample applications in [docs/evaluation.md](docs/evaluation.md).
+`code2design/` is a working prototype of the pipeline (tree-sitter parsing; a function-level call graph; detectors for Express-style JavaScript/TypeScript, Flask/FastAPI/Django Python, Go net/http and gRPC, Spring and grpc-java, ASP.NET and grpc-dotnet, docker compose, Kubernetes, Dockerfiles, Prisma and package manifests; synthesis; human overrides; lint; Mermaid, STRIDE, traceability-matrix and report renderers; IR diff, evidence verification and OTM export). It is deterministic and evidence-backed by construction, and it is evaluated on 17 sample applications in [docs/evaluation.md](docs/evaluation.md).
 
 ```bash
 pip install tree-sitter tree-sitter-javascript tree-sitter-typescript tree-sitter-python pyyaml jsonschema
-python3 -m code2design analyze path/to/repo --out .code2design
+python3 -m code2design analyze path/to/repo --out .code2design        # reads .code2design/overrides.yaml if present
 python3 -m code2design diff base/model.ir.json head/model.ir.json
+python3 -m code2design verify .code2design/model.ir.json --repo path/to/repo   # re-checks every evidence span's content hash
+python3 -m code2design export .code2design/model.ir.json --format otm > model.otm.json
 python3 scripts/evaluate.py evaluation/samples.json      # reruns the evaluation (expects the sample clones listed in samples.json)
 ```
 

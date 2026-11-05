@@ -1,13 +1,22 @@
 %% L2: currencyservice
 flowchart LR
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_cs5kcq4nvf(["checkoutservice (+2)"])
+  end
   subgraph bnd_seoeqgkskf["container: currencyservice"]
-    proc_gemltuekbd(["gRPC healthProto.Health handler"])
-    proc_v4qfaty2kb(["gRPC shopProto.CurrencyService handler"])
+    proc_kycw6edgj7(["currencyservice (+1)"])
+    proc_xzwr7xvmbg(["gRPC CurrencyService handler"])
+  end
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_pmttplr5qk(["frontend (+14)"])
   end
   ext_sqc242xzn7["gRPC client"]
-  ext_sqc242xzn7 -->|"grpc"| proc_gemltuekbd
-  ext_sqc242xzn7 -->|"grpc"| proc_v4qfaty2kb
+  ext_sqc242xzn7 -->|"grpc"| proc_xzwr7xvmbg
+  proc_cs5kcq4nvf -->|"grpc"| proc_kycw6edgj7
+  proc_pmttplr5qk -->|"grpc"| proc_kycw6edgj7
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
   style bnd_seoeqgkskf stroke-dasharray: 8 4,fill:none
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])
