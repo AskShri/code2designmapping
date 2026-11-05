@@ -1,0 +1,16 @@
+%% L2: frontend
+flowchart LR
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_blr2ioda52(["serviceWorker"])
+    proc_hek3xxknmp(["App"])
+  end
+  ext_miziwfdicw["Unresolved HTTP target"]
+  proc_blr2ioda52 -->|"unknown"| ext_miziwfdicw
+  proc_hek3xxknmp -->|"unknown"| ext_miziwfdicw
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

@@ -1,0 +1,16 @@
+%% L2: nextjs
+flowchart LR
+  subgraph bnd_fwz6ntc2oh["repository: stripe-checkout-sample"]
+    proc_f3hlc73arh(["route"])
+    proc_yvk7b5fv4l(["stripe"])
+  end
+  ext_slqdx4hifp["Stripe API"]
+  proc_f3hlc73arh -->|"https"| ext_slqdx4hifp
+  proc_yvk7b5fv4l -->|"https"| ext_slqdx4hifp
+  style bnd_fwz6ntc2oh stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

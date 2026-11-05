@@ -1,0 +1,15 @@
+%% Control flow: POST /api/users/login
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_vdl4e7tx4i as cors
+  participant proc_enaoju7zyg as POST /api/users/login handler
+  participant proc_t2tv36snos as auth.service
+  participant store_tvae56uepz as Postgres - User
+  ext_sga4qktkap->>ctl_vdl4e7tx4i: POST /api/users/login (cors)
+  ctl_vdl4e7tx4i->>proc_enaoju7zyg: dispatch
+  proc_enaoju7zyg->>proc_t2tv36snos: in_process
+  store_tvae56uepz-->>proc_t2tv36snos: unknown
+  proc_t2tv36snos->>store_tvae56uepz: unknown
+  proc_t2tv36snos-->>proc_enaoju7zyg: response
+  proc_enaoju7zyg-->>ext_sga4qktkap: response

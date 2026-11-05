@@ -1,0 +1,309 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
+    "generated_from": "compose-fastapi",
+    "detectors": [
+      "config@0.3",
+      "py@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "app/main.py": "sha256:395ddf6d587af652c461faf2b95ad9d826463d9fa6ae2a787133ef7aaf8d742d",
+      "compose.yaml": "sha256:5ae758b99292899ad396ec1f193f2da700bbd36af1b10cca8bf899b5459324c0",
+      "requirements.txt": "sha256:e9af2913de609d1de45b2fbab270c5a77281543c4dab6d1dd182f221fd04f683"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:jd5qlpzope",
+      "identity": [
+        "process",
+        ".",
+        "compose-fastapi"
+      ],
+      "origin": "observed",
+      "name": "compose-fastapi",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:f8ffcce630da3a58dbab0bc6c8a2c9f7c65f04ef941df80c669533cf9847bdde"
+        }
+      ]
+    },
+    {
+      "id": "proc:nwxqwccwlw",
+      "identity": [
+        "process",
+        "app/main.py",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "app/main.py",
+      "evidence": [
+        {
+          "path": "app/main.py",
+          "start_line": 6,
+          "end_line": 7,
+          "detector": "py@0.3",
+          "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
+        }
+      ],
+      "parent": "proc:sdgb6kalgr"
+    },
+    {
+      "id": "proc:sdgb6kalgr",
+      "identity": [
+        "process",
+        ".",
+        "api"
+      ],
+      "origin": "observed",
+      "name": "api",
+      "level": 1,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "app/__init__.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "parent": "proc:jd5qlpzope"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "app/main.py",
+          "start_line": 6,
+          "end_line": 7,
+          "detector": "py@0.3",
+          "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
+        }
+      ]
+    }
+  ],
+  "stores": [],
+  "boundaries": [
+    {
+      "id": "bnd:uvq3irjstn",
+      "identity": [
+        "boundary",
+        "container",
+        "api"
+      ],
+      "origin": "observed",
+      "name": "container: api",
+      "kind": "container",
+      "contains": [
+        "proc:jd5qlpzope",
+        "proc:nwxqwccwlw",
+        "proc:sdgb6kalgr"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:d212c3feb6897bfce4c7b5654f64124e9d1f1e6bb14127122bbe0e578f0a2c6e"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:szwqqh7oi5",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:nwxqwccwlw",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:nwxqwccwlw",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:uvq3irjstn"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/main.py",
+          "start_line": 6,
+          "end_line": 7,
+          "detector": "py@0.3",
+          "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:ter6lzq3p7",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "app/main.py"
+      ],
+      "origin": "observed",
+      "process": "proc:nwxqwccwlw",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:nwxqwccwlw"
+      ],
+      "evidence": [
+        {
+          "path": "app/main.py",
+          "start_line": 6,
+          "end_line": 7,
+          "detector": "py@0.3",
+          "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "weaknesses": [
+    {
+      "id": "wk:jezjhwnfrt",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:ter6lzq3p7"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:ter6lzq3p7"
+      ],
+      "evidence": [
+        {
+          "path": "app/main.py",
+          "start_line": 6,
+          "end_line": 7,
+          "detector": "py@0.3",
+          "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "1 http entry points, 1 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "app/main.py",
+          "start_line": 6,
+          "end_line": 7,
+          "detector": "py@0.3",
+          "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
+        }
+      ]
+    },
+    {
+      "id": "agent:owfpatbt35",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:uvq3irjstn"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: api",
+      "access": "insider",
+      "location": "bnd:uvq3irjstn",
+      "entry": [
+        "proc:nwxqwccwlw"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:d212c3feb6897bfce4c7b5654f64124e9d1f1e6bb14127122bbe0e578f0a2c6e"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unknown_attribute",
+      "path": "app/main.py",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered."
+    }
+  ]
+}

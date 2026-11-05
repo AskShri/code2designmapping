@@ -1,6 +1,6 @@
 # code2design: Design Document
 
-**Status:** Proposal, v0.2 (v0.1 plus the changes from `research.md`)
+**Status:** v0.3. Design plus a working prototype (`code2design/`) evaluated on 17 sample applications (`evaluation.md`). Sections marked *prototype* describe what is implemented; the rest is the target design.
 **Scope:** A tool that takes a repository snapshot or a pull request and produces a design view of the system: a leveled data flow diagram (DFD), per-entry-point control flows, and a machine-readable element inventory suitable for threat modeling.
 
 ---
@@ -107,6 +107,16 @@ IDs survive refactors that move files only when the identity tuple is unchanged;
 **Boundaries are always drawn.** A DFD without trust boundaries is not useful for threat modeling, so if no boundary can be derived, the tool draws the single default boundary ("this repository") and flags the gap in the report.
 
 ---
+
+## 3.4 What the prototype implements (v0.3)
+
+| Stage | Implemented | Not yet |
+|---|---|---|
+| Ingest | tree-sitter for JavaScript, TypeScript, TSX, Python; relative-import resolution; test files skipped; unsupported languages reported as gaps | SCIP cross-references, tsconfig path aliases, monorepo workspaces as services |
+| Detectors | Express/Fastify-style routes (literal paths, chained `.route()`, mount tables), app/router/route-level middleware classified into control kinds, store clients (pg, mysql, mongoose, mongodb, redis, ioredis, knex, prisma, sequelize, kafka, amqp, S3, …), outbound HTTP clients and ~40 SDKs including LLM APIs, gRPC servers and clients with env-traced addresses, schemas (mongoose, zod, joi, express-validator, pydantic/Django/SQLAlchemy models, Prisma, SQL column lists), secrets from env, weaknesses (plaintext credentials, disabled TLS verification, plain http, permissive CORS, insecure gRPC, secrets read at import); Flask/FastAPI/Django routes and auth decorators; compose, Kubernetes, Dockerfile, package manifests | Java, Go, C#, Ruby, PHP; Semgrep/CodeQL rule packs; declarative YAML recognizers; NestJS decorators; GraphQL schemas |
+| Synthesis | L0/L1/L2 processes from compose/Kubernetes services or top-level packages, entry points with full mounted paths, in-process flows along imports (depth 3) and controller references, store flows with read/write direction, cross-service resolution through compose and Kubernetes service hosts, boundaries, controls, weaknesses, schemas with data classes, assets, derived threat agents, gaps and questions | LLM enrichment, overrides file, content-hash verification command |
+| Validation | Schema validation, structural and security lint | Evidence re-verification at a commit |
+| Rendering | Mermaid L0/L1/L2 with node and edge budgets, sequence diagram per entry point, STRIDE table with data-asset view, traceability matrix, report with coverage and attack surface, IR diff as Markdown | OTM, Threagile, Threat Dragon, pytm, DOT, HTML report, PR comment posting |
 
 ## 4. Architecture
 

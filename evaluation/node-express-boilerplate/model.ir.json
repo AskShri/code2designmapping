@@ -1,0 +1,3646 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "179ae84efec61b14206d0305d941daed6c6d07f9",
+    "generated_from": "node-express-boilerplate",
+    "detectors": [
+      "config@0.3",
+      "js@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "Dockerfile": "sha256:504687ed2b29c704c2344e66aee534a859cef117333fdf119f3126c2270816d5",
+      "docker-compose.dev.yml": "sha256:bfc4eb1112ee06c272461d2f5d683df66e9961b7829ceba879254d6bb0fdc46f",
+      "docker-compose.prod.yml": "sha256:576ab2d494d896c235c3af9092e43b218b1b631033fd5c8638a3e8439e772473",
+      "docker-compose.test.yml": "sha256:f0c9c11cbab7a5f2725bbf21ddd8ec9e8a4772b50fc332556c025356cb45d771",
+      "docker-compose.yml": "sha256:fcd8802bb53122e67b25b0f4da418a7534e9f9b7c69b565848922b34d3ba8a7d",
+      "package.json": "sha256:5f9c598ba96396222ddaf5fda55e4ea4fcf2a59dddef3cc7ef1d5b058948aa24",
+      "src/app.js": "sha256:6ac6eee9937e21e6e0ba78122b180e3adb48c6dde2ab2096c4d587e8376cfcc1",
+      "src/config/config.js": "sha256:26f18c5f221dca610b444b98dc2ad1e104fd874895b43e780a3470fe1932c80d",
+      "src/config/passport.js": "sha256:fe8b0ef32c2c088fadc0f6b6cb87077c5bf550fee9370d7aa213d55714d8fd37",
+      "src/index.js": "sha256:56dd591c1ea327b5617c10fe6e5363fc0dab5629b9991331001f3a93f6b9c15c",
+      "src/middlewares/error.js": "sha256:0903f07ae86505012c1cdbc4734229e5bfa909c1147e0c3ecb67604b16d79986",
+      "src/models/token.model.js": "sha256:6acb332640c5eec02c864f502038ee1004c6df2728641dd584a6337a560dc74a",
+      "src/models/user.model.js": "sha256:f0f36b37a1160e3888d1933aa67266d2386fe5715dbda5c74c6de2893bfde9e8",
+      "src/routes/v1/auth.route.js": "sha256:816da7448662608e18ac7934017ef4d8a2f1db89029899c528a460c5b9c58505",
+      "src/routes/v1/docs.route.js": "sha256:412e2b1086b23c081665ac7100d4f2062c8987e2e9f494d98e94094deb126bbe",
+      "src/routes/v1/index.js": "sha256:a4e6d13dcd3bd9ea3fb93e3138c9208885be0ee03a8efbb155ef36582e5c89bb",
+      "src/routes/v1/user.route.js": "sha256:15c3ea4fb306913796f60e2a554b75a599e289b7ec8d03a2ca382b6563e1ce46",
+      "src/services/auth.service.js": "sha256:b4a38b6f2376806e877a5e21d5a034c3a47caaffa8444c17ea29351c791a0c72",
+      "src/services/email.service.js": "sha256:0c8e3cc8f37d9fc65b3df6b13f8812b3057ccab7bdba8f5cb4dd7539f198b602",
+      "src/services/token.service.js": "sha256:63d240b22b8c6fffd1ed737f0628bdafb8117ae31b818068a7151a6019998e22",
+      "src/services/user.service.js": "sha256:4d44cf9b9ac47a43f4c65c6ee8fe7eb7697d52267bee7ab7bd8f018729c35a70",
+      "src/validations/auth.validation.js": "sha256:538b5c7155e0b03791aff0613691543f65338f5e3aa7dcf9266ec63f952008ad",
+      "src/validations/user.validation.js": "sha256:b1e38a8f9289953c64c02e036ceba3220416f6886b2f1da93398905997495b18"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:2mqq3ftx67",
+      "identity": [
+        "process",
+        "src/models",
+        "models"
+      ],
+      "origin": "observed",
+      "name": "models",
+      "level": 1,
+      "module": "src/models",
+      "evidence": [
+        {
+          "path": "src/models/index.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:ff6a0a7796addb22f12415852dc4c462720344d1ab33e40cd507d042a77604ca"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:33gp3tvpmz",
+      "identity": [
+        "process",
+        "tests",
+        "tests"
+      ],
+      "origin": "observed",
+      "name": "tests",
+      "level": 1,
+      "module": "tests",
+      "evidence": [
+        {
+          "path": "tests/fixtures/token.fixture.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:100f126a8189e240207a546dc31d9fc3d8990963d72e15a52eef7edb010a9b64"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:3kzmfjugox",
+      "identity": [
+        "process",
+        "src/middlewares",
+        "middlewares"
+      ],
+      "origin": "observed",
+      "name": "middlewares",
+      "level": 1,
+      "module": "src/middlewares",
+      "evidence": [
+        {
+          "path": "src/middlewares/auth.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e8a6eb62841fcd76eea141bcfe4529b061cc4d2a3bcb18c23a1ce6c1480fb14a"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:4qlcdwoif3",
+      "identity": [
+        "process",
+        "src/app.js",
+        "OPTIONS *"
+      ],
+      "origin": "observed",
+      "name": "OPTIONS * handler",
+      "level": 2,
+      "module": "src/app.js",
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
+        }
+      ],
+      "parent": "proc:5223ztx4g2"
+    },
+    {
+      "id": "proc:5223ztx4g2",
+      "identity": [
+        "process",
+        ".",
+        "node-app"
+      ],
+      "origin": "observed",
+      "name": "node-app",
+      "level": 1,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "jest.config.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:c95f6bedc3093e156a34529d8c92c2513166e0530a89d780212869a7102f9c29"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:5o77py4ksy",
+      "identity": [
+        "process",
+        "src/routes/v1/auth.route.js",
+        "POST /v1/auth/login"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/auth/login handler",
+      "level": 2,
+      "module": "src/routes/v1/auth.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66898451a5fb0aafa6d42e4dc18e6b67059fa299f5fd400b0148a9a2d8df565f"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:5vydvlkasi",
+      "identity": [
+        "process",
+        "src/routes",
+        "routes"
+      ],
+      "origin": "observed",
+      "name": "routes",
+      "level": 1,
+      "module": "src/routes",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e065a49059e493d4d1f938d91ecf94649080e5ade71de72a4958e3edbe7cf0c4"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:6arldspcqf",
+      "identity": [
+        "process",
+        "src/routes/v1/auth.route.js",
+        "POST /v1/auth/send-verification-email"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/auth/send-verification-email handler",
+      "level": 2,
+      "module": "src/routes/v1/auth.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "js@0.3",
+          "content_hash": "sha256:34bd0bf328cbfe9f12ce0f345bfb9a586c9c79c0a4ec595cf3db832b980c597b"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:6ld6rj35b6",
+      "identity": [
+        "process",
+        "src/routes/v1/auth.route.js",
+        "POST /v1/auth/forgot-password"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/auth/forgot-password handler",
+      "level": 2,
+      "module": "src/routes/v1/auth.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d5b48cde227701714f2f56fd9438c4cafa6dc19a6057f47b82c21e72f4c946eb"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:6mgeike7w7",
+      "identity": [
+        "process",
+        "src/routes/v1/auth.route.js",
+        "POST /v1/auth/verify-email"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/auth/verify-email handler",
+      "level": 2,
+      "module": "src/routes/v1/auth.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b507c2bbef89347a12680dc3ac44e253c81f2f274c5e562c8bcd76420c58932e"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:7jcs3blmyf",
+      "identity": [
+        "process",
+        "src/services/auth.service.js",
+        "auth.service"
+      ],
+      "origin": "observed",
+      "name": "auth.service",
+      "level": 2,
+      "module": "src/services/auth.service.js",
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:8151ac44da5022a4079a47a8bffef94eeea2833aafb607c2089c131ecf75d398"
+        }
+      ],
+      "parent": "proc:rqphn3okpc"
+    },
+    {
+      "id": "proc:7wdxwjikv6",
+      "identity": [
+        "process",
+        "src/validations",
+        "validations"
+      ],
+      "origin": "observed",
+      "name": "validations",
+      "level": 1,
+      "module": "src/validations",
+      "evidence": [
+        {
+          "path": "src/validations/auth.validation.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:dc3aaa8ae9d1b1ea7405a7ede6e5ecb2476f13c0d9aa4201585cf699669adef7"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:bhe2uamvnb",
+      "identity": [
+        "process",
+        "src/routes/v1/user.route.js",
+        "GET /v1/users/:userId"
+      ],
+      "origin": "observed",
+      "name": "GET /v1/users/:userId handler",
+      "level": 2,
+      "module": "src/routes/v1/user.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:4bbfa2706b23ca95b224679b03e464fb11d4cb95a6afab2ba947aa137fa34c3d"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:bncx6ofqo5",
+      "identity": [
+        "process",
+        "src/services/user.service.js",
+        "user.service"
+      ],
+      "origin": "observed",
+      "name": "user.service",
+      "level": 2,
+      "module": "src/services/user.service.js",
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:8151ac44da5022a4079a47a8bffef94eeea2833aafb607c2089c131ecf75d398"
+        }
+      ],
+      "parent": "proc:rqphn3okpc"
+    },
+    {
+      "id": "proc:bpqq5xqdm5",
+      "identity": [
+        "process",
+        "src/config",
+        "config"
+      ],
+      "origin": "observed",
+      "name": "config",
+      "level": 1,
+      "module": "src/config",
+      "evidence": [
+        {
+          "path": "src/config/config.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:838f35cb113b638e0695bae09ab7cbf57d0ce0678e947091ada3605eeff7bfa4"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:brrysidewt",
+      "identity": [
+        "process",
+        "src/routes/v1/user.route.js",
+        "PATCH /v1/users/:userId"
+      ],
+      "origin": "observed",
+      "name": "PATCH /v1/users/:userId handler",
+      "level": 2,
+      "module": "src/routes/v1/user.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 17,
+          "detector": "js@0.3",
+          "content_hash": "sha256:43164364df94f9c3950f2b99b5547f0abb9f9ddf7ef3fe7d38973e9e95034728"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:dfdvn3lcwd",
+      "identity": [
+        "process",
+        "src/utils",
+        "utils"
+      ],
+      "origin": "observed",
+      "name": "utils",
+      "level": 1,
+      "module": "src/utils",
+      "evidence": [
+        {
+          "path": "src/utils/ApiError.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:3034ed1a3760cc9224ac10f0aaf4edb5e5146f9cbabd693903c53037d64c8ec4"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:efawk4j3gl",
+      "identity": [
+        "process",
+        "src/docs",
+        "docs"
+      ],
+      "origin": "observed",
+      "name": "docs",
+      "level": 1,
+      "module": "src/docs",
+      "evidence": [
+        {
+          "path": "src/docs/swaggerDef.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:2ab9437375334d40d1000b573fa13fcdd2ef5cb4fc90cdc4e7e1d31c842096af"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:gebofgbst2",
+      "identity": [
+        "process",
+        "src/routes/v1/auth.route.js",
+        "POST /v1/auth/register"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/auth/register handler",
+      "level": 2,
+      "module": "src/routes/v1/auth.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b9187f530072cadd415406391db75df90b89687b970a6fdccfe1eefb9bd52224"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:iygmdrw3kl",
+      "identity": [
+        "process",
+        "src/routes/v1/user.route.js",
+        "GET /v1/users"
+      ],
+      "origin": "observed",
+      "name": "GET /v1/users handler",
+      "level": 2,
+      "module": "src/routes/v1/user.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 9,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:bcd5b83dfd04b2458a79eea8281ef030d2c516f001a73c65c9f454c6e1336678"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:mjittvvds2",
+      "identity": [
+        "process",
+        "src/services/token.service.js",
+        "token.service"
+      ],
+      "origin": "observed",
+      "name": "token.service",
+      "level": 2,
+      "module": "src/services/token.service.js",
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:a2c6cd25e9aeed857cf98ca6e23572e37dd4f455d747594e689b2f8fa2ab3cff"
+        }
+      ],
+      "parent": "proc:rqphn3okpc"
+    },
+    {
+      "id": "proc:ojwjs4iq5l",
+      "identity": [
+        "process",
+        "src/controllers",
+        "controllers"
+      ],
+      "origin": "observed",
+      "name": "controllers",
+      "level": 1,
+      "module": "src/controllers",
+      "evidence": [
+        {
+          "path": "src/controllers/auth.controller.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:8151ac44da5022a4079a47a8bffef94eeea2833aafb607c2089c131ecf75d398"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:oqwmbqrkng",
+      "identity": [
+        "process",
+        ".",
+        "create-nodejs-express-app"
+      ],
+      "origin": "observed",
+      "name": "create-nodejs-express-app",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "package.json",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "config@0.3",
+          "content_hash": "sha256:021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+        }
+      ]
+    },
+    {
+      "id": "proc:p2w2sj7nq7",
+      "identity": [
+        "process",
+        "src/config/passport.js",
+        "passport"
+      ],
+      "origin": "observed",
+      "name": "passport",
+      "level": 2,
+      "module": "src/config/passport.js",
+      "evidence": [
+        {
+          "path": "src/config/passport.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:3c9a2f9a0ec4640ea718d5b837aa3c6bf794f494ddc908656f269e70999d5154"
+        }
+      ],
+      "parent": "proc:bpqq5xqdm5"
+    },
+    {
+      "id": "proc:pmw3c5t4fs",
+      "identity": [
+        "process",
+        "src/routes/v1/docs.route.js",
+        "GET /v1/docs"
+      ],
+      "origin": "observed",
+      "name": "GET /v1/docs handler",
+      "level": 2,
+      "module": "src/routes/v1/docs.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/docs.route.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:43debca764c570b1715152eb3fbd9512210fff7cad318e8c7a19063ccd0d7845"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:qmofjuihf5",
+      "identity": [
+        "process",
+        "src/routes/v1/user.route.js",
+        "POST /v1/users"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/users handler",
+      "level": 2,
+      "module": "src/routes/v1/user.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 9,
+          "end_line": 11,
+          "detector": "js@0.3",
+          "content_hash": "sha256:25816d2d153c619c236366f6ed639ee84de5f46b61e6baf73c5671c93b134328"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:rbsc3643ue",
+      "identity": [
+        "process",
+        "src/routes/v1/user.route.js",
+        "DELETE /v1/users/:userId"
+      ],
+      "origin": "observed",
+      "name": "DELETE /v1/users/:userId handler",
+      "level": 2,
+      "module": "src/routes/v1/user.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:2b7fc76ee1aeaacd0ea48bfa0784d24e5199da16b2ba5c38544d6615ae703bcf"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:rqphn3okpc",
+      "identity": [
+        "process",
+        "src/services",
+        "services"
+      ],
+      "origin": "observed",
+      "name": "services",
+      "level": 1,
+      "module": "src/services",
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:8151ac44da5022a4079a47a8bffef94eeea2833aafb607c2089c131ecf75d398"
+        }
+      ],
+      "parent": "proc:oqwmbqrkng"
+    },
+    {
+      "id": "proc:s6g67h4qsr",
+      "identity": [
+        "process",
+        "src/routes/v1/auth.route.js",
+        "POST /v1/auth/logout"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/auth/logout handler",
+      "level": 2,
+      "module": "src/routes/v1/auth.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 11,
+          "end_line": 11,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b86a07215575852562bb64716f95676ffe7214eb07a7d5927572a8c7ec17bcec"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:xutosa5i4g",
+      "identity": [
+        "process",
+        "src/services/email.service.js",
+        "email.service"
+      ],
+      "origin": "observed",
+      "name": "email.service",
+      "level": 2,
+      "module": "src/services/email.service.js",
+      "evidence": [
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e5d886976f6e9726ff6360f84860e923e08f60d3b9f338692f078119ed6de80b"
+        }
+      ],
+      "parent": "proc:rqphn3okpc"
+    },
+    {
+      "id": "proc:yr5tyhlhoj",
+      "identity": [
+        "process",
+        "src/routes/v1/auth.route.js",
+        "POST /v1/auth/refresh-tokens"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/auth/refresh-tokens handler",
+      "level": 2,
+      "module": "src/routes/v1/auth.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b36db25551d56f99b431cf26ad782a3111ef45ea4dc2ddf5365efa97952f8b05"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    },
+    {
+      "id": "proc:zdjjxm2w7b",
+      "identity": [
+        "process",
+        "src/routes/v1/auth.route.js",
+        "POST /v1/auth/reset-password"
+      ],
+      "origin": "observed",
+      "name": "POST /v1/auth/reset-password handler",
+      "level": 2,
+      "module": "src/routes/v1/auth.route.js",
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66e2e753d85c592d8676441a9a969b02624f302798c680639f4a22555300b34d"
+        }
+      ],
+      "parent": "proc:5vydvlkasi"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:l2biskukaq",
+      "identity": [
+        "external",
+        "SMTP mail relay",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "SMTP mail relay",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "js@0.3",
+          "content_hash": "sha256:c3cefa2ae7e1905d842697be3edd8eac2526f6c883d2f781d038b823eae96936"
+        },
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6694ea8075001f6628da20f1afdafc74a763e2098bafc633b057534792db6aad"
+        },
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "js@0.3",
+          "content_hash": "sha256:292f7544c94f95367114d4ad90479dca0d2c649f7b482edcb900fc223f91827a"
+        }
+      ],
+      "sdk_service": "SMTP mail relay"
+    },
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
+        },
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b9187f530072cadd415406391db75df90b89687b970a6fdccfe1eefb9bd52224"
+        },
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66898451a5fb0aafa6d42e4dc18e6b67059fa299f5fd400b0148a9a2d8df565f"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:3ufptbo5k3",
+      "identity": [
+        "store",
+        "mongodb",
+        ""
+      ],
+      "origin": "observed",
+      "name": "MongoDB",
+      "technology": "mongodb",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 32,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
+        },
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 47,
+          "end_line": 47,
+          "detector": "js@0.3",
+          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
+        },
+        {
+          "path": "docker-compose.yml",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "config@0.3",
+          "content_hash": "sha256:5aace194718ea8324db1d6c9cfab8bf92a136892be4e2f2a83b3b9305dc95b23"
+        }
+      ]
+    },
+    {
+      "id": "store:x3kis6s6op",
+      "identity": [
+        "store",
+        "mongodb",
+        "user"
+      ],
+      "origin": "observed",
+      "name": "MongoDB: User",
+      "technology": "mongodb",
+      "logical_name": "User",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/config/passport.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:89fc4e4e147557f2d270332ee86f2801c550f9c615df23f89f2153a19da794e0"
+        },
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:81492161af0126213f9fff9382b702c5a5d5b44533c722cc70de4f514197ac89"
+        },
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "js@0.3",
+          "content_hash": "sha256:aae9ce7addeaed9154c024101e0df03c8a088b8ec417f1dc73f2f9eb40b63d92"
+        },
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "js@0.3",
+          "content_hash": "sha256:7ca685e72bf85a7c1b19d3897b0dc3509ade757863047e17ae9166f5f1ed5719"
+        },
+        {
+          "path": "docker-compose.yml",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "config@0.3",
+          "content_hash": "sha256:5aace194718ea8324db1d6c9cfab8bf92a136892be4e2f2a83b3b9305dc95b23"
+        }
+      ]
+    },
+    {
+      "id": "store:yc7brpyrnt",
+      "identity": [
+        "store",
+        "mongodb",
+        "token"
+      ],
+      "origin": "observed",
+      "name": "MongoDB: Token",
+      "technology": "mongodb",
+      "logical_name": "Token",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "js@0.3",
+          "content_hash": "sha256:630c26b88c6a532d7bb02cba4dbc845fc7c932b50c8b39e44a0a8313c41e038b"
+        },
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6d088c0a2a2a93f30e5cbd399da6faf89d6bb2ca6a156ba59083befc4628cd09"
+        },
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 86,
+          "end_line": 86,
+          "detector": "js@0.3",
+          "content_hash": "sha256:85f6b9e52cd902511c60175bde6996c40fbe36cd5ab1d22948c76c1ea8fc4a83"
+        },
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b9f18c5e94c26e421faa0d2b4e9547cc825a38ab3e95e2e23d20c60719b95cce"
+        },
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 56,
+          "end_line": 56,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3f15b5446ceac16f561273bc303a36df82a386eba07e756a878dc4a9aec77bd4"
+        },
+        {
+          "path": "docker-compose.yml",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "config@0.3",
+          "content_hash": "sha256:5aace194718ea8324db1d6c9cfab8bf92a136892be4e2f2a83b3b9305dc95b23"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:3bw6z3ysco",
+      "identity": [
+        "boundary",
+        "container",
+        "mongodb"
+      ],
+      "origin": "observed",
+      "name": "container: mongodb",
+      "kind": "container",
+      "contains": [
+        "store:3ufptbo5k3",
+        "store:x3kis6s6op",
+        "store:yc7brpyrnt"
+      ],
+      "evidence": [
+        {
+          "path": "docker-compose.yml",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "config@0.3",
+          "content_hash": "sha256:5aace194718ea8324db1d6c9cfab8bf92a136892be4e2f2a83b3b9305dc95b23"
+        }
+      ]
+    },
+    {
+      "id": "bnd:4tjp4yui4o",
+      "identity": [
+        "boundary",
+        "container",
+        "node-app"
+      ],
+      "origin": "observed",
+      "name": "container: node-app",
+      "kind": "container",
+      "contains": [
+        "proc:2mqq3ftx67",
+        "proc:33gp3tvpmz",
+        "proc:3kzmfjugox",
+        "proc:4qlcdwoif3",
+        "proc:5223ztx4g2",
+        "proc:5o77py4ksy",
+        "proc:5vydvlkasi",
+        "proc:6arldspcqf",
+        "proc:6ld6rj35b6",
+        "proc:6mgeike7w7",
+        "proc:7jcs3blmyf",
+        "proc:7wdxwjikv6",
+        "proc:bhe2uamvnb",
+        "proc:bncx6ofqo5",
+        "proc:bpqq5xqdm5",
+        "proc:brrysidewt",
+        "proc:dfdvn3lcwd",
+        "proc:efawk4j3gl",
+        "proc:gebofgbst2",
+        "proc:iygmdrw3kl",
+        "proc:mjittvvds2",
+        "proc:ojwjs4iq5l",
+        "proc:oqwmbqrkng",
+        "proc:p2w2sj7nq7",
+        "proc:pmw3c5t4fs",
+        "proc:qmofjuihf5",
+        "proc:rbsc3643ue",
+        "proc:rqphn3okpc",
+        "proc:s6g67h4qsr",
+        "proc:xutosa5i4g",
+        "proc:yr5tyhlhoj",
+        "proc:zdjjxm2w7b"
+      ],
+      "evidence": [
+        {
+          "path": "docker-compose.dev.yml",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "config@0.3",
+          "content_hash": "sha256:fed494fd935bdc5aa011edd48ae136d48d45588386ffd26bd92dd1875b1c19ce"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:2pjpt5s7ad",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:6ld6rj35b6",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:6ld6rj35b6",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /v1/auth/forgot-password",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d5b48cde227701714f2f56fd9438c4cafa6dc19a6057f47b82c21e72f4c946eb"
+        }
+      ]
+    },
+    {
+      "id": "flow:5daekry3cc",
+      "identity": [
+        "flow",
+        "store:yc7brpyrnt",
+        "proc:mjittvvds2",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:yc7brpyrnt",
+      "target": "proc:mjittvvds2",
+      "protocol": "unknown",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findOne",
+      "crosses_boundary": [
+        "bnd:3bw6z3ysco",
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 56,
+          "end_line": 56,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3f15b5446ceac16f561273bc303a36df82a386eba07e756a878dc4a9aec77bd4"
+        }
+      ]
+    },
+    {
+      "id": "flow:5wcytleboy",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:6arldspcqf",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:6arldspcqf",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /v1/auth/send-verification-email",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:e2cdiwkgk7",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "js@0.3",
+          "content_hash": "sha256:34bd0bf328cbfe9f12ce0f345bfb9a586c9c79c0a4ec595cf3db832b980c597b"
+        }
+      ]
+    },
+    {
+      "id": "flow:7ur4tecrn2",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:pmw3c5t4fs",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:pmw3c5t4fs",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /v1/docs",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/docs.route.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:43debca764c570b1715152eb3fbd9512210fff7cad318e8c7a19063ccd0d7845"
+        }
+      ]
+    },
+    {
+      "id": "flow:dp7527zpzh",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:qmofjuihf5",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:qmofjuihf5",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /v1/users",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 9,
+          "end_line": 11,
+          "detector": "js@0.3",
+          "content_hash": "sha256:25816d2d153c619c236366f6ed639ee84de5f46b61e6baf73c5671c93b134328"
+        }
+      ]
+    },
+    {
+      "id": "flow:g7pbv25ow7",
+      "identity": [
+        "flow",
+        "store:x3kis6s6op",
+        "proc:bncx6ofqo5",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:x3kis6s6op",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "unknown",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findById",
+      "crosses_boundary": [
+        "bnd:3bw6z3ysco",
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "js@0.3",
+          "content_hash": "sha256:aae9ce7addeaed9154c024101e0df03c8a088b8ec417f1dc73f2f9eb40b63d92"
+        },
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "js@0.3",
+          "content_hash": "sha256:7ca685e72bf85a7c1b19d3897b0dc3509ade757863047e17ae9166f5f1ed5719"
+        }
+      ]
+    },
+    {
+      "id": "flow:hfkdrppqv4",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:gebofgbst2",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:gebofgbst2",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /v1/auth/register",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b9187f530072cadd415406391db75df90b89687b970a6fdccfe1eefb9bd52224"
+        }
+      ]
+    },
+    {
+      "id": "flow:hgu32gy5iw",
+      "identity": [
+        "flow",
+        "proc:bncx6ofqo5",
+        "store:x3kis6s6op",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:bncx6ofqo5",
+      "target": "store:x3kis6s6op",
+      "protocol": "unknown",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "create",
+      "crosses_boundary": [
+        "bnd:3bw6z3ysco",
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/user.service.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:81492161af0126213f9fff9382b702c5a5d5b44533c722cc70de4f514197ac89"
+        }
+      ]
+    },
+    {
+      "id": "flow:jsm74ufs4i",
+      "identity": [
+        "flow",
+        "proc:7jcs3blmyf",
+        "store:yc7brpyrnt",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:7jcs3blmyf",
+      "target": "store:yc7brpyrnt",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "deleteMany",
+      "crosses_boundary": [
+        "bnd:3bw6z3ysco",
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6d088c0a2a2a93f30e5cbd399da6faf89d6bb2ca6a156ba59083befc4628cd09"
+        },
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 86,
+          "end_line": 86,
+          "detector": "js@0.3",
+          "content_hash": "sha256:85f6b9e52cd902511c60175bde6996c40fbe36cd5ab1d22948c76c1ea8fc4a83"
+        }
+      ]
+    },
+    {
+      "id": "flow:k5uhdmvzdj",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:rbsc3643ue",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:rbsc3643ue",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /v1/users/:userId",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:2b7fc76ee1aeaacd0ea48bfa0784d24e5199da16b2ba5c38544d6615ae703bcf"
+        }
+      ]
+    },
+    {
+      "id": "flow:miy6vot3od",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:yr5tyhlhoj",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:yr5tyhlhoj",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /v1/auth/refresh-tokens",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b36db25551d56f99b431cf26ad782a3111ef45ea4dc2ddf5365efa97952f8b05"
+        }
+      ]
+    },
+    {
+      "id": "flow:mncmbmf65m",
+      "identity": [
+        "flow",
+        "proc:mjittvvds2",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:mjittvvds2",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "uses userService",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:57921b886c2ebc5d3156fdbfa1aac9e3f683fcf290617772bc1d67f713af1dc4"
+        }
+      ]
+    },
+    {
+      "id": "flow:n2vbgvpwqe",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:4qlcdwoif3",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:4qlcdwoif3",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "OPTIONS *",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
+        }
+      ]
+    },
+    {
+      "id": "flow:nvsuzw2dbw",
+      "identity": [
+        "flow",
+        "proc:mjittvvds2",
+        "store:yc7brpyrnt",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:mjittvvds2",
+      "target": "store:yc7brpyrnt",
+      "protocol": "unknown",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "create",
+      "crosses_boundary": [
+        "bnd:3bw6z3ysco",
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/token.service.js",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b9f18c5e94c26e421faa0d2b4e9547cc825a38ab3e95e2e23d20c60719b95cce"
+        }
+      ]
+    },
+    {
+      "id": "flow:pffj73s3c4",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:zdjjxm2w7b",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:zdjjxm2w7b",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /v1/auth/reset-password",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66e2e753d85c592d8676441a9a969b02624f302798c680639f4a22555300b34d"
+        }
+      ]
+    },
+    {
+      "id": "flow:psplfgxqc4",
+      "identity": [
+        "flow",
+        "proc:7jcs3blmyf",
+        "proc:bncx6ofqo5",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:7jcs3blmyf",
+      "target": "proc:bncx6ofqo5",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "uses userService",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:57921b886c2ebc5d3156fdbfa1aac9e3f683fcf290617772bc1d67f713af1dc4"
+        }
+      ]
+    },
+    {
+      "id": "flow:rpyhqru4wf",
+      "identity": [
+        "flow",
+        "store:x3kis6s6op",
+        "proc:p2w2sj7nq7",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:x3kis6s6op",
+      "target": "proc:p2w2sj7nq7",
+      "protocol": "unknown",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findById",
+      "crosses_boundary": [
+        "bnd:3bw6z3ysco",
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/config/passport.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:89fc4e4e147557f2d270332ee86f2801c550f9c615df23f89f2153a19da794e0"
+        }
+      ]
+    },
+    {
+      "id": "flow:rt437weinc",
+      "identity": [
+        "flow",
+        "proc:7jcs3blmyf",
+        "store:3ufptbo5k3",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:7jcs3blmyf",
+      "target": "store:3ufptbo5k3",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "remove",
+      "crosses_boundary": [
+        "bnd:3bw6z3ysco",
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 32,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
+        },
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 47,
+          "end_line": 47,
+          "detector": "js@0.3",
+          "content_hash": "sha256:55edda31a1d393e38d68bda708c5544794ced8e695ba1320175576140414c54a"
+        }
+      ]
+    },
+    {
+      "id": "flow:sb4v4kgcpg",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:s6g67h4qsr",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:s6g67h4qsr",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /v1/auth/logout",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 11,
+          "end_line": 11,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b86a07215575852562bb64716f95676ffe7214eb07a7d5927572a8c7ec17bcec"
+        }
+      ]
+    },
+    {
+      "id": "flow:ufjr5vvlpj",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:5o77py4ksy",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:5o77py4ksy",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /v1/auth/login",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66898451a5fb0aafa6d42e4dc18e6b67059fa299f5fd400b0148a9a2d8df565f"
+        }
+      ]
+    },
+    {
+      "id": "flow:ukjtyk6daz",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:iygmdrw3kl",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:iygmdrw3kl",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "GET /v1/users",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 9,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:bcd5b83dfd04b2458a79eea8281ef030d2c516f001a73c65c9f454c6e1336678"
+        }
+      ]
+    },
+    {
+      "id": "flow:uo4l6wi5ou",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:bhe2uamvnb",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:bhe2uamvnb",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "GET /v1/users/:userId",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:4bbfa2706b23ca95b224679b03e464fb11d4cb95a6afab2ba947aa137fa34c3d"
+        }
+      ]
+    },
+    {
+      "id": "flow:v7ywizukpc",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:brrysidewt",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:brrysidewt",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PATCH /v1/users/:userId",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 17,
+          "detector": "js@0.3",
+          "content_hash": "sha256:43164364df94f9c3950f2b99b5547f0abb9f9ddf7ef3fe7d38973e9e95034728"
+        }
+      ]
+    },
+    {
+      "id": "flow:vsddsrvv4t",
+      "identity": [
+        "flow",
+        "proc:xutosa5i4g",
+        "ext:l2biskukaq",
+        "smtp",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:xutosa5i4g",
+      "target": "ext:l2biskukaq",
+      "protocol": "smtp",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "createTransport",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "js@0.3",
+          "content_hash": "sha256:c3cefa2ae7e1905d842697be3edd8eac2526f6c883d2f781d038b823eae96936"
+        },
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6694ea8075001f6628da20f1afdafc74a763e2098bafc633b057534792db6aad"
+        },
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "js@0.3",
+          "content_hash": "sha256:292f7544c94f95367114d4ad90479dca0d2c649f7b482edcb900fc223f91827a"
+        }
+      ]
+    },
+    {
+      "id": "flow:xpwwtqnnr4",
+      "identity": [
+        "flow",
+        "store:yc7brpyrnt",
+        "proc:7jcs3blmyf",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:yc7brpyrnt",
+      "target": "proc:7jcs3blmyf",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findOne",
+      "crosses_boundary": [
+        "bnd:3bw6z3ysco",
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "js@0.3",
+          "content_hash": "sha256:630c26b88c6a532d7bb02cba4dbc845fc7c932b50c8b39e44a0a8313c41e038b"
+        }
+      ]
+    },
+    {
+      "id": "flow:yo4hahphf3",
+      "identity": [
+        "flow",
+        "proc:7jcs3blmyf",
+        "proc:mjittvvds2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:7jcs3blmyf",
+      "target": "proc:mjittvvds2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "uses tokenService",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/services/auth.service.js",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:c738af7294c4206e9f1ee72d2d84ca87ea51e125ec10e16729996c47b0bb5639"
+        }
+      ]
+    },
+    {
+      "id": "flow:zwy4w27fob",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:6mgeike7w7",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:6mgeike7w7",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /v1/auth/verify-email",
+      "crosses_boundary": [
+        "bnd:4tjp4yui4o"
+      ],
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b507c2bbef89347a12680dc3ac44e253c81f2f274c5e562c8bcd76420c58932e"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:4dsvysfx3u",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/auth/register",
+        "src/routes/v1/auth.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:gebofgbst2",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/auth/register",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:gebofgbst2"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b9187f530072cadd415406391db75df90b89687b970a6fdccfe1eefb9bd52224"
+        }
+      ]
+    },
+    {
+      "id": "ep:7bz3iwfutn",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/v1/users/:userId",
+        "src/routes/v1/user.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:bhe2uamvnb",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/v1/users/:userId",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:bhe2uamvnb"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:4bbfa2706b23ca95b224679b03e464fb11d4cb95a6afab2ba947aa137fa34c3d"
+        }
+      ]
+    },
+    {
+      "id": "ep:cdthtcc2vi",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/users",
+        "src/routes/v1/user.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:qmofjuihf5",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/users",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:qmofjuihf5"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 9,
+          "end_line": 11,
+          "detector": "js@0.3",
+          "content_hash": "sha256:25816d2d153c619c236366f6ed639ee84de5f46b61e6baf73c5671c93b134328"
+        }
+      ]
+    },
+    {
+      "id": "ep:ckjb5jkw6u",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/auth/login",
+        "src/routes/v1/auth.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:5o77py4ksy",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/auth/login",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:5o77py4ksy"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66898451a5fb0aafa6d42e4dc18e6b67059fa299f5fd400b0148a9a2d8df565f"
+        }
+      ]
+    },
+    {
+      "id": "ep:g3i7cy3mo6",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/auth/forgot-password",
+        "src/routes/v1/auth.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:6ld6rj35b6",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/auth/forgot-password",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:6ld6rj35b6"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d5b48cde227701714f2f56fd9438c4cafa6dc19a6057f47b82c21e72f4c946eb"
+        }
+      ]
+    },
+    {
+      "id": "ep:iew3vokpvu",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/auth/refresh-tokens",
+        "src/routes/v1/auth.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:yr5tyhlhoj",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/auth/refresh-tokens",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:yr5tyhlhoj"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b36db25551d56f99b431cf26ad782a3111ef45ea4dc2ddf5365efa97952f8b05"
+        }
+      ]
+    },
+    {
+      "id": "ep:ihqiefa6bi",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/v1/docs",
+        "src/routes/v1/docs.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:pmw3c5t4fs",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/v1/docs",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:pmw3c5t4fs"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/docs.route.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:43debca764c570b1715152eb3fbd9512210fff7cad318e8c7a19063ccd0d7845"
+        }
+      ]
+    },
+    {
+      "id": "ep:micgxni76r",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/v1/users/:userId",
+        "src/routes/v1/user.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:rbsc3643ue",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/v1/users/:userId",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:rbsc3643ue"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:2b7fc76ee1aeaacd0ea48bfa0784d24e5199da16b2ba5c38544d6615ae703bcf"
+        }
+      ]
+    },
+    {
+      "id": "ep:r4yog3x54b",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/auth/send-verification-email",
+        "src/routes/v1/auth.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:6arldspcqf",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/auth/send-verification-email",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:e2cdiwkgk7",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:6arldspcqf"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "js@0.3",
+          "content_hash": "sha256:34bd0bf328cbfe9f12ce0f345bfb9a586c9c79c0a4ec595cf3db832b980c597b"
+        }
+      ]
+    },
+    {
+      "id": "ep:sv5x44cuwt",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/auth/logout",
+        "src/routes/v1/auth.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:s6g67h4qsr",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/auth/logout",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:s6g67h4qsr"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 11,
+          "end_line": 11,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b86a07215575852562bb64716f95676ffe7214eb07a7d5927572a8c7ec17bcec"
+        }
+      ]
+    },
+    {
+      "id": "ep:uinlxtaykc",
+      "identity": [
+        "entry_point",
+        "http",
+        "OPTIONS",
+        "*",
+        "src/app.js"
+      ],
+      "origin": "observed",
+      "process": "proc:4qlcdwoif3",
+      "protocol": "http",
+      "method": "OPTIONS",
+      "path": "*",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:4qlcdwoif3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
+        }
+      ]
+    },
+    {
+      "id": "ep:vjq34mdgzh",
+      "identity": [
+        "entry_point",
+        "http",
+        "PATCH",
+        "/v1/users/:userId",
+        "src/routes/v1/user.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:brrysidewt",
+      "protocol": "http",
+      "method": "PATCH",
+      "path": "/v1/users/:userId",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:brrysidewt"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 14,
+          "end_line": 17,
+          "detector": "js@0.3",
+          "content_hash": "sha256:43164364df94f9c3950f2b99b5547f0abb9f9ddf7ef3fe7d38973e9e95034728"
+        }
+      ]
+    },
+    {
+      "id": "ep:wkj626umk5",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/v1/users",
+        "src/routes/v1/user.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:iygmdrw3kl",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/v1/users",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:eqfryw4thb",
+        "ctl:hup62ggipp",
+        "ctl:opfkkjkizy",
+        "ctl:v3wsxwd66x",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:iygmdrw3kl"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 9,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:bcd5b83dfd04b2458a79eea8281ef030d2c516f001a73c65c9f454c6e1336678"
+        }
+      ]
+    },
+    {
+      "id": "ep:wnwyg4ntqk",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/auth/verify-email",
+        "src/routes/v1/auth.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:6mgeike7w7",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/auth/verify-email",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:6mgeike7w7"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b507c2bbef89347a12680dc3ac44e253c81f2f274c5e562c8bcd76420c58932e"
+        }
+      ]
+    },
+    {
+      "id": "ep:x42so4woh3",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/v1/auth/reset-password",
+        "src/routes/v1/auth.route.js"
+      ],
+      "origin": "observed",
+      "process": "proc:zdjjxm2w7b",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/v1/auth/reset-password",
+      "controls": [
+        "ctl:4grkuzoeeq",
+        "ctl:6rjh2cbjvh",
+        "ctl:ejhqmeshhb",
+        "ctl:eqfryw4thb",
+        "ctl:fc4fb7kr2n",
+        "ctl:opfkkjkizy",
+        "ctl:w2u3d3at3m",
+        "ctl:z53teauknq"
+      ],
+      "call_chain": [
+        "proc:zdjjxm2w7b"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66e2e753d85c592d8676441a9a969b02624f302798c680639f4a22555300b34d"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "ctl:4grkuzoeeq",
+      "identity": [
+        "control",
+        "audit_log",
+        "src/app.js::morgan.errorHandler"
+      ],
+      "origin": "observed",
+      "kind": "audit_log",
+      "name": "morgan.errorHandler",
+      "applies_to": [
+        "ep:4dsvysfx3u",
+        "ep:7bz3iwfutn",
+        "ep:cdthtcc2vi",
+        "ep:ckjb5jkw6u",
+        "ep:g3i7cy3mo6",
+        "ep:iew3vokpvu",
+        "ep:ihqiefa6bi",
+        "ep:micgxni76r",
+        "ep:r4yog3x54b",
+        "ep:sv5x44cuwt",
+        "ep:uinlxtaykc",
+        "ep:vjq34mdgzh",
+        "ep:wkj626umk5",
+        "ep:wnwyg4ntqk",
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "js@0.3",
+          "content_hash": "sha256:163185fd5a3e176be472feca97afaef4579bb1a579de5145161be10b3cc6c498"
+        }
+      ]
+    },
+    {
+      "id": "ctl:6rjh2cbjvh",
+      "identity": [
+        "control",
+        "input_validation",
+        "src/app.js::mongoSanitize"
+      ],
+      "origin": "observed",
+      "kind": "input_validation",
+      "name": "mongoSanitize",
+      "applies_to": [
+        "ep:4dsvysfx3u",
+        "ep:7bz3iwfutn",
+        "ep:cdthtcc2vi",
+        "ep:ckjb5jkw6u",
+        "ep:g3i7cy3mo6",
+        "ep:iew3vokpvu",
+        "ep:ihqiefa6bi",
+        "ep:micgxni76r",
+        "ep:r4yog3x54b",
+        "ep:sv5x44cuwt",
+        "ep:uinlxtaykc",
+        "ep:vjq34mdgzh",
+        "ep:wkj626umk5",
+        "ep:wnwyg4ntqk",
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "js@0.3",
+          "content_hash": "sha256:c98266d8c709f34c65d887338fb546c0badd9adc28b85bc33633c61d85519de1"
+        }
+      ]
+    },
+    {
+      "id": "ctl:e2cdiwkgk7",
+      "identity": [
+        "control",
+        "authn",
+        "src/routes/v1/auth.route.js::auth"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "auth",
+      "applies_to": [
+        "ep:r4yog3x54b"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "js@0.3",
+          "content_hash": "sha256:34bd0bf328cbfe9f12ce0f345bfb9a586c9c79c0a4ec595cf3db832b980c597b"
+        }
+      ]
+    },
+    {
+      "id": "ctl:ejhqmeshhb",
+      "identity": [
+        "control",
+        "input_validation",
+        "src/routes/v1/auth.route.js::validate"
+      ],
+      "origin": "observed",
+      "kind": "input_validation",
+      "name": "validate",
+      "applies_to": [
+        "ep:4dsvysfx3u",
+        "ep:ckjb5jkw6u",
+        "ep:g3i7cy3mo6",
+        "ep:iew3vokpvu",
+        "ep:sv5x44cuwt",
+        "ep:wnwyg4ntqk",
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b9187f530072cadd415406391db75df90b89687b970a6fdccfe1eefb9bd52224"
+        }
+      ]
+    },
+    {
+      "id": "ctl:eqfryw4thb",
+      "identity": [
+        "control",
+        "audit_log",
+        "src/app.js::morgan.successHandler"
+      ],
+      "origin": "observed",
+      "kind": "audit_log",
+      "name": "morgan.successHandler",
+      "applies_to": [
+        "ep:4dsvysfx3u",
+        "ep:7bz3iwfutn",
+        "ep:cdthtcc2vi",
+        "ep:ckjb5jkw6u",
+        "ep:g3i7cy3mo6",
+        "ep:iew3vokpvu",
+        "ep:ihqiefa6bi",
+        "ep:micgxni76r",
+        "ep:r4yog3x54b",
+        "ep:sv5x44cuwt",
+        "ep:uinlxtaykc",
+        "ep:vjq34mdgzh",
+        "ep:wkj626umk5",
+        "ep:wnwyg4ntqk",
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "js@0.3",
+          "content_hash": "sha256:2d076013b12170367309ad46383b80eb6fdb5480dbc1570d8fcce7f67fbd9040"
+        }
+      ]
+    },
+    {
+      "id": "ctl:fc4fb7kr2n",
+      "identity": [
+        "control",
+        "rate_limit",
+        "src/app.js::authLimiter"
+      ],
+      "origin": "observed",
+      "kind": "rate_limit",
+      "name": "authLimiter",
+      "applies_to": [
+        "ep:4dsvysfx3u",
+        "ep:ckjb5jkw6u",
+        "ep:g3i7cy3mo6",
+        "ep:iew3vokpvu",
+        "ep:r4yog3x54b",
+        "ep:sv5x44cuwt",
+        "ep:wnwyg4ntqk",
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 50,
+          "end_line": 50,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b4fb147cec1660e1a3b2c5d24b8643dd726457c0fbc2878ab948ccae7d004c1f"
+        }
+      ]
+    },
+    {
+      "id": "ctl:hup62ggipp",
+      "identity": [
+        "control",
+        "input_validation",
+        "src/routes/v1/user.route.js::validate"
+      ],
+      "origin": "observed",
+      "kind": "input_validation",
+      "name": "validate",
+      "applies_to": [
+        "ep:7bz3iwfutn",
+        "ep:cdthtcc2vi",
+        "ep:micgxni76r",
+        "ep:vjq34mdgzh",
+        "ep:wkj626umk5"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:e51ed2791c7b97468df5075c6602e69b3b9a71772d66500f003aa08a4885baa5"
+        }
+      ]
+    },
+    {
+      "id": "ctl:opfkkjkizy",
+      "identity": [
+        "control",
+        "input_validation",
+        "src/app.js::xss"
+      ],
+      "origin": "observed",
+      "kind": "input_validation",
+      "name": "xss",
+      "applies_to": [
+        "ep:4dsvysfx3u",
+        "ep:7bz3iwfutn",
+        "ep:cdthtcc2vi",
+        "ep:ckjb5jkw6u",
+        "ep:g3i7cy3mo6",
+        "ep:iew3vokpvu",
+        "ep:ihqiefa6bi",
+        "ep:micgxni76r",
+        "ep:r4yog3x54b",
+        "ep:sv5x44cuwt",
+        "ep:uinlxtaykc",
+        "ep:vjq34mdgzh",
+        "ep:wkj626umk5",
+        "ep:wnwyg4ntqk",
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "js@0.3",
+          "content_hash": "sha256:19138adeb7327378010ed87a8dcef5c984b95f0cc538f72b006d7aadb986ceb7"
+        }
+      ]
+    },
+    {
+      "id": "ctl:v3wsxwd66x",
+      "identity": [
+        "control",
+        "authn",
+        "src/routes/v1/user.route.js::auth"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "auth",
+      "applies_to": [
+        "ep:7bz3iwfutn",
+        "ep:cdthtcc2vi",
+        "ep:micgxni76r",
+        "ep:vjq34mdgzh",
+        "ep:wkj626umk5"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/user.route.js",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:e51ed2791c7b97468df5075c6602e69b3b9a71772d66500f003aa08a4885baa5"
+        }
+      ]
+    },
+    {
+      "id": "ctl:w2u3d3at3m",
+      "identity": [
+        "control",
+        "cors",
+        "src/app.js::cors"
+      ],
+      "origin": "observed",
+      "kind": "cors",
+      "name": "cors",
+      "applies_to": [
+        "ep:4dsvysfx3u",
+        "ep:7bz3iwfutn",
+        "ep:cdthtcc2vi",
+        "ep:ckjb5jkw6u",
+        "ep:g3i7cy3mo6",
+        "ep:iew3vokpvu",
+        "ep:ihqiefa6bi",
+        "ep:micgxni76r",
+        "ep:r4yog3x54b",
+        "ep:sv5x44cuwt",
+        "ep:uinlxtaykc",
+        "ep:vjq34mdgzh",
+        "ep:wkj626umk5",
+        "ep:wnwyg4ntqk",
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 41,
+          "end_line": 41,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f55a02f127464b911a2c9b5205867db7dc83fdd014854fa0c09967f6b6ecf02d"
+        }
+      ]
+    },
+    {
+      "id": "ctl:z53teauknq",
+      "identity": [
+        "control",
+        "input_validation",
+        "src/app.js::helmet"
+      ],
+      "origin": "observed",
+      "kind": "input_validation",
+      "name": "helmet",
+      "applies_to": [
+        "ep:4dsvysfx3u",
+        "ep:7bz3iwfutn",
+        "ep:cdthtcc2vi",
+        "ep:ckjb5jkw6u",
+        "ep:g3i7cy3mo6",
+        "ep:iew3vokpvu",
+        "ep:ihqiefa6bi",
+        "ep:micgxni76r",
+        "ep:r4yog3x54b",
+        "ep:sv5x44cuwt",
+        "ep:uinlxtaykc",
+        "ep:vjq34mdgzh",
+        "ep:wkj626umk5",
+        "ep:wnwyg4ntqk",
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "js@0.3",
+          "content_hash": "sha256:28172b9b18462028651ef13b4f84a0b8457b53449d8fe60f0f189ee36b6471a1"
+        }
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "wk:2kp4bb2b7n",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:x42so4woh3"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /v1/auth/reset-password",
+      "applies_to": [
+        "ep:x42so4woh3"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66e2e753d85c592d8676441a9a969b02624f302798c680639f4a22555300b34d"
+        }
+      ]
+    },
+    {
+      "id": "wk:36dc2lvqlb",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:uinlxtaykc"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on OPTIONS *",
+      "applies_to": [
+        "ep:uinlxtaykc"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
+        }
+      ]
+    },
+    {
+      "id": "wk:7atdmrgloc",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:ihqiefa6bi"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /v1/docs",
+      "applies_to": [
+        "ep:ihqiefa6bi"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/docs.route.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:43debca764c570b1715152eb3fbd9512210fff7cad318e8c7a19063ccd0d7845"
+        }
+      ]
+    },
+    {
+      "id": "wk:a2ow7jj4es",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:sv5x44cuwt"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /v1/auth/logout",
+      "applies_to": [
+        "ep:sv5x44cuwt"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 11,
+          "end_line": 11,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b86a07215575852562bb64716f95676ffe7214eb07a7d5927572a8c7ec17bcec"
+        }
+      ]
+    },
+    {
+      "id": "wk:jd4zh3ysk7",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:iew3vokpvu"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /v1/auth/refresh-tokens",
+      "applies_to": [
+        "ep:iew3vokpvu"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b36db25551d56f99b431cf26ad782a3111ef45ea4dc2ddf5365efa97952f8b05"
+        }
+      ]
+    },
+    {
+      "id": "wk:mz5slndze4",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:ckjb5jkw6u"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /v1/auth/login",
+      "applies_to": [
+        "ep:ckjb5jkw6u"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:66898451a5fb0aafa6d42e4dc18e6b67059fa299f5fd400b0148a9a2d8df565f"
+        }
+      ]
+    },
+    {
+      "id": "wk:rdriaisfx5",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:g3i7cy3mo6"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /v1/auth/forgot-password",
+      "applies_to": [
+        "ep:g3i7cy3mo6"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d5b48cde227701714f2f56fd9438c4cafa6dc19a6057f47b82c21e72f4c946eb"
+        }
+      ]
+    },
+    {
+      "id": "wk:rlvzryubar",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:wnwyg4ntqk"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /v1/auth/verify-email",
+      "applies_to": [
+        "ep:wnwyg4ntqk"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b507c2bbef89347a12680dc3ac44e253c81f2f274c5e562c8bcd76420c58932e"
+        }
+      ]
+    },
+    {
+      "id": "wk:sdijz4dugp",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:4dsvysfx3u"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /v1/auth/register",
+      "applies_to": [
+        "ep:4dsvysfx3u"
+      ],
+      "evidence": [
+        {
+          "path": "src/routes/v1/auth.route.js",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b9187f530072cadd415406391db75df90b89687b970a6fdccfe1eefb9bd52224"
+        }
+      ]
+    },
+    {
+      "id": "wk:wxlkzf32lp",
+      "identity": [
+        "weakness",
+        "permissive_cors",
+        "src/app.js:41"
+      ],
+      "origin": "observed",
+      "kind": "permissive_cors",
+      "name": "cors() with default or wildcard origin",
+      "applies_to": [
+        "proc:4qlcdwoif3"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 41,
+          "end_line": 41,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f55a02f127464b911a2c9b5205867db7dc83fdd014854fa0c09967f6b6ecf02d"
+        }
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "id": "sch:4oim2aidde",
+      "identity": [
+        "schema",
+        "src/validations/user.validation.js",
+        "body"
+      ],
+      "origin": "observed",
+      "name": "body",
+      "fields": [
+        {
+          "name": "email",
+          "type": "Joi.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "Joi.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "name",
+          "type": "Joi.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "role",
+          "type": "Joi.string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/validations/user.validation.js",
+          "start_line": 5,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:2b5410b055a37c9aab4edf7db2529f4b57f52f41390f09a74a84cef2edac4958"
+        }
+      ]
+    },
+    {
+      "id": "sch:5wdt5ygvno",
+      "identity": [
+        "schema",
+        "src/validations/user.validation.js",
+        "query"
+      ],
+      "origin": "observed",
+      "name": "query",
+      "fields": [
+        {
+          "name": "name",
+          "type": "Joi.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "role",
+          "type": "Joi.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "sortBy",
+          "type": "Joi.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "limit",
+          "type": "Joi.number",
+          "data_class": "internal"
+        },
+        {
+          "name": "page",
+          "type": "Joi.number",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/validations/user.validation.js",
+          "start_line": 14,
+          "end_line": 20,
+          "detector": "js@0.3",
+          "content_hash": "sha256:79bfb9c8fb647c1ee5257d6d714bb7aa39e7c3d1421afa51deab4c6b6976b914"
+        }
+      ]
+    },
+    {
+      "id": "sch:a6dyxycpbe",
+      "identity": [
+        "schema",
+        "src/config/config.js",
+        "envVarsSchema"
+      ],
+      "origin": "observed",
+      "name": "envVarsSchema",
+      "fields": [
+        {
+          "name": "NODE_ENV",
+          "type": "Joi.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "PORT",
+          "type": "Joi.number",
+          "data_class": "internal"
+        },
+        {
+          "name": "MONGODB_URL",
+          "type": "Joi.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "JWT_SECRET",
+          "type": "Joi.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "JWT_ACCESS_EXPIRATION_MINUTES",
+          "type": "Joi.number",
+          "data_class": "internal"
+        },
+        {
+          "name": "JWT_REFRESH_EXPIRATION_DAYS",
+          "type": "Joi.number",
+          "data_class": "internal"
+        },
+        {
+          "name": "JWT_RESET_PASSWORD_EXPIRATION_MINUTES",
+          "type": "Joi.number",
+          "data_class": "credential"
+        },
+        {
+          "name": "JWT_VERIFY_EMAIL_EXPIRATION_MINUTES",
+          "type": "Joi.number",
+          "data_class": "pii"
+        },
+        {
+          "name": "SMTP_HOST",
+          "type": "Joi.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "SMTP_PORT",
+          "type": "Joi.number",
+          "data_class": "internal"
+        },
+        {
+          "name": "SMTP_USERNAME",
+          "type": "Joi.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "SMTP_PASSWORD",
+          "type": "Joi.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "EMAIL_FROM",
+          "type": "Joi.string",
+          "data_class": "pii"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/config/config.js",
+          "start_line": 7,
+          "end_line": 26,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f965c9b8821426ad7a4707b6e62d1dbff0b5e93bf9eaca1b4e1fc49fef4c4b7a"
+        }
+      ]
+    },
+    {
+      "id": "sch:gpixjdumql",
+      "identity": [
+        "schema",
+        "src/validations/auth.validation.js",
+        "query"
+      ],
+      "origin": "observed",
+      "name": "query",
+      "fields": [
+        {
+          "name": "token",
+          "type": "Joi.string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/validations/auth.validation.js",
+          "start_line": 38,
+          "end_line": 40,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0934b58473454300615196127a69370fae71507d404ed23a47d1275b02a37d6e"
+        }
+      ]
+    },
+    {
+      "id": "sch:lu3uh6wwsn",
+      "identity": [
+        "schema",
+        "src/validations/auth.validation.js",
+        "body"
+      ],
+      "origin": "observed",
+      "name": "body",
+      "fields": [
+        {
+          "name": "email",
+          "type": "Joi.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "Joi.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "name",
+          "type": "Joi.string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/validations/auth.validation.js",
+          "start_line": 5,
+          "end_line": 9,
+          "detector": "js@0.3",
+          "content_hash": "sha256:240d6c25bb82e176f08bc802f83973f928328871da91a681ac9dfc612ec5c83c"
+        }
+      ]
+    },
+    {
+      "id": "sch:rkou5pg4b3",
+      "identity": [
+        "schema",
+        "src/validations/user.validation.js",
+        "params"
+      ],
+      "origin": "observed",
+      "name": "params",
+      "fields": [
+        {
+          "name": "userId",
+          "type": "Joi.string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/validations/user.validation.js",
+          "start_line": 24,
+          "end_line": 26,
+          "detector": "js@0.3",
+          "content_hash": "sha256:976bbdb24bcd30a657f5a8be303c5da0803f1ea6cdb67601889e2bfe07167048"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "15 http entry points, 9 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
+        }
+      ]
+    },
+    {
+      "id": "agent:ounsjlqdze",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:4tjp4yui4o"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: node-app",
+      "access": "insider",
+      "location": "bnd:4tjp4yui4o",
+      "entry": [
+        "proc:4qlcdwoif3",
+        "proc:5o77py4ksy",
+        "proc:6arldspcqf",
+        "proc:6ld6rj35b6",
+        "proc:6mgeike7w7",
+        "proc:7jcs3blmyf",
+        "proc:bhe2uamvnb",
+        "proc:bncx6ofqo5",
+        "proc:brrysidewt",
+        "proc:gebofgbst2",
+        "proc:iygmdrw3kl",
+        "proc:mjittvvds2",
+        "proc:p2w2sj7nq7",
+        "proc:pmw3c5t4fs",
+        "proc:qmofjuihf5",
+        "proc:rbsc3643ue",
+        "proc:s6g67h4qsr",
+        "proc:xutosa5i4g",
+        "proc:yr5tyhlhoj",
+        "proc:zdjjxm2w7b"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "docker-compose.dev.yml",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "config@0.3",
+          "content_hash": "sha256:fed494fd935bdc5aa011edd48ae136d48d45588386ffd26bd92dd1875b1c19ce"
+        }
+      ]
+    },
+    {
+      "id": "agent:ro6hlangl4",
+      "identity": [
+        "agent",
+        "authenticated",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "authn controls exist on some entry points; a valid credential holder is a distinct agent",
+      "name": "Authenticated HTTP caller",
+      "access": "authenticated",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [
+        "authn"
+      ],
+      "goals": [
+        "access other users' data",
+        "abuse privileged functions"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.js",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d4b83c9282ec35624122cf603d29ade799cc661b3274b3c9684a4652ef7a933a"
+        }
+      ]
+    },
+    {
+      "id": "agent:wxeizhk75l",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:l2biskukaq"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
+      "name": "Compromised third party: SMTP mail relay",
+      "access": "third_party",
+      "entry": [
+        "ext:l2biskukaq"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "src/services/email.service.js",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "js@0.3",
+          "content_hash": "sha256:c3cefa2ae7e1905d842697be3edd8eac2526f6c883d2f781d038b823eae96936"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unknown_attribute",
+      "path": "src/app.js",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/config/passport.js",
+      "line": 16,
+      "detail": "Question for the team: how is the link to MongoDB: User authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/services/auth.service.js",
+      "line": 28,
+      "detail": "Question for the team: how is the link to MongoDB: Token authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/services/auth.service.js",
+      "line": 32,
+      "detail": "Question for the team: how is the link to MongoDB authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/services/email.service.js",
+      "line": 5,
+      "detail": "Question for the team: how is the link to SMTP mail relay authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    }
+  ]
+}

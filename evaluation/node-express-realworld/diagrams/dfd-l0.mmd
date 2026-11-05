@@ -1,0 +1,25 @@
+%% L0 context: node-express-realworld
+flowchart LR
+  subgraph bnd_uphokatav4["repository: @api/source"]
+    proc_gjs57b5v23(["@api/source (+6)"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_rkhg3lsuir[("Postgres: Comment")]
+  store_th364fo75v[("Postgres: Tag")]
+  store_tvae56uepz[("Postgres: User")]
+  store_yhtoa6pgwu[("Postgres: Article")]
+  ext_sga4qktkap -->|"http"| proc_gjs57b5v23
+  proc_gjs57b5v23 -->|"unknown"| store_rkhg3lsuir
+  proc_gjs57b5v23 -->|"unknown"| store_tvae56uepz
+  proc_gjs57b5v23 -->|"unknown"| store_yhtoa6pgwu
+  store_rkhg3lsuir -->|"unknown"| proc_gjs57b5v23
+  store_th364fo75v -->|"unknown"| proc_gjs57b5v23
+  store_tvae56uepz -->|"unknown"| proc_gjs57b5v23
+  store_yhtoa6pgwu -->|"unknown"| proc_gjs57b5v23
+  style bnd_uphokatav4 stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

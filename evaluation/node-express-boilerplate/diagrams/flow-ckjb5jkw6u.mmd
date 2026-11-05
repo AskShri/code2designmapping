@@ -1,0 +1,23 @@
+%% Control flow: POST /v1/auth/login
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_4grkuzoeeq as morgan.errorHandler
+  participant ctl_6rjh2cbjvh as mongoSanitize
+  participant ctl_ejhqmeshhb as validate
+  participant ctl_eqfryw4thb as morgan.successHandler
+  participant ctl_fc4fb7kr2n as authLimiter
+  participant ctl_opfkkjkizy as xss
+  participant ctl_w2u3d3at3m as cors
+  participant ctl_z53teauknq as helmet
+  participant proc_5o77py4ksy as POST /v1/auth/login handler
+  ext_sga4qktkap->>ctl_4grkuzoeeq: POST /v1/auth/login (audit_log)
+  ctl_4grkuzoeeq->>ctl_6rjh2cbjvh: POST /v1/auth/login (input_validation)
+  ctl_6rjh2cbjvh->>ctl_ejhqmeshhb: POST /v1/auth/login (input_validation)
+  ctl_ejhqmeshhb->>ctl_eqfryw4thb: POST /v1/auth/login (audit_log)
+  ctl_eqfryw4thb->>ctl_fc4fb7kr2n: POST /v1/auth/login (rate_limit)
+  ctl_fc4fb7kr2n->>ctl_opfkkjkizy: POST /v1/auth/login (input_validation)
+  ctl_opfkkjkizy->>ctl_w2u3d3at3m: POST /v1/auth/login (cors)
+  ctl_w2u3d3at3m->>ctl_z53teauknq: POST /v1/auth/login (input_validation)
+  ctl_z53teauknq->>proc_5o77py4ksy: dispatch
+  proc_5o77py4ksy-->>ext_sga4qktkap: response

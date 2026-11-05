@@ -1,0 +1,11 @@
+%% Control flow: GET /
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_pclkpfacbh as cors
+  participant proc_iyy6jw4wzp as GET / handler
+  participant store_lsfwjprw56 as MongoDB - Todo
+  ext_sga4qktkap->>ctl_pclkpfacbh: GET / (cors)
+  ctl_pclkpfacbh->>proc_iyy6jw4wzp: dispatch
+  store_lsfwjprw56-->>proc_iyy6jw4wzp: mongo
+  proc_iyy6jw4wzp-->>ext_sga4qktkap: response

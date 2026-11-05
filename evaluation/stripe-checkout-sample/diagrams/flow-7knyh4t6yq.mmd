@@ -1,0 +1,10 @@
+%% Control flow: GET /checkout-session
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant proc_p55vaxl2qp as GET /checkout-session handler
+  participant ext_slqdx4hifp as Stripe API
+  ext_sga4qktkap->>proc_p55vaxl2qp: dispatch
+  proc_p55vaxl2qp->>ext_slqdx4hifp: https
+  ext_slqdx4hifp-->>proc_p55vaxl2qp: response
+  proc_p55vaxl2qp-->>ext_sga4qktkap: response

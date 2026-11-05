@@ -1,0 +1,8 @@
+{
+  "name": "code2design-dev",
+  "private": true,
+  "description": "Dev dependencies for the Mermaid render check (scripts/check-mermaid.js); Playwright and Chromium are expected to be installed globally.",
+  "devDependencies": {
+    "mermaid": "11.4.1"
+  }
+}

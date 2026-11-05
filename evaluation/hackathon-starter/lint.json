@@ -1,0 +1,368 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:43bcns7add",
+    "message": "api -> news.ycombinator.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:6wpt25s32d",
+    "message": "ai -> MongoDB: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7cj4547iqk",
+    "message": "user -> MongoDB: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ax7s4npifz",
+    "message": "ai-agent -> MongoDB: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:axssaxhhg3",
+    "message": "api -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:bjxsochwvx",
+    "message": "MongoDB -> passport: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:bnk77r43po",
+    "message": "contact -> SMTP mail relay: authentication=credentials, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:cdtedxeccm",
+    "message": "MongoDB: User -> webauthn: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ehmqyapjll",
+    "message": "passport -> MongoDB: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:epc4ge5ffq",
+    "message": "passport -> api.linkedin.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:erx2jetafy",
+    "message": "token-revocation -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:f5utoawbsj",
+    "message": "contact -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:fhkzohrif4",
+    "message": "passport -> graph.microsoft.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:g277clgsvl",
+    "message": "app -> MongoDB: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:gezmd7e6et",
+    "message": "MongoDB -> ai: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hgud2jpfcv",
+    "message": "MongoDB -> webauthn: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:j5opevsmng",
+    "message": "passport -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:jag2hplsyy",
+    "message": "MongoDB -> User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:jgzvs37ve7",
+    "message": "user -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:juinunnnyh",
+    "message": "MongoDB: User -> user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kzfh2njuxj",
+    "message": "api -> api.sandbox.paypal.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:mfpyicx7oj",
+    "message": "MongoDB: User -> passport: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:o5ydrtry43",
+    "message": "nodemailer -> SMTP mail relay: authentication=credentials, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:orzoazxswu",
+    "message": "passport -> discord.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:q5xmecbzko",
+    "message": "user -> SMTP mail relay: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:tkguo6ndq5",
+    "message": "MongoDB -> user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:u3tdepnjqt",
+    "message": "webauthn -> MongoDB: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ug6rropkwb",
+    "message": "api -> graph.facebook.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:upvfzmrx6q",
+    "message": "api -> pubchem.ncbi.nlm.nih.gov: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vhcjrc72nw",
+    "message": "api -> api.tumblr.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vhqhtxfic4",
+    "message": "api -> api.twitch.tv: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wcn5wjwurd",
+    "message": "ai -> api.groq.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wyprvzjwp3",
+    "message": "MongoDB -> ai-agent: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:5b7rm22yl3",
+    "message": "process GET /auth/quickbooks/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:5jc7tkwas3",
+    "message": "process GET /auth/steam handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:6vmlhibtze",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:7hoo2uupjb",
+    "message": "process GET /auth/x handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:bdq7ubcdeh",
+    "message": "process GET /auth/twitch/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:bzohi6ez3o",
+    "message": "process GET /auth/github handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:c6ir55dxzv",
+    "message": "process GET /auth/quickbooks handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:epeutoovkq",
+    "message": "process GET /auth/github/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:fpvukdgq55",
+    "message": "process GET /auth/google handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:fqen2hupos",
+    "message": "process GET /auth/tumblr/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:hnmtxfdzm2",
+    "message": "process GET /auth/microsoft handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jspem5pztu",
+    "message": "process GET /auth/microsoft/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:kl3hwyrhyg",
+    "message": "process GET /account/webauthn/register handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:m2mrxj5zjt",
+    "message": "process GET /auth/discord handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:mcjal7nw7s",
+    "message": "process GET /auth/discord/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ny7bcoevf7",
+    "message": "process GET /login/webauthn-start handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:oh6krts3of",
+    "message": "process User has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:okex3tzadz",
+    "message": "process GET /auth/google/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qk2e7zgvmc",
+    "message": "process GET /auth/tumblr handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:slas2utfvm",
+    "message": "process GET /auth/linkedin/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:t235dtgqsz",
+    "message": "process GET /auth/linkedin handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:t4soqax3vj",
+    "message": "process GET /auth/facebook/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:vvr4ehg6te",
+    "message": "process GET /auth/facebook handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:wk6ffmt6jo",
+    "message": "process GET /auth/steam/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:wr63xhwadz",
+    "message": "process GET /auth/twitch handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:wsjtz27bao",
+    "message": "process app has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:xfuxpvlk66",
+    "message": "process GET /auth/x/callback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:zoucuuzwvl",
+    "message": "process GET /auth/failure handler has only inputs; a detector may be missing"
+  }
+]

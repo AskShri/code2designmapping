@@ -1,0 +1,464 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
+    "generated_from": "compose-flask-redis",
+    "detectors": [
+      "config@0.3",
+      "py@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "app.py": "sha256:9c4073df84bb12a1f48bbf76a9f00e21d1ecfb6a3f2e03a2a5e3b18aadd6f4be",
+      "compose.yaml": "sha256:e74ce3a1493a0be8f7483acabe0c6902b045db48d2d174b267f2bad0083aa288",
+      "requirements.txt": "sha256:824df5f93c5972458475b034860dea893fab1df99efb15fc44a59a664161001e"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:6msugvruwc",
+      "identity": [
+        "process",
+        ".",
+        "compose-flask-redis"
+      ],
+      "origin": "observed",
+      "name": "compose-flask-redis",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b420f2bb1ec42fcc13ea204a08b08a83d9a382fa2cfa08302c3ac7b46386cd5"
+        }
+      ]
+    },
+    {
+      "id": "proc:7cxgtpk2nv",
+      "identity": [
+        "process",
+        "app.py",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "app.py",
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 7,
+          "end_line": 8,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ],
+      "parent": "proc:wfbgbnqk34"
+    },
+    {
+      "id": "proc:qkpvudqnrq",
+      "identity": [
+        "process",
+        "app.py",
+        "app"
+      ],
+      "origin": "observed",
+      "name": "app",
+      "level": 2,
+      "module": "app.py",
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:9f925aab96267e07ca503b9da858ca38ccdc5b69bf7a1545bf166b7cf3ebd2c5"
+        }
+      ],
+      "parent": "proc:wfbgbnqk34"
+    },
+    {
+      "id": "proc:wfbgbnqk34",
+      "identity": [
+        "process",
+        ".",
+        "web"
+      ],
+      "origin": "observed",
+      "name": "web",
+      "level": 1,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:9f925aab96267e07ca503b9da858ca38ccdc5b69bf7a1545bf166b7cf3ebd2c5"
+        }
+      ],
+      "parent": "proc:6msugvruwc"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 7,
+          "end_line": 8,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:t6ktvjrxqq",
+      "identity": [
+        "store",
+        "redis",
+        "hits:*"
+      ],
+      "origin": "observed",
+      "name": "Redis: hits:*",
+      "technology": "redis",
+      "logical_name": "hits:*",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "py@0.3",
+          "content_hash": "sha256:e634ca9bfe684a6f21354bdee44a8b227a33216cee41d6c31fdec5dfe69db19e"
+        },
+        {
+          "path": "app.py",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "py@0.3",
+          "content_hash": "sha256:9a3a8c5b3b13b93bf1a4c70298ab6a1563b744ba78c8ba067033a20c00871803"
+        },
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:ba77f9b04bf764c857b79c473e63e0b6dba0e02012941a43ee3e5114f3cc99a1"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:raia233rwx",
+      "identity": [
+        "boundary",
+        "container",
+        "redis"
+      ],
+      "origin": "observed",
+      "name": "container: redis",
+      "kind": "container",
+      "contains": [
+        "store:t6ktvjrxqq"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:ba77f9b04bf764c857b79c473e63e0b6dba0e02012941a43ee3e5114f3cc99a1"
+        }
+      ]
+    },
+    {
+      "id": "bnd:u5rsisolmh",
+      "identity": [
+        "boundary",
+        "container",
+        "web"
+      ],
+      "origin": "observed",
+      "name": "container: web",
+      "kind": "container",
+      "contains": [
+        "proc:6msugvruwc",
+        "proc:7cxgtpk2nv",
+        "proc:qkpvudqnrq",
+        "proc:wfbgbnqk34"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "config@0.3",
+          "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:6glr3tqnr3",
+      "identity": [
+        "flow",
+        "store:t6ktvjrxqq",
+        "proc:7cxgtpk2nv",
+        "redis",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:t6ktvjrxqq",
+      "target": "proc:7cxgtpk2nv",
+      "protocol": "redis",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:raia233rwx",
+        "bnd:u5rsisolmh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "py@0.3",
+          "content_hash": "sha256:9a3a8c5b3b13b93bf1a4c70298ab6a1563b744ba78c8ba067033a20c00871803"
+        }
+      ]
+    },
+    {
+      "id": "flow:mupuihgbzj",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:7cxgtpk2nv",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:7cxgtpk2nv",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:u5rsisolmh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 7,
+          "end_line": 8,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    },
+    {
+      "id": "flow:wqlg4jrgxq",
+      "identity": [
+        "flow",
+        "proc:7cxgtpk2nv",
+        "store:t6ktvjrxqq",
+        "redis",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:7cxgtpk2nv",
+      "target": "store:t6ktvjrxqq",
+      "protocol": "redis",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "incr",
+      "crosses_boundary": [
+        "bnd:raia233rwx",
+        "bnd:u5rsisolmh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "py@0.3",
+          "content_hash": "sha256:e634ca9bfe684a6f21354bdee44a8b227a33216cee41d6c31fdec5dfe69db19e"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:lisvwyia2y",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "app.py"
+      ],
+      "origin": "observed",
+      "process": "proc:7cxgtpk2nv",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:7cxgtpk2nv"
+      ],
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 7,
+          "end_line": 8,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "weaknesses": [
+    {
+      "id": "wk:zlw6cyausr",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:lisvwyia2y"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:lisvwyia2y"
+      ],
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 7,
+          "end_line": 8,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:a3swkjnwca",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:u5rsisolmh"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: web",
+      "access": "insider",
+      "location": "bnd:u5rsisolmh",
+      "entry": [
+        "proc:7cxgtpk2nv",
+        "proc:qkpvudqnrq"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "config@0.3",
+          "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
+        }
+      ]
+    },
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "1 http entry points, 1 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 7,
+          "end_line": 8,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unknown_attribute",
+      "path": "app.py",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port (host=\"0.0.0.0\", port=8000, debug=True)? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "app.py",
+      "line": 9,
+      "detail": "Question for the team: how is the link to Redis: hits:* authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    }
+  ]
+}

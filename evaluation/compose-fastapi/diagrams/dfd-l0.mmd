@@ -1,0 +1,14 @@
+%% L0 context: compose-fastapi
+flowchart LR
+  subgraph bnd_uvq3irjstn["container: api"]
+    proc_jd5qlpzope(["compose-fastapi (+1)"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_jd5qlpzope
+  style bnd_uvq3irjstn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

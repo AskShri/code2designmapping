@@ -1,0 +1,46 @@
+%% L1: microservices-demo
+flowchart LR
+  subgraph bnd_7n55q7x47r["container: shoppingassistantservice"]
+    proc_msq7vvbu6s(["shoppingassistantservice (+2)"])
+  end
+  subgraph bnd_blo2xu3bom["container: paymentservice"]
+    proc_5pxrkmisyz(["paymentservice (+2)"])
+  end
+  subgraph bnd_c76yxdhq2j["container: recommendationservice"]
+    proc_tcmo7ook3a(["recommendationservice (+4)"])
+  end
+  subgraph bnd_owyzrxhpvm["container: emailservice"]
+    proc_jubzq4h6n4(["emailservice (+3)"])
+  end
+  subgraph bnd_seoeqgkskf["container: currencyservice"]
+    proc_kycw6edgj7(["currencyservice (+2)"])
+  end
+  ext_5glqr7zsb5["OTLP collector"]
+  ext_e2lwbbcouh["Google Gemini API"]
+  ext_sga4qktkap["HTTP client"]
+  ext_sqc242xzn7["gRPC client"]
+  ext_vpmyo25x2y["Google Cloud APIs"]
+  ext_xbo3iznjz7["productcatalogservice service"]
+  ext_xwfpv7zyiv["Unresolved grpc target"]
+  ext_sga4qktkap -->|"http"| proc_msq7vvbu6s
+  ext_sqc242xzn7 -->|"grpc"| proc_5pxrkmisyz
+  ext_sqc242xzn7 -->|"grpc"| proc_jubzq4h6n4
+  ext_sqc242xzn7 -->|"grpc"| proc_kycw6edgj7
+  ext_sqc242xzn7 -->|"grpc"| proc_tcmo7ook3a
+  proc_jubzq4h6n4 -->|"https"| ext_5glqr7zsb5
+  proc_msq7vvbu6s -->|"https"| ext_e2lwbbcouh
+  proc_msq7vvbu6s -->|"https"| ext_vpmyo25x2y
+  proc_tcmo7ook3a -->|"https"| ext_5glqr7zsb5
+  proc_tcmo7ook3a -->|"grpc"| ext_xbo3iznjz7
+  proc_tcmo7ook3a -->|"grpc"| ext_xwfpv7zyiv
+  style bnd_7n55q7x47r stroke-dasharray: 8 4,fill:none
+  style bnd_blo2xu3bom stroke-dasharray: 8 4,fill:none
+  style bnd_c76yxdhq2j stroke-dasharray: 8 4,fill:none
+  style bnd_owyzrxhpvm stroke-dasharray: 8 4,fill:none
+  style bnd_seoeqgkskf stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

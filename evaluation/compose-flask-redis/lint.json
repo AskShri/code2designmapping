@@ -1,0 +1,20 @@
+[
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:mupuihgbzj",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:6glr3tqnr3",
+    "message": "Redis: hits:* -> GET / handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wqlg4jrgxq",
+    "message": "GET / handler -> Redis: hits:*: authentication=unknown, encryption=unknown"
+  }
+]

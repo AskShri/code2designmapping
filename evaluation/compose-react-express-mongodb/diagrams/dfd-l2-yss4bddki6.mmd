@@ -1,0 +1,23 @@
+%% L2: backend
+flowchart LR
+  subgraph bnd_j3ktzp2k6o["container: backend"]
+    proc_iyy6jw4wzp(["GET / handler"])
+    proc_wzn72hxkea(["POST /todos handler"])
+  end
+  subgraph bnd_x2cs4alpd7["container: mongo"]
+    store_3ufptbo5k3[("MongoDB")]
+    store_lsfwjprw56[("MongoDB: Todo")]
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_iyy6jw4wzp
+  ext_sga4qktkap -->|"http"| proc_wzn72hxkea
+  proc_wzn72hxkea -->|"mongo"| store_3ufptbo5k3
+  store_lsfwjprw56 -->|"mongo"| proc_iyy6jw4wzp
+  style bnd_j3ktzp2k6o stroke-dasharray: 8 4,fill:none
+  style bnd_x2cs4alpd7 stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

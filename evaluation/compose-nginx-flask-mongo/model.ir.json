@@ -1,0 +1,386 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
+    "generated_from": "compose-nginx-flask-mongo",
+    "detectors": [
+      "config@0.3",
+      "py@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "compose.yaml": "sha256:8325dd79f0679ae654de124bab061e2a385ac5f56f2d68b33958c62f99aa9454",
+      "flask/requirements.txt": "sha256:4abc75777a67589425eb586f01c866741a181209513718c12edb972c7cee0bea",
+      "flask/server.py": "sha256:f730d6ce15416e096f46bb1f06ae7db96893ee8ddd18b68dad03a042540c386e"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:kvemttgubl",
+      "identity": [
+        "process",
+        "flask/server.py",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "flask/server.py",
+      "evidence": [
+        {
+          "path": "flask/server.py",
+          "start_line": 11,
+          "end_line": 12,
+          "detector": "py@0.3",
+          "content_hash": "sha256:a77e3d5206fc5b77eabaf599ee7d9529c4917312a25e4e792e50497d9c300fbc"
+        }
+      ],
+      "parent": "proc:vcf7qrjxnu"
+    },
+    {
+      "id": "proc:vcf7qrjxnu",
+      "identity": [
+        "process",
+        "flask",
+        "backend"
+      ],
+      "origin": "observed",
+      "name": "backend",
+      "level": 1,
+      "module": "flask",
+      "evidence": [
+        {
+          "path": "flask/server.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:76ef2f289986e89e0d7b3370a0a13cb37b395b6d047b76858e6c310cbc49c458"
+        }
+      ],
+      "parent": "proc:xahgkyh3u6"
+    },
+    {
+      "id": "proc:xahgkyh3u6",
+      "identity": [
+        "process",
+        ".",
+        "compose-nginx-flask-mongo"
+      ],
+      "origin": "observed",
+      "name": "compose-nginx-flask-mongo",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4848a2dcd1b06709c95c13d7091084a8777dd384e22dd120c0a9f2e165bc56ee"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "flask/server.py",
+          "start_line": 11,
+          "end_line": 12,
+          "detector": "py@0.3",
+          "content_hash": "sha256:a77e3d5206fc5b77eabaf599ee7d9529c4917312a25e4e792e50497d9c300fbc"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:3ufptbo5k3",
+      "identity": [
+        "store",
+        "mongodb",
+        ""
+      ],
+      "origin": "observed",
+      "name": "MongoDB",
+      "technology": "mongodb",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "config@0.3",
+          "content_hash": "sha256:80767fe76f5321e806e34930ca71544a95db4fbc4f24d371acf7066e5b3204ba"
+        }
+      ],
+      "description": "declared as service 'mongo' in compose.yaml"
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:4wo47tjdtc",
+      "identity": [
+        "boundary",
+        "repository",
+        "compose-nginx-flask-mongo"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: compose-nginx-flask-mongo",
+      "kind": "repository",
+      "contains": [
+        "proc:xahgkyh3u6"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4848a2dcd1b06709c95c13d7091084a8777dd384e22dd120c0a9f2e165bc56ee"
+        }
+      ]
+    },
+    {
+      "id": "bnd:j3ktzp2k6o",
+      "identity": [
+        "boundary",
+        "container",
+        "backend"
+      ],
+      "origin": "observed",
+      "name": "container: backend",
+      "kind": "container",
+      "contains": [
+        "proc:kvemttgubl",
+        "proc:vcf7qrjxnu"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "config@0.3",
+          "content_hash": "sha256:cbbdec9f7baff6695e654dd287a584099d4da3a4b9ca04ee4aa2fe526ff47308"
+        }
+      ]
+    },
+    {
+      "id": "bnd:x2cs4alpd7",
+      "identity": [
+        "boundary",
+        "container",
+        "mongo"
+      ],
+      "origin": "observed",
+      "name": "container: mongo",
+      "kind": "container",
+      "contains": [
+        "store:3ufptbo5k3"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "config@0.3",
+          "content_hash": "sha256:80767fe76f5321e806e34930ca71544a95db4fbc4f24d371acf7066e5b3204ba"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:33b7fzoxuw",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:kvemttgubl",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:kvemttgubl",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:j3ktzp2k6o"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "flask/server.py",
+          "start_line": 11,
+          "end_line": 12,
+          "detector": "py@0.3",
+          "content_hash": "sha256:a77e3d5206fc5b77eabaf599ee7d9529c4917312a25e4e792e50497d9c300fbc"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:wjku4w5t36",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "flask/server.py"
+      ],
+      "origin": "observed",
+      "process": "proc:kvemttgubl",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:kvemttgubl"
+      ],
+      "evidence": [
+        {
+          "path": "flask/server.py",
+          "start_line": 11,
+          "end_line": 12,
+          "detector": "py@0.3",
+          "content_hash": "sha256:a77e3d5206fc5b77eabaf599ee7d9529c4917312a25e4e792e50497d9c300fbc"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "weaknesses": [
+    {
+      "id": "wk:x5y3alobmc",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:wjku4w5t36"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:wjku4w5t36"
+      ],
+      "evidence": [
+        {
+          "path": "flask/server.py",
+          "start_line": 11,
+          "end_line": 12,
+          "detector": "py@0.3",
+          "content_hash": "sha256:a77e3d5206fc5b77eabaf599ee7d9529c4917312a25e4e792e50497d9c300fbc"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:3znsii7bbp",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:j3ktzp2k6o"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: backend",
+      "access": "insider",
+      "location": "bnd:j3ktzp2k6o",
+      "entry": [
+        "proc:kvemttgubl"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "config@0.3",
+          "content_hash": "sha256:cbbdec9f7baff6695e654dd287a584099d4da3a4b9ca04ee4aa2fe526ff47308"
+        }
+      ]
+    },
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "1 http entry points, 1 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "flask/server.py",
+          "start_line": 11,
+          "end_line": 12,
+          "detector": "py@0.3",
+          "content_hash": "sha256:a77e3d5206fc5b77eabaf599ee7d9529c4917312a25e4e792e50497d9c300fbc"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unresolved",
+      "path": "compose.yaml",
+      "line": 28,
+      "detail": "MongoDB is declared but no code access to it was detected (unsupported language, dynamic client, or a missing recognizer)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "flask/server.py",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port (host='0.0.0.0', port=os.environ.get(\"FL? Inbound flows are marked encryption=unknown until answered."
+    }
+  ]
+}

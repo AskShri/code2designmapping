@@ -1,0 +1,116 @@
+[
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:2ur5dew2nv",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /config handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:fhtldr7wt4",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /create-checkout-session handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:fiujfxifzx",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /config handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:he3cfbdfoc",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /checkout-session handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:l6rhqssuc6",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /webhook handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:oiyl2pqt4p",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /webhook handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:pnsmr66ssv",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /create-checkout-session handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:pvij6bb74t",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:vvnr33bzdm",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /checkout-session handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:wvotkmbhqt",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:j7szanqzv4",
+    "message": "success -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:nqquflzbof",
+    "message": "Success -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:6ntqdalddj",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:f3hlc73arh",
+    "message": "process route has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:hx52pjrcfp",
+    "message": "process python has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jxdndc7atr",
+    "message": "process Success has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:nzprilxlvp",
+    "message": "process success has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ti2alnjshr",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:yvk7b5fv4l",
+    "message": "process stripe has only outputs; a detector may be missing"
+  }
+]

@@ -1,0 +1,20 @@
+%% Control flow: POST /api/articles
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_t55owpk6li as auth.required
+  participant ctl_vdl4e7tx4i as cors
+  participant proc_nr7tfyp5kd as POST /api/articles handler
+  participant proc_tmyb4zyl2i as article.service
+  participant store_yhtoa6pgwu as Postgres - Article
+  participant store_rkhg3lsuir as Postgres - Comment
+  ext_sga4qktkap->>ctl_t55owpk6li: POST /api/articles (authn)
+  ctl_t55owpk6li->>ctl_vdl4e7tx4i: POST /api/articles (cors)
+  ctl_vdl4e7tx4i->>proc_nr7tfyp5kd: dispatch
+  proc_nr7tfyp5kd->>proc_tmyb4zyl2i: in_process
+  store_yhtoa6pgwu-->>proc_tmyb4zyl2i: unknown
+  proc_tmyb4zyl2i->>store_yhtoa6pgwu: unknown
+  proc_tmyb4zyl2i->>store_rkhg3lsuir: unknown
+  store_rkhg3lsuir-->>proc_tmyb4zyl2i: unknown
+  proc_tmyb4zyl2i-->>proc_nr7tfyp5kd: response
+  proc_nr7tfyp5kd-->>ext_sga4qktkap: response

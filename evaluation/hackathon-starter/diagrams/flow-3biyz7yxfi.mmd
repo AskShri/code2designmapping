@@ -1,0 +1,57 @@
+%% Control flow: GET /api/github
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_e5husc6g2u as limiter
+  participant ctl_f5y5l3xp3o as lusca.xframe
+  participant ctl_u6upmy6sq4 as lusca.xssProtection
+  participant ctl_wi2xklb73k as morganLogger
+  participant proc_ytkjedwxr2 as GET /api/github handler
+  participant proc_wmnh7g2jba as api
+  participant ext_tq5xvm2pwe as GitHub API
+  participant ext_miziwfdicw as Unresolved HTTP target
+  participant ext_gwedqcokmf as api.tumblr.com
+  participant ext_72r5ah2o2k as graph.facebook.com
+  participant ext_5hxz2r45gr as news.ycombinator.com
+  participant ext_iebd2bhb4m as Last.fm API
+  participant ext_slqdx4hifp as Stripe API
+  participant ext_nswlxsx7xw as Twilio API
+  participant ext_pbm532avbp as api.twitch.tv
+  participant ext_uuhu7borqt as api.sandbox.paypal.com
+  participant ext_4dtxrkx4ls as Lob API
+  participant ext_q7bc76pjhv as Google Drive API
+  participant ext_2x56m65xpx as Google Sheets API
+  ext_sga4qktkap->>ctl_e5husc6g2u: GET /api/github (rate_limit)
+  ctl_e5husc6g2u->>ctl_f5y5l3xp3o: GET /api/github (csrf)
+  ctl_f5y5l3xp3o->>ctl_u6upmy6sq4: GET /api/github (csrf)
+  ctl_u6upmy6sq4->>ctl_wi2xklb73k: GET /api/github (audit_log)
+  ctl_wi2xklb73k->>proc_ytkjedwxr2: dispatch
+  proc_ytkjedwxr2->>proc_wmnh7g2jba: in_process
+  proc_wmnh7g2jba->>ext_tq5xvm2pwe: https
+  ext_tq5xvm2pwe-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_miziwfdicw: unknown
+  ext_miziwfdicw-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_gwedqcokmf: https
+  ext_gwedqcokmf-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_72r5ah2o2k: https
+  ext_72r5ah2o2k-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_5hxz2r45gr: https
+  ext_5hxz2r45gr-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_iebd2bhb4m: https
+  ext_iebd2bhb4m-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_slqdx4hifp: https
+  ext_slqdx4hifp-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_nswlxsx7xw: https
+  ext_nswlxsx7xw-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_pbm532avbp: https
+  ext_pbm532avbp-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_uuhu7borqt: https
+  ext_uuhu7borqt-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_4dtxrkx4ls: https
+  ext_4dtxrkx4ls-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_q7bc76pjhv: https
+  ext_q7bc76pjhv-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba->>ext_2x56m65xpx: https
+  ext_2x56m65xpx-->>proc_wmnh7g2jba: response
+  proc_wmnh7g2jba-->>proc_ytkjedwxr2: response
+  proc_ytkjedwxr2-->>ext_sga4qktkap: response

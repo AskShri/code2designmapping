@@ -1,0 +1,19 @@
+%% L2: shoppingassistantservice
+flowchart LR
+  subgraph bnd_7n55q7x47r["container: shoppingassistantservice"]
+    proc_7fw3xudbvr(["shoppingassistantservice"])
+    proc_t6witxqxz4(["POST / handler"])
+  end
+  ext_e2lwbbcouh["Google Gemini API"]
+  ext_sga4qktkap["HTTP client"]
+  ext_vpmyo25x2y["Google Cloud APIs"]
+  ext_sga4qktkap -->|"http"| proc_t6witxqxz4
+  proc_7fw3xudbvr -->|"https"| ext_vpmyo25x2y
+  proc_t6witxqxz4 -->|"https"| ext_e2lwbbcouh
+  style bnd_7n55q7x47r stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

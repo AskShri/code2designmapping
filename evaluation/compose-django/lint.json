@@ -1,0 +1,14 @@
+[
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:hlo6n4xani",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> ANY /^admin/ handler"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:4gmbfsikwv",
+    "message": "process ANY /^admin/ handler has only inputs; a detector may be missing"
+  }
+]

@@ -1,0 +1,17 @@
+%% Control flow: GET /api/profiles/:username
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_vdggt5oomo as auth.optional
+  participant ctl_vdl4e7tx4i as cors
+  participant proc_i5xtodcyrz as GET /api/profiles/ -username handler
+  participant proc_zvz3xuv23f as profile.service
+  participant store_tvae56uepz as Postgres - User
+  ext_sga4qktkap->>ctl_vdggt5oomo: GET /api/profiles/ -username (authn)
+  ctl_vdggt5oomo->>ctl_vdl4e7tx4i: GET /api/profiles/ -username (cors)
+  ctl_vdl4e7tx4i->>proc_i5xtodcyrz: dispatch
+  proc_i5xtodcyrz->>proc_zvz3xuv23f: in_process
+  store_tvae56uepz-->>proc_zvz3xuv23f: unknown
+  proc_zvz3xuv23f->>store_tvae56uepz: unknown
+  proc_zvz3xuv23f-->>proc_i5xtodcyrz: response
+  proc_i5xtodcyrz-->>ext_sga4qktkap: response

@@ -1,8 +1,27 @@
 # Alignment with the Black Duck threat modeling model
 
-**Reference:** Black Duck, "What Is Threat Modeling and How Does It Work?" (https://www.blackduck.com/glossary/what-is-threat-modeling.html), with its companion posts "The Step-by-Step Guide to Threat Modeling" and "The 5 Pillars of a Successful Threat Model."
+**References (all Black Duck, formerly Synopsys Software Integrity Group):**
+* Glossary: "What Is Threat Modeling and How Does It Work?" https://www.blackduck.com/glossary/what-is-threat-modeling.html
+* "The Step-by-Step Guide to Threat Modeling" (six steps) https://www.blackduck.com/blog/threat-modeling-guide.html
+* "The 5 Pillars of a Successful Threat Model" https://www.blackduck.com/blog/5-pillars-successful-threat-model.html
+* "Guide to Creating a System Model in Threat Modeling" https://www.blackduck.com/blog/creating-a-system-model-in-threat-modeling.html
+* AppSec Decoded series (five steps: scoping, data gathering, system model, attack model, risk analysis): https://www.blackduck.com/blog/appsec-decoded-scoping-data-gathering-in-threat-modeling.html , https://www.blackduck.com/blog/appsec-decoded-attack-model.html , https://www.blackduck.com/blog/appsec-decoded-threat-modeling-risk-analysis.html
+* Threat modeling datasheet and Architecture Risk Analysis (ARA) datasheet: https://www.blackduck.com/content/dam/black-duck/en-us/datasheets/threat-modeling-datasheet.pdf , https://www.blackduck.com/content/dam/black-duck/en-us/datasheets/architecture-risk-analysis-datasheet.pdf
+* "Effective Threat Modeling in SDLC" https://www.blackduck.com/blog/threat-modeling-sdlc.html
 
-**Caveat:** the glossary page could not be fetched verbatim from the sandbox this document was written in; its content was taken from search-engine summaries of the page and from the two companion Black Duck posts. The quoted phrases below are the ones those summaries attribute to Black Duck. Re-check against the live page before quoting it externally.
+**Caveat:** blackduck.com is not reachable from the sandbox this document was written in, so every page above was read through search-engine summaries rather than verbatim. The quoted phrases are the ones those summaries attribute to Black Duck. Re-check against the live pages before quoting externally.
+
+## Black Duck's guidance in one place
+
+Black Duck describes the same practice at three granularities, and the tool is aligned to all three:
+
+| Granularity | Steps | Where code2design supports it |
+|---|---|---|
+| Glossary, four steps | Diagram; Identify threats; Mitigate; Validate | Section "The four steps" below |
+| AppSec Decoded, five steps | Scoping; Data gathering; System model; Attack model; Risk analysis | Section "The five steps" below |
+| Step-by-step guide, six activities | Scoping with stakeholders; reading the development team's artifacts; the component diagram; adding assets, controls, threat agents and trust zones; threat analysis along control paths with a traceability matrix; documentation of system descriptions, potential risks, actual risks, likelihood and impact | Covered by the two sections above plus "Documentation" |
+
+Black Duck's Architecture Risk Analysis service adds a fourth lens: build the threat model (components, assets, threat agents, controls and their relationships), prioritize software risks by business impact, and analyze three ways: known attacks, system-specific attacks against established security principles, and **dependency analysis** of third-party components. The tool's attack-surface report now lists declared third-party dependencies for that last analysis.
 
 ## What Black Duck's model asks of a DFD
 
@@ -13,6 +32,20 @@ Black Duck describes threat modeling as a structured process whose artifacts are
 3. **Model the attack possibilities**: "identify software assets, security controls, and threat agents and diagram their locations to create a security model of the system." The step-by-step guide names the elements added to the component diagram as **assets, controls, threat agents and trust zones**.
 4. **Identify threats** by asking "Are there paths where a threat agent can reach an asset without going through a control?", "Could a threat agent defeat this security control?" and "What must a threat agent do to defeat this control?"
 5. **Create a traceability matrix of missing or weak security controls**: for every threat agent and asset pair, follow the agent along the control path; reaching the asset without passing a control is a potential attack, and each control crossed is judged on whether it would halt the agent or could be bypassed.
+
+## The five steps (AppSec Decoded, "Threat Modeling, Decoded")
+
+| Step | What Black Duck says it needs | What code2design produces | Gap the human fills |
+|---|---|---|---|
+| 1. Scoping | Stakeholders set the parameters and boundaries for which components are reviewed, and the depth. | `provenance.scope` records include/exclude globs, depth and out-of-scope element IDs; the report's coverage table states which files and languages were analyzed and which were not. | Decide the boundary of the review; the tool only records it. |
+| 2. Data gathering | Read and review the artifacts the development team provides: architecture documents, existing diagrams, code, configuration, deployment descriptors. | Code, compose and Kubernetes manifests, Dockerfiles, package manifests, Prisma schemas and committed env files are read automatically; the report lists what was read and what produced no facts. Overrides and imported OTM files bring in human-held knowledge. | Supply what the code does not contain: network topology, managed-service settings, business context. |
+| 3. System model | A component diagram with data flows, then assets, controls, threat agents and trust zones added to make the security model of the system. | Leveled DFDs with every element evidence-backed, plus the `assets`, `controls`, `threat_agents` and `boundaries` collections. | Correct names and groupings; declare assets and agents the heuristics cannot see. |
+| 4. Attack model | How well are the assets protected against threats: attack surface (entry points), threat agents and their paths to assets through the controls. | The attack-surface section of the report (entry points by protocol with and without authn, listeners, exit points carrying sensitive data, dependency count), the STRIDE-per-element table, and the control-path traceability matrix. | Judge whether each control actually halts the agent or can be bypassed. |
+| 5. Risk analysis | Likelihood and impact per threat; assets prioritized by risk, threats by likelihood; a prioritized remediation plan. | Not produced. Exports (OTM, Threat Dragon, pytm, Threagile) carry the model into tools that score risk; the matrix's ordering (no effective control first) is an input, not a rating. | All of it. |
+
+## Documentation (step six of the guide)
+
+Black Duck closes with documenting "all your models, system descriptions, potential risks, actual risks, and their associated likelihood and impact." The report is the system description; the STRIDE table is the catalog of potential risks; the "no effective control" and "weakness" rows are the candidates for actual risks; likelihood and impact are left blank for the analyst. Everything is regenerated from code on every run, which is what keeps the documentation from drifting.
 
 ## Element-by-element mapping
 
@@ -28,6 +61,8 @@ Black Duck describes threat modeling as a structured process whose artifacts are
 | Scope and depth of analysis | `provenance.scope` (include/exclude globs, depth level, out-of-scope element IDs); out-of-scope elements are rendered greyed | Added |
 | Catalog of threats | STRIDE-per-element table (`stride-table.md`), plus OTM, Threat Dragon, pytm and Threagile exports for tools that enumerate threats | Already present |
 | Attacker profiles | Threat agent profile table in the traceability export | Added |
+| Attack surface | Report section: entry points per protocol (with the count lacking authn), listeners and ports, exit points carrying sensitive data, declared third-party dependencies | Added |
+| Dependency analysis (ARA) | Dependency count and manifests in the attack-surface section; packages recognized as stores, SDKs or auth middleware become model elements, the rest are listed as unmodeled surface | Partial: inventory only, no vulnerability data |
 
 ## The four steps, mapped to the tool
 
@@ -47,6 +82,10 @@ Black Duck describes threat modeling as a structured process whose artifacts are
 5. Verdict: no path is "unreachable"; a path with no effective control is a potential attack path; a path whose non-local links have `unknown` authentication or encryption is "controlled at entry" with the questionable link named; otherwise "controlled". An agent that starts inside the asset holder's element gets its own verdict, since no flow-level control can apply.
 
 The matrix answers Black Duck's three questions directly: the "no effective control" rows are the paths where an agent reaches an asset without a control; the "effective controls" column lists what the agent must defeat; the "unknown" verdict marks controls the tool cannot vouch for.
+
+## Evidence that the alignment holds on real code
+
+`docs/evaluation.md` runs the prototype over 17 sample applications (Express, Flask, FastAPI, Django, gRPC microservices, compose and Kubernetes deployments) and checks, for each, that the security model elements above are produced: entry points with their controls, declared and used data stores, external dependencies, trust boundaries from deployment descriptors, derived threat agents, assets, and a traceability matrix. The misses found there (dynamic route tables, aliased database clients, unsupported languages) are listed with the fixes applied or the gap recorded.
 
 ## Worked example
 

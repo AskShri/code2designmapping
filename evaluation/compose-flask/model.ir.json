@@ -1,0 +1,333 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
+    "generated_from": "compose-flask",
+    "detectors": [
+      "config@0.3",
+      "py@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "app/app.py": "sha256:9f1f837182dcaae5eaeaa143f50d279368c02840d1a0d32fc312b3ae52836076",
+      "app/requirements.txt": "sha256:76f8bae45e807865955344c1a58882d38c8ceb4f855f58091642b7d48290af97",
+      "compose.yaml": "sha256:fde394cc26eaf6fe5eced283ffae125c2b6fb587ee5f3562fce7fe89f44bf68d"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:4ux4ivxi4t",
+      "identity": [
+        "process",
+        ".",
+        "compose-flask"
+      ],
+      "origin": "observed",
+      "name": "compose-flask",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:a92bb249ab5fdffa5a7ca33ea228f47d92d217a57b42654b8e67af76c587db0b"
+        }
+      ]
+    },
+    {
+      "id": "proc:n7h7nmdaxg",
+      "identity": [
+        "process",
+        "app/app.py",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "app/app.py",
+      "evidence": [
+        {
+          "path": "app/app.py",
+          "start_line": 4,
+          "end_line": 5,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ],
+      "parent": "proc:oysktcjkmj"
+    },
+    {
+      "id": "proc:oysktcjkmj",
+      "identity": [
+        "process",
+        "app",
+        "web"
+      ],
+      "origin": "observed",
+      "name": "web",
+      "level": 1,
+      "module": "app",
+      "evidence": [
+        {
+          "path": "app/app.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:9f925aab96267e07ca503b9da858ca38ccdc5b69bf7a1545bf166b7cf3ebd2c5"
+        }
+      ],
+      "parent": "proc:4ux4ivxi4t"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "app/app.py",
+          "start_line": 4,
+          "end_line": 5,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "stores": [],
+  "boundaries": [
+    {
+      "id": "bnd:u5rsisolmh",
+      "identity": [
+        "boundary",
+        "container",
+        "web"
+      ],
+      "origin": "observed",
+      "name": "container: web",
+      "kind": "container",
+      "contains": [
+        "proc:n7h7nmdaxg",
+        "proc:oysktcjkmj"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
+        }
+      ]
+    },
+    {
+      "id": "bnd:wip3loyeyx",
+      "identity": [
+        "boundary",
+        "repository",
+        "compose-flask"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: compose-flask",
+      "kind": "repository",
+      "contains": [
+        "proc:4ux4ivxi4t"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:a92bb249ab5fdffa5a7ca33ea228f47d92d217a57b42654b8e67af76c587db0b"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:xbinuwe32a",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:n7h7nmdaxg",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:n7h7nmdaxg",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:u5rsisolmh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/app.py",
+          "start_line": 4,
+          "end_line": 5,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:up6isnlgt5",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "app/app.py"
+      ],
+      "origin": "observed",
+      "process": "proc:n7h7nmdaxg",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:n7h7nmdaxg"
+      ],
+      "evidence": [
+        {
+          "path": "app/app.py",
+          "start_line": 4,
+          "end_line": 5,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "weaknesses": [
+    {
+      "id": "wk:cmoeq7dw7n",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:up6isnlgt5"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:up6isnlgt5"
+      ],
+      "evidence": [
+        {
+          "path": "app/app.py",
+          "start_line": 4,
+          "end_line": 5,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:a3swkjnwca",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:u5rsisolmh"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: web",
+      "access": "insider",
+      "location": "bnd:u5rsisolmh",
+      "entry": [
+        "proc:n7h7nmdaxg"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
+        }
+      ]
+    },
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "1 http entry points, 1 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "app/app.py",
+          "start_line": 4,
+          "end_line": 5,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unknown_attribute",
+      "path": "app/app.py",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port (host='0.0.0.0', port=8000)? Inbound flows are marked encryption=unknown until answered."
+    }
+  ]
+}

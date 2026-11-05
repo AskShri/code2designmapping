@@ -1,0 +1,666 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
+    "generated_from": "compose-nginx-wsgi-flask",
+    "detectors": [
+      "config@0.3",
+      "py@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "compose.yaml": "sha256:874c70026ce1654969af9b0e6b9960985e7a7ed28cdbf1620f54c1bd5b4a2f0e",
+      "flask/Dockerfile": "sha256:807af0490871624fe8537950c8cc0615b536058644685519f447370bb2bb8601",
+      "flask/app.py": "sha256:9c170e0e8ea932fe5fb5ba27c4fac6eb46cb326abbb92fcc1a646361dbf540b4",
+      "flask/requirements.txt": "sha256:2dc5d49c1c2fc06f9ef4fbd2c62b6398d1048460e141ce5d5e15971e881f7337"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:dmcbizapmv",
+      "identity": [
+        "process",
+        "flask",
+        "flask-app"
+      ],
+      "origin": "observed",
+      "name": "flask-app",
+      "level": 1,
+      "module": "flask",
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4d819486d4f1b7e16ab7005cc12290108c4fb5f29bbcb74100b0241770b18b0f"
+        }
+      ],
+      "parent": "proc:owfe4xz2jw"
+    },
+    {
+      "id": "proc:lmwj2xg5yn",
+      "identity": [
+        "process",
+        "flask/app.py",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "flask/app.py",
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ],
+      "parent": "proc:dmcbizapmv"
+    },
+    {
+      "id": "proc:owfe4xz2jw",
+      "identity": [
+        "process",
+        ".",
+        "compose-nginx-wsgi-flask"
+      ],
+      "origin": "observed",
+      "name": "compose-nginx-wsgi-flask",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:54d95d78bff66fd1ecf5ce139624c26834adbea5847ee611dc054bc5aa854b13"
+        }
+      ]
+    },
+    {
+      "id": "proc:qhcg7tkijf",
+      "identity": [
+        "process",
+        "flask/app.py",
+        "GET /cache-me"
+      ],
+      "origin": "observed",
+      "name": "GET /cache-me handler",
+      "level": 2,
+      "module": "flask/app.py",
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 9,
+          "end_line": 10,
+          "detector": "py@0.3",
+          "content_hash": "sha256:35628d8e8cc57d4f28f0796f88ac6c54b4e208ea0da44cc7c28c297b1a1d2f3f"
+        }
+      ],
+      "parent": "proc:dmcbizapmv"
+    },
+    {
+      "id": "proc:qizcssqkqn",
+      "identity": [
+        "process",
+        "flask/app.py",
+        "GET /info"
+      ],
+      "origin": "observed",
+      "name": "GET /info handler",
+      "level": 2,
+      "module": "flask/app.py",
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 13,
+          "end_line": 14,
+          "detector": "py@0.3",
+          "content_hash": "sha256:397c2ddba3f490e6af180c5c6a3e446fcf72cf258c4060aec4566eb90c8db827"
+        }
+      ],
+      "parent": "proc:dmcbizapmv"
+    },
+    {
+      "id": "proc:z7nldm4k3e",
+      "identity": [
+        "process",
+        "flask/app.py",
+        "GET /flask-health-check"
+      ],
+      "origin": "observed",
+      "name": "GET /flask-health-check handler",
+      "level": 2,
+      "module": "flask/app.py",
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 25,
+          "end_line": 26,
+          "detector": "py@0.3",
+          "content_hash": "sha256:e389271ff44ef0f2015bb0d417010f497167058e67e7e68ed36aab826124046e"
+        }
+      ],
+      "parent": "proc:dmcbizapmv"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        },
+        {
+          "path": "flask/app.py",
+          "start_line": 9,
+          "end_line": 10,
+          "detector": "py@0.3",
+          "content_hash": "sha256:35628d8e8cc57d4f28f0796f88ac6c54b4e208ea0da44cc7c28c297b1a1d2f3f"
+        },
+        {
+          "path": "flask/app.py",
+          "start_line": 13,
+          "end_line": 14,
+          "detector": "py@0.3",
+          "content_hash": "sha256:397c2ddba3f490e6af180c5c6a3e446fcf72cf258c4060aec4566eb90c8db827"
+        }
+      ]
+    }
+  ],
+  "stores": [],
+  "boundaries": [
+    {
+      "id": "bnd:3i6o6p3j5w",
+      "identity": [
+        "boundary",
+        "container",
+        "flask-app"
+      ],
+      "origin": "observed",
+      "name": "container: flask-app",
+      "kind": "container",
+      "contains": [
+        "proc:dmcbizapmv",
+        "proc:lmwj2xg5yn",
+        "proc:qhcg7tkijf",
+        "proc:qizcssqkqn",
+        "proc:z7nldm4k3e"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "config@0.3",
+          "content_hash": "sha256:1881693bea0e406ff1ab9f7b48c605d317be8dff8473ca03267d2f26c75f61d0"
+        }
+      ]
+    },
+    {
+      "id": "bnd:vonlgym2lq",
+      "identity": [
+        "boundary",
+        "repository",
+        "compose-nginx-wsgi-flask"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: compose-nginx-wsgi-flask",
+      "kind": "repository",
+      "contains": [
+        "proc:owfe4xz2jw"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:54d95d78bff66fd1ecf5ce139624c26834adbea5847ee611dc054bc5aa854b13"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:6r36k4vpot",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:z7nldm4k3e",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:z7nldm4k3e",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /flask-health-check",
+      "crosses_boundary": [
+        "bnd:3i6o6p3j5w"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 25,
+          "end_line": 26,
+          "detector": "py@0.3",
+          "content_hash": "sha256:e389271ff44ef0f2015bb0d417010f497167058e67e7e68ed36aab826124046e"
+        }
+      ]
+    },
+    {
+      "id": "flow:gawm6h2sol",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:qizcssqkqn",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:qizcssqkqn",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /info",
+      "crosses_boundary": [
+        "bnd:3i6o6p3j5w"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 13,
+          "end_line": 14,
+          "detector": "py@0.3",
+          "content_hash": "sha256:397c2ddba3f490e6af180c5c6a3e446fcf72cf258c4060aec4566eb90c8db827"
+        }
+      ]
+    },
+    {
+      "id": "flow:sgohinunbc",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:lmwj2xg5yn",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:lmwj2xg5yn",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:3i6o6p3j5w"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    },
+    {
+      "id": "flow:xdqb4dmjl6",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:qhcg7tkijf",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:qhcg7tkijf",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /cache-me",
+      "crosses_boundary": [
+        "bnd:3i6o6p3j5w"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 9,
+          "end_line": 10,
+          "detector": "py@0.3",
+          "content_hash": "sha256:35628d8e8cc57d4f28f0796f88ac6c54b4e208ea0da44cc7c28c297b1a1d2f3f"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:hlrzmkvwcv",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/cache-me",
+        "flask/app.py"
+      ],
+      "origin": "observed",
+      "process": "proc:qhcg7tkijf",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/cache-me",
+      "controls": [],
+      "call_chain": [
+        "proc:qhcg7tkijf"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 9,
+          "end_line": 10,
+          "detector": "py@0.3",
+          "content_hash": "sha256:35628d8e8cc57d4f28f0796f88ac6c54b4e208ea0da44cc7c28c297b1a1d2f3f"
+        }
+      ]
+    },
+    {
+      "id": "ep:nhfuvkjh6r",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/flask-health-check",
+        "flask/app.py"
+      ],
+      "origin": "observed",
+      "process": "proc:z7nldm4k3e",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/flask-health-check",
+      "controls": [],
+      "call_chain": [
+        "proc:z7nldm4k3e"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 25,
+          "end_line": 26,
+          "detector": "py@0.3",
+          "content_hash": "sha256:e389271ff44ef0f2015bb0d417010f497167058e67e7e68ed36aab826124046e"
+        }
+      ]
+    },
+    {
+      "id": "ep:qyp6ttsb42",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/info",
+        "flask/app.py"
+      ],
+      "origin": "observed",
+      "process": "proc:qizcssqkqn",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/info",
+      "controls": [],
+      "call_chain": [
+        "proc:qizcssqkqn"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 13,
+          "end_line": 14,
+          "detector": "py@0.3",
+          "content_hash": "sha256:397c2ddba3f490e6af180c5c6a3e446fcf72cf258c4060aec4566eb90c8db827"
+        }
+      ]
+    },
+    {
+      "id": "ep:xj6cycpf2z",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "flask/app.py"
+      ],
+      "origin": "observed",
+      "process": "proc:lmwj2xg5yn",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:lmwj2xg5yn"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "weaknesses": [
+    {
+      "id": "wk:3mpiw4lrnw",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:nhfuvkjh6r"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /flask-health-check",
+      "applies_to": [
+        "ep:nhfuvkjh6r"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 25,
+          "end_line": 26,
+          "detector": "py@0.3",
+          "content_hash": "sha256:e389271ff44ef0f2015bb0d417010f497167058e67e7e68ed36aab826124046e"
+        }
+      ]
+    },
+    {
+      "id": "wk:cokf7yhevz",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:qyp6ttsb42"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /info",
+      "applies_to": [
+        "ep:qyp6ttsb42"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 13,
+          "end_line": 14,
+          "detector": "py@0.3",
+          "content_hash": "sha256:397c2ddba3f490e6af180c5c6a3e446fcf72cf258c4060aec4566eb90c8db827"
+        }
+      ]
+    },
+    {
+      "id": "wk:nqu37abual",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:hlrzmkvwcv"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /cache-me",
+      "applies_to": [
+        "ep:hlrzmkvwcv"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 9,
+          "end_line": 10,
+          "detector": "py@0.3",
+          "content_hash": "sha256:35628d8e8cc57d4f28f0796f88ac6c54b4e208ea0da44cc7c28c297b1a1d2f3f"
+        }
+      ]
+    },
+    {
+      "id": "wk:wew6rhdrlt",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:xj6cycpf2z"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:xj6cycpf2z"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:7omigl33ef",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:3i6o6p3j5w"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: flask-app",
+      "access": "insider",
+      "location": "bnd:3i6o6p3j5w",
+      "entry": [
+        "proc:lmwj2xg5yn",
+        "proc:qhcg7tkijf",
+        "proc:qizcssqkqn",
+        "proc:z7nldm4k3e"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "config@0.3",
+          "content_hash": "sha256:1881693bea0e406ff1ab9f7b48c605d317be8dff8473ca03267d2f26c75f61d0"
+        }
+      ]
+    },
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "4 http entry points, 4 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "flask/app.py",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unknown_attribute",
+      "path": "flask/app.py",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered."
+    }
+  ]
+}

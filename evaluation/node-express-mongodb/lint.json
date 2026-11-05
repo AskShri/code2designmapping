@@ -1,0 +1,26 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3haziohken",
+    "message": "MongoDB: tutorials -> tutorial.controller: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kjz26uoabu",
+    "message": "tutorial.controller -> MongoDB: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zkldm5bfnj",
+    "message": "tutorial.controller -> MongoDB: tutorials: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:mjnlaho6vq",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  }
+]

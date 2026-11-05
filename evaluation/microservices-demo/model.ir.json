@@ -1,0 +1,2359 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "c7cb6d5bfd6ea3aed768634ebbcb98cb7a523712",
+    "generated_from": "microservices-demo",
+    "detectors": [
+      "config@0.3",
+      "js@0.3",
+      "py@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      ".github/release-cluster/frontend-ingress.yaml": "sha256:d4027f339fa41b54c75124da05be56f426a9dde4b22dd75763657e486b395a76",
+      ".github/release-cluster/frontend-service.yaml": "sha256:39ec955c83f5bc3ca07bca291dd34eff210d206ec1e7a501177e3cce1726365c",
+      "kubernetes-manifests/adservice.yaml": "sha256:0ade8f5abc5edd0ee25d4e7cc423c9728fd3577b266ebd0ba09f9c725c16fb82",
+      "kubernetes-manifests/cartservice.yaml": "sha256:e4ad956409551a90e7c2fc8065f285b65255e81bc15b7b722debf3a6ec761428",
+      "kubernetes-manifests/checkoutservice.yaml": "sha256:84441514b468118abfcef95d5042e956db3ebce2f41ec8d3a0118d8950be0f9b",
+      "kubernetes-manifests/currencyservice.yaml": "sha256:9719c00aa72236b8a72100f937719df1ef80f3c705894e8d6a2ac01acaec1382",
+      "kubernetes-manifests/emailservice.yaml": "sha256:04a83d1dfe64bf3655a0d712dd0d6cf6d11aa1a67d8474a09b3eeeb2926d0021",
+      "kubernetes-manifests/frontend.yaml": "sha256:3f74f35588c80760a25fda936d5d008fec4bd08b80282f66b4eae8e42f453e26",
+      "kubernetes-manifests/loadgenerator.yaml": "sha256:367a01bbd6cf160eac30f013269c20e3c978f14fa2b294446ae027cbdc91b875",
+      "kubernetes-manifests/paymentservice.yaml": "sha256:8499a5f215e74ea0fa12cc37ff77b74aca55d14a59a8ae69a55fd7011174205f",
+      "kubernetes-manifests/productcatalogservice.yaml": "sha256:a2d7d1eb5923b54ca37cfbe0a65da8c8ea10aad2d1cab24274b5cd64a96488d9",
+      "kubernetes-manifests/recommendationservice.yaml": "sha256:ecdf5496ecd9b4543b6aaced38287be7ab1a019e3cb3e929a982c1dc9aa2179a",
+      "kubernetes-manifests/shippingservice.yaml": "sha256:b10de1eab50accc163cd80b07fad8311aacb5ff6a0c0113c1ef770d3b7a418e2",
+      "kustomize/base/adservice.yaml": "sha256:6dae935d91f372bab352f7d805572e685f049467f9fdc993500220a57e8da19f",
+      "kustomize/base/cartservice.yaml": "sha256:e52d02664c85b4716f6450b0a4b39e8297b7fe0782968b429052c1c103cf0525",
+      "kustomize/base/checkoutservice.yaml": "sha256:ec1a2a7ad2f360aa70370d69e425068430c19f6fba30fd605d6ed9cff18a6c27",
+      "kustomize/base/currencyservice.yaml": "sha256:5f0b8ccd761858030329560d3528afabaadec92bb993c6489bd33c8fb72ff86b",
+      "kustomize/base/emailservice.yaml": "sha256:a40c696283105d3219cd20f76a0b5085ab6da3f8c14959e0a202b80fc433b9ca",
+      "kustomize/base/frontend.yaml": "sha256:89381e6ac7980a9a81d501c728621f3e5005e25ea2122952c133b810ec4667c4",
+      "kustomize/base/loadgenerator.yaml": "sha256:33b27fd395d9bd4f282a3cfb80836a2f8afcb25b036d6e87fb2cdb571a7a5b02",
+      "kustomize/base/paymentservice.yaml": "sha256:5e5b1653b9c1a890589388c69efa396109c43f47e218b4cd190dda6646381ed9",
+      "kustomize/base/productcatalogservice.yaml": "sha256:18803933c1dcc8647ccf7120ab1e4d6906243c6d42a67191410457b23a4c99ad",
+      "kustomize/base/recommendationservice.yaml": "sha256:abd0a35177926fead99563cfb756c5f4cc8b64a5396c0c00a8bcf339742067d9",
+      "kustomize/base/shippingservice.yaml": "sha256:e55d540daccd1e0f35b203040a4be5908e7f8c0fe03e3e9471c92e68d2e30410",
+      "kustomize/components/google-cloud-operations/otel-collector.yaml": "sha256:0a71fbd75c7e1833de91f582708781ee6517c311de98e652f2b53deee41d72cf",
+      "kustomize/components/shopping-assistant/shoppingassistantservice.yaml": "sha256:181ffc9457727462f5320a48e3810fb1631e22fc46d745821e2ed17f4f7b1ceb",
+      "kustomize/components/without-loadgenerator/delete-loadgenerator.patch.yaml": "sha256:6d9964a977266ee68852bad1e4818363cf12783e384449ab7d90fac5dc45fe22",
+      "release/kubernetes-manifests.yaml": "sha256:ae3c20181c051048e6a5cae51fa530681affa4043ba60ae95d4f39e1262f2744",
+      "src/adservice/Dockerfile": "sha256:298774ff7d60cc6d1d6f1e86602211ae7804e796ad430180e841a6c9e71c714d",
+      "src/cartservice/src/Dockerfile": "sha256:2b79faa2ddc46ef1c4f1e480385991f1b1d10a7073119c9757b8dccfab6b9ceb",
+      "src/checkoutservice/Dockerfile": "sha256:78ae8494baa4b8efe062dd2afa2ed85265d31403c40e35e30c4a4527fd54585c",
+      "src/currencyservice/Dockerfile": "sha256:a726f1bc990cbef1539cc8869a0076249733e6f0644e0053e9af58bdcd9b14a1",
+      "src/currencyservice/package.json": "sha256:55ce04d89842901925939b12cfb9ec1a76cf36676fe72524de45f4c7bee62f8b",
+      "src/currencyservice/server.js": "sha256:a454283f8c5f8c22cbb22a0b6ad5d8c2cef416572be3eb02396b8c67e7937c16",
+      "src/emailservice/Dockerfile": "sha256:210978a1c6e3bb24468a78a4274fa914d112dd6eda0d7af259277fc481344c98",
+      "src/emailservice/email_server.py": "sha256:942ad730bdc04007c84b7cda038b58b68498f344d8233a0384a40991ccd574f4",
+      "src/emailservice/requirements.txt": "sha256:5b8b1c8de44d4b3afdd157e286b149926b2841063f339af0dfe40c25aeb84509",
+      "src/frontend/Dockerfile": "sha256:6d689c6e16b6a5e5ee3b7aeda565d8eb606586bddbcbb3dae8696eb0d454b75b",
+      "src/loadgenerator/requirements.txt": "sha256:fd656832b559a637618012fcd4678e5eae2862d76add97f0a47a2c03368381e1",
+      "src/paymentservice/Dockerfile": "sha256:d44569cf2ba19a7bd98873e0999b60f7b848e8c21bc700895385682493699a44",
+      "src/paymentservice/index.js": "sha256:d80c28bb507bead5518bcbba8189aec35b0a515a0a31ac20430ee6b80cef30c7",
+      "src/paymentservice/package.json": "sha256:78eefae0e7f1d442b3c5696c402bed7884312ac24651378c23355f6e16e5a88e",
+      "src/paymentservice/server.js": "sha256:5a343b700277f070977293f9dc5ff359405b8a8979478abaa957c60ca95a204d",
+      "src/productcatalogservice/Dockerfile": "sha256:4546b6e3cf0212efbd2f76b7de0346ff8d35565aa377dceee10760f6ac3793bb",
+      "src/recommendationservice/Dockerfile": "sha256:792d11800044f9f9121719a80353b434f464e6165aecf06f2032d47f33af94ec",
+      "src/recommendationservice/client.py": "sha256:945db6a7ba6f96025c01079040b7a7d2d56c85dc968041415d1e2ecb5e57cdb6",
+      "src/recommendationservice/recommendation_server.py": "sha256:15c411c2430cc975f6baa55da197821c61eaa39769e07fdbc23e56f202a3448a",
+      "src/recommendationservice/requirements.txt": "sha256:779af6a62daf6659db2128fdabeaad9aa63052f3b600361a13a72b2ff96d2540",
+      "src/shippingservice/Dockerfile": "sha256:1836b58267af43129b56f3efd32ab03cb2fd126a4805dc53d8d5a3a1109c5e4f",
+      "src/shoppingassistantservice/Dockerfile": "sha256:a98d38990ea8622ccf726c512c0cf3ffb3a70bd8202f8634b03515ce806e817c",
+      "src/shoppingassistantservice/requirements.txt": "sha256:fdb75dd4104b0a60bb67c86217e635003a130ae06ab89ade76c88da667340694",
+      "src/shoppingassistantservice/shoppingassistantservice.py": "sha256:22d96c7c43c3f3dd51cb97a973eaa3d28bee7ff60345b5882bcf76d55c55fd4a"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:4xkowmegqv",
+      "identity": [
+        "process",
+        "src/paymentservice/server.js",
+        "gRPC hipsterShopPackage.PaymentService"
+      ],
+      "origin": "observed",
+      "name": "gRPC hipsterShopPackage.PaymentService handler",
+      "level": 2,
+      "module": "src/paymentservice/server.js",
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 88,
+          "end_line": 93,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d77061e6e55988934b3b4ebf6c5ee696bdb6ba43a588080eca4d0ee9d0417e6e"
+        }
+      ],
+      "parent": "proc:5pxrkmisyz"
+    },
+    {
+      "id": "proc:5pxrkmisyz",
+      "identity": [
+        "process",
+        "src/paymentservice",
+        "paymentservice"
+      ],
+      "origin": "observed",
+      "name": "paymentservice",
+      "level": 1,
+      "module": "src/paymentservice",
+      "evidence": [
+        {
+          "path": "src/paymentservice/charge.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:75jd4q6d4k",
+      "identity": [
+        "process",
+        "src/emailservice/email_server.py",
+        "gRPC HealthServicer"
+      ],
+      "origin": "observed",
+      "name": "gRPC HealthServicer handler",
+      "level": 2,
+      "module": "src/emailservice/email_server.py",
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 127,
+          "end_line": 127,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ],
+      "parent": "proc:jubzq4h6n4"
+    },
+    {
+      "id": "proc:7fw3xudbvr",
+      "identity": [
+        "process",
+        "src/shoppingassistantservice/shoppingassistantservice.py",
+        "shoppingassistantservice"
+      ],
+      "origin": "observed",
+      "name": "shoppingassistantservice",
+      "level": 2,
+      "module": "src/shoppingassistantservice/shoppingassistantservice.py",
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
+        }
+      ],
+      "parent": "proc:msq7vvbu6s"
+    },
+    {
+      "id": "proc:gemltuekbd",
+      "identity": [
+        "process",
+        "src/currencyservice/server.js",
+        "gRPC healthProto.Health"
+      ],
+      "origin": "observed",
+      "name": "gRPC healthProto.Health handler",
+      "level": 2,
+      "module": "src/currencyservice/server.js",
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 186,
+          "end_line": 186,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
+        }
+      ],
+      "parent": "proc:kycw6edgj7"
+    },
+    {
+      "id": "proc:hra4z6usi2",
+      "identity": [
+        "process",
+        "kustomize",
+        "kustomize"
+      ],
+      "origin": "observed",
+      "name": "kustomize",
+      "level": 1,
+      "module": "kustomize",
+      "evidence": [
+        {
+          "path": "kustomize/components/shopping-assistant/scripts/generate_sql_from_products.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4cb32a252dc89644f8bf45e45be123e8cf6461c5448f5a73a63ec12fea79f521"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:jubzq4h6n4",
+      "identity": [
+        "process",
+        "src/emailservice",
+        "emailservice"
+      ],
+      "origin": "observed",
+      "name": "emailservice",
+      "level": 1,
+      "module": "src/emailservice",
+      "evidence": [
+        {
+          "path": "src/emailservice/demo_pb2.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:k6rhwk7raj",
+      "identity": [
+        "process",
+        "src/recommendationservice/client.py",
+        "client"
+      ],
+      "origin": "observed",
+      "name": "client",
+      "level": 2,
+      "module": "src/recommendationservice/client.py",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/client.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
+        }
+      ],
+      "parent": "proc:tcmo7ook3a"
+    },
+    {
+      "id": "proc:kg2rjsdf2w",
+      "identity": [
+        "process",
+        "src/emailservice/email_server.py",
+        "gRPC EmailServiceServicer"
+      ],
+      "origin": "observed",
+      "name": "gRPC EmailServiceServicer handler",
+      "level": 2,
+      "module": "src/emailservice/email_server.py",
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 126,
+          "end_line": 126,
+          "detector": "py@0.3",
+          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
+        }
+      ],
+      "parent": "proc:jubzq4h6n4"
+    },
+    {
+      "id": "proc:kjz4w7dkct",
+      "identity": [
+        "process",
+        "src/recommendationservice/recommendation_server.py",
+        "gRPC RecommendationServiceServicer"
+      ],
+      "origin": "observed",
+      "name": "gRPC RecommendationServiceServicer handler",
+      "level": 2,
+      "module": "src/recommendationservice/recommendation_server.py",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 143,
+          "end_line": 143,
+          "detector": "py@0.3",
+          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
+        }
+      ],
+      "parent": "proc:tcmo7ook3a"
+    },
+    {
+      "id": "proc:krvoyrn5l7",
+      "identity": [
+        "process",
+        "src/recommendationservice/recommendation_server.py",
+        "recommendation_server"
+      ],
+      "origin": "observed",
+      "name": "recommendation_server",
+      "level": 2,
+      "module": "src/recommendationservice/recommendation_server.py",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
+        }
+      ],
+      "parent": "proc:tcmo7ook3a"
+    },
+    {
+      "id": "proc:kycw6edgj7",
+      "identity": [
+        "process",
+        "src/currencyservice",
+        "currencyservice"
+      ],
+      "origin": "observed",
+      "name": "currencyservice",
+      "level": 1,
+      "module": "src/currencyservice",
+      "evidence": [
+        {
+          "path": "src/currencyservice/client.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:msq7vvbu6s",
+      "identity": [
+        "process",
+        "src/shoppingassistantservice",
+        "shoppingassistantservice"
+      ],
+      "origin": "observed",
+      "name": "shoppingassistantservice",
+      "level": 1,
+      "module": "src/shoppingassistantservice",
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:n5rg6wc7ft",
+      "identity": [
+        "process",
+        ".",
+        "microservices-demo"
+      ],
+      "origin": "observed",
+      "name": "microservices-demo",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:87a4637f66afb7d2032a5e730493b15609394fedb229e653bcdb5eb7dab279fa"
+        }
+      ]
+    },
+    {
+      "id": "proc:ro7fqscxno",
+      "identity": [
+        "process",
+        "src/loadgenerator",
+        "loadgenerator"
+      ],
+      "origin": "observed",
+      "name": "loadgenerator",
+      "level": 1,
+      "module": "src/loadgenerator",
+      "evidence": [
+        {
+          "path": "src/loadgenerator/locustfile.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:t6witxqxz4",
+      "identity": [
+        "process",
+        "src/shoppingassistantservice/shoppingassistantservice.py",
+        "POST /"
+      ],
+      "origin": "observed",
+      "name": "POST / handler",
+      "level": 2,
+      "module": "src/shoppingassistantservice/shoppingassistantservice.py",
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 65,
+          "end_line": 66,
+          "detector": "py@0.3",
+          "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
+        }
+      ],
+      "parent": "proc:msq7vvbu6s"
+    },
+    {
+      "id": "proc:tcmo7ook3a",
+      "identity": [
+        "process",
+        "src/recommendationservice",
+        "recommendationservice"
+      ],
+      "origin": "observed",
+      "name": "recommendationservice",
+      "level": 1,
+      "module": "src/recommendationservice",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/client.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
+        }
+      ],
+      "parent": "proc:n5rg6wc7ft"
+    },
+    {
+      "id": "proc:v4qfaty2kb",
+      "identity": [
+        "process",
+        "src/currencyservice/server.js",
+        "gRPC shopProto.CurrencyService"
+      ],
+      "origin": "observed",
+      "name": "gRPC shopProto.CurrencyService handler",
+      "level": 2,
+      "module": "src/currencyservice/server.js",
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 185,
+          "end_line": 185,
+          "detector": "js@0.3",
+          "content_hash": "sha256:07c897307b4864eabaeb75695c2721eff557c0ec029e6879ebc5c1746ba51626"
+        }
+      ],
+      "parent": "proc:kycw6edgj7"
+    },
+    {
+      "id": "proc:vtfanv77tp",
+      "identity": [
+        "process",
+        "src/recommendationservice/recommendation_server.py",
+        "gRPC HealthServicer"
+      ],
+      "origin": "observed",
+      "name": "gRPC HealthServicer handler",
+      "level": 2,
+      "module": "src/recommendationservice/recommendation_server.py",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 144,
+          "end_line": 144,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ],
+      "parent": "proc:tcmo7ook3a"
+    },
+    {
+      "id": "proc:yru6p2ypcz",
+      "identity": [
+        "process",
+        "src/emailservice/email_server.py",
+        "email_server"
+      ],
+      "origin": "observed",
+      "name": "email_server",
+      "level": 2,
+      "module": "src/emailservice/email_server.py",
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
+        }
+      ],
+      "parent": "proc:jubzq4h6n4"
+    },
+    {
+      "id": "proc:zf7chersix",
+      "identity": [
+        "process",
+        "src/paymentservice/server.js",
+        "gRPC healthPackage.Health"
+      ],
+      "origin": "observed",
+      "name": "gRPC healthPackage.Health handler",
+      "level": 2,
+      "module": "src/paymentservice/server.js",
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 95,
+          "end_line": 100,
+          "detector": "js@0.3",
+          "content_hash": "sha256:1769beccefcafdd451826a78a1e75c75273a784391df29c05bf59a6ded7934c7"
+        }
+      ],
+      "parent": "proc:5pxrkmisyz"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:5glqr7zsb5",
+      "identity": [
+        "external",
+        "OTLP collector",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "OTLP collector",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "py@0.3",
+          "content_hash": "sha256:23076a1747755067cdd987192d93bc4b7a3166ab638431923332f7ec36714c2d"
+        },
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "py@0.3",
+          "content_hash": "sha256:23076a1747755067cdd987192d93bc4b7a3166ab638431923332f7ec36714c2d"
+        }
+      ],
+      "sdk_service": "OTLP collector"
+    },
+    {
+      "id": "ext:e2lwbbcouh",
+      "identity": [
+        "external",
+        "Google Gemini API",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "Google Gemini API",
+      "kind": "llm_api",
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 82,
+          "end_line": 82,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f2aab015f95493789ea9a551e8252d81883b4815cecb7a128b9f45d1a6412ff3"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 108,
+          "end_line": 108,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f35298e09a97fe81d5643cd0b5cd1e554d8c1449e53fd5b81ef8dcf55a9e3cea"
+        }
+      ],
+      "host": "generativelanguage.googleapis.com",
+      "sdk_service": "Google Gemini API"
+    },
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 65,
+          "end_line": 66,
+          "detector": "py@0.3",
+          "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
+        }
+      ]
+    },
+    {
+      "id": "ext:sqc242xzn7",
+      "identity": [
+        "external",
+        "grpc-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "gRPC client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 185,
+          "end_line": 185,
+          "detector": "js@0.3",
+          "content_hash": "sha256:07c897307b4864eabaeb75695c2721eff557c0ec029e6879ebc5c1746ba51626"
+        },
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 186,
+          "end_line": 186,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
+        },
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 88,
+          "end_line": 93,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d77061e6e55988934b3b4ebf6c5ee696bdb6ba43a588080eca4d0ee9d0417e6e"
+        }
+      ]
+    },
+    {
+      "id": "ext:vpmyo25x2y",
+      "identity": [
+        "external",
+        "Google Cloud APIs",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "Google Cloud APIs",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "py@0.3",
+          "content_hash": "sha256:78e6b05bddcb34e1f9539425167279ddaed5024958f630d60208d6caab3bb70c"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "py@0.3",
+          "content_hash": "sha256:8b2fa23020f30493eff2e6e5cd3c98968851a9a7fc6d60a3c75caca70794d0f7"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "py@0.3",
+          "content_hash": "sha256:2af8e1bf7d6e000dbb4506283193cdc547281eedc769b2aded22cf028c2dbeb5"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "py@0.3",
+          "content_hash": "sha256:cd4a8b806af825e26e6a458b08c80d1e85819ff70f2e07f11952e06661acf846"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 39,
+          "end_line": 39,
+          "detector": "py@0.3",
+          "content_hash": "sha256:68b3bfca55ca67e0d20ab523ddcc975d06e482183e6ea8c6e719b2b00820bb54"
+        }
+      ],
+      "sdk_service": "Google Cloud APIs"
+    },
+    {
+      "id": "ext:xbo3iznjz7",
+      "identity": [
+        "external",
+        "productcatalogservice service",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "productcatalogservice service",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 135,
+          "end_line": 135,
+          "detector": "py@0.3",
+          "content_hash": "sha256:0a72ce5fbabdef61ce08466b3e88df8d787c4cb8c68ab84fee79fe6b14376ca3"
+        }
+      ],
+      "host": "productcatalogservice",
+      "sdk_service": "productcatalogservice service"
+    },
+    {
+      "id": "ext:xwfpv7zyiv",
+      "identity": [
+        "external",
+        "Unresolved grpc target",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "Unresolved grpc target",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/recommendationservice/client.py",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "py@0.3",
+          "content_hash": "sha256:262c8fc45da46022baf51033e17f4f79430110a2b8527e3372dad185893f76b6"
+        }
+      ],
+      "sdk_service": "Unresolved grpc target"
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:xloe757iea",
+      "identity": [
+        "store",
+        "redis",
+        "redis-cart"
+      ],
+      "origin": "observed",
+      "name": "Redis: redis-cart",
+      "technology": "redis",
+      "logical_name": "redis-cart",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/cartservice.yaml",
+          "start_line": 92,
+          "end_line": 92,
+          "detector": "config@0.3",
+          "content_hash": "sha256:8f5f2f711a71babb1a269ec21fab70fa7bc352431095e80fc4781f6ce0464f83"
+        },
+        {
+          "path": "kustomize/base/cartservice.yaml",
+          "start_line": 92,
+          "end_line": 92,
+          "detector": "config@0.3",
+          "content_hash": "sha256:8f5f2f711a71babb1a269ec21fab70fa7bc352431095e80fc4781f6ce0464f83"
+        },
+        {
+          "path": "release/kubernetes-manifests.yaml",
+          "start_line": 842,
+          "end_line": 842,
+          "detector": "config@0.3",
+          "content_hash": "sha256:8f5f2f711a71babb1a269ec21fab70fa7bc352431095e80fc4781f6ce0464f83"
+        }
+      ],
+      "description": "declared as service 'redis-cart' in kubernetes-manifests/cartservice.yaml"
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:57uwq6gika",
+      "identity": [
+        "boundary",
+        "repository",
+        "microservices-demo"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: microservices-demo",
+      "kind": "repository",
+      "contains": [
+        "proc:hra4z6usi2",
+        "proc:n5rg6wc7ft"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:87a4637f66afb7d2032a5e730493b15609394fedb229e653bcdb5eb7dab279fa"
+        }
+      ]
+    },
+    {
+      "id": "bnd:7n55q7x47r",
+      "identity": [
+        "boundary",
+        "container",
+        "shoppingassistantservice"
+      ],
+      "origin": "observed",
+      "name": "container: shoppingassistantservice",
+      "kind": "container",
+      "contains": [
+        "proc:7fw3xudbvr",
+        "proc:msq7vvbu6s",
+        "proc:t6witxqxz4"
+      ],
+      "evidence": [
+        {
+          "path": "kustomize/components/shopping-assistant/shoppingassistantservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:ab3c62b00bbb7d58691d49f266836f3cf4213fe936c9a4e8a9d367ea7ed19521"
+        }
+      ]
+    },
+    {
+      "id": "bnd:blo2xu3bom",
+      "identity": [
+        "boundary",
+        "container",
+        "paymentservice"
+      ],
+      "origin": "observed",
+      "name": "container: paymentservice",
+      "kind": "container",
+      "contains": [
+        "proc:4xkowmegqv",
+        "proc:5pxrkmisyz",
+        "proc:zf7chersix"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/paymentservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:6864e8df1c97702d6f375748786c36f97439822be02bcccf5ca288fa86f1dc43"
+        }
+      ]
+    },
+    {
+      "id": "bnd:c76yxdhq2j",
+      "identity": [
+        "boundary",
+        "container",
+        "recommendationservice"
+      ],
+      "origin": "observed",
+      "name": "container: recommendationservice",
+      "kind": "container",
+      "contains": [
+        "proc:k6rhwk7raj",
+        "proc:kjz4w7dkct",
+        "proc:krvoyrn5l7",
+        "proc:tcmo7ook3a",
+        "proc:vtfanv77tp"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/recommendationservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:ea61f7015c640da596d6662a4d0ed4e70be00ced035fc7b98def833124a4e031"
+        }
+      ]
+    },
+    {
+      "id": "bnd:k2ytjpuxdg",
+      "identity": [
+        "boundary",
+        "container",
+        "loadgenerator"
+      ],
+      "origin": "observed",
+      "name": "container: loadgenerator",
+      "kind": "container",
+      "contains": [
+        "proc:ro7fqscxno"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/loadgenerator.yaml",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "config@0.3",
+          "content_hash": "sha256:87d2a928ff8de271f8e890453acd11f662ce00c4eb5a87486e9cce4036d689c8"
+        }
+      ]
+    },
+    {
+      "id": "bnd:owyzrxhpvm",
+      "identity": [
+        "boundary",
+        "container",
+        "emailservice"
+      ],
+      "origin": "observed",
+      "name": "container: emailservice",
+      "kind": "container",
+      "contains": [
+        "proc:75jd4q6d4k",
+        "proc:jubzq4h6n4",
+        "proc:kg2rjsdf2w",
+        "proc:yru6p2ypcz"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/emailservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:1ed6d69bf9e14b76d5192a8b8c748f6cb0f4ed3f937f77b35a9fc779203e4176"
+        }
+      ]
+    },
+    {
+      "id": "bnd:seoeqgkskf",
+      "identity": [
+        "boundary",
+        "container",
+        "currencyservice"
+      ],
+      "origin": "observed",
+      "name": "container: currencyservice",
+      "kind": "container",
+      "contains": [
+        "proc:gemltuekbd",
+        "proc:kycw6edgj7",
+        "proc:v4qfaty2kb"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/currencyservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:b93dd47a87b5bd5cee911534216cbb93859b947642f8199f6bfa72508db63a3f"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:3ihcvm4tmw",
+      "identity": [
+        "flow",
+        "proc:t6witxqxz4",
+        "ext:e2lwbbcouh",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:t6witxqxz4",
+      "target": "ext:e2lwbbcouh",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "invoke",
+      "crosses_boundary": [
+        "bnd:7n55q7x47r"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 82,
+          "end_line": 82,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f2aab015f95493789ea9a551e8252d81883b4815cecb7a128b9f45d1a6412ff3"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 108,
+          "end_line": 108,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f35298e09a97fe81d5643cd0b5cd1e554d8c1449e53fd5b81ef8dcf55a9e3cea"
+        }
+      ]
+    },
+    {
+      "id": "flow:aibcboawrb",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:v4qfaty2kb",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:v4qfaty2kb",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc shopProto.CurrencyService",
+      "crosses_boundary": [
+        "bnd:seoeqgkskf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 185,
+          "end_line": 185,
+          "detector": "js@0.3",
+          "content_hash": "sha256:07c897307b4864eabaeb75695c2721eff557c0ec029e6879ebc5c1746ba51626"
+        }
+      ]
+    },
+    {
+      "id": "flow:d4vmbiiypa",
+      "identity": [
+        "flow",
+        "proc:krvoyrn5l7",
+        "ext:5glqr7zsb5",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:krvoyrn5l7",
+      "target": "ext:5glqr7zsb5",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:c76yxdhq2j"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "py@0.3",
+          "content_hash": "sha256:23076a1747755067cdd987192d93bc4b7a3166ab638431923332f7ec36714c2d"
+        }
+      ]
+    },
+    {
+      "id": "flow:ejyijgv5c4",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:75jd4q6d4k",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:75jd4q6d4k",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc HealthServicer",
+      "crosses_boundary": [
+        "bnd:owyzrxhpvm"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 127,
+          "end_line": 127,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ]
+    },
+    {
+      "id": "flow:hav34b7ryo",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:gemltuekbd",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:gemltuekbd",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc healthProto.Health",
+      "crosses_boundary": [
+        "bnd:seoeqgkskf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 186,
+          "end_line": 186,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
+        }
+      ]
+    },
+    {
+      "id": "flow:mukjzdq7ye",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:kg2rjsdf2w",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:kg2rjsdf2w",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc EmailServiceServicer",
+      "crosses_boundary": [
+        "bnd:owyzrxhpvm"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 126,
+          "end_line": 126,
+          "detector": "py@0.3",
+          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
+        }
+      ]
+    },
+    {
+      "id": "flow:n2pah7mzrh",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:kjz4w7dkct",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:kjz4w7dkct",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc RecommendationServiceServicer",
+      "crosses_boundary": [
+        "bnd:c76yxdhq2j"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 143,
+          "end_line": 143,
+          "detector": "py@0.3",
+          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
+        }
+      ]
+    },
+    {
+      "id": "flow:n2xaw4izq6",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:4xkowmegqv",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:4xkowmegqv",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc hipsterShopPackage.PaymentService",
+      "crosses_boundary": [
+        "bnd:blo2xu3bom"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 88,
+          "end_line": 93,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d77061e6e55988934b3b4ebf6c5ee696bdb6ba43a588080eca4d0ee9d0417e6e"
+        }
+      ]
+    },
+    {
+      "id": "flow:obsq3mrazi",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:vtfanv77tp",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:vtfanv77tp",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc HealthServicer",
+      "crosses_boundary": [
+        "bnd:c76yxdhq2j"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 144,
+          "end_line": 144,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ]
+    },
+    {
+      "id": "flow:pttw7jhjfo",
+      "identity": [
+        "flow",
+        "proc:k6rhwk7raj",
+        "ext:xwfpv7zyiv",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:k6rhwk7raj",
+      "target": "ext:xwfpv7zyiv",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc_channel",
+      "crosses_boundary": [
+        "bnd:c76yxdhq2j"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/client.py",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "py@0.3",
+          "content_hash": "sha256:262c8fc45da46022baf51033e17f4f79430110a2b8527e3372dad185893f76b6"
+        }
+      ]
+    },
+    {
+      "id": "flow:s6zyxnrpoz",
+      "identity": [
+        "flow",
+        "proc:7fw3xudbvr",
+        "ext:vpmyo25x2y",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:7fw3xudbvr",
+      "target": "ext:vpmyo25x2y",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "SecretManagerServiceClient",
+      "crosses_boundary": [
+        "bnd:7n55q7x47r"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "py@0.3",
+          "content_hash": "sha256:78e6b05bddcb34e1f9539425167279ddaed5024958f630d60208d6caab3bb70c"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "py@0.3",
+          "content_hash": "sha256:8b2fa23020f30493eff2e6e5cd3c98968851a9a7fc6d60a3c75caca70794d0f7"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "py@0.3",
+          "content_hash": "sha256:2af8e1bf7d6e000dbb4506283193cdc547281eedc769b2aded22cf028c2dbeb5"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "py@0.3",
+          "content_hash": "sha256:cd4a8b806af825e26e6a458b08c80d1e85819ff70f2e07f11952e06661acf846"
+        },
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 39,
+          "end_line": 39,
+          "detector": "py@0.3",
+          "content_hash": "sha256:68b3bfca55ca67e0d20ab523ddcc975d06e482183e6ea8c6e719b2b00820bb54"
+        }
+      ]
+    },
+    {
+      "id": "flow:szsntxg36k",
+      "identity": [
+        "flow",
+        "ext:sqc242xzn7",
+        "proc:zf7chersix",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sqc242xzn7",
+      "target": "proc:zf7chersix",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "grpc healthPackage.Health",
+      "crosses_boundary": [
+        "bnd:blo2xu3bom"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 95,
+          "end_line": 100,
+          "detector": "js@0.3",
+          "content_hash": "sha256:1769beccefcafdd451826a78a1e75c75273a784391df29c05bf59a6ded7934c7"
+        }
+      ]
+    },
+    {
+      "id": "flow:t7cyfksvo6",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:t6witxqxz4",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:t6witxqxz4",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /",
+      "crosses_boundary": [
+        "bnd:7n55q7x47r"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 65,
+          "end_line": 66,
+          "detector": "py@0.3",
+          "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
+        }
+      ]
+    },
+    {
+      "id": "flow:tjxvsnqrso",
+      "identity": [
+        "flow",
+        "proc:krvoyrn5l7",
+        "ext:xbo3iznjz7",
+        "grpc",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:krvoyrn5l7",
+      "target": "ext:xbo3iznjz7",
+      "protocol": "grpc",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "none",
+      "purpose": "grpc_channel",
+      "crosses_boundary": [
+        "bnd:c76yxdhq2j"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 135,
+          "end_line": 135,
+          "detector": "py@0.3",
+          "content_hash": "sha256:0a72ce5fbabdef61ce08466b3e88df8d787c4cb8c68ab84fee79fe6b14376ca3"
+        }
+      ]
+    },
+    {
+      "id": "flow:yjo3cyf6cn",
+      "identity": [
+        "flow",
+        "proc:yru6p2ypcz",
+        "ext:5glqr7zsb5",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:yru6p2ypcz",
+      "target": "ext:5glqr7zsb5",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "sdk_import",
+      "crosses_boundary": [
+        "bnd:owyzrxhpvm"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "py@0.3",
+          "content_hash": "sha256:23076a1747755067cdd987192d93bc4b7a3166ab638431923332f7ec36714c2d"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:6vft6mjeec",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "RecommendationServiceServicer",
+        "src/recommendationservice/recommendation_server.py"
+      ],
+      "origin": "observed",
+      "process": "proc:kjz4w7dkct",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "RecommendationServiceServicer",
+      "controls": [],
+      "call_chain": [
+        "proc:kjz4w7dkct"
+      ],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 143,
+          "end_line": 143,
+          "detector": "py@0.3",
+          "content_hash": "sha256:c5272d2e2e2ffe479b77cbc5c0fdf50d48e384f2720afef7c1faebe20f6768b2"
+        }
+      ]
+    },
+    {
+      "id": "ep:dspukbeyse",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "hipsterShopPackage.PaymentService",
+        "src/paymentservice/server.js"
+      ],
+      "origin": "observed",
+      "process": "proc:4xkowmegqv",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "hipsterShopPackage.PaymentService",
+      "controls": [],
+      "call_chain": [
+        "proc:4xkowmegqv"
+      ],
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 88,
+          "end_line": 93,
+          "detector": "js@0.3",
+          "content_hash": "sha256:d77061e6e55988934b3b4ebf6c5ee696bdb6ba43a588080eca4d0ee9d0417e6e"
+        }
+      ]
+    },
+    {
+      "id": "ep:eltpwacw3p",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "healthProto.Health",
+        "src/currencyservice/server.js"
+      ],
+      "origin": "observed",
+      "process": "proc:gemltuekbd",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "healthProto.Health",
+      "controls": [],
+      "call_chain": [
+        "proc:gemltuekbd"
+      ],
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 186,
+          "end_line": 186,
+          "detector": "js@0.3",
+          "content_hash": "sha256:3cfcede2fe4647ea2694a30a34540e376c8c91f0bfe943d02f0573f293194eca"
+        }
+      ]
+    },
+    {
+      "id": "ep:fcybzems6s",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "EmailServiceServicer",
+        "src/emailservice/email_server.py"
+      ],
+      "origin": "observed",
+      "process": "proc:kg2rjsdf2w",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "EmailServiceServicer",
+      "controls": [],
+      "call_chain": [
+        "proc:kg2rjsdf2w"
+      ],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 126,
+          "end_line": 126,
+          "detector": "py@0.3",
+          "content_hash": "sha256:21fd096d4dcbda655cdeeed843aee20b7c57a2b1ce3a217ca773f88889cb14d6"
+        }
+      ]
+    },
+    {
+      "id": "ep:gxbeievhub",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "shopProto.CurrencyService",
+        "src/currencyservice/server.js"
+      ],
+      "origin": "observed",
+      "process": "proc:v4qfaty2kb",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "shopProto.CurrencyService",
+      "controls": [],
+      "call_chain": [
+        "proc:v4qfaty2kb"
+      ],
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 185,
+          "end_line": 185,
+          "detector": "js@0.3",
+          "content_hash": "sha256:07c897307b4864eabaeb75695c2721eff557c0ec029e6879ebc5c1746ba51626"
+        }
+      ]
+    },
+    {
+      "id": "ep:sccykkxcpa",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "HealthServicer",
+        "src/recommendationservice/recommendation_server.py"
+      ],
+      "origin": "observed",
+      "process": "proc:vtfanv77tp",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "HealthServicer",
+      "controls": [],
+      "call_chain": [
+        "proc:vtfanv77tp"
+      ],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 144,
+          "end_line": 144,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ]
+    },
+    {
+      "id": "ep:tekh2ykhg5",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "healthPackage.Health",
+        "src/paymentservice/server.js"
+      ],
+      "origin": "observed",
+      "process": "proc:zf7chersix",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "healthPackage.Health",
+      "controls": [],
+      "call_chain": [
+        "proc:zf7chersix"
+      ],
+      "evidence": [
+        {
+          "path": "src/paymentservice/server.js",
+          "start_line": 95,
+          "end_line": 100,
+          "detector": "js@0.3",
+          "content_hash": "sha256:1769beccefcafdd451826a78a1e75c75273a784391df29c05bf59a6ded7934c7"
+        }
+      ]
+    },
+    {
+      "id": "ep:vu3wdwl3an",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/",
+        "src/shoppingassistantservice/shoppingassistantservice.py"
+      ],
+      "origin": "observed",
+      "process": "proc:t6witxqxz4",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/",
+      "controls": [],
+      "call_chain": [
+        "proc:t6witxqxz4"
+      ],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 65,
+          "end_line": 66,
+          "detector": "py@0.3",
+          "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
+        }
+      ]
+    },
+    {
+      "id": "ep:xe4idxq2l4",
+      "identity": [
+        "entry_point",
+        "grpc",
+        "grpc",
+        "HealthServicer",
+        "src/emailservice/email_server.py"
+      ],
+      "origin": "observed",
+      "process": "proc:75jd4q6d4k",
+      "protocol": "grpc",
+      "method": "grpc",
+      "path": "HealthServicer",
+      "controls": [],
+      "call_chain": [
+        "proc:75jd4q6d4k"
+      ],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 127,
+          "end_line": 127,
+          "detector": "py@0.3",
+          "content_hash": "sha256:19e065bd152c0b706173ad0ce302ce7785e7e8dfec09cce89a1633e9bd1a3c24"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "weaknesses": [
+    {
+      "id": "wk:72idl5xmip",
+      "identity": [
+        "weakness",
+        "unencrypted_transport",
+        "src/recommendationservice/recommendation_server.py:135"
+      ],
+      "origin": "observed",
+      "kind": "unencrypted_transport",
+      "name": "grpc.insecure_channel",
+      "applies_to": [
+        "proc:kjz4w7dkct",
+        "proc:krvoyrn5l7",
+        "proc:vtfanv77tp"
+      ],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 135,
+          "end_line": 135,
+          "detector": "py@0.3",
+          "content_hash": "sha256:0a72ce5fbabdef61ce08466b3e88df8d787c4cb8c68ab84fee79fe6b14376ca3"
+        }
+      ]
+    },
+    {
+      "id": "wk:a7phdnzkjk",
+      "identity": [
+        "weakness",
+        "unencrypted_transport",
+        "src/recommendationservice/client.py:33"
+      ],
+      "origin": "observed",
+      "kind": "unencrypted_transport",
+      "name": "grpc.insecure_channel",
+      "applies_to": [
+        "proc:k6rhwk7raj"
+      ],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/client.py",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "py@0.3",
+          "content_hash": "sha256:262c8fc45da46022baf51033e17f4f79430110a2b8527e3372dad185893f76b6"
+        }
+      ]
+    },
+    {
+      "id": "wk:qjwq7pwfxe",
+      "identity": [
+        "weakness",
+        "plaintext_credentials",
+        "kustomize/components/shopping-assistant/shoppingassistantservice.yaml:18"
+      ],
+      "origin": "observed",
+      "kind": "plaintext_credentials",
+      "name": "ALLOYDB_SECRET_NAME literal in Deployment shoppingassistantservice",
+      "applies_to": [
+        "proc:n5rg6wc7ft"
+      ],
+      "evidence": [
+        {
+          "path": "kustomize/components/shopping-assistant/shoppingassistantservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:ab3c62b00bbb7d58691d49f266836f3cf4213fe936c9a4e8a9d367ea7ed19521"
+        }
+      ]
+    },
+    {
+      "id": "wk:xkt6pqabsr",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:vu3wdwl3an"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /",
+      "applies_to": [
+        "ep:vu3wdwl3an"
+      ],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 65,
+          "end_line": 66,
+          "detector": "py@0.3",
+          "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:2f6rsa7bnh",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:seoeqgkskf"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: currencyservice",
+      "access": "insider",
+      "location": "bnd:seoeqgkskf",
+      "entry": [
+        "proc:gemltuekbd",
+        "proc:v4qfaty2kb"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/currencyservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:b93dd47a87b5bd5cee911534216cbb93859b947642f8199f6bfa72508db63a3f"
+        }
+      ]
+    },
+    {
+      "id": "agent:366mmkqw5e",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:5glqr7zsb5"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
+      "name": "Compromised third party: OTLP collector",
+      "access": "third_party",
+      "entry": [
+        "ext:5glqr7zsb5"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "src/emailservice/email_server.py",
+          "start_line": 37,
+          "end_line": 37,
+          "detector": "py@0.3",
+          "content_hash": "sha256:23076a1747755067cdd987192d93bc4b7a3166ab638431923332f7ec36714c2d"
+        }
+      ]
+    },
+    {
+      "id": "agent:3l2mmwghkk",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:k2ytjpuxdg"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: loadgenerator",
+      "access": "insider",
+      "location": "bnd:k2ytjpuxdg",
+      "entry": [
+        "proc:ro7fqscxno"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/loadgenerator.yaml",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "config@0.3",
+          "content_hash": "sha256:87d2a928ff8de271f8e890453acd11f662ce00c4eb5a87486e9cce4036d689c8"
+        }
+      ]
+    },
+    {
+      "id": "agent:b6yz2gkzrj",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:57uwq6gika"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to repository: microservices-demo",
+      "access": "insider",
+      "location": "bnd:57uwq6gika",
+      "entry": [
+        "proc:hra4z6usi2"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:87a4637f66afb7d2032a5e730493b15609394fedb229e653bcdb5eb7dab279fa"
+        }
+      ]
+    },
+    {
+      "id": "agent:hhvsovsynh",
+      "identity": [
+        "agent",
+        "anonymous",
+        "grpc-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "8 grpc entry points, 8 without a detected authn control",
+      "name": "Anonymous GRPC caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sqc242xzn7"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "src/currencyservice/server.js",
+          "start_line": 185,
+          "end_line": 185,
+          "detector": "js@0.3",
+          "content_hash": "sha256:07c897307b4864eabaeb75695c2721eff557c0ec029e6879ebc5c1746ba51626"
+        }
+      ]
+    },
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "1 http entry points, 1 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 65,
+          "end_line": 66,
+          "detector": "py@0.3",
+          "content_hash": "sha256:ee81da82d68b9e6fc8c24b8a6e0fad0119dd4b5a583cbbf1e953be3a12465db6"
+        }
+      ]
+    },
+    {
+      "id": "agent:k6h7pnya4f",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:7n55q7x47r"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: shoppingassistantservice",
+      "access": "insider",
+      "location": "bnd:7n55q7x47r",
+      "entry": [
+        "proc:7fw3xudbvr",
+        "proc:t6witxqxz4"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kustomize/components/shopping-assistant/shoppingassistantservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:ab3c62b00bbb7d58691d49f266836f3cf4213fe936c9a4e8a9d367ea7ed19521"
+        }
+      ]
+    },
+    {
+      "id": "agent:onvamqkj7u",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:vpmyo25x2y"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
+      "name": "Compromised third party: Google Cloud APIs",
+      "access": "third_party",
+      "entry": [
+        "ext:vpmyo25x2y"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "py@0.3",
+          "content_hash": "sha256:78e6b05bddcb34e1f9539425167279ddaed5024958f630d60208d6caab3bb70c"
+        }
+      ]
+    },
+    {
+      "id": "agent:pftvfdbjvs",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:e2lwbbcouh"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
+      "name": "Compromised third party: Google Gemini API",
+      "access": "third_party",
+      "entry": [
+        "ext:e2lwbbcouh"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+          "start_line": 82,
+          "end_line": 82,
+          "detector": "py@0.3",
+          "content_hash": "sha256:f2aab015f95493789ea9a551e8252d81883b4815cecb7a128b9f45d1a6412ff3"
+        }
+      ]
+    },
+    {
+      "id": "agent:u5jz7uffsz",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:owyzrxhpvm"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: emailservice",
+      "access": "insider",
+      "location": "bnd:owyzrxhpvm",
+      "entry": [
+        "proc:75jd4q6d4k",
+        "proc:kg2rjsdf2w",
+        "proc:yru6p2ypcz"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/emailservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:1ed6d69bf9e14b76d5192a8b8c748f6cb0f4ed3f937f77b35a9fc779203e4176"
+        }
+      ]
+    },
+    {
+      "id": "agent:vfivyim42m",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:xbo3iznjz7"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
+      "name": "Compromised third party: productcatalogservice service",
+      "access": "third_party",
+      "entry": [
+        "ext:xbo3iznjz7"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/recommendation_server.py",
+          "start_line": 135,
+          "end_line": 135,
+          "detector": "py@0.3",
+          "content_hash": "sha256:0a72ce5fbabdef61ce08466b3e88df8d787c4cb8c68ab84fee79fe6b14376ca3"
+        }
+      ]
+    },
+    {
+      "id": "agent:wh3u4wqzz7",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:blo2xu3bom"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: paymentservice",
+      "access": "insider",
+      "location": "bnd:blo2xu3bom",
+      "entry": [
+        "proc:4xkowmegqv",
+        "proc:zf7chersix"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/paymentservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:6864e8df1c97702d6f375748786c36f97439822be02bcccf5ca288fa86f1dc43"
+        }
+      ]
+    },
+    {
+      "id": "agent:ylttajeaoa",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:c76yxdhq2j"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: recommendationservice",
+      "access": "insider",
+      "location": "bnd:c76yxdhq2j",
+      "entry": [
+        "proc:k6rhwk7raj",
+        "proc:kjz4w7dkct",
+        "proc:krvoyrn5l7",
+        "proc:vtfanv77tp"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "kubernetes-manifests/recommendationservice.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:ea61f7015c640da596d6662a4d0ed4e70be00ced035fc7b98def833124a4e031"
+        }
+      ]
+    },
+    {
+      "id": "agent:ytbercgjq2",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:xwfpv7zyiv"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
+      "name": "Compromised third party: Unresolved grpc target",
+      "access": "third_party",
+      "entry": [
+        "ext:xwfpv7zyiv"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "src/recommendationservice/client.py",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "py@0.3",
+          "content_hash": "sha256:262c8fc45da46022baf51033e17f4f79430110a2b8527e3372dad185893f76b6"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unresolved",
+      "path": "kubernetes-manifests/cartservice.yaml",
+      "line": 92,
+      "detail": "Redis: redis-cart is declared but no code access to it was detected (unsupported language, dynamic client, or a missing recognizer)"
+    },
+    {
+      "kind": "unsupported_file",
+      "path": "src/cartservice/src/Program.cs",
+      "detail": "no recognizer for .cs: 9 file(s), e.g. src/cartservice/src/Program.cs, src/cartservice/src/Startup.cs, src/cartservice/src/cartstore/AlloyDBCartStore.cs"
+    },
+    {
+      "kind": "unsupported_file",
+      "path": "src/checkoutservice/main.go",
+      "detail": "no recognizer for .go: 29 file(s), e.g. src/checkoutservice/main.go, src/checkoutservice/genproto/demo.pb.go, src/checkoutservice/genproto/demo_grpc.pb.go"
+    },
+    {
+      "kind": "unsupported_file",
+      "path": "src/adservice/src/main/java/hipstershop/AdService.java",
+      "detail": "no recognizer for .java: 2 file(s), e.g. src/adservice/src/main/java/hipstershop/AdService.java, src/adservice/src/main/java/hipstershop/AdServiceClient.java"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/paymentservice/index.js",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port '[::]:'+port, (host='0.0.0.0', port=8080), ?? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/emailservice/email_server.py",
+      "line": 37,
+      "detail": "Question for the team: how is the link to OTLP collector authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/recommendationservice/client.py",
+      "line": 33,
+      "detail": "Question for the team: how is the link to Unresolved grpc target authenticated and is it encrypted in transit? (authentication=unknown, encryption=none)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/recommendationservice/recommendation_server.py",
+      "line": 135,
+      "detail": "Question for the team: how is the link to productcatalogservice service authenticated and is it encrypted in transit? (authentication=unknown, encryption=none)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+      "line": 35,
+      "detail": "Question for the team: how is the link to Google Cloud APIs authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/shoppingassistantservice/shoppingassistantservice.py",
+      "line": 82,
+      "detail": "Question for the team: how is the link to Google Gemini API authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)"
+    }
+  ]
+}

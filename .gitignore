@@ -1,3 +1,4 @@
 node_modules/
 __pycache__/
 .code2design/
+package-lock.json

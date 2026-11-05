@@ -1,0 +1,170 @@
+[
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:aibcboawrb",
+    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC shopProto.CurrencyService handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:ejyijgv5c4",
+    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC HealthServicer handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:hav34b7ryo",
+    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC healthProto.Health handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:mukjzdq7ye",
+    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC EmailServiceServicer handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:n2pah7mzrh",
+    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC RecommendationServiceServicer handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:n2xaw4izq6",
+    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC hipsterShopPackage.PaymentService handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:obsq3mrazi",
+    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC HealthServicer handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:szsntxg36k",
+    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC healthPackage.Health handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:t7cyfksvo6",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3ihcvm4tmw",
+    "message": "POST / handler -> Google Gemini API: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:d4vmbiiypa",
+    "message": "recommendation_server -> OTLP collector: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:pttw7jhjfo",
+    "message": "client -> Unresolved grpc target: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:s6zyxnrpoz",
+    "message": "shoppingassistantservice -> Google Cloud APIs: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:tjxvsnqrso",
+    "message": "recommendation_server -> productcatalogservice service: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:yjo3cyf6cn",
+    "message": "email_server -> OTLP collector: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness",
+    "id": "wk:qjwq7pwfxe",
+    "message": "plaintext_credentials: ALLOYDB_SECRET_NAME literal in Deployment shoppingassistantservice (kustomize/components/shopping-assistant/shoppingassistantservice.yaml:18)"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:4xkowmegqv",
+    "message": "process gRPC hipsterShopPackage.PaymentService handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:75jd4q6d4k",
+    "message": "process gRPC HealthServicer handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:7fw3xudbvr",
+    "message": "process shoppingassistantservice has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:gemltuekbd",
+    "message": "process gRPC healthProto.Health handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:k6rhwk7raj",
+    "message": "process client has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:kg2rjsdf2w",
+    "message": "process gRPC EmailServiceServicer handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:kjz4w7dkct",
+    "message": "process gRPC RecommendationServiceServicer handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:krvoyrn5l7",
+    "message": "process recommendation_server has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:v4qfaty2kb",
+    "message": "process gRPC shopProto.CurrencyService handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:vtfanv77tp",
+    "message": "process gRPC HealthServicer handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:yru6p2ypcz",
+    "message": "process email_server has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:zf7chersix",
+    "message": "process gRPC healthPackage.Health handler has only inputs; a detector may be missing"
+  }
+]

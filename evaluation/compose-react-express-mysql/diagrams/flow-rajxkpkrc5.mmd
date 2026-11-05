@@ -1,0 +1,9 @@
+%% Control flow: GET /healthz
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_yxublw3pv7 as morgan
+  participant proc_acpcyekf6e as GET /healthz handler
+  ext_sga4qktkap->>ctl_yxublw3pv7: GET /healthz (audit_log)
+  ctl_yxublw3pv7->>proc_acpcyekf6e: dispatch
+  proc_acpcyekf6e-->>ext_sga4qktkap: response

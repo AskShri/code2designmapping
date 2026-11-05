@@ -1,0 +1,411 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
+    "generated_from": "compose-django",
+    "detectors": [
+      "config@0.3",
+      "py@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "app/Dockerfile": "sha256:3ad6ffaeccc0b9253afdbf807fecc4f0cb3b8f82b5cfa435730ad7c4b0ecf628",
+      "app/example/settings.py": "sha256:fb474c28ceffb7166f16bd580fddba5b2bbe6d5b5a7698bc0bae750e39edd071",
+      "app/example/urls.py": "sha256:5254dbabbf77910c69a0a3188badfbfd6649071e7f6857937bfef57740f47bfa",
+      "app/requirements.txt": "sha256:26e106e3d98915b3d8720db71ecea8e133b66d589d6cf1e5e74346d6e3141f1b",
+      "compose.yaml": "sha256:3547174ce70a2504c883a81034d720ffc5045ea7ee1f18f60abf1a8ffa2a2b42"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:4gmbfsikwv",
+      "identity": [
+        "process",
+        "app/example/urls.py",
+        "ANY /^admin/"
+      ],
+      "origin": "observed",
+      "name": "ANY /^admin/ handler",
+      "level": 2,
+      "module": "app/example/urls.py",
+      "evidence": [
+        {
+          "path": "app/example/urls.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "py@0.3",
+          "content_hash": "sha256:be0004e847f9aea418fc2132bf243938d64bddccdd54b1a89ee3660d797d9798"
+        }
+      ],
+      "parent": "proc:zsfjiajwwq"
+    },
+    {
+      "id": "proc:khovniqixb",
+      "identity": [
+        "process",
+        ".",
+        "compose-django"
+      ],
+      "origin": "observed",
+      "name": "compose-django",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:b24edb52a43af64dcef5ae280d3c635dae772f8024087df340c47c63a81d048a"
+        }
+      ]
+    },
+    {
+      "id": "proc:oysktcjkmj",
+      "identity": [
+        "process",
+        "app",
+        "web"
+      ],
+      "origin": "observed",
+      "name": "web",
+      "level": 1,
+      "module": "app",
+      "evidence": [
+        {
+          "path": "app/manage.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:76ef2f289986e89e0d7b3370a0a13cb37b395b6d047b76858e6c310cbc49c458"
+        }
+      ],
+      "parent": "proc:khovniqixb"
+    },
+    {
+      "id": "proc:zsfjiajwwq",
+      "identity": [
+        "process",
+        "app/example",
+        "example"
+      ],
+      "origin": "observed",
+      "name": "example",
+      "level": 1,
+      "module": "app/example",
+      "evidence": [
+        {
+          "path": "app/example/__init__.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "parent": "proc:khovniqixb"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "app/example/urls.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "py@0.3",
+          "content_hash": "sha256:be0004e847f9aea418fc2132bf243938d64bddccdd54b1a89ee3660d797d9798"
+        }
+      ]
+    }
+  ],
+  "stores": [],
+  "boundaries": [
+    {
+      "id": "bnd:mzds2ckrym",
+      "identity": [
+        "boundary",
+        "repository",
+        "compose-django"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: compose-django",
+      "kind": "repository",
+      "contains": [
+        "proc:khovniqixb"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:b24edb52a43af64dcef5ae280d3c635dae772f8024087df340c47c63a81d048a"
+        }
+      ]
+    },
+    {
+      "id": "bnd:u5rsisolmh",
+      "identity": [
+        "boundary",
+        "container",
+        "web"
+      ],
+      "origin": "observed",
+      "name": "container: web",
+      "kind": "container",
+      "contains": [
+        "proc:4gmbfsikwv",
+        "proc:oysktcjkmj",
+        "proc:zsfjiajwwq"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:hlo6n4xani",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:4gmbfsikwv",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:4gmbfsikwv",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "ANY /^admin/",
+      "crosses_boundary": [
+        "bnd:u5rsisolmh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/example/urls.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "py@0.3",
+          "content_hash": "sha256:be0004e847f9aea418fc2132bf243938d64bddccdd54b1a89ee3660d797d9798"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:uxe6yac5f2",
+      "identity": [
+        "entry_point",
+        "http",
+        "ANY",
+        "/^admin/",
+        "app/example/urls.py"
+      ],
+      "origin": "observed",
+      "process": "proc:4gmbfsikwv",
+      "protocol": "http",
+      "method": "ANY",
+      "path": "/^admin/",
+      "controls": [],
+      "call_chain": [
+        "proc:4gmbfsikwv"
+      ],
+      "evidence": [
+        {
+          "path": "app/example/urls.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "py@0.3",
+          "content_hash": "sha256:be0004e847f9aea418fc2132bf243938d64bddccdd54b1a89ee3660d797d9798"
+        }
+      ]
+    }
+  ],
+  "controls": [],
+  "weaknesses": [
+    {
+      "id": "wk:mw36daaehl",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:uxe6yac5f2"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on ANY /^admin/",
+      "applies_to": [
+        "ep:uxe6yac5f2"
+      ],
+      "evidence": [
+        {
+          "path": "app/example/urls.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "py@0.3",
+          "content_hash": "sha256:be0004e847f9aea418fc2132bf243938d64bddccdd54b1a89ee3660d797d9798"
+        }
+      ]
+    },
+    {
+      "id": "wk:qsa4w3kcju",
+      "identity": [
+        "weakness",
+        "secret_in_env_at_import",
+        "app/example/settings.py:31"
+      ],
+      "origin": "observed",
+      "kind": "secret_in_env_at_import",
+      "name": "SECRET_KEY read at module import",
+      "applies_to": [
+        "proc:zsfjiajwwq"
+      ],
+      "evidence": [
+        {
+          "path": "app/example/settings.py",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "py@0.3",
+          "content_hash": "sha256:4e94e921d71d80db2fe7abe785a66faa54d42a92305d2f1721f1775594361315"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [
+    {
+      "id": "asset:wdyjrkas36",
+      "identity": [
+        "asset",
+        "credential",
+        "SECRET_KEY"
+      ],
+      "origin": "observed",
+      "name": "Secret SECRET_KEY",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:zsfjiajwwq"
+      ],
+      "processed_by": [
+        "proc:zsfjiajwwq"
+      ],
+      "evidence": [
+        {
+          "path": "app/example/settings.py",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "py@0.3",
+          "content_hash": "sha256:4e94e921d71d80db2fe7abe785a66faa54d42a92305d2f1721f1775594361315"
+        }
+      ]
+    }
+  ],
+  "threat_agents": [
+    {
+      "id": "agent:a3swkjnwca",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:u5rsisolmh"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: web",
+      "access": "insider",
+      "location": "bnd:u5rsisolmh",
+      "entry": [
+        "proc:4gmbfsikwv"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
+        }
+      ]
+    },
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "1 http entry points, 1 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "app/example/urls.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "py@0.3",
+          "content_hash": "sha256:be0004e847f9aea418fc2132bf243938d64bddccdd54b1a89ee3660d797d9798"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unknown_attribute",
+      "path": "app/example/urls.py",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered."
+    }
+  ]
+}

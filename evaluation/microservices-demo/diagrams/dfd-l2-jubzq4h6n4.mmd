@@ -1,0 +1,19 @@
+%% L2: emailservice
+flowchart LR
+  subgraph bnd_owyzrxhpvm["container: emailservice"]
+    proc_75jd4q6d4k(["gRPC HealthServicer handler"])
+    proc_kg2rjsdf2w(["gRPC EmailServiceServicer handler"])
+    proc_yru6p2ypcz(["email_server"])
+  end
+  ext_5glqr7zsb5["OTLP collector"]
+  ext_sqc242xzn7["gRPC client"]
+  ext_sqc242xzn7 -->|"grpc"| proc_75jd4q6d4k
+  ext_sqc242xzn7 -->|"grpc"| proc_kg2rjsdf2w
+  proc_yru6p2ypcz -->|"https"| ext_5glqr7zsb5
+  style bnd_owyzrxhpvm stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

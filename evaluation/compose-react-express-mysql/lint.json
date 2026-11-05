@@ -1,0 +1,50 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kye6dir6j3",
+    "message": "serviceWorker -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:w7wj2wt3j7",
+    "message": "healthcheck -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness",
+    "id": "wk:fymhbh2k6r",
+    "message": "plaintext_credentials: MYSQL_ROOT_PASSWORD_FILE set in compose service 'db' (compose.yaml:46)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness",
+    "id": "wk:rcfc5seyhh",
+    "message": "plaintext_credentials: DATABASE_PASSWORD set in compose service 'backend' (compose.yaml:12)"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:achqengmr6",
+    "message": "process healthcheck has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:acpcyekf6e",
+    "message": "process GET /healthz handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:blr2ioda52",
+    "message": "process serviceWorker has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jnzaqgvgi5",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  }
+]

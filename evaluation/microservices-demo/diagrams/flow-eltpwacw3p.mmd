@@ -1,0 +1,7 @@
+%% Control flow: grpc healthProto.Health
+sequenceDiagram
+  autonumber
+  participant ext_sqc242xzn7 as gRPC client
+  participant proc_gemltuekbd as gRPC healthProto.Health handler
+  ext_sqc242xzn7->>proc_gemltuekbd: dispatch
+  proc_gemltuekbd-->>ext_sqc242xzn7: response

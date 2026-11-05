@@ -1,0 +1,10 @@
+%% Control flow: POST /create-checkout-session
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant proc_2w7axhugkg as POST /create-checkout-session handler
+  participant ext_slqdx4hifp as Stripe API
+  ext_sga4qktkap->>proc_2w7axhugkg: dispatch
+  proc_2w7axhugkg->>ext_slqdx4hifp: https
+  ext_slqdx4hifp-->>proc_2w7axhugkg: response
+  proc_2w7axhugkg-->>ext_sga4qktkap: response

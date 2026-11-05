@@ -1,0 +1,7 @@
+%% Control flow: grpc EmailServiceServicer
+sequenceDiagram
+  autonumber
+  participant ext_sqc242xzn7 as gRPC client
+  participant proc_kg2rjsdf2w as gRPC EmailServiceServicer handler
+  ext_sqc242xzn7->>proc_kg2rjsdf2w: dispatch
+  proc_kg2rjsdf2w-->>ext_sqc242xzn7: response

@@ -1,0 +1,44 @@
+[
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:rxnuvgh5vi",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:lahauk7m6l",
+    "message": "hello -> MySQL: IF: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:shboysxfuv",
+    "message": "MySQL: blog -> hello: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:upfr4ls7hx",
+    "message": "hello -> MySQL: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vzhqghvpil",
+    "message": "hello -> MySQL: blog: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness",
+    "id": "wk:5ejilm2mw7",
+    "message": "plaintext_credentials: MYSQL_ROOT_PASSWORD_FILE set in compose service 'db' (compose.yaml:22)"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:dukamseyo3",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  }
+]

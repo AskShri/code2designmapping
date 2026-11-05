@@ -1,0 +1,24 @@
+%% L0 context: compose-nginx-flask-mysql
+flowchart LR
+  subgraph bnd_li56z6okmf["container: db"]
+    store_ahjjfkyans[("MySQL: blog")]
+    store_hxhbxcitka[("MySQL")]
+    store_mj5mpprmqf[("MySQL: IF")]
+  end
+  subgraph bnd_qtc6farbow["repository: compose-nginx-flask-mysql"]
+    proc_gmvk72kyzf(["compose-nginx-flask-mysql (+1)"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_gmvk72kyzf
+  proc_gmvk72kyzf -->|"sql"| store_ahjjfkyans
+  proc_gmvk72kyzf -->|"sql"| store_hxhbxcitka
+  proc_gmvk72kyzf -->|"sql"| store_mj5mpprmqf
+  store_ahjjfkyans -->|"sql"| proc_gmvk72kyzf
+  style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none
+  style bnd_qtc6farbow stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

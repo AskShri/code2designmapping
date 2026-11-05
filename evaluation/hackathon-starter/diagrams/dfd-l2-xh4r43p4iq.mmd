@@ -1,0 +1,50 @@
+%% L2: config
+flowchart LR
+  subgraph bnd_wsjnfagnyn["repository: hackathon-starter"]
+    proc_3k4c4e6k4c(["token-revocation"])
+    proc_b76jwfj7eh(["passport"])
+    proc_bceau7fabt(["controllers (+6)"])
+    proc_dsb5vsfubj(["hackathon-starter (+107)"])
+    proc_jxjaclx7aq(["nodemailer"])
+    proc_o4bhgqznry(["models (+1)"])
+  end
+  ext_4o7dlvj3x4["Oauth1 identity provider"]
+  ext_63wzgostuh["api.linkedin.com"]
+  ext_bwroa5pgto["Steam Openid identity provider"]
+  ext_jersuzximo["Google Oauth identity provider"]
+  ext_l2biskukaq["SMTP mail relay"]
+  ext_miziwfdicw["Unresolved HTTP target"]
+  ext_muqplzhwb7["Github2 identity provider"]
+  ext_oxze3tquf6["discord.com"]
+  ext_pja6bq4qbq["graph.microsoft.com"]
+  ext_si4fnyazwf["Facebook identity provider"]
+  ext_z53v3sf3pz["Oauth2 Refresh identity provider"]
+  store_3ufptbo5k3[("MongoDB")]
+  store_x3kis6s6op[("MongoDB: User")]
+  proc_3k4c4e6k4c -->|"unknown"| ext_miziwfdicw
+  proc_3k4c4e6k4c -->|"in_process"| proc_b76jwfj7eh
+  proc_b76jwfj7eh -->|"https"| ext_4o7dlvj3x4
+  proc_b76jwfj7eh -->|"https"| ext_63wzgostuh
+  proc_b76jwfj7eh -->|"https"| ext_bwroa5pgto
+  proc_b76jwfj7eh -->|"https"| ext_jersuzximo
+  proc_b76jwfj7eh -->|"unknown"| ext_miziwfdicw
+  proc_b76jwfj7eh -->|"https"| ext_muqplzhwb7
+  proc_b76jwfj7eh -->|"https"| ext_oxze3tquf6
+  proc_b76jwfj7eh -->|"https"| ext_pja6bq4qbq
+  proc_b76jwfj7eh -->|"https"| ext_si4fnyazwf
+  proc_b76jwfj7eh -->|"https"| ext_z53v3sf3pz
+  proc_b76jwfj7eh -->|"in_process"| proc_o4bhgqznry
+  proc_b76jwfj7eh -->|"mongo"| store_3ufptbo5k3
+  proc_bceau7fabt -->|"in_process"| proc_3k4c4e6k4c
+  proc_bceau7fabt -->|"in_process"| proc_jxjaclx7aq
+  proc_dsb5vsfubj -->|"in_process"| proc_b76jwfj7eh
+  proc_jxjaclx7aq -->|"smtp"| ext_l2biskukaq
+  store_3ufptbo5k3 -->|"mongo"| proc_b76jwfj7eh
+  store_x3kis6s6op -->|"mongo"| proc_b76jwfj7eh
+  style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

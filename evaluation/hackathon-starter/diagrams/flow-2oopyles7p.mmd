@@ -1,0 +1,32 @@
+%% Control flow: GET /ai/llm-camera
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_e5husc6g2u as limiter
+  participant ctl_e5qh2tqtwp as lusca
+  participant ctl_f5y5l3xp3o as lusca.xframe
+  participant ctl_u6upmy6sq4 as lusca.xssProtection
+  participant ctl_wi2xklb73k as morganLogger
+  participant proc_rstqv7mbdm as GET /ai/llm-camera handler
+  participant proc_swmrttykth as ai
+  participant ext_yydkmj7yh6 as Hugging Face Inference API
+  participant store_3ufptbo5k3 as MongoDB
+  participant ext_nggth6fowo as Groq API
+  participant ext_643kbz6icq as api.groq.com
+  ext_sga4qktkap->>ctl_e5husc6g2u: GET /ai/llm-camera (rate_limit)
+  ctl_e5husc6g2u->>ctl_e5qh2tqtwp: GET /ai/llm-camera (csrf)
+  ctl_e5qh2tqtwp->>ctl_f5y5l3xp3o: GET /ai/llm-camera (csrf)
+  ctl_f5y5l3xp3o->>ctl_u6upmy6sq4: GET /ai/llm-camera (csrf)
+  ctl_u6upmy6sq4->>ctl_wi2xklb73k: GET /ai/llm-camera (audit_log)
+  ctl_wi2xklb73k->>proc_rstqv7mbdm: dispatch
+  proc_rstqv7mbdm->>proc_swmrttykth: in_process
+  proc_swmrttykth->>ext_yydkmj7yh6: https
+  ext_yydkmj7yh6-->>proc_swmrttykth: response
+  proc_swmrttykth->>store_3ufptbo5k3: mongo
+  store_3ufptbo5k3-->>proc_swmrttykth: mongo
+  proc_swmrttykth->>ext_nggth6fowo: https
+  ext_nggth6fowo-->>proc_swmrttykth: response
+  proc_swmrttykth->>ext_643kbz6icq: https
+  ext_643kbz6icq-->>proc_swmrttykth: response
+  proc_swmrttykth-->>proc_rstqv7mbdm: response
+  proc_rstqv7mbdm-->>ext_sga4qktkap: response

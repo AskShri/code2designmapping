@@ -1,0 +1,9 @@
+%% Control flow: GET /
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_yxublw3pv7 as morgan
+  participant proc_jnzaqgvgi5 as GET / handler
+  ext_sga4qktkap->>ctl_yxublw3pv7: GET / (audit_log)
+  ctl_yxublw3pv7->>proc_jnzaqgvgi5: dispatch
+  proc_jnzaqgvgi5-->>ext_sga4qktkap: response

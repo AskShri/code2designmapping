@@ -16,6 +16,19 @@ Start with [docs/design.md](docs/design.md). [docs/research.md](docs/research.md
 [examples/orders-service](examples/orders-service) walks one small service
 from source to IR to rendered diagram.
 
+## Prototype
+
+`code2design/` is a working prototype of the pipeline (tree-sitter parsing; detectors for Express-style JavaScript/TypeScript, Flask/FastAPI/Django Python, gRPC, docker compose, Kubernetes, Dockerfiles, Prisma and package manifests; synthesis; lint; Mermaid, STRIDE, traceability-matrix and report renderers; IR diff). It is deterministic and evidence-backed by construction, and it is evaluated on 17 sample applications in [docs/evaluation.md](docs/evaluation.md).
+
+```bash
+pip install tree-sitter tree-sitter-javascript tree-sitter-typescript tree-sitter-python pyyaml jsonschema
+python3 -m code2design analyze path/to/repo --out .code2design
+python3 -m code2design diff base/model.ir.json head/model.ir.json
+python3 scripts/evaluate.py evaluation/samples.json      # reruns the evaluation (expects the sample clones listed in samples.json)
+```
+
+Outputs: `model.ir.json`, `report.md` (coverage, attack surface, lint, gaps and questions), `stride-table.md`, `traceability-matrix.md`, `diagrams/*.mmd` (L0, L1, one L2 per L1 process, one sequence diagram per entry point), `facts.jsonl`, `lint.json`.
+
 ## Intended uses
 
 * Understanding an unfamiliar service or a large PR quickly.

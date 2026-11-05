@@ -1,0 +1,76 @@
+%% L2: controllers
+flowchart LR
+  subgraph bnd_wsjnfagnyn["repository: hackathon-starter"]
+    proc_5idwoaihsx(["ai-agent"])
+    proc_dsb5vsfubj(["hackathon-starter (+107)"])
+    proc_er7yoxrtyn(["contact"])
+    proc_o4bhgqznry(["models (+1)"])
+    proc_q4gx4vahyi(["webauthn"])
+    proc_stgqlxbrim(["user"])
+    proc_swmrttykth(["ai"])
+    proc_wmnh7g2jba(["api"])
+    proc_xh4r43p4iq(["config (+3)"])
+  end
+  ext_gwedqcokmf["api.tumblr.com"]
+  ext_iebd2bhb4m["Last.fm API"]
+  ext_l2biskukaq["SMTP mail relay"]
+  ext_miziwfdicw["Unresolved HTTP target"]
+  ext_nggth6fowo["Groq API"]
+  ext_nswlxsx7xw["Twilio API"]
+  ext_pbm532avbp["api.twitch.tv"]
+  ext_q7bc76pjhv["Google Drive API"]
+  ext_slqdx4hifp["Stripe API"]
+  ext_summary["other external services (+5)"]
+  ext_tq5xvm2pwe["GitHub API"]
+  ext_u6x5oiec77["pubchem.ncbi.nlm.nih.gov"]
+  ext_uuhu7borqt["api.sandbox.paypal.com"]
+  ext_yydkmj7yh6["Hugging Face Inference API"]
+  store_3ufptbo5k3[("MongoDB")]
+  store_x3kis6s6op[("MongoDB: User")]
+  proc_5idwoaihsx -->|"https"| ext_nggth6fowo
+  proc_5idwoaihsx -->|"mongo"| store_3ufptbo5k3
+  proc_dsb5vsfubj -->|"in_process"| proc_5idwoaihsx
+  proc_dsb5vsfubj -->|"in_process"| proc_er7yoxrtyn
+  proc_dsb5vsfubj -->|"in_process"| proc_q4gx4vahyi
+  proc_dsb5vsfubj -->|"in_process"| proc_stgqlxbrim
+  proc_dsb5vsfubj -->|"in_process"| proc_swmrttykth
+  proc_dsb5vsfubj -->|"in_process"| proc_wmnh7g2jba
+  proc_er7yoxrtyn -->|"smtp"| ext_l2biskukaq
+  proc_er7yoxrtyn -->|"unknown"| ext_miziwfdicw
+  proc_er7yoxrtyn -->|"in_process"| proc_xh4r43p4iq
+  proc_q4gx4vahyi -->|"in_process"| proc_o4bhgqznry
+  proc_q4gx4vahyi -->|"mongo"| store_3ufptbo5k3
+  proc_stgqlxbrim -->|"smtp"| ext_l2biskukaq
+  proc_stgqlxbrim -->|"in_process"| proc_5idwoaihsx
+  proc_stgqlxbrim -->|"in_process"| proc_o4bhgqznry
+  proc_stgqlxbrim -->|"in_process"| proc_xh4r43p4iq
+  proc_stgqlxbrim -->|"mongo"| store_3ufptbo5k3
+  proc_stgqlxbrim -->|"mongo"| store_x3kis6s6op
+  proc_swmrttykth -->|"https"| ext_nggth6fowo
+  proc_swmrttykth -->|"https"| ext_summary
+  proc_swmrttykth -->|"https"| ext_yydkmj7yh6
+  proc_swmrttykth -->|"mongo"| store_3ufptbo5k3
+  proc_wmnh7g2jba -->|"https"| ext_gwedqcokmf
+  proc_wmnh7g2jba -->|"https"| ext_iebd2bhb4m
+  proc_wmnh7g2jba -->|"unknown"| ext_miziwfdicw
+  proc_wmnh7g2jba -->|"https"| ext_nswlxsx7xw
+  proc_wmnh7g2jba -->|"https"| ext_pbm532avbp
+  proc_wmnh7g2jba -->|"https"| ext_q7bc76pjhv
+  proc_wmnh7g2jba -->|"https"| ext_slqdx4hifp
+  proc_wmnh7g2jba -->|"https"| ext_summary
+  proc_wmnh7g2jba -->|"https"| ext_tq5xvm2pwe
+  proc_wmnh7g2jba -->|"https"| ext_u6x5oiec77
+  proc_wmnh7g2jba -->|"https"| ext_uuhu7borqt
+  store_3ufptbo5k3 -->|"mongo"| proc_5idwoaihsx
+  store_3ufptbo5k3 -->|"mongo"| proc_q4gx4vahyi
+  store_3ufptbo5k3 -->|"mongo"| proc_stgqlxbrim
+  store_3ufptbo5k3 -->|"mongo"| proc_swmrttykth
+  store_x3kis6s6op -->|"mongo"| proc_q4gx4vahyi
+  store_x3kis6s6op -->|"mongo"| proc_stgqlxbrim
+  style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

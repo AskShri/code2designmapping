@@ -1,0 +1,21 @@
+%% L1: compose-nginx-nodejs-redis
+flowchart LR
+  subgraph bnd_4pueguv7xi["container: web1"]
+    proc_4beiv7l6ij(["web1 (+2)"])
+  end
+  subgraph bnd_raia233rwx["container: redis"]
+    store_jfszlpemqt[("Redis: numVisits:*")]
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_4beiv7l6ij
+  proc_4beiv7l6ij -->|"redis"| store_jfszlpemqt
+  store_jfszlpemqt -->|"redis"| proc_4beiv7l6ij
+  style bnd_4pueguv7xi stroke-dasharray: 8 4,fill:none
+  style bnd_raia233rwx stroke-dasharray: 8 4,fill:none
+  style bnd_uvl435wskm stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

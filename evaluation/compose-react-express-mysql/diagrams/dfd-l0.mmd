@@ -1,0 +1,16 @@
+%% L0 context: compose-react-express-mysql
+flowchart LR
+  subgraph bnd_id4pdgvcsv["repository: compose-react-express-mysql"]
+    proc_r4utykjfpf(["compose-react-express-mysql (+2)"])
+  end
+  ext_miziwfdicw["Unresolved HTTP target"]
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_r4utykjfpf
+  proc_r4utykjfpf -->|"unknown"| ext_miziwfdicw
+  style bnd_id4pdgvcsv stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

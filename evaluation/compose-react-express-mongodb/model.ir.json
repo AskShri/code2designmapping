@@ -1,0 +1,982 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
+    "generated_from": "compose-react-express-mongodb",
+    "detectors": [
+      "config@0.3",
+      "js@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "backend/Dockerfile": "sha256:769fe259afb9768c95f1f84d1bfe6d65be624604930c36f92d85debbb5af050a",
+      "backend/db/index.js": "sha256:46fd852c867485a80da8ac188a5b117d45d7b713e289670bfdb1212b9f2ab26f",
+      "backend/models/todos/todo.js": "sha256:121518614834df57aadd6e9e4dc330d3a106ac442e5aad73b9addfc980796c36",
+      "backend/package.json": "sha256:52b387e02b5e553d16866d562cf3d7f863dfb1a9c38c979be5138d546fcaf061",
+      "backend/routes/index.js": "sha256:bc62b4d386b41859918019b2614afd22648ff86f1f7c6d8bd1c7b4dc055aba8d",
+      "backend/server.js": "sha256:f17b00c3ce935c8e5b7c4baa980d05a5200098d660cc35f45c4a613707f90479",
+      "compose.yaml": "sha256:645fb746ec9eaeea7ee9ab231a67fe31412bdd1268d7c72206bb8fb275c25746",
+      "frontend/Dockerfile": "sha256:7aeea9b8d4135b3e8c67c32a95b1fa811b7000cc1416bb240b32ab737cc6035b",
+      "frontend/package.json": "sha256:782f02b6be0da49b52acc07468d007ef0bae96c7cb51c1cc840d85a88cf9e168",
+      "frontend/src/App.js": "sha256:4b549c3699b823e5de70211c8fd14244911bb0c55677078b960c53e3c2f82f1d",
+      "frontend/src/serviceWorker.js": "sha256:0b097cb6e2c83821630a33de933893bf75de49731b18ce3c25fc5384866fbac0"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:27salvv7vc",
+      "identity": [
+        "process",
+        "backend/routes/index.js",
+        "routes"
+      ],
+      "origin": "observed",
+      "name": "routes",
+      "level": 2,
+      "module": "backend/routes/index.js",
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:a114ba8585270b16d29ba0c0b190e3d07ada2f860167b912383d4c8ff56b8cc6"
+        }
+      ],
+      "parent": "proc:yss4bddki6"
+    },
+    {
+      "id": "proc:27yhxonl43",
+      "identity": [
+        "process",
+        "frontend",
+        "frontend"
+      ],
+      "origin": "observed",
+      "name": "frontend",
+      "level": 1,
+      "module": "frontend",
+      "evidence": [
+        {
+          "path": "frontend/src/App.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:9abf3e6700d98954fe8bbe11cbda048f525400b21632402972b47c423c1be127"
+        }
+      ],
+      "parent": "proc:ffzsuhqh7o"
+    },
+    {
+      "id": "proc:blr2ioda52",
+      "identity": [
+        "process",
+        "frontend/src/serviceWorker.js",
+        "serviceWorker"
+      ],
+      "origin": "observed",
+      "name": "serviceWorker",
+      "level": 2,
+      "module": "frontend/src/serviceWorker.js",
+      "evidence": [
+        {
+          "path": "frontend/src/serviceWorker.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:8559f04c7610a4c00b6617bf8aaee5effe5dfcb60d97f822f6e8dd714bd4b45a"
+        }
+      ],
+      "parent": "proc:27yhxonl43"
+    },
+    {
+      "id": "proc:ffzsuhqh7o",
+      "identity": [
+        "process",
+        ".",
+        "compose-react-express-mongodb"
+      ],
+      "origin": "observed",
+      "name": "compose-react-express-mongodb",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4f6235b0dd6d021f238108ad49b1797e0d4f923fd580f1b50769f2ac4417c3e7"
+        }
+      ]
+    },
+    {
+      "id": "proc:hek3xxknmp",
+      "identity": [
+        "process",
+        "frontend/src/App.js",
+        "App"
+      ],
+      "origin": "observed",
+      "name": "App",
+      "level": 2,
+      "module": "frontend/src/App.js",
+      "evidence": [
+        {
+          "path": "frontend/src/App.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:9abf3e6700d98954fe8bbe11cbda048f525400b21632402972b47c423c1be127"
+        }
+      ],
+      "parent": "proc:27yhxonl43"
+    },
+    {
+      "id": "proc:iyy6jw4wzp",
+      "identity": [
+        "process",
+        "backend/routes/index.js",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "backend/routes/index.js",
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 24,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:376ea9504338f822fb8d787544112c4bb023bd2bd72915904427f06dc909ee15"
+        }
+      ],
+      "parent": "proc:yss4bddki6"
+    },
+    {
+      "id": "proc:wzn72hxkea",
+      "identity": [
+        "process",
+        "backend/routes/index.js",
+        "POST /todos"
+      ],
+      "origin": "observed",
+      "name": "POST /todos handler",
+      "level": 2,
+      "module": "backend/routes/index.js",
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 9,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:7dde513a9c765331ed2e72fe9f452a6b066a0cea6047264ad937544c7d6fb512"
+        }
+      ],
+      "parent": "proc:yss4bddki6"
+    },
+    {
+      "id": "proc:yss4bddki6",
+      "identity": [
+        "process",
+        "backend",
+        "backend"
+      ],
+      "origin": "observed",
+      "name": "backend",
+      "level": 1,
+      "module": "backend",
+      "evidence": [
+        {
+          "path": "backend/config/config.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:316f839286cf59a73e86fd225045cc6c1ddf0991b94d827b63d22b4659364fad"
+        }
+      ],
+      "parent": "proc:ffzsuhqh7o"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:miziwfdicw",
+      "identity": [
+        "external",
+        "Unresolved HTTP target",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "Unresolved HTTP target",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "frontend/src/App.js",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b45312c3f297dfaa5e2c0bd5760e12c29e9cb7812a74f6afa5d4d44448556236"
+        },
+        {
+          "path": "frontend/src/App.js",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b45312c3f297dfaa5e2c0bd5760e12c29e9cb7812a74f6afa5d4d44448556236"
+        },
+        {
+          "path": "frontend/src/serviceWorker.js",
+          "start_line": 103,
+          "end_line": 103,
+          "detector": "js@0.3",
+          "content_hash": "sha256:ddb53ffdd16e3ab7550b182e3ba67e24b962e57c61a8c29bae7010c6d05d7cf7"
+        }
+      ],
+      "sdk_service": "Unresolved HTTP target"
+    },
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 9,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:7dde513a9c765331ed2e72fe9f452a6b066a0cea6047264ad937544c7d6fb512"
+        },
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 24,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:376ea9504338f822fb8d787544112c4bb023bd2bd72915904427f06dc909ee15"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:3ufptbo5k3",
+      "identity": [
+        "store",
+        "mongodb",
+        ""
+      ],
+      "origin": "observed",
+      "name": "MongoDB",
+      "technology": "mongodb",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:602fae580f5863abfb31bf356decfdc73bf1224a62aacf6b4829ffa2dbe58390"
+        },
+        {
+          "path": "compose.yaml",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "config@0.3",
+          "content_hash": "sha256:80767fe76f5321e806e34930ca71544a95db4fbc4f24d371acf7066e5b3204ba"
+        }
+      ]
+    },
+    {
+      "id": "store:lsfwjprw56",
+      "identity": [
+        "store",
+        "mongodb",
+        "todo"
+      ],
+      "origin": "observed",
+      "name": "MongoDB: Todo",
+      "technology": "mongodb",
+      "logical_name": "Todo",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6dfb3861950c67558b351faafdf79bbcce03525080feeb39d35b7a08218c915a"
+        },
+        {
+          "path": "compose.yaml",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "config@0.3",
+          "content_hash": "sha256:80767fe76f5321e806e34930ca71544a95db4fbc4f24d371acf7066e5b3204ba"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:4gv2hvqsrv",
+      "identity": [
+        "boundary",
+        "repository",
+        "compose-react-express-mongodb"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: compose-react-express-mongodb",
+      "kind": "repository",
+      "contains": [
+        "proc:ffzsuhqh7o"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:4f6235b0dd6d021f238108ad49b1797e0d4f923fd580f1b50769f2ac4417c3e7"
+        }
+      ]
+    },
+    {
+      "id": "bnd:j3ktzp2k6o",
+      "identity": [
+        "boundary",
+        "container",
+        "backend"
+      ],
+      "origin": "observed",
+      "name": "container: backend",
+      "kind": "container",
+      "contains": [
+        "proc:27salvv7vc",
+        "proc:iyy6jw4wzp",
+        "proc:wzn72hxkea",
+        "proc:yss4bddki6"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:bb85cefe8491144f31476f0f6f1f729dcc935f1fcc95ba7a6f3100d30c28b2b1"
+        }
+      ]
+    },
+    {
+      "id": "bnd:x2cs4alpd7",
+      "identity": [
+        "boundary",
+        "container",
+        "mongo"
+      ],
+      "origin": "observed",
+      "name": "container: mongo",
+      "kind": "container",
+      "contains": [
+        "store:3ufptbo5k3",
+        "store:lsfwjprw56"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 33,
+          "end_line": 33,
+          "detector": "config@0.3",
+          "content_hash": "sha256:80767fe76f5321e806e34930ca71544a95db4fbc4f24d371acf7066e5b3204ba"
+        }
+      ]
+    },
+    {
+      "id": "bnd:yy7r6ylpud",
+      "identity": [
+        "boundary",
+        "container",
+        "frontend"
+      ],
+      "origin": "observed",
+      "name": "container: frontend",
+      "kind": "container",
+      "contains": [
+        "proc:27yhxonl43",
+        "proc:blr2ioda52",
+        "proc:hek3xxknmp"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:309013386ee2a32ade8ee1c05705e164a36fb3622edaa57f3a0ea8e7d8c19628"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:7drtnwcnc4",
+      "identity": [
+        "flow",
+        "proc:hek3xxknmp",
+        "ext:miziwfdicw",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:hek3xxknmp",
+      "target": "ext:miziwfdicw",
+      "protocol": "unknown",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "catch",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "frontend/src/App.js",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b45312c3f297dfaa5e2c0bd5760e12c29e9cb7812a74f6afa5d4d44448556236"
+        },
+        {
+          "path": "frontend/src/App.js",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b45312c3f297dfaa5e2c0bd5760e12c29e9cb7812a74f6afa5d4d44448556236"
+        }
+      ]
+    },
+    {
+      "id": "flow:ctfvosmhzj",
+      "identity": [
+        "flow",
+        "proc:wzn72hxkea",
+        "store:3ufptbo5k3",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:wzn72hxkea",
+      "target": "store:3ufptbo5k3",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "save",
+      "crosses_boundary": [
+        "bnd:j3ktzp2k6o",
+        "bnd:x2cs4alpd7"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:602fae580f5863abfb31bf356decfdc73bf1224a62aacf6b4829ffa2dbe58390"
+        }
+      ]
+    },
+    {
+      "id": "flow:e2tlvuw7rx",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:wzn72hxkea",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:wzn72hxkea",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /todos",
+      "crosses_boundary": [
+        "bnd:j3ktzp2k6o"
+      ],
+      "controls": [
+        "ctl:pclkpfacbh"
+      ],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 9,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:7dde513a9c765331ed2e72fe9f452a6b066a0cea6047264ad937544c7d6fb512"
+        }
+      ]
+    },
+    {
+      "id": "flow:fe4s2ohaux",
+      "identity": [
+        "flow",
+        "store:lsfwjprw56",
+        "proc:iyy6jw4wzp",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:lsfwjprw56",
+      "target": "proc:iyy6jw4wzp",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "find",
+      "crosses_boundary": [
+        "bnd:j3ktzp2k6o",
+        "bnd:x2cs4alpd7"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6dfb3861950c67558b351faafdf79bbcce03525080feeb39d35b7a08218c915a"
+        }
+      ]
+    },
+    {
+      "id": "flow:kye6dir6j3",
+      "identity": [
+        "flow",
+        "proc:blr2ioda52",
+        "ext:miziwfdicw",
+        "unknown",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:blr2ioda52",
+      "target": "ext:miziwfdicw",
+      "protocol": "unknown",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "request",
+      "crosses_boundary": [
+        "bnd:yy7r6ylpud"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "frontend/src/serviceWorker.js",
+          "start_line": 103,
+          "end_line": 103,
+          "detector": "js@0.3",
+          "content_hash": "sha256:ddb53ffdd16e3ab7550b182e3ba67e24b962e57c61a8c29bae7010c6d05d7cf7"
+        }
+      ]
+    },
+    {
+      "id": "flow:vdcoiqcic7",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:iyy6jw4wzp",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:iyy6jw4wzp",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:j3ktzp2k6o"
+      ],
+      "controls": [
+        "ctl:pclkpfacbh"
+      ],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 24,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:376ea9504338f822fb8d787544112c4bb023bd2bd72915904427f06dc909ee15"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:rba6tqv4op",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/todos",
+        "backend/routes/index.js"
+      ],
+      "origin": "observed",
+      "process": "proc:wzn72hxkea",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/todos",
+      "controls": [
+        "ctl:pclkpfacbh"
+      ],
+      "call_chain": [
+        "proc:wzn72hxkea"
+      ],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 9,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:7dde513a9c765331ed2e72fe9f452a6b066a0cea6047264ad937544c7d6fb512"
+        }
+      ]
+    },
+    {
+      "id": "ep:yoynyzvr5a",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "backend/routes/index.js"
+      ],
+      "origin": "observed",
+      "process": "proc:iyy6jw4wzp",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [
+        "ctl:pclkpfacbh"
+      ],
+      "call_chain": [
+        "proc:iyy6jw4wzp"
+      ],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 24,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:376ea9504338f822fb8d787544112c4bb023bd2bd72915904427f06dc909ee15"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "ctl:pclkpfacbh",
+      "identity": [
+        "control",
+        "cors",
+        "backend/server.js::cors"
+      ],
+      "origin": "observed",
+      "kind": "cors",
+      "name": "cors",
+      "applies_to": [
+        "ep:rba6tqv4op",
+        "ep:yoynyzvr5a"
+      ],
+      "evidence": [
+        {
+          "path": "backend/server.js",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f55a02f127464b911a2c9b5205867db7dc83fdd014854fa0c09967f6b6ecf02d"
+        }
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "wk:7xcyfidkt2",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:yoynyzvr5a"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:yoynyzvr5a"
+      ],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 24,
+          "end_line": 32,
+          "detector": "js@0.3",
+          "content_hash": "sha256:376ea9504338f822fb8d787544112c4bb023bd2bd72915904427f06dc909ee15"
+        }
+      ]
+    },
+    {
+      "id": "wk:lahb53xihi",
+      "identity": [
+        "weakness",
+        "permissive_cors",
+        "backend/server.js:18"
+      ],
+      "origin": "observed",
+      "kind": "permissive_cors",
+      "name": "cors() with default or wildcard origin",
+      "applies_to": [
+        "proc:yss4bddki6"
+      ],
+      "evidence": [
+        {
+          "path": "backend/server.js",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f55a02f127464b911a2c9b5205867db7dc83fdd014854fa0c09967f6b6ecf02d"
+        }
+      ]
+    },
+    {
+      "id": "wk:xrkd7e3uf3",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:rba6tqv4op"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /todos",
+      "applies_to": [
+        "ep:rba6tqv4op"
+      ],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 9,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:7dde513a9c765331ed2e72fe9f452a6b066a0cea6047264ad937544c7d6fb512"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:3znsii7bbp",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:j3ktzp2k6o"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: backend",
+      "access": "insider",
+      "location": "bnd:j3ktzp2k6o",
+      "entry": [
+        "proc:27salvv7vc",
+        "proc:iyy6jw4wzp",
+        "proc:wzn72hxkea"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "config@0.3",
+          "content_hash": "sha256:bb85cefe8491144f31476f0f6f1f729dcc935f1fcc95ba7a6f3100d30c28b2b1"
+        }
+      ]
+    },
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "2 http entry points, 2 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "backend/routes/index.js",
+          "start_line": 9,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:7dde513a9c765331ed2e72fe9f452a6b066a0cea6047264ad937544c7d6fb512"
+        }
+      ]
+    },
+    {
+      "id": "agent:newgehufwo",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:miziwfdicw"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
+      "name": "Compromised third party: Unresolved HTTP target",
+      "access": "third_party",
+      "entry": [
+        "ext:miziwfdicw"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/App.js",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "js@0.3",
+          "content_hash": "sha256:b45312c3f297dfaa5e2c0bd5760e12c29e9cb7812a74f6afa5d4d44448556236"
+        }
+      ]
+    },
+    {
+      "id": "agent:vjr2437xzg",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:yy7r6ylpud"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: frontend",
+      "access": "insider",
+      "location": "bnd:yy7r6ylpud",
+      "entry": [
+        "proc:blr2ioda52",
+        "proc:hek3xxknmp"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:309013386ee2a32ade8ee1c05705e164a36fb3622edaa57f3a0ea8e7d8c19628"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unresolved",
+      "path": "backend/routes/index.js",
+      "line": 9,
+      "detail": "router for POST /todos is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "unresolved",
+      "path": "backend/routes/index.js",
+      "line": 24,
+      "detail": "router for GET / is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "unresolved",
+      "path": "frontend/src/serviceWorker.js",
+      "line": 103,
+      "detail": "outbound call target is a variable:swUrl expression; host not resolvable statically"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "backend/server.js",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port 3000? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "backend/routes/index.js",
+      "line": 14,
+      "detail": "Question for the team: how is the link to MongoDB authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "backend/routes/index.js",
+      "line": 25,
+      "detail": "Question for the team: how is the link to MongoDB: Todo authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "frontend/src/App.js",
+      "line": 17,
+      "detail": "Question for the team: how is the link to Unresolved HTTP target authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    }
+  ]
+}

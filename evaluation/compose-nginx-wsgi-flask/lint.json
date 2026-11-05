@@ -1,0 +1,50 @@
+[
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:6r36k4vpot",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /flask-health-check handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:gawm6h2sol",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /info handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:sgohinunbc",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "uncontrolled-crossing",
+    "id": "flow:xdqb4dmjl6",
+    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /cache-me handler"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:lmwj2xg5yn",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qhcg7tkijf",
+    "message": "process GET /cache-me handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qizcssqkqn",
+    "message": "process GET /info handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:z7nldm4k3e",
+    "message": "process GET /flask-health-check handler has only inputs; a detector may be missing"
+  }
+]

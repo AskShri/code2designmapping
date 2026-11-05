@@ -1,0 +1,10 @@
+%% Control flow: GET /config
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant proc_va6muegoss as GET /config handler
+  participant ext_slqdx4hifp as Stripe API
+  ext_sga4qktkap->>proc_va6muegoss: dispatch
+  proc_va6muegoss->>ext_slqdx4hifp: https
+  ext_slqdx4hifp-->>proc_va6muegoss: response
+  proc_va6muegoss-->>ext_sga4qktkap: response

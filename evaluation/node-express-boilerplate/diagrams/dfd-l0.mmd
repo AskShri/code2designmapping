@@ -1,0 +1,27 @@
+%% L0 context: node-express-boilerplate
+flowchart LR
+  subgraph bnd_3bw6z3ysco["container: mongodb"]
+    store_3ufptbo5k3[("MongoDB")]
+    store_x3kis6s6op[("MongoDB: User")]
+    store_yc7brpyrnt[("MongoDB: Token")]
+  end
+  subgraph bnd_4tjp4yui4o["container: node-app"]
+    proc_oqwmbqrkng(["create-nodejs-express-app (+11)"])
+  end
+  ext_l2biskukaq["SMTP mail relay"]
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_oqwmbqrkng
+  proc_oqwmbqrkng -->|"smtp"| ext_l2biskukaq
+  proc_oqwmbqrkng -->|"mongo"| store_3ufptbo5k3
+  proc_oqwmbqrkng -->|"unknown"| store_x3kis6s6op
+  proc_oqwmbqrkng -->|"mongo<br/>unknown"| store_yc7brpyrnt
+  store_x3kis6s6op -->|"unknown"| proc_oqwmbqrkng
+  store_yc7brpyrnt -->|"mongo<br/>unknown"| proc_oqwmbqrkng
+  style bnd_3bw6z3ysco stroke-dasharray: 8 4,fill:none
+  style bnd_4tjp4yui4o stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

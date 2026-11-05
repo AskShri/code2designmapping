@@ -1,0 +1,158 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5daekry3cc",
+    "message": "MongoDB: Token -> token.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:g7pbv25ow7",
+    "message": "MongoDB: User -> user.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hgu32gy5iw",
+    "message": "user.service -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:jsm74ufs4i",
+    "message": "auth.service -> MongoDB: Token: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:nvsuzw2dbw",
+    "message": "token.service -> MongoDB: Token: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:rpyhqru4wf",
+    "message": "MongoDB: User -> passport: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:rt437weinc",
+    "message": "auth.service -> MongoDB: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vsddsrvv4t",
+    "message": "email.service -> SMTP mail relay: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "warning",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xpwwtqnnr4",
+    "message": "MongoDB: Token -> auth.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:4qlcdwoif3",
+    "message": "process OPTIONS * handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:5o77py4ksy",
+    "message": "process POST /v1/auth/login handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:6arldspcqf",
+    "message": "process POST /v1/auth/send-verification-email handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:6ld6rj35b6",
+    "message": "process POST /v1/auth/forgot-password handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:6mgeike7w7",
+    "message": "process POST /v1/auth/verify-email handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:bhe2uamvnb",
+    "message": "process GET /v1/users/:userId handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:brrysidewt",
+    "message": "process PATCH /v1/users/:userId handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:gebofgbst2",
+    "message": "process POST /v1/auth/register handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:iygmdrw3kl",
+    "message": "process GET /v1/users handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:p2w2sj7nq7",
+    "message": "process passport has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:pmw3c5t4fs",
+    "message": "process GET /v1/docs handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qmofjuihf5",
+    "message": "process POST /v1/users handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:rbsc3643ue",
+    "message": "process DELETE /v1/users/:userId handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:s6g67h4qsr",
+    "message": "process POST /v1/auth/logout handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:xutosa5i4g",
+    "message": "process email.service has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:yr5tyhlhoj",
+    "message": "process POST /v1/auth/refresh-tokens handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:zdjjxm2w7b",
+    "message": "process POST /v1/auth/reset-password handler has only inputs; a detector may be missing"
+  }
+]

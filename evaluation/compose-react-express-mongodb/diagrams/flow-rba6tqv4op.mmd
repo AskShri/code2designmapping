@@ -1,0 +1,11 @@
+%% Control flow: POST /todos
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant ctl_pclkpfacbh as cors
+  participant proc_wzn72hxkea as POST /todos handler
+  participant store_3ufptbo5k3 as MongoDB
+  ext_sga4qktkap->>ctl_pclkpfacbh: POST /todos (cors)
+  ctl_pclkpfacbh->>proc_wzn72hxkea: dispatch
+  proc_wzn72hxkea->>store_3ufptbo5k3: mongo
+  proc_wzn72hxkea-->>ext_sga4qktkap: response

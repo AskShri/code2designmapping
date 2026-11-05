@@ -1,0 +1,1681 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "30851145f343ca374dd1bd69998e63c740fea428",
+    "generated_from": "node-express-mongodb",
+    "detectors": [
+      "config@0.3",
+      "js@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "app/controllers/tutorial.controller.js": "sha256:cc24672be21f9d891bbf0521f8fb62509e8ad237afe13ef0dbeb465a17f8332b",
+      "app/models/index.js": "sha256:a85a6a901eedfcdc1e8245ba436c554c212b4775cb5e60f64c0b193d415f340a",
+      "app/routes/turorial.routes.js": "sha256:0b8709d840bf89930b8ab76990d783374bcc8dbe268de7e0a65c15daba4376a2",
+      "package.json": "sha256:3976c3c0d480f73901405be45925258c308591fb77e6a344d2424c282c7362b9",
+      "server.js": "sha256:bad85eb4756856912d920d991189dd62706c65b3f4b41bb6e4f6487968fdff2e"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:2k4qri4gz2",
+      "identity": [
+        "process",
+        ".",
+        "node-express-mongodb"
+      ],
+      "origin": "observed",
+      "name": "node-express-mongodb",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "package.json",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "config@0.3",
+          "content_hash": "sha256:021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+        }
+      ]
+    },
+    {
+      "id": "proc:4m2ysdt4j4",
+      "identity": [
+        "process",
+        "app/routes/turorial.routes.js",
+        "GET /:id"
+      ],
+      "origin": "observed",
+      "name": "GET /:id handler",
+      "level": 2,
+      "module": "app/routes/turorial.routes.js",
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:1274f9a54cc096141f44439ba290c6600ae563a289e25a7da606087c15e01c6a"
+        }
+      ],
+      "parent": "proc:jtcosnfmpa"
+    },
+    {
+      "id": "proc:7zseyk5reh",
+      "identity": [
+        "process",
+        "app/config",
+        "config"
+      ],
+      "origin": "observed",
+      "name": "config",
+      "level": 1,
+      "module": "app/config",
+      "evidence": [
+        {
+          "path": "app/config/db.config.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:c95f6bedc3093e156a34529d8c92c2513166e0530a89d780212869a7102f9c29"
+        }
+      ],
+      "parent": "proc:2k4qri4gz2"
+    },
+    {
+      "id": "proc:asmvuz3gji",
+      "identity": [
+        "process",
+        "app/routes/turorial.routes.js",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "app/routes/turorial.routes.js",
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f95d185ea54ef0cb2c36dd650c3872d06b6e87d8f59b16d45cd8a0afbc7a1c6e"
+        }
+      ],
+      "parent": "proc:jtcosnfmpa"
+    },
+    {
+      "id": "proc:jtcosnfmpa",
+      "identity": [
+        "process",
+        "app/routes",
+        "routes"
+      ],
+      "origin": "observed",
+      "name": "routes",
+      "level": 1,
+      "module": "app/routes",
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+        }
+      ],
+      "parent": "proc:2k4qri4gz2"
+    },
+    {
+      "id": "proc:kymuznpdlu",
+      "identity": [
+        "process",
+        "app/models",
+        "models"
+      ],
+      "origin": "observed",
+      "name": "models",
+      "level": 1,
+      "module": "app/models",
+      "evidence": [
+        {
+          "path": "app/models/index.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:7e336090e242190a5e28846c4f31857d45ce2cfa513ae0fc7d696b6c2c476bbb"
+        }
+      ],
+      "parent": "proc:2k4qri4gz2"
+    },
+    {
+      "id": "proc:m53v3pusca",
+      "identity": [
+        "process",
+        "app/controllers",
+        "controllers"
+      ],
+      "origin": "observed",
+      "name": "controllers",
+      "level": 1,
+      "module": "app/controllers",
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:c04dc5d7015ad80caa442751969d01f26591c8ead8e6761e40bc6038d49af1be"
+        }
+      ],
+      "parent": "proc:2k4qri4gz2"
+    },
+    {
+      "id": "proc:mjnlaho6vq",
+      "identity": [
+        "process",
+        "server.js",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "server.js",
+      "evidence": [
+        {
+          "path": "server.js",
+          "start_line": 33,
+          "end_line": 35,
+          "detector": "js@0.3",
+          "content_hash": "sha256:83b1788cc30001b696a69d3512e250b99fc42ebe0936b1e463aff59a8596a159"
+        }
+      ],
+      "parent": "proc:2k4qri4gz2"
+    },
+    {
+      "id": "proc:r3saircepp",
+      "identity": [
+        "process",
+        "app/routes/turorial.routes.js",
+        "PUT /:id"
+      ],
+      "origin": "observed",
+      "name": "PUT /:id handler",
+      "level": 2,
+      "module": "app/routes/turorial.routes.js",
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "js@0.3",
+          "content_hash": "sha256:96dabfd76d40680221f1e4f387691d07bcfa38f5186c452f7db698cf3a866891"
+        }
+      ],
+      "parent": "proc:jtcosnfmpa"
+    },
+    {
+      "id": "proc:s2dv344aux",
+      "identity": [
+        "process",
+        "app/routes/turorial.routes.js",
+        "GET /published"
+      ],
+      "origin": "observed",
+      "name": "GET /published handler",
+      "level": 2,
+      "module": "app/routes/turorial.routes.js",
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6edfa66da9f4a8eddb394e816d7897d5771fe2ba277ce5161adc8ef2887d3bf3"
+        }
+      ],
+      "parent": "proc:jtcosnfmpa"
+    },
+    {
+      "id": "proc:tm2f7cfmv3",
+      "identity": [
+        "process",
+        "app/routes/turorial.routes.js",
+        "POST /"
+      ],
+      "origin": "observed",
+      "name": "POST / handler",
+      "level": 2,
+      "module": "app/routes/turorial.routes.js",
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "js@0.3",
+          "content_hash": "sha256:4b5b95d5bddcfe8ed345dd6d43287fd0b7e61e84577ee0d17b5d70ea3ae3c808"
+        }
+      ],
+      "parent": "proc:jtcosnfmpa"
+    },
+    {
+      "id": "proc:uz7oqxeuuh",
+      "identity": [
+        "process",
+        "app/routes/turorial.routes.js",
+        "DELETE /"
+      ],
+      "origin": "observed",
+      "name": "DELETE / handler",
+      "level": 2,
+      "module": "app/routes/turorial.routes.js",
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a34f6c755bbbd55366f67f1e1be4cf7cf98c8597837e32a4063958e64f2fb878"
+        }
+      ],
+      "parent": "proc:jtcosnfmpa"
+    },
+    {
+      "id": "proc:zfnmjioymc",
+      "identity": [
+        "process",
+        "app/routes/turorial.routes.js",
+        "DELETE /:id"
+      ],
+      "origin": "observed",
+      "name": "DELETE /:id handler",
+      "level": 2,
+      "module": "app/routes/turorial.routes.js",
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:895d876962165f861e2e25f1febe87d4c3ef98b4783d5adb97f3490ef408649b"
+        }
+      ],
+      "parent": "proc:jtcosnfmpa"
+    },
+    {
+      "id": "proc:zzqivqwuzv",
+      "identity": [
+        "process",
+        "app/controllers/tutorial.controller.js",
+        "tutorial.controller"
+      ],
+      "origin": "observed",
+      "name": "tutorial.controller",
+      "level": 2,
+      "module": "app/controllers/tutorial.controller.js",
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:c04dc5d7015ad80caa442751969d01f26591c8ead8e6761e40bc6038d49af1be"
+        }
+      ],
+      "parent": "proc:m53v3pusca"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "server.js",
+          "start_line": 33,
+          "end_line": 35,
+          "detector": "js@0.3",
+          "content_hash": "sha256:83b1788cc30001b696a69d3512e250b99fc42ebe0936b1e463aff59a8596a159"
+        },
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "js@0.3",
+          "content_hash": "sha256:4b5b95d5bddcfe8ed345dd6d43287fd0b7e61e84577ee0d17b5d70ea3ae3c808"
+        },
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f95d185ea54ef0cb2c36dd650c3872d06b6e87d8f59b16d45cd8a0afbc7a1c6e"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:3ufptbo5k3",
+      "identity": [
+        "store",
+        "mongodb",
+        ""
+      ],
+      "origin": "observed",
+      "name": "MongoDB",
+      "technology": "mongodb",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "js@0.3",
+          "content_hash": "sha256:fe30030e102ecf8fab72edd523758d54b314224d81ef9f50265efeac824fb56e"
+        }
+      ]
+    },
+    {
+      "id": "store:uujc2npyud",
+      "identity": [
+        "store",
+        "mongodb",
+        "tutorial"
+      ],
+      "origin": "observed",
+      "name": "MongoDB: tutorials",
+      "technology": "mongodb",
+      "logical_name": "tutorials",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a9d1b3b97a0ca61a5861bbe50f921536400623340ed90ec166e2a753b183f0b1"
+        },
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "js@0.3",
+          "content_hash": "sha256:8d0a87ff29f17ee878945697afe9d84d02ea5f5e63dcdcbdfc92b6165de6bf8e"
+        },
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "js@0.3",
+          "content_hash": "sha256:016f3896c3f3a11b002b930e9dad085ecfc4a5d20b1a3a0854d4f97c8ed897bf"
+        },
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 117,
+          "end_line": 117,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f4eedee93aa16f5addbae3fea1f50c00ab92809694365dd34b8fb38c07d1f73f"
+        },
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 133,
+          "end_line": 133,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0e8314422b9ed04a57ef8c1edf604fa8de1ccdfe491235bf86450d74b2769d53"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:fg4rasskqa",
+      "identity": [
+        "boundary",
+        "repository",
+        "node-express-mongodb"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: node-express-mongodb",
+      "kind": "repository",
+      "contains": [
+        "proc:2k4qri4gz2",
+        "proc:4m2ysdt4j4",
+        "proc:7zseyk5reh",
+        "proc:asmvuz3gji",
+        "proc:jtcosnfmpa",
+        "proc:kymuznpdlu",
+        "proc:m53v3pusca",
+        "proc:mjnlaho6vq",
+        "proc:r3saircepp",
+        "proc:s2dv344aux",
+        "proc:tm2f7cfmv3",
+        "proc:uz7oqxeuuh",
+        "proc:zfnmjioymc",
+        "proc:zzqivqwuzv"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:52a8e7c09a6a9909e7a9494f98044f66b89a2b7386017a40e7c619748605e3ad"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:2hnxtpaklv",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:mjnlaho6vq",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:mjnlaho6vq",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "evidence": [
+        {
+          "path": "server.js",
+          "start_line": 33,
+          "end_line": 35,
+          "detector": "js@0.3",
+          "content_hash": "sha256:83b1788cc30001b696a69d3512e250b99fc42ebe0936b1e463aff59a8596a159"
+        }
+      ]
+    },
+    {
+      "id": "flow:365g572v3p",
+      "identity": [
+        "flow",
+        "proc:zfnmjioymc",
+        "proc:zzqivqwuzv",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:zfnmjioymc",
+      "target": "proc:zzqivqwuzv",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "handler tutorials.delete",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+        }
+      ]
+    },
+    {
+      "id": "flow:3haziohken",
+      "identity": [
+        "flow",
+        "store:uujc2npyud",
+        "proc:zzqivqwuzv",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:uujc2npyud",
+      "target": "proc:zzqivqwuzv",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "find",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a9d1b3b97a0ca61a5861bbe50f921536400623340ed90ec166e2a753b183f0b1"
+        },
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "js@0.3",
+          "content_hash": "sha256:8d0a87ff29f17ee878945697afe9d84d02ea5f5e63dcdcbdfc92b6165de6bf8e"
+        },
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 133,
+          "end_line": 133,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0e8314422b9ed04a57ef8c1edf604fa8de1ccdfe491235bf86450d74b2769d53"
+        }
+      ]
+    },
+    {
+      "id": "flow:as5awcarkt",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:asmvuz3gji",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:asmvuz3gji",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f95d185ea54ef0cb2c36dd650c3872d06b6e87d8f59b16d45cd8a0afbc7a1c6e"
+        }
+      ]
+    },
+    {
+      "id": "flow:cocdv7z7l2",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:r3saircepp",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:r3saircepp",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "PUT /:id",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "js@0.3",
+          "content_hash": "sha256:96dabfd76d40680221f1e4f387691d07bcfa38f5186c452f7db698cf3a866891"
+        }
+      ]
+    },
+    {
+      "id": "flow:ex3qv752ii",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:tm2f7cfmv3",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:tm2f7cfmv3",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "js@0.3",
+          "content_hash": "sha256:4b5b95d5bddcfe8ed345dd6d43287fd0b7e61e84577ee0d17b5d70ea3ae3c808"
+        }
+      ]
+    },
+    {
+      "id": "flow:f6do4kcz3s",
+      "identity": [
+        "flow",
+        "proc:uz7oqxeuuh",
+        "proc:zzqivqwuzv",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:uz7oqxeuuh",
+      "target": "proc:zzqivqwuzv",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "handler tutorials.deleteAll",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+        }
+      ]
+    },
+    {
+      "id": "flow:i5umjusnv3",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:4m2ysdt4j4",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:4m2ysdt4j4",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /:id",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:1274f9a54cc096141f44439ba290c6600ae563a289e25a7da606087c15e01c6a"
+        }
+      ]
+    },
+    {
+      "id": "flow:ilr5a6yhex",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:s2dv344aux",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:s2dv344aux",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /published",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6edfa66da9f4a8eddb394e816d7897d5771fe2ba277ce5161adc8ef2887d3bf3"
+        }
+      ]
+    },
+    {
+      "id": "flow:kjz26uoabu",
+      "identity": [
+        "flow",
+        "proc:zzqivqwuzv",
+        "store:3ufptbo5k3",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:zzqivqwuzv",
+      "target": "store:3ufptbo5k3",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "save",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "js@0.3",
+          "content_hash": "sha256:fe30030e102ecf8fab72edd523758d54b314224d81ef9f50265efeac824fb56e"
+        }
+      ]
+    },
+    {
+      "id": "flow:msc4wgtmic",
+      "identity": [
+        "flow",
+        "proc:tm2f7cfmv3",
+        "proc:zzqivqwuzv",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:tm2f7cfmv3",
+      "target": "proc:zzqivqwuzv",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "handler tutorials.create",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+        }
+      ]
+    },
+    {
+      "id": "flow:qikxvtmqyf",
+      "identity": [
+        "flow",
+        "proc:4m2ysdt4j4",
+        "proc:zzqivqwuzv",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:4m2ysdt4j4",
+      "target": "proc:zzqivqwuzv",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "handler tutorials.findOne",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+        }
+      ]
+    },
+    {
+      "id": "flow:uebtsanaud",
+      "identity": [
+        "flow",
+        "proc:r3saircepp",
+        "proc:zzqivqwuzv",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:r3saircepp",
+      "target": "proc:zzqivqwuzv",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "handler tutorials.update",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+        }
+      ]
+    },
+    {
+      "id": "flow:uxfkbpq4op",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:uz7oqxeuuh",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:uz7oqxeuuh",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "DELETE /",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a34f6c755bbbd55366f67f1e1be4cf7cf98c8597837e32a4063958e64f2fb878"
+        }
+      ]
+    },
+    {
+      "id": "flow:ykzt4akmq7",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:zfnmjioymc",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:zfnmjioymc",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "DELETE /:id",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:895d876962165f861e2e25f1febe87d4c3ef98b4783d5adb97f3490ef408649b"
+        }
+      ]
+    },
+    {
+      "id": "flow:yyf53zydfh",
+      "identity": [
+        "flow",
+        "proc:asmvuz3gji",
+        "proc:zzqivqwuzv",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:asmvuz3gji",
+      "target": "proc:zzqivqwuzv",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "handler tutorials.findAll",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+        }
+      ]
+    },
+    {
+      "id": "flow:z3pqvi53vq",
+      "identity": [
+        "flow",
+        "proc:s2dv344aux",
+        "proc:zzqivqwuzv",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:s2dv344aux",
+      "target": "proc:zzqivqwuzv",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "handler tutorials.findAllPublished",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
+        }
+      ]
+    },
+    {
+      "id": "flow:zkldm5bfnj",
+      "identity": [
+        "flow",
+        "proc:zzqivqwuzv",
+        "store:uujc2npyud",
+        "mongo",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:zzqivqwuzv",
+      "target": "store:uujc2npyud",
+      "protocol": "mongo",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findByIdAndUpdate",
+      "crosses_boundary": [
+        "bnd:fg4rasskqa"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 77,
+          "end_line": 77,
+          "detector": "js@0.3",
+          "content_hash": "sha256:016f3896c3f3a11b002b930e9dad085ecfc4a5d20b1a3a0854d4f97c8ed897bf"
+        },
+        {
+          "path": "app/controllers/tutorial.controller.js",
+          "start_line": 117,
+          "end_line": 117,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f4eedee93aa16f5addbae3fea1f50c00ab92809694365dd34b8fb38c07d1f73f"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:45vnfzw33f",
+      "identity": [
+        "entry_point",
+        "http",
+        "PUT",
+        "/:id",
+        "app/routes/turorial.routes.js"
+      ],
+      "origin": "observed",
+      "process": "proc:r3saircepp",
+      "protocol": "http",
+      "method": "PUT",
+      "path": "/:id",
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "call_chain": [
+        "proc:r3saircepp",
+        "proc:zzqivqwuzv"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "js@0.3",
+          "content_hash": "sha256:96dabfd76d40680221f1e4f387691d07bcfa38f5186c452f7db698cf3a866891"
+        }
+      ]
+    },
+    {
+      "id": "ep:4deefucais",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/published",
+        "app/routes/turorial.routes.js"
+      ],
+      "origin": "observed",
+      "process": "proc:s2dv344aux",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/published",
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "call_chain": [
+        "proc:s2dv344aux",
+        "proc:zzqivqwuzv"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6edfa66da9f4a8eddb394e816d7897d5771fe2ba277ce5161adc8ef2887d3bf3"
+        }
+      ]
+    },
+    {
+      "id": "ep:gftzeaaxeh",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/:id",
+        "app/routes/turorial.routes.js"
+      ],
+      "origin": "observed",
+      "process": "proc:zfnmjioymc",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/:id",
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "call_chain": [
+        "proc:zfnmjioymc",
+        "proc:zzqivqwuzv"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:895d876962165f861e2e25f1febe87d4c3ef98b4783d5adb97f3490ef408649b"
+        }
+      ]
+    },
+    {
+      "id": "ep:tk2t3kubo4",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/",
+        "app/routes/turorial.routes.js"
+      ],
+      "origin": "observed",
+      "process": "proc:tm2f7cfmv3",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/",
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "call_chain": [
+        "proc:tm2f7cfmv3",
+        "proc:zzqivqwuzv"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "js@0.3",
+          "content_hash": "sha256:4b5b95d5bddcfe8ed345dd6d43287fd0b7e61e84577ee0d17b5d70ea3ae3c808"
+        }
+      ]
+    },
+    {
+      "id": "ep:v2uwzlf64w",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/",
+        "app/routes/turorial.routes.js"
+      ],
+      "origin": "observed",
+      "process": "proc:uz7oqxeuuh",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/",
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "call_chain": [
+        "proc:uz7oqxeuuh",
+        "proc:zzqivqwuzv"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a34f6c755bbbd55366f67f1e1be4cf7cf98c8597837e32a4063958e64f2fb878"
+        }
+      ]
+    },
+    {
+      "id": "ep:wp46z6r2op",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "app/routes/turorial.routes.js"
+      ],
+      "origin": "observed",
+      "process": "proc:asmvuz3gji",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "call_chain": [
+        "proc:asmvuz3gji",
+        "proc:zzqivqwuzv"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f95d185ea54ef0cb2c36dd650c3872d06b6e87d8f59b16d45cd8a0afbc7a1c6e"
+        }
+      ]
+    },
+    {
+      "id": "ep:xsmnpmqxoa",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "server.js"
+      ],
+      "origin": "observed",
+      "process": "proc:mjnlaho6vq",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "call_chain": [
+        "proc:mjnlaho6vq"
+      ],
+      "evidence": [
+        {
+          "path": "server.js",
+          "start_line": 33,
+          "end_line": 35,
+          "detector": "js@0.3",
+          "content_hash": "sha256:83b1788cc30001b696a69d3512e250b99fc42ebe0936b1e463aff59a8596a159"
+        }
+      ]
+    },
+    {
+      "id": "ep:xxhfmkg2fv",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/:id",
+        "app/routes/turorial.routes.js"
+      ],
+      "origin": "observed",
+      "process": "proc:4m2ysdt4j4",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/:id",
+      "controls": [
+        "ctl:4t7pejypjk"
+      ],
+      "call_chain": [
+        "proc:4m2ysdt4j4",
+        "proc:zzqivqwuzv"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:1274f9a54cc096141f44439ba290c6600ae563a289e25a7da606087c15e01c6a"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "ctl:4t7pejypjk",
+      "identity": [
+        "control",
+        "cors",
+        "server.js::cors"
+      ],
+      "origin": "observed",
+      "kind": "cors",
+      "name": "cors",
+      "applies_to": [
+        "ep:45vnfzw33f",
+        "ep:4deefucais",
+        "ep:gftzeaaxeh",
+        "ep:tk2t3kubo4",
+        "ep:v2uwzlf64w",
+        "ep:wp46z6r2op",
+        "ep:xsmnpmqxoa",
+        "ep:xxhfmkg2fv"
+      ],
+      "evidence": [
+        {
+          "path": "server.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f5a206de7f00d1950f21f52cc582a3193542bc3257d87a5f25d4e1b880a6ecb9"
+        }
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "wk:3p4lhm7zrr",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:tk2t3kubo4"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on POST /",
+      "applies_to": [
+        "ep:tk2t3kubo4"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "js@0.3",
+          "content_hash": "sha256:4b5b95d5bddcfe8ed345dd6d43287fd0b7e61e84577ee0d17b5d70ea3ae3c808"
+        }
+      ]
+    },
+    {
+      "id": "wk:duhdhj6fnt",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:wp46z6r2op"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:wp46z6r2op"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:f95d185ea54ef0cb2c36dd650c3872d06b6e87d8f59b16d45cd8a0afbc7a1c6e"
+        }
+      ]
+    },
+    {
+      "id": "wk:einfluzhxf",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:45vnfzw33f"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on PUT /:id",
+      "applies_to": [
+        "ep:45vnfzw33f"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "js@0.3",
+          "content_hash": "sha256:96dabfd76d40680221f1e4f387691d07bcfa38f5186c452f7db698cf3a866891"
+        }
+      ]
+    },
+    {
+      "id": "wk:izhijsxizr",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:xxhfmkg2fv"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /:id",
+      "applies_to": [
+        "ep:xxhfmkg2fv"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "js@0.3",
+          "content_hash": "sha256:1274f9a54cc096141f44439ba290c6600ae563a289e25a7da606087c15e01c6a"
+        }
+      ]
+    },
+    {
+      "id": "wk:pesrg7zlr6",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:4deefucais"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /published",
+      "applies_to": [
+        "ep:4deefucais"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:6edfa66da9f4a8eddb394e816d7897d5771fe2ba277ce5161adc8ef2887d3bf3"
+        }
+      ]
+    },
+    {
+      "id": "wk:ppro2sfumv",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:xsmnpmqxoa"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on GET /",
+      "applies_to": [
+        "ep:xsmnpmqxoa"
+      ],
+      "evidence": [
+        {
+          "path": "server.js",
+          "start_line": 33,
+          "end_line": 35,
+          "detector": "js@0.3",
+          "content_hash": "sha256:83b1788cc30001b696a69d3512e250b99fc42ebe0936b1e463aff59a8596a159"
+        }
+      ]
+    },
+    {
+      "id": "wk:royoknekym",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:v2uwzlf64w"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on DELETE /",
+      "applies_to": [
+        "ep:v2uwzlf64w"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a34f6c755bbbd55366f67f1e1be4cf7cf98c8597837e32a4063958e64f2fb878"
+        }
+      ]
+    },
+    {
+      "id": "wk:swiz7fdtkd",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:gftzeaaxeh"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authn control detected on DELETE /:id",
+      "applies_to": [
+        "ep:gftzeaaxeh"
+      ],
+      "evidence": [
+        {
+          "path": "app/routes/turorial.routes.js",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:895d876962165f861e2e25f1febe87d4c3ef98b4783d5adb97f3490ef408649b"
+        }
+      ]
+    }
+  ],
+  "schemas": [],
+  "assets": [],
+  "threat_agents": [
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "8 http entry points, 8 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "server.js",
+          "start_line": 33,
+          "end_line": 35,
+          "detector": "js@0.3",
+          "content_hash": "sha256:83b1788cc30001b696a69d3512e250b99fc42ebe0936b1e463aff59a8596a159"
+        }
+      ]
+    },
+    {
+      "id": "agent:olmyefboqa",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:fg4rasskqa"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to repository: node-express-mongodb",
+      "access": "insider",
+      "location": "bnd:fg4rasskqa",
+      "entry": [
+        "proc:4m2ysdt4j4",
+        "proc:asmvuz3gji",
+        "proc:mjnlaho6vq",
+        "proc:r3saircepp",
+        "proc:s2dv344aux",
+        "proc:tm2f7cfmv3",
+        "proc:uz7oqxeuuh",
+        "proc:zfnmjioymc",
+        "proc:zzqivqwuzv"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:52a8e7c09a6a9909e7a9494f98044f66b89a2b7386017a40e7c619748605e3ad"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unresolved",
+      "path": "app/routes/turorial.routes.js",
+      "line": 7,
+      "detail": "router for POST / is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "unresolved",
+      "path": "app/routes/turorial.routes.js",
+      "line": 10,
+      "detail": "router for GET / is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "unresolved",
+      "path": "app/routes/turorial.routes.js",
+      "line": 13,
+      "detail": "router for GET /published is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "unresolved",
+      "path": "app/routes/turorial.routes.js",
+      "line": 16,
+      "detail": "router for GET /:id is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "unresolved",
+      "path": "app/routes/turorial.routes.js",
+      "line": 19,
+      "detail": "router for PUT /:id is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "unresolved",
+      "path": "app/routes/turorial.routes.js",
+      "line": 22,
+      "detail": "router for DELETE /:id is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "unresolved",
+      "path": "app/routes/turorial.routes.js",
+      "line": 25,
+      "detail": "router for DELETE / is not mounted from a detected app entry; path shown without prefix"
+    },
+    {
+      "kind": "no_boundary_info",
+      "detail": "No compose, Dockerfile or Kubernetes manifests found; the repository is the only trust boundary."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "server.js",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port PORT? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "app/controllers/tutorial.controller.js",
+      "line": 20,
+      "detail": "Question for the team: how is the link to MongoDB authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "app/controllers/tutorial.controller.js",
+      "line": 38,
+      "detail": "Question for the team: how is the link to MongoDB: tutorials authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    }
+  ]
+}

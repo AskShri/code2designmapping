@@ -1,0 +1,24 @@
+%% L2: recommendationservice
+flowchart LR
+  subgraph bnd_c76yxdhq2j["container: recommendationservice"]
+    proc_k6rhwk7raj(["client"])
+    proc_kjz4w7dkct(["gRPC RecommendationServiceServicer handler"])
+    proc_krvoyrn5l7(["recommendation_server"])
+    proc_vtfanv77tp(["gRPC HealthServicer handler"])
+  end
+  ext_5glqr7zsb5["OTLP collector"]
+  ext_sqc242xzn7["gRPC client"]
+  ext_xbo3iznjz7["productcatalogservice service"]
+  ext_xwfpv7zyiv["Unresolved grpc target"]
+  ext_sqc242xzn7 -->|"grpc"| proc_kjz4w7dkct
+  ext_sqc242xzn7 -->|"grpc"| proc_vtfanv77tp
+  proc_k6rhwk7raj -->|"grpc"| ext_xwfpv7zyiv
+  proc_krvoyrn5l7 -->|"https"| ext_5glqr7zsb5
+  proc_krvoyrn5l7 -->|"grpc"| ext_xbo3iznjz7
+  style bnd_c76yxdhq2j stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

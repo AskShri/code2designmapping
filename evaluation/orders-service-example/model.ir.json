@@ -1,0 +1,1312 @@
+{
+  "version": "0.1",
+  "provenance": {
+    "tool_version": "0.3.0-prototype",
+    "commit": "05fad9d339c80c96730bed6aef6f9eb9344b946d",
+    "generated_from": "orders-service-example",
+    "detectors": [
+      "config@0.3",
+      "js@0.3"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "Dockerfile": "sha256:316d4baf4dc24e4d7511f7699d415454000d79e223815d9bc0106a87cf5f2ed1",
+      "docker-compose.yml": "sha256:425687e2aeafb95a8d3d1d7a25915fda48a6469a8c26594123dd4cbc21741eb0",
+      "package.json": "sha256:6866b1b92ec61c395b3ffb62d3fe1bae0f8bec47777339ac428c4e5e9f0c1205",
+      "src/index.ts": "sha256:65d8a15c3873e6f0ba97cc579793399eeb0810758ea95a8a456baab990eda85b",
+      "src/infra/cache.ts": "sha256:37793782c6db9e69283310ee7d57abed049d96c97e19f66e9d726d0d7cb0c3d2",
+      "src/infra/db.ts": "sha256:cb7a9f3e7483cf04a5790469d6d25d8082eb804352ec4eed8149f29ebdf7dc06",
+      "src/orders/routes.ts": "sha256:9ffe50b849482591a1e9b26cdb781867af87dbaa0b88830cccd697db383b2f7f",
+      "src/orders/service.ts": "sha256:06f84b8c7cfdbcb62462d1764d5ac32e8635ffec9508dc8aad86ea5fb2548b36",
+      "src/payments/stripe.ts": "sha256:e82de69cd5bec164a28d7c6ea388838e07d7a79d56f2f314a7f6040804e45378"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:3itjy7ij4t",
+      "identity": [
+        "process",
+        ".",
+        "orders-service"
+      ],
+      "origin": "observed",
+      "name": "orders-service",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "package.json",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "config@0.3",
+          "content_hash": "sha256:021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+        }
+      ]
+    },
+    {
+      "id": "proc:7hcvlzq6va",
+      "identity": [
+        "process",
+        "src/payments",
+        "payments"
+      ],
+      "origin": "observed",
+      "name": "payments",
+      "level": 1,
+      "module": "src/payments",
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e1e927ab6836b2ed724edd0c498bc025f61ca8b2f27be58f4511021624bafb72"
+        }
+      ],
+      "parent": "proc:3itjy7ij4t"
+    },
+    {
+      "id": "proc:aql2uzi25f",
+      "identity": [
+        "process",
+        "src/infra",
+        "infra"
+      ],
+      "origin": "observed",
+      "name": "infra",
+      "level": 1,
+      "module": "src/infra",
+      "evidence": [
+        {
+          "path": "src/infra/auth.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:8a52fb1f4927eef8a929d902293f1d606281c2dbc4454448dd9e3aa5bac57e15"
+        }
+      ],
+      "parent": "proc:3itjy7ij4t"
+    },
+    {
+      "id": "proc:atbhcslotu",
+      "identity": [
+        "process",
+        "src/orders/routes.ts",
+        "GET /orders/:id"
+      ],
+      "origin": "observed",
+      "name": "GET /orders/:id handler",
+      "level": 2,
+      "module": "src/orders/routes.ts",
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 20,
+          "end_line": 24,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0f17f4a7380b276307ee6f67a48767b47f96bfdce32a3b0178022784fb370b89"
+        }
+      ],
+      "parent": "proc:tv5mzaefoi"
+    },
+    {
+      "id": "proc:extghcvbbw",
+      "identity": [
+        "process",
+        "src/orders/service.ts",
+        "service"
+      ],
+      "origin": "observed",
+      "name": "service",
+      "level": 2,
+      "module": "src/orders/service.ts",
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:bbfe059be2e3cc771a6f56ba404be118ed33443cc2b2112e9b58d2217a5e518a"
+        }
+      ],
+      "parent": "proc:tv5mzaefoi"
+    },
+    {
+      "id": "proc:rlda3c52k2",
+      "identity": [
+        "process",
+        "src/payments/stripe.ts",
+        "stripe"
+      ],
+      "origin": "observed",
+      "name": "stripe",
+      "level": 2,
+      "module": "src/payments/stripe.ts",
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:e1e927ab6836b2ed724edd0c498bc025f61ca8b2f27be58f4511021624bafb72"
+        }
+      ],
+      "parent": "proc:7hcvlzq6va"
+    },
+    {
+      "id": "proc:sdgb6kalgr",
+      "identity": [
+        "process",
+        ".",
+        "api"
+      ],
+      "origin": "observed",
+      "name": "api",
+      "level": 1,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "src/index.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:c7f355c68a917a777056e780cc5f5e6e50b376af5d66e20ee18dc834e99f608d"
+        }
+      ],
+      "parent": "proc:3itjy7ij4t"
+    },
+    {
+      "id": "proc:tv5mzaefoi",
+      "identity": [
+        "process",
+        "src/orders",
+        "orders"
+      ],
+      "origin": "observed",
+      "name": "orders",
+      "level": 1,
+      "module": "src/orders",
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:34db5ae6a60631dd902ab4705ad4d37adaf678bcdf81192d3aba9d0340dcf1e3"
+        }
+      ],
+      "parent": "proc:3itjy7ij4t"
+    },
+    {
+      "id": "proc:uiamsfd5ja",
+      "identity": [
+        "process",
+        "src/orders/routes.ts",
+        "POST /orders"
+      ],
+      "origin": "observed",
+      "name": "POST /orders handler",
+      "level": 2,
+      "module": "src/orders/routes.ts",
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a0d9c02c595fbb2d498c47828f4997c9d601b0e353899e54eb3452f0ee6d1d7e"
+        }
+      ],
+      "parent": "proc:tv5mzaefoi"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a0d9c02c595fbb2d498c47828f4997c9d601b0e353899e54eb3452f0ee6d1d7e"
+        },
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 20,
+          "end_line": 24,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0f17f4a7380b276307ee6f67a48767b47f96bfdce32a3b0178022784fb370b89"
+        }
+      ]
+    },
+    {
+      "id": "ext:slqdx4hifp",
+      "identity": [
+        "external",
+        "Stripe API",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "Stripe API",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "js@0.3",
+          "content_hash": "sha256:bb4b958d4b59860e65fa9e3d3f696b2bfbf25a9c5a4ecc170117fa69c7f26ca6"
+        }
+      ],
+      "host": "api.stripe.com",
+      "sdk_service": "Stripe API"
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:2whm26363j",
+      "identity": [
+        "store",
+        "postgres",
+        "order"
+      ],
+      "origin": "observed",
+      "name": "Postgres: orders",
+      "technology": "postgres",
+      "logical_name": "orders",
+      "data_classes": [
+        "financial",
+        "pii"
+      ],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0245c6950f57c3e77206537506cc076560405d3ba0965c5f20451e1057298d5b"
+        },
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "js@0.3",
+          "content_hash": "sha256:2de9efbb0e250db06cae26dd110713bff0869bf8e42f53a35e64cc7a894bb1a1"
+        },
+        {
+          "path": "docker-compose.yml",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "config@0.3",
+          "content_hash": "sha256:c0bf8e33ab21b3f88515d2db5ecdc3476da739f25b5858661c12c523072dc5b9"
+        }
+      ]
+    },
+    {
+      "id": "store:ligqz7jge4",
+      "identity": [
+        "store",
+        "redis",
+        "order:*"
+      ],
+      "origin": "observed",
+      "name": "Redis: order:*",
+      "technology": "redis",
+      "logical_name": "order:*",
+      "data_classes": [
+        "financial",
+        "pii"
+      ],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "js@0.3",
+          "content_hash": "sha256:206e05969272e121c37d24b5be79cd1835e1287a99daa87460990c5328c60897"
+        },
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:c46c056ba2d128962ee18c23c471cda5c6527127405a4c91e964fd3fbafa0f5a"
+        },
+        {
+          "path": "docker-compose.yml",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "config@0.3",
+          "content_hash": "sha256:4fec9f1fc95f5b157e6063f39c54edb9fd9406f76cfc8d03b155d6eaff69727f"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:li56z6okmf",
+      "identity": [
+        "boundary",
+        "container",
+        "db"
+      ],
+      "origin": "observed",
+      "name": "container: db",
+      "kind": "container",
+      "contains": [
+        "store:2whm26363j"
+      ],
+      "evidence": [
+        {
+          "path": "docker-compose.yml",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "config@0.3",
+          "content_hash": "sha256:c0bf8e33ab21b3f88515d2db5ecdc3476da739f25b5858661c12c523072dc5b9"
+        }
+      ]
+    },
+    {
+      "id": "bnd:quz6xm3rfj",
+      "identity": [
+        "boundary",
+        "container",
+        "cache"
+      ],
+      "origin": "observed",
+      "name": "container: cache",
+      "kind": "container",
+      "contains": [
+        "store:ligqz7jge4"
+      ],
+      "evidence": [
+        {
+          "path": "docker-compose.yml",
+          "start_line": 7,
+          "end_line": 7,
+          "detector": "config@0.3",
+          "content_hash": "sha256:4fec9f1fc95f5b157e6063f39c54edb9fd9406f76cfc8d03b155d6eaff69727f"
+        }
+      ]
+    },
+    {
+      "id": "bnd:uvq3irjstn",
+      "identity": [
+        "boundary",
+        "container",
+        "api"
+      ],
+      "origin": "observed",
+      "name": "container: api",
+      "kind": "container",
+      "contains": [
+        "proc:3itjy7ij4t",
+        "proc:7hcvlzq6va",
+        "proc:aql2uzi25f",
+        "proc:atbhcslotu",
+        "proc:extghcvbbw",
+        "proc:rlda3c52k2",
+        "proc:sdgb6kalgr",
+        "proc:tv5mzaefoi",
+        "proc:uiamsfd5ja"
+      ],
+      "evidence": [
+        {
+          "path": "docker-compose.yml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:d212c3feb6897bfce4c7b5654f64124e9d1f1e6bb14127122bbe0e578f0a2c6e"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:e4rceghxul",
+      "identity": [
+        "flow",
+        "proc:rlda3c52k2",
+        "ext:slqdx4hifp",
+        "https",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:rlda3c52k2",
+      "target": "ext:slqdx4hifp",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "tls",
+      "purpose": "charges.create",
+      "crosses_boundary": [
+        "bnd:uvq3irjstn"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "js@0.3",
+          "content_hash": "sha256:bb4b958d4b59860e65fa9e3d3f696b2bfbf25a9c5a4ecc170117fa69c7f26ca6"
+        }
+      ],
+      "payload": {
+        "name": "request fields (propagated)",
+        "data_classes": [
+          "financial",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:efllfbxbrp",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:atbhcslotu",
+        "http",
+        ""
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:atbhcslotu",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "token",
+      "encryption": "unknown",
+      "purpose": "GET /orders/:id",
+      "crosses_boundary": [
+        "bnd:uvq3irjstn"
+      ],
+      "controls": [
+        "ctl:3kzhoi2pj5",
+        "ctl:cgmuu2h63w"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 20,
+          "end_line": 24,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0f17f4a7380b276307ee6f67a48767b47f96bfdce32a3b0178022784fb370b89"
+        }
+      ]
+    },
+    {
+      "id": "flow:mdew2sdsd5",
+      "identity": [
+        "flow",
+        "proc:uiamsfd5ja",
+        "proc:extghcvbbw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:uiamsfd5ja",
+      "target": "proc:extghcvbbw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "uses createOrder",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:46cc67d9490226bda616688299bec29c93c55d71b7195c4341be5fe3cf9f8b2d"
+        }
+      ]
+    },
+    {
+      "id": "flow:ozu4sf52to",
+      "identity": [
+        "flow",
+        "store:2whm26363j",
+        "proc:extghcvbbw",
+        "sql",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:2whm26363j",
+      "target": "proc:extghcvbbw",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "query",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:uvq3irjstn"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "js@0.3",
+          "content_hash": "sha256:2de9efbb0e250db06cae26dd110713bff0869bf8e42f53a35e64cc7a894bb1a1"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: orders record",
+        "data_classes": [
+          "financial",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:rck5l72j2y",
+      "identity": [
+        "flow",
+        "store:ligqz7jge4",
+        "proc:extghcvbbw",
+        "redis",
+        ""
+      ],
+      "origin": "observed",
+      "source": "store:ligqz7jge4",
+      "target": "proc:extghcvbbw",
+      "protocol": "redis",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:quz6xm3rfj",
+        "bnd:uvq3irjstn"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "js@0.3",
+          "content_hash": "sha256:c46c056ba2d128962ee18c23c471cda5c6527127405a4c91e964fd3fbafa0f5a"
+        }
+      ],
+      "payload": {
+        "name": "Redis: order:* record",
+        "data_classes": [
+          "financial",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:urieut2psi",
+      "identity": [
+        "flow",
+        "proc:atbhcslotu",
+        "proc:extghcvbbw",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:atbhcslotu",
+      "target": "proc:extghcvbbw",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "uses getOrder",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:46cc67d9490226bda616688299bec29c93c55d71b7195c4341be5fe3cf9f8b2d"
+        }
+      ]
+    },
+    {
+      "id": "flow:w7ffnsf2ia",
+      "identity": [
+        "flow",
+        "proc:extghcvbbw",
+        "store:2whm26363j",
+        "sql",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:extghcvbbw",
+      "target": "store:2whm26363j",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "query",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:uvq3irjstn"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0245c6950f57c3e77206537506cc076560405d3ba0965c5f20451e1057298d5b"
+        }
+      ],
+      "payload": {
+        "name": "request fields (propagated)",
+        "data_classes": [
+          "financial",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:wb37x5nbwl",
+      "identity": [
+        "flow",
+        "proc:extghcvbbw",
+        "proc:rlda3c52k2",
+        "in_process",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:extghcvbbw",
+      "target": "proc:rlda3c52k2",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "uses chargeCard",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "synth@0.3",
+          "content_hash": "sha256:6ebbdd316ce4a9d1e6f9b45f97ee8486a63c352ec8c575f05096822c4264c324"
+        }
+      ]
+    },
+    {
+      "id": "flow:yiglht2cou",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:uiamsfd5ja",
+        "http",
+        "CreateOrderRequest"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:uiamsfd5ja",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "token",
+      "encryption": "unknown",
+      "purpose": "POST /orders",
+      "payload": {
+        "schema_ref": "sch:tv6v5i2cvm",
+        "name": "CreateOrderRequest",
+        "data_classes": [
+          "financial",
+          "pii"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:uvq3irjstn"
+      ],
+      "controls": [
+        "ctl:3kzhoi2pj5",
+        "ctl:cgmuu2h63w"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a0d9c02c595fbb2d498c47828f4997c9d601b0e353899e54eb3452f0ee6d1d7e"
+        }
+      ]
+    },
+    {
+      "id": "flow:yz3bvbv3i5",
+      "identity": [
+        "flow",
+        "proc:extghcvbbw",
+        "store:ligqz7jge4",
+        "redis",
+        ""
+      ],
+      "origin": "observed",
+      "source": "proc:extghcvbbw",
+      "target": "store:ligqz7jge4",
+      "protocol": "redis",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "set",
+      "crosses_boundary": [
+        "bnd:quz6xm3rfj",
+        "bnd:uvq3irjstn"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "js@0.3",
+          "content_hash": "sha256:206e05969272e121c37d24b5be79cd1835e1287a99daa87460990c5328c60897"
+        }
+      ],
+      "payload": {
+        "name": "request fields (propagated)",
+        "data_classes": [
+          "financial",
+          "pii"
+        ]
+      }
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:2gjkow74d4",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/orders/:id",
+        "src/orders/routes.ts"
+      ],
+      "origin": "observed",
+      "process": "proc:atbhcslotu",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/orders/:id",
+      "controls": [
+        "ctl:3kzhoi2pj5",
+        "ctl:cgmuu2h63w"
+      ],
+      "call_chain": [
+        "proc:atbhcslotu",
+        "proc:extghcvbbw",
+        "proc:rlda3c52k2"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 20,
+          "end_line": 24,
+          "detector": "js@0.3",
+          "content_hash": "sha256:0f17f4a7380b276307ee6f67a48767b47f96bfdce32a3b0178022784fb370b89"
+        }
+      ]
+    },
+    {
+      "id": "ep:seo2abmuwt",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/orders",
+        "src/orders/routes.ts"
+      ],
+      "origin": "observed",
+      "process": "proc:uiamsfd5ja",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/orders",
+      "controls": [
+        "ctl:3kzhoi2pj5",
+        "ctl:cgmuu2h63w"
+      ],
+      "call_chain": [
+        "proc:uiamsfd5ja",
+        "proc:extghcvbbw",
+        "proc:rlda3c52k2"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a0d9c02c595fbb2d498c47828f4997c9d601b0e353899e54eb3452f0ee6d1d7e"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "ctl:3kzhoi2pj5",
+      "identity": [
+        "control",
+        "authn",
+        "src/index.ts::requireJwt"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "requireJwt",
+      "applies_to": [
+        "ep:2gjkow74d4",
+        "ep:seo2abmuwt"
+      ],
+      "evidence": [
+        {
+          "path": "src/index.ts",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "js@0.3",
+          "content_hash": "sha256:02b3299aa43440dc36b8fd1ab548da4131c698c54c7af4cb69c4346b8e5b8fd2"
+        }
+      ]
+    },
+    {
+      "id": "ctl:cgmuu2h63w",
+      "identity": [
+        "control",
+        "rate_limit",
+        "src/index.ts::rateLimit"
+      ],
+      "origin": "observed",
+      "kind": "rate_limit",
+      "name": "rateLimit",
+      "applies_to": [
+        "ep:2gjkow74d4",
+        "ep:seo2abmuwt"
+      ],
+      "evidence": [
+        {
+          "path": "src/index.ts",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "js@0.3",
+          "content_hash": "sha256:5146794aa2c8678e21f9533c690f977f09dcab85bf4b432efa8203a1ee13ef27"
+        }
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "wk:hlg6elpiqd",
+      "identity": [
+        "weakness",
+        "secret_in_env_at_import",
+        "src/payments/stripe.ts:3"
+      ],
+      "origin": "observed",
+      "kind": "secret_in_env_at_import",
+      "name": "STRIPE_SECRET_KEY read at module import",
+      "applies_to": [
+        "proc:rlda3c52k2"
+      ],
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "js@0.3",
+          "content_hash": "sha256:783634d1b1bf6afdd72134927ace8fa9a3e9498f4f161e8f1b782047bdfd3e4a"
+        }
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "id": "sch:g53ewi4yoe",
+      "identity": [
+        "schema",
+        "src/orders/service.ts",
+        "orders"
+      ],
+      "origin": "observed",
+      "name": "orders",
+      "fields": [
+        {
+          "name": "user_id",
+          "type": "column",
+          "data_class": "internal"
+        },
+        {
+          "name": "customer_email",
+          "type": "column",
+          "data_class": "pii"
+        },
+        {
+          "name": "shipping_address",
+          "type": "column",
+          "data_class": "pii"
+        },
+        {
+          "name": "total_cents",
+          "type": "column",
+          "data_class": "financial"
+        },
+        {
+          "name": "charge_id",
+          "type": "column",
+          "data_class": "financial"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/service.ts",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "js@0.3",
+          "content_hash": "sha256:651b4f6a5cd404bb1d4bd9c6ad0494fe0ee1ea956a466df2505ca57f50882f11"
+        }
+      ]
+    },
+    {
+      "id": "sch:nexxdhoqhg",
+      "identity": [
+        "schema",
+        "src/orders/routes.ts",
+        "items"
+      ],
+      "origin": "observed",
+      "name": "items",
+      "fields": [
+        {
+          "name": "sku",
+          "type": "z.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "qty",
+          "type": "z.number",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "js@0.3",
+          "content_hash": "sha256:5aa1cd9582f7a08298fa6b8ed34d33647914fa5b63b70a07fa3820bcc679710e"
+        }
+      ]
+    },
+    {
+      "id": "sch:tv6v5i2cvm",
+      "identity": [
+        "schema",
+        "src/orders/routes.ts",
+        "CreateOrderRequest"
+      ],
+      "origin": "observed",
+      "name": "CreateOrderRequest",
+      "fields": [
+        {
+          "name": "customerEmail",
+          "type": "z.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "shippingAddress",
+          "type": "z.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "items",
+          "type": "z.array",
+          "data_class": "internal"
+        },
+        {
+          "name": "cardToken",
+          "type": "z.string",
+          "data_class": "financial"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 5,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:598a56c6d14679893cde6501bcbf0b9b58fdafa3b7e184bbdc44cd5ed2cb4fa7"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset:3jy2pc5xds",
+      "identity": [
+        "asset",
+        "credential",
+        "STRIPE_SECRET_KEY"
+      ],
+      "origin": "observed",
+      "name": "Secret STRIPE_SECRET_KEY",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:rlda3c52k2"
+      ],
+      "processed_by": [
+        "proc:rlda3c52k2"
+      ],
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "js@0.3",
+          "content_hash": "sha256:783634d1b1bf6afdd72134927ace8fa9a3e9498f4f161e8f1b782047bdfd3e4a"
+        }
+      ]
+    },
+    {
+      "id": "asset:jz4nahgsoa",
+      "identity": [
+        "asset",
+        "data",
+        "pii"
+      ],
+      "origin": "observed",
+      "name": "Personal data (PII)",
+      "kind": "data",
+      "data_classes": [
+        "pii"
+      ],
+      "held_by": [
+        "store:2whm26363j",
+        "store:ligqz7jge4"
+      ],
+      "processed_by": [
+        "proc:extghcvbbw",
+        "proc:rlda3c52k2",
+        "proc:uiamsfd5ja"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 5,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:598a56c6d14679893cde6501bcbf0b9b58fdafa3b7e184bbdc44cd5ed2cb4fa7"
+        }
+      ]
+    },
+    {
+      "id": "asset:q5ifntstez",
+      "identity": [
+        "asset",
+        "data",
+        "financial"
+      ],
+      "origin": "observed",
+      "name": "Financial data",
+      "kind": "data",
+      "data_classes": [
+        "financial"
+      ],
+      "held_by": [
+        "store:2whm26363j",
+        "store:ligqz7jge4"
+      ],
+      "processed_by": [
+        "proc:extghcvbbw",
+        "proc:rlda3c52k2",
+        "proc:uiamsfd5ja"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 5,
+          "end_line": 10,
+          "detector": "js@0.3",
+          "content_hash": "sha256:598a56c6d14679893cde6501bcbf0b9b58fdafa3b7e184bbdc44cd5ed2cb4fa7"
+        }
+      ]
+    }
+  ],
+  "threat_agents": [
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "2 http entry points, 0 without a detected authn control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a0d9c02c595fbb2d498c47828f4997c9d601b0e353899e54eb3452f0ee6d1d7e"
+        }
+      ]
+    },
+    {
+      "id": "agent:obxyyy5jao",
+      "identity": [
+        "agent",
+        "third_party",
+        "ext:slqdx4hifp"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
+      "name": "Compromised third party: Stripe API",
+      "access": "third_party",
+      "entry": [
+        "ext:slqdx4hifp"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "src/payments/stripe.ts",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "js@0.3",
+          "content_hash": "sha256:bb4b958d4b59860e65fa9e3d3f696b2bfbf25a9c5a4ecc170117fa69c7f26ca6"
+        }
+      ]
+    },
+    {
+      "id": "agent:owfpatbt35",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:uvq3irjstn"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: api",
+      "access": "insider",
+      "location": "bnd:uvq3irjstn",
+      "entry": [
+        "proc:atbhcslotu",
+        "proc:extghcvbbw",
+        "proc:rlda3c52k2",
+        "proc:uiamsfd5ja"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors"
+      ],
+      "goals": [
+        "read stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "docker-compose.yml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.3",
+          "content_hash": "sha256:d212c3feb6897bfce4c7b5654f64124e9d1f1e6bb14127122bbe0e578f0a2c6e"
+        }
+      ]
+    },
+    {
+      "id": "agent:ro6hlangl4",
+      "identity": [
+        "agent",
+        "authenticated",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "authn controls exist on some entry points; a valid credential holder is a distinct agent",
+      "name": "Authenticated HTTP caller",
+      "access": "authenticated",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [
+        "authn"
+      ],
+      "goals": [
+        "access other users' data",
+        "abuse privileged functions"
+      ],
+      "evidence": [
+        {
+          "path": "src/orders/routes.ts",
+          "start_line": 14,
+          "end_line": 18,
+          "detector": "js@0.3",
+          "content_hash": "sha256:a0d9c02c595fbb2d498c47828f4997c9d601b0e353899e54eb3452f0ee6d1d7e"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unknown_attribute",
+      "path": "src/index.ts",
+      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port 8080? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/orders/service.ts",
+      "line": 13,
+      "detail": "Question for the team: how is the link to Postgres: orders authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/orders/service.ts",
+      "line": 17,
+      "detail": "Question for the team: how is the link to Redis: order:* authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+    }
+  ]
+}

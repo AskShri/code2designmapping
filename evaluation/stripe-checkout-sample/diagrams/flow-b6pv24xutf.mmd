@@ -1,0 +1,10 @@
+%% Control flow: POST /webhook
+sequenceDiagram
+  autonumber
+  participant ext_sga4qktkap as HTTP client
+  participant proc_s774cdt6a2 as POST /webhook handler
+  participant ext_slqdx4hifp as Stripe API
+  ext_sga4qktkap->>proc_s774cdt6a2: dispatch
+  proc_s774cdt6a2->>ext_slqdx4hifp: https
+  ext_slqdx4hifp-->>proc_s774cdt6a2: response
+  proc_s774cdt6a2-->>ext_sga4qktkap: response

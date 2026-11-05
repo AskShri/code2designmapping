@@ -1,0 +1,26 @@
+%% L0 context: microservices-demo
+flowchart LR
+  subgraph bnd_57uwq6gika["repository: microservices-demo"]
+    proc_n5rg6wc7ft(["microservices-demo (+7)"])
+  end
+  ext_5glqr7zsb5["OTLP collector"]
+  ext_e2lwbbcouh["Google Gemini API"]
+  ext_sga4qktkap["HTTP client"]
+  ext_sqc242xzn7["gRPC client"]
+  ext_vpmyo25x2y["Google Cloud APIs"]
+  ext_xbo3iznjz7["productcatalogservice service"]
+  ext_xwfpv7zyiv["Unresolved grpc target"]
+  ext_sga4qktkap -->|"http"| proc_n5rg6wc7ft
+  ext_sqc242xzn7 -->|"grpc"| proc_n5rg6wc7ft
+  proc_n5rg6wc7ft -->|"https"| ext_5glqr7zsb5
+  proc_n5rg6wc7ft -->|"https"| ext_e2lwbbcouh
+  proc_n5rg6wc7ft -->|"https"| ext_vpmyo25x2y
+  proc_n5rg6wc7ft -->|"grpc"| ext_xbo3iznjz7
+  proc_n5rg6wc7ft -->|"grpc"| ext_xwfpv7zyiv
+  style bnd_57uwq6gika stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none
