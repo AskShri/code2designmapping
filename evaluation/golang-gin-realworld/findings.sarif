@@ -1,0 +1,281 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/unauthenticated_entry_point",
+              "name": "UnauthenticatedEntryPoint",
+              "shortDescription": {
+                "text": "Entry point without a detected authentication control (review)"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/306.html",
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-306",
+                  "STRIDE:SE"
+                ],
+                "security-severity": "1.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/articles/{slug}/comments (CWE-306). Applies to: GET /api/articles/{slug}/comments."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "articles/routers.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 31,
+                  "endLine": 31
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:2bv3akcrym"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:3x7h6w6w6y"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/profiles/{username} (CWE-306). Applies to: GET /api/profiles/{username}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "users/routers.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 26,
+                  "endLine": 26
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:c7guvokzn2"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:aw7aoy7pir"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/articles/{slug} (CWE-306). Applies to: GET /api/articles/{slug}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "articles/routers.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 30,
+                  "endLine": 30
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:mrb3dhrx5l"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:namxldnlhp"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/tags (CWE-306). Applies to: GET /api/tags."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "articles/routers.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 35,
+                  "endLine": 35
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:nrtlcttim7"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:sh4mb7p5pj"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/users (CWE-306). Applies to: POST /api/users."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "users/routers.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 13,
+                  "endLine": 13
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:wd2a32ldwi"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:f6a4m74ipc"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/users/login (CWE-306). Applies to: POST /api/users/login."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "users/routers.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 15,
+                  "endLine": 15
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:wdb3k7tcr3"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:4qtbwu7r5d"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/articles (CWE-306). Applies to: GET /api/articles."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "articles/routers.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 28,
+                  "endLine": 28
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:zt3frbwsdf"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:eaajq5wukw"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

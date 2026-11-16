@@ -1,68 +1,134 @@
 [
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:5daekry3cc",
-    "message": "MongoDB: Token -> token.service: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:4hpyxxzbzg",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> OPTIONS * handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:g7pbv25ow7",
-    "message": "MongoDB: User -> user.service: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:6jhyu33rwd",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /v1/auth/logout handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:hgu32gy5iw",
-    "message": "user.service -> MongoDB: User: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:7y7f3mxk3w",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /v1/auth/forgot-password handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:jsm74ufs4i",
-    "message": "auth.service -> MongoDB: Token: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:fm5jviqx3y",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /v1/auth/verify-email handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:nvsuzw2dbw",
-    "message": "token.service -> MongoDB: Token: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:h3ucyogw4x",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /v1/auth/register handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:rpyhqru4wf",
-    "message": "MongoDB: User -> passport: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:napldattnq",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /v1/auth/refresh-tokens handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:vsddsrvv4t",
-    "message": "email.service -> SMTP mail relay: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:or62gxrjiz",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /v1/auth/reset-password handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:xpwwtqnnr4",
-    "message": "MongoDB: Token -> auth.service: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:wfg2xbh5ve",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /v1/auth/login handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:zgv63dwo6f",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /v1/docs handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-permissive-cors",
+    "id": "wk:c3upixif7u",
+    "message": "CWE-942 cors() with default or wildcard origin (src/app.js:41)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:njbaap3rlq",
+    "message": "CWE-798 hard-coded RESET_PASSWORD literal (src/config/tokens.js:4)"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:4qlcdwoif3",
-    "message": "process OPTIONS * handler has only inputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:p2w2sj7nq7",
+    "id": "proc:icbpdxkx7e",
     "message": "process passport has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:pmw3c5t4fs",
+    "id": "proc:kdg4sbikti",
     "message": "process GET /v1/docs handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:wu2qnrooku",
+    "message": "process OPTIONS * handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3b7u4nnejt",
+    "message": "MongoDB: User -> user.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3mqqphk4vq",
+    "message": "MongoDB: Token -> token.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:56r77oay5t",
+    "message": "token.service -> MongoDB: Token: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:bqboyj5uyk",
+    "message": "auth.service -> MongoDB: Token: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:fef3vlg4hw",
+    "message": "MongoDB: Token -> auth.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:k54mtohvqi",
+    "message": "user.service -> MongoDB: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:prxxvlekss",
+    "message": "MongoDB: User -> passport: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vr47evwmph",
+    "message": "email.service -> SMTP mail relay: authentication=unknown, encryption=unknown"
   }
 ]

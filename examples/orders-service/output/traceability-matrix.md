@@ -1,35 +1,39 @@
-# Control-path traceability matrix: orders-service
+# Control-path traceability matrix
 
-One row per (threat agent, asset) pair. The path is the shortest route over the data flows from where the agent starts to an element that holds or processes the asset. 'Effective controls' excludes controls the agent legitimately passes (an authenticated client passes authn). Rows are ordered worst first.
+One row per (threat agent, asset) pair. The path is the route from where the agent starts to an element holding (else processing) the asset that crosses the fewest blocking controls (authentication, authorization) the agent does not already hold. Conditionally registered controls do not count as blocking. Other controls on the path (validation, rate limiting, CSRF, headers) are listed separately because they mitigate but do not stop the agent. Worst first.
 
-| Threat agent | Asset | Shortest path | Controls crossed | Effective controls | Verdict |
+| Threat agent | Asset | Weakest path | Blocking controls | Other controls | Verdict |
 |---|---|---|---|---|---|
-| Insider or attacker with api container access | Stripe secret key | charge card (inside) | none | none | agent starts at the asset holder: no control can apply |
-| Insider or attacker with api container access | Customer PII (email, shipping address) | get order -> Redis: order:* | none | none | NO EFFECTIVE CONTROL on the path: potential attack path |
-| Insider or attacker with api container access | Payment data (card token, amounts, charge ids) | get order -> Redis: order:* | none | none | NO EFFECTIVE CONTROL on the path: potential attack path |
-| Compromised or malicious third party (Stripe API) | Stripe secret key | Stripe API -> charge card | none | none | NO EFFECTIVE CONTROL on the path: potential attack path |
-| Compromised or malicious third party (Stripe API) | Customer PII (email, shipping address) | Stripe API -> charge card -> create order -> Redis: order:* | none | none | NO EFFECTIVE CONTROL on the path: potential attack path |
-| Compromised or malicious third party (Stripe API) | Payment data (card token, amounts, charge ids) | Stripe API -> charge card -> create order -> Redis: order:* | none | none | NO EFFECTIVE CONTROL on the path: potential attack path |
-| Anonymous internet user | Customer PII (email, shipping address) | API client (JWT bearer) -> POST /orders handler -> create order -> Redis: order:* | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | controlled at entry; create order -> Redis: order:* link has unknown authentication/encryption |
-| Anonymous internet user | Payment data (card token, amounts, charge ids) | API client (JWT bearer) -> POST /orders handler -> create order -> Redis: order:* | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | controlled at entry; create order -> Redis: order:* link has unknown authentication/encryption |
-| Authenticated API client (valid JWT) | Customer PII (email, shipping address) | API client (JWT bearer) -> POST /orders handler -> create order -> Redis: order:* | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | rate limit 100/min, zod CreateOrderRequest | controlled at entry; create order -> Redis: order:* link has unknown authentication/encryption |
-| Authenticated API client (valid JWT) | Payment data (card token, amounts, charge ids) | API client (JWT bearer) -> POST /orders handler -> create order -> Redis: order:* | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | rate limit 100/min, zod CreateOrderRequest | controlled at entry; create order -> Redis: order:* link has unknown authentication/encryption |
-| Anonymous internet user | Stripe secret key | API client (JWT bearer) -> POST /orders handler -> create order -> charge card | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | controlled |
-| Authenticated API client (valid JWT) | Stripe secret key | API client (JWT bearer) -> POST /orders handler -> create order -> charge card | JWT bearer (requireJwt), rate limit 100/min, zod CreateOrderRequest | rate limit 100/min, zod CreateOrderRequest | controlled |
+| Compromised external service | Secret STRIPE_SECRET_KEY | Stripe Payments API -> stripe | none | none | NO BLOCKING CONTROL on the weakest path: potential attack path |
+| Compromised external service | Personal data (PII) | Stripe Payments API -> stripe -> service -> Postgres: orders | none | none | NO BLOCKING CONTROL on the weakest path: potential attack path |
+| Compromised external service | Financial data | Stripe Payments API -> stripe -> service -> Postgres: orders | none | none | NO BLOCKING CONTROL on the weakest path: potential attack path |
+| Insider with access to container: api | Secret STRIPE_SECRET_KEY | stripe (inside) | none | none | agent starts at the asset holder: no control can apply |
+| Insider with access to container: api | Personal data (PII) | service -> Postgres: orders | none | none | NO BLOCKING CONTROL on the weakest path: potential attack path |
+| Insider with access to container: api | Financial data | service -> Postgres: orders | none | none | NO BLOCKING CONTROL on the weakest path: potential attack path |
+| Rogue merchant operator | Secret STRIPE_SECRET_KEY | POST /orders handler -> stripe | none | none | NO BLOCKING CONTROL on the weakest path: potential attack path |
+| Rogue merchant operator | Personal data (PII) | POST /orders handler -> service -> Postgres: orders | none | none | NO BLOCKING CONTROL on the weakest path: potential attack path |
+| Rogue merchant operator | Financial data | POST /orders handler -> service -> Postgres: orders | none | none | NO BLOCKING CONTROL on the weakest path: potential attack path |
+| Authenticated HTTP caller | Secret STRIPE_SECRET_KEY | HTTP client -> POST /orders handler -> stripe | none | requireJwt, rateLimit, CreateOrderRequest.parse | authentication only: no authorization control detected on the path (check object- and function-level access) |
+| Authenticated HTTP caller | Personal data (PII) | HTTP client -> POST /orders handler -> service -> Postgres: orders | none | requireJwt, rateLimit, CreateOrderRequest.parse | authentication only: no authorization control detected on the path (check object- and function-level access) |
+| Authenticated HTTP caller | Financial data | HTTP client -> POST /orders handler -> service -> Postgres: orders | none | requireJwt, rateLimit, CreateOrderRequest.parse | authentication only: no authorization control detected on the path (check object- and function-level access) |
+| Anonymous HTTP caller | Secret STRIPE_SECRET_KEY | HTTP client -> POST /orders handler -> stripe | requireJwt | rateLimit, CreateOrderRequest.parse | blocked at entry; unanswered: HTTP client -> POST /orders handler encryption |
+| Anonymous HTTP caller | Personal data (PII) | HTTP client -> POST /orders handler -> service -> Postgres: orders | requireJwt | rateLimit, CreateOrderRequest.parse | blocked at entry; unanswered: HTTP client -> POST /orders handler encryption; Postgres: orders -> service authentication and encryption |
+| Anonymous HTTP caller | Financial data | HTTP client -> POST /orders handler -> service -> Postgres: orders | requireJwt | rateLimit, CreateOrderRequest.parse | blocked at entry; unanswered: HTTP client -> POST /orders handler encryption; Postgres: orders -> service authentication and encryption |
 
 ## Threat agent profiles
 
-| Agent | Access | Location | Starts at | Passes | Goals | Origin |
+| Agent | Access | Location | Starts at | Holds | Goals | Origin |
 |---|---|---|---|---|---|---|
-| Anonymous internet user | anonymous | outside all boundaries | API client (JWT bearer) | - | read or alter other customers' orders; charge cards without authorization | inferred |
-| Authenticated API client (valid JWT) | authenticated | outside all boundaries | API client (JWT bearer) | authn | access orders belonging to other users; abuse the charge path | inferred |
-| Insider or attacker with api container access | insider | container: api | create order, get order, charge card | authn, rate_limit, input_validation | read the database directly; exfiltrate the Stripe key | inferred |
-| Compromised or malicious third party (Stripe API) | third_party | outside all boundaries | Stripe API | - | return forged charge results; harvest card tokens | inferred |
+| Compromised external service | third_party | outside all boundaries | Stripe Payments API | - | return malicious responses; harvest data sent to it | inferred |
+| Anonymous HTTP caller | anonymous | outside all boundaries | HTTP client | - | reach data or functions without authenticating | inferred |
+| Insider with access to container: api | insider | container: api | stripe, POST /orders handler, service, GET /orders/{id} handler | authn, authz, rate_limit, input_validation, csrf, cors, security_headers, audit_log | read data stores directly; exfiltrate secrets | inferred |
+| Rogue merchant operator | insider | outside all boundaries | POST /orders handler | authn, rate_limit | create fraudulent orders | declared |
+| Authenticated HTTP caller | authenticated | outside all boundaries | HTTP client | authn | access other users' data; use functions beyond their role | inferred |
 
 ## Assets
 
 | Asset | Kind | Data classes | Held by | Processed by |
 |---|---|---|---|---|
-| Stripe secret key | credential | secret | charge card | charge card |
-| Customer PII (email, shipping address) | data | pii | Postgres: orders, Redis: order:* | POST /orders handler, create order, get order |
-| Payment data (card token, amounts, charge ids) | data | financial | Postgres: orders, Redis: order:* | POST /orders handler, create order, charge card, get order |
+| Secret STRIPE_SECRET_KEY | credential | secret | stripe | stripe |
+| Personal data (PII) | data | pii | Postgres: orders, Redis: order:* | stripe, POST /orders handler, service |
+| Financial data | data | financial | Postgres: orders, Redis: order:* | stripe, POST /orders handler, service |

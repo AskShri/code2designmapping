@@ -1,0 +1,107 @@
+%% L2 - Web
+flowchart LR
+  subgraph bnd_y55hm2ynro["repository: eshoponweb"]
+    proc_23n6c7rz3o(["GET / handler"])
+    proc_2euezgev2n(["POST /Manage/ResetAuthenticator handler"])
+    proc_3365wkr4ao(["GET/POST /Manage/SetPassword handler"])
+    proc_3dbq7utb7i(["GET /Privacy handler"])
+    proc_4iyqgtpwqb(["POST /Manage/Disable2fa handler"])
+    proc_4qz3bnxvre(["POST /Manage/LinkLogin handler"])
+    proc_57nvqznxd4(["POST /User/Logout handler"])
+    proc_5m7s6vhuap(["GET /Admin/EditCatalogItem handler"])
+    proc_5tdzqla4kc(["GET /Basket/Success handler"])
+    proc_74uuqb5ioo(["GET /Manage/Disable2faWarning handler"])
+    proc_bisjbn4afj(["POST /Account/Register handler"])
+    proc_ckkglnhocd(["GET/POST /Manage/MyAccount handler"])
+    proc_cmt6ayqtzg(["GET /Account/ConfirmEmail handler"])
+    proc_ctmj6oukyf(["GET /Account/Logout handler"])
+    proc_ex75xkllj3(["GET /Manage/ExternalLogins handler"])
+    proc_gxy2fdhhnj(["CatalogItemViewModelService"])
+    proc_ibnaianrus(["GET /Basket handler"])
+    proc_jajlzitkqz(["GET/POST /Manage/ChangePassword handler"])
+    proc_jh4eoegecy(["GET /Manage/TwoFactorAuthentication handler"])
+    proc_jqgxp7chg3(["POST /Manage/SendVerificationEmail handler"])
+    proc_jrx7ospf2z(["POST /Account/Login handler"])
+    proc_kzrmdmhoqr(["POST /Basket/Checkout handler"])
+    proc_mjjlglmn4k(["GET /Manage/GenerateRecoveryCodesWarning handler"])
+    proc_mnaobzic7c(["GetMyOrdersHandler"])
+    proc_ms2wbneyyd(["GET/POST /Manage/EnableAuthenticator handler"])
+    proc_o4sfq7ckd4(["POST /Manage/GenerateRecoveryCodes handler"])
+    proc_pxnfjy6hrz(["GetOrderDetailsHandler"])
+    proc_qeuvlfui4m(["POST /Manage/RemoveLogin handler"])
+    proc_qg3vnc3stn(["GET /Order/Detail/{orderId} handler"])
+    proc_qzrzkgbgeg(["POST /Account/Logout handler"])
+    proc_rk55xtnmj3(["GET /Basket/Checkout handler"])
+    proc_slik53vlat(["GET /Error handler"])
+    proc_t4tvyosc2i(["GET /Account/Login handler"])
+    proc_ubz67uh5sg(["POST /Admin/EditCatalogItem handler"])
+    proc_um6xqdtuf7(["POST /Basket handler"])
+    proc_uv3bfqa5lq(["GET /Account/Register handler"])
+    proc_vauvrvxnje(["GET /Manage/ResetAuthenticatorWarning handler"])
+    proc_vs7gzjemcv(["BasketViewModelService"])
+    proc_xhe7j23uej(["CatalogViewModelService"])
+    proc_xuuxeekazw(["GET /User handler"])
+    proc_y4cumg3gxd(["GET /Order/MyOrders handler"])
+    proc_ymranbqcbw(["GET /Manage/LinkLoginCallback handler"])
+    proc_ziboti45t6(["GET /Manage/ShowRecoveryCodes handler"])
+  end
+  subgraph bnd_agjyyz7jmo["container: sqlserver"]
+    store_4sxghcjkne[("SQL Server: Basket")]
+    store_ghai53qfrs[("SQL Server: CatalogItem")]
+    store_yhr5uxtyjy[("SQL Server: Order")]
+  end
+  subgraph bnd_wewlnfj6py["container: eshoppublicapi"]
+    proc_qe3wbl55ju(["eshoppublicapi (+6)"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_summary[("other data stores (+2)")]
+  %% 15 lower-weight edges omitted (edge budget 40)
+  ext_sga4qktkap -->|"https"| proc_23n6c7rz3o
+  ext_sga4qktkap -->|"https"| proc_2euezgev2n
+  ext_sga4qktkap -->|"https"| proc_3365wkr4ao
+  ext_sga4qktkap -->|"https"| proc_3dbq7utb7i
+  ext_sga4qktkap -->|"https"| proc_4iyqgtpwqb
+  ext_sga4qktkap -->|"https"| proc_4qz3bnxvre
+  ext_sga4qktkap -->|"https"| proc_57nvqznxd4
+  ext_sga4qktkap -->|"https"| proc_5m7s6vhuap
+  ext_sga4qktkap -->|"https"| proc_5tdzqla4kc
+  ext_sga4qktkap -->|"https"| proc_74uuqb5ioo
+  ext_sga4qktkap -->|"https"| proc_bisjbn4afj
+  ext_sga4qktkap -->|"https"| proc_ckkglnhocd
+  ext_sga4qktkap -->|"https"| proc_cmt6ayqtzg
+  ext_sga4qktkap -->|"https"| proc_ctmj6oukyf
+  ext_sga4qktkap -->|"https"| proc_ex75xkllj3
+  ext_sga4qktkap -->|"https"| proc_ibnaianrus
+  ext_sga4qktkap -->|"https"| proc_jajlzitkqz
+  ext_sga4qktkap -->|"https"| proc_jh4eoegecy
+  ext_sga4qktkap -->|"https"| proc_jqgxp7chg3
+  ext_sga4qktkap -->|"https"| proc_jrx7ospf2z
+  ext_sga4qktkap -->|"https"| proc_kzrmdmhoqr
+  ext_sga4qktkap -->|"https"| proc_mjjlglmn4k
+  ext_sga4qktkap -->|"https"| proc_ms2wbneyyd
+  ext_sga4qktkap -->|"https"| proc_o4sfq7ckd4
+  ext_sga4qktkap -->|"https"| proc_qeuvlfui4m
+  ext_sga4qktkap -->|"https"| proc_qg3vnc3stn
+  ext_sga4qktkap -->|"https"| proc_qzrzkgbgeg
+  ext_sga4qktkap -->|"https"| proc_rk55xtnmj3
+  ext_sga4qktkap -->|"https"| proc_slik53vlat
+  ext_sga4qktkap -->|"https"| proc_t4tvyosc2i
+  ext_sga4qktkap -->|"https"| proc_ubz67uh5sg
+  ext_sga4qktkap -->|"https"| proc_um6xqdtuf7
+  ext_sga4qktkap -->|"https"| proc_uv3bfqa5lq
+  ext_sga4qktkap -->|"https"| proc_vauvrvxnje
+  ext_sga4qktkap -->|"https"| proc_xuuxeekazw
+  ext_sga4qktkap -->|"https"| proc_y4cumg3gxd
+  ext_sga4qktkap -->|"https"| proc_ymranbqcbw
+  ext_sga4qktkap -->|"https"| proc_ziboti45t6
+  proc_kzrmdmhoqr -->|"in_process"| proc_qe3wbl55ju
+  store_summary -->|"sql"| proc_xhe7j23uej
+  style bnd_y55hm2ynro stroke-dasharray: 8 4,fill:none
+  style bnd_agjyyz7jmo stroke-dasharray: 8 4,fill:none
+  style bnd_wewlnfj6py stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

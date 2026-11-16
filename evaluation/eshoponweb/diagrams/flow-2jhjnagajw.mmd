@@ -1,0 +1,7 @@
+%% Control flow: POST /Account/Logout
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_qzrzkgbgeg as POST /Account/Logout handler
+  ext_sga4qktkap->>proc_qzrzkgbgeg: POST /Account/Logout
+  proc_qzrzkgbgeg-->>ext_sga4qktkap: response

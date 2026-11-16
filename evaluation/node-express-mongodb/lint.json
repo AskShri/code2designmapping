@@ -1,68 +1,116 @@
 [
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:7pqcnsvetc",
-    "message": "PUT /:id handler -> MongoDB: tutorials: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:5xvh2ns63f",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/tutorials handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:jzmifykkyt",
-    "message": "POST / handler -> MongoDB: tutorials: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:6bgcg6qjco",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/tutorials/published handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:n4ey6igglz",
-    "message": "MongoDB: tutorials -> GET /published handler: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:hj43ry4wxc",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/tutorials/{id} handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:pgqpnhitai",
-    "message": "MongoDB: tutorials -> GET / handler: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:kmdxvhd2ib",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> DELETE /api/tutorials/{id} handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:vnwrxbsqot",
-    "message": "DELETE / handler -> MongoDB: tutorials: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:shjduuywcu",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET / handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:vyvkg6qb4y",
-    "message": "MongoDB: tutorials -> GET /:id handler: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:yglhujg7ed",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/tutorials handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:yrsbn5yzru",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> DELETE /api/tutorials handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:z2g7d7qjyy",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> PUT /api/tutorials/{id} handler"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:4m2ysdt4j4",
-    "message": "process GET /:id handler has only inputs; a detector may be missing"
+    "id": "proc:4xme3n37oe",
+    "message": "process GET /api/tutorials/published handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:asmvuz3gji",
+    "id": "proc:7nagzrywro",
     "message": "process GET / handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:mjnlaho6vq",
-    "message": "process GET / handler has only inputs; a detector may be missing"
+    "id": "proc:clywgtyerd",
+    "message": "process GET /api/tutorials handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:s2dv344aux",
-    "message": "process GET /published handler has only inputs; a detector may be missing"
+    "id": "proc:dgbuvoysko",
+    "message": "process DELETE /api/tutorials/{id} handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:zzqivqwuzv",
-    "message": "process tutorial.controller has only inputs; a detector may be missing"
+    "id": "proc:un4ex5movl",
+    "message": "process GET /api/tutorials/{id} handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5xjxxs5qhc",
+    "message": "PUT /api/tutorials/{id} handler -> MongoDB: tutorial: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:a2a26674zm",
+    "message": "POST /api/tutorials handler -> MongoDB: tutorial: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:f5w2e3fcj2",
+    "message": "MongoDB: tutorial -> GET /api/tutorials/{id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:mhhqpexzc2",
+    "message": "MongoDB: tutorial -> GET /api/tutorials/published handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:pbd6rjehja",
+    "message": "DELETE /api/tutorials handler -> MongoDB: tutorial: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:snrnhti6tt",
+    "message": "MongoDB: tutorial -> GET /api/tutorials handler: authentication=unknown, encryption=unknown"
   }
 ]

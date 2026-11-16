@@ -1,14 +1,14 @@
-%% L0 context: stripe-checkout-sample
+%% L0 context - stripe-checkout-sample
 flowchart LR
   subgraph bnd_fwz6ntc2oh["repository: stripe-checkout-sample"]
-    proc_2rswcknxkr(["stripe-checkout-sample (+8)"])
+    proc_trj3nqkgc6(["stripe-checkout-sample (+8)"])
   end
   ext_miziwfdicw["Unresolved HTTP target"]
   ext_sga4qktkap["HTTP client"]
   ext_slqdx4hifp["Stripe API"]
-  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_2rswcknxkr
-  proc_2rswcknxkr -->|"unknown"| ext_miziwfdicw
-  proc_2rswcknxkr -->|"https"| ext_slqdx4hifp
+  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_trj3nqkgc6
+  proc_trj3nqkgc6 -->|"unknown"| ext_miziwfdicw
+  proc_trj3nqkgc6 -->|"https"| ext_slqdx4hifp
   style bnd_fwz6ntc2oh stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

@@ -1,0 +1,94 @@
+%% L2 - frontend
+flowchart LR
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_322ilk2xly(["GET /assistant handler"])
+    proc_474wdeovjs(["POST /cart/checkout handler"])
+    proc_4tdzpysxvs(["POST /cart handler"])
+    proc_6vdyip2rav(["GET /product/{id} handler"])
+    proc_7f5ejxk53k(["GET /product-meta/{ids} handler"])
+    proc_b3axeegmhf(["GET /cart handler"])
+    proc_hxudnjqr3f(["POST /setCurrency handler"])
+    proc_iectgk6ksw(["GET /logout handler"])
+    proc_ls3jgu5w73(["POST /bot handler"])
+    proc_o66mmjp7j7(["POST /cart/empty handler"])
+    proc_rylwc2qydd(["rpc"])
+    proc_s53a6esviq(["frontend (s53a)"])
+    proc_sehzqpog5d(["frontend (+13)"])
+    proc_zlml7tvj4h(["GET / handler (zlml)"])
+  end
+  subgraph bnd_frkw6dgzr7["container: cartservice"]
+    proc_h5rlwsqvpq(["cartservice (+3)"])
+  end
+  subgraph bnd_3nvgex5y4a["container: productcatalogservice"]
+    proc_66kdsit2eu(["productcatalogservice (+3)"])
+  end
+  subgraph bnd_c76yxdhq2j["container: recommendationservice"]
+    proc_jgwcsavpbh(["recommendationservice (+3)"])
+  end
+  subgraph bnd_fxo55nvvpf["container: adservice"]
+    proc_ndkd7qtz2w(["adservice (+2)"])
+  end
+  subgraph bnd_7n55q7x47r["container: shoppingassistantservice"]
+    proc_ivcwx4qjqe(["shoppingassistantservice (+2)"])
+  end
+  subgraph bnd_fpjzao3hbx["container: shippingservice"]
+    proc_dpriye6llg(["shippingservice (+2)"])
+  end
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_bv2mduy2tp(["checkoutservice (+2)"])
+  end
+  subgraph bnd_seoeqgkskf["container: currencyservice"]
+    proc_hkclfcpsdv(["currencyservice (+1)"])
+  end
+  subgraph bnd_k2ytjpuxdg["container: loadgenerator"]
+    proc_lhs6vwilni(["loadgenerator"])
+  end
+  ext_5glqr7zsb5["OTLP collector"]
+  ext_sga4qktkap["HTTP client"]
+  ext_wnxd2gtvsa["Google Cloud Profiler"]
+  ext_sga4qktkap -->|"http"| proc_322ilk2xly
+  ext_sga4qktkap -->|"http"| proc_474wdeovjs
+  ext_sga4qktkap -->|"http"| proc_4tdzpysxvs
+  ext_sga4qktkap -->|"http"| proc_6vdyip2rav
+  ext_sga4qktkap -->|"http"| proc_7f5ejxk53k
+  ext_sga4qktkap -->|"http"| proc_b3axeegmhf
+  ext_sga4qktkap -->|"http"| proc_hxudnjqr3f
+  ext_sga4qktkap -->|"http"| proc_iectgk6ksw
+  ext_sga4qktkap -->|"http"| proc_ls3jgu5w73
+  ext_sga4qktkap -->|"http"| proc_o66mmjp7j7
+  ext_sga4qktkap -->|"http"| proc_zlml7tvj4h
+  proc_322ilk2xly -->|"in_process"| proc_rylwc2qydd
+  proc_474wdeovjs -->|"grpc"| proc_bv2mduy2tp
+  proc_474wdeovjs -->|"in_process"| proc_rylwc2qydd
+  proc_4tdzpysxvs -->|"in_process"| proc_rylwc2qydd
+  proc_6vdyip2rav -->|"in_process"| proc_rylwc2qydd
+  proc_7f5ejxk53k -->|"in_process"| proc_rylwc2qydd
+  proc_b3axeegmhf -->|"in_process"| proc_rylwc2qydd
+  proc_lhs6vwilni -.->|"unknown"| proc_sehzqpog5d
+  proc_ls3jgu5w73 -->|"http"| proc_ivcwx4qjqe
+  proc_o66mmjp7j7 -->|"in_process"| proc_rylwc2qydd
+  proc_rylwc2qydd -->|"grpc"| proc_66kdsit2eu
+  proc_rylwc2qydd -->|"grpc"| proc_dpriye6llg
+  proc_rylwc2qydd -->|"grpc"| proc_h5rlwsqvpq
+  proc_rylwc2qydd -->|"grpc"| proc_hkclfcpsdv
+  proc_rylwc2qydd -->|"grpc"| proc_jgwcsavpbh
+  proc_rylwc2qydd -->|"grpc"| proc_ndkd7qtz2w
+  proc_s53a6esviq -.->|"https"| ext_5glqr7zsb5
+  proc_s53a6esviq -.->|"https"| ext_wnxd2gtvsa
+  proc_zlml7tvj4h -->|"in_process"| proc_rylwc2qydd
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
+  style bnd_frkw6dgzr7 stroke-dasharray: 8 4,fill:none
+  style bnd_3nvgex5y4a stroke-dasharray: 8 4,fill:none
+  style bnd_c76yxdhq2j stroke-dasharray: 8 4,fill:none
+  style bnd_fxo55nvvpf stroke-dasharray: 8 4,fill:none
+  style bnd_7n55q7x47r stroke-dasharray: 8 4,fill:none
+  style bnd_fpjzao3hbx stroke-dasharray: 8 4,fill:none
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
+  style bnd_seoeqgkskf stroke-dasharray: 8 4,fill:none
+  style bnd_k2ytjpuxdg stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

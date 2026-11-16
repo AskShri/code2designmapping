@@ -1,0 +1,28 @@
+%% L0 context - nestjs-realworld
+flowchart LR
+  subgraph bnd_klnakvm5ry["repository: nestjs-realworld"]
+    proc_kgmwe7scui(["nestjs-realworld (+6)"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_fl5io5fd7z[("MySQL: Comment")]
+  store_if72rnkr3g[("MySQL: tag")]
+  store_mftq653qte[("MySQL: user")]
+  store_ta2srbelhd[("MySQL: article")]
+  store_vpkm3wcqot[("MySQL: follows")]
+  ext_sga4qktkap -->|"http"| proc_kgmwe7scui
+  proc_kgmwe7scui -->|"sql"| store_fl5io5fd7z
+  proc_kgmwe7scui -->|"sql: MySQL: user record (credential,pii)"| store_mftq653qte
+  proc_kgmwe7scui -->|"sql"| store_ta2srbelhd
+  proc_kgmwe7scui -->|"sql"| store_vpkm3wcqot
+  store_fl5io5fd7z -->|"sql"| proc_kgmwe7scui
+  store_if72rnkr3g -->|"sql"| proc_kgmwe7scui
+  store_mftq653qte -->|"sql: MySQL: user record (credential,pii)"| proc_kgmwe7scui
+  store_ta2srbelhd -->|"sql"| proc_kgmwe7scui
+  store_vpkm3wcqot -->|"sql"| proc_kgmwe7scui
+  style bnd_klnakvm5ry stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

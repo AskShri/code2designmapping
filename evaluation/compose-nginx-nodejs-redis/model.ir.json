@@ -1,12 +1,13 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "provenance": {
-    "tool_version": "0.3.0-prototype",
+    "tool_version": "0.5.0",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-nginx-nodejs-redis",
     "detectors": [
-      "config@0.3",
-      "js@0.3"
+      "config@0.5",
+      "js@0.5",
+      "synth@0.5.0"
     ],
     "scope": {
       "include": [
@@ -18,16 +19,63 @@
     },
     "input_hashes": {
       "compose.yaml": "sha256:a184326894707f264328d271df02d323cecc0c98c62326a779b5dab9a2b95bd2",
+      "nginx/Dockerfile": "sha256:fcecac48bcc7f78819a31c700a2216e7e64c72a64c7f85f24a6f80960ff20e4a",
+      "web/Dockerfile": "sha256:eccc0f29a429bd6ff6ff3857eb5d70467cb9c308f3de57f34fcaa4147d3a223c",
       "web/package.json": "sha256:77376508ae673c001e356790baacc0c7c07f38145ceb3e82131ff7081f2653af",
       "web/server.js": "sha256:4615f3d7e22f81462e84d4e8c77f54b277b691b50cf0aef0d7e125d3522d1b03"
     }
   },
   "processes": [
     {
-      "id": "proc:3qm4oo7ltn",
+      "id": "proc:6wfylqt4ec",
       "identity": [
         "process",
-        ".",
+        "handler",
+        "web1",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "web/server.js",
+      "evidence": [
+        {
+          "path": "web/server.js",
+          "start_line": 10,
+          "end_line": 20,
+          "detector": "js@0.5",
+          "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
+        }
+      ],
+      "parent": "proc:qskhz265vp"
+    },
+    {
+      "id": "proc:euj6gpqmxt",
+      "identity": [
+        "process",
+        "module",
+        "web/server.js"
+      ],
+      "origin": "observed",
+      "name": "web",
+      "level": 2,
+      "module": "web/server.js",
+      "evidence": [
+        {
+          "path": "web/server.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:5aa319000a1c36539610e190f71b6a5a1d42bb9565301e48e271cb7cb5c312db"
+        }
+      ],
+      "parent": "proc:qskhz265vp"
+    },
+    {
+      "id": "proc:idbdo42yk7",
+      "identity": [
+        "process",
+        "L0",
         "compose-nginx-nodejs-redis"
       ],
       "origin": "observed",
@@ -39,15 +87,16 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:31921adbfe68f1d91192389837727a606fdb5b02b2f78506cc474eaf1d884943"
         }
       ]
     },
     {
-      "id": "proc:4beiv7l6ij",
+      "id": "proc:qskhz265vp",
       "identity": [
         "process",
+        "L1",
         "web",
         "web1"
       ],
@@ -60,55 +109,11 @@
           "path": "web/server.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:5aa319000a1c36539610e190f71b6a5a1d42bb9565301e48e271cb7cb5c312db"
         }
       ],
-      "parent": "proc:3qm4oo7ltn"
-    },
-    {
-      "id": "proc:pkni43f3rf",
-      "identity": [
-        "process",
-        "web/server.js",
-        "web"
-      ],
-      "origin": "observed",
-      "name": "web",
-      "level": 2,
-      "module": "web/server.js",
-      "evidence": [
-        {
-          "path": "web/server.js",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:5aa319000a1c36539610e190f71b6a5a1d42bb9565301e48e271cb7cb5c312db"
-        }
-      ],
-      "parent": "proc:4beiv7l6ij"
-    },
-    {
-      "id": "proc:y7bxuaiqpa",
-      "identity": [
-        "process",
-        "web/server.js",
-        "GET /"
-      ],
-      "origin": "observed",
-      "name": "GET / handler",
-      "level": 2,
-      "module": "web/server.js",
-      "evidence": [
-        {
-          "path": "web/server.js",
-          "start_line": 10,
-          "end_line": 20,
-          "detector": "js@0.3",
-          "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
-        }
-      ],
-      "parent": "proc:4beiv7l6ij"
+      "parent": "proc:idbdo42yk7"
     }
   ],
   "entities": [
@@ -127,7 +132,7 @@
           "path": "web/server.js",
           "start_line": 10,
           "end_line": 20,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
         }
       ]
@@ -135,16 +140,15 @@
   ],
   "stores": [
     {
-      "id": "store:jfszlpemqt",
+      "id": "store:uvgsvq5qlm",
       "identity": [
         "store",
         "redis",
-        "numvisits:*"
+        ""
       ],
       "origin": "observed",
-      "name": "Redis: numVisits:*",
+      "name": "Redis",
       "technology": "redis",
-      "logical_name": "numVisits:*",
       "data_classes": [],
       "encryption_at_rest": "unknown",
       "evidence": [
@@ -152,22 +156,15 @@
           "path": "web/server.js",
           "start_line": 11,
           "end_line": 11,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:c1121f0ed0fc5d86d801b55274db1d00a6186e05da7d51d4e175c13db3b5ccf6"
         },
         {
           "path": "web/server.js",
           "start_line": 18,
           "end_line": 18,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:ce047eca2d8ad8714ac957f2ed0e6a1d94ddab2f0a252b1ea4a12e2c76719642"
-        },
-        {
-          "path": "compose.yaml",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "config@0.3",
-          "content_hash": "sha256:ba77f9b04bf764c857b79c473e63e0b6dba0e02012941a43ee3e5114f3cc99a1"
         }
       ]
     }
@@ -184,16 +181,16 @@
       "name": "container: web1",
       "kind": "container",
       "contains": [
-        "proc:4beiv7l6ij",
-        "proc:pkni43f3rf",
-        "proc:y7bxuaiqpa"
+        "proc:6wfylqt4ec",
+        "proc:euj6gpqmxt",
+        "proc:qskhz265vp"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 7,
           "end_line": 7,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:ff51f5ed031c820238ea1844e8427b6ba605a333d12a7032a19479e6a7081203"
         }
       ]
@@ -207,158 +204,42 @@
       ],
       "origin": "inferred",
       "confidence": 0.5,
-      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "rationale": "no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary",
       "name": "repository: compose-nginx-nodejs-redis",
       "kind": "repository",
       "contains": [
-        "proc:3qm4oo7ltn"
+        "proc:idbdo42yk7"
       ],
       "evidence": [
         {
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:31921adbfe68f1d91192389837727a606fdb5b02b2f78506cc474eaf1d884943"
-        }
-      ]
-    },
-    {
-      "id": "bnd:raia233rwx",
-      "identity": [
-        "boundary",
-        "container",
-        "redis"
-      ],
-      "origin": "observed",
-      "name": "container: redis",
-      "kind": "container",
-      "contains": [
-        "store:jfszlpemqt"
-      ],
-      "evidence": [
-        {
-          "path": "compose.yaml",
-          "start_line": 3,
-          "end_line": 3,
-          "detector": "config@0.3",
-          "content_hash": "sha256:ba77f9b04bf764c857b79c473e63e0b6dba0e02012941a43ee3e5114f3cc99a1"
-        }
-      ]
-    },
-    {
-      "id": "bnd:uvl435wskm",
-      "identity": [
-        "boundary",
-        "container",
-        "web2"
-      ],
-      "origin": "observed",
-      "name": "container: web2",
-      "kind": "container",
-      "contains": [
-        "proc:4beiv7l6ij",
-        "proc:pkni43f3rf",
-        "proc:y7bxuaiqpa"
-      ],
-      "evidence": [
-        {
-          "path": "compose.yaml",
-          "start_line": 13,
-          "end_line": 13,
-          "detector": "config@0.3",
-          "content_hash": "sha256:8bfcb152590b5388dce5b4a3213d1feeba032bc2926eee42e7a1a3f68d739e09"
         }
       ]
     }
   ],
   "flows": [
     {
-      "id": "flow:dipnt2gg67",
+      "id": "flow:bjy7tjyigs",
       "identity": [
         "flow",
-        "proc:y7bxuaiqpa",
-        "store:jfszlpemqt",
-        "redis",
-        ""
+        "store:uvgsvq5qlm",
+        "proc:euj6gpqmxt",
+        "redis"
       ],
       "origin": "observed",
-      "source": "proc:y7bxuaiqpa",
-      "target": "store:jfszlpemqt",
-      "protocol": "redis",
-      "direction": "one_way",
-      "authentication": "unknown",
-      "encryption": "unknown",
-      "purpose": "set",
-      "crosses_boundary": [
-        "bnd:4pueguv7xi",
-        "bnd:raia233rwx",
-        "bnd:uvl435wskm"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "web/server.js",
-          "start_line": 18,
-          "end_line": 18,
-          "detector": "js@0.3",
-          "content_hash": "sha256:ce047eca2d8ad8714ac957f2ed0e6a1d94ddab2f0a252b1ea4a12e2c76719642"
-        }
-      ]
-    },
-    {
-      "id": "flow:pqlfcuinjs",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:y7bxuaiqpa",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:y7bxuaiqpa",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "unknown",
-      "purpose": "GET /",
-      "crosses_boundary": [
-        "bnd:4pueguv7xi",
-        "bnd:uvl435wskm"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "web/server.js",
-          "start_line": 10,
-          "end_line": 20,
-          "detector": "js@0.3",
-          "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
-        }
-      ]
-    },
-    {
-      "id": "flow:vznukz6q5u",
-      "identity": [
-        "flow",
-        "store:jfszlpemqt",
-        "proc:y7bxuaiqpa",
-        "redis",
-        ""
-      ],
-      "origin": "observed",
-      "source": "store:jfszlpemqt",
-      "target": "proc:y7bxuaiqpa",
+      "source": "store:uvgsvq5qlm",
+      "target": "proc:euj6gpqmxt",
       "protocol": "redis",
       "direction": "one_way",
       "authentication": "unknown",
       "encryption": "unknown",
       "purpose": "get",
       "crosses_boundary": [
-        "bnd:4pueguv7xi",
-        "bnd:raia233rwx",
-        "bnd:uvl435wskm"
+        "bnd:4pueguv7xi"
       ],
       "controls": [],
       "evidence": [
@@ -366,66 +247,131 @@
           "path": "web/server.js",
           "start_line": 11,
           "end_line": 11,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:c1121f0ed0fc5d86d801b55274db1d00a6186e05da7d51d4e175c13db3b5ccf6"
+        }
+      ]
+    },
+    {
+      "id": "flow:l6irbfy6dn",
+      "identity": [
+        "flow",
+        "proc:euj6gpqmxt",
+        "store:uvgsvq5qlm",
+        "redis"
+      ],
+      "origin": "observed",
+      "source": "proc:euj6gpqmxt",
+      "target": "store:uvgsvq5qlm",
+      "protocol": "redis",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "set",
+      "crosses_boundary": [
+        "bnd:4pueguv7xi"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "web/server.js",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "js@0.5",
+          "content_hash": "sha256:ce047eca2d8ad8714ac957f2ed0e6a1d94ddab2f0a252b1ea4a12e2c76719642"
+        }
+      ]
+    },
+    {
+      "id": "flow:mi4wgfqzkm",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:6wfylqt4ec",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:6wfylqt4ec",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:4pueguv7xi"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "web/server.js",
+          "start_line": 10,
+          "end_line": 20,
+          "detector": "js@0.5",
+          "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
         }
       ]
     }
   ],
   "entry_points": [
     {
-      "id": "ep:jp3fmnq7yb",
+      "id": "ep:6sxzmgwcz6",
       "identity": [
         "entry_point",
         "http",
         "GET",
         "/",
-        "web/server.js"
+        "web1"
       ],
       "origin": "observed",
-      "process": "proc:y7bxuaiqpa",
+      "process": "proc:6wfylqt4ec",
       "protocol": "http",
       "method": "GET",
       "path": "/",
+      "exposure": "public",
       "controls": [],
       "call_chain": [
-        "proc:y7bxuaiqpa"
+        "proc:6wfylqt4ec"
       ],
+      "reaches": [],
       "evidence": [
         {
           "path": "web/server.js",
           "start_line": 10,
           "end_line": 20,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
         }
-      ],
-      "reaches": [
-        "store:jfszlpemqt"
       ]
     }
   ],
   "controls": [],
   "weaknesses": [
     {
-      "id": "wk:pjpfraltmo",
+      "id": "wk:mbwzqjavmy",
       "identity": [
         "weakness",
         "unauthenticated_entry_point",
-        "ep:jp3fmnq7yb"
+        "ep:6sxzmgwcz6"
       ],
       "origin": "observed",
       "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on GET /",
+      "name": "no authentication control detected on GET /",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
       "applies_to": [
-        "ep:jp3fmnq7yb"
+        "ep:6sxzmgwcz6"
       ],
       "evidence": [
         {
           "path": "web/server.js",
           "start_line": 10,
           "end_line": 20,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
         }
       ]
@@ -443,7 +389,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "1 http entry points, 1 without a detected authn control",
+      "rationale": "1 entry points are reachable from outside, 1 of them without a detected authentication control",
       "name": "Anonymous HTTP caller",
       "access": "anonymous",
       "entry": [
@@ -458,7 +404,7 @@
           "path": "web/server.js",
           "start_line": 10,
           "end_line": 20,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:bd8afa4a73d631e4d2c28aff06b661bb831df0e0303e4ffa21fd9ee718af6733"
         }
       ]
@@ -477,8 +423,8 @@
       "access": "insider",
       "location": "bnd:4pueguv7xi",
       "entry": [
-        "proc:pkni43f3rf",
-        "proc:y7bxuaiqpa"
+        "proc:6wfylqt4ec",
+        "proc:euj6gpqmxt"
       ],
       "passes_controls": [
         "authn",
@@ -486,10 +432,12 @@
         "rate_limit",
         "input_validation",
         "csrf",
-        "cors"
+        "cors",
+        "security_headers",
+        "audit_log"
       ],
       "goals": [
-        "read stores directly",
+        "read data stores directly",
         "exfiltrate secrets"
       ],
       "evidence": [
@@ -497,47 +445,8 @@
           "path": "compose.yaml",
           "start_line": 7,
           "end_line": 7,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:ff51f5ed031c820238ea1844e8427b6ba605a333d12a7032a19479e6a7081203"
-        }
-      ]
-    },
-    {
-      "id": "agent:u4shm2gjsq",
-      "identity": [
-        "agent",
-        "insider",
-        "bnd:uvl435wskm"
-      ],
-      "origin": "inferred",
-      "confidence": 0.8,
-      "rationale": "one insider agent per trust boundary, placed inside it",
-      "name": "Insider with access to container: web2",
-      "access": "insider",
-      "location": "bnd:uvl435wskm",
-      "entry": [
-        "proc:pkni43f3rf",
-        "proc:y7bxuaiqpa"
-      ],
-      "passes_controls": [
-        "authn",
-        "authz",
-        "rate_limit",
-        "input_validation",
-        "csrf",
-        "cors"
-      ],
-      "goals": [
-        "read stores directly",
-        "exfiltrate secrets"
-      ],
-      "evidence": [
-        {
-          "path": "compose.yaml",
-          "start_line": 13,
-          "end_line": 13,
-          "detector": "config@0.3",
-          "content_hash": "sha256:8bfcb152590b5388dce5b4a3213d1feeba032bc2926eee42e7a1a3f68d739e09"
         }
       ]
     }
@@ -546,13 +455,13 @@
     {
       "kind": "unknown_attribute",
       "path": "web/server.js",
-      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port 5000? Inbound flows are marked encryption=unknown until answered."
+      "detail": "Question: is TLS terminated in front of the HTTP listener of web1? Inbound flows are marked encryption=unknown until answered."
     },
     {
       "kind": "unknown_attribute",
       "path": "web/server.js",
       "line": 11,
-      "detail": "Question for the team: how is the link to Redis: numVisits:* authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+      "detail": "Question: what is the authentication and encryption of the link to Redis?"
     }
   ]
 }

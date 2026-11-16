@@ -1,0 +1,27 @@
+%% L2 - node
+flowchart LR
+  subgraph bnd_fwz6ntc2oh["repository: stripe-checkout-sample"]
+    proc_22shyhimaf(["GET /checkout-session handler"])
+    proc_k37fgafluo(["POST /create-checkout-session handler"])
+    proc_ljqehrmdee(["GET /config handler"])
+    proc_o7z5jjiyu5(["GET / handler"])
+    proc_zp4dqjile6(["POST /webhook handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_slqdx4hifp["Stripe API"]
+  ext_sga4qktkap -->|"http: request fields"| proc_22shyhimaf
+  ext_sga4qktkap -->|"http: request fields"| proc_k37fgafluo
+  ext_sga4qktkap -->|"http"| proc_ljqehrmdee
+  ext_sga4qktkap -->|"http"| proc_o7z5jjiyu5
+  ext_sga4qktkap -->|"http: request fields"| proc_zp4dqjile6
+  proc_22shyhimaf -->|"https"| ext_slqdx4hifp
+  proc_k37fgafluo -->|"https"| ext_slqdx4hifp
+  proc_ljqehrmdee -->|"https"| ext_slqdx4hifp
+  proc_zp4dqjile6 -->|"https"| ext_slqdx4hifp
+  style bnd_fwz6ntc2oh stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

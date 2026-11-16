@@ -1,22 +1,22 @@
-%% L0 context: node-express-realworld
+%% L0 context - node-express-realworld
 flowchart LR
-  subgraph bnd_uphokatav4["repository: @api/source"]
-    proc_gjs57b5v23(["@api/source (+6)"])
+  subgraph bnd_ycbot7mf4h["container: app"]
+    proc_2wvqtimahj(["node-express-realworld (+6)"])
   end
   ext_sga4qktkap["HTTP client"]
   store_rkhg3lsuir[("Postgres: Comment")]
   store_th364fo75v[("Postgres: Tag")]
   store_tvae56uepz[("Postgres: User")]
   store_yhtoa6pgwu[("Postgres: Article")]
-  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_gjs57b5v23
-  proc_gjs57b5v23 -->|"unknown"| store_rkhg3lsuir
-  proc_gjs57b5v23 -->|"unknown"| store_tvae56uepz
-  proc_gjs57b5v23 -->|"unknown"| store_yhtoa6pgwu
-  store_rkhg3lsuir -->|"unknown"| proc_gjs57b5v23
-  store_th364fo75v -->|"unknown"| proc_gjs57b5v23
-  store_tvae56uepz -->|"unknown"| proc_gjs57b5v23
-  store_yhtoa6pgwu -->|"unknown"| proc_gjs57b5v23
-  style bnd_uphokatav4 stroke-dasharray: 8 4,fill:none
+  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_2wvqtimahj
+  proc_2wvqtimahj -->|"sql"| store_rkhg3lsuir
+  proc_2wvqtimahj -->|"sql: Postgres: User record (credential,pii)"| store_tvae56uepz
+  proc_2wvqtimahj -->|"sql"| store_yhtoa6pgwu
+  store_rkhg3lsuir -->|"sql"| proc_2wvqtimahj
+  store_th364fo75v -->|"sql"| proc_2wvqtimahj
+  store_tvae56uepz -->|"sql: Postgres: User record (credential,pii)"| proc_2wvqtimahj
+  store_yhtoa6pgwu -->|"sql"| proc_2wvqtimahj
+  style bnd_ycbot7mf4h stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])

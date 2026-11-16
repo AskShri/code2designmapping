@@ -1,0 +1,18 @@
+%% L2 - tag
+flowchart LR
+  subgraph bnd_klnakvm5ry["repository: nestjs-realworld"]
+    proc_f75pjzqzva(["GET /api/tags handler"])
+    proc_xpdjhhzc7h(["tag.service"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_if72rnkr3g[("MySQL: tag")]
+  ext_sga4qktkap -->|"http"| proc_f75pjzqzva
+  proc_f75pjzqzva -->|"in_process"| proc_xpdjhhzc7h
+  store_if72rnkr3g -->|"sql"| proc_xpdjhhzc7h
+  style bnd_klnakvm5ry stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

@@ -8,3 +8,9 @@ Hand-written from reading each sample's source. Vocabulary:
 * `edges`: `[entry point, target]` reachability edges: the handler of that entry point reaches the target (a store, an entity, or `svc:<service>` for another service in the same repository) directly or through calls. This is the question a threat model asks ("does this route reach the users table?"), so it is what is scored, rather than the module-level flow layout.
 
 Scoring (scripts/evaluate.py): precision = matched predictions / predictions, recall = matched truths / truths, per collection. A prediction matches a truth when both ends match under the rules above.
+
+Additions (second iteration):
+
+* `authenticated`: the entry points that require authentication (an enforcing guard, not optional auth). Scored as precision/recall of the entry points the tool credits with an `authn` control.
+* A store written `*:name` matches any technology (used where the engine is configurable, e.g. JPA with H2/MySQL/Postgres profiles).
+* Path parameters in any syntax (`:id`, `{id}`, `<int:id>`) normalize to `:param`; trailing slashes are ignored; multi-method routes are listed once per method.

@@ -1,0 +1,52 @@
+%% L2 - checkoutservice
+flowchart LR
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_sehzqpog5d(["frontend (+13)"])
+  end
+  subgraph bnd_frkw6dgzr7["container: cartservice"]
+    proc_h5rlwsqvpq(["cartservice (+3)"])
+  end
+  subgraph bnd_3nvgex5y4a["container: productcatalogservice"]
+    proc_66kdsit2eu(["productcatalogservice (+3)"])
+  end
+  subgraph bnd_fpjzao3hbx["container: shippingservice"]
+    proc_dpriye6llg(["shippingservice (+2)"])
+  end
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_3a2tuduotc(["checkoutservice (3a2t)"])
+    proc_zdsa5lfxqp(["grpc gRPC CheckoutService handler (+1 routes)"])
+  end
+  subgraph bnd_owyzrxhpvm["container: emailservice"]
+    proc_lsgj4e5qkh(["emailservice (+2)"])
+  end
+  subgraph bnd_blo2xu3bom["container: paymentservice"]
+    proc_rctzthsadd(["paymentservice (+1)"])
+  end
+  subgraph bnd_seoeqgkskf["container: currencyservice"]
+    proc_hkclfcpsdv(["currencyservice (+1)"])
+  end
+  ext_5glqr7zsb5["OTLP collector"]
+  ext_wnxd2gtvsa["Google Cloud Profiler"]
+  proc_3a2tuduotc -.->|"https"| ext_5glqr7zsb5
+  proc_3a2tuduotc -.->|"https"| ext_wnxd2gtvsa
+  proc_3a2tuduotc -->|"grpc"| proc_66kdsit2eu
+  proc_3a2tuduotc -->|"grpc"| proc_dpriye6llg
+  proc_3a2tuduotc -->|"grpc"| proc_h5rlwsqvpq
+  proc_3a2tuduotc -->|"grpc"| proc_hkclfcpsdv
+  proc_3a2tuduotc -->|"grpc"| proc_lsgj4e5qkh
+  proc_3a2tuduotc -->|"grpc"| proc_rctzthsadd
+  proc_sehzqpog5d -->|"grpc"| proc_zdsa5lfxqp
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
+  style bnd_frkw6dgzr7 stroke-dasharray: 8 4,fill:none
+  style bnd_3nvgex5y4a stroke-dasharray: 8 4,fill:none
+  style bnd_fpjzao3hbx stroke-dasharray: 8 4,fill:none
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
+  style bnd_owyzrxhpvm stroke-dasharray: 8 4,fill:none
+  style bnd_blo2xu3bom stroke-dasharray: 8 4,fill:none
+  style bnd_seoeqgkskf stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

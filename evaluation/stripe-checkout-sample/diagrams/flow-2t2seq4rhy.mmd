@@ -1,0 +1,7 @@
+%% Control flow: ANY /create-checkout-session
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_bzmqthfhjz as ANY /create-checkout-session handler
+  ext_sga4qktkap->>proc_bzmqthfhjz: ANY /create-checkout-session
+  proc_bzmqthfhjz-->>ext_sga4qktkap: response

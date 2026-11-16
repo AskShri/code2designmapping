@@ -1,0 +1,31 @@
+%% Control flow: POST /orders
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_xcuk7lvgwy as requireJwt
+  participant ctl_yghv377ofm as rateLimit
+  participant ctl_b4txwgxope as CreateOrderRequest.parse
+  participant proc_qggsk7p5dd as POST /orders handler
+  participant proc_vorpqjcpo4 as service
+  participant proc_dzwfe2zjxf as stripe
+  participant store_2whm26363j as Postgres - orders
+  participant store_ligqz7jge4 as Redis - order -*
+  participant ext_slqdx4hifp as Stripe Payments API
+  ext_sga4qktkap->>ctl_xcuk7lvgwy: POST /orders (authn)
+  opt authn fails
+    ctl_xcuk7lvgwy-->>ext_sga4qktkap: rejected
+  end
+  ctl_xcuk7lvgwy->>ctl_yghv377ofm: POST /orders (rate_limit)
+  ctl_yghv377ofm->>ctl_b4txwgxope: POST /orders (input_validation)
+  ctl_b4txwgxope->>proc_qggsk7p5dd: dispatch
+  proc_qggsk7p5dd->>proc_vorpqjcpo4: call
+  proc_vorpqjcpo4->>proc_dzwfe2zjxf: call
+  proc_vorpqjcpo4->>store_2whm26363j: sql - from CreateOrderRequest (financial,pii)
+  proc_vorpqjcpo4->>store_ligqz7jge4: redis - from CreateOrderRequest (financial,pii)
+  proc_vorpqjcpo4->>store_ligqz7jge4: read
+  store_ligqz7jge4-->>proc_vorpqjcpo4: redis - Redis - order -* record (financial,pii)
+  proc_vorpqjcpo4->>store_2whm26363j: read
+  store_2whm26363j-->>proc_vorpqjcpo4: sql - Postgres - orders record (financial,pii)
+  proc_dzwfe2zjxf->>ext_slqdx4hifp: https - from CreateOrderRequest (financial,pii)
+  ext_slqdx4hifp-->>proc_dzwfe2zjxf: response
+  proc_qggsk7p5dd-->>ext_sga4qktkap: response

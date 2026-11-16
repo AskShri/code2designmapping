@@ -1,0 +1,17 @@
+%% L2 - config
+flowchart LR
+  subgraph bnd_4tjp4yui4o["container: node-app"]
+    proc_icbpdxkx7e(["passport"])
+  end
+  subgraph bnd_3bw6z3ysco["container: mongodb"]
+    store_x3kis6s6op[("MongoDB: User")]
+  end
+  store_x3kis6s6op -->|"mongo: MongoDB: User record (credential,pii)"| proc_icbpdxkx7e
+  style bnd_4tjp4yui4o stroke-dasharray: 8 4,fill:none
+  style bnd_3bw6z3ysco stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

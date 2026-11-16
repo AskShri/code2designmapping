@@ -1,0 +1,4773 @@
+{
+  "version": "0.2",
+  "provenance": {
+    "tool_version": "0.5.0",
+    "commit": "a41289b2a4951e7cc09066f86742a27f85121c9b",
+    "generated_from": "golang-gin-realworld",
+    "detectors": [
+      "config@0.5",
+      "go@0.5",
+      "synth@0.5.0"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "articles/models.go": "sha256:59c206dbc53eefa9dc6589edcba5ee27696d48fb5de2ab89847de502f0bf7551",
+      "articles/routers.go": "sha256:2f8f5e51c70558be60e1c40e7f93e6e75440a40e0cad9002af995024e20bfd25",
+      "common/database.go": "sha256:fff94cb338d9cafc9f3dae3b9b0792028cb31ada12948651ee6c96da394eba8e",
+      "go.mod": "sha256:3cc88e056d0d49722d8f97d38c04bce79ae227434b38a2818cc3b45d5ac065de",
+      "hello.go": "sha256:fedf6af66c1a6a316c41933fc0190603740f9e1a67839ab64e45d8d2ddc3f083",
+      "users/middlewares.go": "sha256:55340ac92796c52d12ebb45bf8cdde1050aba7488fcf7ac3d322d57f2fd897b4",
+      "users/models.go": "sha256:8f048e71d637bef249c1a74ca88b6de94a4acb69513512654be910be448b1455",
+      "users/routers.go": "sha256:449def8fc97b66fab8113e1bc684b88d1c0c3627a3bee0982e0a131deabd391d"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:25wupg7vzc",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "PUT /api/articles/{slug}"
+      ],
+      "origin": "observed",
+      "name": "PUT /api/articles/{slug} handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "go@0.5",
+          "content_hash": "sha256:2f7a4b719729658200578748ec776f9bcfdb2b7aee9714f8790a5722393ce835"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:2kk6rjmjyy",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "PUT /api/user"
+      ],
+      "origin": "observed",
+      "name": "PUT /api/user handler",
+      "level": 2,
+      "module": "users/routers.go",
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "go@0.5",
+          "content_hash": "sha256:fdf0bf80cf84f6290a37d73216ac941e8b8215cbf1b8f04cb68c4daf643466f8"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:2xkv2bej2e",
+      "identity": [
+        "process",
+        "L1",
+        "articles",
+        "articles"
+      ],
+      "origin": "observed",
+      "name": "articles",
+      "level": 1,
+      "module": "articles",
+      "evidence": [
+        {
+          "path": "articles/doc.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
+        }
+      ],
+      "parent": "proc:ughkqgqdbf"
+    },
+    {
+      "id": "proc:3dfhhpmn7b",
+      "identity": [
+        "process",
+        "module",
+        "users/models.go"
+      ],
+      "origin": "observed",
+      "name": "models",
+      "level": 2,
+      "module": "users/models.go",
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8c4c84501343a08885b94596322c180ca8fae8794dc5d7316113e45f31bac410"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:5fibf2izty",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "GET /api/articles/{slug}"
+      ],
+      "origin": "observed",
+      "name": "GET /api/articles/{slug} handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "go@0.5",
+          "content_hash": "sha256:d485faba62323c2e6a9c3a96518372e81e255531f738a9daef94ad7781c720eb"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:7erakdlmvd",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "POST /api/profiles/{username}/follow"
+      ],
+      "origin": "observed",
+      "name": "POST /api/profiles/{username}/follow handler",
+      "level": 2,
+      "module": "users/routers.go",
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "go@0.5",
+          "content_hash": "sha256:04a23781ec4aca313ecd75c46ceb25552b40807478559c38e29672765a4d9558"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:7uangyiib4",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "POST /api/articles/{slug}/comments"
+      ],
+      "origin": "observed",
+      "name": "POST /api/articles/{slug}/comments handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "go@0.5",
+          "content_hash": "sha256:be74e1f8049b4fa729307b788749561ea202e4289381db4579009e7f5d5876d1"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:adau6mcjkh",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "GET /api/tags"
+      ],
+      "origin": "observed",
+      "name": "GET /api/tags handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "go@0.5",
+          "content_hash": "sha256:33edbbc4bf6f3f07b8acbb5a2274309a15d7570dfd4adb2a15ed518993a15214"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:asas7uqabc",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "DELETE /api/articles/{slug}/comments/{id}"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/articles/{slug}/comments/{id} handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.5",
+          "content_hash": "sha256:af50c09d7150088956e473677134f97058fe936d83f6382af0eed3356f4b7ca7"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:aypqrlhjxw",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "POST /api/users"
+      ],
+      "origin": "observed",
+      "name": "POST /api/users handler",
+      "level": 2,
+      "module": "users/routers.go",
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "go@0.5",
+          "content_hash": "sha256:1c4fca9d6bae59266d53fe48c7eefadda5da596b71f2367d0fa9e067e4a07f13"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:bk4dy4rjts",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "DELETE /api/articles/{slug}/favorite"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/articles/{slug}/favorite handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "go@0.5",
+          "content_hash": "sha256:c03c961e5681314879d514f6619902d3fd65cc53f9877f1c5de34612bd96f14d"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:bm46nln6rq",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "GET /api/user"
+      ],
+      "origin": "observed",
+      "name": "GET /api/user handler",
+      "level": 2,
+      "module": "users/routers.go",
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "go@0.5",
+          "content_hash": "sha256:95ee8c5f949680f4ea3ae77216244b90d94c1cc1ac1d15620e741f3991983b3e"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:cpbe6hrtwt",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "GET /api/articles"
+      ],
+      "origin": "observed",
+      "name": "GET /api/articles handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "go@0.5",
+          "content_hash": "sha256:af2279c53d99f5d1ebe8c87f30d05525ea34e51233be064a30cfde81235864a0"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:didw4s4eis",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "GET /api/articles/{slug}/comments"
+      ],
+      "origin": "observed",
+      "name": "GET /api/articles/{slug}/comments handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:59a503cc63ddc269362304e5b9d29c8bff817063f4cee07de491df6b3e5bb5eb"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:ea27boao5a",
+      "identity": [
+        "process",
+        "L1",
+        "common",
+        "common"
+      ],
+      "origin": "observed",
+      "name": "common",
+      "level": 1,
+      "module": "common",
+      "evidence": [
+        {
+          "path": "common/database.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4acf02e60bc3b223de7ffdf48babacb31a05d2109018540e6df7a43846a8cd19"
+        }
+      ],
+      "parent": "proc:ughkqgqdbf"
+    },
+    {
+      "id": "proc:g4bpx6hkiz",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "DELETE /api/profiles/{username}/follow"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/profiles/{username}/follow handler",
+      "level": 2,
+      "module": "users/routers.go",
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:eb7e7119001c2b47d1f3ef71fc68f428908d6d76b2391ae67df134317987f98d"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:hmg6lls77t",
+      "identity": [
+        "process",
+        "module",
+        "users/middlewares.go"
+      ],
+      "origin": "observed",
+      "name": "middlewares",
+      "level": 2,
+      "module": "users/middlewares.go",
+      "evidence": [
+        {
+          "path": "users/middlewares.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8c4c84501343a08885b94596322c180ca8fae8794dc5d7316113e45f31bac410"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:ishmbv7w5w",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "POST /api/users/login"
+      ],
+      "origin": "observed",
+      "name": "POST /api/users/login handler",
+      "level": 2,
+      "module": "users/routers.go",
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.5",
+          "content_hash": "sha256:8e8ca98ea517fa373cc539a06c52c32383f03377ee3d04839a5e3104ab82c34a"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:k4l4axmopg",
+      "identity": [
+        "process",
+        "module",
+        "articles/models.go"
+      ],
+      "origin": "observed",
+      "name": "models",
+      "level": 2,
+      "module": "articles/models.go",
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:ace58d29999e71e366c8c985ce71cbe9bf37f19a6eb96221e2f167f0772234d7"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:qkk3jietyv",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "DELETE /api/articles/{slug}"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/articles/{slug} handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "go@0.5",
+          "content_hash": "sha256:b875abda790116e8c91115021dada9332c5592ceb16f9053e16d441dfafa1f68"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:qzumjsce4w",
+      "identity": [
+        "process",
+        "L1",
+        ".",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "name": "golang-gin-realworld",
+      "level": 1,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "doc.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
+        }
+      ],
+      "parent": "proc:ughkqgqdbf"
+    },
+    {
+      "id": "proc:rfrkaynqwq",
+      "identity": [
+        "process",
+        "L1",
+        "users",
+        "users"
+      ],
+      "origin": "observed",
+      "name": "users",
+      "level": 1,
+      "module": "users",
+      "evidence": [
+        {
+          "path": "users/doc.go",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
+        }
+      ],
+      "parent": "proc:ughkqgqdbf"
+    },
+    {
+      "id": "proc:somsvcjk2r",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "GET /api/profiles/{username}"
+      ],
+      "origin": "observed",
+      "name": "GET /api/profiles/{username} handler",
+      "level": 2,
+      "module": "users/routers.go",
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f08372886c3b9ca804828f833cd38c78f2710b3916ae5d5d829a1aab189046f7"
+        }
+      ],
+      "parent": "proc:rfrkaynqwq"
+    },
+    {
+      "id": "proc:tf6wqdimc7",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "GET /api/ping"
+      ],
+      "origin": "observed",
+      "name": "GET /api/ping handler",
+      "level": 2,
+      "module": "hello.go",
+      "evidence": [
+        {
+          "path": "hello.go",
+          "start_line": 56,
+          "end_line": 56,
+          "detector": "go@0.5",
+          "content_hash": "sha256:729c34e16d86b17ee7bebec351056c0f8a9ec16d698dba459061af0277070b7c"
+        }
+      ],
+      "parent": "proc:qzumjsce4w"
+    },
+    {
+      "id": "proc:ughkqgqdbf",
+      "identity": [
+        "process",
+        "L0",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "name": "golang-gin-realworld",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "go.mod",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "config@0.5",
+          "content_hash": "sha256:9d00b3c84cebc852e919237d70713c4658d2e8fef6c5adc54c569754347aa675"
+        }
+      ]
+    },
+    {
+      "id": "proc:xqfxxji2g3",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "POST /api/articles"
+      ],
+      "origin": "observed",
+      "name": "POST /api/articles handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "go@0.5",
+          "content_hash": "sha256:69dcb571cec3b7080d06eabcb0259ae3e10b798e7e8982e225b88a59a15bf406"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:xuhzgdlylu",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "GET /api/articles/feed"
+      ],
+      "origin": "observed",
+      "name": "GET /api/articles/feed handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6e0a7d6dbc1dc138e624cec115eb4f046ab135088ba2a716adeb13c5e18f75f4"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    },
+    {
+      "id": "proc:zzkjfem2rk",
+      "identity": [
+        "process",
+        "handler",
+        "golang-gin-realworld",
+        "POST /api/articles/{slug}/favorite"
+      ],
+      "origin": "observed",
+      "name": "POST /api/articles/{slug}/favorite handler",
+      "level": 2,
+      "module": "articles/routers.go",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "go@0.5",
+          "content_hash": "sha256:228f7ee6ae7db7e9f975378b449e39ca03bca854a370fe5390a07240e98b1115"
+        }
+      ],
+      "parent": "proc:2xkv2bej2e"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:59a503cc63ddc269362304e5b9d29c8bff817063f4cee07de491df6b3e5bb5eb"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.5",
+          "content_hash": "sha256:8e8ca98ea517fa373cc539a06c52c32383f03377ee3d04839a5e3104ab82c34a"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f08372886c3b9ca804828f833cd38c78f2710b3916ae5d5d829a1aab189046f7"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:bsregusle5",
+      "identity": [
+        "store",
+        "sqlite",
+        "followmodel"
+      ],
+      "origin": "observed",
+      "name": "SQLite: FollowModel",
+      "technology": "sqlite",
+      "logical_name": "FollowModel",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "go@0.5",
+          "content_hash": "sha256:cd92e642d1788150f0eb0e54afac4743abdb79614f73ce1dc8f5a53fecbfeb2c"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 105,
+          "end_line": 105,
+          "detector": "go@0.5",
+          "content_hash": "sha256:84391972311d2db385c7c265c3714b937d71eba33732b96874abfdbca3b7193b"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 130,
+          "end_line": 130,
+          "detector": "go@0.5",
+          "content_hash": "sha256:4f1ef2270fd85e81dfadd21906fb4e357f4295dae2187c69b391179f874cd7bf"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 141,
+          "end_line": 141,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a056001d489058d8315be6825d8ab1cd31d70c078927b2347c46688c1200cbcb"
+        }
+      ]
+    },
+    {
+      "id": "store:cck43qyjgx",
+      "identity": [
+        "store",
+        "sqlite",
+        "usermodel"
+      ],
+      "origin": "observed",
+      "name": "SQLite: UserModel",
+      "technology": "sqlite",
+      "logical_name": "UserModel",
+      "data_classes": [
+        "credential",
+        "pii"
+      ],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6a68442ae82197b9696eb62977f04f3f37a7c2da1e351c3ac8cd1e52fdf33cf0"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 207,
+          "end_line": 207,
+          "detector": "go@0.5",
+          "content_hash": "sha256:e380a42355bd378e645942bda7a083803e0effdec45f1bd5885b8e0619e4cc88"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 217,
+          "end_line": 217,
+          "detector": "go@0.5",
+          "content_hash": "sha256:fd8f37cc4d881d6b35e570d97518f46681fd825a25000505ae2d40ccaaadff4d"
+        },
+        {
+          "path": "users/middlewares.go",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f4caccbc40ef1bb37b8d2e6a2b113d4cd473f2898be0bf37bcc6d08a40a90f9d"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 86,
+          "end_line": 86,
+          "detector": "go@0.5",
+          "content_hash": "sha256:e787ce4c2945bbf81aceb78711d9295f500132ebabd3d1bde8ffc7924753cdfd"
+        }
+      ]
+    },
+    {
+      "id": "store:dvzg2wjtrx",
+      "identity": [
+        "store",
+        "sqlite",
+        "articlemodel"
+      ],
+      "origin": "observed",
+      "name": "SQLite: ArticleModel",
+      "technology": "sqlite",
+      "logical_name": "ArticleModel",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 12,
+          "end_line": 12,
+          "detector": "go@0.5",
+          "content_hash": "sha256:3b705b8d7c9e34014adecd1e42d40b9f06313c4f2fb25a1f12d88d9366c77f84"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 154,
+          "end_line": 154,
+          "detector": "go@0.5",
+          "content_hash": "sha256:65b1f620a28617ec780ddf18c2c86e383506c4d00eff8376d30d66706bb985c0"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 167,
+          "end_line": 167,
+          "detector": "go@0.5",
+          "content_hash": "sha256:19f621dc746262a08a7d33cb14555a8eeb7f1712a6ef111efa3168ac25966a9a"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 286,
+          "end_line": 286,
+          "detector": "go@0.5",
+          "content_hash": "sha256:7caf252672f1f9b8962f3cb3d1ee36701f9db33114bc22a34abd19d7bc5cb0e7"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 304,
+          "end_line": 304,
+          "detector": "go@0.5",
+          "content_hash": "sha256:fc0fa61e61db668cdd6d6a2cc31b7152ae372815f0879eabf201e9111aa04d44"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 320,
+          "end_line": 320,
+          "detector": "go@0.5",
+          "content_hash": "sha256:bd297a5e180171fe0f859f59b24774858318c4667edddbe8c3c0485dd8ab51c2"
+        }
+      ]
+    },
+    {
+      "id": "store:iav35ozifz",
+      "identity": [
+        "store",
+        "sqlite",
+        "articleusermodel"
+      ],
+      "origin": "observed",
+      "name": "SQLite: ArticleUserModel",
+      "technology": "sqlite",
+      "logical_name": "ArticleUserModel",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.5",
+          "content_hash": "sha256:9418bf7b71f2b962fa4488dbd4c0749bf03698255ac273221756383fdf724a1f"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 211,
+          "end_line": 211,
+          "detector": "go@0.5",
+          "content_hash": "sha256:0c5027620b3bf58eaa01181e98ef67b7fc78665c3e31b6564692bfadcd5b45a8"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 221,
+          "end_line": 221,
+          "detector": "go@0.5",
+          "content_hash": "sha256:0c5027620b3bf58eaa01181e98ef67b7fc78665c3e31b6564692bfadcd5b45a8"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 277,
+          "end_line": 277,
+          "detector": "go@0.5",
+          "content_hash": "sha256:43e9583ec70eed10f6a88d039b585e15f6c667398956d8608ae7655b0cb82cd0"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 288,
+          "end_line": 288,
+          "detector": "go@0.5",
+          "content_hash": "sha256:9612bbf57bfd4713ed9009dc6879c79c450d25a98260b66ab065b591af3a6b68"
+        }
+      ]
+    },
+    {
+      "id": "store:jnxnsdv5hq",
+      "identity": [
+        "store",
+        "sqlite",
+        "tagmodel"
+      ],
+      "origin": "observed",
+      "name": "SQLite: TagModel",
+      "technology": "sqlite",
+      "logical_name": "TagModel",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 40,
+          "end_line": 40,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f5667114b99fd33c5d60072f66594ce89352e65208725987ff8a3acb241e1b33"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 174,
+          "end_line": 174,
+          "detector": "go@0.5",
+          "content_hash": "sha256:21ca983cd934415ff0e35f69a20d7f5456d3a5a89e322ca76001d5453d84e6b0"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 199,
+          "end_line": 199,
+          "detector": "go@0.5",
+          "content_hash": "sha256:2b445d399c33c21cd1975baf2050ef9da2ac4140e9509c455b074ec0145fcdb2"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 345,
+          "end_line": 345,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a87a6280844d6913d9ce45416f51b84766cbce8529254d03d67fc86651048f77"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 361,
+          "end_line": 361,
+          "detector": "go@0.5",
+          "content_hash": "sha256:17ef6b72fd76b9e4e93ddebd2e1a429c549fd5f66344bb1e91c8f0ac0a6a6ee1"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 364,
+          "end_line": 364,
+          "detector": "go@0.5",
+          "content_hash": "sha256:3141402379554e5d6c1ff6eab3ce441974bd64b8848400484580e18d74aeee7f"
+        }
+      ]
+    },
+    {
+      "id": "store:oq4q2ydfq6",
+      "identity": [
+        "store",
+        "sqlite",
+        "favoritemodel"
+      ],
+      "origin": "observed",
+      "name": "SQLite: FavoriteModel",
+      "technology": "sqlite",
+      "logical_name": "FavoriteModel",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 32,
+          "end_line": 32,
+          "detector": "go@0.5",
+          "content_hash": "sha256:d267108195a433ad6e1bcb061b7ec5d2eb76197d4b43c9a7c36804b14d513406"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 120,
+          "end_line": 120,
+          "detector": "go@0.5",
+          "content_hash": "sha256:0b60ea7b54c06f9a79e063724cda40be4724a52a33dd4beb29df3aca24108b12"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 132,
+          "end_line": 132,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a125c6d87a132754c1c4cb5be61a4355a9a657054d5178a651c01fcc6b2575b3"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 141,
+          "end_line": 141,
+          "detector": "go@0.5",
+          "content_hash": "sha256:db527140f1cea0c3d99cc49cd85b840929a572a72b2cab5ad5085a2fd309f09a"
+        }
+      ]
+    },
+    {
+      "id": "store:rie7k6es2q",
+      "identity": [
+        "store",
+        "sqlite",
+        "commentmodel"
+      ],
+      "origin": "observed",
+      "name": "SQLite: CommentModel",
+      "technology": "sqlite",
+      "logical_name": "CommentModel",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "go@0.5",
+          "content_hash": "sha256:5b04404f40a2c0967b61f0ff7ba6a47a47c1d55e18556f5fc0f33cc1488dd9b4"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 161,
+          "end_line": 161,
+          "detector": "go@0.5",
+          "content_hash": "sha256:186a41b915f9379792949e2aec718ef1f775e83e90dbb227a1d23ef1dd7e677e"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 390,
+          "end_line": 390,
+          "detector": "go@0.5",
+          "content_hash": "sha256:ac2fe3afe6700893d88bb03adc482264c84368b415caa4330259f1ac245607e3"
+        }
+      ]
+    },
+    {
+      "id": "store:zud464dxbb",
+      "identity": [
+        "store",
+        "sqlite",
+        ""
+      ],
+      "origin": "observed",
+      "name": "SQLite (table unresolved)",
+      "technology": "sqlite",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 147,
+          "end_line": 147,
+          "detector": "go@0.5",
+          "content_hash": "sha256:b84d0494d5f41590a56f360174b0caa4048378afe02a8fee6e6bb2509f3dd739"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 95,
+          "end_line": 95,
+          "detector": "go@0.5",
+          "content_hash": "sha256:b84d0494d5f41590a56f360174b0caa4048378afe02a8fee6e6bb2509f3dd739"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:5hcgh6kyzs",
+      "identity": [
+        "boundary",
+        "repository",
+        "golang-gin-realworld"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: golang-gin-realworld",
+      "kind": "repository",
+      "contains": [
+        "proc:25wupg7vzc",
+        "proc:2kk6rjmjyy",
+        "proc:2xkv2bej2e",
+        "proc:3dfhhpmn7b",
+        "proc:5fibf2izty",
+        "proc:7erakdlmvd",
+        "proc:7uangyiib4",
+        "proc:adau6mcjkh",
+        "proc:asas7uqabc",
+        "proc:aypqrlhjxw",
+        "proc:bk4dy4rjts",
+        "proc:bm46nln6rq",
+        "proc:cpbe6hrtwt",
+        "proc:didw4s4eis",
+        "proc:ea27boao5a",
+        "proc:g4bpx6hkiz",
+        "proc:hmg6lls77t",
+        "proc:ishmbv7w5w",
+        "proc:k4l4axmopg",
+        "proc:qkk3jietyv",
+        "proc:qzumjsce4w",
+        "proc:rfrkaynqwq",
+        "proc:somsvcjk2r",
+        "proc:tf6wqdimc7",
+        "proc:ughkqgqdbf",
+        "proc:xqfxxji2g3",
+        "proc:xuhzgdlylu",
+        "proc:zzkjfem2rk"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:5ab8f198786f81a1a515d5eddba881b511d787b6226984d9882add31072bfffe"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:2pxljta2a2",
+      "identity": [
+        "flow",
+        "proc:7erakdlmvd",
+        "proc:3dfhhpmn7b",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:7erakdlmvd",
+      "target": "proc:3dfhhpmn7b",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls FindOneUser",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 83,
+          "end_line": 83,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
+          "symbol": "users/models.go::FindOneUser"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 102,
+          "end_line": 102,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8dc7c472bcb577c2778af72d34b29fbf9d09e8b0022828e22662c1fbc0875256",
+          "symbol": "users/models.go::UserModel.following"
+        }
+      ]
+    },
+    {
+      "id": "flow:3dbviuw7yr",
+      "identity": [
+        "flow",
+        "store:cck43qyjgx",
+        "proc:3dfhhpmn7b",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:cck43qyjgx",
+      "target": "proc:3dfhhpmn7b",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "First",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 86,
+          "end_line": 86,
+          "detector": "go@0.5",
+          "content_hash": "sha256:e787ce4c2945bbf81aceb78711d9295f500132ebabd3d1bde8ffc7924753cdfd"
+        }
+      ],
+      "payload": {
+        "name": "SQLite: UserModel record",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:3yledu5xag",
+      "identity": [
+        "flow",
+        "store:rie7k6es2q",
+        "proc:k4l4axmopg",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:rie7k6es2q",
+      "target": "proc:k4l4axmopg",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "First",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 161,
+          "end_line": 161,
+          "detector": "go@0.5",
+          "content_hash": "sha256:186a41b915f9379792949e2aec718ef1f775e83e90dbb227a1d23ef1dd7e677e"
+        }
+      ]
+    },
+    {
+      "id": "flow:4s3xaxnmt4",
+      "identity": [
+        "flow",
+        "proc:ishmbv7w5w",
+        "proc:hmg6lls77t",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:ishmbv7w5w",
+      "target": "proc:hmg6lls77t",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls UpdateContextUserModel",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/middlewares.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:49217a932f193420bfd7a9ce06a705073c9c5f3102e490bc05d4eb76d7d9929a",
+          "symbol": "users/middlewares.go::UpdateContextUserModel"
+        }
+      ]
+    },
+    {
+      "id": "flow:5iiw4wzcfu",
+      "identity": [
+        "flow",
+        "proc:somsvcjk2r",
+        "proc:3dfhhpmn7b",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:somsvcjk2r",
+      "target": "proc:3dfhhpmn7b",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls FindOneUser",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 83,
+          "end_line": 83,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
+          "symbol": "users/models.go::FindOneUser"
+        }
+      ]
+    },
+    {
+      "id": "flow:65o57eofms",
+      "identity": [
+        "flow",
+        "proc:3dfhhpmn7b",
+        "store:bsregusle5",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:3dfhhpmn7b",
+      "target": "store:bsregusle5",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Delete",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 105,
+          "end_line": 105,
+          "detector": "go@0.5",
+          "content_hash": "sha256:84391972311d2db385c7c265c3714b937d71eba33732b96874abfdbca3b7193b"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 130,
+          "end_line": 130,
+          "detector": "go@0.5",
+          "content_hash": "sha256:4f1ef2270fd85e81dfadd21906fb4e357f4295dae2187c69b391179f874cd7bf"
+        }
+      ]
+    },
+    {
+      "id": "flow:6jmzwyzvkm",
+      "identity": [
+        "flow",
+        "proc:xuhzgdlylu",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:xuhzgdlylu",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleUserModel.GetArticleFeed",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 252,
+          "end_line": 252,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:9ee1b3d5ecccf424b8fd913682c534b4b26271beaed33e40e6557d8573fc16d4",
+          "symbol": "articles/models.go::ArticleUserModel.GetArticleFeed"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:6vkioldi6u",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:qkk3jietyv",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:qkk3jietyv",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/articles/{slug}",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "go@0.5",
+          "content_hash": "sha256:b875abda790116e8c91115021dada9332c5592ceb16f9053e16d441dfafa1f68"
+        }
+      ]
+    },
+    {
+      "id": "flow:73aub4aykq",
+      "identity": [
+        "flow",
+        "proc:k4l4axmopg",
+        "store:jnxnsdv5hq",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:k4l4axmopg",
+      "target": "store:jnxnsdv5hq",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Create",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 361,
+          "end_line": 361,
+          "detector": "go@0.5",
+          "content_hash": "sha256:17ef6b72fd76b9e4e93ddebd2e1a429c549fd5f66344bb1e91c8f0ac0a6a6ee1"
+        }
+      ]
+    },
+    {
+      "id": "flow:76cejzz72k",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:xuhzgdlylu",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:xuhzgdlylu",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles/feed",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6e0a7d6dbc1dc138e624cec115eb4f046ab135088ba2a716adeb13c5e18f75f4"
+        }
+      ]
+    },
+    {
+      "id": "flow:afehn5qx62",
+      "identity": [
+        "flow",
+        "proc:adau6mcjkh",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:adau6mcjkh",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls BatchGetFavoriteStatus",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 171,
+          "end_line": 171,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:9a70609ca005dfaa37eb2c232ce9fb6a034a35b0407fa73a10650347af40369b",
+          "symbol": "articles/models.go::getAllTags"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:biqqgccnr7",
+      "identity": [
+        "flow",
+        "store:cck43qyjgx",
+        "proc:hmg6lls77t",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:cck43qyjgx",
+      "target": "proc:hmg6lls77t",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "First",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/middlewares.go",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f4caccbc40ef1bb37b8d2e6a2b113d4cd473f2898be0bf37bcc6d08a40a90f9d"
+        }
+      ],
+      "payload": {
+        "name": "SQLite: UserModel record",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:cq2p5pep6x",
+      "identity": [
+        "flow",
+        "proc:didw4s4eis",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:didw4s4eis",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleModel.getComments",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 165,
+          "end_line": 165,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:947217b06bd01f0253381c90e53e172823d977d55e1da259adcbfde5613daa64",
+          "symbol": "articles/models.go::ArticleModel.getComments"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
+          "symbol": "articles/models.go::FindOneArticle"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:den7gyx7cu",
+      "identity": [
+        "flow",
+        "proc:zzkjfem2rk",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:zzkjfem2rk",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleModel.favoriteBy",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 129,
+          "end_line": 129,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:6050fcd69049f6e2525ca823db88cb09d6c7a87a1ae238b984a70ca78678b855",
+          "symbol": "articles/models.go::ArticleModel.favoriteBy"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
+          "symbol": "articles/models.go::FindOneArticle"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:e5tqbenri7",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:7uangyiib4",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:7uangyiib4",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/articles/{slug}/comments",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "go@0.5",
+          "content_hash": "sha256:be74e1f8049b4fa729307b788749561ea202e4289381db4579009e7f5d5876d1"
+        }
+      ]
+    },
+    {
+      "id": "flow:eitev4ew25",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:5fibf2izty",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:5fibf2izty",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles/{slug}",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "go@0.5",
+          "content_hash": "sha256:d485faba62323c2e6a9c3a96518372e81e255531f738a9daef94ad7781c720eb"
+        }
+      ]
+    },
+    {
+      "id": "flow:f5ggy3rijz",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:25wupg7vzc",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:25wupg7vzc",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PUT /api/articles/{slug}",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "go@0.5",
+          "content_hash": "sha256:2f7a4b719729658200578748ec776f9bcfdb2b7aee9714f8790a5722393ce835"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "go@0.5",
+          "content_hash": "sha256:180919dc6d7cdf2eabd5903a1ca6e7414cbf07a022009d4dceaf7d013cdd0565"
+        }
+      ]
+    },
+    {
+      "id": "flow:fcgoeemz6s",
+      "identity": [
+        "flow",
+        "store:iav35ozifz",
+        "proc:k4l4axmopg",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:iav35ozifz",
+      "target": "proc:k4l4axmopg",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Find",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 211,
+          "end_line": 211,
+          "detector": "go@0.5",
+          "content_hash": "sha256:0c5027620b3bf58eaa01181e98ef67b7fc78665c3e31b6564692bfadcd5b45a8"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 221,
+          "end_line": 221,
+          "detector": "go@0.5",
+          "content_hash": "sha256:0c5027620b3bf58eaa01181e98ef67b7fc78665c3e31b6564692bfadcd5b45a8"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 277,
+          "end_line": 277,
+          "detector": "go@0.5",
+          "content_hash": "sha256:43e9583ec70eed10f6a88d039b585e15f6c667398956d8608ae7655b0cb82cd0"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 288,
+          "end_line": 288,
+          "detector": "go@0.5",
+          "content_hash": "sha256:9612bbf57bfd4713ed9009dc6879c79c450d25a98260b66ab065b591af3a6b68"
+        }
+      ]
+    },
+    {
+      "id": "flow:fgdi7byct4",
+      "identity": [
+        "flow",
+        "proc:3dfhhpmn7b",
+        "store:zud464dxbb",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:3dfhhpmn7b",
+      "target": "store:zud464dxbb",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Save",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 95,
+          "end_line": 95,
+          "detector": "go@0.5",
+          "content_hash": "sha256:b84d0494d5f41590a56f360174b0caa4048378afe02a8fee6e6bb2509f3dd739"
+        }
+      ]
+    },
+    {
+      "id": "flow:gwxuuulftf",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:g4bpx6hkiz",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:g4bpx6hkiz",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/profiles/{username}/follow",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:eb7e7119001c2b47d1f3ef71fc68f428908d6d76b2391ae67df134317987f98d"
+        }
+      ]
+    },
+    {
+      "id": "flow:homofmy3jx",
+      "identity": [
+        "flow",
+        "proc:ishmbv7w5w",
+        "proc:3dfhhpmn7b",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:ishmbv7w5w",
+      "target": "proc:3dfhhpmn7b",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls FindOneUser",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 83,
+          "end_line": 83,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
+          "symbol": "users/models.go::FindOneUser"
+        }
+      ]
+    },
+    {
+      "id": "flow:ifwpjejsxm",
+      "identity": [
+        "flow",
+        "proc:bk4dy4rjts",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:bk4dy4rjts",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleModel.unFavoriteBy",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 139,
+          "end_line": 139,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4b78adb93b62f8bd49b0b57a262b2d66d70a0eb02f0989fc9212f6649f8e4f2b",
+          "symbol": "articles/models.go::ArticleModel.unFavoriteBy"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
+          "symbol": "articles/models.go::FindOneArticle"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:imtgkqivia",
+      "identity": [
+        "flow",
+        "proc:xqfxxji2g3",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:xqfxxji2g3",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls BatchGetFavoriteStatus",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 145,
+          "end_line": 145,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:26b05fd4cf2fe16e68386f46a5986402bcf9849ac88754a6a35b14d705fa44ed",
+          "symbol": "articles/models.go::SaveOne"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 299,
+          "end_line": 299,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:d13eba87a3b29a628c5c93912cfa725be188a3f37055f174a4eaef6cf0960b0e",
+          "symbol": "articles/models.go::makeUniqueSlug"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:j3h5fdq5yq",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:tf6wqdimc7",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:tf6wqdimc7",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/ping",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "hello.go",
+          "start_line": 56,
+          "end_line": 56,
+          "detector": "go@0.5",
+          "content_hash": "sha256:729c34e16d86b17ee7bebec351056c0f8a9ec16d698dba459061af0277070b7c"
+        }
+      ]
+    },
+    {
+      "id": "flow:ja7nbfcvhx",
+      "identity": [
+        "flow",
+        "proc:2kk6rjmjyy",
+        "proc:3dfhhpmn7b",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:2kk6rjmjyy",
+      "target": "proc:3dfhhpmn7b",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls SaveOne",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 93,
+          "end_line": 93,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:26b05fd4cf2fe16e68386f46a5986402bcf9849ac88754a6a35b14d705fa44ed",
+          "symbol": "users/models.go::SaveOne"
+        }
+      ]
+    },
+    {
+      "id": "flow:jf7bk6m63j",
+      "identity": [
+        "flow",
+        "proc:k4l4axmopg",
+        "store:oq4q2ydfq6",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:k4l4axmopg",
+      "target": "store:oq4q2ydfq6",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Delete",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 132,
+          "end_line": 132,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a125c6d87a132754c1c4cb5be61a4355a9a657054d5178a651c01fcc6b2575b3"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 141,
+          "end_line": 141,
+          "detector": "go@0.5",
+          "content_hash": "sha256:db527140f1cea0c3d99cc49cd85b840929a572a72b2cab5ad5085a2fd309f09a"
+        }
+      ]
+    },
+    {
+      "id": "flow:jrpnrsfzj6",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:cpbe6hrtwt",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:cpbe6hrtwt",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "go@0.5",
+          "content_hash": "sha256:af2279c53d99f5d1ebe8c87f30d05525ea34e51233be064a30cfde81235864a0"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 29,
+          "end_line": 29,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a05e11642bc10d1638656827dda17e4e3314def25acb6f525e7ba880a896aefa"
+        }
+      ]
+    },
+    {
+      "id": "flow:ka7dco672g",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:aypqrlhjxw",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:aypqrlhjxw",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/users",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "go@0.5",
+          "content_hash": "sha256:1c4fca9d6bae59266d53fe48c7eefadda5da596b71f2367d0fa9e067e4a07f13"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "go@0.5",
+          "content_hash": "sha256:7b4a994fd21c3aee862c5cccf98578967ce36cfc2314c4cb5735aef7ad781d57"
+        }
+      ]
+    },
+    {
+      "id": "flow:kh4vbinf5k",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:bk4dy4rjts",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:bk4dy4rjts",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/articles/{slug}/favorite",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "go@0.5",
+          "content_hash": "sha256:c03c961e5681314879d514f6619902d3fd65cc53f9877f1c5de34612bd96f14d"
+        }
+      ]
+    },
+    {
+      "id": "flow:krnbziqdz6",
+      "identity": [
+        "flow",
+        "store:bsregusle5",
+        "proc:3dfhhpmn7b",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:bsregusle5",
+      "target": "proc:3dfhhpmn7b",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Preload",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 141,
+          "end_line": 141,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a056001d489058d8315be6825d8ab1cd31d70c078927b2347c46688c1200cbcb"
+        }
+      ]
+    },
+    {
+      "id": "flow:kxutm3i4m7",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:didw4s4eis",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:didw4s4eis",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles/{slug}/comments",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:59a503cc63ddc269362304e5b9d29c8bff817063f4cee07de491df6b3e5bb5eb"
+        }
+      ]
+    },
+    {
+      "id": "flow:kz47a4ltmr",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:7erakdlmvd",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:7erakdlmvd",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/profiles/{username}/follow",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "go@0.5",
+          "content_hash": "sha256:04a23781ec4aca313ecd75c46ceb25552b40807478559c38e29672765a4d9558"
+        }
+      ]
+    },
+    {
+      "id": "flow:lfttwscnel",
+      "identity": [
+        "flow",
+        "store:dvzg2wjtrx",
+        "proc:k4l4axmopg",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:dvzg2wjtrx",
+      "target": "proc:k4l4axmopg",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Association",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 154,
+          "end_line": 154,
+          "detector": "go@0.5",
+          "content_hash": "sha256:65b1f620a28617ec780ddf18c2c86e383506c4d00eff8376d30d66706bb985c0"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 167,
+          "end_line": 167,
+          "detector": "go@0.5",
+          "content_hash": "sha256:19f621dc746262a08a7d33cb14555a8eeb7f1712a6ef111efa3168ac25966a9a"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 286,
+          "end_line": 286,
+          "detector": "go@0.5",
+          "content_hash": "sha256:7caf252672f1f9b8962f3cb3d1ee36701f9db33114bc22a34abd19d7bc5cb0e7"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 304,
+          "end_line": 304,
+          "detector": "go@0.5",
+          "content_hash": "sha256:fc0fa61e61db668cdd6d6a2cc31b7152ae372815f0879eabf201e9111aa04d44"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 320,
+          "end_line": 320,
+          "detector": "go@0.5",
+          "content_hash": "sha256:bd297a5e180171fe0f859f59b24774858318c4667edddbe8c3c0485dd8ab51c2"
+        }
+      ]
+    },
+    {
+      "id": "flow:llz4zrxiya",
+      "identity": [
+        "flow",
+        "proc:k4l4axmopg",
+        "store:dvzg2wjtrx",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:k4l4axmopg",
+      "target": "store:dvzg2wjtrx",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Delete",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 378,
+          "end_line": 378,
+          "detector": "go@0.5",
+          "content_hash": "sha256:cd3f00c12d4e9cb18b318811edf0073f8f4f08d55abf4c5055f5c57dac07fde9"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 384,
+          "end_line": 384,
+          "detector": "go@0.5",
+          "content_hash": "sha256:61e580b40b885e38e06b7c4751a670c467dce804ea64cb52947e1e6c02b2fe48"
+        }
+      ]
+    },
+    {
+      "id": "flow:mggsx3ftrb",
+      "identity": [
+        "flow",
+        "proc:2kk6rjmjyy",
+        "proc:hmg6lls77t",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:2kk6rjmjyy",
+      "target": "proc:hmg6lls77t",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls UpdateContextUserModel",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/middlewares.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:49217a932f193420bfd7a9ce06a705073c9c5f3102e490bc05d4eb76d7d9929a",
+          "symbol": "users/middlewares.go::UpdateContextUserModel"
+        }
+      ]
+    },
+    {
+      "id": "flow:mmgieidkee",
+      "identity": [
+        "flow",
+        "proc:aypqrlhjxw",
+        "proc:3dfhhpmn7b",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:aypqrlhjxw",
+      "target": "proc:3dfhhpmn7b",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls FindOneUser",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 83,
+          "end_line": 83,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
+          "symbol": "users/models.go::FindOneUser"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 93,
+          "end_line": 93,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:26b05fd4cf2fe16e68386f46a5986402bcf9849ac88754a6a35b14d705fa44ed",
+          "symbol": "users/models.go::SaveOne"
+        }
+      ]
+    },
+    {
+      "id": "flow:om4uuphvgk",
+      "identity": [
+        "flow",
+        "proc:g4bpx6hkiz",
+        "proc:3dfhhpmn7b",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:g4bpx6hkiz",
+      "target": "proc:3dfhhpmn7b",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls FindOneUser",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 83,
+          "end_line": 83,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
+          "symbol": "users/models.go::FindOneUser"
+        },
+        {
+          "path": "users/models.go",
+          "start_line": 128,
+          "end_line": 128,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:562a134ae5fbbc349aa36ce07477b81f13693839d3f01a4fbe6d09570212e66d",
+          "symbol": "users/models.go::UserModel.unFollowing"
+        }
+      ]
+    },
+    {
+      "id": "flow:pmazle4dlv",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:somsvcjk2r",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:somsvcjk2r",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/profiles/{username}",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f08372886c3b9ca804828f833cd38c78f2710b3916ae5d5d829a1aab189046f7"
+        }
+      ]
+    },
+    {
+      "id": "flow:pqmlybxawb",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:xqfxxji2g3",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:xqfxxji2g3",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/articles",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "go@0.5",
+          "content_hash": "sha256:69dcb571cec3b7080d06eabcb0259ae3e10b798e7e8982e225b88a59a15bf406"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "go@0.5",
+          "content_hash": "sha256:85f529a457bef882d4e3f0288fa7249e0374e9307f61187dc9733c593281940f"
+        }
+      ]
+    },
+    {
+      "id": "flow:prhhrwxorn",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:asas7uqabc",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:asas7uqabc",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/articles/{slug}/comments/{id}",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.5",
+          "content_hash": "sha256:af50c09d7150088956e473677134f97058fe936d83f6382af0eed3356f4b7ca7"
+        }
+      ]
+    },
+    {
+      "id": "flow:pzxkaj537f",
+      "identity": [
+        "flow",
+        "store:cck43qyjgx",
+        "proc:k4l4axmopg",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:cck43qyjgx",
+      "target": "proc:k4l4axmopg",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "First",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 207,
+          "end_line": 207,
+          "detector": "go@0.5",
+          "content_hash": "sha256:e380a42355bd378e645942bda7a083803e0effdec45f1bd5885b8e0619e4cc88"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 217,
+          "end_line": 217,
+          "detector": "go@0.5",
+          "content_hash": "sha256:fd8f37cc4d881d6b35e570d97518f46681fd825a25000505ae2d40ccaaadff4d"
+        }
+      ],
+      "payload": {
+        "name": "SQLite: UserModel record",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:qdm32kqxgs",
+      "identity": [
+        "flow",
+        "proc:k4l4axmopg",
+        "store:rie7k6es2q",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:k4l4axmopg",
+      "target": "store:rie7k6es2q",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Delete",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 390,
+          "end_line": 390,
+          "detector": "go@0.5",
+          "content_hash": "sha256:ac2fe3afe6700893d88bb03adc482264c84368b415caa4330259f1ac245607e3"
+        }
+      ]
+    },
+    {
+      "id": "flow:qhnugmhyw6",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:zzkjfem2rk",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:zzkjfem2rk",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/articles/{slug}/favorite",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "go@0.5",
+          "content_hash": "sha256:228f7ee6ae7db7e9f975378b449e39ca03bca854a370fe5390a07240e98b1115"
+        }
+      ]
+    },
+    {
+      "id": "flow:qmh5fapc3i",
+      "identity": [
+        "flow",
+        "proc:asas7uqabc",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:asas7uqabc",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls DeleteCommentModel",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 388,
+          "end_line": 388,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:56f334a05961f49cab417bcaef72fd53d1a4e8ca8ccca77737b08e690f56b1be",
+          "symbol": "articles/models.go::DeleteCommentModel"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
+          "symbol": "articles/models.go::FindOneArticle"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 158,
+          "end_line": 158,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:299ea25621c38b13316f2b476942276985430dd00386809855605db787a22e2c",
+          "symbol": "articles/models.go::FindOneComment"
+        }
+      ]
+    },
+    {
+      "id": "flow:qsuwyvuvfa",
+      "identity": [
+        "flow",
+        "proc:cpbe6hrtwt",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:cpbe6hrtwt",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls BatchGetFavoriteStatus",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:samove7xh2",
+      "identity": [
+        "flow",
+        "proc:25wupg7vzc",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:25wupg7vzc",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleModel.ReplaceTags",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 314,
+          "end_line": 314,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f24be39a149f2dd07d7b7a16aec9f41ebbee88abc6eb82e913829547c85d517a",
+          "symbol": "articles/models.go::ArticleModel.ReplaceTags"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 376,
+          "end_line": 376,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:fca3ea98990493ba75a759df5db504295b4dfc203844119abcf7fe8ac5fb228f",
+          "symbol": "articles/models.go::ArticleModel.Update"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
+          "symbol": "articles/models.go::FindOneArticle"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 299,
+          "end_line": 299,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:d13eba87a3b29a628c5c93912cfa725be188a3f37055f174a4eaef6cf0960b0e",
+          "symbol": "articles/models.go::makeUniqueSlug"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 336,
+          "end_line": 336,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:2c1dbe1ad73eeefec28f6742b013905a1c6b863c4d8b9f6fdbcd4cd0446f6dda",
+          "symbol": "articles/models.go::buildTagModels"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:sdewytljrt",
+      "identity": [
+        "flow",
+        "proc:7uangyiib4",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:7uangyiib4",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls BatchGetFavoriteStatus",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
+          "symbol": "articles/models.go::FindOneArticle"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 145,
+          "end_line": 145,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:26b05fd4cf2fe16e68386f46a5986402bcf9849ac88754a6a35b14d705fa44ed",
+          "symbol": "articles/models.go::SaveOne"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:ukmfm7j3tw",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:ishmbv7w5w",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:ishmbv7w5w",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/users/login",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.5",
+          "content_hash": "sha256:8e8ca98ea517fa373cc539a06c52c32383f03377ee3d04839a5e3104ab82c34a"
+        }
+      ]
+    },
+    {
+      "id": "flow:uvh74tyqfu",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:2kk6rjmjyy",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:2kk6rjmjyy",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PUT /api/user",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "go@0.5",
+          "content_hash": "sha256:fdf0bf80cf84f6290a37d73216ac941e8b8215cbf1b8f04cb68c4daf643466f8"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f7c6870c5072aef202255e4b1ff47582866c96e2baf16c33689d5261dda0e136"
+        }
+      ]
+    },
+    {
+      "id": "flow:uxocpva2j3",
+      "identity": [
+        "flow",
+        "proc:qkk3jietyv",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:qkk3jietyv",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls DeleteArticleModel",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 382,
+          "end_line": 382,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:0890c5cd88b34ef1747639319f72a386574cf4b53fd48c533a8cd2a0dc1c5305",
+          "symbol": "articles/models.go::DeleteArticleModel"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
+          "symbol": "articles/models.go::FindOneArticle"
+        }
+      ]
+    },
+    {
+      "id": "flow:x467ufiord",
+      "identity": [
+        "flow",
+        "store:oq4q2ydfq6",
+        "proc:k4l4axmopg",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:oq4q2ydfq6",
+      "target": "proc:k4l4axmopg",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Find",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 120,
+          "end_line": 120,
+          "detector": "go@0.5",
+          "content_hash": "sha256:0b60ea7b54c06f9a79e063724cda40be4724a52a33dd4beb29df3aca24108b12"
+        }
+      ]
+    },
+    {
+      "id": "flow:y5bvwaswmk",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:adau6mcjkh",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:adau6mcjkh",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/tags",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "go@0.5",
+          "content_hash": "sha256:33edbbc4bf6f3f07b8acbb5a2274309a15d7570dfd4adb2a15ed518993a15214"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6b5e29383e12f29709329dbf30d647878c21c628e2791d3c2e2968def324eb1e"
+        }
+      ]
+    },
+    {
+      "id": "flow:ybmea2dxec",
+      "identity": [
+        "flow",
+        "proc:k4l4axmopg",
+        "store:zud464dxbb",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:k4l4axmopg",
+      "target": "store:zud464dxbb",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Save",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 147,
+          "end_line": 147,
+          "detector": "go@0.5",
+          "content_hash": "sha256:b84d0494d5f41590a56f360174b0caa4048378afe02a8fee6e6bb2509f3dd739"
+        }
+      ]
+    },
+    {
+      "id": "flow:ypzyqdwjuf",
+      "identity": [
+        "flow",
+        "store:jnxnsdv5hq",
+        "proc:k4l4axmopg",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:jnxnsdv5hq",
+      "target": "proc:k4l4axmopg",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "Find",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 174,
+          "end_line": 174,
+          "detector": "go@0.5",
+          "content_hash": "sha256:21ca983cd934415ff0e35f69a20d7f5456d3a5a89e322ca76001d5453d84e6b0"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 199,
+          "end_line": 199,
+          "detector": "go@0.5",
+          "content_hash": "sha256:2b445d399c33c21cd1975baf2050ef9da2ac4140e9509c455b074ec0145fcdb2"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 345,
+          "end_line": 345,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a87a6280844d6913d9ce45416f51b84766cbce8529254d03d67fc86651048f77"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 364,
+          "end_line": 364,
+          "detector": "go@0.5",
+          "content_hash": "sha256:3141402379554e5d6c1ff6eab3ce441974bd64b8848400484580e18d74aeee7f"
+        }
+      ]
+    },
+    {
+      "id": "flow:yudvv5e75p",
+      "identity": [
+        "flow",
+        "proc:5fibf2izty",
+        "proc:k4l4axmopg",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:5fibf2izty",
+      "target": "proc:k4l4axmopg",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls BatchGetFavoriteStatus",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 151,
+          "end_line": 151,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
+          "symbol": "articles/models.go::FindOneArticle"
+        },
+        {
+          "path": "articles/models.go",
+          "start_line": 113,
+          "end_line": 113,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
+          "symbol": "articles/models.go::BatchGetFavoriteStatus"
+        }
+      ]
+    },
+    {
+      "id": "flow:zihicravxu",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:bm46nln6rq",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:bm46nln6rq",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "GET /api/user",
+      "crosses_boundary": [
+        "bnd:5hcgh6kyzs"
+      ],
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "go@0.5",
+          "content_hash": "sha256:95ee8c5f949680f4ea3ae77216244b90d94c1cc1ac1d15620e741f3991983b3e"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "go@0.5",
+          "content_hash": "sha256:0617b190b6368c37f67b9b390422a20d3509be974bdeff3310698d83c2cb9784"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:3x7h6w6w6y",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/articles/{slug}/comments",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:didw4s4eis",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/articles/{slug}/comments",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:didw4s4eis",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:oq4q2ydfq6"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:59a503cc63ddc269362304e5b9d29c8bff817063f4cee07de491df6b3e5bb5eb"
+        }
+      ]
+    },
+    {
+      "id": "ep:4qtbwu7r5d",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/users/login",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:ishmbv7w5w",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/users/login",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:ishmbv7w5w",
+        "proc:hmg6lls77t",
+        "proc:3dfhhpmn7b"
+      ],
+      "reaches": [
+        "store:cck43qyjgx"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.5",
+          "content_hash": "sha256:8e8ca98ea517fa373cc539a06c52c32383f03377ee3d04839a5e3104ab82c34a"
+        }
+      ]
+    },
+    {
+      "id": "ep:aw7aoy7pir",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/profiles/{username}",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:somsvcjk2r",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/profiles/{username}",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:somsvcjk2r",
+        "proc:3dfhhpmn7b"
+      ],
+      "reaches": [
+        "store:cck43qyjgx"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f08372886c3b9ca804828f833cd38c78f2710b3916ae5d5d829a1aab189046f7"
+        }
+      ]
+    },
+    {
+      "id": "ep:eaajq5wukw",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/articles",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:cpbe6hrtwt",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/articles",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:cpbe6hrtwt",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:oq4q2ydfq6"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "go@0.5",
+          "content_hash": "sha256:af2279c53d99f5d1ebe8c87f30d05525ea34e51233be064a30cfde81235864a0"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 29,
+          "end_line": 29,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a05e11642bc10d1638656827dda17e4e3314def25acb6f525e7ba880a896aefa"
+        }
+      ]
+    },
+    {
+      "id": "ep:f6a4m74ipc",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/users",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:aypqrlhjxw",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/users",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:aypqrlhjxw",
+        "proc:3dfhhpmn7b"
+      ],
+      "reaches": [
+        "store:cck43qyjgx",
+        "store:zud464dxbb"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "go@0.5",
+          "content_hash": "sha256:1c4fca9d6bae59266d53fe48c7eefadda5da596b71f2367d0fa9e067e4a07f13"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "go@0.5",
+          "content_hash": "sha256:7b4a994fd21c3aee862c5cccf98578967ce36cfc2314c4cb5735aef7ad781d57"
+        }
+      ]
+    },
+    {
+      "id": "ep:fuaw73zy57",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/articles",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:xqfxxji2g3",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/articles",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:xqfxxji2g3",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:oq4q2ydfq6",
+        "store:zud464dxbb"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 16,
+          "end_line": 16,
+          "detector": "go@0.5",
+          "content_hash": "sha256:69dcb571cec3b7080d06eabcb0259ae3e10b798e7e8982e225b88a59a15bf406"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "go@0.5",
+          "content_hash": "sha256:85f529a457bef882d4e3f0288fa7249e0374e9307f61187dc9733c593281940f"
+        }
+      ]
+    },
+    {
+      "id": "ep:hua2m5aaqc",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/articles/{slug}/comments/{id}",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:asas7uqabc",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/articles/{slug}/comments/{id}",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:asas7uqabc",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:rie7k6es2q"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "go@0.5",
+          "content_hash": "sha256:af50c09d7150088956e473677134f97058fe936d83f6382af0eed3356f4b7ca7"
+        }
+      ]
+    },
+    {
+      "id": "ep:jg6ne22q4y",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/ping",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:tf6wqdimc7",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/ping",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:tf6wqdimc7"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "hello.go",
+          "start_line": 56,
+          "end_line": 56,
+          "detector": "go@0.5",
+          "content_hash": "sha256:729c34e16d86b17ee7bebec351056c0f8a9ec16d698dba459061af0277070b7c"
+        }
+      ],
+      "infrastructure": true
+    },
+    {
+      "id": "ep:ldn6zhpdsg",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/articles/{slug}/favorite",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:bk4dy4rjts",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/articles/{slug}/favorite",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:bk4dy4rjts",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:oq4q2ydfq6"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "go@0.5",
+          "content_hash": "sha256:c03c961e5681314879d514f6619902d3fd65cc53f9877f1c5de34612bd96f14d"
+        }
+      ]
+    },
+    {
+      "id": "ep:mztjj75vgr",
+      "identity": [
+        "entry_point",
+        "http",
+        "PUT",
+        "/api/user",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:2kk6rjmjyy",
+      "protocol": "http",
+      "method": "PUT",
+      "path": "/api/user",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:2kk6rjmjyy",
+        "proc:hmg6lls77t",
+        "proc:3dfhhpmn7b"
+      ],
+      "reaches": [
+        "store:cck43qyjgx",
+        "store:zud464dxbb"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "go@0.5",
+          "content_hash": "sha256:fdf0bf80cf84f6290a37d73216ac941e8b8215cbf1b8f04cb68c4daf643466f8"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f7c6870c5072aef202255e4b1ff47582866c96e2baf16c33689d5261dda0e136"
+        }
+      ]
+    },
+    {
+      "id": "ep:namxldnlhp",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/articles/{slug}",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:5fibf2izty",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/articles/{slug}",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:5fibf2izty",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:oq4q2ydfq6"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "go@0.5",
+          "content_hash": "sha256:d485faba62323c2e6a9c3a96518372e81e255531f738a9daef94ad7781c720eb"
+        }
+      ]
+    },
+    {
+      "id": "ep:pebrqmnlxb",
+      "identity": [
+        "entry_point",
+        "http",
+        "PUT",
+        "/api/articles/{slug}",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:25wupg7vzc",
+      "protocol": "http",
+      "method": "PUT",
+      "path": "/api/articles/{slug}",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:25wupg7vzc",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:jnxnsdv5hq",
+        "store:oq4q2ydfq6"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 18,
+          "end_line": 18,
+          "detector": "go@0.5",
+          "content_hash": "sha256:2f7a4b719729658200578748ec776f9bcfdb2b7aee9714f8790a5722393ce835"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "go@0.5",
+          "content_hash": "sha256:180919dc6d7cdf2eabd5903a1ca6e7414cbf07a022009d4dceaf7d013cdd0565"
+        }
+      ]
+    },
+    {
+      "id": "ep:q4b2dmdiwu",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/profiles/{username}/follow",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:g4bpx6hkiz",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/profiles/{username}/follow",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:g4bpx6hkiz",
+        "proc:3dfhhpmn7b"
+      ],
+      "reaches": [
+        "store:bsregusle5",
+        "store:cck43qyjgx"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:eb7e7119001c2b47d1f3ef71fc68f428908d6d76b2391ae67df134317987f98d"
+        }
+      ]
+    },
+    {
+      "id": "ep:sh4mb7p5pj",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/tags",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:adau6mcjkh",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/tags",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:adau6mcjkh",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:jnxnsdv5hq",
+        "store:oq4q2ydfq6"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "go@0.5",
+          "content_hash": "sha256:33edbbc4bf6f3f07b8acbb5a2274309a15d7570dfd4adb2a15ed518993a15214"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6b5e29383e12f29709329dbf30d647878c21c628e2791d3c2e2968def324eb1e"
+        }
+      ]
+    },
+    {
+      "id": "ep:vt7fmldqnv",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/articles/{slug}/favorite",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:zzkjfem2rk",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/articles/{slug}/favorite",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:zzkjfem2rk",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:oq4q2ydfq6"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "go@0.5",
+          "content_hash": "sha256:228f7ee6ae7db7e9f975378b449e39ca03bca854a370fe5390a07240e98b1115"
+        }
+      ]
+    },
+    {
+      "id": "ep:yaf4qf5q3z",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/profiles/{username}/follow",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:7erakdlmvd",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/profiles/{username}/follow",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:7erakdlmvd",
+        "proc:3dfhhpmn7b"
+      ],
+      "reaches": [
+        "store:bsregusle5",
+        "store:cck43qyjgx"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "go@0.5",
+          "content_hash": "sha256:04a23781ec4aca313ecd75c46ceb25552b40807478559c38e29672765a4d9558"
+        }
+      ]
+    },
+    {
+      "id": "ep:ygr6zhg67k",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/articles/{slug}/comments",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:7uangyiib4",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/articles/{slug}/comments",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:7uangyiib4",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:oq4q2ydfq6",
+        "store:zud464dxbb"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "go@0.5",
+          "content_hash": "sha256:be74e1f8049b4fa729307b788749561ea202e4289381db4579009e7f5d5876d1"
+        }
+      ]
+    },
+    {
+      "id": "ep:ypqt6sgwru",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/articles/{slug}",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:qkk3jietyv",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/articles/{slug}",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:qkk3jietyv",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "go@0.5",
+          "content_hash": "sha256:b875abda790116e8c91115021dada9332c5592ceb16f9053e16d441dfafa1f68"
+        }
+      ]
+    },
+    {
+      "id": "ep:yt2fhbxo7y",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/articles/feed",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:xuhzgdlylu",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/articles/feed",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:xuhzgdlylu",
+        "proc:k4l4axmopg"
+      ],
+      "reaches": [
+        "store:dvzg2wjtrx",
+        "store:iav35ozifz",
+        "store:oq4q2ydfq6"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6e0a7d6dbc1dc138e624cec115eb4f046ab135088ba2a716adeb13c5e18f75f4"
+        }
+      ]
+    },
+    {
+      "id": "ep:zcfp6fn52t",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/user",
+        "golang-gin-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:bm46nln6rq",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/user",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:fvcxxu7lly"
+      ],
+      "call_chain": [
+        "proc:bm46nln6rq"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "go@0.5",
+          "content_hash": "sha256:95ee8c5f949680f4ea3ae77216244b90d94c1cc1ac1d15620e741f3991983b3e"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "go@0.5",
+          "content_hash": "sha256:0617b190b6368c37f67b9b390422a20d3509be974bdeff3310698d83c2cb9784"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "ctl:fvcxxu7lly",
+      "identity": [
+        "control",
+        "authn",
+        "hello.go",
+        "users.AuthMiddleware"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "users.AuthMiddleware",
+      "scope": "router",
+      "applies_to": [
+        "ep:fuaw73zy57",
+        "ep:hua2m5aaqc",
+        "ep:ldn6zhpdsg",
+        "ep:mztjj75vgr",
+        "ep:pebrqmnlxb",
+        "ep:q4b2dmdiwu",
+        "ep:vt7fmldqnv",
+        "ep:yaf4qf5q3z",
+        "ep:ygr6zhg67k",
+        "ep:ypqt6sgwru",
+        "ep:yt2fhbxo7y",
+        "ep:zcfp6fn52t"
+      ],
+      "evidence": [
+        {
+          "path": "hello.go",
+          "start_line": 48,
+          "end_line": 48,
+          "detector": "go@0.5",
+          "content_hash": "sha256:4fddf96ed4c52e72ae0e58ba6d40b251470ed6d129df3bf12c66501482ba1738"
+        }
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "wk:2bv3akcrym",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:3x7h6w6w6y"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/articles/{slug}/comments",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:3x7h6w6w6y"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:59a503cc63ddc269362304e5b9d29c8bff817063f4cee07de491df6b3e5bb5eb"
+        }
+      ]
+    },
+    {
+      "id": "wk:c7guvokzn2",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:aw7aoy7pir"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/profiles/{username}",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:aw7aoy7pir"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "go@0.5",
+          "content_hash": "sha256:f08372886c3b9ca804828f833cd38c78f2710b3916ae5d5d829a1aab189046f7"
+        }
+      ]
+    },
+    {
+      "id": "wk:mrb3dhrx5l",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:namxldnlhp"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/articles/{slug}",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:namxldnlhp"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "go@0.5",
+          "content_hash": "sha256:d485faba62323c2e6a9c3a96518372e81e255531f738a9daef94ad7781c720eb"
+        }
+      ]
+    },
+    {
+      "id": "wk:nrtlcttim7",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:sh4mb7p5pj"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/tags",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:sh4mb7p5pj"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "go@0.5",
+          "content_hash": "sha256:33edbbc4bf6f3f07b8acbb5a2274309a15d7570dfd4adb2a15ed518993a15214"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6b5e29383e12f29709329dbf30d647878c21c628e2791d3c2e2968def324eb1e"
+        }
+      ]
+    },
+    {
+      "id": "wk:wd2a32ldwi",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:f6a4m74ipc"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /api/users",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:f6a4m74ipc"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "go@0.5",
+          "content_hash": "sha256:1c4fca9d6bae59266d53fe48c7eefadda5da596b71f2367d0fa9e067e4a07f13"
+        },
+        {
+          "path": "users/routers.go",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "go@0.5",
+          "content_hash": "sha256:7b4a994fd21c3aee862c5cccf98578967ce36cfc2314c4cb5735aef7ad781d57"
+        }
+      ]
+    },
+    {
+      "id": "wk:wdb3k7tcr3",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:4qtbwu7r5d"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /api/users/login",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:4qtbwu7r5d"
+      ],
+      "evidence": [
+        {
+          "path": "users/routers.go",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "go@0.5",
+          "content_hash": "sha256:8e8ca98ea517fa373cc539a06c52c32383f03377ee3d04839a5e3104ab82c34a"
+        }
+      ]
+    },
+    {
+      "id": "wk:zt3frbwsdf",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:eaajq5wukw"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/articles",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:eaajq5wukw"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "go@0.5",
+          "content_hash": "sha256:af2279c53d99f5d1ebe8c87f30d05525ea34e51233be064a30cfde81235864a0"
+        },
+        {
+          "path": "articles/routers.go",
+          "start_line": 29,
+          "end_line": 29,
+          "detector": "go@0.5",
+          "content_hash": "sha256:a05e11642bc10d1638656827dda17e4e3314def25acb6f525e7ba880a896aefa"
+        }
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "id": "sch:65t6gweoov",
+      "identity": [
+        "schema",
+        "articles/models.go",
+        "FavoriteModel"
+      ],
+      "origin": "observed",
+      "name": "FavoriteModel",
+      "fields": [
+        {
+          "name": "Favorite",
+          "type": "ArticleModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "FavoriteID",
+          "type": "uint",
+          "data_class": "internal"
+        },
+        {
+          "name": "FavoriteBy",
+          "type": "ArticleUserModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "FavoriteByID",
+          "type": "uint",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 32,
+          "end_line": 39,
+          "detector": "go@0.5",
+          "content_hash": "sha256:43489b0458b16daba9334e02d9c509289ae47ed053066bd5c0b54d9a69780c7f"
+        }
+      ]
+    },
+    {
+      "id": "sch:kpibmwc5zu",
+      "identity": [
+        "schema",
+        "articles/models.go",
+        "ArticleModel"
+      ],
+      "origin": "observed",
+      "name": "ArticleModel",
+      "fields": [
+        {
+          "name": "Slug",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "Title",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "Description",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "Body",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "Author",
+          "type": "ArticleUserModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "AuthorID",
+          "type": "uint",
+          "data_class": "internal"
+        },
+        {
+          "name": "Tags",
+          "type": "[]TagModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "Comments",
+          "type": "[]CommentModel",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 12,
+          "end_line": 23,
+          "detector": "go@0.5",
+          "content_hash": "sha256:42c742e5ab35c9282430ccb23e0fcc97777e992ee55491b76bde72d338b70616"
+        }
+      ]
+    },
+    {
+      "id": "sch:myffijzuzn",
+      "identity": [
+        "schema",
+        "users/models.go",
+        "FollowModel"
+      ],
+      "origin": "observed",
+      "name": "FollowModel",
+      "fields": [
+        {
+          "name": "Following",
+          "type": "UserModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "FollowingID",
+          "type": "uint",
+          "data_class": "internal"
+        },
+        {
+          "name": "FollowedBy",
+          "type": "UserModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "FollowedByID",
+          "type": "uint",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 36,
+          "end_line": 43,
+          "detector": "go@0.5",
+          "content_hash": "sha256:d8009ded7b7f466b5e420d795966ff9db59afb05e9ee0a87bb6d5930d3874f5f"
+        }
+      ]
+    },
+    {
+      "id": "sch:rfsv7eyehg",
+      "identity": [
+        "schema",
+        "articles/models.go",
+        "ArticleUserModel"
+      ],
+      "origin": "observed",
+      "name": "ArticleUserModel",
+      "fields": [
+        {
+          "name": "UserModel",
+          "type": "users.UserModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "UserModelID",
+          "type": "uint",
+          "data_class": "internal"
+        },
+        {
+          "name": "ArticleModels",
+          "type": "[]ArticleModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "FavoriteModels",
+          "type": "[]FavoriteModel",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 24,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:ca13b8abc032b6ca1543894f1d93126799d68bb632c918f83545e38a5387cf66"
+        }
+      ]
+    },
+    {
+      "id": "sch:vccz6ka5ih",
+      "identity": [
+        "schema",
+        "articles/models.go",
+        "CommentModel"
+      ],
+      "origin": "observed",
+      "name": "CommentModel",
+      "fields": [
+        {
+          "name": "Article",
+          "type": "ArticleModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "ArticleID",
+          "type": "uint",
+          "data_class": "internal"
+        },
+        {
+          "name": "Author",
+          "type": "ArticleUserModel",
+          "data_class": "internal"
+        },
+        {
+          "name": "AuthorID",
+          "type": "uint",
+          "data_class": "internal"
+        },
+        {
+          "name": "Body",
+          "type": "string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 46,
+          "end_line": 54,
+          "detector": "go@0.5",
+          "content_hash": "sha256:16eac4fed23af56b42c577ac3074cba7f5882ce3b53c78d9ce6942c91c83532f"
+        }
+      ]
+    },
+    {
+      "id": "sch:wm6ppk5yiq",
+      "identity": [
+        "schema",
+        "users/models.go",
+        "UserModel"
+      ],
+      "origin": "observed",
+      "name": "UserModel",
+      "fields": [
+        {
+          "name": "ID",
+          "type": "uint",
+          "data_class": "internal"
+        },
+        {
+          "name": "Username",
+          "type": "string",
+          "data_class": "pii"
+        },
+        {
+          "name": "Email",
+          "type": "string",
+          "data_class": "pii"
+        },
+        {
+          "name": "Bio",
+          "type": "string",
+          "data_class": "pii"
+        },
+        {
+          "name": "Image",
+          "type": "*string",
+          "data_class": "internal"
+        },
+        {
+          "name": "PasswordHash",
+          "type": "string",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 16,
+          "end_line": 24,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6b793d08a3eb9c50385aa066a879e7d877125f20f18b36ea63f8fa1db07b8345"
+        }
+      ]
+    },
+    {
+      "id": "sch:x5xmk2alew",
+      "identity": [
+        "schema",
+        "articles/models.go",
+        "TagModel"
+      ],
+      "origin": "observed",
+      "name": "TagModel",
+      "fields": [
+        {
+          "name": "Tag",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "ArticleModels",
+          "type": "[]ArticleModel",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "articles/models.go",
+          "start_line": 40,
+          "end_line": 45,
+          "detector": "go@0.5",
+          "content_hash": "sha256:e640edc36a667e7066c856cad30ca15f5ab3f684a287e2a9e98a4532e355ebbb"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset:jz4nahgsoa",
+      "identity": [
+        "asset",
+        "data",
+        "pii"
+      ],
+      "origin": "observed",
+      "name": "Personal data (PII)",
+      "kind": "data",
+      "data_classes": [
+        "pii"
+      ],
+      "held_by": [
+        "store:cck43qyjgx"
+      ],
+      "processed_by": [
+        "proc:3dfhhpmn7b",
+        "proc:hmg6lls77t",
+        "proc:k4l4axmopg"
+      ],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 16,
+          "end_line": 24,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6b793d08a3eb9c50385aa066a879e7d877125f20f18b36ea63f8fa1db07b8345"
+        }
+      ]
+    },
+    {
+      "id": "asset:lfkdrxj2a2",
+      "identity": [
+        "asset",
+        "data",
+        "credential"
+      ],
+      "origin": "observed",
+      "name": "User credentials",
+      "kind": "data",
+      "data_classes": [
+        "credential"
+      ],
+      "held_by": [
+        "store:cck43qyjgx"
+      ],
+      "processed_by": [
+        "proc:3dfhhpmn7b",
+        "proc:hmg6lls77t",
+        "proc:k4l4axmopg"
+      ],
+      "evidence": [
+        {
+          "path": "users/models.go",
+          "start_line": 16,
+          "end_line": 24,
+          "detector": "go@0.5",
+          "content_hash": "sha256:6b793d08a3eb9c50385aa066a879e7d877125f20f18b36ea63f8fa1db07b8345"
+        }
+      ]
+    }
+  ],
+  "threat_agents": [
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "19 entry points are reachable from outside, 7 of them without a detected authentication control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:59a503cc63ddc269362304e5b9d29c8bff817063f4cee07de491df6b3e5bb5eb"
+        }
+      ]
+    },
+    {
+      "id": "agent:nilpio4ltp",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:5hcgh6kyzs"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to repository: golang-gin-realworld",
+      "access": "insider",
+      "location": "bnd:5hcgh6kyzs",
+      "entry": [
+        "proc:25wupg7vzc",
+        "proc:2kk6rjmjyy",
+        "proc:3dfhhpmn7b",
+        "proc:5fibf2izty",
+        "proc:7erakdlmvd",
+        "proc:7uangyiib4",
+        "proc:adau6mcjkh",
+        "proc:asas7uqabc",
+        "proc:aypqrlhjxw",
+        "proc:bk4dy4rjts",
+        "proc:bm46nln6rq",
+        "proc:cpbe6hrtwt",
+        "proc:didw4s4eis",
+        "proc:g4bpx6hkiz",
+        "proc:hmg6lls77t",
+        "proc:ishmbv7w5w",
+        "proc:k4l4axmopg",
+        "proc:qkk3jietyv",
+        "proc:somsvcjk2r",
+        "proc:tf6wqdimc7",
+        "proc:xqfxxji2g3",
+        "proc:xuhzgdlylu",
+        "proc:zzkjfem2rk"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors",
+        "security_headers",
+        "audit_log"
+      ],
+      "goals": [
+        "read data stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:5ab8f198786f81a1a515d5eddba881b511d787b6226984d9882add31072bfffe"
+        }
+      ]
+    },
+    {
+      "id": "agent:ro6hlangl4",
+      "identity": [
+        "agent",
+        "authenticated",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "12 entry points require authentication; a holder of valid credentials is a distinct agent",
+      "name": "Authenticated HTTP caller",
+      "access": "authenticated",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [
+        "authn"
+      ],
+      "goals": [
+        "access other users' data",
+        "use functions beyond their role"
+      ],
+      "evidence": [
+        {
+          "path": "articles/routers.go",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "go@0.5",
+          "content_hash": "sha256:59a503cc63ddc269362304e5b9d29c8bff817063f4cee07de491df6b3e5bb5eb"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unresolved",
+      "path": "articles/models.go",
+      "line": 147,
+      "detail": "a sqlite access could not be traced to a table; it is shown as a separate store"
+    },
+    {
+      "kind": "no_boundary_info",
+      "detail": "no docker compose, Dockerfile, Kubernetes or Terraform descriptors were found; the repository is the only trust boundary"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "hello.go",
+      "detail": "Question: is TLS terminated in front of the HTTP listener of golang-gin-realworld? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "users/models.go",
+      "line": 86,
+      "detail": "Question: what is the authentication and encryption of the link to SQLite: UserModel?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "articles/models.go",
+      "line": 161,
+      "detail": "Question: what is the authentication and encryption of the link to SQLite: CommentModel?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "users/models.go",
+      "line": 105,
+      "detail": "Question: what is the authentication and encryption of the link to SQLite: FollowModel?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "articles/models.go",
+      "line": 361,
+      "detail": "Question: what is the authentication and encryption of the link to SQLite: TagModel?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "articles/models.go",
+      "line": 211,
+      "detail": "Question: what is the authentication and encryption of the link to SQLite: ArticleUserModel?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "users/models.go",
+      "line": 95,
+      "detail": "Question: what is the authentication and encryption of the link to SQLite (table unresolved)?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "articles/models.go",
+      "line": 132,
+      "detail": "Question: what is the authentication and encryption of the link to SQLite: FavoriteModel?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "articles/models.go",
+      "line": 154,
+      "detail": "Question: what is the authentication and encryption of the link to SQLite: ArticleModel?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "users/models.go",
+      "line": 16,
+      "detail": "Question: is SQLite: UserModel encrypted at rest? It holds credential, pii."
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/debug_mode_enabled",
+              "name": "DebugModeEnabled",
+              "shortDescription": {
+                "text": "Debug mode enabled on the application server"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/489.html",
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-489",
+                  "STRIDE:IE"
+                ],
+                "security-severity": "5.0"
+              }
+            },
+            {
+              "id": "c2d/unauthenticated_entry_point",
+              "name": "UnauthenticatedEntryPoint",
+              "shortDescription": {
+                "text": "Entry point without a detected authentication control (review)"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/306.html",
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-306",
+                  "STRIDE:SE"
+                ],
+                "security-severity": "1.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /create-checkout-session (CWE-306). Applies to: POST /create-checkout-session."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/node/server.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 60,
+                  "endLine": 86
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:4eppmwhymp"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:5rzlb7yz4i"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/debug_mode_enabled",
+          "ruleIndex": 0,
+          "level": "warning",
+          "message": {
+            "text": "debug=True on the application server (CWE-489). Applies to: python."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/python/server.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 119,
+                  "endLine": 119
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:4xdtp6rulf"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:zyjthuvdu6"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET / (CWE-306). Applies to: GET /."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/node/server.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 38,
+                  "endLine": 41
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:a6wfzg4ci3"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:bbk22lbk2b"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /checkout-session (CWE-306). Applies to: GET /checkout-session."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/node/server.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 54,
+                  "endLine": 58
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:chlggxiuvv"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:irrtw4xj3x"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on ANY /checkout-session (CWE-306). Applies to: ANY /checkout-session."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/go/server.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 44,
+                  "endLine": 44
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:deuiqntccg"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:s4haugkxfl"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /webhook (CWE-306). Applies to: POST /webhook."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/node/server.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 89,
+                  "endLine": 123
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:e6jbtd7gqr"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:wrsx7evara"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on ANY / (CWE-306). Applies to: ANY /."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/go/server.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 42,
+                  "endLine": 42
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:hvhzhlr3g2"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:qwm3k5h7ze"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /config (CWE-306). Applies to: GET /config."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/node/server.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 43,
+                  "endLine": 51
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:q2vaug4dwx"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:4oobveqi2u"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on ANY /create-checkout-session (CWE-306). Applies to: ANY /create-checkout-session."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/go/server.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 45,
+                  "endLine": 45
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:sdezol3nhw"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:2t2seq4rhy"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on ANY /config (CWE-306). Applies to: ANY /config."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/go/server.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 43,
+                  "endLine": 43
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:z3fs2iiwps"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:fp4upbmx3t"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on ANY /webhook (CWE-306). Applies to: ANY /webhook."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server/go/server.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 46,
+                  "endLine": 46
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:zinltdhs5l"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:7nwykl3h2f"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

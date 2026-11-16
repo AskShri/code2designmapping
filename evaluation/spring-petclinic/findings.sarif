@@ -1,0 +1,742 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/plaintext_credentials",
+              "name": "PlaintextCredentials",
+              "shortDescription": {
+                "text": "Hard-coded or committed credentials"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/798.html",
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-798",
+                  "STRIDE:IE"
+                ],
+                "security-severity": "8.0"
+              }
+            },
+            {
+              "id": "c2d/unauthenticated_entry_point",
+              "name": "UnauthenticatedEntryPoint",
+              "shortDescription": {
+                "text": "Entry point without a detected authentication control (review)"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/306.html",
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-306",
+                  "STRIDE:SE"
+                ],
+                "security-severity": "1.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /owners/{ownerId} (CWE-306). Applies to: GET /owners/{ownerId}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 178,
+                  "endLine": 179
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:5soyv5lyyc"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:a4ljx6jlu2"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /vets (CWE-306). Applies to: GET /vets."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 72,
+                  "endLine": 73
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:6bwthitmgf"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:7nnbiu2dom"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /oups (CWE-306). Applies to: GET /oups."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/system/CrashController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 31,
+                  "endLine": 32
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bhmhs4i4cx"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:qjddrrdu6q"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /owners/{ownerId}/pets/{petId}/edit (CWE-306). Applies to: POST /owners/{ownerId}/pets/{petId}/edit."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 144,
+                  "endLine": 145
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bwynlc2lwm"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:xuu6gwnxqa"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /owners/{ownerId}/pets/{petId}/edit (CWE-306). Applies to: GET /owners/{ownerId}/pets/{petId}/edit."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 139,
+                  "endLine": 140
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:c7ewdypinu"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:3apiaamxjh"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /owners/{ownerId}/pets/new (CWE-306). Applies to: GET /owners/{ownerId}/pets/new."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 100,
+                  "endLine": 101
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:dtmf2ci77t"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:nzixwt7m2i"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "POSTGRES_PASSWORD set in compose service 'postgres' (CWE-798). Applies to: spring-petclinic."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker-compose.yml",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 19,
+                  "endLine": 19
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ehszyymq63"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:jp5nmtusrt"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /owners/{ownerId}/pets/{petId}/visits/new (CWE-306). Applies to: GET /owners/{ownerId}/pets/{petId}/visits/new."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 90,
+                  "endLine": 91
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:hxuom67c4y"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:cxlegd7vr5"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /owners/new (CWE-306). Applies to: GET /owners/new."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 72,
+                  "endLine": 73
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:iug4p4s3al"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:odr7wxkgvg"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /owners/find (CWE-306). Applies to: GET /owners/find."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 89,
+                  "endLine": 90
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:iurm2hk2wh"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:dlvpmbw2yx"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /owners (CWE-306). Applies to: GET /owners."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 94,
+                  "endLine": 95
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:juyt4w6h3b"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:xl27ucp5tq"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /owners/{ownerId}/pets/{petId}/visits/new (CWE-306). Applies to: POST /owners/{ownerId}/pets/{petId}/visits/new."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 97,
+                  "endLine": 98
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:jzgiulanfv"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ililw2cmzh"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /vets.html (CWE-306). Applies to: GET /vets.html."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 45,
+                  "endLine": 46
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:kgjno3glzh"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:lyqhiqti3g"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /owners/new (CWE-306). Applies to: POST /owners/new."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 77,
+                  "endLine": 78
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:nxykzydgnj"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:2rabe5cdxl"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /owners/{ownerId}/edit (CWE-306). Applies to: POST /owners/{ownerId}/edit."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 153,
+                  "endLine": 154
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:oo4o2vw4kf"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:cfbtagmsm4"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET / (CWE-306). Applies to: GET /."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/system/WelcomeController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 25,
+                  "endLine": 26
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:pg4hrlrzt3"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:wda5gm5qms"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /owners/{ownerId}/edit (CWE-306). Applies to: GET /owners/{ownerId}/edit."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 148,
+                  "endLine": 149
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:szlx5y5pt6"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ywmzt6awdj"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "MYSQL_PASSWORD set in compose service 'mysql' (CWE-798). Applies to: spring-petclinic."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker-compose.yml",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 10,
+                  "endLine": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:wmrktarvdc"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:jp5nmtusrt"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "MYSQL_ALLOW_EMPTY_PASSWORD set in compose service 'mysql' (CWE-798). Applies to: spring-petclinic."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "docker-compose.yml",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 8,
+                  "endLine": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:xzelkxr6wy"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:jp5nmtusrt"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /owners/{ownerId}/pets/new (CWE-306). Applies to: POST /owners/{ownerId}/pets/new."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 107,
+                  "endLine": 108
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ykj26cruij"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:msfsvwu5kp"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

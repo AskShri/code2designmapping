@@ -1,0 +1,12 @@
+%% Control flow: GET /api/profiles/{username}
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_somsvcjk2r as GET /api/profiles/{username} handler
+  participant proc_3dfhhpmn7b as models (3dfh)
+  participant store_cck43qyjgx as SQLite - UserModel
+  ext_sga4qktkap->>proc_somsvcjk2r: GET /api/profiles/{username}
+  proc_somsvcjk2r->>proc_3dfhhpmn7b: call
+  proc_3dfhhpmn7b->>store_cck43qyjgx: read
+  store_cck43qyjgx-->>proc_3dfhhpmn7b: sql - SQLite - UserModel record (credential,pii)
+  proc_somsvcjk2r-->>ext_sga4qktkap: response

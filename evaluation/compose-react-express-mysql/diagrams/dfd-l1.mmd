@@ -1,13 +1,18 @@
-%% L1: compose-react-express-mysql
+%% L1 - compose-react-express-mysql
 flowchart LR
   subgraph bnd_j3ktzp2k6o["container: backend"]
-    proc_yss4bddki6(["backend (+2)"])
+    proc_nmmdbtjh6y(["backend (+2)"])
+  end
+  subgraph bnd_li56z6okmf["container: db"]
+    store_hxhbxcitka[("MySQL")]
   end
   ext_miziwfdicw["Unresolved HTTP target"]
   ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http"| proc_yss4bddki6
-  proc_yss4bddki6 -->|"unknown"| ext_miziwfdicw
+  ext_sga4qktkap -->|"http"| proc_nmmdbtjh6y
+  proc_nmmdbtjh6y -->|"unknown"| ext_miziwfdicw
+  proc_nmmdbtjh6y -.->|"sql"| store_hxhbxcitka
   style bnd_j3ktzp2k6o stroke-dasharray: 8 4,fill:none
+  style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])

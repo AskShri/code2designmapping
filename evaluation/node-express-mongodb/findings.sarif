@@ -1,0 +1,315 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/unauthenticated_entry_point",
+              "name": "UnauthenticatedEntryPoint",
+              "shortDescription": {
+                "text": "Entry point without a detected authentication control (review)"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/306.html",
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-306",
+                  "STRIDE:SE"
+                ],
+                "security-severity": "1.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on DELETE /api/tutorials/{id} (CWE-306). Applies to: DELETE /api/tutorials/{id}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app/routes/turorial.routes.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 22,
+                  "endLine": 22
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:44gfzy4ji5"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:a4hpo7ddb5"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on PUT /api/tutorials/{id} (CWE-306). Applies to: PUT /api/tutorials/{id}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app/routes/turorial.routes.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 19,
+                  "endLine": 19
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bccslsfclt"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:x4qyectef6"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/tutorials (CWE-306). Applies to: GET /api/tutorials."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app/routes/turorial.routes.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 10,
+                  "endLine": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bt6zf54bza"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:27vyldmhnz"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on DELETE /api/tutorials (CWE-306). Applies to: DELETE /api/tutorials."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app/routes/turorial.routes.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 25,
+                  "endLine": 25
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:eqfvvz3adi"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ia3tbrm6wn"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET / (CWE-306). Applies to: GET /."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "server.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 33,
+                  "endLine": 35
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ev7k5cr4gv"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:xikdto6k2u"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/tutorials/published (CWE-306). Applies to: GET /api/tutorials/published."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app/routes/turorial.routes.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 13,
+                  "endLine": 13
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:f2dxrw23zz"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:mde7efirmd"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/tutorials/{id} (CWE-306). Applies to: GET /api/tutorials/{id}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app/routes/turorial.routes.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 16,
+                  "endLine": 16
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:mlkvtfnc2i"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:fl3av674hk"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 0,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/tutorials (CWE-306). Applies to: POST /api/tutorials."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app/routes/turorial.routes.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 7,
+                  "endLine": 7
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:s2tejfxmqr"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:vsbu34ogyq"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

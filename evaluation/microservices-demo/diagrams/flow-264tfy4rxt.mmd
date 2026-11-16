@@ -1,0 +1,7 @@
+%% Control flow: ANY /_healthz
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_r6iudcorbg as ANY /_healthz handler
+  ext_sga4qktkap->>proc_r6iudcorbg: ANY /_healthz
+  proc_r6iudcorbg-->>ext_sga4qktkap: response

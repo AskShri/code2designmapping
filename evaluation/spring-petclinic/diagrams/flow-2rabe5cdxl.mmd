@@ -1,0 +1,11 @@
+%% Control flow: POST /owners/new
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_jgsqtffx7l as @Valid
+  participant proc_lapkmj5inx as POST /owners/new handler
+  participant store_mezdmiqbdo as SQL database - owners
+  ext_sga4qktkap->>ctl_jgsqtffx7l: POST /owners/new (input_validation)
+  ctl_jgsqtffx7l->>proc_lapkmj5inx: dispatch
+  proc_lapkmj5inx->>store_mezdmiqbdo: sql - from owners (pii)
+  proc_lapkmj5inx-->>ext_sga4qktkap: response

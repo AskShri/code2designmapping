@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://code2design.dev/schema/dfd-ir.schema.json",
   "title": "code2design intermediate representation (DFD IR)",
-  "description": "Canonical, renderer-independent model of a system's data flow design. Every element must carry evidence. Elements with origin 'inferred' must carry confidence and rationale. Assets, threat agents, controls and trust boundaries are first-class so the model can drive a control-path traceability matrix.",
+  "description": "Canonical, renderer-independent model of a system's data flow design (IR 0.2). Every element carries evidence (file, lines, detector, content hash). Elements with origin 'inferred' carry confidence and rationale; 'declared' elements come from human overrides. Assets, threat agents, controls, weaknesses and trust boundaries are first-class so the model can drive STRIDE-per-element analysis and a control-path traceability matrix.",
   "type": "object",
   "required": [
     "version",
@@ -23,7 +23,7 @@
   "additionalProperties": false,
   "properties": {
     "version": {
-      "const": "0.1"
+      "const": "0.2"
     },
     "provenance": {
       "$ref": "#/$defs/provenance"
@@ -145,6 +145,7 @@
         "mysql",
         "sqlite",
         "mssql",
+        "sql",
         "mongodb",
         "dynamodb",
         "redis",
@@ -157,7 +158,8 @@
         "gcs",
         "filesystem",
         "unknown"
-      ]
+      ],
+      "description": "'sql' means a relational database whose engine is chosen by configuration; see candidate_engines."
     },
     "data_class": {
       "type": "string",
@@ -184,7 +186,8 @@
         "signing",
         "audit_log",
         "csrf",
-        "cors"
+        "cors",
+        "security_headers"
       ]
     },
     "boundary_kind": {
@@ -402,10 +405,6 @@
               "type": "string",
               "description": "Derived from the code identifier"
             },
-            "display_name": {
-              "type": "string",
-              "description": "Optional friendlier label; inferred or declared"
-            },
             "level": {
               "type": "integer",
               "minimum": 0,
@@ -420,6 +419,10 @@
             },
             "description": {
               "type": "string"
+            },
+            "code_name": {
+              "type": "string",
+              "description": "The code-derived name, kept when an override renames the element"
             }
           }
         }
@@ -456,6 +459,10 @@
             },
             "description": {
               "type": "string"
+            },
+            "code_name": {
+              "type": "string",
+              "description": "The code-derived name, kept when an override renames the element"
             }
           }
         }
@@ -470,7 +477,9 @@
           "type": "object",
           "required": [
             "name",
-            "technology"
+            "technology",
+            "data_classes",
+            "encryption_at_rest"
           ],
           "properties": {
             "name": {
@@ -494,6 +503,17 @@
             },
             "encryption_at_rest": {
               "$ref": "#/$defs/encryption_at_rest"
+            },
+            "code_name": {
+              "type": "string",
+              "description": "The code-derived name, kept when an override renames the element"
+            },
+            "candidate_engines": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/technology"
+              },
+              "description": "For technology 'sql': the engines the deployment or configuration can select"
             }
           }
         }
@@ -565,7 +585,9 @@
             "protocol",
             "direction",
             "authentication",
-            "encryption"
+            "encryption",
+            "crosses_boundary",
+            "controls"
           ],
           "properties": {
             "source": {
@@ -625,7 +647,13 @@
           "type": "object",
           "required": [
             "process",
-            "protocol"
+            "protocol",
+            "method",
+            "path",
+            "exposure",
+            "controls",
+            "call_chain",
+            "reaches"
           ],
           "properties": {
             "process": {
@@ -638,7 +666,8 @@
               "type": "string"
             },
             "path": {
-              "type": "string"
+              "type": "string",
+              "description": "Full normalized path: mount prefixes and global prefix applied, parameters as {name}, no trailing slash"
             },
             "topic": {
               "type": "string"
@@ -650,7 +679,8 @@
               "type": "array",
               "items": {
                 "$ref": "#/$defs/id"
-              }
+              },
+              "description": "Controls guarding this entry point, in registration (execution) order"
             },
             "call_chain": {
               "type": "array",
@@ -669,6 +699,19 @@
               "items": {
                 "$ref": "#/$defs/id"
               }
+            },
+            "code_name": {
+              "type": "string",
+              "description": "The code-derived name, kept when an override renames the element"
+            },
+            "exposure": {
+              "type": "string",
+              "enum": [
+                "public",
+                "internal",
+                "unknown"
+              ],
+              "description": "public: published outside the deployment (compose port, LoadBalancer/NodePort/Ingress); internal: reachable only inside it; unknown: no deployment descriptor"
             }
           }
         }
@@ -684,6 +727,7 @@
           "required": [
             "kind",
             "name",
+            "scope",
             "applies_to"
           ],
           "properties": {
@@ -702,6 +746,16 @@
             "conditional": {
               "type": "boolean",
               "description": "Registered inside a condition (e.g. only in production); counted as applying, flagged for review"
+            },
+            "scope": {
+              "type": "string",
+              "enum": [
+                "route",
+                "router",
+                "service",
+                "handler"
+              ],
+              "description": "Where the control is registered"
             }
           }
         }
@@ -782,12 +836,14 @@
       "type": "string",
       "enum": [
         "plaintext_credentials",
-        "unencrypted_transport",
         "tls_verification_disabled",
-        "unauthenticated_entry_point",
-        "secret_in_env_at_import",
+        "unencrypted_transport",
         "permissive_cors",
-        "csrf_disabled"
+        "csrf_disabled",
+        "public_data_store",
+        "unencrypted_data_store",
+        "debug_mode_enabled",
+        "unauthenticated_entry_point"
       ]
     },
     "authentication": {
@@ -829,6 +885,9 @@
           "required": [
             "kind",
             "name",
+            "severity",
+            "cwe",
+            "stride",
             "applies_to"
           ],
           "properties": {
@@ -842,6 +901,20 @@
               "type": "array",
               "items": {
                 "$ref": "#/$defs/id"
+              }
+            },
+            "severity": {
+              "$ref": "#/$defs/severity"
+            },
+            "cwe": {
+              "type": "string",
+              "pattern": "^CWE-[0-9]+$"
+            },
+            "stride": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/stride"
               }
             }
           }
@@ -962,6 +1035,27 @@
           }
         }
       ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "info"
+      ]
+    },
+    "stride": {
+      "type": "string",
+      "enum": [
+        "S",
+        "T",
+        "R",
+        "I",
+        "D",
+        "E"
+      ],
+      "description": "Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege"
     }
   }
 }

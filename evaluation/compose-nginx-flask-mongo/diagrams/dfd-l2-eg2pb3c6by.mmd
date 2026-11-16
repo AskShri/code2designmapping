@@ -1,0 +1,20 @@
+%% L2 - backend
+flowchart LR
+  subgraph bnd_j3ktzp2k6o["container: backend"]
+    proc_7zzk7vgnym(["flask"])
+    proc_tpyw7yqypy(["GET / handler"])
+  end
+  subgraph bnd_x2cs4alpd7["container: mongo"]
+    store_3ufptbo5k3[("MongoDB")]
+  end
+  ext_3nnzcvcul3["Internal HTTP client"]
+  ext_3nnzcvcul3 -->|"http"| proc_tpyw7yqypy
+  proc_7zzk7vgnym -.->|"mongo"| store_3ufptbo5k3
+  style bnd_j3ktzp2k6o stroke-dasharray: 8 4,fill:none
+  style bnd_x2cs4alpd7 stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

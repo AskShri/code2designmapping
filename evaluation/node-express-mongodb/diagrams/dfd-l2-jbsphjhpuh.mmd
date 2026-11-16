@@ -1,0 +1,33 @@
+%% L2 - routes
+flowchart LR
+  subgraph bnd_fg4rasskqa["repository: node-express-mongodb"]
+    proc_4xme3n37oe(["GET /api/tutorials/published handler"])
+    proc_clywgtyerd(["GET /api/tutorials handler"])
+    proc_dgbuvoysko(["DELETE /api/tutorials/{id} handler"])
+    proc_gh6kceac37(["DELETE /api/tutorials handler"])
+    proc_rj5zljzevu(["PUT /api/tutorials/{id} handler"])
+    proc_sgtu5mrli3(["POST /api/tutorials handler"])
+    proc_un4ex5movl(["GET /api/tutorials/{id} handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_uujc2npyud[("MongoDB: tutorial")]
+  ext_sga4qktkap -->|"http"| proc_4xme3n37oe
+  ext_sga4qktkap -->|"http: request fields (findAll)"| proc_clywgtyerd
+  ext_sga4qktkap -->|"http"| proc_dgbuvoysko
+  ext_sga4qktkap -->|"http"| proc_gh6kceac37
+  ext_sga4qktkap -->|"http"| proc_rj5zljzevu
+  ext_sga4qktkap -->|"http: request fields (create)"| proc_sgtu5mrli3
+  ext_sga4qktkap -->|"http"| proc_un4ex5movl
+  proc_gh6kceac37 -->|"mongo"| store_uujc2npyud
+  proc_rj5zljzevu -->|"mongo"| store_uujc2npyud
+  proc_sgtu5mrli3 -->|"mongo"| store_uujc2npyud
+  store_uujc2npyud -->|"mongo"| proc_4xme3n37oe
+  store_uujc2npyud -->|"mongo"| proc_clywgtyerd
+  store_uujc2npyud -->|"mongo"| proc_un4ex5movl
+  style bnd_fg4rasskqa stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

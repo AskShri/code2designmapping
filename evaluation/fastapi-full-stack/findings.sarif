@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/plaintext_credentials",
+              "name": "PlaintextCredentials",
+              "shortDescription": {
+                "text": "Hard-coded or committed credentials"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/798.html",
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-798",
+                  "STRIDE:IE"
+                ],
+                "security-severity": "8.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "POSTGRES_PASSWORD committed in .env (CWE-798). Applies to: fastapi-full-stack."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".env",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 17,
+                  "endLine": 17
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:3bqz5b654s"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:phcojwwzyn"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "SECRET_KEY committed in .env (CWE-798). Applies to: fastapi-full-stack."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".env",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 6,
+                  "endLine": 6
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:l7khc4cbyw"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:phcojwwzyn"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "hard-coded token_type (CWE-798). Applies to: backend."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/app/models.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 116,
+                  "endLine": 116
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:vorlzimtdt"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:nmmdbtjh6y"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "FIRST_SUPERUSER_PASSWORD committed in .env (CWE-798). Applies to: fastapi-full-stack."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": ".env",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 8,
+                  "endLine": 8
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:w3hgrwjhhp"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:phcojwwzyn"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

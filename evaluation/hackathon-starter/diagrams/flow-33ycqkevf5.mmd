@@ -1,0 +1,15 @@
+%% Control flow: POST /ai/ai-agent/reset
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_iwvfpmtyc6 as morganLogger
+  participant ctl_yjrquqjv4q as limiter
+  participant ctl_u2ny7jn3of as lusca.xframe
+  participant ctl_5lleffjdvl as lusca.xssProtection
+  participant proc_eztndukeaj as POST /ai/ai-agent/reset handler
+  ext_sga4qktkap->>ctl_iwvfpmtyc6: POST /ai/ai-agent/reset (audit_log)
+  ctl_iwvfpmtyc6->>ctl_yjrquqjv4q: POST /ai/ai-agent/reset (rate_limit)
+  ctl_yjrquqjv4q->>ctl_u2ny7jn3of: POST /ai/ai-agent/reset (security_headers)
+  ctl_u2ny7jn3of->>ctl_5lleffjdvl: POST /ai/ai-agent/reset (security_headers)
+  ctl_5lleffjdvl->>proc_eztndukeaj: dispatch
+  proc_eztndukeaj-->>ext_sga4qktkap: response

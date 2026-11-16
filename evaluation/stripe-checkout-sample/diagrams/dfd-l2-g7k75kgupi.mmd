@@ -1,0 +1,22 @@
+%% L2 - go
+flowchart LR
+  subgraph bnd_fwz6ntc2oh["repository: stripe-checkout-sample"]
+    proc_bhwsteoax7(["ANY / handler"])
+    proc_bzmqthfhjz(["ANY /create-checkout-session handler"])
+    proc_g7hngw7crr(["ANY /config handler"])
+    proc_vnpbfsymp7(["ANY /webhook handler"])
+    proc_yjaegvvtka(["ANY /checkout-session handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_bhwsteoax7
+  ext_sga4qktkap -->|"http"| proc_bzmqthfhjz
+  ext_sga4qktkap -->|"http"| proc_g7hngw7crr
+  ext_sga4qktkap -->|"http"| proc_vnpbfsymp7
+  ext_sga4qktkap -->|"http"| proc_yjaegvvtka
+  style bnd_fwz6ntc2oh stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

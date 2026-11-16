@@ -1,0 +1,20 @@
+%% L2 - flask-app
+flowchart LR
+  subgraph bnd_3i6o6p3j5w["container: flask-app"]
+    proc_5zmdsr4rb5(["GET /flask-health-check handler"])
+    proc_6erds2pkzv(["GET /cache-me handler"])
+    proc_ostlsfronr(["GET /info handler"])
+    proc_skicnyqa64(["GET / handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_5zmdsr4rb5
+  ext_sga4qktkap -->|"http"| proc_6erds2pkzv
+  ext_sga4qktkap -->|"http"| proc_ostlsfronr
+  ext_sga4qktkap -->|"http"| proc_skicnyqa64
+  style bnd_3i6o6p3j5w stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

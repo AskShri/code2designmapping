@@ -1,16 +1,13 @@
-%% L1: compose-flask-redis
+%% L1 - compose-flask-redis
 flowchart LR
-  subgraph bnd_raia233rwx["container: redis"]
-    store_t6ktvjrxqq[("Redis: hits:*")]
-  end
   subgraph bnd_u5rsisolmh["container: web"]
-    proc_wfbgbnqk34(["web (+2)"])
+    proc_i2fxwodvr3(["web (+1)"])
   end
   ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http"| proc_wfbgbnqk34
-  proc_wfbgbnqk34 -->|"redis"| store_t6ktvjrxqq
-  store_t6ktvjrxqq -->|"redis"| proc_wfbgbnqk34
-  style bnd_raia233rwx stroke-dasharray: 8 4,fill:none
+  store_uvgsvq5qlm[("Redis")]
+  ext_sga4qktkap -->|"http"| proc_i2fxwodvr3
+  proc_i2fxwodvr3 -->|"redis"| store_uvgsvq5qlm
+  store_uvgsvq5qlm -->|"redis"| proc_i2fxwodvr3
   style bnd_u5rsisolmh stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

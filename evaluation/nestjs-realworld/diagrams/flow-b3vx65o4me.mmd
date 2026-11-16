@@ -1,0 +1,18 @@
+%% Control flow: GET /api/user
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_2zqgp4f2nq as AuthMiddleware
+  participant proc_7ctbhcloth as GET /api/user handler
+  participant proc_bp6x3dio6k as user.service
+  participant store_mftq653qte as MySQL - user
+  ext_sga4qktkap->>ctl_2zqgp4f2nq: GET /api/user (authn)
+  opt authn fails
+    ctl_2zqgp4f2nq-->>ext_sga4qktkap: rejected
+  end
+  ctl_2zqgp4f2nq->>proc_7ctbhcloth: dispatch
+  proc_7ctbhcloth->>proc_bp6x3dio6k: call
+  proc_bp6x3dio6k->>store_mftq653qte: read
+  store_mftq653qte-->>proc_bp6x3dio6k: sql - MySQL - user record (credential,pii)
+  proc_bp6x3dio6k->>store_mftq653qte: sql - MySQL - user record (credential,pii)
+  proc_7ctbhcloth-->>ext_sga4qktkap: response

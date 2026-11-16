@@ -1,0 +1,15 @@
+%% Control flow: POST /owners/{ownerId}/edit
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_jgsqtffx7l as @Valid
+  participant proc_ou5m2usn5a as POST /owners/{ownerId}/edit handler
+  participant proc_otci6abcxf as OwnerController
+  participant store_mezdmiqbdo as SQL database - owners
+  ext_sga4qktkap->>ctl_jgsqtffx7l: POST /owners/{ownerId}/edit (input_validation)
+  ctl_jgsqtffx7l->>proc_ou5m2usn5a: dispatch
+  proc_ou5m2usn5a->>proc_otci6abcxf: call
+  proc_ou5m2usn5a->>store_mezdmiqbdo: sql - from owners (pii)
+  proc_otci6abcxf->>store_mezdmiqbdo: read
+  store_mezdmiqbdo-->>proc_otci6abcxf: sql - SQL database - owners record (pii)
+  proc_ou5m2usn5a-->>ext_sga4qktkap: response

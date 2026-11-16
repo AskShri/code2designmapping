@@ -1,0 +1,4521 @@
+{
+  "version": "0.2",
+  "provenance": {
+    "tool_version": "0.5.0",
+    "commit": "c1c2cc4e448b279ff083272df1ac50d20c3304fa",
+    "generated_from": "nestjs-realworld",
+    "detectors": [
+      "config@0.5",
+      "js@0.5",
+      "nest@0.5",
+      "synth@0.5.0"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      "package.json": "sha256:673b7b0e871621f465d76cfdeafa00df6c233f78e35ec636181b71424e1d63d2",
+      "src/app.controller.ts": "sha256:e39a398f16ca3ab93cbaf8f8e4012913436424ab1d77d3d662598745f5278fea",
+      "src/app.module.ts": "sha256:e3652728868fdf8bda3607c2590afd86670d3bbc85853fbe3bca3a1cef4f7cbd",
+      "src/article/article.controller.ts": "sha256:934332b068082f30a02fe3e48f7b40d59be998b16468c6c5e5293a0c83f48dfb",
+      "src/article/article.entity.ts": "sha256:99fde930808d890208608a0d0ac9784086e5c5dbc0baa191af82009dffe1ce58",
+      "src/article/article.module.ts": "sha256:abec4cdb1fa1a737ff4e377b6ed9c27b15333d530a6899ea1cbd51ad18a27ee4",
+      "src/article/article.service.ts": "sha256:b38077ef8e14f96ccbeb8e0880cb71a664d19017fa99c86c06b39d20069b0327",
+      "src/article/comment.entity.ts": "sha256:21aa080b232e902c1d937000261472d623248dae16d4d3422e1529419ce2a202",
+      "src/main.ts": "sha256:442f0ca9ef6fc369f1aa984434e1a3ade1a9b6a566f77861ac747354b88812a8",
+      "src/profile/follows.entity.ts": "sha256:2cd5add044471dd81f4665ed47d915af03dc172da9ab2f482985630994cc0ad3",
+      "src/profile/profile.controller.ts": "sha256:d38fcc76335eca1c119bc585f9130e96ffb61630a10be59a7fae5291d7e35d1f",
+      "src/profile/profile.module.ts": "sha256:21b2abc56b4ef91f52af307e64abead9376de91f7a84f25e4652d88d6dc24aab",
+      "src/profile/profile.service.ts": "sha256:74765f590496482e5e01e03bb260771222fb59ed990d1d2ec99ad3f6b8c233a6",
+      "src/tag/tag.controller.ts": "sha256:ac97fa97251977a83d965fc08a76ed0d7270e8a28d0cc69044c203ce165f5f4e",
+      "src/tag/tag.entity.ts": "sha256:cf41770adb721e3605b8d4b20169118f0f7de381b3a347244e85808129c4f63e",
+      "src/tag/tag.service.ts": "sha256:011722a250d223ed30f09798fae2378fbb59e2977797162fa6021522f752271c",
+      "src/user/user.controller.ts": "sha256:190162d85551e7eed3d6346de61891c818fa9d2f1438d59db0a6caa2d1c183c8",
+      "src/user/user.entity.ts": "sha256:adf707bf930414407c5df9936883448fdcfb9b44b6d19a375eb528b568725fd0",
+      "src/user/user.module.ts": "sha256:f0739420f41b4b1b80ad4ee81cc2a8aed4f678c7ad403445df1596a698983cc3",
+      "src/user/user.service.ts": "sha256:d580c87322dabcebf59dce343c0f9202f824e637e78853c9cd4092bdbbcb1b33"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:274uz234ct",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "POST /api/users"
+      ],
+      "origin": "observed",
+      "name": "POST /api/users handler",
+      "level": 2,
+      "module": "src/user/user.controller.ts",
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 32,
+          "end_line": 33,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3c8dd2b7e20272b89e8b7a526aad0107b6baeabd1d206133efcd1587f67dfb07"
+        }
+      ],
+      "parent": "proc:fsrlffxd4k"
+    },
+    {
+      "id": "proc:3vqwiojos5",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "GET /api/profiles/{username}"
+      ],
+      "origin": "observed",
+      "name": "GET /api/profiles/{username} handler",
+      "level": 2,
+      "module": "src/profile/profile.controller.ts",
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 18,
+          "end_line": 19,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d79eb49eeb76ead20cb4b25e2a86c03a89516b595a5355ac175280cf713c540c"
+        }
+      ],
+      "parent": "proc:4awyt5l2tm"
+    },
+    {
+      "id": "proc:4awyt5l2tm",
+      "identity": [
+        "process",
+        "L1",
+        "src/profile",
+        "profile"
+      ],
+      "origin": "observed",
+      "name": "profile",
+      "level": 1,
+      "module": "src/profile",
+      "evidence": [
+        {
+          "path": "src/profile/follows.entity.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8830e0535f9426b233367dab041f3e711d4001c1d8f0a2b5c64a3074d94dd61c"
+        }
+      ],
+      "parent": "proc:kgmwe7scui"
+    },
+    {
+      "id": "proc:4dk53nntn6",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "POST /api/articles"
+      ],
+      "origin": "observed",
+      "name": "POST /api/articles handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 51,
+          "end_line": 52,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:bcbc8126ded0216018d2c58a1fb427f2ef5a531d0393c0014d6d658238c6df22"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:4oj6hd33bm",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "PUT /api/articles/{slug}"
+      ],
+      "origin": "observed",
+      "name": "PUT /api/articles/{slug} handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 59,
+          "end_line": 60,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:286d4f478d81ba6012386dc04d1ae78a98f765edc64623bfba751cff5111ac74"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:4p3kc67ecf",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "POST /api/profiles/{username}/follow"
+      ],
+      "origin": "observed",
+      "name": "POST /api/profiles/{username}/follow handler",
+      "level": 2,
+      "module": "src/profile/profile.controller.ts",
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0b4dd97e7e5cf063e19d500378aaddaff17d8e60d822810bb555630c0bb99720"
+        }
+      ],
+      "parent": "proc:4awyt5l2tm"
+    },
+    {
+      "id": "proc:5rxebzp7ng",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "GET /api/articles/{slug}/comments"
+      ],
+      "origin": "observed",
+      "name": "GET /api/articles/{slug}/comments handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 43,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9bbcf998a358330de25d520becb13b3f265c9166c5313c662ae82e39df6dedee"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:7ctbhcloth",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "GET /api/user"
+      ],
+      "origin": "observed",
+      "name": "GET /api/user handler",
+      "level": 2,
+      "module": "src/user/user.controller.ts",
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 21,
+          "end_line": 22,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:a380798a50ff5564654169f2ba9b0860d989b90a52fb1e7496837f5b47968d85"
+        }
+      ],
+      "parent": "proc:fsrlffxd4k"
+    },
+    {
+      "id": "proc:7q46tblfmx",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "DELETE /api/articles/{slug}/comments/{id}"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/articles/{slug}/comments/{id} handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 84,
+          "end_line": 85,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9ee1d6552fe08f39f57053760f01147a763f6b5848ad29965b52435af6555a81"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:7vcvcbilz6",
+      "identity": [
+        "process",
+        "module",
+        "src/article/article.service.ts"
+      ],
+      "origin": "observed",
+      "name": "article.service",
+      "level": 2,
+      "module": "src/article/article.service.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:3d027b01774e7dc5a09479e60f7d35443bf0fe142748c3e2083ffdd8b7ca7056"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:aa22qid4vo",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "GET /api"
+      ],
+      "origin": "observed",
+      "name": "GET /api handler",
+      "level": 2,
+      "module": "src/app.controller.ts",
+      "evidence": [
+        {
+          "path": "src/app.controller.ts",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:8342eecb98318e2c46b7e635573d762eb589fd8124f1ef126f66516f575f4b97"
+        }
+      ],
+      "parent": "proc:jbkkhzvrq4"
+    },
+    {
+      "id": "proc:bp6x3dio6k",
+      "identity": [
+        "process",
+        "module",
+        "src/user/user.service.ts"
+      ],
+      "origin": "observed",
+      "name": "user.service",
+      "level": 2,
+      "module": "src/user/user.service.ts",
+      "evidence": [
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:3d027b01774e7dc5a09479e60f7d35443bf0fe142748c3e2083ffdd8b7ca7056"
+        }
+      ],
+      "parent": "proc:fsrlffxd4k"
+    },
+    {
+      "id": "proc:cadelsjmnj",
+      "identity": [
+        "process",
+        "L1",
+        "src/tag",
+        "tag"
+      ],
+      "origin": "observed",
+      "name": "tag",
+      "level": 1,
+      "module": "src/tag",
+      "evidence": [
+        {
+          "path": "src/tag/tag.controller.spec.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4e2f71107ded0b6bd525678adee13621c414e2e4afcce282b91d1944c6da68bd"
+        }
+      ],
+      "parent": "proc:kgmwe7scui"
+    },
+    {
+      "id": "proc:cxfl3t3ltn",
+      "identity": [
+        "process",
+        "L1",
+        "src/article",
+        "article"
+      ],
+      "origin": "observed",
+      "name": "article",
+      "level": 1,
+      "module": "src/article",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8d2727e9c61c6d5af5573557c752aac9df25d7f94b9252225a86b1210eb9dd70"
+        }
+      ],
+      "parent": "proc:kgmwe7scui"
+    },
+    {
+      "id": "proc:dnjbg7ptf6",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "GET /api/articles/{slug}"
+      ],
+      "origin": "observed",
+      "name": "GET /api/articles/{slug} handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 38,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d4045219456a595cb014e6bc63fc02fa3109b148a31550f985d45e813046365b"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:f75pjzqzva",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "GET /api/tags"
+      ],
+      "origin": "observed",
+      "name": "GET /api/tags handler",
+      "level": 2,
+      "module": "src/tag/tag.controller.ts",
+      "evidence": [
+        {
+          "path": "src/tag/tag.controller.ts",
+          "start_line": 17,
+          "end_line": 18,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:90ad15466d96d6d1e472ca5114ff5c5f458c20e78a891e2195a25ac7bebd330b"
+        }
+      ],
+      "parent": "proc:cadelsjmnj"
+    },
+    {
+      "id": "proc:fsrlffxd4k",
+      "identity": [
+        "process",
+        "L1",
+        "src/user",
+        "user"
+      ],
+      "origin": "observed",
+      "name": "user",
+      "level": 1,
+      "module": "src/user",
+      "evidence": [
+        {
+          "path": "src/user/auth.middleware.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f0a1f4b8920d1339b63072e68ff9af119e02e513f8ba5430d83b5e3ca6d2bcc8"
+        }
+      ],
+      "parent": "proc:kgmwe7scui"
+    },
+    {
+      "id": "proc:ggwixwjbb4",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "DELETE /api/articles/{slug}"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/articles/{slug} handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 68,
+          "end_line": 69,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:988ad667b0d73c1d5a7e0d0f9a82c3c9a8f2eb0b124097618f912c7837f6b75f"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:grqjpzytqv",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "DELETE /api/articles/{slug}/favorite"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/articles/{slug}/favorite handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 101,
+          "end_line": 102,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:1c9196a915424cefacc0efb3723a1b14688ecebfbb3cc1f5803a497c323cec59"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:hdeh5gymne",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "GET /api/articles/feed"
+      ],
+      "origin": "observed",
+      "name": "GET /api/articles/feed handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 33,
+          "end_line": 34,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:fe79fce75a6c0836c9979f7619f6e5ee5f180c46b573f4d47b2e3fc6b5b89ac5"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:hoffehsozm",
+      "identity": [
+        "process",
+        "L1",
+        "src/shared",
+        "shared"
+      ],
+      "origin": "observed",
+      "name": "shared",
+      "level": 1,
+      "module": "src/shared",
+      "evidence": [
+        {
+          "path": "src/shared/base.controller.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:ff5cb578df47057adbf11d35ee9b2a0c71c4357847f9d5d30429d5a8f6b76449"
+        }
+      ],
+      "parent": "proc:kgmwe7scui"
+    },
+    {
+      "id": "proc:jbkkhzvrq4",
+      "identity": [
+        "process",
+        "L1",
+        ".",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "name": "nestjs-realworld",
+      "level": 1,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "index.js",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cd160cbe3322dacc184bca707e2a67730a1a32f48708c7773d1bb88769ed015a"
+        }
+      ],
+      "parent": "proc:kgmwe7scui"
+    },
+    {
+      "id": "proc:jjh2ysb46c",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "GET /api/articles"
+      ],
+      "origin": "observed",
+      "name": "GET /api/articles handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 24,
+          "end_line": 25,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:db68152ec9c2b4844415e6a703bf758ff69cc44f8b4be633d27c41788a292bb1"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:kgmwe7scui",
+      "identity": [
+        "process",
+        "L0",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "name": "nestjs-realworld",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "package.json",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.5",
+          "content_hash": "sha256:8c39908ef2612bcf8e6eca543ed10bfb51db3a26e4cfab6e880d5fceefb046f4"
+        }
+      ]
+    },
+    {
+      "id": "proc:nbpqhh64jt",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "POST /api/articles/{slug}/favorite"
+      ],
+      "origin": "observed",
+      "name": "POST /api/articles/{slug}/favorite handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 93,
+          "end_line": 94,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:17e3a311be7372b92ec4eff343d42a45311e63b4cb908a2fa688325210afe7cc"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:nntkwcxf3z",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "DELETE /api/users/{slug}"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/users/{slug} handler",
+      "level": 2,
+      "module": "src/user/user.controller.ts",
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 37,
+          "end_line": 38,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9aecb21e0b799221e67b0d73dd201e6804bbaeff89338af3f4c9101f1586c186"
+        }
+      ],
+      "parent": "proc:fsrlffxd4k"
+    },
+    {
+      "id": "proc:p55gkwk4rc",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "PUT /api/user"
+      ],
+      "origin": "observed",
+      "name": "PUT /api/user handler",
+      "level": 2,
+      "module": "src/user/user.controller.ts",
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 26,
+          "end_line": 27,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:587cf453bca15cdb27a104ae7841ed80377681303d708238be39e140abba97b9"
+        }
+      ],
+      "parent": "proc:fsrlffxd4k"
+    },
+    {
+      "id": "proc:qa3lxvnr55",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "POST /api/articles/{slug}/comments"
+      ],
+      "origin": "observed",
+      "name": "POST /api/articles/{slug}/comments handler",
+      "level": 2,
+      "module": "src/article/article.controller.ts",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 76,
+          "end_line": 77,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3aecc496d88473b5f12f936ce720ca6aa068010904ea42339e18ffb708a8a8d9"
+        }
+      ],
+      "parent": "proc:cxfl3t3ltn"
+    },
+    {
+      "id": "proc:ucrghxbvip",
+      "identity": [
+        "process",
+        "module",
+        "src/profile/profile.service.ts"
+      ],
+      "origin": "observed",
+      "name": "profile.service",
+      "level": 2,
+      "module": "src/profile/profile.service.ts",
+      "evidence": [
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:34e679ddb6da86a448ae3d9e3768417cb16378ddc25abe019aa290a835047227"
+        }
+      ],
+      "parent": "proc:4awyt5l2tm"
+    },
+    {
+      "id": "proc:ulm3aku6ld",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "POST /api/users/login"
+      ],
+      "origin": "observed",
+      "name": "POST /api/users/login handler",
+      "level": 2,
+      "module": "src/user/user.controller.ts",
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 43,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:952522ad24e91a76a7d4216cba21b22312f8d79c716c36ff24f3fc9406675bde"
+        }
+      ],
+      "parent": "proc:fsrlffxd4k"
+    },
+    {
+      "id": "proc:xpdjhhzc7h",
+      "identity": [
+        "process",
+        "module",
+        "src/tag/tag.service.ts"
+      ],
+      "origin": "observed",
+      "name": "tag.service",
+      "level": 2,
+      "module": "src/tag/tag.service.ts",
+      "evidence": [
+        {
+          "path": "src/tag/tag.service.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:78eeae7c229f976c9f498e3121017b4d6d1109194d1782040f0a64d5dbe728a6"
+        }
+      ],
+      "parent": "proc:cadelsjmnj"
+    },
+    {
+      "id": "proc:z2bfpdkef3",
+      "identity": [
+        "process",
+        "handler",
+        "nestjs-realworld",
+        "DELETE /api/profiles/{username}/follow"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/profiles/{username}/follow handler",
+      "level": 2,
+      "module": "src/profile/profile.controller.ts",
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 28,
+          "end_line": 29,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:350db1c5c3a2e17a441fbb8f6f0f93582f045b69f5efe380420566d7756513cc"
+        }
+      ],
+      "parent": "proc:4awyt5l2tm"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:sga4qktkap",
+      "identity": [
+        "external",
+        "http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 33,
+          "end_line": 34,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:fe79fce75a6c0836c9979f7619f6e5ee5f180c46b573f4d47b2e3fc6b5b89ac5"
+        },
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 76,
+          "end_line": 77,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3aecc496d88473b5f12f936ce720ca6aa068010904ea42339e18ffb708a8a8d9"
+        },
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 21,
+          "end_line": 22,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:a380798a50ff5564654169f2ba9b0860d989b90a52fb1e7496837f5b47968d85"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:fl5io5fd7z",
+      "identity": [
+        "store",
+        "mysql",
+        "comment"
+      ],
+      "origin": "observed",
+      "name": "MySQL: Comment",
+      "technology": "mysql",
+      "logical_name": "Comment",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/article/comment.entity.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:e4cfa9efb71e9c4a384f4ea22a48f11c65aa63cdfe81b5e5992e9d9c3ee435f8"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 109,
+          "end_line": 109,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:1a02624b36f46468ccf70e238fe65c57f6065054ccc4bbde2be0353417202ddf"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 117,
+          "end_line": 117,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:8af6fdb62e6305cc93ae06e750a2f487f84226b1ca3675d25dba153401b7a527"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 122,
+          "end_line": 122,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:13f43b117203c615a3a4ebbd01691474cdad19f71783c688e88261636cb19322"
+        }
+      ]
+    },
+    {
+      "id": "store:if72rnkr3g",
+      "identity": [
+        "store",
+        "mysql",
+        "tag"
+      ],
+      "origin": "observed",
+      "name": "MySQL: tag",
+      "technology": "mysql",
+      "logical_name": "tag",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/tag/tag.entity.ts",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:5ceb9ebdbb09556f11b958e9869625a2e129a9ed13d63f140bfdf5ab0a6c769f"
+        },
+        {
+          "path": "src/tag/tag.service.ts",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:115b0ec321fccefeac0d94678b77d50aa05bc0046ed5caf5c938dbf7f39f0293"
+        }
+      ]
+    },
+    {
+      "id": "store:mftq653qte",
+      "identity": [
+        "store",
+        "mysql",
+        "user"
+      ],
+      "origin": "observed",
+      "name": "MySQL: user",
+      "technology": "mysql",
+      "logical_name": "user",
+      "data_classes": [
+        "credential",
+        "pii"
+      ],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/user/user.entity.ts",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:5b12eae70b99fff8fff50acbd8e41622fcc4e41c68443f6e9e1e5ffd0b10743c"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 39,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:5f20d3a026309d0dbd3dd4af425d7a6589c52658ab0564b7d567a22d623377b7"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 44,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:8124c497039aed1d77933e34391a98a9ee8f28eaf0b59c303ab2237a66022735"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 133,
+          "end_line": 133,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:834addb4b02136ab2d76ace390b15bb024d929657715557809bf5116763aafd1"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 140,
+          "end_line": 140,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:7ce95895e54cbd03b81f2f41361991fa0b2fc77c256e408da5e77acf44e4de22"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 149,
+          "end_line": 149,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:834addb4b02136ab2d76ace390b15bb024d929657715557809bf5116763aafd1"
+        }
+      ]
+    },
+    {
+      "id": "store:ta2srbelhd",
+      "identity": [
+        "store",
+        "mysql",
+        "article"
+      ],
+      "origin": "observed",
+      "name": "MySQL: article",
+      "technology": "mysql",
+      "logical_name": "article",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/article/article.entity.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:f5cf1104836ca2a4c925e7973a42cba41d94e24df7b641d5d2fcecaa4deb79f4"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:beb7d410275b83bdce1d1d8c3b6e8f87cf69aabfe9cd2c644510dc6d011d07a9"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 75,
+          "end_line": 75,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:beb7d410275b83bdce1d1d8c3b6e8f87cf69aabfe9cd2c644510dc6d011d07a9"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 97,
+          "end_line": 97,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:65d669fbdc940326202be91e40434864228a11b1cdcbd6c5266f189bcc1bdb27"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 102,
+          "end_line": 102,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:b7437ed079850d630c517ff89b08ddcccefae73860f470acfbe0633c10b9a363"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 110,
+          "end_line": 110,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:01310ef394cde7a7f3fb9d92b8ab7c1b0caec2fb639c3c4e807365097b7193ba"
+        }
+      ]
+    },
+    {
+      "id": "store:vpkm3wcqot",
+      "identity": [
+        "store",
+        "mysql",
+        "follow"
+      ],
+      "origin": "observed",
+      "name": "MySQL: follows",
+      "technology": "mysql",
+      "logical_name": "follows",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "src/profile/follows.entity.ts",
+          "start_line": 3,
+          "end_line": 3,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:c02009765d8b6f0bc6d07507b354d8b75adbcccee3dead33d60fa2cafffe38ba"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 67,
+          "end_line": 67,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d1dfff66ec0e0357d614236d5346cad994429bd0d64002aaabc331c3c416f094"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 41,
+          "end_line": 41,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:86b7b27f302e372a95ac16e7e0ce8d603c1acb560342c4a3151d9f98c989cdef"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 62,
+          "end_line": 62,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:16661e2b00451503b69085ca623a67c7b64f06bc188a546411f2f815119e6fc3"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:e6586a5fd11e9dbcbad24cbfbdd477fec33460004c57914ce0a8f6c445b783a6"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 92,
+          "end_line": 92,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3de7370167ddef49f81089342acb136fe66b3fbf75e40f06e6e1cc42b1b2dcb7"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:klnakvm5ry",
+      "identity": [
+        "boundary",
+        "repository",
+        "nestjs-realworld"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: nestjs-realworld",
+      "kind": "repository",
+      "contains": [
+        "proc:274uz234ct",
+        "proc:3vqwiojos5",
+        "proc:4awyt5l2tm",
+        "proc:4dk53nntn6",
+        "proc:4oj6hd33bm",
+        "proc:4p3kc67ecf",
+        "proc:5rxebzp7ng",
+        "proc:7ctbhcloth",
+        "proc:7q46tblfmx",
+        "proc:7vcvcbilz6",
+        "proc:aa22qid4vo",
+        "proc:bp6x3dio6k",
+        "proc:cadelsjmnj",
+        "proc:cxfl3t3ltn",
+        "proc:dnjbg7ptf6",
+        "proc:f75pjzqzva",
+        "proc:fsrlffxd4k",
+        "proc:ggwixwjbb4",
+        "proc:grqjpzytqv",
+        "proc:hdeh5gymne",
+        "proc:hoffehsozm",
+        "proc:jbkkhzvrq4",
+        "proc:jjh2ysb46c",
+        "proc:kgmwe7scui",
+        "proc:nbpqhh64jt",
+        "proc:nntkwcxf3z",
+        "proc:p55gkwk4rc",
+        "proc:qa3lxvnr55",
+        "proc:ucrghxbvip",
+        "proc:ulm3aku6ld",
+        "proc:xpdjhhzc7h",
+        "proc:z2bfpdkef3"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8ee087dd70e7fe3e2941d4864a257bbbf773d397ac036ba203784edea7e7c2da"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:2okvcozvbg",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:4dk53nntn6",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:4dk53nntn6",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/articles",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 51,
+          "end_line": 52,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:bcbc8126ded0216018d2c58a1fb427f2ef5a531d0393c0014d6d658238c6df22"
+        }
+      ]
+    },
+    {
+      "id": "flow:2vx52e3jrr",
+      "identity": [
+        "flow",
+        "proc:7q46tblfmx",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:7q46tblfmx",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.deleteComment",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 114,
+          "end_line": 114,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:c6750d21b320544a917cba5ca2dea3779ef41316eccaf36eb0a1f2da4635518a",
+          "symbol": "src/article/article.service.ts::ArticleService.deleteComment"
+        }
+      ]
+    },
+    {
+      "id": "flow:3dv5fzszxp",
+      "identity": [
+        "flow",
+        "proc:bp6x3dio6k",
+        "store:mftq653qte",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:bp6x3dio6k",
+      "target": "store:mftq653qte",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "delete",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:e90b83e2ca14a19f91b7d184d6b2cf993a21abd5c88d6e946e5d6f8f1e4fe8ca"
+        },
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 80,
+          "end_line": 80,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:07642da2046f34dcbd00c80b74136a26c6d1b8c2a56d60a20db2eeda5069a852"
+        },
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 84,
+          "end_line": 84,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:86a454c73181f28884ba871eb2d1edec3c142825e94205b20d4b1a78f9887259"
+        }
+      ],
+      "payload": {
+        "name": "MySQL: user record",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:4tmwhmrnld",
+      "identity": [
+        "flow",
+        "proc:274uz234ct",
+        "proc:bp6x3dio6k",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:274uz234ct",
+      "target": "proc:bp6x3dio6k",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls UserService.create",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 38,
+          "end_line": 38,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8816d6e462c87fa7f7ea5a70cefa82a800fb77c70541c60ab83f1258315c2169",
+          "symbol": "src/user/user.service.ts::UserService.create"
+        }
+      ]
+    },
+    {
+      "id": "flow:55d6h55txc",
+      "identity": [
+        "flow",
+        "proc:hdeh5gymne",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:hdeh5gymne",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.findFeed",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 66,
+          "end_line": 66,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:92b54d63e4c841209b2b5f0442be6e8f98738dd114a3932386820a3f40ddb08d",
+          "symbol": "src/article/article.service.ts::ArticleService.findFeed"
+        }
+      ]
+    },
+    {
+      "id": "flow:5pgcies6uw",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:5rxebzp7ng",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:5rxebzp7ng",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles/{slug}/comments",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 43,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9bbcf998a358330de25d520becb13b3f265c9166c5313c662ae82e39df6dedee"
+        }
+      ]
+    },
+    {
+      "id": "flow:6bnuf7jjns",
+      "identity": [
+        "flow",
+        "proc:ggwixwjbb4",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:ggwixwjbb4",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.delete",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 197,
+          "end_line": 197,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:2cc55c7db713c4b5f0ff3899fb5bae342aecaba456abb7c57118d384c010ef5f",
+          "symbol": "src/article/article.service.ts::ArticleService.delete"
+        }
+      ]
+    },
+    {
+      "id": "flow:7jhmlzsoyz",
+      "identity": [
+        "flow",
+        "proc:z2bfpdkef3",
+        "proc:ucrghxbvip",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:z2bfpdkef3",
+      "target": "proc:ucrghxbvip",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ProfileService.unFollow",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 81,
+          "end_line": 81,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f15fe3014fc9ca7e5ebe7282733bf0d04d92654692e30d9cff6f78a61f421a8a",
+          "symbol": "src/profile/profile.service.ts::ProfileService.unFollow"
+        }
+      ]
+    },
+    {
+      "id": "flow:7upudroid4",
+      "identity": [
+        "flow",
+        "proc:5rxebzp7ng",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:5rxebzp7ng",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.findComments",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 165,
+          "end_line": 165,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:d548310a8bcdeaebe3f99eec7e979b9277682a6f15778b0675a7fb7b39a73979",
+          "symbol": "src/article/article.service.ts::ArticleService.findComments"
+        }
+      ]
+    },
+    {
+      "id": "flow:aagbkqovml",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:ggwixwjbb4",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:ggwixwjbb4",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/articles/{slug}",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 68,
+          "end_line": 69,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:988ad667b0d73c1d5a7e0d0f9a82c3c9a8f2eb0b124097618f912c7837f6b75f"
+        }
+      ]
+    },
+    {
+      "id": "flow:avc6s5zkpi",
+      "identity": [
+        "flow",
+        "proc:4p3kc67ecf",
+        "proc:ucrghxbvip",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:4p3kc67ecf",
+      "target": "proc:ucrghxbvip",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ProfileService.follow",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 50,
+          "end_line": 50,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f98ed5e6425af777ae3a15ae92410fbf84c4c796fa0106617e10990da9ba76f6",
+          "symbol": "src/profile/profile.service.ts::ProfileService.follow"
+        }
+      ]
+    },
+    {
+      "id": "flow:azi2ptsk2d",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:grqjpzytqv",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:grqjpzytqv",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/articles/{slug}/favorite",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 101,
+          "end_line": 102,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:1c9196a915424cefacc0efb3723a1b14688ecebfbb3cc1f5803a497c323cec59"
+        }
+      ]
+    },
+    {
+      "id": "flow:bkwywm3vwn",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:f75pjzqzva",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:f75pjzqzva",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/tags",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/tag/tag.controller.ts",
+          "start_line": 17,
+          "end_line": 18,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:90ad15466d96d6d1e472ca5114ff5c5f458c20e78a891e2195a25ac7bebd330b"
+        }
+      ]
+    },
+    {
+      "id": "flow:bvxxvp6lpa",
+      "identity": [
+        "flow",
+        "proc:3vqwiojos5",
+        "proc:ucrghxbvip",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:3vqwiojos5",
+      "target": "proc:ucrghxbvip",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ProfileService.findProfile",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:be0fd4c198bc28692dbb74afac0a910caabf86d938c3467cd1f0ab099ea6cf8d",
+          "symbol": "src/profile/profile.service.ts::ProfileService.findProfile"
+        }
+      ]
+    },
+    {
+      "id": "flow:bwkzzneu5n",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:hdeh5gymne",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:hdeh5gymne",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles/feed",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 33,
+          "end_line": 34,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:fe79fce75a6c0836c9979f7619f6e5ee5f180c46b573f4d47b2e3fc6b5b89ac5"
+        }
+      ]
+    },
+    {
+      "id": "flow:dykp6vvzch",
+      "identity": [
+        "flow",
+        "proc:qa3lxvnr55",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:qa3lxvnr55",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.addComment",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 101,
+          "end_line": 101,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:b13b167bd35c2d5d66dc9e508e0d956ab62410e15d71907c7c4c898b1e89ef4f",
+          "symbol": "src/article/article.service.ts::ArticleService.addComment"
+        }
+      ]
+    },
+    {
+      "id": "flow:exnhip27i6",
+      "identity": [
+        "flow",
+        "proc:p55gkwk4rc",
+        "proc:bp6x3dio6k",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:p55gkwk4rc",
+      "target": "proc:bp6x3dio6k",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls UserService.update",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 74,
+          "end_line": 74,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:2266a3e871ec6c0a8a076544db8d1526976f5d9a9689ea993d67a403ee2c31b8",
+          "symbol": "src/user/user.service.ts::UserService.update"
+        }
+      ]
+    },
+    {
+      "id": "flow:faaaxdq77t",
+      "identity": [
+        "flow",
+        "store:if72rnkr3g",
+        "proc:xpdjhhzc7h",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:if72rnkr3g",
+      "target": "proc:xpdjhhzc7h",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "find",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/tag/tag.service.ts",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:115b0ec321fccefeac0d94678b77d50aa05bc0046ed5caf5c938dbf7f39f0293"
+        }
+      ]
+    },
+    {
+      "id": "flow:gr3t7b4jq2",
+      "identity": [
+        "flow",
+        "proc:nbpqhh64jt",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:nbpqhh64jt",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.favorite",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 131,
+          "end_line": 131,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:0dfc35b22ffe7ba1e0213aa7f12c9b7e55211cde7ec2eb835f9ad4287b3944a0",
+          "symbol": "src/article/article.service.ts::ArticleService.favorite"
+        }
+      ]
+    },
+    {
+      "id": "flow:hbnvvlgpjw",
+      "identity": [
+        "flow",
+        "proc:grqjpzytqv",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:grqjpzytqv",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.unFavorite",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 147,
+          "end_line": 147,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:94644ec5a10c2d7f50b657d724b791a53fdac4919fa4b0dfd4a15dc6aefa321e",
+          "symbol": "src/article/article.service.ts::ArticleService.unFavorite"
+        }
+      ]
+    },
+    {
+      "id": "flow:henmqavcvp",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:dnjbg7ptf6",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:dnjbg7ptf6",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles/{slug}",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 38,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d4045219456a595cb014e6bc63fc02fa3109b148a31550f985d45e813046365b"
+        }
+      ]
+    },
+    {
+      "id": "flow:hk2lhvh4on",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:4p3kc67ecf",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:4p3kc67ecf",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/profiles/{username}/follow",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:t5lohzmi7n"
+      ],
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0b4dd97e7e5cf063e19d500378aaddaff17d8e60d822810bb555630c0bb99720"
+        }
+      ]
+    },
+    {
+      "id": "flow:hlusvgl4hg",
+      "identity": [
+        "flow",
+        "store:mftq653qte",
+        "proc:bp6x3dio6k",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:mftq653qte",
+      "target": "proc:bp6x3dio6k",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "createQueryBuilder",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0a6811e1655006e4ef3bfecbdb9b0add0d372bb6c9bdb7c933a5b5cc105119ca"
+        },
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:f575fc305b4878dea199d09f4b245fa02615dbfe7da496cb4296fc09ba36fdd4"
+        },
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:25a8807d04460d30080427107fed1f1a2f5747e88cadb23b9243f9bbd0e3af3e"
+        },
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 75,
+          "end_line": 75,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:6bb52dff0e86669b0d8e311e047ad9d91b7acd0ef880deff33434f792e046a7b"
+        },
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 88,
+          "end_line": 88,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:834addb4b02136ab2d76ace390b15bb024d929657715557809bf5116763aafd1"
+        },
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 99,
+          "end_line": 99,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:e02d69c7431d148a4d353378261d8efa287adc4e99030ff9908dd4513372baf5"
+        }
+      ],
+      "payload": {
+        "name": "MySQL: user record",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:hzldftvkmh",
+      "identity": [
+        "flow",
+        "store:fl5io5fd7z",
+        "proc:7vcvcbilz6",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:fl5io5fd7z",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findOne",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 117,
+          "end_line": 117,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:8af6fdb62e6305cc93ae06e750a2f487f84226b1ca3675d25dba153401b7a527"
+        }
+      ]
+    },
+    {
+      "id": "flow:ifeqbd4owo",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:qa3lxvnr55",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:qa3lxvnr55",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/articles/{slug}/comments",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 76,
+          "end_line": 77,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3aecc496d88473b5f12f936ce720ca6aa068010904ea42339e18ffb708a8a8d9"
+        }
+      ]
+    },
+    {
+      "id": "flow:jnopejixbh",
+      "identity": [
+        "flow",
+        "store:vpkm3wcqot",
+        "proc:7vcvcbilz6",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:vpkm3wcqot",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "find",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 67,
+          "end_line": 67,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d1dfff66ec0e0357d614236d5346cad994429bd0d64002aaabc331c3c416f094"
+        }
+      ]
+    },
+    {
+      "id": "flow:k4knmcrkzs",
+      "identity": [
+        "flow",
+        "store:ta2srbelhd",
+        "proc:7vcvcbilz6",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:ta2srbelhd",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "createQueryBuilder",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:beb7d410275b83bdce1d1d8c3b6e8f87cf69aabfe9cd2c644510dc6d011d07a9"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 75,
+          "end_line": 75,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:beb7d410275b83bdce1d1d8c3b6e8f87cf69aabfe9cd2c644510dc6d011d07a9"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 97,
+          "end_line": 97,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:65d669fbdc940326202be91e40434864228a11b1cdcbd6c5266f189bcc1bdb27"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 102,
+          "end_line": 102,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:b7437ed079850d630c517ff89b08ddcccefae73860f470acfbe0633c10b9a363"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 115,
+          "end_line": 115,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:b7437ed079850d630c517ff89b08ddcccefae73860f470acfbe0633c10b9a363"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 132,
+          "end_line": 132,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:b7437ed079850d630c517ff89b08ddcccefae73860f470acfbe0633c10b9a363"
+        }
+      ]
+    },
+    {
+      "id": "flow:kc2kvtpes5",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:4oj6hd33bm",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:4oj6hd33bm",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PUT /api/articles/{slug}",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 59,
+          "end_line": 60,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:286d4f478d81ba6012386dc04d1ae78a98f765edc64623bfba751cff5111ac74"
+        }
+      ]
+    },
+    {
+      "id": "flow:kdvh3pweyn",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:p55gkwk4rc",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:p55gkwk4rc",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PUT /api/user",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:2zqgp4f2nq"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 26,
+          "end_line": 27,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:587cf453bca15cdb27a104ae7841ed80377681303d708238be39e140abba97b9"
+        }
+      ]
+    },
+    {
+      "id": "flow:kfotuwowec",
+      "identity": [
+        "flow",
+        "proc:ucrghxbvip",
+        "store:vpkm3wcqot",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:ucrghxbvip",
+      "target": "store:vpkm3wcqot",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "delete",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 68,
+          "end_line": 68,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:e6586a5fd11e9dbcbad24cbfbdd477fec33460004c57914ce0a8f6c445b783a6"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 92,
+          "end_line": 92,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3de7370167ddef49f81089342acb136fe66b3fbf75e40f06e6e1cc42b1b2dcb7"
+        }
+      ]
+    },
+    {
+      "id": "flow:knqeicm4yt",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:7ctbhcloth",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:7ctbhcloth",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "GET /api/user",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:2zqgp4f2nq"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 21,
+          "end_line": 22,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:a380798a50ff5564654169f2ba9b0860d989b90a52fb1e7496837f5b47968d85"
+        }
+      ]
+    },
+    {
+      "id": "flow:lfzbevdcij",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:aa22qid4vo",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:aa22qid4vo",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/app.controller.ts",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:8342eecb98318e2c46b7e635573d762eb589fd8124f1ef126f66516f575f4b97"
+        }
+      ]
+    },
+    {
+      "id": "flow:mh4y7yifal",
+      "identity": [
+        "flow",
+        "proc:dnjbg7ptf6",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:dnjbg7ptf6",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.findOne",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 96,
+          "end_line": 96,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:2c78a13b852911c03f6a8b0f53e963e6c11ca54faba2ee86970fb32f591b93f9",
+          "symbol": "src/article/article.service.ts::ArticleService.findOne"
+        }
+      ]
+    },
+    {
+      "id": "flow:mhrqha3jjw",
+      "identity": [
+        "flow",
+        "store:mftq653qte",
+        "proc:7vcvcbilz6",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:mftq653qte",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findOne",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 39,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:5f20d3a026309d0dbd3dd4af425d7a6589c52658ab0564b7d567a22d623377b7"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 44,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:8124c497039aed1d77933e34391a98a9ee8f28eaf0b59c303ab2237a66022735"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 133,
+          "end_line": 133,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:834addb4b02136ab2d76ace390b15bb024d929657715557809bf5116763aafd1"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 149,
+          "end_line": 149,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:834addb4b02136ab2d76ace390b15bb024d929657715557809bf5116763aafd1"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 181,
+          "end_line": 181,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:e38e2e865b82a53718f123c56fac58af134547ef452ed892b81d9ecf5e021bfb"
+        }
+      ],
+      "payload": {
+        "name": "MySQL: user record",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:nconzgkoc7",
+      "identity": [
+        "flow",
+        "proc:jjh2ysb46c",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:jjh2ysb46c",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.findAll",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 26,
+          "end_line": 26,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:bf898d4217c184213eb046e21230fd37724eb50b09518af4c7d7bcb07cfd8fee",
+          "symbol": "src/article/article.service.ts::ArticleService.findAll"
+        }
+      ]
+    },
+    {
+      "id": "flow:nosiv66l36",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:7q46tblfmx",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:7q46tblfmx",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/articles/{slug}/comments/{id}",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 84,
+          "end_line": 85,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9ee1d6552fe08f39f57053760f01147a763f6b5848ad29965b52435af6555a81"
+        }
+      ]
+    },
+    {
+      "id": "flow:ns34zl27yu",
+      "identity": [
+        "flow",
+        "proc:7ctbhcloth",
+        "proc:bp6x3dio6k",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:7ctbhcloth",
+      "target": "proc:bp6x3dio6k",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls UserService.findByEmail",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 98,
+          "end_line": 98,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:a435d6887f41a1595dc63d95424e8367a7f3623421776716cb378cfe1e521568",
+          "symbol": "src/user/user.service.ts::UserService.findByEmail"
+        }
+      ]
+    },
+    {
+      "id": "flow:ornum6hogr",
+      "identity": [
+        "flow",
+        "proc:ulm3aku6ld",
+        "proc:bp6x3dio6k",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:ulm3aku6ld",
+      "target": "proc:bp6x3dio6k",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls UserService.findOne",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 25,
+          "end_line": 25,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:cc5063a5543de70451212d16d0c95a64e377b26d367d91ff56f968a1ebd137ba",
+          "symbol": "src/user/user.service.ts::UserService.findOne"
+        }
+      ]
+    },
+    {
+      "id": "flow:pfihdqxfbi",
+      "identity": [
+        "flow",
+        "proc:7vcvcbilz6",
+        "store:fl5io5fd7z",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:7vcvcbilz6",
+      "target": "store:fl5io5fd7z",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "delete",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 109,
+          "end_line": 109,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:1a02624b36f46468ccf70e238fe65c57f6065054ccc4bbde2be0353417202ddf"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 122,
+          "end_line": 122,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:13f43b117203c615a3a4ebbd01691474cdad19f71783c688e88261636cb19322"
+        }
+      ]
+    },
+    {
+      "id": "flow:qdru3mebpb",
+      "identity": [
+        "flow",
+        "proc:f75pjzqzva",
+        "proc:xpdjhhzc7h",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:f75pjzqzva",
+      "target": "proc:xpdjhhzc7h",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls TagService.findAll",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/tag/tag.service.ts",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:0fb45bfd38cf22c807c60ce62d6242b95798db05db019cf5cfc431a2b61533a2",
+          "symbol": "src/tag/tag.service.ts::TagService.findAll"
+        }
+      ]
+    },
+    {
+      "id": "flow:qywtleshe4",
+      "identity": [
+        "flow",
+        "proc:4oj6hd33bm",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:4oj6hd33bm",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.update",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 190,
+          "end_line": 190,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:c158e6db14d9ff2f87d5d714de3561d57a81ade38c0f555d72594b58cd09d050",
+          "symbol": "src/article/article.service.ts::ArticleService.update"
+        }
+      ]
+    },
+    {
+      "id": "flow:rkvkttd23c",
+      "identity": [
+        "flow",
+        "proc:7vcvcbilz6",
+        "store:ta2srbelhd",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:7vcvcbilz6",
+      "target": "store:ta2srbelhd",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "delete",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 110,
+          "end_line": 110,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:01310ef394cde7a7f3fb9d92b8ab7c1b0caec2fb639c3c4e807365097b7193ba"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 123,
+          "end_line": 123,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:01310ef394cde7a7f3fb9d92b8ab7c1b0caec2fb639c3c4e807365097b7193ba"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 141,
+          "end_line": 141,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:01310ef394cde7a7f3fb9d92b8ab7c1b0caec2fb639c3c4e807365097b7193ba"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 159,
+          "end_line": 159,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:01310ef394cde7a7f3fb9d92b8ab7c1b0caec2fb639c3c4e807365097b7193ba"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 179,
+          "end_line": 179,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:654abff1be54996635e7693aba7d64eb6b210d960a50ebc63d1269d2bc3e5fe3"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 193,
+          "end_line": 193,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:f2ea501b395a3059acf42237e45b9182d5cfe55d4cd2b4451112763f6bc25c91"
+        }
+      ]
+    },
+    {
+      "id": "flow:rtclmsbf6p",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:ulm3aku6ld",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:ulm3aku6ld",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/users/login",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 43,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:952522ad24e91a76a7d4216cba21b22312f8d79c716c36ff24f3fc9406675bde"
+        }
+      ]
+    },
+    {
+      "id": "flow:t674s6eqd7",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:nbpqhh64jt",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:nbpqhh64jt",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/articles/{slug}/favorite",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 93,
+          "end_line": 94,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:17e3a311be7372b92ec4eff343d42a45311e63b4cb908a2fa688325210afe7cc"
+        }
+      ]
+    },
+    {
+      "id": "flow:uq7n75wn6i",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:nntkwcxf3z",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:nntkwcxf3z",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/users/{slug}",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 37,
+          "end_line": 38,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9aecb21e0b799221e67b0d73dd201e6804bbaeff89338af3f4c9101f1586c186"
+        }
+      ]
+    },
+    {
+      "id": "flow:v3ihbukm24",
+      "identity": [
+        "flow",
+        "store:vpkm3wcqot",
+        "proc:ucrghxbvip",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:vpkm3wcqot",
+      "target": "proc:ucrghxbvip",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "findOne",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 41,
+          "end_line": 41,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:86b7b27f302e372a95ac16e7e0ce8d603c1acb560342c4a3151d9f98c989cdef"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 62,
+          "end_line": 62,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:16661e2b00451503b69085ca623a67c7b64f06bc188a546411f2f815119e6fc3"
+        }
+      ]
+    },
+    {
+      "id": "flow:vz57h3xf2i",
+      "identity": [
+        "flow",
+        "proc:7vcvcbilz6",
+        "store:mftq653qte",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:7vcvcbilz6",
+      "target": "store:mftq653qte",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "save",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 140,
+          "end_line": 140,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:7ce95895e54cbd03b81f2f41361991fa0b2fc77c256e408da5e77acf44e4de22"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 158,
+          "end_line": 158,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:7ce95895e54cbd03b81f2f41361991fa0b2fc77c256e408da5e77acf44e4de22"
+        },
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 184,
+          "end_line": 184,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:71e5558f6019199afa51caaafba00c1a7d98a980245e06d2b4a26acc8743a6bd"
+        }
+      ],
+      "payload": {
+        "name": "MySQL: user record",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:wcbmoy3oio",
+      "identity": [
+        "flow",
+        "store:mftq653qte",
+        "proc:ucrghxbvip",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:mftq653qte",
+      "target": "proc:ucrghxbvip",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "find",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0a6811e1655006e4ef3bfecbdb9b0add0d372bb6c9bdb7c933a5b5cc105119ca"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:5295ae007bd20ea443e8a95f6d8ed5c86b53e65003db291635811ca4591bafad"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 31,
+          "end_line": 31,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:278ced2eda151c73d47c7ffaf605b495829c733e1390ac2195045b8227668686"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 55,
+          "end_line": 55,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:21c690888357b9004547241c42feac321df29f492f9267bcb5bcb1d000844312"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 56,
+          "end_line": 56,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:a7dd4882851057f35b19f3fafef561a52e5ee3ba4530e2f1d0748787bf322bc6"
+        },
+        {
+          "path": "src/profile/profile.service.ts",
+          "start_line": 86,
+          "end_line": 86,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:21c690888357b9004547241c42feac321df29f492f9267bcb5bcb1d000844312"
+        }
+      ],
+      "payload": {
+        "name": "MySQL: user record",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:xs7tminsx2",
+      "identity": [
+        "flow",
+        "proc:nntkwcxf3z",
+        "proc:bp6x3dio6k",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:nntkwcxf3z",
+      "target": "proc:bp6x3dio6k",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls UserService.delete",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.service.ts",
+          "start_line": 83,
+          "end_line": 83,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:6f754c73cfd0456e5ebace6751cec091c5830f5b4364a6c32c0c843f9a3e3c58",
+          "symbol": "src/user/user.service.ts::UserService.delete"
+        }
+      ]
+    },
+    {
+      "id": "flow:y2ongkfiow",
+      "identity": [
+        "flow",
+        "proc:4dk53nntn6",
+        "proc:7vcvcbilz6",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:4dk53nntn6",
+      "target": "proc:7vcvcbilz6",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls ArticleService.create",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.service.ts",
+          "start_line": 170,
+          "end_line": 170,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:491085287cb8f4bf1f5b248516f22693b6a1db915a25bf6a639753a7d2652943",
+          "symbol": "src/article/article.service.ts::ArticleService.create"
+        }
+      ]
+    },
+    {
+      "id": "flow:yqihmijzzo",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:3vqwiojos5",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:3vqwiojos5",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/profiles/{username}",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 18,
+          "end_line": 19,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d79eb49eeb76ead20cb4b25e2a86c03a89516b595a5355ac175280cf713c540c"
+        }
+      ]
+    },
+    {
+      "id": "flow:yv73ccpyyx",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:jjh2ysb46c",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:jjh2ysb46c",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/articles",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 24,
+          "end_line": 25,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:db68152ec9c2b4844415e6a703bf758ff69cc44f8b4be633d27c41788a292bb1"
+        }
+      ]
+    },
+    {
+      "id": "flow:z2qb7oob5z",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:274uz234ct",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:274uz234ct",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/users",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 32,
+          "end_line": 33,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3c8dd2b7e20272b89e8b7a526aad0107b6baeabd1d206133efcd1587f67dfb07"
+        }
+      ]
+    },
+    {
+      "id": "flow:z36bnrwfzp",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:z2bfpdkef3",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:z2bfpdkef3",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/profiles/{username}/follow",
+      "crosses_boundary": [
+        "bnd:klnakvm5ry"
+      ],
+      "controls": [
+        "ctl:t5lohzmi7n"
+      ],
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 28,
+          "end_line": 29,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:350db1c5c3a2e17a441fbb8f6f0f93582f045b69f5efe380420566d7756513cc"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:3zbnwx4awy",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/articles/feed",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:hdeh5gymne",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/articles/feed",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "call_chain": [
+        "proc:hdeh5gymne",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:ta2srbelhd",
+        "store:vpkm3wcqot"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 33,
+          "end_line": 34,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:fe79fce75a6c0836c9979f7619f6e5ee5f180c46b573f4d47b2e3fc6b5b89ac5"
+        }
+      ]
+    },
+    {
+      "id": "ep:4ygrrqovjz",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/articles/{slug}/comments",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:qa3lxvnr55",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/articles/{slug}/comments",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "call_chain": [
+        "proc:qa3lxvnr55",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:fl5io5fd7z",
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 76,
+          "end_line": 77,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3aecc496d88473b5f12f936ce720ca6aa068010904ea42339e18ffb708a8a8d9"
+        }
+      ]
+    },
+    {
+      "id": "ep:b3vx65o4me",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/user",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:7ctbhcloth",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/user",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:2zqgp4f2nq"
+      ],
+      "call_chain": [
+        "proc:7ctbhcloth",
+        "proc:bp6x3dio6k"
+      ],
+      "reaches": [
+        "store:mftq653qte"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 21,
+          "end_line": 22,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:a380798a50ff5564654169f2ba9b0860d989b90a52fb1e7496837f5b47968d85"
+        }
+      ]
+    },
+    {
+      "id": "ep:b5bnlf72w4",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/articles/{slug}/comments",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:5rxebzp7ng",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/articles/{slug}/comments",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:5rxebzp7ng",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 43,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9bbcf998a358330de25d520becb13b3f265c9166c5313c662ae82e39df6dedee"
+        }
+      ]
+    },
+    {
+      "id": "ep:cei35nlsey",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/profiles/{username}",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:3vqwiojos5",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/profiles/{username}",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:3vqwiojos5",
+        "proc:ucrghxbvip"
+      ],
+      "reaches": [
+        "store:mftq653qte",
+        "store:vpkm3wcqot"
+      ],
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 18,
+          "end_line": 19,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d79eb49eeb76ead20cb4b25e2a86c03a89516b595a5355ac175280cf713c540c"
+        }
+      ]
+    },
+    {
+      "id": "ep:dewairsjgi",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/articles/{slug}/favorite",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:nbpqhh64jt",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/articles/{slug}/favorite",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "call_chain": [
+        "proc:nbpqhh64jt",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:mftq653qte",
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 93,
+          "end_line": 94,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:17e3a311be7372b92ec4eff343d42a45311e63b4cb908a2fa688325210afe7cc"
+        }
+      ]
+    },
+    {
+      "id": "ep:dobbq6vitz",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/profiles/{username}/follow",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:z2bfpdkef3",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/profiles/{username}/follow",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:t5lohzmi7n"
+      ],
+      "call_chain": [
+        "proc:z2bfpdkef3",
+        "proc:ucrghxbvip"
+      ],
+      "reaches": [
+        "store:mftq653qte",
+        "store:vpkm3wcqot"
+      ],
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 28,
+          "end_line": 29,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:350db1c5c3a2e17a441fbb8f6f0f93582f045b69f5efe380420566d7756513cc"
+        }
+      ]
+    },
+    {
+      "id": "ep:dqg7qhkmho",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/users/{slug}",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:nntkwcxf3z",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/users/{slug}",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:nntkwcxf3z",
+        "proc:bp6x3dio6k"
+      ],
+      "reaches": [
+        "store:mftq653qte"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 37,
+          "end_line": 38,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9aecb21e0b799221e67b0d73dd201e6804bbaeff89338af3f4c9101f1586c186"
+        }
+      ]
+    },
+    {
+      "id": "ep:frf3xlddit",
+      "identity": [
+        "entry_point",
+        "http",
+        "PUT",
+        "/api/articles/{slug}",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:4oj6hd33bm",
+      "protocol": "http",
+      "method": "PUT",
+      "path": "/api/articles/{slug}",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "call_chain": [
+        "proc:4oj6hd33bm",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 59,
+          "end_line": 60,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:286d4f478d81ba6012386dc04d1ae78a98f765edc64623bfba751cff5111ac74"
+        }
+      ]
+    },
+    {
+      "id": "ep:frfy4jtm6k",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/users/login",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:ulm3aku6ld",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/users/login",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:ulm3aku6ld",
+        "proc:bp6x3dio6k"
+      ],
+      "reaches": [
+        "store:mftq653qte"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 43,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:952522ad24e91a76a7d4216cba21b22312f8d79c716c36ff24f3fc9406675bde"
+        }
+      ]
+    },
+    {
+      "id": "ep:hkkemw3gpc",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/articles/{slug}/favorite",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:grqjpzytqv",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/articles/{slug}/favorite",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "call_chain": [
+        "proc:grqjpzytqv",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:mftq653qte",
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 101,
+          "end_line": 102,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:1c9196a915424cefacc0efb3723a1b14688ecebfbb3cc1f5803a497c323cec59"
+        }
+      ]
+    },
+    {
+      "id": "ep:nnmc7v6pma",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/users",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:274uz234ct",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/users",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:274uz234ct",
+        "proc:bp6x3dio6k"
+      ],
+      "reaches": [
+        "store:mftq653qte"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 32,
+          "end_line": 33,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3c8dd2b7e20272b89e8b7a526aad0107b6baeabd1d206133efcd1587f67dfb07"
+        }
+      ]
+    },
+    {
+      "id": "ep:pa4qt6624r",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/articles/{slug}",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:dnjbg7ptf6",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/articles/{slug}",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:dnjbg7ptf6",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 38,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d4045219456a595cb014e6bc63fc02fa3109b148a31550f985d45e813046365b"
+        }
+      ]
+    },
+    {
+      "id": "ep:qztradodta",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/articles",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:jjh2ysb46c",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/articles",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:jjh2ysb46c",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:mftq653qte",
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 24,
+          "end_line": 25,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:db68152ec9c2b4844415e6a703bf758ff69cc44f8b4be633d27c41788a292bb1"
+        }
+      ]
+    },
+    {
+      "id": "ep:r6zmfgha7g",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/articles/{slug}/comments/{id}",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:7q46tblfmx",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/articles/{slug}/comments/{id}",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "call_chain": [
+        "proc:7q46tblfmx",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:fl5io5fd7z",
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 84,
+          "end_line": 85,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9ee1d6552fe08f39f57053760f01147a763f6b5848ad29965b52435af6555a81"
+        }
+      ]
+    },
+    {
+      "id": "ep:rhosneup56",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/articles",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:4dk53nntn6",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/articles",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "call_chain": [
+        "proc:4dk53nntn6",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:mftq653qte",
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 51,
+          "end_line": 52,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:bcbc8126ded0216018d2c58a1fb427f2ef5a531d0393c0014d6d658238c6df22"
+        }
+      ]
+    },
+    {
+      "id": "ep:rkbb4stivj",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:aa22qid4vo",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:aa22qid4vo"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "src/app.controller.ts",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:8342eecb98318e2c46b7e635573d762eb589fd8124f1ef126f66516f575f4b97"
+        }
+      ]
+    },
+    {
+      "id": "ep:ug7w62z7oi",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/tags",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:f75pjzqzva",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/tags",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:f75pjzqzva",
+        "proc:xpdjhhzc7h"
+      ],
+      "reaches": [
+        "store:if72rnkr3g"
+      ],
+      "evidence": [
+        {
+          "path": "src/tag/tag.controller.ts",
+          "start_line": 17,
+          "end_line": 18,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:90ad15466d96d6d1e472ca5114ff5c5f458c20e78a891e2195a25ac7bebd330b"
+        }
+      ]
+    },
+    {
+      "id": "ep:usqjaz2oxp",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/profiles/{username}/follow",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:4p3kc67ecf",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/profiles/{username}/follow",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:t5lohzmi7n"
+      ],
+      "call_chain": [
+        "proc:4p3kc67ecf",
+        "proc:ucrghxbvip"
+      ],
+      "reaches": [
+        "store:mftq653qte",
+        "store:vpkm3wcqot"
+      ],
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0b4dd97e7e5cf063e19d500378aaddaff17d8e60d822810bb555630c0bb99720"
+        }
+      ]
+    },
+    {
+      "id": "ep:vy72oaheci",
+      "identity": [
+        "entry_point",
+        "http",
+        "PUT",
+        "/api/user",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:p55gkwk4rc",
+      "protocol": "http",
+      "method": "PUT",
+      "path": "/api/user",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:2zqgp4f2nq"
+      ],
+      "call_chain": [
+        "proc:p55gkwk4rc",
+        "proc:bp6x3dio6k"
+      ],
+      "reaches": [
+        "store:mftq653qte"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 26,
+          "end_line": 27,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:587cf453bca15cdb27a104ae7841ed80377681303d708238be39e140abba97b9"
+        }
+      ]
+    },
+    {
+      "id": "ep:zwbb5jdzp4",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/articles/{slug}",
+        "nestjs-realworld"
+      ],
+      "origin": "observed",
+      "process": "proc:ggwixwjbb4",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/articles/{slug}",
+      "exposure": "unknown",
+      "controls": [
+        "ctl:rf7yoqwjdl"
+      ],
+      "call_chain": [
+        "proc:ggwixwjbb4",
+        "proc:7vcvcbilz6"
+      ],
+      "reaches": [
+        "store:ta2srbelhd"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 68,
+          "end_line": 69,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:988ad667b0d73c1d5a7e0d0f9a82c3c9a8f2eb0b124097618f912c7837f6b75f"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "ctl:2zqgp4f2nq",
+      "identity": [
+        "control",
+        "authn",
+        "src/user/user.module.ts",
+        "AuthMiddleware"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "AuthMiddleware",
+      "scope": "service",
+      "applies_to": [
+        "ep:b3vx65o4me",
+        "ep:vy72oaheci"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.module.ts",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d630fad2c96d1f4262f9eeffab183c68b1555ac50f4ccbf64a2bd19074a7f506"
+        }
+      ]
+    },
+    {
+      "id": "ctl:rf7yoqwjdl",
+      "identity": [
+        "control",
+        "authn",
+        "src/article/article.module.ts",
+        "AuthMiddleware"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "AuthMiddleware",
+      "scope": "service",
+      "applies_to": [
+        "ep:3zbnwx4awy",
+        "ep:4ygrrqovjz",
+        "ep:dewairsjgi",
+        "ep:frf3xlddit",
+        "ep:hkkemw3gpc",
+        "ep:r6zmfgha7g",
+        "ep:rhosneup56",
+        "ep:zwbb5jdzp4"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.module.ts",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d630fad2c96d1f4262f9eeffab183c68b1555ac50f4ccbf64a2bd19074a7f506"
+        }
+      ]
+    },
+    {
+      "id": "ctl:t5lohzmi7n",
+      "identity": [
+        "control",
+        "authn",
+        "src/profile/profile.module.ts",
+        "AuthMiddleware"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "AuthMiddleware",
+      "scope": "service",
+      "applies_to": [
+        "ep:dobbq6vitz",
+        "ep:usqjaz2oxp"
+      ],
+      "evidence": [
+        {
+          "path": "src/profile/profile.module.ts",
+          "start_line": 21,
+          "end_line": 21,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d630fad2c96d1f4262f9eeffab183c68b1555ac50f4ccbf64a2bd19074a7f506"
+        }
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "wk:6vqoljssyz",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:pa4qt6624r"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/articles/{slug}",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:pa4qt6624r"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 38,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d4045219456a595cb014e6bc63fc02fa3109b148a31550f985d45e813046365b"
+        }
+      ]
+    },
+    {
+      "id": "wk:drtfcesreu",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:cei35nlsey"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/profiles/{username}",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:cei35nlsey"
+      ],
+      "evidence": [
+        {
+          "path": "src/profile/profile.controller.ts",
+          "start_line": 18,
+          "end_line": 19,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:d79eb49eeb76ead20cb4b25e2a86c03a89516b595a5355ac175280cf713c540c"
+        }
+      ]
+    },
+    {
+      "id": "wk:fy6l5tq75o",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:rkbb4stivj"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:rkbb4stivj"
+      ],
+      "evidence": [
+        {
+          "path": "src/app.controller.ts",
+          "start_line": 5,
+          "end_line": 6,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:8342eecb98318e2c46b7e635573d762eb589fd8124f1ef126f66516f575f4b97"
+        }
+      ]
+    },
+    {
+      "id": "wk:ickty7egag",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:nnmc7v6pma"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /api/users",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:nnmc7v6pma"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 32,
+          "end_line": 33,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:3c8dd2b7e20272b89e8b7a526aad0107b6baeabd1d206133efcd1587f67dfb07"
+        }
+      ]
+    },
+    {
+      "id": "wk:jelsvsbopx",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:frfy4jtm6k"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /api/users/login",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:frfy4jtm6k"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 43,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:952522ad24e91a76a7d4216cba21b22312f8d79c716c36ff24f3fc9406675bde"
+        }
+      ]
+    },
+    {
+      "id": "wk:kvfzalhfsy",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:dqg7qhkmho"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on DELETE /api/users/{slug}",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:dqg7qhkmho"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.controller.ts",
+          "start_line": 37,
+          "end_line": 38,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9aecb21e0b799221e67b0d73dd201e6804bbaeff89338af3f4c9101f1586c186"
+        }
+      ]
+    },
+    {
+      "id": "wk:nz2eparffd",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:qztradodta"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/articles",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:qztradodta"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 24,
+          "end_line": 25,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:db68152ec9c2b4844415e6a703bf758ff69cc44f8b4be633d27c41788a292bb1"
+        }
+      ]
+    },
+    {
+      "id": "wk:stel5kaosf",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:ug7w62z7oi"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/tags",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:ug7w62z7oi"
+      ],
+      "evidence": [
+        {
+          "path": "src/tag/tag.controller.ts",
+          "start_line": 17,
+          "end_line": 18,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:90ad15466d96d6d1e472ca5114ff5c5f458c20e78a891e2195a25ac7bebd330b"
+        }
+      ]
+    },
+    {
+      "id": "wk:wmuwn3azc4",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:b5bnlf72w4"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/articles/{slug}/comments",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:b5bnlf72w4"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 43,
+          "end_line": 44,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:9bbcf998a358330de25d520becb13b3f265c9166c5313c662ae82e39df6dedee"
+        }
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "id": "sch:7m24mxduld",
+      "identity": [
+        "schema",
+        "src/tag/tag.entity.ts",
+        "tag"
+      ],
+      "origin": "observed",
+      "name": "tag",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "data_class": "internal"
+        },
+        {
+          "name": "tag",
+          "type": "string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/tag/tag.entity.ts",
+          "start_line": 3,
+          "end_line": 12,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:792e4ea0858a036eff5b0f9ec42a80611742f175f7cb08212ad456e1f336cb6b"
+        }
+      ]
+    },
+    {
+      "id": "sch:j2jo5rypsu",
+      "identity": [
+        "schema",
+        "src/profile/follows.entity.ts",
+        "follows"
+      ],
+      "origin": "observed",
+      "name": "follows",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "data_class": "internal"
+        },
+        {
+          "name": "followerId",
+          "type": "number",
+          "data_class": "internal"
+        },
+        {
+          "name": "followingId",
+          "type": "number",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/profile/follows.entity.ts",
+          "start_line": 3,
+          "end_line": 15,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:414f10a3bdecc6916a4d262033a953d92b79ca5f9c1a541929943b53fe7adddf"
+        }
+      ]
+    },
+    {
+      "id": "sch:jsollz3mqf",
+      "identity": [
+        "schema",
+        "src/article/comment.entity.ts",
+        "Comment"
+      ],
+      "origin": "observed",
+      "name": "Comment",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "data_class": "internal"
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/article/comment.entity.ts",
+          "start_line": 4,
+          "end_line": 15,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:2d0cbfb46a32c8fa1afdb98317ebf4acfb6cfab4bd88ee5d64b33dfbad64216a"
+        }
+      ]
+    },
+    {
+      "id": "sch:rpc6vc4ktp",
+      "identity": [
+        "schema",
+        "src/user/user.entity.ts",
+        "user"
+      ],
+      "origin": "observed",
+      "name": "user",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "data_class": "internal"
+        },
+        {
+          "name": "username",
+          "type": "string",
+          "data_class": "pii"
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "data_class": "pii"
+        },
+        {
+          "name": "bio",
+          "type": "string",
+          "data_class": "pii"
+        },
+        {
+          "name": "image",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "password",
+          "type": "string",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.entity.ts",
+          "start_line": 6,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0123ec9cf482a914ce48ee8a253425a97a12ecad9959ac0a6d48dd87d6e801e6"
+        }
+      ]
+    },
+    {
+      "id": "sch:zyyw2msjiu",
+      "identity": [
+        "schema",
+        "src/article/article.entity.ts",
+        "article"
+      ],
+      "origin": "observed",
+      "name": "article",
+      "fields": [
+        {
+          "name": "id",
+          "type": "number",
+          "data_class": "internal"
+        },
+        {
+          "name": "slug",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "data_class": "internal"
+        },
+        {
+          "name": "tagList",
+          "type": "string[]",
+          "data_class": "internal"
+        },
+        {
+          "name": "favoriteCount",
+          "type": "number",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.entity.ts",
+          "start_line": 5,
+          "end_line": 46,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0ba08fb44d0ccd26d0b03c0c321e879aa4ed39ac0bdfddbac8ca20919d006f8a"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset:jz4nahgsoa",
+      "identity": [
+        "asset",
+        "data",
+        "pii"
+      ],
+      "origin": "observed",
+      "name": "Personal data (PII)",
+      "kind": "data",
+      "data_classes": [
+        "pii"
+      ],
+      "held_by": [
+        "store:mftq653qte"
+      ],
+      "processed_by": [
+        "proc:7vcvcbilz6",
+        "proc:bp6x3dio6k",
+        "proc:ucrghxbvip"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.entity.ts",
+          "start_line": 6,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0123ec9cf482a914ce48ee8a253425a97a12ecad9959ac0a6d48dd87d6e801e6"
+        }
+      ]
+    },
+    {
+      "id": "asset:lfkdrxj2a2",
+      "identity": [
+        "asset",
+        "data",
+        "credential"
+      ],
+      "origin": "observed",
+      "name": "User credentials",
+      "kind": "data",
+      "data_classes": [
+        "credential"
+      ],
+      "held_by": [
+        "store:mftq653qte"
+      ],
+      "processed_by": [
+        "proc:7vcvcbilz6",
+        "proc:bp6x3dio6k",
+        "proc:ucrghxbvip"
+      ],
+      "evidence": [
+        {
+          "path": "src/user/user.entity.ts",
+          "start_line": 6,
+          "end_line": 39,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:0123ec9cf482a914ce48ee8a253425a97a12ecad9959ac0a6d48dd87d6e801e6"
+        }
+      ]
+    }
+  ],
+  "threat_agents": [
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "21 entry points are reachable from outside, 9 of them without a detected authentication control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 33,
+          "end_line": 34,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:fe79fce75a6c0836c9979f7619f6e5ee5f180c46b573f4d47b2e3fc6b5b89ac5"
+        }
+      ]
+    },
+    {
+      "id": "agent:ro6hlangl4",
+      "identity": [
+        "agent",
+        "authenticated",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "12 entry points require authentication; a holder of valid credentials is a distinct agent",
+      "name": "Authenticated HTTP caller",
+      "access": "authenticated",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [
+        "authn"
+      ],
+      "goals": [
+        "access other users' data",
+        "use functions beyond their role"
+      ],
+      "evidence": [
+        {
+          "path": "src/article/article.controller.ts",
+          "start_line": 33,
+          "end_line": 34,
+          "detector": "nest@0.5",
+          "content_hash": "sha256:fe79fce75a6c0836c9979f7619f6e5ee5f180c46b573f4d47b2e3fc6b5b89ac5"
+        }
+      ]
+    },
+    {
+      "id": "agent:smphg7qs7y",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:klnakvm5ry"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to repository: nestjs-realworld",
+      "access": "insider",
+      "location": "bnd:klnakvm5ry",
+      "entry": [
+        "proc:274uz234ct",
+        "proc:3vqwiojos5",
+        "proc:4dk53nntn6",
+        "proc:4oj6hd33bm",
+        "proc:4p3kc67ecf",
+        "proc:5rxebzp7ng",
+        "proc:7ctbhcloth",
+        "proc:7q46tblfmx",
+        "proc:7vcvcbilz6",
+        "proc:aa22qid4vo",
+        "proc:bp6x3dio6k",
+        "proc:dnjbg7ptf6",
+        "proc:f75pjzqzva",
+        "proc:ggwixwjbb4",
+        "proc:grqjpzytqv",
+        "proc:hdeh5gymne",
+        "proc:jjh2ysb46c",
+        "proc:nbpqhh64jt",
+        "proc:nntkwcxf3z",
+        "proc:p55gkwk4rc",
+        "proc:qa3lxvnr55",
+        "proc:ucrghxbvip",
+        "proc:ulm3aku6ld",
+        "proc:xpdjhhzc7h",
+        "proc:z2bfpdkef3"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors",
+        "security_headers",
+        "audit_log"
+      ],
+      "goals": [
+        "read data stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8ee087dd70e7fe3e2941d4864a257bbbf773d397ac036ba203784edea7e7c2da"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "no_boundary_info",
+      "detail": "no docker compose, Dockerfile, Kubernetes or Terraform descriptors were found; the repository is the only trust boundary"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/main.ts",
+      "detail": "Question: is TLS terminated in front of the HTTP listener of nestjs-realworld? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/user/user.service.ts",
+      "line": 68,
+      "detail": "Question: what is the authentication and encryption of the link to MySQL: user?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/tag/tag.service.ts",
+      "line": 14,
+      "detail": "Question: what is the authentication and encryption of the link to MySQL: tag?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/article/article.service.ts",
+      "line": 117,
+      "detail": "Question: what is the authentication and encryption of the link to MySQL: Comment?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/article/article.service.ts",
+      "line": 67,
+      "detail": "Question: what is the authentication and encryption of the link to MySQL: follows?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/article/article.service.ts",
+      "line": 28,
+      "detail": "Question: what is the authentication and encryption of the link to MySQL: article?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "src/user/user.entity.ts",
+      "line": 6,
+      "detail": "Question: is MySQL: user encrypted at rest? It holds credential, pii."
+    }
+  ]
+}

@@ -1,0 +1,815 @@
+{
+ "orders-service-example": {
+  "entry_points": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 2,
+   "truth": 2,
+   "missed": [],
+   "spurious": []
+  },
+  "infrastructure": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 2,
+   "truth": 2,
+   "missed": [],
+   "spurious": []
+  },
+  "stores": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 2,
+   "truth": 2,
+   "missed": [],
+   "spurious": []
+  },
+  "entities": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 1,
+   "truth": 1,
+   "missed": [],
+   "spurious": []
+  },
+  "edges": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 5,
+   "truth": 5,
+   "missed": [],
+   "spurious": []
+  }
+ },
+ "node-express-boilerplate": {
+  "entry_points": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 13,
+   "truth": 13,
+   "missed": [],
+   "spurious": []
+  },
+  "infrastructure": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 2,
+   "truth": 2,
+   "missed": [],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 6,
+   "truth": 6,
+   "missed": [],
+   "spurious": []
+  },
+  "stores": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 2,
+   "truth": 2,
+   "missed": [],
+   "spurious": []
+  },
+  "entities": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 1,
+   "truth": 1,
+   "missed": [],
+   "spurious": []
+  },
+  "edges": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 21,
+   "truth": 21,
+   "missed": [],
+   "spurious": []
+  }
+ },
+ "microservices-demo": {
+  "entry_points": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 21,
+   "truth": 21,
+   "missed": [],
+   "spurious": []
+  },
+  "infrastructure": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 3,
+   "truth": 3,
+   "missed": [],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "stores": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 2,
+   "truth": 2,
+   "missed": [],
+   "spurious": []
+  },
+  "entities": {
+   "precision": 0.8,
+   "recall": 1.0,
+   "predicted": 5,
+   "truth": 3,
+   "missed": [],
+   "spurious": [
+    "Unresolved grpc target"
+   ]
+  },
+  "edges": {
+   "precision": 0.95,
+   "recall": 1.0,
+   "predicted": 37,
+   "truth": 35,
+   "missed": [],
+   "spurious": [
+    "('grpc AdService', 'Unresolved grpc target')",
+    "('grpc ProductCatalogService', 'Unresolved grpc target')"
+   ]
+  }
+ },
+ "compose-react-express-mongodb": {
+  "entry_points": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 2,
+   "truth": 2,
+   "missed": [],
+   "spurious": []
+  },
+  "infrastructure": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "stores": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 1,
+   "truth": 1,
+   "missed": [],
+   "spurious": []
+  },
+  "entities": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "edges": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 2,
+   "truth": 2,
+   "missed": [],
+   "spurious": []
+  }
+ },
+ "compose-flask-redis": {
+  "entry_points": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 1,
+   "truth": 1,
+   "missed": [],
+   "spurious": []
+  },
+  "infrastructure": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "stores": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 1,
+   "truth": 1,
+   "missed": [],
+   "spurious": []
+  },
+  "entities": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "edges": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 1,
+   "truth": 1,
+   "missed": [],
+   "spurious": []
+  }
+ },
+ "spring-petclinic": {
+  "entry_points": {
+   "precision": 0.94,
+   "recall": 0.94,
+   "predicted": 17,
+   "truth": 17,
+   "missed": [
+    "GET /vets"
+   ],
+   "spurious": [
+    "ANY /owners/:param/owners/:param"
+   ]
+  },
+  "infrastructure": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "stores": {
+   "precision": 0.67,
+   "recall": 0.67,
+   "predicted": 6,
+   "truth": 6,
+   "missed": [
+    "*:specialties",
+    "*:types"
+   ],
+   "spurious": [
+    "mysql:*",
+    "postgres:postgres"
+   ]
+  },
+  "entities": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "edges": {
+   "precision": null,
+   "recall": 0.0,
+   "predicted": 0,
+   "truth": 17,
+   "missed": [
+    "('GET /owners', '*:owners')",
+    "('GET /owners/:param', '*:owners')",
+    "('GET /owners/:param/edit', '*:owners')",
+    "('GET /owners/:param/pets/:param/edit', '*:owners')",
+    "('GET /owners/:param/pets/:param/edit', '*:types')",
+    "('GET /owners/:param/pets/:param/visits/new', '*:owners')",
+    "('GET /owners/:param/pets/new', '*:owners')",
+    "('GET /owners/:param/pets/new', '*:types')",
+    "('GET /vets', '*:vets')",
+    "('GET /vets.html', '*:vets')",
+    "('POST /owners/:param/edit', '*:owners')",
+    "('POST /owners/:param/pets/:param/edit', '*:owners')",
+    "('POST /owners/:param/pets/:param/edit', '*:types')",
+    "('POST /owners/:param/pets/:param/visits/new', '*:owners')",
+    "('POST /owners/:param/pets/new', '*:owners')"
+   ],
+   "spurious": []
+  }
+ },
+ "golang-gin-realworld": {
+  "entry_points": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "predicted": 15,
+   "truth": 19,
+   "missed": [
+    "DELETE /api/articles/:param",
+    "DELETE /api/articles/:param/comments/:param",
+    "DELETE /api/articles/:param/favorite",
+    "DELETE /api/profiles/:param/follow",
+    "GET /api/articles",
+    "GET /api/articles/:param",
+    "GET /api/articles/:param/comments",
+    "GET /api/articles/feed",
+    "GET /api/profiles/:param",
+    "GET /api/tags",
+    "GET /api/user",
+    "POST /api/articles",
+    "POST /api/articles/:param/comments",
+    "POST /api/articles/:param/favorite",
+    "POST /api/profiles/:param/follow"
+   ],
+   "spurious": [
+    "DELETE /:param",
+    "DELETE /:param/comments/:param",
+    "DELETE /:param/favorite",
+    "DELETE /:param/follow",
+    "GET /",
+    "GET /:param",
+    "GET /:param/comments",
+    "GET /feed",
+    "POST /",
+    "POST /:param/comments",
+    "POST /:param/favorite",
+    "POST /:param/follow",
+    "POST /login",
+    "PUT /",
+    "PUT /:param"
+   ]
+  },
+  "infrastructure": {
+   "precision": null,
+   "recall": 0.0,
+   "predicted": 0,
+   "truth": 1,
+   "missed": [
+    "GET /api/ping"
+   ],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "predicted": 15,
+   "truth": 12,
+   "missed": [
+    "DELETE /api/articles/:param",
+    "DELETE /api/articles/:param/comments/:param",
+    "DELETE /api/articles/:param/favorite",
+    "DELETE /api/profiles/:param/follow",
+    "GET /api/articles/feed",
+    "GET /api/user",
+    "POST /api/articles",
+    "POST /api/articles/:param/comments",
+    "POST /api/articles/:param/favorite",
+    "POST /api/profiles/:param/follow",
+    "PUT /api/articles/:param",
+    "PUT /api/user"
+   ],
+   "spurious": [
+    "DELETE /:param",
+    "DELETE /:param/comments/:param",
+    "DELETE /:param/favorite",
+    "DELETE /:param/follow",
+    "GET /",
+    "GET /:param",
+    "GET /:param/comments",
+    "GET /feed",
+    "POST /",
+    "POST /:param/comments",
+    "POST /:param/favorite",
+    "POST /:param/follow",
+    "POST /login",
+    "PUT /",
+    "PUT /:param"
+   ]
+  },
+  "stores": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "predicted": 1,
+   "truth": 1,
+   "missed": [
+    "sqlite:*"
+   ],
+   "spurious": [
+    "unknown:*"
+   ]
+  },
+  "entities": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "edges": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "predicted": 6,
+   "truth": 18,
+   "missed": [
+    "('DELETE /api/articles/:param', 'sqlite:*')",
+    "('DELETE /api/articles/:param/comments/:param', 'sqlite:*')",
+    "('DELETE /api/articles/:param/favorite', 'sqlite:*')",
+    "('DELETE /api/profiles/:param/follow', 'sqlite:*')",
+    "('GET /api/articles', 'sqlite:*')",
+    "('GET /api/articles/:param', 'sqlite:*')",
+    "('GET /api/articles/:param/comments', 'sqlite:*')",
+    "('GET /api/articles/feed', 'sqlite:*')",
+    "('GET /api/profiles/:param', 'sqlite:*')",
+    "('GET /api/tags', 'sqlite:*')",
+    "('POST /api/articles', 'sqlite:*')",
+    "('POST /api/articles/:param/comments', 'sqlite:*')",
+    "('POST /api/articles/:param/favorite', 'sqlite:*')",
+    "('POST /api/profiles/:param/follow', 'sqlite:*')",
+    "('POST /api/users', 'sqlite:*')"
+   ],
+   "spurious": [
+    "('GET /', 'unknown:*')",
+    "('GET /feed', 'unknown:*')",
+    "('POST /', 'unknown:*')",
+    "('POST /:param/comments', 'unknown:*')",
+    "('PUT /', 'unknown:*')",
+    "('PUT /:param', 'unknown:*')"
+   ]
+  }
+ },
+ "nestjs-realworld": {
+  "entry_points": {
+   "precision": null,
+   "recall": 0.0,
+   "predicted": 0,
+   "truth": 21,
+   "missed": [
+    "DELETE /api/articles/:param",
+    "DELETE /api/articles/:param/comments/:param",
+    "DELETE /api/articles/:param/favorite",
+    "DELETE /api/profiles/:param/follow",
+    "DELETE /api/users/:param",
+    "GET /api",
+    "GET /api/articles",
+    "GET /api/articles/:param",
+    "GET /api/articles/:param/comments",
+    "GET /api/articles/feed",
+    "GET /api/profiles/:param",
+    "GET /api/tags",
+    "GET /api/user",
+    "POST /api/articles",
+    "POST /api/articles/:param/comments"
+   ],
+   "spurious": []
+  },
+  "infrastructure": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": null,
+   "recall": 0.0,
+   "predicted": 0,
+   "truth": 12,
+   "missed": [
+    "DELETE /api/articles/:param",
+    "DELETE /api/articles/:param/comments/:param",
+    "DELETE /api/articles/:param/favorite",
+    "DELETE /api/profiles/:param/follow",
+    "GET /api/articles/feed",
+    "GET /api/user",
+    "POST /api/articles",
+    "POST /api/articles/:param/comments",
+    "POST /api/articles/:param/favorite",
+    "POST /api/profiles/:param/follow",
+    "PUT /api/articles/:param",
+    "PUT /api/user"
+   ],
+   "spurious": []
+  },
+  "stores": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "predicted": 1,
+   "truth": 5,
+   "missed": [
+    "*:article",
+    "*:comment",
+    "*:follows",
+    "*:tag",
+    "*:user"
+   ],
+   "spurious": [
+    "unknown:*"
+   ]
+  },
+  "entities": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "edges": {
+   "precision": null,
+   "recall": 0.0,
+   "predicted": 0,
+   "truth": 30,
+   "missed": [
+    "('DELETE /api/articles/:param', '*:article')",
+    "('DELETE /api/articles/:param/comments/:param', '*:article')",
+    "('DELETE /api/articles/:param/comments/:param', '*:comment')",
+    "('DELETE /api/articles/:param/favorite', '*:article')",
+    "('DELETE /api/articles/:param/favorite', '*:user')",
+    "('DELETE /api/profiles/:param/follow', '*:follows')",
+    "('DELETE /api/profiles/:param/follow', '*:user')",
+    "('DELETE /api/users/:param', '*:user')",
+    "('GET /api/articles', '*:article')",
+    "('GET /api/articles', '*:user')",
+    "('GET /api/articles/:param', '*:article')",
+    "('GET /api/articles/:param/comments', '*:article')",
+    "('GET /api/articles/feed', '*:article')",
+    "('GET /api/articles/feed', '*:follows')",
+    "('GET /api/profiles/:param', '*:follows')"
+   ],
+   "spurious": []
+  }
+ },
+ "fastapi-full-stack": {
+  "entry_points": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "predicted": 19,
+   "truth": 22,
+   "missed": [
+    "DELETE /api/v1/items/:param",
+    "DELETE /api/v1/users/:param",
+    "DELETE /api/v1/users/me",
+    "GET /api/v1/items",
+    "GET /api/v1/items/:param",
+    "GET /api/v1/users",
+    "GET /api/v1/users/:param",
+    "GET /api/v1/users/me",
+    "PATCH /api/v1/users/:param",
+    "PATCH /api/v1/users/me",
+    "PATCH /api/v1/users/me/password",
+    "POST /api/v1/items",
+    "POST /api/v1/login/access-token",
+    "POST /api/v1/login/test-token",
+    "POST /api/v1/password-recovery-html-content/:param"
+   ],
+   "spurious": [
+    "DELETE /:param",
+    "DELETE /me",
+    "GET /",
+    "GET /:param",
+    "GET /health-check",
+    "GET /me",
+    "PATCH /:param",
+    "PATCH /me",
+    "PATCH /me/password",
+    "POST /",
+    "POST /login/access-token",
+    "POST /login/test-token",
+    "POST /password-recovery-html-content/:param",
+    "POST /password-recovery/:param",
+    "POST /reset-password"
+   ]
+  },
+  "infrastructure": {
+   "precision": null,
+   "recall": 0.0,
+   "predicted": 0,
+   "truth": 1,
+   "missed": [
+    "GET /api/v1/utils/health-check"
+   ],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": null,
+   "recall": 0.0,
+   "predicted": 0,
+   "truth": 17,
+   "missed": [
+    "DELETE /api/v1/items/:param",
+    "DELETE /api/v1/users/:param",
+    "DELETE /api/v1/users/me",
+    "GET /api/v1/items",
+    "GET /api/v1/items/:param",
+    "GET /api/v1/users",
+    "GET /api/v1/users/:param",
+    "GET /api/v1/users/me",
+    "PATCH /api/v1/users/:param",
+    "PATCH /api/v1/users/me",
+    "PATCH /api/v1/users/me/password",
+    "POST /api/v1/items",
+    "POST /api/v1/login/test-token",
+    "POST /api/v1/password-recovery-html-content/:param",
+    "POST /api/v1/users"
+   ],
+   "spurious": []
+  },
+  "stores": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "predicted": 1,
+   "truth": 2,
+   "missed": [
+    "postgres:item",
+    "postgres:user"
+   ],
+   "spurious": [
+    "postgres:*"
+   ]
+  },
+  "entities": {
+   "precision": 1.0,
+   "recall": 1.0,
+   "predicted": 1,
+   "truth": 1,
+   "missed": [],
+   "spurious": []
+  },
+  "edges": {
+   "precision": 0.0,
+   "recall": 0.0,
+   "predicted": 9,
+   "truth": 28,
+   "missed": [
+    "('DELETE /api/v1/items/:param', 'postgres:item')",
+    "('DELETE /api/v1/items/:param', 'postgres:user')",
+    "('DELETE /api/v1/users/:param', 'postgres:item')",
+    "('DELETE /api/v1/users/:param', 'postgres:user')",
+    "('DELETE /api/v1/users/me', 'postgres:user')",
+    "('GET /api/v1/items', 'postgres:item')",
+    "('GET /api/v1/items', 'postgres:user')",
+    "('GET /api/v1/items/:param', 'postgres:item')",
+    "('GET /api/v1/items/:param', 'postgres:user')",
+    "('GET /api/v1/users', 'postgres:user')",
+    "('GET /api/v1/users/:param', 'postgres:user')",
+    "('GET /api/v1/users/me', 'postgres:user')",
+    "('PATCH /api/v1/users/:param', 'postgres:user')",
+    "('PATCH /api/v1/users/me', 'postgres:user')",
+    "('PATCH /api/v1/users/me/password', 'postgres:user')"
+   ],
+   "spurious": [
+    "('DELETE /:param', 'postgres:*')",
+    "('DELETE /me', 'postgres:*')",
+    "('GET /', 'postgres:*')",
+    "('GET /:param', 'postgres:*')",
+    "('PATCH /:param', 'postgres:*')",
+    "('PATCH /me', 'postgres:*')",
+    "('PATCH /me/password', 'postgres:*')",
+    "('POST /', 'postgres:*')",
+    "('PUT /:param', 'postgres:*')"
+   ]
+  }
+ },
+ "flask-microblog": {
+  "entry_points": {
+   "precision": 0.38,
+   "recall": 0.29,
+   "predicted": 26,
+   "truth": 35,
+   "missed": [
+    "DELETE /api/tokens",
+    "GET /",
+    "GET /api/users",
+    "GET /api/users/:param",
+    "GET /api/users/:param/followers",
+    "GET /api/users/:param/following",
+    "GET /auth/login",
+    "GET /auth/logout",
+    "GET /auth/register",
+    "GET /auth/reset_password/:param",
+    "GET /auth/reset_password_request",
+    "GET /edit_profile",
+    "GET /index",
+    "GET /send_message/:param",
+    "POST /"
+   ],
+   "spurious": [
+    "DELETE /tokens",
+    "GET /logout",
+    "GET /users",
+    "GET /users/:param",
+    "GET /users/:param/followers",
+    "GET /users/:param/following",
+    "GET,POST /edit_profile",
+    "GET,POST /index",
+    "GET,POST /login",
+    "GET,POST /register",
+    "GET,POST /reset_password/:param",
+    "GET,POST /reset_password_request",
+    "GET,POST /send_message/:param",
+    "POST /tokens",
+    "POST /users"
+   ]
+  },
+  "infrastructure": {
+   "precision": null,
+   "recall": null,
+   "predicted": 0,
+   "truth": 0,
+   "missed": [],
+   "spurious": []
+  },
+  "authenticated": {
+   "precision": 0.5,
+   "recall": 0.4,
+   "predicted": 20,
+   "truth": 25,
+   "missed": [
+    "DELETE /api/tokens",
+    "GET /",
+    "GET /api/users",
+    "GET /api/users/:param",
+    "GET /api/users/:param/followers",
+    "GET /api/users/:param/following",
+    "GET /edit_profile",
+    "GET /index",
+    "GET /send_message/:param",
+    "POST /",
+    "POST /api/tokens",
+    "POST /edit_profile",
+    "POST /index",
+    "POST /send_message/:param",
+    "PUT /api/users/:param"
+   ],
+   "spurious": [
+    "DELETE /tokens",
+    "GET /users",
+    "GET /users/:param",
+    "GET /users/:param/followers",
+    "GET /users/:param/following",
+    "GET,POST /edit_profile",
+    "GET,POST /index",
+    "GET,POST /send_message/:param",
+    "POST /tokens",
+    "PUT /users/:param"
+   ]
+  },
+  "stores": {
+   "precision": 1.0,
+   "recall": 0.86,
+   "predicted": 6,
+   "truth": 7,
+   "missed": [
+    "elasticsearch:*"
+   ],
+   "spurious": []
+  },
+  "entities": {
+   "precision": 0.33,
+   "recall": 0.5,
+   "predicted": 3,
+   "truth": 2,
+   "missed": [
+    "translator"
+   ],
+   "spurious": [
+    "Unresolved HTTP target",
+    "Unresolved https target"
+   ]
+  }
+ }
+}

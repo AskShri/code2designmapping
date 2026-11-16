@@ -1,0 +1,28 @@
+%% L0 context - orders-service
+flowchart LR
+  subgraph bnd_uvq3irjstn["container: api"]
+    proc_qkkhpbuy47(["orders-service (+4)"])
+  end
+  subgraph bnd_li56z6okmf["container: db"]
+    store_2whm26363j[("Postgres: orders")]
+  end
+  subgraph bnd_quz6xm3rfj["container: cache"]
+    store_ligqz7jge4[("Redis: order:*")]
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_slqdx4hifp["Stripe Payments API"]
+  ext_sga4qktkap -->|"http<br/>http: CreateOrderRequest (+1) (financial,pii)"| proc_qkkhpbuy47
+  proc_qkkhpbuy47 -->|"https: from CreateOrderRequest (financial,pii)"| ext_slqdx4hifp
+  proc_qkkhpbuy47 -->|"sql: from CreateOrderRequest (financial,pii)"| store_2whm26363j
+  proc_qkkhpbuy47 -->|"redis: from CreateOrderRequest (financial,pii)"| store_ligqz7jge4
+  store_2whm26363j -->|"sql: Postgres: orders record (financial,pii)"| proc_qkkhpbuy47
+  store_ligqz7jge4 -->|"redis: Redis: order:* record (financial,pii)"| proc_qkkhpbuy47
+  style bnd_uvq3irjstn stroke-dasharray: 8 4,fill:none
+  style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none
+  style bnd_quz6xm3rfj stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

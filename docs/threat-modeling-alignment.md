@@ -78,14 +78,14 @@ Black Duck closes with documenting "all your models, system descriptions, potent
 1. Build an undirected graph whose nodes are processes, entities and stores and whose edges are flows (an attacker can push requests along a request flow and pull data back along a response or read flow).
 2. For each threat agent, start a breadth-first search at its `entry` elements. Neighbours are visited in ID order, so the result is deterministic.
 3. For each asset, the target set is `held_by`; if nothing in it is reachable, fall back to `processed_by`.
-4. Record the flows traversed and the controls on them. Controls whose kind is in the agent's `passes_controls` are crossed but not effective (an authenticated user passes `authn`).
-5. Verdict: no path is "unreachable"; a path with no effective control is a potential attack path; a path whose non-local links have `unknown` authentication or encryption is "controlled at entry" with the questionable link named; otherwise "controlled". An agent that starts inside the asset holder's element gets its own verdict, since no flow-level control can apply.
+4. Among the routes, take the one that crosses the fewest **blocking** controls the agent does not hold (authentication and authorization; an authenticated user holds `authn`), ties broken by length and then by ID. Controls registered only under a condition do not count as blocking. Other controls on the route (validation, rate limiting, CSRF, security headers) are listed separately because they reduce risk without stopping the agent. External entities other than the agent's own starting point are not traversed.
+5. Verdict: no route is "unreachable"; a route with no blocking control is a potential attack path; a route where the agent's credentials pass authentication and no authorization check is detected is flagged for object- and function-level access review; a route whose non-local links have `unknown` authentication or encryption is "blocked at entry" with the unanswered link named; otherwise "blocked". An agent that starts inside the asset holder's element gets its own verdict, since no flow-level control can apply.
 
-The matrix answers Black Duck's three questions directly: the "no effective control" rows are the paths where an agent reaches an asset without a control; the "effective controls" column lists what the agent must defeat; the "unknown" verdict marks controls the tool cannot vouch for.
+The matrix answers Black Duck's three questions directly: the "no blocking control" rows are the paths where an agent reaches an asset without a control; the "blocking controls" column lists what the agent must defeat; the "unknown" verdict marks controls the tool cannot vouch for.
 
 ## Evidence that the alignment holds on real code
 
-`docs/evaluation.md` runs the prototype over 17 sample applications (Express, Flask, FastAPI, Django, gRPC microservices, compose and Kubernetes deployments) and checks, for each, that the security model elements above are produced: entry points with their controls, declared and used data stores, external dependencies, trust boundaries from deployment descriptors, derived threat agents, assets, and a traceability matrix. The misses found there (dynamic route tables, aliased database clients, unsupported languages) are listed with the fixes applied or the gap recorded.
+`docs/evaluation.md` runs the prototype over 23 sample applications (Express, NestJS, Flask, FastAPI, Django, Spring, Gin, ASP.NET Core, gRPC microservices, compose and Kubernetes deployments) and checks, for each, that the security model elements above are produced: entry points with their controls, declared and used data stores, external dependencies, trust boundaries from deployment descriptors, derived threat agents, assets, and a traceability matrix. The misses found there (dynamic route tables, aliased database clients, unsupported languages) are listed with the fixes applied or the gap recorded.
 
 ## Worked example
 
@@ -93,7 +93,8 @@ The matrix answers Black Duck's three questions directly: the "no effective cont
 
 * the insider agent starting at the processes that hold the Stripe key and read the stores, with no control that can apply;
 * a compromised Stripe responder reaching the charge path with no control on the response;
-* anonymous and authenticated clients reaching the Postgres and Redis holders of PII through the JWT, rate-limit and validation controls, with the store links flagged because their authentication and encryption are unknown.
+* the authenticated client reaching the PII and financial data with only `requireJwt` on the path and no authorization check, flagged for object-level access review;
+* the anonymous client blocked by `requireJwt`, with the store links named as open questions because their authentication and encryption are unknown.
 
 Each row is a question the team can answer with an override (for example, declaring the Postgres link as `encryption: tls, authentication: credentials` from the infrastructure they know), after which the row's verdict changes on the next run.
 
@@ -108,7 +109,8 @@ The first evaluation listed six limitations against this alignment. Their status
 | Go, Java, C# invisible | Fixed at recognizer level for the mainstream frameworks; Ruby, PHP, Kotlin, Rust remain gaps |
 | No schemas, no assets | Fixed: request fields read in handlers become schemas; overrides can declare assets and agents |
 | Infrastructure routes polluting the attack surface | Fixed: tagged and counted separately |
-| No precision/recall measurement | Fixed: ground truth for five samples; reachability-edge precision and recall reported |
+| No precision/recall measurement | Fixed: ground truth for ten samples; entry points, authentication, stores, entities and reachability edges scored |
+| Weaknesses without a standard classification | Fixed in v0.5: each weakness kind carries a CWE, a severity and its STRIDE categories, and is exported as OTM threats and SARIF results |
 
 ## Not covered on purpose
 

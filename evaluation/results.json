@@ -2,7 +2,7 @@
   {
     "name": "orders-service-example",
     "path": "/home/user/code2designmapping/examples/orders-service/app",
-    "elapsed": 0.06,
+    "elapsed": 0.13,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -19,6 +19,14 @@
         "recall": null,
         "predicted": 0,
         "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 2,
+        "truth": 2,
         "missed": [],
         "spurious": []
       },
@@ -49,8 +57,10 @@
     },
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 4,
+    "lint_warnings": 0,
     "mermaid_files": 6,
     "mermaid_failures": [],
     "counts": {
@@ -60,12 +70,12 @@
       "boundaries": 3,
       "flows": 11,
       "entry_points": 2,
-      "controls": 2,
-      "weaknesses": 1,
+      "controls": 3,
+      "weaknesses": 0,
       "schemas": 3,
       "assets": 3,
       "threat_agents": 5,
-      "gaps": 4
+      "gaps": 5
     },
     "unsupported": [],
     "expect_hits": [
@@ -77,13 +87,12 @@
       "entry_points>=2 (got 2)"
     ],
     "expect_misses": [],
-    "notes": "The hand-modelled example; prototype output should match the hand-made IR closely.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-s9gdspm8/run1"
+    "notes": "The hand-modelled example; prototype output should match the hand-made IR closely."
   },
   {
     "name": "node-express-boilerplate",
     "path": "/home/user/hagopj13/node-express-boilerplate",
-    "elapsed": 0.23,
+    "elapsed": 0.26,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -100,6 +109,14 @@
         "recall": 1.0,
         "predicted": 2,
         "truth": 2,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 6,
+        "truth": 6,
         "missed": [],
         "spurious": []
       },
@@ -130,8 +147,10 @@
     },
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 8,
+    "lint_warnings": 11,
     "mermaid_files": 21,
     "mermaid_failures": [],
     "counts": {
@@ -142,11 +161,11 @@
       "flows": 49,
       "entry_points": 15,
       "controls": 11,
-      "weaknesses": 8,
-      "schemas": 7,
-      "assets": 0,
+      "weaknesses": 9,
+      "schemas": 21,
+      "assets": 2,
       "threat_agents": 4,
-      "gaps": 4
+      "gaps": 6
     },
     "unsupported": [],
     "expect_hits": [
@@ -158,18 +177,19 @@
       "entry_points>=8 (got 15)"
     ],
     "expect_misses": [],
-    "notes": "Express + mongoose + passport-jwt + joi + express-rate-limit on /v1/auth + nodemailer.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-_kp53h8w/run1"
+    "notes": "Express + mongoose + passport-jwt + joi + express-rate-limit on /v1/auth + nodemailer."
   },
   {
     "name": "node-express-realworld",
     "path": "/home/user/gothinkster/node-express-realworld-example-app",
-    "elapsed": 0.16,
+    "elapsed": 0.21,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
     "lint_warnings": 9,
     "mermaid_files": 24,
@@ -181,10 +201,10 @@
       "boundaries": 1,
       "flows": 48,
       "entry_points": 20,
-      "controls": 7,
-      "weaknesses": 6,
+      "controls": 4,
+      "weaknesses": 9,
       "schemas": 6,
-      "assets": 1,
+      "assets": 3,
       "threat_agents": 3,
       "gaps": 6
     },
@@ -195,20 +215,21 @@
       "entry_points>=15 (got 20)"
     ],
     "expect_misses": [],
-    "notes": "Express + Prisma (postgres datasource) + express-jwt auth.required/auth.optional.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-cc8c5sry/run1"
+    "notes": "Express + Prisma (postgres datasource) + express-jwt auth.required/auth.optional."
   },
   {
     "name": "node-express-mongodb",
     "path": "/home/user/bezkoder/node-express-mongodb",
-    "elapsed": 0.02,
+    "elapsed": 0.12,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 6,
+    "lint_warnings": 8,
     "mermaid_files": 12,
     "mermaid_failures": [],
     "counts": {
@@ -216,14 +237,14 @@
       "entities": 1,
       "stores": 1,
       "boundaries": 1,
-      "flows": 15,
+      "flows": 14,
       "entry_points": 8,
       "controls": 1,
       "weaknesses": 8,
-      "schemas": 1,
+      "schemas": 2,
       "assets": 0,
       "threat_agents": 2,
-      "gaps": 10
+      "gaps": 3
     },
     "unsupported": [],
     "expect_hits": [
@@ -231,35 +252,36 @@
       "entry_points>=5 (got 8)"
     ],
     "expect_misses": [],
-    "notes": "Express + mongoose CRUD, routes registered via module.exports = app => { router.get(...); app.use('/api/tutorials', router) }.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-l_2fj9jk/run1"
+    "notes": "Express + mongoose CRUD, routes registered via module.exports = app => { router.get(...); app.use('/api/tutorials', router) }."
   },
   {
     "name": "hackathon-starter",
     "path": "/home/user/sahat/hackathon-starter",
-    "elapsed": 1.3,
+    "elapsed": 1.09,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 81,
-    "mermaid_files": 45,
+    "lint_warnings": 63,
+    "mermaid_files": 46,
     "mermaid_failures": [],
     "counts": {
-      "processes": 118,
-      "entities": 28,
-      "stores": 2,
+      "processes": 107,
+      "entities": 27,
+      "stores": 3,
       "boundaries": 1,
-      "flows": 262,
-      "entry_points": 101,
+      "flows": 213,
+      "entry_points": 90,
       "controls": 12,
-      "weaknesses": 88,
-      "schemas": 10,
-      "assets": 21,
-      "threat_agents": 30,
-      "gaps": 24
+      "weaknesses": 63,
+      "schemas": 28,
+      "assets": 23,
+      "threat_agents": 4,
+      "gaps": 21
     },
     "unsupported": [],
     "expect_hits": [
@@ -272,37 +294,38 @@
       "control:isAuthenticated",
       "control:lusca",
       "control:Limiter",
-      "entry_points>=60 (got 101)"
+      "entry_points>=60 (got 90)"
     ],
     "expect_misses": [],
-    "notes": "Large Express app: mongoose, passport with many OAuth providers, lusca csrf, express-rate-limit, nodemailer, stripe, twilio, octokit, many API calls in controllers/api.js.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-50uq3dmj/run1"
+    "notes": "Large Express app: mongoose, passport with many OAuth providers, lusca csrf, express-rate-limit, nodemailer, stripe, twilio, octokit, many API calls in controllers/api.js."
   },
   {
     "name": "stripe-checkout-sample",
     "path": "/home/user/stripe-samples/checkout-one-time-payments",
-    "elapsed": 0.09,
+    "elapsed": 0.26,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 22,
-    "mermaid_files": 28,
+    "lint_warnings": 11,
+    "mermaid_files": 16,
     "mermaid_failures": [],
     "counts": {
-      "processes": 37,
+      "processes": 22,
       "entities": 3,
       "stores": 0,
       "boundaries": 1,
-      "flows": 35,
-      "entry_points": 19,
+      "flows": 17,
+      "entry_points": 10,
       "controls": 0,
-      "weaknesses": 22,
-      "schemas": 2,
+      "weaknesses": 11,
+      "schemas": 3,
       "assets": 2,
-      "threat_agents": 4,
+      "threat_agents": 3,
       "gaps": 6
     },
     "unsupported": [
@@ -311,16 +334,15 @@
     ],
     "expect_hits": [
       "entitie:Stripe",
-      "entry_points>=3 (got 19)"
+      "entry_points>=3 (got 10)"
     ],
     "expect_misses": [],
-    "notes": "Polyglot sample: server/node and server/python are analyzable; go, java, dotnet, php, ruby servers must appear as unsupported gaps.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-hv1hrb2k/run1"
+    "notes": "Polyglot sample: server/node and server/python are analyzable; go, java, dotnet, php, ruby servers must appear as unsupported gaps."
   },
   {
     "name": "microservices-demo",
     "path": "/home/user/googlecloudplatform/microservices-demo",
-    "elapsed": 0.98,
+    "elapsed": 1.14,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -337,6 +359,14 @@
         "recall": 1.0,
         "predicted": 3,
         "truth": 3,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
         "missed": [],
         "spurious": []
       },
@@ -359,56 +389,48 @@
         ]
       },
       "edges": {
-        "precision": 0.95,
+        "precision": 1.0,
         "recall": 1.0,
-        "predicted": 37,
+        "predicted": 35,
         "truth": 35,
         "missed": [],
-        "spurious": [
-          [
-            "grpc AdService",
-            "Unresolved grpc target"
-          ],
-          [
-            "grpc ProductCatalogService",
-            "Unresolved grpc target"
-          ]
-        ]
+        "spurious": []
       }
     },
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 66,
-    "mermaid_files": 44,
+    "lint_warnings": 24,
+    "mermaid_files": 46,
     "mermaid_failures": [],
     "counts": {
-      "processes": 58,
-      "entities": 7,
+      "processes": 52,
+      "entities": 8,
       "stores": 2,
-      "boundaries": 13,
-      "flows": 83,
-      "entry_points": 31,
+      "boundaries": 14,
+      "flows": 59,
+      "entry_points": 33,
       "controls": 0,
-      "weaknesses": 20,
+      "weaknesses": 19,
       "schemas": 1,
-      "assets": 1,
-      "threat_agents": 20,
+      "assets": 2,
+      "threat_agents": 17,
       "gaps": 11
     },
     "unsupported": [],
     "expect_hits": [
       "entitie:Gemini",
-      "entry_points>=2 (got 31)"
+      "entry_points>=2 (got 33)"
     ],
     "expect_misses": [],
-    "notes": "Online Boutique: Go/C#/Java (unsupported), Node (currency, payment gRPC servers), Python (email, recommendation gRPC; shoppingassistant Flask + Gemini + AlloyDB). Kubernetes manifests give boundaries and service hosts.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-50jxfnp1/run1"
+    "notes": "Online Boutique: Go/C#/Java (unsupported), Node (currency, payment gRPC servers), Python (email, recommendation gRPC; shoppingassistant Flask + Gemini + AlloyDB). Kubernetes manifests give boundaries and service hosts."
   },
   {
     "name": "compose-react-express-mongodb",
     "path": "/home/user/docker/awesome-compose/react-express-mongodb",
-    "elapsed": 0.04,
+    "elapsed": 0.13,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -421,6 +443,14 @@
         "spurious": []
       },
       "infrastructure": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
         "precision": null,
         "recall": null,
         "predicted": 0,
@@ -455,19 +485,21 @@
     },
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
     "lint_warnings": 2,
     "mermaid_files": 5,
     "mermaid_failures": [],
     "counts": {
-      "processes": 6,
+      "processes": 5,
       "entities": 1,
       "stores": 1,
       "boundaries": 4,
-      "flows": 4,
+      "flows": 3,
       "entry_points": 2,
       "controls": 1,
-      "weaknesses": 3,
+      "weaknesses": 1,
       "schemas": 1,
       "assets": 0,
       "threat_agents": 3,
@@ -479,20 +511,21 @@
       "entry_points>=2 (got 2)"
     ],
     "expect_misses": [],
-    "notes": "Compose: frontend + backend (Express + mongoose) + mongo; two routes in backend/routes/index.js.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-ik791tlx/run1"
+    "notes": "Compose: frontend + backend (Express + mongoose) + mongo; two routes in backend/routes/index.js."
   },
   {
     "name": "compose-react-express-mysql",
     "path": "/home/user/docker/awesome-compose/react-express-mysql",
-    "elapsed": 0.03,
+    "elapsed": 0.18,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 3,
+    "lint_warnings": 4,
     "mermaid_files": 5,
     "mermaid_failures": [],
     "counts": {
@@ -500,10 +533,10 @@
       "entities": 2,
       "stores": 1,
       "boundaries": 4,
-      "flows": 3,
+      "flows": 4,
       "entry_points": 2,
       "controls": 1,
-      "weaknesses": 5,
+      "weaknesses": 3,
       "schemas": 0,
       "assets": 1,
       "threat_agents": 4,
@@ -515,34 +548,35 @@
       "entry_points>=1 (got 2)"
     ],
     "expect_misses": [],
-    "notes": "Compose: frontend + backend (Express + mysql) + db.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-5m2_350r/run1"
+    "notes": "Compose: frontend + backend (Express + mysql) + db."
   },
   {
     "name": "compose-nginx-nodejs-redis",
     "path": "/home/user/docker/awesome-compose/nginx-nodejs-redis",
-    "elapsed": 0.02,
+    "elapsed": 0.14,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 3,
+    "lint_warnings": 1,
     "mermaid_files": 4,
     "mermaid_failures": [],
     "counts": {
       "processes": 4,
       "entities": 1,
       "stores": 1,
-      "boundaries": 4,
+      "boundaries": 2,
       "flows": 3,
       "entry_points": 1,
       "controls": 0,
       "weaknesses": 1,
       "schemas": 0,
       "assets": 0,
-      "threat_agents": 3,
+      "threat_agents": 2,
       "gaps": 2
     },
     "unsupported": [],
@@ -551,18 +585,19 @@
       "entry_points>=1 (got 1)"
     ],
     "expect_misses": [],
-    "notes": "Compose: nginx + two node web replicas + redis.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-99_tkrv1/run1"
+    "notes": "Compose: nginx + two node web replicas + redis."
   },
   {
     "name": "compose-flask",
     "path": "/home/user/docker/awesome-compose/flask",
-    "elapsed": 0.01,
+    "elapsed": 0.11,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
     "lint_warnings": 1,
     "mermaid_files": 4,
@@ -586,13 +621,12 @@
       "entry_points>=1 (got 1)"
     ],
     "expect_misses": [],
-    "notes": "Minimal Flask app, no store; the repository boundary should be the only one besides the compose service.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-0n1rumbl/run1"
+    "notes": "Minimal Flask app, no store; the repository boundary should be the only one besides the compose service."
   },
   {
     "name": "compose-flask-redis",
     "path": "/home/user/docker/awesome-compose/flask-redis",
-    "elapsed": 0.01,
+    "elapsed": 0.13,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -605,6 +639,14 @@
         "spurious": []
       },
       "infrastructure": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
         "precision": null,
         "recall": null,
         "predicted": 0,
@@ -639,19 +681,21 @@
     },
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 3,
+    "lint_warnings": 2,
     "mermaid_files": 4,
     "mermaid_failures": [],
     "counts": {
-      "processes": 4,
+      "processes": 3,
       "entities": 1,
       "stores": 1,
-      "boundaries": 2,
+      "boundaries": 1,
       "flows": 3,
       "entry_points": 1,
       "controls": 0,
-      "weaknesses": 1,
+      "weaknesses": 2,
       "schemas": 0,
       "assets": 0,
       "threat_agents": 2,
@@ -663,28 +707,29 @@
       "entry_points>=1 (got 1)"
     ],
     "expect_misses": [],
-    "notes": "Flask + redis.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-7yhrdqqh/run1"
+    "notes": "Flask + redis."
   },
   {
     "name": "compose-nginx-flask-mongo",
     "path": "/home/user/docker/awesome-compose/nginx-flask-mongo",
-    "elapsed": 0.01,
+    "elapsed": 0.15,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 1,
+    "lint_warnings": 2,
     "mermaid_files": 4,
     "mermaid_failures": [],
     "counts": {
-      "processes": 3,
+      "processes": 4,
       "entities": 1,
       "stores": 1,
       "boundaries": 3,
-      "flows": 1,
+      "flows": 2,
       "entry_points": 1,
       "controls": 0,
       "weaknesses": 1,
@@ -699,35 +744,36 @@
       "entry_points>=1 (got 1)"
     ],
     "expect_misses": [],
-    "notes": "Flask + pymongo behind nginx.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-14t81bz5/run1"
+    "notes": "Flask + pymongo behind nginx."
   },
   {
     "name": "compose-nginx-flask-mysql",
     "path": "/home/user/docker/awesome-compose/nginx-flask-mysql",
-    "elapsed": 0.01,
+    "elapsed": 0.14,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 6,
+    "lint_warnings": 2,
     "mermaid_files": 4,
     "mermaid_failures": [],
     "counts": {
       "processes": 4,
       "entities": 1,
-      "stores": 3,
+      "stores": 1,
       "boundaries": 3,
-      "flows": 6,
+      "flows": 3,
       "entry_points": 1,
       "controls": 0,
       "weaknesses": 2,
       "schemas": 1,
       "assets": 0,
       "threat_agents": 2,
-      "gaps": 5
+      "gaps": 2
     },
     "unsupported": [],
     "expect_hits": [
@@ -735,18 +781,19 @@
       "entry_points>=1 (got 1)"
     ],
     "expect_misses": [],
-    "notes": "Flask + mysql-connector behind nginx; compose sets DB password via secrets file.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-i0x_0a7g/run1"
+    "notes": "Flask + mysql-connector behind nginx; compose sets DB password via secrets file."
   },
   {
     "name": "compose-fastapi",
     "path": "/home/user/docker/awesome-compose/fastapi",
-    "elapsed": 0.01,
+    "elapsed": 0.12,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
     "lint_warnings": 1,
     "mermaid_files": 4,
@@ -770,53 +817,55 @@
       "entry_points>=1 (got 1)"
     ],
     "expect_misses": [],
-    "notes": "Minimal FastAPI app.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-_5qaema8/run1"
+    "notes": "Minimal FastAPI app."
   },
   {
     "name": "compose-django",
     "path": "/home/user/docker/awesome-compose/django",
-    "elapsed": 0.02,
+    "elapsed": 0.11,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 1,
-    "mermaid_files": 4,
+    "lint_warnings": 0,
+    "mermaid_files": 2,
     "mermaid_failures": [],
     "counts": {
-      "processes": 4,
-      "entities": 1,
+      "processes": 3,
+      "entities": 0,
       "stores": 0,
       "boundaries": 2,
-      "flows": 1,
-      "entry_points": 1,
+      "flows": 0,
+      "entry_points": 0,
       "controls": 0,
-      "weaknesses": 2,
+      "weaknesses": 0,
       "schemas": 0,
       "assets": 1,
-      "threat_agents": 2,
-      "gaps": 1
+      "threat_agents": 1,
+      "gaps": 0
     },
     "unsupported": [],
     "expect_hits": [
-      "entry_points>=0 (got 1)"
+      "entry_points>=0 (got 0)"
     ],
     "expect_misses": [],
-    "notes": "Django skeleton: urls.py detection and settings secrets; no views beyond admin.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-ejklz_jv/run1"
+    "notes": "Django skeleton: urls.py detection and settings secrets; no views beyond admin."
   },
   {
     "name": "compose-nginx-wsgi-flask",
     "path": "/home/user/docker/awesome-compose/nginx-wsgi-flask",
-    "elapsed": 0.01,
+    "elapsed": 0.12,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
     "schema_ok": true,
     "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
     "lint_errors": 0,
     "lint_warnings": 4,
     "mermaid_files": 7,
@@ -840,7 +889,465 @@
       "entry_points>=1 (got 4)"
     ],
     "expect_misses": [],
-    "notes": "Flask behind gunicorn and nginx.",
-    "out": "/tmp/claude-0/-home-user-code2designmapping/00ae1765-fa06-5c63-9eaf-a8d7d85c6e1e/scratchpad/c2d-llbrd0ok/run1"
+    "notes": "Flask behind gunicorn and nginx."
+  },
+  {
+    "name": "spring-petclinic",
+    "path": "/home/user/spring-projects/spring-petclinic",
+    "elapsed": 0.26,
+    "deterministic": true,
+    "nondeterministic_files": [],
+    "ground_truth": {
+      "entry_points": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 17,
+        "truth": 17,
+        "missed": [],
+        "spurious": []
+      },
+      "infrastructure": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "stores": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 6,
+        "truth": 6,
+        "missed": [],
+        "spurious": []
+      },
+      "entities": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "edges": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 17,
+        "truth": 17,
+        "missed": [],
+        "spurious": []
+      }
+    },
+    "schema_ok": true,
+    "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
+    "lint_errors": 0,
+    "lint_warnings": 20,
+    "mermaid_files": 20,
+    "mermaid_failures": [],
+    "counts": {
+      "processes": 25,
+      "entities": 1,
+      "stores": 6,
+      "boundaries": 1,
+      "flows": 41,
+      "entry_points": 17,
+      "controls": 3,
+      "weaknesses": 20,
+      "schemas": 4,
+      "assets": 1,
+      "threat_agents": 2,
+      "gaps": 9
+    },
+    "unsupported": [],
+    "expect_hits": [
+      "entry_points>=15 (got 17)"
+    ],
+    "expect_misses": [],
+    "notes": "Spring MVC + Spring Data JPA; class-level mappings, @ModelAttribute pre-handlers, engine chosen by profile (H2/MySQL/Postgres)."
+  },
+  {
+    "name": "golang-gin-realworld",
+    "path": "/home/user/gothinkster/golang-gin-realworld-example-app",
+    "elapsed": 0.39,
+    "deterministic": true,
+    "nondeterministic_files": [],
+    "ground_truth": {
+      "entry_points": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 19,
+        "truth": 19,
+        "missed": [],
+        "spurious": []
+      },
+      "infrastructure": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 1,
+        "truth": 1,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 12,
+        "truth": 12,
+        "missed": [],
+        "spurious": []
+      },
+      "stores": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 8,
+        "truth": 1,
+        "missed": [],
+        "spurious": []
+      },
+      "entities": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "edges": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 36,
+        "truth": 18,
+        "missed": [],
+        "spurious": []
+      }
+    },
+    "schema_ok": true,
+    "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
+    "lint_errors": 0,
+    "lint_warnings": 8,
+    "mermaid_files": 25,
+    "mermaid_failures": [],
+    "counts": {
+      "processes": 28,
+      "entities": 1,
+      "stores": 8,
+      "boundaries": 1,
+      "flows": 56,
+      "entry_points": 20,
+      "controls": 1,
+      "weaknesses": 7,
+      "schemas": 7,
+      "assets": 2,
+      "threat_agents": 3,
+      "gaps": 12
+    },
+    "unsupported": [],
+    "expect_hits": [
+      "control:AuthMiddleware",
+      "entry_points>=18 (got 20)"
+    ],
+    "expect_misses": [],
+    "notes": "Gin + GORM; route groups passed to per-package register functions; AuthMiddleware(false) is optional auth and must not count."
+  },
+  {
+    "name": "nestjs-realworld",
+    "path": "/home/user/lujakob/nestjs-realworld-example-app",
+    "elapsed": 0.23,
+    "deterministic": true,
+    "nondeterministic_files": [],
+    "ground_truth": {
+      "entry_points": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 21,
+        "truth": 21,
+        "missed": [],
+        "spurious": []
+      },
+      "infrastructure": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 12,
+        "truth": 12,
+        "missed": [],
+        "spurious": []
+      },
+      "stores": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 5,
+        "truth": 5,
+        "missed": [],
+        "spurious": []
+      },
+      "entities": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "edges": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 30,
+        "truth": 30,
+        "missed": [],
+        "spurious": []
+      }
+    },
+    "schema_ok": true,
+    "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
+    "lint_errors": 0,
+    "lint_warnings": 9,
+    "mermaid_files": 28,
+    "mermaid_failures": [],
+    "counts": {
+      "processes": 32,
+      "entities": 1,
+      "stores": 5,
+      "boundaries": 1,
+      "flows": 54,
+      "entry_points": 21,
+      "controls": 3,
+      "weaknesses": 9,
+      "schemas": 5,
+      "assets": 2,
+      "threat_agents": 3,
+      "gaps": 8
+    },
+    "unsupported": [],
+    "expect_hits": [
+      "control:AuthMiddleware",
+      "entry_points>=20 (got 21)"
+    ],
+    "expect_misses": [],
+    "notes": "NestJS + TypeORM; auth is a middleware bound per route with consumer.apply().forRoutes()."
+  },
+  {
+    "name": "fastapi-full-stack",
+    "path": "/home/user/fastapi/full-stack-fastapi-template",
+    "elapsed": 0.98,
+    "deterministic": true,
+    "nondeterministic_files": [],
+    "ground_truth": {
+      "entry_points": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 22,
+        "truth": 22,
+        "missed": [],
+        "spurious": []
+      },
+      "infrastructure": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 1,
+        "truth": 1,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 17,
+        "truth": 17,
+        "missed": [],
+        "spurious": []
+      },
+      "stores": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 2,
+        "truth": 2,
+        "missed": [],
+        "spurious": []
+      },
+      "entities": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 1,
+        "truth": 1,
+        "missed": [],
+        "spurious": []
+      },
+      "edges": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 28,
+        "truth": 28,
+        "missed": [],
+        "spurious": []
+      }
+    },
+    "schema_ok": true,
+    "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
+    "lint_errors": 0,
+    "lint_warnings": 10,
+    "mermaid_files": 26,
+    "mermaid_failures": [],
+    "counts": {
+      "processes": 33,
+      "entities": 2,
+      "stores": 2,
+      "boundaries": 2,
+      "flows": 64,
+      "entry_points": 23,
+      "controls": 7,
+      "weaknesses": 4,
+      "schemas": 31,
+      "assets": 8,
+      "threat_agents": 3,
+      "gaps": 5
+    },
+    "unsupported": [],
+    "expect_hits": [
+      "store:Postgres",
+      "entry_points>=20 (got 23)"
+    ],
+    "expect_misses": [],
+    "notes": "FastAPI + SQLModel; auth through Depends aliases (CurrentUser, SessionDep), routers included with prefixes."
+  },
+  {
+    "name": "flask-microblog",
+    "path": "/home/user/miguelgrinberg/microblog",
+    "elapsed": 0.25,
+    "deterministic": true,
+    "nondeterministic_files": [],
+    "ground_truth": {
+      "entry_points": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 35,
+        "truth": 35,
+        "missed": [],
+        "spurious": []
+      },
+      "infrastructure": {
+        "precision": null,
+        "recall": null,
+        "predicted": 0,
+        "truth": 0,
+        "missed": [],
+        "spurious": []
+      },
+      "authenticated": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 25,
+        "truth": 25,
+        "missed": [],
+        "spurious": []
+      },
+      "stores": {
+        "precision": 0.88,
+        "recall": 1.0,
+        "predicted": 8,
+        "truth": 7,
+        "missed": [],
+        "spurious": [
+          "postgres:*"
+        ]
+      },
+      "entities": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "predicted": 2,
+        "truth": 2,
+        "missed": [],
+        "spurious": []
+      }
+    },
+    "schema_ok": true,
+    "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
+    "lint_errors": 0,
+    "lint_warnings": 6,
+    "mermaid_files": 39,
+    "mermaid_failures": [],
+    "counts": {
+      "processes": 40,
+      "entities": 3,
+      "stores": 8,
+      "boundaries": 1,
+      "flows": 85,
+      "entry_points": 35,
+      "controls": 4,
+      "weaknesses": 10,
+      "schemas": 24,
+      "assets": 4,
+      "threat_agents": 4,
+      "gaps": 13
+    },
+    "unsupported": [],
+    "expect_hits": [
+      "control:login_required",
+      "entry_points>=30 (got 35)"
+    ],
+    "expect_misses": [],
+    "notes": "Flask blueprints + Flask-SQLAlchemy + Elasticsearch + Redis queue; before_request auth on the main blueprint, token auth on the API."
+  },
+  {
+    "name": "eshoponweb",
+    "path": "/home/user/dotnet-architecture/eshoponweb",
+    "elapsed": 0.55,
+    "deterministic": true,
+    "nondeterministic_files": [],
+    "ground_truth": null,
+    "schema_ok": true,
+    "schema_err": "",
+    "otm_schema_ok": true,
+    "sarif_ok": true,
+    "lint_errors": 0,
+    "lint_warnings": 21,
+    "mermaid_files": 45,
+    "mermaid_failures": [],
+    "counts": {
+      "processes": 67,
+      "entities": 2,
+      "stores": 7,
+      "boundaries": 3,
+      "flows": 95,
+      "entry_points": 49,
+      "controls": 9,
+      "weaknesses": 21,
+      "schemas": 7,
+      "assets": 6,
+      "threat_agents": 5,
+      "gaps": 13
+    },
+    "unsupported": [],
+    "expect_hits": [
+      "entry_points>=20 (got 49)"
+    ],
+    "expect_misses": [],
+    "notes": "ASP.NET Core: MVC controllers, Razor Pages, minimal API endpoints, EF Core through IRepository<T>. No ground truth; structural checks only."
   }
 ]

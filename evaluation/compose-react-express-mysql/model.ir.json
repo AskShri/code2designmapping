@@ -1,12 +1,13 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "provenance": {
-    "tool_version": "0.3.0-prototype",
+    "tool_version": "0.5.0",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-react-express-mysql",
     "detectors": [
-      "config@0.3",
-      "js@0.3"
+      "config@0.5",
+      "js@0.5",
+      "synth@0.5.0"
     ],
     "scope": {
       "include": [
@@ -24,14 +25,16 @@
       "backend/src/database.js": "sha256:78d33a4722fcf32c0353ce9f093a00afeaf7d29f16043ee377047f3ec93d5418",
       "backend/src/server.js": "sha256:b1536bfa63e06c73ee5a93f84bcaf621252a2ae867a73f45b2847b915ab0ce9b",
       "compose.yaml": "sha256:c18155224235f7124b7b6744bf13f6e28bc49ba106f14ead500847b370fe42b3",
+      "frontend/Dockerfile": "sha256:1cdf25c13aaf0c0b7c7d29a770db6e0619626e871ea412fcde082cbd921b072c",
       "frontend/package.json": "sha256:bd09fe50e640dab279e9f874b17c93ae68d8d3112b86d855f0adda91988fbc48"
     }
   },
   "processes": [
     {
-      "id": "proc:27yhxonl43",
+      "id": "proc:4y7we7leqs",
       "identity": [
         "process",
+        "L1",
         "frontend",
         "frontend"
       ],
@@ -44,18 +47,18 @@
           "path": "frontend/src/App.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:195c97e22ca18e0c760abab7baed962741405ae3b6cf9a587c8402a32f9511ff"
         }
       ],
-      "parent": "proc:r4utykjfpf"
+      "parent": "proc:exc3w7cvdm"
     },
     {
-      "id": "proc:achqengmr6",
+      "id": "proc:elzvu7g7ze",
       "identity": [
         "process",
-        "backend/healthcheck.js",
-        "healthcheck"
+        "module",
+        "backend/healthcheck.js"
       ],
       "origin": "observed",
       "name": "healthcheck",
@@ -66,61 +69,17 @@
           "path": "backend/healthcheck.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:f84b276480283baa4678b61582e5995cb80093d12f421a04d806686fb6d9b44a"
         }
       ],
-      "parent": "proc:yss4bddki6"
+      "parent": "proc:nmmdbtjh6y"
     },
     {
-      "id": "proc:acpcyekf6e",
+      "id": "proc:exc3w7cvdm",
       "identity": [
         "process",
-        "backend/src/server.js",
-        "GET /healthz"
-      ],
-      "origin": "observed",
-      "name": "GET /healthz handler",
-      "level": 2,
-      "module": "backend/src/server.js",
-      "evidence": [
-        {
-          "path": "backend/src/server.js",
-          "start_line": 29,
-          "end_line": 34,
-          "detector": "js@0.3",
-          "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
-        }
-      ],
-      "parent": "proc:yss4bddki6"
-    },
-    {
-      "id": "proc:jnzaqgvgi5",
-      "identity": [
-        "process",
-        "backend/src/server.js",
-        "GET /"
-      ],
-      "origin": "observed",
-      "name": "GET / handler",
-      "level": 2,
-      "module": "backend/src/server.js",
-      "evidence": [
-        {
-          "path": "backend/src/server.js",
-          "start_line": 22,
-          "end_line": 27,
-          "detector": "js@0.3",
-          "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
-        }
-      ],
-      "parent": "proc:yss4bddki6"
-    },
-    {
-      "id": "proc:r4utykjfpf",
-      "identity": [
-        "process",
-        ".",
+        "L0",
         "compose-react-express-mysql"
       ],
       "origin": "observed",
@@ -132,15 +91,39 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:45c83d540469bbf353f7fd1d4d9eb5c3e235b7b5c22bb21b1189bb720af480db"
         }
       ]
     },
     {
-      "id": "proc:yss4bddki6",
+      "id": "proc:m5tc4o4g36",
       "identity": [
         "process",
+        "handler",
+        "backend",
+        "GET /healthz"
+      ],
+      "origin": "observed",
+      "name": "GET /healthz handler",
+      "level": 2,
+      "module": "backend/src/server.js",
+      "evidence": [
+        {
+          "path": "backend/src/server.js",
+          "start_line": 29,
+          "end_line": 34,
+          "detector": "js@0.5",
+          "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:nmmdbtjh6y",
+      "identity": [
+        "process",
+        "L1",
         "backend",
         "backend"
       ],
@@ -153,11 +136,34 @@
           "path": "backend/healthcheck.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:f84b276480283baa4678b61582e5995cb80093d12f421a04d806686fb6d9b44a"
         }
       ],
-      "parent": "proc:r4utykjfpf"
+      "parent": "proc:exc3w7cvdm"
+    },
+    {
+      "id": "proc:tpyw7yqypy",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "backend/src/server.js",
+      "evidence": [
+        {
+          "path": "backend/src/server.js",
+          "start_line": 22,
+          "end_line": 27,
+          "detector": "js@0.5",
+          "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
     }
   ],
   "entities": [
@@ -171,16 +177,16 @@
       "origin": "observed",
       "name": "Unresolved HTTP target",
       "kind": "system",
+      "sdk_service": "Unresolved HTTP target",
       "evidence": [
         {
           "path": "backend/healthcheck.js",
           "start_line": 10,
           "end_line": 10,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:1ffa788bbeac0236b00b6ae4a9a13a63f76d492dfb15aa9f64c10ea0f7b05e36"
         }
-      ],
-      "sdk_service": "Unresolved HTTP target"
+      ]
     },
     {
       "id": "ext:sga4qktkap",
@@ -195,17 +201,17 @@
       "evidence": [
         {
           "path": "backend/src/server.js",
-          "start_line": 22,
-          "end_line": 27,
-          "detector": "js@0.3",
-          "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
+          "start_line": 29,
+          "end_line": 34,
+          "detector": "js@0.5",
+          "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
         },
         {
           "path": "backend/src/server.js",
-          "start_line": 29,
-          "end_line": 34,
-          "detector": "js@0.3",
-          "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
+          "start_line": 22,
+          "end_line": 27,
+          "detector": "js@0.5",
+          "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
         }
       ]
     }
@@ -228,11 +234,11 @@
           "path": "compose.yaml",
           "start_line": 31,
           "end_line": 31,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:a25e926065ad4ffd672f73437f19748bcccf6cd8dc1a4b2517f7be3710ad9326"
         }
       ],
-      "description": "declared as service 'db' in compose.yaml"
+      "description": "declared as 'db' in compose.yaml"
     }
   ],
   "boundaries": [
@@ -245,18 +251,18 @@
       ],
       "origin": "inferred",
       "confidence": 0.5,
-      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "rationale": "no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary",
       "name": "repository: compose-react-express-mysql",
       "kind": "repository",
       "contains": [
-        "proc:r4utykjfpf"
+        "proc:exc3w7cvdm"
       ],
       "evidence": [
         {
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:45c83d540469bbf353f7fd1d4d9eb5c3e235b7b5c22bb21b1189bb720af480db"
         }
       ]
@@ -272,17 +278,17 @@
       "name": "container: backend",
       "kind": "container",
       "contains": [
-        "proc:achqengmr6",
-        "proc:acpcyekf6e",
-        "proc:jnzaqgvgi5",
-        "proc:yss4bddki6"
+        "proc:elzvu7g7ze",
+        "proc:m5tc4o4g36",
+        "proc:nmmdbtjh6y",
+        "proc:tpyw7yqypy"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 2,
           "end_line": 2,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:bb85cefe8491144f31476f0f6f1f729dcc935f1fcc95ba7a6f3100d30c28b2b1"
         }
       ]
@@ -305,7 +311,7 @@
           "path": "compose.yaml",
           "start_line": 31,
           "end_line": 31,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:a25e926065ad4ffd672f73437f19748bcccf6cd8dc1a4b2517f7be3710ad9326"
         }
       ]
@@ -321,14 +327,14 @@
       "name": "container: frontend",
       "kind": "container",
       "contains": [
-        "proc:27yhxonl43"
+        "proc:4y7we7leqs"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 47,
           "end_line": 47,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:309013386ee2a32ade8ee1c05705e164a36fb3622edaa57f3a0ea8e7d8c19628"
         }
       ]
@@ -336,50 +342,16 @@
   ],
   "flows": [
     {
-      "id": "flow:5ksgc42e24",
+      "id": "flow:63jvjyxtzn",
       "identity": [
         "flow",
         "ext:sga4qktkap",
-        "proc:jnzaqgvgi5",
-        "http",
-        ""
+        "proc:m5tc4o4g36",
+        "http"
       ],
       "origin": "observed",
       "source": "ext:sga4qktkap",
-      "target": "proc:jnzaqgvgi5",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "unknown",
-      "purpose": "GET /",
-      "crosses_boundary": [
-        "bnd:j3ktzp2k6o"
-      ],
-      "controls": [
-        "ctl:yxublw3pv7"
-      ],
-      "evidence": [
-        {
-          "path": "backend/src/server.js",
-          "start_line": 22,
-          "end_line": 27,
-          "detector": "js@0.3",
-          "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
-        }
-      ]
-    },
-    {
-      "id": "flow:oowmhs3phm",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:acpcyekf6e",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:acpcyekf6e",
+      "target": "proc:m5tc4o4g36",
       "protocol": "http",
       "direction": "request_response",
       "authentication": "none",
@@ -389,29 +361,28 @@
         "bnd:j3ktzp2k6o"
       ],
       "controls": [
-        "ctl:yxublw3pv7"
+        "ctl:twu6bjniwq"
       ],
       "evidence": [
         {
           "path": "backend/src/server.js",
           "start_line": 29,
           "end_line": 34,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
         }
       ]
     },
     {
-      "id": "flow:w7wj2wt3j7",
+      "id": "flow:d5vyeunley",
       "identity": [
         "flow",
-        "proc:achqengmr6",
+        "proc:elzvu7g7ze",
         "ext:miziwfdicw",
-        "unknown",
-        ""
+        "unknown"
       ],
       "origin": "observed",
-      "source": "proc:achqengmr6",
+      "source": "proc:elzvu7g7ze",
       "target": "ext:miziwfdicw",
       "protocol": "unknown",
       "direction": "request_response",
@@ -427,98 +398,167 @@
           "path": "backend/healthcheck.js",
           "start_line": 10,
           "end_line": 10,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:1ffa788bbeac0236b00b6ae4a9a13a63f76d492dfb15aa9f64c10ea0f7b05e36"
         }
       ]
-    }
-  ],
-  "entry_points": [
-    {
-      "id": "ep:rajxkpkrc5",
-      "identity": [
-        "entry_point",
-        "http",
-        "GET",
-        "/healthz",
-        "backend/src/server.js"
-      ],
-      "origin": "observed",
-      "process": "proc:acpcyekf6e",
-      "protocol": "http",
-      "method": "GET",
-      "path": "/healthz",
-      "controls": [
-        "ctl:yxublw3pv7"
-      ],
-      "call_chain": [
-        "proc:acpcyekf6e"
-      ],
-      "evidence": [
-        {
-          "path": "backend/src/server.js",
-          "start_line": 29,
-          "end_line": 34,
-          "detector": "js@0.3",
-          "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
-        }
-      ],
-      "infrastructure": true,
-      "reaches": []
     },
     {
-      "id": "ep:v6iwio3w7w",
+      "id": "flow:nfeelwxs67",
       "identity": [
-        "entry_point",
-        "http",
-        "GET",
-        "/",
-        "backend/src/server.js"
+        "flow",
+        "ext:sga4qktkap",
+        "proc:tpyw7yqypy",
+        "http"
       ],
       "origin": "observed",
-      "process": "proc:jnzaqgvgi5",
+      "source": "ext:sga4qktkap",
+      "target": "proc:tpyw7yqypy",
       "protocol": "http",
-      "method": "GET",
-      "path": "/",
-      "controls": [
-        "ctl:yxublw3pv7"
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /",
+      "crosses_boundary": [
+        "bnd:j3ktzp2k6o"
       ],
-      "call_chain": [
-        "proc:jnzaqgvgi5"
+      "controls": [
+        "ctl:twu6bjniwq"
       ],
       "evidence": [
         {
           "path": "backend/src/server.js",
           "start_line": 22,
           "end_line": 27,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
         }
+      ]
+    },
+    {
+      "id": "flow:vfjepiqbxv",
+      "identity": [
+        "flow",
+        "proc:nmmdbtjh6y",
+        "store:hxhbxcitka",
+        "sql"
       ],
-      "reaches": []
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "DATABASE_HOST of service 'backend' names host 'db' in compose.yaml; no call site was resolved in code",
+      "source": "proc:nmmdbtjh6y",
+      "target": "store:hxhbxcitka",
+      "protocol": "sql",
+      "direction": "unknown",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "declared via DATABASE_HOST",
+      "crosses_boundary": [
+        "bnd:j3ktzp2k6o",
+        "bnd:li56z6okmf"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 13,
+          "end_line": 13,
+          "detector": "config@0.5",
+          "content_hash": "sha256:52323e535e44a8eeed422f5d998d85d2fd37746be16dd686a103b0003dd93a34"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:n2mzvwlzhf",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/healthz",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:m5tc4o4g36",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/healthz",
+      "exposure": "public",
+      "controls": [
+        "ctl:twu6bjniwq"
+      ],
+      "call_chain": [
+        "proc:m5tc4o4g36"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "backend/src/server.js",
+          "start_line": 29,
+          "end_line": 34,
+          "detector": "js@0.5",
+          "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
+        }
+      ],
+      "infrastructure": true
+    },
+    {
+      "id": "ep:olb7e5a6fp",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:tpyw7yqypy",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "exposure": "public",
+      "controls": [
+        "ctl:twu6bjniwq"
+      ],
+      "call_chain": [
+        "proc:tpyw7yqypy"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "backend/src/server.js",
+          "start_line": 22,
+          "end_line": 27,
+          "detector": "js@0.5",
+          "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
+        }
+      ]
     }
   ],
   "controls": [
     {
-      "id": "ctl:yxublw3pv7",
+      "id": "ctl:twu6bjniwq",
       "identity": [
         "control",
         "audit_log",
-        "backend/src/server.js::morgan"
+        "backend/src/server.js",
+        "morgan"
       ],
       "origin": "observed",
       "kind": "audit_log",
       "name": "morgan",
+      "scope": "router",
       "applies_to": [
-        "ep:rajxkpkrc5",
-        "ep:v6iwio3w7w"
+        "ep:n2mzvwlzhf",
+        "ep:olb7e5a6fp"
       ],
       "evidence": [
         {
           "path": "backend/src/server.js",
           "start_line": 20,
           "end_line": 20,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:f298844162133d1222739daddeda8f4188ac0c439fda6dc3c93daa302ba506d4"
         }
       ]
@@ -526,117 +566,93 @@
   ],
   "weaknesses": [
     {
-      "id": "wk:fymhbh2k6r",
+      "id": "wk:ahcgvkrbcl",
       "identity": [
         "weakness",
         "plaintext_credentials",
-        "compose.yaml:46"
+        "compose.yaml",
+        "MYSQL_ROOT_PASSWORD_FILE set in compose service 'db'",
+        "1"
       ],
       "origin": "observed",
       "kind": "plaintext_credentials",
       "name": "MYSQL_ROOT_PASSWORD_FILE set in compose service 'db'",
+      "severity": "high",
+      "cwe": "CWE-798",
+      "stride": [
+        "I",
+        "E"
+      ],
       "applies_to": [
-        "proc:r4utykjfpf"
+        "proc:exc3w7cvdm"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 46,
           "end_line": 46,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:106bd8cc42f4841a8dda8814039be9230da88e3c5d6471c61f3f037413fbec0a"
         }
       ]
     },
     {
-      "id": "wk:ixftpz3cby",
+      "id": "wk:lofhzc4mhu",
       "identity": [
         "weakness",
         "unauthenticated_entry_point",
-        "ep:v6iwio3w7w"
+        "ep:olb7e5a6fp"
       ],
       "origin": "observed",
       "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on GET /",
+      "name": "no authentication control detected on GET /",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
       "applies_to": [
-        "ep:v6iwio3w7w"
+        "ep:olb7e5a6fp"
       ],
       "evidence": [
         {
           "path": "backend/src/server.js",
           "start_line": 22,
           "end_line": 27,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
         }
       ]
     },
     {
-      "id": "wk:rcfc5seyhh",
+      "id": "wk:wxk473ikbk",
       "identity": [
         "weakness",
         "plaintext_credentials",
-        "compose.yaml:12"
+        "compose.yaml",
+        "DATABASE_PASSWORD set in compose service 'backend'",
+        "1"
       ],
       "origin": "observed",
       "kind": "plaintext_credentials",
       "name": "DATABASE_PASSWORD set in compose service 'backend'",
+      "severity": "high",
+      "cwe": "CWE-798",
+      "stride": [
+        "I",
+        "E"
+      ],
       "applies_to": [
-        "proc:r4utykjfpf"
+        "proc:exc3w7cvdm"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 12,
           "end_line": 12,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:13de90a64599f66feaf9eca92d19f60322d54b6f2e629577a1458c0c04286643"
-        }
-      ]
-    },
-    {
-      "id": "wk:vrjgfyz7jf",
-      "identity": [
-        "weakness",
-        "secret_in_env_at_import",
-        "backend/src/config.js:13"
-      ],
-      "origin": "observed",
-      "kind": "secret_in_env_at_import",
-      "name": "DATABASE_PASSWORD read at module import",
-      "applies_to": [
-        "proc:yss4bddki6"
-      ],
-      "evidence": [
-        {
-          "path": "backend/src/config.js",
-          "start_line": 13,
-          "end_line": 13,
-          "detector": "js@0.3",
-          "content_hash": "sha256:86d93075cb4d722585116e78548b2b88638809f1485d42077485821a98138d23"
-        }
-      ]
-    },
-    {
-      "id": "wk:xtta62uoi7",
-      "identity": [
-        "weakness",
-        "secret_in_env_at_import",
-        "backend/src/config.js:12"
-      ],
-      "origin": "observed",
-      "kind": "secret_in_env_at_import",
-      "name": "DATABASE_PASSWORD read at module import",
-      "applies_to": [
-        "proc:yss4bddki6"
-      ],
-      "evidence": [
-        {
-          "path": "backend/src/config.js",
-          "start_line": 12,
-          "end_line": 12,
-          "detector": "js@0.3",
-          "content_hash": "sha256:34bf065585997a42d42b07f8ad27c5818710b98a2ec3ade6c0b7d6e67032a896"
         }
       ]
     }
@@ -657,17 +673,17 @@
         "secret"
       ],
       "held_by": [
-        "proc:yss4bddki6"
+        "proc:nmmdbtjh6y"
       ],
       "processed_by": [
-        "proc:yss4bddki6"
+        "proc:nmmdbtjh6y"
       ],
       "evidence": [
         {
           "path": "backend/src/config.js",
           "start_line": 12,
           "end_line": 12,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:34bf065585997a42d42b07f8ad27c5818710b98a2ec3ade6c0b7d6e67032a896"
         }
       ]
@@ -675,85 +691,16 @@
   ],
   "threat_agents": [
     {
-      "id": "agent:3znsii7bbp",
-      "identity": [
-        "agent",
-        "insider",
-        "bnd:j3ktzp2k6o"
-      ],
-      "origin": "inferred",
-      "confidence": 0.8,
-      "rationale": "one insider agent per trust boundary, placed inside it",
-      "name": "Insider with access to container: backend",
-      "access": "insider",
-      "location": "bnd:j3ktzp2k6o",
-      "entry": [
-        "proc:achqengmr6",
-        "proc:acpcyekf6e",
-        "proc:jnzaqgvgi5"
-      ],
-      "passes_controls": [
-        "authn",
-        "authz",
-        "rate_limit",
-        "input_validation",
-        "csrf",
-        "cors"
-      ],
-      "goals": [
-        "read stores directly",
-        "exfiltrate secrets"
-      ],
-      "evidence": [
-        {
-          "path": "compose.yaml",
-          "start_line": 2,
-          "end_line": 2,
-          "detector": "config@0.3",
-          "content_hash": "sha256:bb85cefe8491144f31476f0f6f1f729dcc935f1fcc95ba7a6f3100d30c28b2b1"
-        }
-      ]
-    },
-    {
-      "id": "agent:iz42vhqvjp",
-      "identity": [
-        "agent",
-        "anonymous",
-        "http-client"
-      ],
-      "origin": "inferred",
-      "confidence": 0.9,
-      "rationale": "2 http entry points, 2 without a detected authn control",
-      "name": "Anonymous HTTP caller",
-      "access": "anonymous",
-      "entry": [
-        "ext:sga4qktkap"
-      ],
-      "passes_controls": [],
-      "goals": [
-        "reach data or functions without authenticating"
-      ],
-      "evidence": [
-        {
-          "path": "backend/src/server.js",
-          "start_line": 22,
-          "end_line": 27,
-          "detector": "js@0.3",
-          "content_hash": "sha256:fe058d5bef186d5429f4f02fdd438e48c3e515bbf2a493ba5bfdac4a57ee7609"
-        }
-      ]
-    },
-    {
-      "id": "agent:newgehufwo",
+      "id": "agent:2othu56gpm",
       "identity": [
         "agent",
         "third_party",
-        "ext:miziwfdicw"
+        "outbound"
       ],
       "origin": "inferred",
       "confidence": 0.7,
-      "rationale": "every outbound dependency is modeled as a potentially hostile responder",
-      "name": "Compromised third party: Unresolved HTTP target",
+      "rationale": "each of the 1 outbound dependencies is a potentially hostile responder",
+      "name": "Compromised external service",
       "access": "third_party",
       "entry": [
         "ext:miziwfdicw"
@@ -768,8 +715,79 @@
           "path": "backend/healthcheck.js",
           "start_line": 10,
           "end_line": 10,
-          "detector": "js@0.3",
+          "detector": "js@0.5",
           "content_hash": "sha256:1ffa788bbeac0236b00b6ae4a9a13a63f76d492dfb15aa9f64c10ea0f7b05e36"
+        }
+      ]
+    },
+    {
+      "id": "agent:3znsii7bbp",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:j3ktzp2k6o"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to container: backend",
+      "access": "insider",
+      "location": "bnd:j3ktzp2k6o",
+      "entry": [
+        "proc:elzvu7g7ze",
+        "proc:m5tc4o4g36",
+        "proc:tpyw7yqypy"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors",
+        "security_headers",
+        "audit_log"
+      ],
+      "goals": [
+        "read data stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yaml",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.5",
+          "content_hash": "sha256:bb85cefe8491144f31476f0f6f1f729dcc935f1fcc95ba7a6f3100d30c28b2b1"
+        }
+      ]
+    },
+    {
+      "id": "agent:iz42vhqvjp",
+      "identity": [
+        "agent",
+        "anonymous",
+        "http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.9,
+      "rationale": "1 entry points are reachable from outside, 1 of them without a detected authentication control",
+      "name": "Anonymous HTTP caller",
+      "access": "anonymous",
+      "entry": [
+        "ext:sga4qktkap"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "reach data or functions without authenticating"
+      ],
+      "evidence": [
+        {
+          "path": "backend/src/server.js",
+          "start_line": 29,
+          "end_line": 34,
+          "detector": "js@0.5",
+          "content_hash": "sha256:ee2c512350b88bd4a7e649c9321772a56d80366fe357b2011e8d00be3061266f"
         }
       ]
     },
@@ -787,7 +805,7 @@
       "access": "insider",
       "location": "bnd:yy7r6ylpud",
       "entry": [
-        "proc:27yhxonl43"
+        "proc:4y7we7leqs"
       ],
       "passes_controls": [
         "authn",
@@ -795,10 +813,12 @@
         "rate_limit",
         "input_validation",
         "csrf",
-        "cors"
+        "cors",
+        "security_headers",
+        "audit_log"
       ],
       "goals": [
-        "read stores directly",
+        "read data stores directly",
         "exfiltrate secrets"
       ],
       "evidence": [
@@ -806,7 +826,7 @@
           "path": "compose.yaml",
           "start_line": 47,
           "end_line": 47,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:309013386ee2a32ade8ee1c05705e164a36fb3622edaa57f3a0ea8e7d8c19628"
         }
       ]
@@ -817,24 +837,24 @@
       "kind": "unresolved",
       "path": "backend/healthcheck.js",
       "line": 10,
-      "detail": "outbound call target is a variable:options expression; host not resolvable statically"
-    },
-    {
-      "kind": "unresolved",
-      "path": "compose.yaml",
-      "line": 31,
-      "detail": "MySQL is declared but no code access to it was detected (unsupported language, dynamic client, or a missing recognizer)"
+      "detail": "the target of an outbound call is built from a variable; the host is not resolvable statically"
     },
     {
       "kind": "unknown_attribute",
       "path": "backend/src/server.js",
-      "detail": "Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered."
+      "detail": "Question: is TLS terminated in front of the HTTP listener of backend? Inbound flows are marked encryption=unknown until answered."
     },
     {
       "kind": "unknown_attribute",
       "path": "backend/healthcheck.js",
       "line": 10,
-      "detail": "Question for the team: how is the link to Unresolved HTTP target authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+      "detail": "Question: what is the authentication and encryption of the link to Unresolved HTTP target?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "compose.yaml",
+      "line": 13,
+      "detail": "Question: what is the authentication and encryption of the link to MySQL?"
     }
   ]
 }

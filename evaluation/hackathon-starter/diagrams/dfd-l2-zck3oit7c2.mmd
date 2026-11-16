@@ -1,0 +1,46 @@
+%% L2 - config
+flowchart LR
+  subgraph bnd_wsjnfagnyn["repository: hackathon-starter"]
+    proc_3pfwtt2b6n(["hackathon-starter (+91)"])
+    proc_4wftvyfqav(["token-revocation"])
+    proc_psrnophxn5(["controllers (+5)"])
+    proc_rreipcwqbx(["passport"])
+    proc_y3k3ai7ev6(["nodemailer"])
+    proc_ysryg7dlrl(["models (+1)"])
+  end
+  ext_63wzgostuh["api.linkedin.com"]
+  ext_bwroa5pgto["Steam Openid identity provider"]
+  ext_jersuzximo["Google Oauth identity provider"]
+  ext_l2biskukaq["SMTP mail relay"]
+  ext_miziwfdicw["Unresolved HTTP target"]
+  ext_muqplzhwb7["Github2 identity provider"]
+  ext_oxze3tquf6["discord.com"]
+  ext_pja6bq4qbq["graph.microsoft.com"]
+  ext_qaajlcnhsd["api.steampowered.com"]
+  ext_si4fnyazwf["Facebook identity provider"]
+  store_x3kis6s6op[("MongoDB: User")]
+  proc_3pfwtt2b6n -->|"in_process"| proc_4wftvyfqav
+  proc_3pfwtt2b6n -->|"in_process"| proc_rreipcwqbx
+  proc_3pfwtt2b6n -->|"in_process"| proc_y3k3ai7ev6
+  proc_4wftvyfqav -->|"unknown"| ext_miziwfdicw
+  proc_psrnophxn5 -->|"in_process"| proc_y3k3ai7ev6
+  proc_rreipcwqbx -->|"https"| ext_63wzgostuh
+  proc_rreipcwqbx -.->|"https"| ext_bwroa5pgto
+  proc_rreipcwqbx -.->|"https"| ext_jersuzximo
+  proc_rreipcwqbx -->|"unknown"| ext_miziwfdicw
+  proc_rreipcwqbx -.->|"https"| ext_muqplzhwb7
+  proc_rreipcwqbx -->|"https"| ext_oxze3tquf6
+  proc_rreipcwqbx -->|"https"| ext_pja6bq4qbq
+  proc_rreipcwqbx -->|"http"| ext_qaajlcnhsd
+  proc_rreipcwqbx -.->|"https"| ext_si4fnyazwf
+  proc_rreipcwqbx -->|"in_process"| proc_ysryg7dlrl
+  proc_rreipcwqbx -->|"mongo"| store_x3kis6s6op
+  proc_y3k3ai7ev6 -->|"smtp: from request fields (postContact) (+4) (credent..."| ext_l2biskukaq
+  store_x3kis6s6op -->|"mongo: MongoDB: User record (credential,pii)"| proc_rreipcwqbx
+  style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

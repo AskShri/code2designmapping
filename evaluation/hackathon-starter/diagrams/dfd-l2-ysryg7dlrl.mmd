@@ -1,0 +1,16 @@
+%% L2 - models
+flowchart LR
+  subgraph bnd_wsjnfagnyn["repository: hackathon-starter"]
+    proc_ur2eh7zf6r(["User"])
+    proc_zck3oit7c2(["config (+3)"])
+  end
+  store_3ufptbo5k3[("MongoDB (collection unresolved)")]
+  proc_zck3oit7c2 -->|"in_process"| proc_ur2eh7zf6r
+  store_3ufptbo5k3 -->|"mongo"| proc_ur2eh7zf6r
+  style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

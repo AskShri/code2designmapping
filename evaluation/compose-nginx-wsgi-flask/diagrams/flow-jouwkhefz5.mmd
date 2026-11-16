@@ -1,0 +1,7 @@
+%% Control flow: GET /flask-health-check
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_5zmdsr4rb5 as GET /flask-health-check handler
+  ext_sga4qktkap->>proc_5zmdsr4rb5: GET /flask-health-check
+  proc_5zmdsr4rb5-->>ext_sga4qktkap: response

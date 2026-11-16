@@ -1,6 +1,6 @@
 # code2design report: stripe-checkout-sample
 
-Commit `c834ba3ae155`, tool 0.3.0-prototype, 0.1s.
+Commit `c834ba3ae155`, code2design 0.5.0, IR 0.2.
 
 ## Coverage
 
@@ -13,63 +13,71 @@ Commit `c834ba3ae155`, tool 0.3.0-prototype, 0.1s.
 | python | 1 |
 | tsx | 4 |
 | typescript | 7 |
-| (test files skipped) | 0 |
+| (test files, not modelled) | 0 |
 | no recognizer for .php | 4 (not analyzed) |
 | no recognizer for .rb | 5 (not analyzed) |
 
-Detectors that ran: config@0.3, csharp@0.1, go@0.1, java@0.1, js@0.3, py@0.3
+Detectors: config@0.5, csharp@0.5, go@0.5, java@0.5, js@0.5, py@0.5, synth@0.5.0
 
-Facts: app_entry 5, config_value 14, dependencies 4, entry_point 19, listener 4, module 3, outbound_call 30, schema 6
+Facts: app 3, config_value 12, dependencies 6, entry_point 19, listener 4, module 5, outbound_call 29, router 4, schema 6, weakness 1
 
 ## Model
 
 | Collection | Count |
 |---|---|
-| processes | 37 |
+| processes | 22 |
 | entities | 3 |
 | stores | 0 |
 | boundaries | 1 |
-| flows | 35 |
-| entry_points | 19 |
+| flows | 17 |
+| entry_points | 10 |
 | controls | 0 |
-| weaknesses | 22 |
-| schemas | 2 |
+| weaknesses | 11 |
+| schemas | 3 |
 | assets | 2 |
-| threat_agents | 4 |
+| threat_agents | 3 |
 | gaps | 6 |
 
 ## Attack surface
 
-Entry points are where a threat agent first touches the system; exit points are where data leaves it; dependencies are code the team did not write (Black Duck's dependency analysis).
+Entry points are where a threat agent first touches the system; exit points are where data leaves it; dependencies are code the team did not write.
 
-- **http**: 19 entry points, 19 without a detected authn control
-- **listeners**: server/dotnet/Program.cs port ?, server/go/server.go port "0.0.0.0:4242", server/node/server.js port 4242, server/python/server.py port (port=4242, debug=True)
+- **http**: 10 entry points, 10 without a detected authentication control (0 of them published outside the deployment)
+- **listeners**: server/dotnet/Program.cs port ?, server/go/server.go port "0.0.0.0:4242", server/node/server.js port 4242, server/python/server.py port 4242
 - **exit points carrying sensitive data**: none detected
-- **third-party dependencies**: 15 declared in client/react-cra/package.json, server/nextjs/package.json, server/node/package.json, server/python/requirements.txt; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodeled attack surface
+- **third-party dependencies**: 23 declared in client/react-cra/package.json, server/go/go.mod, server/java/pom.xml, server/nextjs/package.json, server/node/package.json, server/python/requirements.txt; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodelled attack surface
+- **weaknesses**: 1 medium, 10 info (see stride-table.md and findings.sarif)
 
 ### Entry points
 
-| Entry point | Controls |
-|---|---|
-| ANY /webhook | none |
-| GET /config | none |
-| GET /checkout-session | none |
-| ANY / | none |
-| POST /create-checkout-session | none |
-| POST webhook | none |
-| POST /webhook | none |
-| ANY /create-checkout-session | none |
-| GET /config | none |
-| GET / | none |
-| GET /checkout-session | none |
-| POST /create-checkout-session | none |
-| POST /webhook | none |
-| ANY /config | none |
-| GET / | none |
-| ANY /checkout-session | none |
-| GET /config | none |
-| POST /create-checkout-session | none |
-| GET /checkout-session | none |
+| Entry point | Exposure | Controls (registration order) | Reaches |
+|---|---|---|---|
+| ANY /create-checkout-session | unknown | none | - |
+| GET /config | unknown | none | Stripe API |
+| POST /create-checkout-session | unknown | none | Stripe API |
+| ANY /webhook | unknown | none | - |
+| GET / | unknown | none | - |
+| ANY /config | unknown | none | - |
+| GET /checkout-session | unknown | none | Stripe API |
+| ANY / | unknown | none | - |
+| ANY /checkout-session | unknown | none | - |
+| POST /webhook | unknown | none | Stripe API |
+
+### Weaknesses
+
+| Severity | CWE | Weakness | Location |
+|---|---|---|---|
+| medium | CWE-489 | debug=True on the application server | server/python/server.py:119 |
+| info | CWE-306 | no authentication control detected on POST /create-checkout-session | server/node/server.js:60 |
+| info | CWE-306 | no authentication control detected on GET / | server/node/server.js:38 |
+| info | CWE-306 | no authentication control detected on GET /checkout-session | server/node/server.js:54 |
+| info | CWE-306 | no authentication control detected on ANY /checkout-session | server/go/server.go:44 |
+| info | CWE-306 | no authentication control detected on POST /webhook | server/node/server.js:89 |
+| info | CWE-306 | no authentication control detected on ANY / | server/go/server.go:42 |
+| info | CWE-306 | no authentication control detected on GET /config | server/node/server.js:43 |
+| info | CWE-306 | no authentication control detected on ANY /create-checkout-session | server/go/server.go:45 |
+| info | CWE-306 | no authentication control detected on ANY /config | server/go/server.go:43 |
+| info | CWE-306 | no authentication control detected on ANY /webhook | server/go/server.go:46 |
 
 ### External entities
 
@@ -81,66 +89,46 @@ Entry points are where a threat agent first touches the system; exit points are 
 
 ### Data stores
 
-| Store | Technology | Data classes | Boundary |
-|---|---|---|---|
+| Store | Technology | Data classes | Encryption at rest | Boundary |
+|---|---|---|---|---|
 
 ## Lint
 
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET /config handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> POST /create-checkout-session handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET /checkout-session handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> POST webhook handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> ANY /create-checkout-session handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> ANY / handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET /config handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET /checkout-session handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> ANY /checkout-session handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> ANY /config handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> POST /webhook handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> POST /create-checkout-session handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET / handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET /config handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> POST /webhook handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET /checkout-session handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET / handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> ANY /webhook handler
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> POST /create-checkout-session handler
-- **warning** `unknown-link-attributes` Server -> Stripe API: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` success -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` Success -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **info** `black-hole-or-miracle` process Program has only outputs; a detector may be missing
-- **info** `black-hole-or-miracle` process ANY /webhook handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process go has only outputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET / handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process POST webhook handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process route has only outputs; a detector may be missing
-- **info** `black-hole-or-miracle` process python has only outputs; a detector may be missing
-- **info** `black-hole-or-miracle` process POST /create-checkout-session handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process Success has only outputs; a detector may be missing
-- **info** `black-hole-or-miracle` process ANY /config handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process success has only outputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /checkout-session handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process ANY /create-checkout-session handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET /config handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process GET / handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process Server has only outputs; a detector may be missing
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY /webhook handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /config handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY /config handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY / handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /create-checkout-session handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY /create-checkout-session handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET / handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /checkout-session handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /webhook handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY /checkout-session handler
+- **warning** `weakness-debug-mode-enabled` CWE-489 debug=True on the application server (server/python/server.py:119)
 - **info** `black-hole-or-miracle` process ANY / handler has only inputs; a detector may be missing
-- **info** `black-hole-or-miracle` process stripe has only outputs; a detector may be missing
+- **info** `black-hole-or-miracle` process ANY /create-checkout-session handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process ANY /config handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process Success has only outputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET / handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process success has only outputs; a detector may be missing
+- **info** `black-hole-or-miracle` process ANY /webhook handler has only inputs; a detector may be missing
 - **info** `black-hole-or-miracle` process ANY /checkout-session handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process python has only outputs; a detector may be missing
+- **info** `unknown-link-attributes` Success -> Unresolved HTTP target: authentication=unknown, encryption=unknown
+- **info** `unknown-link-attributes` success -> Unresolved HTTP target: authentication=unknown, encryption=unknown
 
 ## Inferred elements (dashed in diagrams)
 
-- repository: stripe-checkout-sample (confidence 0.5): No container or IaC boundary covers these processes; the repository itself is used as the trust boundary
-- Anonymous HTTP caller (confidence 0.9): 19 http entry points, 19 without a detected authn control
-- Compromised third party: Unresolved HTTP target (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Stripe API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
+- repository: stripe-checkout-sample (confidence 0.5): no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary
+- Compromised external service (confidence 0.7): each of the 2 outbound dependencies is a potentially hostile responder
+- Anonymous HTTP caller (confidence 0.9): 10 entry points are reachable from outside, 10 of them without a detected authentication control
 - Insider with access to repository: stripe-checkout-sample (confidence 0.8): one insider agent per trust boundary, placed inside it
 
 ## Gaps and questions
 
-- `no_boundary_info` : No compose, Dockerfile or Kubernetes manifests found; the repository is the only trust boundary.
+- `unresolved` client/html/success.js:5: the target of an outbound call is built from a variable; the host is not resolvable statically
+- `no_boundary_info` : no docker compose, Dockerfile, Kubernetes or Terraform descriptors were found; the repository is the only trust boundary
 - `unsupported_file` server/php/public/create-checkout-session.php: no recognizer for .php: 4 file(s), e.g. server/php/public/create-checkout-session.php, server/php/public/get-checkout-session.php, server/php/public/shared.php
 - `unsupported_file` server/ruby/server.rb: no recognizer for .rb: 5 file(s), e.g. server/ruby/server.rb, spec/capybara_support.rb, spec/client_and_server_spec.rb
-- `unknown_attribute` server/node/server.js: Question for the team: is TLS terminated in front of the HTTP listener on port "0.0.0.0:4242", (port=4242, debug=True), 4242, ?? Inbound flows are marked encryption=unknown until answered.
-- `unknown_attribute` client/html/success.js:5: Question for the team: how is the link to Unresolved HTTP target authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
-- `unknown_attribute` server/java/src/main/java/com/stripe/sample/Server.java:24: Question for the team: how is the link to Stripe API authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
+- `unknown_attribute` server/node/server.js: Question: is TLS terminated in front of the HTTP listener of stripe-checkout-sample? Inbound flows are marked encryption=unknown until answered.
+- `unknown_attribute` client/react-cra/src/components/Success.jsx:12: Question: what is the authentication and encryption of the link to Unresolved HTTP target?

@@ -1,506 +1,506 @@
 [
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:2croxq6qos",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC EmailService handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:2oq47jqpjy",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /cart/empty handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:36efeygp2l",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC RecommendationService handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:4ypb5kyipt",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> GET / handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:4emq3vwoqp",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /cart handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:5u6lt5gdv6",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /product/{id} handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:56hkzaq6od",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:6tso6o2dp4",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> ANY /_healthz handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:7yh56u2tiz",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC Health handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:7z7pmruqwj",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /logout handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:b7iok2z7s4",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:b3yoe66vhl",
+    "message": "inbound flow crosses a boundary without authentication: Internal gRPC client -> gRPC Health handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:bodkxkygcy",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC AdService handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:feufl426rm",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /cart handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:cgutinlwpf",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC CurrencyService handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:fhadecp75u",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /product-meta/{ids} handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:chxmzl2k5g",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC Health handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:gcbzegk3ar",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /cart/checkout handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:cwawoz7bsm",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC Health handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:hfu3c7fgql",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET / handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:disay54g6t",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> ANY /_healthz handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:jehyt3fzqc",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> ANY /robots.txt handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:dmkqza4fqj",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC PaymentService handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:mcwvlm5doj",
+    "message": "inbound flow crosses a boundary without authentication: Internal gRPC client -> gRPC Health handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:dqz6dcwwem",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /cart/checkout handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:pbs5rn3ord",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /bot handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:ed4xfumutb",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC ShippingService handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:qxdgixix6q",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /setCurrency handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:ej7yscfhoc",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /cart handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:wvxhlrjl2f",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /assistant handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:evv4cv2ymv",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC Health handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:zlczbwns3e",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /cart handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:iy3wuhbjvp",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC CartService handler"
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:7vm6wskjov",
+    "message": "CWE-798 ALLOYDB_SECRET_NAME literal in Deployment shoppingassistantservice (kustomize/components/shopping-assistant/shoppingassistantservice.yaml:61)"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:jk3xixiwhp",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /bot handler"
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:zaz3g6owxi",
+    "message": "CWE-798 GOOGLE_API_KEY literal in Deployment shoppingassistantservice (kustomize/components/shopping-assistant/shoppingassistantservice.yaml:51)"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:lg67tmab3p",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /logout handler"
+    "rule": "weakness-unencrypted-transport",
+    "id": "wk:2iuojmq6vq",
+    "message": "CWE-319 grpc.insecure_channel (src/recommendationservice/recommendation_server.py:135)"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:lq4xzn3bdz",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /product-meta/{ids} handler"
+    "rule": "weakness-unencrypted-transport",
+    "id": "wk:4zcwv5g4ma",
+    "message": "CWE-319 gRPC client with insecure credentials (src/frontend/main.go:230)"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:mm2ebudctz",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC ProductCatalogService handler"
+    "rule": "weakness-unencrypted-transport",
+    "id": "wk:alc6zzfe5v",
+    "message": "CWE-319 gRPC client with insecure credentials (src/checkoutservice/main.go:215)"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:qoo7vveutq",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> ANY /robots.txt handler"
+    "rule": "weakness-unencrypted-transport",
+    "id": "wk:nrxmsckwdk",
+    "message": "CWE-319 gRPC client with insecure credentials (src/productcatalogservice/server.go:212)"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:sb2p7tfmdi",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC CheckoutService handler"
+    "rule": "weakness-unencrypted-transport",
+    "id": "wk:pch4tnsiny",
+    "message": "CWE-319 grpc.insecure_channel (src/recommendationservice/client.py:33)"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:sfkta57kko",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /setCurrency handler"
-  },
-  {
-    "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:t7cyfksvo6",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST / handler"
-  },
-  {
-    "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:tjgktawxrm",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> POST /cart/empty handler"
-  },
-  {
-    "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:ugtxz7dkng",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /assistant handler"
-  },
-  {
-    "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:uugk2mjepg",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC Health handler"
-  },
-  {
-    "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:yyuxz547ri",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC Health handler"
-  },
-  {
-    "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:zeqwmlvstz",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /product/{id} handler"
-  },
-  {
-    "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:zkqg7xu34p",
-    "message": "inbound flow crosses a boundary with no control: gRPC client -> gRPC Health handler"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:244aq3l5ci",
-    "message": "rpc -> currencyservice: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:24i7cyavnx",
-    "message": "checkoutservice -> cartservice: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:2ha2hnkpxh",
-    "message": "checkoutservice -> productcatalogservice: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:3ihcvm4tmw",
-    "message": "POST / handler -> Google Gemini API: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:4o334k6enx",
-    "message": "productcatalogservice -> OTLP collector: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:5iear7dzb6",
-    "message": "frontend -> OTLP collector: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:6bhxi7qp2x",
-    "message": "checkoutservice -> paymentservice: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:7lt66aqly2",
-    "message": "checkoutservice -> currencyservice: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:ayfq7vazze",
-    "message": "frontend -> Google Cloud Profiler: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:c2awa3j7ej",
-    "message": "productcatalogservice -> Google Cloud Profiler: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:cbk65ljgdd",
-    "message": "rpc -> cartservice: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:cgy6jf6dvs",
-    "message": "Redis -> RedisCartStore: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:d4vmbiiypa",
-    "message": "recommendation_server -> OTLP collector: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:djxnzmrtto",
-    "message": "rpc -> recommendationservice: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:dxd4jvtqxn",
-    "message": "POST /cart/checkout handler -> checkoutservice: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:esczqgn7ep",
-    "message": "checkoutservice -> Google Cloud Profiler: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:g5wps7qayt",
-    "message": "AdServiceClient -> Unresolved grpc target: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:h7dqufbk66",
-    "message": "checkoutservice -> OTLP collector: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:jf75m6ehs2",
-    "message": "rpc -> adservice: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:ki7cjk5dy6",
-    "message": "productcatalogservice -> Unresolved grpc target: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:kqstigpsij",
-    "message": "shippingservice -> Google Cloud Profiler: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:m27suesta7",
-    "message": "Postgres -> catalog_loader: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:nw2mth7yye",
-    "message": "checkoutservice -> emailservice: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:pttw7jhjfo",
-    "message": "client -> Unresolved grpc target: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:pznmrvwohj",
-    "message": "checkoutservice -> shippingservice: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:qkjsa77qbi",
-    "message": "rpc -> shippingservice: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:qwhaaxg6dr",
-    "message": "Postgres -> POST / handler: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:s6zyxnrpoz",
-    "message": "shoppingassistantservice -> Google Cloud APIs: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:soohj4kvc5",
-    "message": "Postgres -> shoppingassistantservice: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:ssqvsabn3r",
-    "message": "recommendation_server -> productcatalogservice: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:vngfbef4kd",
-    "message": "RedisCartStore -> Redis: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:yjo3cyf6cn",
-    "message": "email_server -> OTLP collector: authentication=unknown, encryption=tls"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:ymu5wei7nw",
-    "message": "rpc -> productcatalogservice: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:ztnl5ujeyb",
-    "message": "POST /bot handler -> shoppingassistantservice: authentication=unknown, encryption=none"
-  },
-  {
-    "severity": "warning",
-    "rule": "weakness",
-    "id": "wk:qjwq7pwfxe",
-    "message": "plaintext_credentials: ALLOYDB_SECRET_NAME literal in Deployment shoppingassistantservice (kustomize/components/shopping-assistant/shoppingassistantservice.yaml:18)"
+    "rule": "weakness-unencrypted-transport",
+    "id": "wk:qrdg22xkwf",
+    "message": "CWE-319 gRPC channel usePlaintext() (src/adservice/src/main/java/hipstershop/AdServiceClient.java:45)"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:2uufxv56vs",
-    "message": "process catalog_loader has only inputs; a detector may be missing"
+    "id": "proc:27az6tasqb",
+    "message": "process grpc gRPC CurrencyService handler (+1 routes) has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:4gkhchyt7q",
-    "message": "process shippingservice has only outputs; a detector may be missing"
+    "id": "proc:3a2tuduotc",
+    "message": "process checkoutservice has only outputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:4wjsqi57wn",
+    "id": "proc:5kcoenhvam",
+    "message": "process gRPC CartService handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:6jx3cfni7g",
+    "message": "process grpc gRPC EmailService handler (+1 routes) has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:a67szllnik",
     "message": "process gRPC Health handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:7lgnx7lyho",
-    "message": "process gRPC EmailService handler has only inputs; a detector may be missing"
+    "id": "proc:bd4eson57f",
+    "message": "process productcatalogservice has only outputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:blykk22cry",
-    "message": "process GET / handler has only inputs; a detector may be missing"
+    "id": "proc:bq7k3bko3f",
+    "message": "process gRPC AdService handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:btwmiumndu",
-    "message": "process ANY /_healthz handler has only inputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:fe6thnypcj",
-    "message": "process gRPC Health handler has only inputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:gh6vmgtwje",
-    "message": "process GET /logout handler has only inputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:hdlp5jsex2",
-    "message": "process frontend has only outputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:hv6jurubfm",
-    "message": "process ANY /robots.txt handler has only inputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:j4kc4y2rtv",
-    "message": "process POST /setCurrency handler has only inputs; a detector may be missing"
-  },
-  {
-    "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:k6rhwk7raj",
+    "id": "proc:folxjitwqd",
     "message": "process client has only outputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:oi33662qnj",
-    "message": "process gRPC PaymentService handler has only inputs; a detector may be missing"
+    "id": "proc:hxudnjqr3f",
+    "message": "process POST /setCurrency handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:ol6mertuou",
+    "id": "proc:iectgk6ksw",
+    "message": "process GET /logout handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:iw3vd4akv2",
+    "message": "process grpc gRPC Health handler (+1 routes) has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jhqdjluod7",
+    "message": "process grpc gRPC Health handler (+1 routes) has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:myck3krljv",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:npaxwryfhd",
+    "message": "process recommendation_server has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:pen6lb4jfc",
+    "message": "process catalog_loader has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:q4dl2j2ped",
+    "message": "process grpc gRPC Health handler (+1 routes) has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qidxp7m6v5",
     "message": "process gRPC Health handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:wmkpueuoua",
-    "message": "process gRPC ShippingService handler has only inputs; a detector may be missing"
+    "id": "proc:qsa5pzfrwz",
+    "message": "process ANY /robots.txt handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:x3mugobsva",
-    "message": "process gRPC Health handler has only inputs; a detector may be missing"
+    "id": "proc:r6iudcorbg",
+    "message": "process ANY /_healthz handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:xzwr7xvmbg",
-    "message": "process gRPC CurrencyService handler has only inputs; a detector may be missing"
+    "id": "proc:s53a6esviq",
+    "message": "process frontend has only outputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:yru6p2ypcz",
+    "id": "proc:tchqmkvcnl",
+    "message": "process AdServiceClient has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:txxhqj2in2",
+    "message": "process shippingservice has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:tys5kxrzoz",
     "message": "process email_server has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:xrau6zsp4l",
+    "message": "process grpc gRPC Health handler (+1 routes) has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:zdsa5lfxqp",
+    "message": "process grpc gRPC CheckoutService handler (+1 routes) has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:2mbsnj7a6b",
+    "message": "rpc -> gRPC CartService handler: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:2nez53z5ou",
+    "message": "checkoutservice -> grpc gRPC Health handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3audnkv3u5",
+    "message": "frontend -> Google Cloud Profiler: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5cebtxhn2v",
+    "message": "productcatalogservice -> Unresolved grpc target: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5wtfmaivk6",
+    "message": "checkoutservice -> grpc gRPC Health handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:6yt4guysxi",
+    "message": "frontend -> OTLP collector: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7hxxzfhpnu",
+    "message": "rpc -> grpc gRPC CurrencyService handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:abhdikbt3c",
+    "message": "recommendation_server -> productcatalogservice: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:bacz5xb4rd",
+    "message": "checkoutservice -> gRPC CartService handler: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:dg4d4lnneg",
+    "message": "RedisCartStore -> Redis: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:e472g6lx4k",
+    "message": "checkoutservice -> grpc gRPC CurrencyService handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:f63oc3vekt",
+    "message": "loadgenerator -> frontend: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:fzr4mp5kja",
+    "message": "shoppingassistantservice -> Google Cloud APIs: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:g4dsfaph4x",
+    "message": "productcatalogservice -> Google Cloud Profiler: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:gkfzbqboqg",
+    "message": "client -> Unresolved grpc target: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:iclommvlxy",
+    "message": "checkoutservice -> Google Cloud Profiler: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ktrhpex34q",
+    "message": "Postgres -> shoppingassistantservice: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kysvyfmz2n",
+    "message": "Redis -> RedisCartStore: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:lg2hzemtkg",
+    "message": "POST /cart/checkout handler -> grpc gRPC CheckoutService handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:lr3ughezje",
+    "message": "email_server -> OTLP collector: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:nqq7p7wkv4",
+    "message": "Postgres -> catalog_loader: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:pvxizq4xjf",
+    "message": "Postgres -> POST / handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:pwqw6telcy",
+    "message": "checkoutservice -> OTLP collector: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:qhaenhppmx",
+    "message": "recommendation_server -> OTLP collector: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:sbrywrhaxv",
+    "message": "checkoutservice -> grpc gRPC Health handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:sqijpnwrlg",
+    "message": "rpc -> grpc gRPC Health handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ubkyho3yh7",
+    "message": "rpc -> grpc gRPC Health handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ukp3rwgs5u",
+    "message": "checkoutservice -> grpc gRPC EmailService handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ulmpq2en5o",
+    "message": "productcatalogservice -> OTLP collector: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vqh7gyaeg2",
+    "message": "rpc -> gRPC AdService handler: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wamtizexmi",
+    "message": "shippingservice -> Google Cloud Profiler: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wbgq5dwnlz",
+    "message": "POST /bot handler -> shoppingassistantservice: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xvdovqb57e",
+    "message": "AdServiceClient -> Unresolved grpc target: authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:yo3d5i5ifs",
+    "message": "rpc -> grpc gRPC Health handler (+1 routes): authentication=unknown, encryption=none"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:yxmqeglmwo",
+    "message": "POST / handler -> Google Gemini API: authentication=unknown, encryption=tls"
   }
 ]

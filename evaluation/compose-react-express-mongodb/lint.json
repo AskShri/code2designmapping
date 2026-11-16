@@ -1,20 +1,32 @@
 [
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:4i6hau7apq",
-    "message": "POST /api/todos handler -> MongoDB: Todo: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:vr75gqtqgz",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/todos handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:pwgnag6hrk",
-    "message": "MongoDB: Todo -> GET /api handler: authentication=unknown, encryption=unknown"
+    "rule": "weakness-permissive-cors",
+    "id": "wk:pn4remmnjh",
+    "message": "CWE-942 cors() with default or wildcard origin (backend/server.js:18)"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:oc7mi556ml",
+    "id": "proc:tnoms7eleo",
     "message": "process GET /api handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:iqctqdevaa",
+    "message": "MongoDB: Todo -> GET /api handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:n7hxw2wycv",
+    "message": "POST /api/todos handler -> MongoDB: Todo: authentication=unknown, encryption=unknown"
   }
 ]

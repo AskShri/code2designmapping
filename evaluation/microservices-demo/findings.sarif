@@ -1,0 +1,727 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/plaintext_credentials",
+              "name": "PlaintextCredentials",
+              "shortDescription": {
+                "text": "Hard-coded or committed credentials"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/798.html",
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-798",
+                  "STRIDE:IE"
+                ],
+                "security-severity": "8.0"
+              }
+            },
+            {
+              "id": "c2d/unauthenticated_entry_point",
+              "name": "UnauthenticatedEntryPoint",
+              "shortDescription": {
+                "text": "Entry point without a detected authentication control (review)"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/306.html",
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-306",
+                  "STRIDE:SE"
+                ],
+                "security-severity": "1.0"
+              }
+            },
+            {
+              "id": "c2d/unencrypted_transport",
+              "name": "UnencryptedTransport",
+              "shortDescription": {
+                "text": "Cleartext transport to a non-local host"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/319.html",
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-319",
+                  "STRIDE:TI"
+                ],
+                "security-severity": "5.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/unencrypted_transport",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "grpc.insecure_channel (CWE-319). Applies to: recommendation_server."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/recommendationservice/recommendation_server.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 135,
+                  "endLine": 135
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:2iuojmq6vq"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:npaxwryfhd"
+            ],
+            "stride": [
+              "T",
+              "I"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unencrypted_transport",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "gRPC client with insecure credentials (CWE-319). Applies to: frontend."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 230,
+                  "endLine": 230
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:4zcwv5g4ma"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:s53a6esviq"
+            ],
+            "stride": [
+              "T",
+              "I"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "ALLOYDB_SECRET_NAME literal in Deployment shoppingassistantservice (CWE-798). Applies to: microservices-demo."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "kustomize/components/shopping-assistant/shoppingassistantservice.yaml",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 61,
+                  "endLine": 61
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:7vm6wskjov"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:lnqlxugis3"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /cart (CWE-306). Applies to: POST /cart."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 153,
+                  "endLine": 153
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:abbwax52mq"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:rw6goxikuq"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unencrypted_transport",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "gRPC client with insecure credentials (CWE-319). Applies to: checkoutservice."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/checkoutservice/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 215,
+                  "endLine": 215
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:alc6zzfe5v"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:3a2tuduotc"
+            ],
+            "stride": [
+              "T",
+              "I"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /cart/empty (CWE-306). Applies to: POST /cart/empty."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 154,
+                  "endLine": 154
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:e7o6szsupa"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:urc6dkbttb"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /setCurrency (CWE-306). Applies to: POST /setCurrency."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 155,
+                  "endLine": 155
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:epihwzcdet"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ryap4rulgf"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /product/{id} (CWE-306). Applies to: GET /product/{id}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 151,
+                  "endLine": 151
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ernrzv3rud"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:yghqd2zcbd"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET / (CWE-306). Applies to: GET /."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 150,
+                  "endLine": 150
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:jfzwvdzrkn"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:og4t6eu76k"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /cart (CWE-306). Applies to: GET /cart."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 152,
+                  "endLine": 152
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:jhngn4tfuh"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:crrbzqtump"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /logout (CWE-306). Applies to: GET /logout."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 156,
+                  "endLine": 156
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:kem6crgd4n"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:23qm52ldvy"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /cart/checkout (CWE-306). Applies to: POST /cart/checkout."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 157,
+                  "endLine": 157
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:kffide5k7l"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:4slvynctty"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /bot (CWE-306). Applies to: POST /bot."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 163,
+                  "endLine": 163
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:mf5g5jjf3g"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:mb2lhpjan7"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unencrypted_transport",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "gRPC client with insecure credentials (CWE-319). Applies to: productcatalogservice."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/productcatalogservice/server.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 212,
+                  "endLine": 212
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:nrxmsckwdk"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:bd4eson57f"
+            ],
+            "stride": [
+              "T",
+              "I"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unencrypted_transport",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "grpc.insecure_channel (CWE-319). Applies to: client."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/recommendationservice/client.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 33,
+                  "endLine": 33
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:pch4tnsiny"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:folxjitwqd"
+            ],
+            "stride": [
+              "T",
+              "I"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unencrypted_transport",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "gRPC channel usePlaintext() (CWE-319). Applies to: AdServiceClient."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 45,
+                  "endLine": 45
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:qrdg22xkwf"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:tchqmkvcnl"
+            ],
+            "stride": [
+              "T",
+              "I"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /assistant (CWE-306). Applies to: GET /assistant."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 158,
+                  "endLine": 158
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:sb73cagmef"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:xqbb2s74nb"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /product-meta/{ids} (CWE-306). Applies to: GET /product-meta/{ids}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/frontend/main.go",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 162,
+                  "endLine": 162
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:tzuabdulvc"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:a5cbu2bfoc"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "GOOGLE_API_KEY literal in Deployment shoppingassistantservice (CWE-798). Applies to: microservices-demo."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "kustomize/components/shopping-assistant/shoppingassistantservice.yaml",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 51,
+                  "endLine": 51
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:zaz3g6owxi"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:lnqlxugis3"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

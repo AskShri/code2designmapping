@@ -1,0 +1,38 @@
+%% L2 - productcatalogservice
+flowchart LR
+  subgraph bnd_yy7r6ylpud["container: frontend"]
+    proc_sehzqpog5d(["frontend (+13)"])
+  end
+  subgraph bnd_3nvgex5y4a["container: productcatalogservice"]
+    proc_66kdsit2eu(["productcatalogservice (+3)"])
+    proc_bd4eson57f(["productcatalogservice (bd4e)"])
+    proc_pen6lb4jfc(["catalog_loader"])
+    proc_q4dl2j2ped(["grpc gRPC Health handler (+1 routes) (q4dl)"])
+  end
+  subgraph bnd_c76yxdhq2j["container: recommendationservice"]
+    proc_jgwcsavpbh(["recommendationservice (+3)"])
+  end
+  subgraph bnd_njyecf7fkf["container: checkoutservice"]
+    proc_bv2mduy2tp(["checkoutservice (+2)"])
+  end
+  ext_5glqr7zsb5["OTLP collector"]
+  ext_wnxd2gtvsa["Google Cloud Profiler"]
+  ext_xwfpv7zyiv["Unresolved grpc target"]
+  store_ctwgzvsuvh[("Postgres")]
+  proc_bd4eson57f -.->|"https"| ext_5glqr7zsb5
+  proc_bd4eson57f -.->|"https"| ext_wnxd2gtvsa
+  proc_bd4eson57f -->|"grpc"| ext_xwfpv7zyiv
+  proc_bv2mduy2tp -->|"grpc"| proc_q4dl2j2ped
+  proc_jgwcsavpbh -->|"grpc"| proc_66kdsit2eu
+  proc_sehzqpog5d -->|"grpc"| proc_q4dl2j2ped
+  store_ctwgzvsuvh -->|"sql"| proc_pen6lb4jfc
+  style bnd_yy7r6ylpud stroke-dasharray: 8 4,fill:none
+  style bnd_3nvgex5y4a stroke-dasharray: 8 4,fill:none
+  style bnd_c76yxdhq2j stroke-dasharray: 8 4,fill:none
+  style bnd_njyecf7fkf stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

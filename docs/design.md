@@ -1,6 +1,6 @@
 # code2design: Design Document
 
-**Status:** v0.4. Design plus a working prototype (`code2design/`) evaluated on 17 sample applications with ground-truth precision/recall on five (`evaluation.md`). Section 3.4 states what is implemented.
+**Status:** v0.5. Design plus a working prototype (`code2design/`) evaluated on 23 sample applications with ground-truth precision/recall on ten (`evaluation.md`). Section 3.4 states what is implemented; `review-findings.md` records the independent review of v0.4 and its resolution.
 **Scope:** A tool that takes a repository snapshot or a pull request and produces a design view of the system: a leveled data flow diagram (DFD), per-entry-point control flows, and a machine-readable element inventory suitable for threat modeling.
 
 ---
@@ -108,15 +108,16 @@ IDs survive refactors that move files only when the identity tuple is unchanged;
 
 ---
 
-## 3.4 What the prototype implements (v0.3)
+## 3.4 What the prototype implements (v0.5)
 
 | Stage | Implemented | Not yet |
 |---|---|---|
-| Ingest | tree-sitter for JavaScript, TypeScript, TSX, Python, Go, Java, C#; relative-import resolution with re-export following; a function-level call graph (package-level for Go/Java/C#); test and generated files skipped; other languages reported as gaps | SCIP cross-references, tsconfig path aliases, monorepo workspaces as services |
-| Detectors | Express/Fastify-style routes (literal paths, chained and anonymous routers, mount tables, same-file prefixes), app/router/route-level middleware classified into control kinds with registration order and conditional registration, store clients (pg, mysql, mongoose, mongodb, redis, ioredis, knex, prisma, sequelize, kafka, amqp, S3, …), outbound HTTP clients with env-traced hosts and ~50 SDKs including LLM APIs, gRPC servers and clients, schemas (mongoose, zod, joi, express-validator, request fields read in handlers, pydantic/Django/SQLAlchemy/JPA models, Prisma, SQL column lists), secrets from env, weaknesses; Flask/FastAPI/Django; Go net/http, gorilla, gin, chi, gRPC, database/sql, GORM, go-redis, Mongo; Spring MVC and Security, JPA, grpc-java; ASP.NET attributes and minimal APIs, grpc-dotnet, EF Core, StackExchange.Redis; compose, Kubernetes, Dockerfile, package manifests | Ruby, PHP, Kotlin, Rust; Semgrep/CodeQL rule packs; declarative YAML recognizers; NestJS decorators; GraphQL schemas |
-| Synthesis | L0/L1/L2 processes from compose/Kubernetes services or top-level packages, entry points with full mounted paths and an `infrastructure` tag, function-level attribution of every access through the call graph, per-entry-point `reaches`, in-process flows along real call edges (import references as fallback), store flows with read/write direction, cross-service resolution through compose and Kubernetes service hosts and gRPC service hints, boundaries, controls, weaknesses, schemas with data classes, assets, derived threat agents, human overrides (rename, suppress, attributes, data classes, boundaries, assets, agents; author and expiry), gaps and questions | LLM enrichment |
-| Validation | Schema validation, structural and security lint, `verify` (content-hash re-check of every evidence span) | Evidence re-verification at an arbitrary past commit |
-| Rendering | Mermaid L0/L1/L2 with node and edge budgets (infrastructure entry points hidden), sequence diagram per entry point, STRIDE table with data-asset view, traceability matrix, report with coverage and attack surface, IR diff as Markdown, OTM 0.2.0 export | Threagile, Threat Dragon, pytm, DOT, HTML report, PR comment posting |
+| Ingest | tree-sitter for JavaScript, TypeScript, TSX, Python, Go, Java, C#; import resolution with tsconfig paths, re-exports, Python submodules and Go import paths; a class index (typed fields, DI constructors, generic bases, interface implementations); a function-level call graph across all six languages with interface fan-out; test, generated and minified files skipped; other languages reported as gaps | SCIP cross-references, monorepo workspaces as services |
+| Facts | A registry of 19 fact kinds with required fields, checked on every `add` ([facts.md](facts.md)) | |
+| Detectors | Express/Fastify (mount tables, chained and anonymous routers, wrapped handlers, middleware arrays, in-handler validation), NestJS (controllers, guards, global prefix, `forRoutes` middleware, TypeORM repositories), Flask/FastAPI/Django (blueprints, routers, stacked decorators, `Depends` and `Annotated` aliases), Go (net/http with Go 1.22 patterns, gin, gorilla, chi, groups passed across packages, gRPC, database/sql, GORM, go-redis, Mongo), Spring (class and method mappings, Security filter chain, Spring Data repositories to tables, JdbcTemplate, RedisTemplate, Kafka), ASP.NET Core (controller tokens, `[Authorize]`/`[AllowAnonymous]`, minimal APIs, Razor Pages, gRPC, EF Core, IDistributedCache); ORMs resolved to tables; ~50 SDKs including LLM APIs; compose, Kubernetes, Dockerfile, Terraform; weaknesses with CWE | Ruby, PHP, Kotlin, Rust; GraphQL schemas; declarative recognizer packs |
+| Synthesis | One routing model for every framework (full paths, ordered controls by scope); one handler process per handler function; function-level attribution of every access; per-entry-point `reaches` and `call_chain`; exposure (public/internal) from deployment descriptors; ORM model schemas mapped to store data classes; request data classes propagated along call paths; stores with candidate engines when configuration selects one; declared links from deployment environment; boundaries without duplicates; weaknesses with severity, CWE and STRIDE and line-free identities; assets; threat agents by exposure; gaps and questions; human overrides | LLM enrichment |
+| Validation | JSON Schema, structural and security lint including every reference field, `verify` (content-hash re-check of every evidence span), 34 tests, 23-sample evaluation with ground truth on 10 | Evidence re-verification at an arbitrary past commit |
+| Rendering and export | Mermaid L0/L1/L2 with budgets and unique sanitised labels; sequence diagrams from ordered controls, call chain and reaches; STRIDE table with weaknesses first; traceability matrix on the least-controlled path; report; design delta; OTM 0.2.0 with threats and mitigations; SARIF 2.1.0 | Threagile, Threat Dragon, pytm, DOT, HTML report, PR comment posting |
 
 ## 4. Architecture
 
@@ -360,36 +361,37 @@ Scope handling: the diff is computed on the whole IR, but the comment lists only
 The normative definition is `schema/dfd-ir.schema.json`. Summary:
 
 ```
-Model
-  provenance   { tool_version, commit, inputs, detectors[], llm?: {model, prompt_hash} }
-  processes[]  { id, name, display_name?, level, parent?, module, description?, origin, confidence?, evidence[] }
-  entities[]   { id, name, kind: human|system, host?, sdk_service?, origin, evidence[] }
-  stores[]     { id, name, technology, logical_name?, encryption_at_rest, origin, evidence[] }
-  boundaries[] { id, name, kind, contains[], parent?, origin, evidence[] }
-  flows[]      { id, source, target, protocol, direction, authentication, encryption,
-                 payload?: {schema_ref, data_classes[]}, crosses_boundary[], controls[], origin, confidence?, evidence[] }
-  entry_points[] { id, process, protocol, method?, path?, topic?, command?, controls[], evidence[] }
-  controls[]   { id, kind, name, applies_to[], origin, evidence[] }
-  weaknesses[] { id, kind, name, applies_to[], origin, evidence[] }
-  schemas[]    { id, name, fields[]: {name, type, data_class?}, evidence[] }
-  assets[]     { id, name, kind, data_classes[], held_by[], processed_by[], origin, evidence[] }
-  threat_agents[] { id, name, access, location?, entry[], passes_controls[], goals[], origin, evidence[] }
-  gaps[]       { kind: unresolved|unsupported_file|no_boundary_info, path?, detail }
+Model (IR 0.2)
+  provenance   { tool_version, commit, generated_from, detectors[], scope, input_hashes, overrides_file? }
+  processes[]  { id, identity, name, code_name?, level 0|1|2, parent?, module, origin, confidence?, rationale?, evidence[] }
+  entities[]   { id, identity, name, kind: human|system|llm_api, host?, sdk_service?, origin, evidence[] }
+  stores[]     { id, identity, name, technology, logical_name?, candidate_engines?, data_classes[], encryption_at_rest, origin, evidence[] }
+  boundaries[] { id, identity, name, kind, contains[], origin, evidence[] }
+  flows[]      { id, identity, source, target, protocol, direction, authentication, encryption, purpose?,
+                 payload?: {schema_ref?, name, data_classes[]}, crosses_boundary[], controls[], origin, confidence?, evidence[] }
+  entry_points[] { id, identity, process, protocol, method, path, exposure: public|internal|unknown, infrastructure?,
+                   controls[] (execution order), call_chain[], reaches[], evidence[] }
+  controls[]   { id, identity, kind, name, scope: route|router|service|handler, conditional?, applies_to[], evidence[] }
+  weaknesses[] { id, identity, kind, name, severity, cwe, stride[], applies_to[], evidence[] }
+  schemas[]    { id, identity, name, fields[]: {name, type, data_class}, evidence[] }
+  assets[]     { id, identity, name, kind, data_classes[], held_by[], processed_by[], origin, evidence[] }
+  threat_agents[] { id, identity, name, access, location?, entry[], passes_controls[], goals[], origin, confidence?, evidence[] }
+  gaps[]       { kind: unresolved|unsupported_file|no_boundary_info|override_target_missing|unknown_attribute, path?, line?, detail }
 ```
 
-Enumerations (closed, extensible only by a schema change):
+Enumerations (closed, extensible only by a schema change; the schema's lists are generated from and tested against `code2design/model.py`):
 
 * `protocol`: `http`, `https`, `grpc`, `graphql`, `websocket`, `amqp`, `kafka`, `sqs`, `pubsub`, `sql`, `redis`, `mongo`, `file`, `s3`, `smtp`, `cli`, `in_process`, `unknown`
-* `technology` (stores): `postgres`, `mysql`, `sqlite`, `mssql`, `mongodb`, `dynamodb`, `redis`, `memcached`, `elasticsearch`, `kafka`, `rabbitmq`, `sqs`, `s3`, `gcs`, `filesystem`, `unknown`
+* `technology` (stores): `postgres`, `mysql`, `sqlite`, `mssql`, `sql` (engine chosen by configuration), `mongodb`, `dynamodb`, `redis`, `memcached`, `elasticsearch`, `kafka`, `rabbitmq`, `sqs`, `s3`, `gcs`, `filesystem`, `unknown`
 * `data_class`: `public`, `internal`, `pii`, `financial`, `health`, `credential`, `secret`, `unknown`
-* `control.kind`: `authn`, `authz`, `input_validation`, `rate_limit`, `tls`, `encryption_at_rest`, `signing`, `audit_log`, `csrf`, `cors`
-* `weakness.kind`: `plaintext_credentials`, `unencrypted_transport`, `tls_verification_disabled`, `unauthenticated_entry_point`, `secret_in_env_at_import`, `permissive_cors`
+* `control.kind`: `authn`, `authz` (the two blocking kinds), `input_validation`, `rate_limit`, `tls`, `encryption_at_rest`, `signing`, `audit_log`, `csrf`, `cors`, `security_headers`
+* `weakness.kind` (with CWE): `plaintext_credentials` (798), `tls_verification_disabled` (295), `unencrypted_transport` (319), `permissive_cors` (942), `csrf_disabled` (352), `public_data_store` (284), `unencrypted_data_store` (311), `debug_mode_enabled` (489), `unauthenticated_entry_point` (306)
 * `flow.authentication`: `none`, `credentials`, `session_id`, `token`, `client_certificate`, `two_factor`, `unknown` (Threagile-compatible)
 * `flow.encryption`: `tls`, `none`, `unknown`; `store.encryption_at_rest`: `yes`, `no`, `unknown`
 * `boundary.kind`: `internet`, `network_segment`, `host`, `container`, `process`, `iam_role`, `auth_context`, `repository`
 * `origin`: `observed`, `inferred`, `declared`
 
-ID format: `<kind>:<base32(sha256(identity tuple))[:10]>`, for example `proc:k3jd9s0a1m`. The identity tuple is also stored in the clear in `identity` so IDs can be debugged.
+ID format: `<kind>:<base32(sha256(identity tuple))[:10]>`, for example `proc:k3jd9s0a1m`. The identity tuple is also stored in the clear in `identity` so IDs can be debugged. Identity tuples never contain line numbers or absolute paths, so IDs survive reformatting, code moves within a file and a different checkout directory (tested).
 
 ---
 

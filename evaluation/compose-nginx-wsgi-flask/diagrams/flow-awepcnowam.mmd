@@ -1,0 +1,7 @@
+%% Control flow: GET /info
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_ostlsfronr as GET /info handler
+  ext_sga4qktkap->>proc_ostlsfronr: GET /info
+  proc_ostlsfronr-->>ext_sga4qktkap: response

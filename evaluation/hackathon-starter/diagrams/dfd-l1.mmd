@@ -1,73 +1,73 @@
-%% L1: hackathon-starter
+%% L1 - hackathon-starter
 flowchart LR
   subgraph bnd_wsjnfagnyn["repository: hackathon-starter"]
-    proc_bceau7fabt(["controllers (+6)"])
-    proc_dsb5vsfubj(["hackathon-starter (+107)"])
-    proc_o4bhgqznry(["models (+1)"])
-    proc_xh4r43p4iq(["config (+3)"])
+    proc_3pfwtt2b6n(["hackathon-starter (+91)"])
+    proc_psrnophxn5(["controllers (+5)"])
+    proc_ysryg7dlrl(["models (+1)"])
+    proc_zck3oit7c2(["config (+3)"])
   end
   ext_2x56m65xpx["Google Sheets API"]
+  ext_bk3ogn32rp["www.alphavantage.co"]
   ext_l2biskukaq["SMTP mail relay"]
   ext_miziwfdicw["Unresolved HTTP target"]
-  ext_muqplzhwb7["Github2 identity provider"]
   ext_nggth6fowo["Groq API"]
   ext_nswlxsx7xw["Twilio API"]
   ext_oxze3tquf6["discord.com"]
   ext_pbm532avbp["api.twitch.tv"]
   ext_pja6bq4qbq["graph.microsoft.com"]
   ext_q7bc76pjhv["Google Drive API"]
+  ext_qaajlcnhsd["api.steampowered.com"]
   ext_sga4qktkap["HTTP client"]
   ext_si4fnyazwf["Facebook identity provider"]
   ext_slqdx4hifp["Stripe API"]
-  ext_summary["other external services (+10)"]
+  ext_summary["other external services (+9)"]
   ext_tq5xvm2pwe["GitHub API"]
   ext_u6x5oiec77["pubchem.ncbi.nlm.nih.gov"]
   ext_uuhu7borqt["api.sandbox.paypal.com"]
   ext_yydkmj7yh6["Hugging Face Inference API"]
-  ext_z53v3sf3pz["Oauth2 Refresh identity provider"]
   store_3ufptbo5k3[("MongoDB (collection unresolved)")]
   store_x3kis6s6op[("MongoDB: User")]
-  %% 3 lower-weight edges omitted (edge budget 40)
-  ext_sga4qktkap -->|"http"| proc_dsb5vsfubj
-  proc_bceau7fabt -->|"https"| ext_2x56m65xpx
-  proc_bceau7fabt -->|"smtp"| ext_l2biskukaq
-  proc_bceau7fabt -->|"unknown"| ext_miziwfdicw
-  proc_bceau7fabt -->|"https"| ext_nggth6fowo
-  proc_bceau7fabt -->|"https"| ext_pbm532avbp
-  proc_bceau7fabt -->|"https"| ext_q7bc76pjhv
-  proc_bceau7fabt -->|"https"| ext_summary
-  proc_bceau7fabt -->|"https"| ext_tq5xvm2pwe
-  proc_bceau7fabt -->|"https"| ext_uuhu7borqt
-  proc_bceau7fabt -->|"https"| ext_yydkmj7yh6
-  proc_bceau7fabt -->|"in_process"| proc_xh4r43p4iq
-  proc_bceau7fabt -->|"mongo"| store_3ufptbo5k3
-  proc_bceau7fabt -->|"mongo"| store_x3kis6s6op
-  proc_dsb5vsfubj -->|"https"| ext_2x56m65xpx
-  proc_dsb5vsfubj -->|"smtp"| ext_l2biskukaq
-  proc_dsb5vsfubj -->|"unknown"| ext_miziwfdicw
-  proc_dsb5vsfubj -->|"https"| ext_nggth6fowo
-  proc_dsb5vsfubj -->|"https"| ext_nswlxsx7xw
-  proc_dsb5vsfubj -->|"https"| ext_q7bc76pjhv
-  proc_dsb5vsfubj -->|"https"| ext_slqdx4hifp
-  proc_dsb5vsfubj -->|"https"| ext_summary
-  proc_dsb5vsfubj -->|"https"| ext_u6x5oiec77
-  proc_dsb5vsfubj -->|"https"| ext_uuhu7borqt
-  proc_dsb5vsfubj -->|"in_process"| proc_bceau7fabt
-  proc_dsb5vsfubj -->|"in_process"| proc_xh4r43p4iq
-  proc_dsb5vsfubj -->|"mongo"| store_3ufptbo5k3
-  proc_dsb5vsfubj -->|"mongo"| store_x3kis6s6op
-  proc_xh4r43p4iq -->|"smtp"| ext_l2biskukaq
-  proc_xh4r43p4iq -->|"unknown"| ext_miziwfdicw
-  proc_xh4r43p4iq -->|"https"| ext_muqplzhwb7
-  proc_xh4r43p4iq -->|"https"| ext_oxze3tquf6
-  proc_xh4r43p4iq -->|"https"| ext_pja6bq4qbq
-  proc_xh4r43p4iq -->|"https"| ext_si4fnyazwf
-  proc_xh4r43p4iq -->|"https"| ext_summary
-  proc_xh4r43p4iq -->|"https"| ext_z53v3sf3pz
-  proc_xh4r43p4iq -->|"in_process"| proc_o4bhgqznry
-  store_3ufptbo5k3 -->|"mongo"| proc_bceau7fabt
-  store_x3kis6s6op -->|"mongo"| proc_bceau7fabt
-  store_x3kis6s6op -->|"mongo"| proc_dsb5vsfubj
+  %% 2 lower-weight edges omitted (edge budget 40)
+  ext_sga4qktkap -->|"http<br/>http: request fields (getGiphy)<br/>http: request fields (getWikipedia)<br/>..."| proc_3pfwtt2b6n
+  proc_3pfwtt2b6n -->|"https"| ext_2x56m65xpx
+  proc_3pfwtt2b6n -->|"https"| ext_bk3ogn32rp
+  proc_3pfwtt2b6n -->|"smtp<br/>smtp: from request fields (postForgot) (pii)<br/>smtp: from request fields (postLogin) (credential,pii)<br/>..."| ext_l2biskukaq
+  proc_3pfwtt2b6n -->|"unknown"| ext_miziwfdicw
+  proc_3pfwtt2b6n -->|"https"| ext_nggth6fowo
+  proc_3pfwtt2b6n -->|"https"| ext_nswlxsx7xw
+  proc_3pfwtt2b6n -->|"https"| ext_q7bc76pjhv
+  proc_3pfwtt2b6n -->|"https: from request fields (postStripe) (credential,pii)"| ext_slqdx4hifp
+  proc_3pfwtt2b6n -->|"https"| ext_summary
+  proc_3pfwtt2b6n -->|"https"| ext_u6x5oiec77
+  proc_3pfwtt2b6n -->|"https"| ext_uuhu7borqt
+  proc_3pfwtt2b6n -->|"in_process"| proc_psrnophxn5
+  proc_3pfwtt2b6n -->|"in_process"| proc_zck3oit7c2
+  proc_3pfwtt2b6n -->|"mongo"| store_3ufptbo5k3
+  proc_3pfwtt2b6n -->|"mongo<br/>mongo: from request fields (postForgot) (pii)<br/>mongo: from request fields (postLogin) (credential,pii)<br/>..."| store_x3kis6s6op
+  proc_psrnophxn5 -->|"https"| ext_2x56m65xpx
+  proc_psrnophxn5 -->|"https"| ext_bk3ogn32rp
+  proc_psrnophxn5 -->|"smtp: from request fields (postContact) (pii)<br/>smtp: from request fields (postSignup) (credential,pii)"| ext_l2biskukaq
+  proc_psrnophxn5 -->|"unknown<br/>unknown: from request fields (postContact) (pii)"| ext_miziwfdicw
+  proc_psrnophxn5 -->|"https"| ext_nggth6fowo
+  proc_psrnophxn5 -->|"https"| ext_pbm532avbp
+  proc_psrnophxn5 -->|"https"| ext_q7bc76pjhv
+  proc_psrnophxn5 -->|"https"| ext_summary
+  proc_psrnophxn5 -.->|"https"| ext_tq5xvm2pwe
+  proc_psrnophxn5 -->|"https"| ext_uuhu7borqt
+  proc_psrnophxn5 -->|"https"| ext_yydkmj7yh6
+  proc_psrnophxn5 -->|"in_process"| proc_zck3oit7c2
+  proc_psrnophxn5 -->|"mongo: from request fields (postSignup) (credential,pii)"| store_x3kis6s6op
+  proc_zck3oit7c2 -->|"smtp: from request fields (postContact) (+4) (credent..."| ext_l2biskukaq
+  proc_zck3oit7c2 -->|"unknown"| ext_miziwfdicw
+  proc_zck3oit7c2 -->|"https"| ext_oxze3tquf6
+  proc_zck3oit7c2 -->|"https"| ext_pja6bq4qbq
+  proc_zck3oit7c2 -->|"http"| ext_qaajlcnhsd
+  proc_zck3oit7c2 -.->|"https"| ext_si4fnyazwf
+  proc_zck3oit7c2 -->|"https"| ext_summary
+  proc_zck3oit7c2 -->|"in_process"| proc_ysryg7dlrl
+  proc_zck3oit7c2 -->|"mongo"| store_x3kis6s6op
+  store_3ufptbo5k3 -->|"mongo"| proc_psrnophxn5
+  store_x3kis6s6op -->|"mongo: MongoDB: User record (credential,pii)"| proc_3pfwtt2b6n
   style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

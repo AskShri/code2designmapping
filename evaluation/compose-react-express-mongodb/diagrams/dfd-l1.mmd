@@ -1,15 +1,15 @@
-%% L1: compose-react-express-mongodb
+%% L1 - compose-react-express-mongodb
 flowchart LR
   subgraph bnd_j3ktzp2k6o["container: backend"]
-    proc_yss4bddki6(["backend (+3)"])
+    proc_nmmdbtjh6y(["backend (+2)"])
   end
   subgraph bnd_x2cs4alpd7["container: mongo"]
     store_lsfwjprw56[("MongoDB: Todo")]
   end
-  ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_yss4bddki6
-  proc_yss4bddki6 -->|"mongo"| store_lsfwjprw56
-  store_lsfwjprw56 -->|"mongo"| proc_yss4bddki6
+  ext_3nnzcvcul3["Internal HTTP client"]
+  ext_3nnzcvcul3 -->|"http: request fields"| proc_nmmdbtjh6y
+  proc_nmmdbtjh6y -->|"mongo"| store_lsfwjprw56
+  store_lsfwjprw56 -->|"mongo"| proc_nmmdbtjh6y
   style bnd_j3ktzp2k6o stroke-dasharray: 8 4,fill:none
   style bnd_x2cs4alpd7 stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]

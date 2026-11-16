@@ -1,0 +1,18 @@
+%% L2 - web1
+flowchart LR
+  subgraph bnd_4pueguv7xi["container: web1"]
+    proc_6wfylqt4ec(["GET / handler"])
+    proc_euj6gpqmxt(["web"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_uvgsvq5qlm[("Redis")]
+  ext_sga4qktkap -->|"http"| proc_6wfylqt4ec
+  proc_euj6gpqmxt -->|"redis"| store_uvgsvq5qlm
+  store_uvgsvq5qlm -->|"redis"| proc_euj6gpqmxt
+  style bnd_4pueguv7xi stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

@@ -1,12 +1,13 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "provenance": {
-    "tool_version": "0.3.0-prototype",
+    "tool_version": "0.5.0",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-fastapi",
     "detectors": [
-      "config@0.3",
-      "py@0.3"
+      "config@0.5",
+      "py@0.5",
+      "synth@0.5.0"
     ],
     "scope": {
       "include": [
@@ -17,6 +18,7 @@
       "out_of_scope_elements": []
     },
     "input_hashes": {
+      "Dockerfile": "sha256:83f15b9fb9d6e94d745fe2f0039cfacf9517e90c5eaacb4a23f0ee8bba38767b",
       "app/main.py": "sha256:395ddf6d587af652c461faf2b95ad9d826463d9fa6ae2a787133ef7aaf8d742d",
       "compose.yaml": "sha256:5ae758b99292899ad396ec1f193f2da700bbd36af1b10cca8bf899b5459324c0",
       "requirements.txt": "sha256:e9af2913de609d1de45b2fbab270c5a77281543c4dab6d1dd182f221fd04f683"
@@ -24,52 +26,10 @@
   },
   "processes": [
     {
-      "id": "proc:jd5qlpzope",
+      "id": "proc:uas5y76mto",
       "identity": [
         "process",
-        ".",
-        "compose-fastapi"
-      ],
-      "origin": "observed",
-      "name": "compose-fastapi",
-      "level": 0,
-      "module": ".",
-      "evidence": [
-        {
-          "path": ".",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:f8ffcce630da3a58dbab0bc6c8a2c9f7c65f04ef941df80c669533cf9847bdde"
-        }
-      ]
-    },
-    {
-      "id": "proc:nwxqwccwlw",
-      "identity": [
-        "process",
-        "app/main.py",
-        "GET /"
-      ],
-      "origin": "observed",
-      "name": "GET / handler",
-      "level": 2,
-      "module": "app/main.py",
-      "evidence": [
-        {
-          "path": "app/main.py",
-          "start_line": 6,
-          "end_line": 7,
-          "detector": "py@0.3",
-          "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
-        }
-      ],
-      "parent": "proc:sdgb6kalgr"
-    },
-    {
-      "id": "proc:sdgb6kalgr",
-      "identity": [
-        "process",
+        "L1",
         ".",
         "api"
       ],
@@ -82,11 +42,55 @@
           "path": "app/__init__.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
         }
       ],
-      "parent": "proc:jd5qlpzope"
+      "parent": "proc:y33ha2a6xx"
+    },
+    {
+      "id": "proc:xtbjbe7fra",
+      "identity": [
+        "process",
+        "handler",
+        "api",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "app/main.py",
+      "evidence": [
+        {
+          "path": "app/main.py",
+          "start_line": 6,
+          "end_line": 7,
+          "detector": "py@0.5",
+          "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
+        }
+      ],
+      "parent": "proc:uas5y76mto"
+    },
+    {
+      "id": "proc:y33ha2a6xx",
+      "identity": [
+        "process",
+        "L0",
+        "compose-fastapi"
+      ],
+      "origin": "observed",
+      "name": "compose-fastapi",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:f8ffcce630da3a58dbab0bc6c8a2c9f7c65f04ef941df80c669533cf9847bdde"
+        }
+      ]
     }
   ],
   "entities": [
@@ -105,7 +109,7 @@
           "path": "app/main.py",
           "start_line": 6,
           "end_line": 7,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
         }
       ]
@@ -124,16 +128,16 @@
       "name": "container: api",
       "kind": "container",
       "contains": [
-        "proc:jd5qlpzope",
-        "proc:nwxqwccwlw",
-        "proc:sdgb6kalgr"
+        "proc:uas5y76mto",
+        "proc:xtbjbe7fra",
+        "proc:y33ha2a6xx"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 2,
           "end_line": 2,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:d212c3feb6897bfce4c7b5654f64124e9d1f1e6bb14127122bbe0e578f0a2c6e"
         }
       ]
@@ -141,17 +145,16 @@
   ],
   "flows": [
     {
-      "id": "flow:szwqqh7oi5",
+      "id": "flow:f3vxcnv55w",
       "identity": [
         "flow",
         "ext:sga4qktkap",
-        "proc:nwxqwccwlw",
-        "http",
-        ""
+        "proc:xtbjbe7fra",
+        "http"
       ],
       "origin": "observed",
       "source": "ext:sga4qktkap",
-      "target": "proc:nwxqwccwlw",
+      "target": "proc:xtbjbe7fra",
       "protocol": "http",
       "direction": "request_response",
       "authentication": "none",
@@ -166,7 +169,7 @@
           "path": "app/main.py",
           "start_line": 6,
           "end_line": 7,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
         }
       ]
@@ -174,56 +177,63 @@
   ],
   "entry_points": [
     {
-      "id": "ep:ter6lzq3p7",
+      "id": "ep:xduqfwu3cx",
       "identity": [
         "entry_point",
         "http",
         "GET",
         "/",
-        "app/main.py"
+        "api"
       ],
       "origin": "observed",
-      "process": "proc:nwxqwccwlw",
+      "process": "proc:xtbjbe7fra",
       "protocol": "http",
       "method": "GET",
       "path": "/",
+      "exposure": "public",
       "controls": [],
       "call_chain": [
-        "proc:nwxqwccwlw"
+        "proc:xtbjbe7fra"
       ],
+      "reaches": [],
       "evidence": [
         {
           "path": "app/main.py",
           "start_line": 6,
           "end_line": 7,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
         }
-      ],
-      "reaches": []
+      ]
     }
   ],
   "controls": [],
   "weaknesses": [
     {
-      "id": "wk:jezjhwnfrt",
+      "id": "wk:nmllc234pc",
       "identity": [
         "weakness",
         "unauthenticated_entry_point",
-        "ep:ter6lzq3p7"
+        "ep:xduqfwu3cx"
       ],
       "origin": "observed",
       "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on GET /",
+      "name": "no authentication control detected on GET /",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
       "applies_to": [
-        "ep:ter6lzq3p7"
+        "ep:xduqfwu3cx"
       ],
       "evidence": [
         {
           "path": "app/main.py",
           "start_line": 6,
           "end_line": 7,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
         }
       ]
@@ -241,7 +251,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "1 http entry points, 1 without a detected authn control",
+      "rationale": "1 entry points are reachable from outside, 1 of them without a detected authentication control",
       "name": "Anonymous HTTP caller",
       "access": "anonymous",
       "entry": [
@@ -256,7 +266,7 @@
           "path": "app/main.py",
           "start_line": 6,
           "end_line": 7,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:1dbbc85584f54b1a0f0822fe7b1afc99fa63c6cca2b7d3ba96553f3186a6d51e"
         }
       ]
@@ -275,7 +285,7 @@
       "access": "insider",
       "location": "bnd:uvq3irjstn",
       "entry": [
-        "proc:nwxqwccwlw"
+        "proc:xtbjbe7fra"
       ],
       "passes_controls": [
         "authn",
@@ -283,10 +293,12 @@
         "rate_limit",
         "input_validation",
         "csrf",
-        "cors"
+        "cors",
+        "security_headers",
+        "audit_log"
       ],
       "goals": [
-        "read stores directly",
+        "read data stores directly",
         "exfiltrate secrets"
       ],
       "evidence": [
@@ -294,7 +306,7 @@
           "path": "compose.yaml",
           "start_line": 2,
           "end_line": 2,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:d212c3feb6897bfce4c7b5654f64124e9d1f1e6bb14127122bbe0e578f0a2c6e"
         }
       ]
@@ -304,7 +316,7 @@
     {
       "kind": "unknown_attribute",
       "path": "app/main.py",
-      "detail": "Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered."
+      "detail": "Question: is TLS terminated in front of the HTTP listener of api? Inbound flows are marked encryption=unknown until answered."
     }
   ]
 }

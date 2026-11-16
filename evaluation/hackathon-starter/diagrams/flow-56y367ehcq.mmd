@@ -1,0 +1,20 @@
+%% Control flow: POST /login/2fa/totp
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_iwvfpmtyc6 as morganLogger
+  participant ctl_yjrquqjv4q as limiter
+  participant ctl_u2ny7jn3of as lusca.xframe
+  participant ctl_5lleffjdvl as lusca.xssProtection
+  participant ctl_2nely6wgcn as login2FALimiter
+  participant proc_5zev3hgbu6 as POST /login/2fa/totp handler
+  participant store_x3kis6s6op as MongoDB - User
+  ext_sga4qktkap->>ctl_iwvfpmtyc6: POST /login/2fa/totp (audit_log)
+  ctl_iwvfpmtyc6->>ctl_yjrquqjv4q: POST /login/2fa/totp (rate_limit)
+  ctl_yjrquqjv4q->>ctl_u2ny7jn3of: POST /login/2fa/totp (security_headers)
+  ctl_u2ny7jn3of->>ctl_5lleffjdvl: POST /login/2fa/totp (security_headers)
+  ctl_5lleffjdvl->>ctl_2nely6wgcn: POST /login/2fa/totp (rate_limit)
+  ctl_2nely6wgcn->>proc_5zev3hgbu6: dispatch
+  proc_5zev3hgbu6->>store_x3kis6s6op: read
+  store_x3kis6s6op-->>proc_5zev3hgbu6: mongo - MongoDB - User record (credential,pii)
+  proc_5zev3hgbu6-->>ext_sga4qktkap: response

@@ -1,0 +1,9 @@
+%% Control flow: GET /auth/register
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_wttfugz7do as GET/POST /auth/register handler
+  participant store_tvae56uepz as Postgres - User
+  ext_sga4qktkap->>proc_wttfugz7do: GET /auth/register
+  proc_wttfugz7do->>store_tvae56uepz: sql - from RegistrationForm (credential,pii)
+  proc_wttfugz7do-->>ext_sga4qktkap: response

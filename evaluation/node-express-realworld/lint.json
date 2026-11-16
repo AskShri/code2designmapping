@@ -1,68 +1,122 @@
 [
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:fs2ovc6kzo",
-    "message": "article.service -> Postgres: Article: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:4nibgrkti6",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:fx43fgoml5",
-    "message": "Postgres: Comment -> article.service: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:fncxprlar4",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/users handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:gjtdc5csc7",
-    "message": "auth.service -> Postgres: User: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:meyxjuv44c",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles/{slug}/comments handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:hj3jo5yc5t",
-    "message": "Postgres: Article -> article.service: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:p53y7bmyrc",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles/{slug} handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:hofntizqhw",
-    "message": "Postgres: User -> auth.service: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:usck4o3k33",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET / handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:i4i4vgzxmx",
-    "message": "Postgres: Tag -> tag.service: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:uukljlagkr",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/profiles/{username} handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:qnp5lfpbp5",
-    "message": "Postgres: User -> profile.service: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:vncuf7sojd",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/tags handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:tg3fyqfzks",
-    "message": "profile.service -> Postgres: User: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:zft6rhivqp",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/users/login handler"
   },
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:vt352gvo52",
-    "message": "article.service -> Postgres: Comment: authentication=unknown, encryption=unknown"
+    "rule": "weakness-permissive-cors",
+    "id": "wk:ewpaz2ddbu",
+    "message": "CWE-942 cors() with default or wildcard origin (src/main.ts:13)"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:6rvtq4fkgf",
+    "id": "proc:nmkq3tmhrb",
+    "message": "process tag.service has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qvq3aucaup",
     "message": "process GET / handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
-    "rule": "black-hole-or-miracle",
-    "id": "proc:jpyb2r7cjq",
-    "message": "process tag.service has only inputs; a detector may be missing"
+    "rule": "unknown-link-attributes",
+    "id": "flow:6irhtvuums",
+    "message": "article.service -> Postgres: Comment: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:aptwmpdyvz",
+    "message": "Postgres: User -> profile.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:bsvojdm3io",
+    "message": "profile.service -> Postgres: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hgbkgg4fb6",
+    "message": "Postgres: Comment -> article.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kcksugbstw",
+    "message": "Postgres: Article -> article.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:lf2g45vldu",
+    "message": "auth.service -> Postgres: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:t457wauogt",
+    "message": "Postgres: Tag -> tag.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vakwxrykha",
+    "message": "Postgres: User -> auth.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wdkvtf2vhm",
+    "message": "article.service -> Postgres: Article: authentication=unknown, encryption=unknown"
   }
 ]

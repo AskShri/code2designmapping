@@ -1,0 +1,28 @@
+%% Control flow: POST /login
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_iwvfpmtyc6 as morganLogger
+  participant ctl_yjrquqjv4q as limiter
+  participant ctl_u2ny7jn3of as lusca.xframe
+  participant ctl_5lleffjdvl as lusca.xssProtection
+  participant ctl_tlxkgfhdoo as loginLimiter
+  participant proc_53f2owm6a5 as POST /login handler
+  participant proc_y3k3ai7ev6 as nodemailer
+  participant store_x3kis6s6op as MongoDB - User
+  participant ext_l2biskukaq as SMTP mail relay
+  ext_sga4qktkap->>ctl_iwvfpmtyc6: POST /login (audit_log)
+  ctl_iwvfpmtyc6->>ctl_yjrquqjv4q: POST /login (rate_limit)
+  ctl_yjrquqjv4q->>ctl_u2ny7jn3of: POST /login (security_headers)
+  ctl_u2ny7jn3of->>ctl_5lleffjdvl: POST /login (security_headers)
+  ctl_5lleffjdvl->>ctl_tlxkgfhdoo: POST /login (rate_limit)
+  ctl_tlxkgfhdoo->>proc_53f2owm6a5: dispatch
+  proc_53f2owm6a5->>proc_y3k3ai7ev6: call
+  proc_53f2owm6a5->>store_x3kis6s6op: read
+  store_x3kis6s6op-->>proc_53f2owm6a5: mongo - MongoDB - User record (credential,pii)
+  proc_53f2owm6a5->>store_x3kis6s6op: mongo - from request fields (postLogin) (credential,pii)
+  proc_53f2owm6a5->>ext_l2biskukaq: smtp - from request fields (postLogin) (credential,pii)
+  ext_l2biskukaq-->>proc_53f2owm6a5: response
+  proc_y3k3ai7ev6->>ext_l2biskukaq: smtp - from request fields (postContact) (+4) (credential...
+  ext_l2biskukaq-->>proc_y3k3ai7ev6: response
+  proc_53f2owm6a5-->>ext_sga4qktkap: response

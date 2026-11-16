@@ -1,0 +1,39 @@
+%% Control flow: POST /v1/auth/verify-email
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_zr7vklouvq as morgan.successHandler (conditional)
+  participant ctl_r74myxsxbv as morgan.errorHandler (conditional)
+  participant ctl_zmlkrsmolk as helmet
+  participant ctl_jfkrjjsffy as xss
+  participant ctl_6tgt7475ww as mongoSanitize
+  participant ctl_djyghqkaci as cors
+  participant ctl_wkde4ft6ku as authLimiter (conditional)
+  participant ctl_o724qz4ver as validate
+  participant proc_pymlkyz7zx as POST /v1/auth/verify-email handler
+  participant proc_2luhvtdfn2 as auth.service
+  participant proc_yisafo5ptd as token.service
+  participant proc_pdhtew2ivt as user.service
+  participant store_yc7brpyrnt as MongoDB - Token
+  participant store_x3kis6s6op as MongoDB - User
+  ext_sga4qktkap->>ctl_zr7vklouvq: POST /v1/auth/verify-email (audit_log)
+  ctl_zr7vklouvq->>ctl_r74myxsxbv: POST /v1/auth/verify-email (audit_log)
+  ctl_r74myxsxbv->>ctl_zmlkrsmolk: POST /v1/auth/verify-email (security_headers)
+  ctl_zmlkrsmolk->>ctl_jfkrjjsffy: POST /v1/auth/verify-email (input_validation)
+  ctl_jfkrjjsffy->>ctl_6tgt7475ww: POST /v1/auth/verify-email (input_validation)
+  ctl_6tgt7475ww->>ctl_djyghqkaci: POST /v1/auth/verify-email (cors)
+  ctl_djyghqkaci->>ctl_wkde4ft6ku: POST /v1/auth/verify-email (rate_limit)
+  ctl_wkde4ft6ku->>ctl_o724qz4ver: POST /v1/auth/verify-email (input_validation)
+  ctl_o724qz4ver->>proc_pymlkyz7zx: dispatch
+  proc_pymlkyz7zx->>proc_2luhvtdfn2: call
+  proc_2luhvtdfn2->>proc_yisafo5ptd: call
+  proc_2luhvtdfn2->>store_yc7brpyrnt: read
+  store_yc7brpyrnt-->>proc_2luhvtdfn2: mongo - MongoDB - Token record (credential,pii)
+  proc_2luhvtdfn2->>store_yc7brpyrnt: mongo - from request fields (logout) (+3) (credential)
+  proc_yisafo5ptd->>store_yc7brpyrnt: mongo - from register.body (+3) (credential,pii)
+  proc_yisafo5ptd->>store_yc7brpyrnt: read
+  store_yc7brpyrnt-->>proc_yisafo5ptd: mongo - MongoDB - Token record (credential,pii)
+  proc_pdhtew2ivt->>store_x3kis6s6op: mongo - from register.body (credential,pii)
+  proc_pdhtew2ivt->>store_x3kis6s6op: read
+  store_x3kis6s6op-->>proc_pdhtew2ivt: mongo - MongoDB - User record (credential,pii)
+  proc_pymlkyz7zx-->>ext_sga4qktkap: response

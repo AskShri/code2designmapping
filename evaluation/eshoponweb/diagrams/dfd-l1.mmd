@@ -1,0 +1,51 @@
+%% L1 - eshoponweb
+flowchart LR
+  subgraph bnd_y55hm2ynro["repository: eshoponweb"]
+    proc_5j7xhhbldz(["PublicApi (+14)"])
+    proc_64kq6r235y(["Web (+43)"])
+  end
+  subgraph bnd_agjyyz7jmo["container: sqlserver"]
+    store_4sxghcjkne[("SQL Server: Basket")]
+    store_fwdgr4gezx[("SQL Server: CatalogType")]
+    store_ghai53qfrs[("SQL Server: CatalogItem")]
+    store_s7pw5swiz2[("SQL Server: CatalogBrand")]
+    store_yhr5uxtyjy[("SQL Server: Order")]
+  end
+  subgraph bnd_wewlnfj6py["container: eshoppublicapi"]
+    proc_qe3wbl55ju(["eshoppublicapi (+6)"])
+  end
+  ext_miziwfdicw["Unresolved HTTP target"]
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"https"| proc_5j7xhhbldz
+  ext_sga4qktkap -->|"https"| proc_64kq6r235y
+  proc_5j7xhhbldz -->|"sql: SQL Server: CatalogItem record (financial)"| store_ghai53qfrs
+  proc_64kq6r235y -->|"in_process"| proc_qe3wbl55ju
+  proc_64kq6r235y -->|"sql"| store_4sxghcjkne
+  proc_64kq6r235y -->|"sql: SQL Server: CatalogItem record (financial)"| store_ghai53qfrs
+  proc_qe3wbl55ju -->|"unknown"| ext_miziwfdicw
+  proc_qe3wbl55ju -->|"sql"| store_4sxghcjkne
+  proc_qe3wbl55ju -->|"sql"| store_fwdgr4gezx
+  proc_qe3wbl55ju -->|"sql: SQL Server: CatalogItem record (financial)"| store_ghai53qfrs
+  proc_qe3wbl55ju -->|"sql"| store_s7pw5swiz2
+  proc_qe3wbl55ju -->|"sql: SQL Server: Order record (pii)"| store_yhr5uxtyjy
+  store_4sxghcjkne -->|"sql"| proc_64kq6r235y
+  store_4sxghcjkne -->|"sql"| proc_qe3wbl55ju
+  store_fwdgr4gezx -->|"sql"| proc_5j7xhhbldz
+  store_fwdgr4gezx -->|"sql"| proc_64kq6r235y
+  store_fwdgr4gezx -->|"sql"| proc_qe3wbl55ju
+  store_ghai53qfrs -->|"sql: SQL Server: CatalogItem record (financial)"| proc_5j7xhhbldz
+  store_ghai53qfrs -->|"sql: SQL Server: CatalogItem record (financial)"| proc_64kq6r235y
+  store_ghai53qfrs -->|"sql: SQL Server: CatalogItem record (financial)"| proc_qe3wbl55ju
+  store_s7pw5swiz2 -->|"sql"| proc_5j7xhhbldz
+  store_s7pw5swiz2 -->|"sql"| proc_64kq6r235y
+  store_s7pw5swiz2 -->|"sql"| proc_qe3wbl55ju
+  store_yhr5uxtyjy -->|"sql: SQL Server: Order record (pii)"| proc_64kq6r235y
+  style bnd_y55hm2ynro stroke-dasharray: 8 4,fill:none
+  style bnd_agjyyz7jmo stroke-dasharray: 8 4,fill:none
+  style bnd_wewlnfj6py stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

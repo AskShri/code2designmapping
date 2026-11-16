@@ -1,0 +1,14 @@
+%% Control flow: POST /Manage/RemoveLogin
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_as6hc2k7jc as [Authorize]
+  participant ctl_yifmzoblde as [ValidateAntiForgeryToken]
+  participant proc_qeuvlfui4m as POST /Manage/RemoveLogin handler
+  ext_sga4qktkap->>ctl_as6hc2k7jc: POST /Manage/RemoveLogin (authn)
+  opt authn fails
+    ctl_as6hc2k7jc-->>ext_sga4qktkap: rejected
+  end
+  ctl_as6hc2k7jc->>ctl_yifmzoblde: POST /Manage/RemoveLogin (csrf)
+  ctl_yifmzoblde->>proc_qeuvlfui4m: dispatch
+  proc_qeuvlfui4m-->>ext_sga4qktkap: response

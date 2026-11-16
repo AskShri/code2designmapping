@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/debug_mode_enabled",
+              "name": "DebugModeEnabled",
+              "shortDescription": {
+                "text": "Debug mode enabled on the application server"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/489.html",
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-489",
+                  "STRIDE:IE"
+                ],
+                "security-severity": "5.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/debug_mode_enabled",
+          "ruleIndex": 0,
+          "level": "warning",
+          "message": {
+            "text": "debug=True on the application server (CWE-489). Applies to: flask."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "flask/server.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 21,
+                  "endLine": 21
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:vup3gdoru6"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:7zzk7vgnym"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

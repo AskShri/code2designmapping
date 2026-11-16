@@ -1,0 +1,12 @@
+%% Control flow: GET /explore
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_n4zbgxlbfz as login_required
+  participant proc_3btxxcb5r6 as GET /explore handler
+  ext_sga4qktkap->>ctl_n4zbgxlbfz: GET /explore (authn)
+  opt authn fails
+    ctl_n4zbgxlbfz-->>ext_sga4qktkap: rejected
+  end
+  ctl_n4zbgxlbfz->>proc_3btxxcb5r6: dispatch
+  proc_3btxxcb5r6-->>ext_sga4qktkap: response

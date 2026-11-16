@@ -1,0 +1,67 @@
+%% L2 - articles
+flowchart LR
+  subgraph bnd_5hcgh6kyzs["repository: golang-gin-realworld"]
+    proc_25wupg7vzc(["PUT /api/articles/{slug} handler"])
+    proc_5fibf2izty(["GET /api/articles/{slug} handler"])
+    proc_7uangyiib4(["POST /api/articles/{slug}/comments handler"])
+    proc_adau6mcjkh(["GET /api/tags handler"])
+    proc_asas7uqabc(["DELETE /api/articles/{slug}/comments/{id} handler"])
+    proc_bk4dy4rjts(["DELETE /api/articles/{slug}/favorite handler"])
+    proc_cpbe6hrtwt(["GET /api/articles handler"])
+    proc_didw4s4eis(["GET /api/articles/{slug}/comments handler"])
+    proc_k4l4axmopg(["models (k4l4)"])
+    proc_qkk3jietyv(["DELETE /api/articles/{slug} handler"])
+    proc_xqfxxji2g3(["POST /api/articles handler"])
+    proc_xuhzgdlylu(["GET /api/articles/feed handler"])
+    proc_zzkjfem2rk(["POST /api/articles/{slug}/favorite handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_cck43qyjgx[("SQLite: UserModel")]
+  store_dvzg2wjtrx[("SQLite: ArticleModel")]
+  store_iav35ozifz[("SQLite: ArticleUserModel")]
+  store_jnxnsdv5hq[("SQLite: TagModel")]
+  store_oq4q2ydfq6[("SQLite: FavoriteModel")]
+  store_rie7k6es2q[("SQLite: CommentModel")]
+  store_zud464dxbb[("SQLite (table unresolved)")]
+  ext_sga4qktkap -->|"http"| proc_25wupg7vzc
+  ext_sga4qktkap -->|"http"| proc_5fibf2izty
+  ext_sga4qktkap -->|"http"| proc_7uangyiib4
+  ext_sga4qktkap -->|"http"| proc_adau6mcjkh
+  ext_sga4qktkap -->|"http"| proc_asas7uqabc
+  ext_sga4qktkap -->|"http"| proc_bk4dy4rjts
+  ext_sga4qktkap -->|"http"| proc_cpbe6hrtwt
+  ext_sga4qktkap -->|"http"| proc_didw4s4eis
+  ext_sga4qktkap -->|"http"| proc_qkk3jietyv
+  ext_sga4qktkap -->|"http"| proc_xqfxxji2g3
+  ext_sga4qktkap -->|"http"| proc_xuhzgdlylu
+  ext_sga4qktkap -->|"http"| proc_zzkjfem2rk
+  proc_25wupg7vzc -->|"in_process"| proc_k4l4axmopg
+  proc_5fibf2izty -->|"in_process"| proc_k4l4axmopg
+  proc_7uangyiib4 -->|"in_process"| proc_k4l4axmopg
+  proc_adau6mcjkh -->|"in_process"| proc_k4l4axmopg
+  proc_asas7uqabc -->|"in_process"| proc_k4l4axmopg
+  proc_bk4dy4rjts -->|"in_process"| proc_k4l4axmopg
+  proc_cpbe6hrtwt -->|"in_process"| proc_k4l4axmopg
+  proc_didw4s4eis -->|"in_process"| proc_k4l4axmopg
+  proc_k4l4axmopg -->|"sql"| store_dvzg2wjtrx
+  proc_k4l4axmopg -->|"sql"| store_jnxnsdv5hq
+  proc_k4l4axmopg -->|"sql"| store_oq4q2ydfq6
+  proc_k4l4axmopg -->|"sql"| store_rie7k6es2q
+  proc_k4l4axmopg -->|"sql"| store_zud464dxbb
+  proc_qkk3jietyv -->|"in_process"| proc_k4l4axmopg
+  proc_xqfxxji2g3 -->|"in_process"| proc_k4l4axmopg
+  proc_xuhzgdlylu -->|"in_process"| proc_k4l4axmopg
+  proc_zzkjfem2rk -->|"in_process"| proc_k4l4axmopg
+  store_cck43qyjgx -->|"sql: SQLite: UserModel record (credential,pii)"| proc_k4l4axmopg
+  store_dvzg2wjtrx -->|"sql"| proc_k4l4axmopg
+  store_iav35ozifz -->|"sql"| proc_k4l4axmopg
+  store_jnxnsdv5hq -->|"sql"| proc_k4l4axmopg
+  store_oq4q2ydfq6 -->|"sql"| proc_k4l4axmopg
+  store_rie7k6es2q -->|"sql"| proc_k4l4axmopg
+  style bnd_5hcgh6kyzs stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

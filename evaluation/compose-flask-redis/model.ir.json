@@ -1,12 +1,13 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "provenance": {
-    "tool_version": "0.3.0-prototype",
+    "tool_version": "0.5.0",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-flask-redis",
     "detectors": [
-      "config@0.3",
-      "py@0.3"
+      "config@0.5",
+      "py@0.5",
+      "synth@0.5.0"
     ],
     "scope": {
       "include": [
@@ -17,6 +18,7 @@
       "out_of_scope_elements": []
     },
     "input_hashes": {
+      "Dockerfile": "sha256:8bc3758edd1fba6faf3c7ecd0dad7d231a5040514426c4c06d8c40079148428a",
       "app.py": "sha256:9c4073df84bb12a1f48bbf76a9f00e21d1ecfb6a3f2e03a2a5e3b18aadd6f4be",
       "compose.yaml": "sha256:e74ce3a1493a0be8f7483acabe0c6902b045db48d2d174b267f2bad0083aa288",
       "requirements.txt": "sha256:824df5f93c5972458475b034860dea893fab1df99efb15fc44a59a664161001e"
@@ -24,10 +26,10 @@
   },
   "processes": [
     {
-      "id": "proc:6msugvruwc",
+      "id": "proc:2avwsfwhz3",
       "identity": [
         "process",
-        ".",
+        "L0",
         "compose-flask-redis"
       ],
       "origin": "observed",
@@ -39,16 +41,17 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:1b420f2bb1ec42fcc13ea204a08b08a83d9a382fa2cfa08302c3ac7b46386cd5"
         }
       ]
     },
     {
-      "id": "proc:7cxgtpk2nv",
+      "id": "proc:bofldjotbk",
       "identity": [
         "process",
-        "app.py",
+        "handler",
+        "web",
         "GET /"
       ],
       "origin": "observed",
@@ -60,38 +63,17 @@
           "path": "app.py",
           "start_line": 7,
           "end_line": 8,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
       ],
-      "parent": "proc:wfbgbnqk34"
+      "parent": "proc:i2fxwodvr3"
     },
     {
-      "id": "proc:qkpvudqnrq",
+      "id": "proc:i2fxwodvr3",
       "identity": [
         "process",
-        "app.py",
-        "app"
-      ],
-      "origin": "observed",
-      "name": "app",
-      "level": 2,
-      "module": "app.py",
-      "evidence": [
-        {
-          "path": "app.py",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:9f925aab96267e07ca503b9da858ca38ccdc5b69bf7a1545bf166b7cf3ebd2c5"
-        }
-      ],
-      "parent": "proc:wfbgbnqk34"
-    },
-    {
-      "id": "proc:wfbgbnqk34",
-      "identity": [
-        "process",
+        "L1",
         ".",
         "web"
       ],
@@ -104,11 +86,11 @@
           "path": "app.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:9f925aab96267e07ca503b9da858ca38ccdc5b69bf7a1545bf166b7cf3ebd2c5"
         }
       ],
-      "parent": "proc:6msugvruwc"
+      "parent": "proc:2avwsfwhz3"
     }
   ],
   "entities": [
@@ -127,7 +109,7 @@
           "path": "app.py",
           "start_line": 7,
           "end_line": 8,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
       ]
@@ -135,16 +117,15 @@
   ],
   "stores": [
     {
-      "id": "store:t6ktvjrxqq",
+      "id": "store:uvgsvq5qlm",
       "identity": [
         "store",
         "redis",
-        "hits:*"
+        ""
       ],
       "origin": "observed",
-      "name": "Redis: hits:*",
+      "name": "Redis",
       "technology": "redis",
-      "logical_name": "hits:*",
       "data_classes": [],
       "encryption_at_rest": "unknown",
       "evidence": [
@@ -152,50 +133,20 @@
           "path": "app.py",
           "start_line": 9,
           "end_line": 9,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:e634ca9bfe684a6f21354bdee44a8b227a33216cee41d6c31fdec5dfe69db19e"
         },
         {
           "path": "app.py",
           "start_line": 10,
           "end_line": 10,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:9a3a8c5b3b13b93bf1a4c70298ab6a1563b744ba78c8ba067033a20c00871803"
-        },
-        {
-          "path": "compose.yaml",
-          "start_line": 2,
-          "end_line": 2,
-          "detector": "config@0.3",
-          "content_hash": "sha256:ba77f9b04bf764c857b79c473e63e0b6dba0e02012941a43ee3e5114f3cc99a1"
         }
       ]
     }
   ],
   "boundaries": [
-    {
-      "id": "bnd:raia233rwx",
-      "identity": [
-        "boundary",
-        "container",
-        "redis"
-      ],
-      "origin": "observed",
-      "name": "container: redis",
-      "kind": "container",
-      "contains": [
-        "store:t6ktvjrxqq"
-      ],
-      "evidence": [
-        {
-          "path": "compose.yaml",
-          "start_line": 2,
-          "end_line": 2,
-          "detector": "config@0.3",
-          "content_hash": "sha256:ba77f9b04bf764c857b79c473e63e0b6dba0e02012941a43ee3e5114f3cc99a1"
-        }
-      ]
-    },
     {
       "id": "bnd:u5rsisolmh",
       "identity": [
@@ -207,17 +158,16 @@
       "name": "container: web",
       "kind": "container",
       "contains": [
-        "proc:6msugvruwc",
-        "proc:7cxgtpk2nv",
-        "proc:qkpvudqnrq",
-        "proc:wfbgbnqk34"
+        "proc:2avwsfwhz3",
+        "proc:bofldjotbk",
+        "proc:i2fxwodvr3"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 6,
           "end_line": 6,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
         }
       ]
@@ -225,24 +175,22 @@
   ],
   "flows": [
     {
-      "id": "flow:6glr3tqnr3",
+      "id": "flow:2n2u3yr2u6",
       "identity": [
         "flow",
-        "store:t6ktvjrxqq",
-        "proc:7cxgtpk2nv",
-        "redis",
-        ""
+        "store:uvgsvq5qlm",
+        "proc:bofldjotbk",
+        "redis"
       ],
       "origin": "observed",
-      "source": "store:t6ktvjrxqq",
-      "target": "proc:7cxgtpk2nv",
+      "source": "store:uvgsvq5qlm",
+      "target": "proc:bofldjotbk",
       "protocol": "redis",
       "direction": "one_way",
       "authentication": "unknown",
       "encryption": "unknown",
       "purpose": "get",
       "crosses_boundary": [
-        "bnd:raia233rwx",
         "bnd:u5rsisolmh"
       ],
       "controls": [],
@@ -251,23 +199,52 @@
           "path": "app.py",
           "start_line": 10,
           "end_line": 10,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:9a3a8c5b3b13b93bf1a4c70298ab6a1563b744ba78c8ba067033a20c00871803"
         }
       ]
     },
     {
-      "id": "flow:mupuihgbzj",
+      "id": "flow:ifvodaa46v",
+      "identity": [
+        "flow",
+        "proc:bofldjotbk",
+        "store:uvgsvq5qlm",
+        "redis"
+      ],
+      "origin": "observed",
+      "source": "proc:bofldjotbk",
+      "target": "store:uvgsvq5qlm",
+      "protocol": "redis",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "incr",
+      "crosses_boundary": [
+        "bnd:u5rsisolmh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 9,
+          "end_line": 9,
+          "detector": "py@0.5",
+          "content_hash": "sha256:e634ca9bfe684a6f21354bdee44a8b227a33216cee41d6c31fdec5dfe69db19e"
+        }
+      ]
+    },
+    {
+      "id": "flow:lszkz4zfv7",
       "identity": [
         "flow",
         "ext:sga4qktkap",
-        "proc:7cxgtpk2nv",
-        "http",
-        ""
+        "proc:bofldjotbk",
+        "http"
       ],
       "origin": "observed",
       "source": "ext:sga4qktkap",
-      "target": "proc:7cxgtpk2nv",
+      "target": "proc:bofldjotbk",
       "protocol": "http",
       "direction": "request_response",
       "authentication": "none",
@@ -282,99 +259,105 @@
           "path": "app.py",
           "start_line": 7,
           "end_line": 8,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
-        }
-      ]
-    },
-    {
-      "id": "flow:wqlg4jrgxq",
-      "identity": [
-        "flow",
-        "proc:7cxgtpk2nv",
-        "store:t6ktvjrxqq",
-        "redis",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:7cxgtpk2nv",
-      "target": "store:t6ktvjrxqq",
-      "protocol": "redis",
-      "direction": "one_way",
-      "authentication": "unknown",
-      "encryption": "unknown",
-      "purpose": "incr",
-      "crosses_boundary": [
-        "bnd:raia233rwx",
-        "bnd:u5rsisolmh"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "app.py",
-          "start_line": 9,
-          "end_line": 9,
-          "detector": "py@0.3",
-          "content_hash": "sha256:e634ca9bfe684a6f21354bdee44a8b227a33216cee41d6c31fdec5dfe69db19e"
         }
       ]
     }
   ],
   "entry_points": [
     {
-      "id": "ep:lisvwyia2y",
+      "id": "ep:ihu4cujw3c",
       "identity": [
         "entry_point",
         "http",
         "GET",
         "/",
-        "app.py"
+        "web"
       ],
       "origin": "observed",
-      "process": "proc:7cxgtpk2nv",
+      "process": "proc:bofldjotbk",
       "protocol": "http",
       "method": "GET",
       "path": "/",
+      "exposure": "public",
       "controls": [],
       "call_chain": [
-        "proc:7cxgtpk2nv"
+        "proc:bofldjotbk"
+      ],
+      "reaches": [
+        "store:uvgsvq5qlm"
       ],
       "evidence": [
         {
           "path": "app.py",
           "start_line": 7,
           "end_line": 8,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
-      ],
-      "reaches": [
-        "store:t6ktvjrxqq"
       ]
     }
   ],
   "controls": [],
   "weaknesses": [
     {
-      "id": "wk:zlw6cyausr",
+      "id": "wk:brjex7mmr2",
       "identity": [
         "weakness",
         "unauthenticated_entry_point",
-        "ep:lisvwyia2y"
+        "ep:ihu4cujw3c"
       ],
       "origin": "observed",
       "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on GET /",
+      "name": "no authentication control detected on GET /",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
       "applies_to": [
-        "ep:lisvwyia2y"
+        "ep:ihu4cujw3c"
       ],
       "evidence": [
         {
           "path": "app.py",
           "start_line": 7,
           "end_line": 8,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
+        }
+      ]
+    },
+    {
+      "id": "wk:zetf6lwwmt",
+      "identity": [
+        "weakness",
+        "debug_mode_enabled",
+        "app.py",
+        "debug=True on the application server",
+        "1"
+      ],
+      "origin": "observed",
+      "kind": "debug_mode_enabled",
+      "name": "debug=True on the application server",
+      "severity": "medium",
+      "cwe": "CWE-489",
+      "stride": [
+        "I",
+        "E"
+      ],
+      "applies_to": [
+        "proc:i2fxwodvr3"
+      ],
+      "evidence": [
+        {
+          "path": "app.py",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "py@0.5",
+          "content_hash": "sha256:435ab459a165f3805efef64850c58d4d2e387d9b07c30ccd7164cb2d82c11472"
         }
       ]
     }
@@ -396,8 +379,7 @@
       "access": "insider",
       "location": "bnd:u5rsisolmh",
       "entry": [
-        "proc:7cxgtpk2nv",
-        "proc:qkpvudqnrq"
+        "proc:bofldjotbk"
       ],
       "passes_controls": [
         "authn",
@@ -405,10 +387,12 @@
         "rate_limit",
         "input_validation",
         "csrf",
-        "cors"
+        "cors",
+        "security_headers",
+        "audit_log"
       ],
       "goals": [
-        "read stores directly",
+        "read data stores directly",
         "exfiltrate secrets"
       ],
       "evidence": [
@@ -416,7 +400,7 @@
           "path": "compose.yaml",
           "start_line": 6,
           "end_line": 6,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
         }
       ]
@@ -430,7 +414,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "1 http entry points, 1 without a detected authn control",
+      "rationale": "1 entry points are reachable from outside, 1 of them without a detected authentication control",
       "name": "Anonymous HTTP caller",
       "access": "anonymous",
       "entry": [
@@ -445,7 +429,7 @@
           "path": "app.py",
           "start_line": 7,
           "end_line": 8,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
       ]
@@ -455,13 +439,13 @@
     {
       "kind": "unknown_attribute",
       "path": "app.py",
-      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port (host=\"0.0.0.0\", port=8000, debug=True)? Inbound flows are marked encryption=unknown until answered."
+      "detail": "Question: is TLS terminated in front of the HTTP listener of web? Inbound flows are marked encryption=unknown until answered."
     },
     {
       "kind": "unknown_attribute",
       "path": "app.py",
-      "line": 9,
-      "detail": "Question for the team: how is the link to Redis: hits:* authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+      "line": 10,
+      "detail": "Question: what is the authentication and encryption of the link to Redis?"
     }
   ]
 }

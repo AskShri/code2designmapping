@@ -1,0 +1,2223 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/plaintext_credentials",
+              "name": "PlaintextCredentials",
+              "shortDescription": {
+                "text": "Hard-coded or committed credentials"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/798.html",
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-798",
+                  "STRIDE:IE"
+                ],
+                "security-severity": "8.0"
+              }
+            },
+            {
+              "id": "c2d/unauthenticated_entry_point",
+              "name": "UnauthenticatedEntryPoint",
+              "shortDescription": {
+                "text": "Entry point without a detected authentication control (review)"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/306.html",
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-306",
+                  "STRIDE:SE"
+                ],
+                "security-severity": "1.0"
+              }
+            },
+            {
+              "id": "c2d/unencrypted_transport",
+              "name": "UnencryptedTransport",
+              "shortDescription": {
+                "text": "Cleartext transport to a non-local host"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/319.html",
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-319",
+                  "STRIDE:TI"
+                ],
+                "security-severity": "5.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /auth/failure (CWE-306). Applies to: GET /auth/failure."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 345,
+                  "endLine": 361
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:2sfldftjsu"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:nwh3h3gpxh"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /forgot (CWE-306). Applies to: POST /forgot."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 265,
+                  "endLine": 265
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:2xtaobehk5"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:5io2jrqeip"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /login (CWE-306). Applies to: GET /login."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 252,
+                  "endLine": 252
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:2ztbk7e5lk"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ztkybrt6f3"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /forgot (CWE-306). Applies to: GET /forgot."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 264,
+                  "endLine": 264
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:3jztszu36a"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:7b4vis4wxo"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /ai/llm-classifier (CWE-306). Applies to: POST /ai/llm-classifier."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 328,
+                  "endLine": 328
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:3lmir665zd"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:7c5lsxqurj"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/nyt (CWE-306). Applies to: GET /api/nyt."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 295,
+                  "endLine": 295
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:4feh3ekisw"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:232gxtgger"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/lastfm (CWE-306). Applies to: GET /api/lastfm."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 294,
+                  "endLine": 294
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:4vnl73t2e2"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:sh7vw5n4wi"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /login/webauthn-start (CWE-306). Applies to: GET /login/webauthn-start."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 261,
+                  "endLine": 261
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:542ee4ez6q"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:tgx2fhselh"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /signup (CWE-306). Applies to: GET /signup."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 268,
+                  "endLine": 268
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:55o4cigdh6"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:mypwz7sl45"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /reset/{token} (CWE-306). Applies to: POST /reset/{token}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 267,
+                  "endLine": 267
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:5q7v2ntgac"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:axwdewkzyx"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/lob (CWE-306). Applies to: GET /api/lob."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 310,
+                  "endLine": 310
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:6do5hrda4p"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:spdlgbrwwl"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /login/2fa/totp (CWE-306). Applies to: POST /login/2fa/totp."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 259,
+                  "endLine": 259
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:6k7p3ww5la"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:56y367ehcq"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /contact (CWE-306). Applies to: POST /contact."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 271,
+                  "endLine": 271
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:6lc47yw7in"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:q22zqe3kh4"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "hard-coded tokenURL literal (CWE-798). Applies to: passport."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/passport.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 703,
+                  "endLine": 703
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:6vv37kvkw3"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:rreipcwqbx"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /ai/rag/ingest (CWE-306). Applies to: POST /ai/rag/ingest."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 332,
+                  "endLine": 332
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:7mm3xnjz35"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:2nibl7uxlt"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /ai (CWE-306). Applies to: GET /ai."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 326,
+                  "endLine": 326
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ab3ouzjd6a"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:lqy6kgrjeg"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /ai/llm-classifier (CWE-306). Applies to: GET /ai/llm-classifier."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 327,
+                  "endLine": 327
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bfrd2y53hw"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:6qc7pe5xsn"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/google-maps (CWE-306). Applies to: GET /api/google-maps."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 314,
+                  "endLine": 314
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bksjk73r5x"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:qtgo5tuxfm"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/paypal/cancel (CWE-306). Applies to: GET /api/paypal/cancel."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 309,
+                  "endLine": 309
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bokaqvabp5"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:dkniscvril"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /contact (CWE-306). Applies to: GET /contact."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 270,
+                  "endLine": 270
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bubyett5nx"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:frcq7vctd7"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/twilio (CWE-306). Applies to: GET /api/twilio."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 300,
+                  "endLine": 300
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:bx2lklr2ul"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:gbj7go5bs6"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /login/2fa (CWE-306). Applies to: GET /login/2fa."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 255,
+                  "endLine": 255
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:cndaga7yoo"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:qoccidwteb"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "hard-coded tokenURL literal (CWE-798). Applies to: passport."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/passport.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 730,
+                  "endLine": 730
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:d4uwz3vp4s"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:rreipcwqbx"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/paypal (CWE-306). Applies to: GET /api/paypal."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 307,
+                  "endLine": 307
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:dfaagbh47g"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:tsmqnoe5yg"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "hard-coded accessTokenURL literal (CWE-798). Applies to: passport."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/passport.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 582,
+                  "endLine": 582
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:duf4hwery6"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:rreipcwqbx"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/upload (CWE-306). Applies to: POST /api/upload."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 312,
+                  "endLine": 312
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ecb47x2g72"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:bvb23ulydq"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET / (CWE-306). Applies to: GET /."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 251,
+                  "endLine": 251
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ecj6trb64g"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:jf2ffufdzr"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/giphy (CWE-306). Applies to: GET /api/giphy."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 321,
+                  "endLine": 321
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:f7j4hue3m2"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:vjmcw7hn7v"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /login/webauthn-verify (CWE-306). Applies to: POST /login/webauthn-verify."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 262,
+                  "endLine": 262
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:fauuupgh2w"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:faghyastqs"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api (CWE-306). Applies to: GET /api."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 293,
+                  "endLine": 293
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:g3fatsdm3i"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ur5kjdpnoj"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /logout (CWE-306). Applies to: GET /logout."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 263,
+                  "endLine": 263
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:g5tgli4hvl"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:7xnazrpxve"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /ai/ai-agent (CWE-306). Applies to: GET /ai/ai-agent."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 334,
+                  "endLine": 334
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ge446qrni6"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:q4dknfgukh"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /signup (CWE-306). Applies to: POST /signup."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 269,
+                  "endLine": 269
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:gizyohgi6s"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:a5n4sxocb2"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /ai/llm-camera (CWE-306). Applies to: GET /ai/llm-camera."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 329,
+                  "endLine": 329
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:h3gtcsiosb"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:nlwy7tspiu"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/pubchem (CWE-306). Applies to: GET /api/pubchem."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 319,
+                  "endLine": 319
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:i5xj7xiopp"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:hvrn3wsusk"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/foursquare (CWE-306). Applies to: GET /api/foursquare."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 302,
+                  "endLine": 302
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:iqr46ruypk"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:en3pltm2v4"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /login (CWE-306). Applies to: POST /login."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 253,
+                  "endLine": 253
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ix5rfu44ks"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:22tuuwqeni"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /ai/llm-camera (CWE-306). Applies to: POST /ai/llm-camera."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 330,
+                  "endLine": 330
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:luhn5qds34"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:q6jgad46e6"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/scraping (CWE-306). Applies to: GET /api/scraping."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 299,
+                  "endLine": 299
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:mmploxm7wk"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:i2efkhczvp"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /reset/{token} (CWE-306). Applies to: GET /reset/{token}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 266,
+                  "endLine": 266
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:mnk63gboqt"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:un24syvou7"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/stripe (CWE-306). Applies to: POST /api/stripe."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 298,
+                  "endLine": 298
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:n4lqgt5zsf"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:qwcacmxucs"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /login/2fa/totp (CWE-306). Applies to: GET /login/2fa/totp."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 258,
+                  "endLine": 258
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:oxe4pqsb3q"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:xc67nhxqn4"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /account/webauthn/register (CWE-306). Applies to: GET /account/webauthn/register."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 286,
+                  "endLine": 286
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:p4tlydr5ln"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:a5fysiwiil"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /ai/rag (CWE-306). Applies to: GET /ai/rag."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 331,
+                  "endLine": 331
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:pu7z23vmdo"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:yxfetvnxsk"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/upload (CWE-306). Applies to: GET /api/upload."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 311,
+                  "endLine": 311
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:puhhpuqu6t"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:kabovzbpe6"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/stripe (CWE-306). Applies to: GET /api/stripe."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 297,
+                  "endLine": 297
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:q5or7sn4sr"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:whh65aurww"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/here-maps (CWE-306). Applies to: GET /api/here-maps."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 313,
+                  "endLine": 313
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:qim35yx5ma"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:wxvxeulw4q"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /ai/rag/ask (CWE-306). Applies to: POST /ai/rag/ask."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 333,
+                  "endLine": 333
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:qo3i5wvnjx"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:w4q5v3m634"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/wikipedia (CWE-306). Applies to: GET /api/wikipedia."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 320,
+                  "endLine": 320
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:qt7wst6sko"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:5zl3cw7d4c"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/paypal/success (CWE-306). Applies to: GET /api/paypal/success."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 308,
+                  "endLine": 308
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:raradjcvgg"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:agtru2qmpu"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "hard-coded requestTokenURL literal (CWE-798). Applies to: passport."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/passport.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 581,
+                  "endLine": 581
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:t5h4635mv4"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:rreipcwqbx"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/twilio (CWE-306). Applies to: POST /api/twilio."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 301,
+                  "endLine": 301
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:tfawyhuk3x"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:zkfx2lraad"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "hard-coded tokenURL literal (CWE-798). Applies to: passport."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/passport.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 487,
+                  "endLine": 487
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:u4qm2msqas"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:rreipcwqbx"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /login/verify/{token} (CWE-306). Applies to: GET /login/verify/{token}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 254,
+                  "endLine": 254
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:vfkiy753zy"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:mj5hkheno7"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unencrypted_transport",
+          "ruleIndex": 2,
+          "level": "warning",
+          "message": {
+            "text": "plain http:// to api.steampowered.com (CWE-319). Applies to: passport."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/passport.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 663,
+                  "endLine": 663
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:vtlqfh3pvu"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:rreipcwqbx"
+            ],
+            "stride": [
+              "T",
+              "I"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /login/2fa (CWE-306). Applies to: POST /login/2fa."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 256,
+                  "endLine": 256
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:vu555nrch6"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ee5yqmq5te"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/chart (CWE-306). Applies to: GET /api/chart."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 316,
+                  "endLine": 316
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:wtb2w7exci"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:bu6kkvk3os"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "hard-coded tokenURL literal (CWE-798). Applies to: passport."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config/passport.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 434,
+                  "endLine": 434
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:wupjae7tsj"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:rreipcwqbx"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /ai/ai-agent/chat (CWE-306). Applies to: POST /ai/ai-agent/chat."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 335,
+                  "endLine": 335
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:x36ji65l5h"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:tmgz3gmbsr"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /login/2fa/resend (CWE-306). Applies to: POST /login/2fa/resend."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 257,
+                  "endLine": 257
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:xi7dqkzpke"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:rzmwn7vhh7"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /ai/ai-agent/reset (CWE-306). Applies to: POST /ai/ai-agent/reset."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 336,
+                  "endLine": 336
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:ybe6oxkglc"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:33ycqkevf5"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /login/webauthn-start (CWE-306). Applies to: POST /login/webauthn-start."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 260,
+                  "endLine": 260
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:yh2l23vsiu"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:xwh57wgpct"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on GET /api/github (CWE-306). Applies to: GET /api/github."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 305,
+                  "endLine": 305
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:yyg5mzkmwv"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:xiklxizdgy"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

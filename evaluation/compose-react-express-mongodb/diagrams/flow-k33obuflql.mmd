@@ -1,0 +1,11 @@
+%% Control flow: POST /api/todos
+sequenceDiagram
+  autonumber
+  actor ext_3nnzcvcul3 as Internal HTTP client
+  participant ctl_zutqx6musk as cors
+  participant proc_6r3kiujsoj as POST /api/todos handler
+  participant store_lsfwjprw56 as MongoDB - Todo
+  ext_3nnzcvcul3->>ctl_zutqx6musk: POST /api/todos (cors)
+  ctl_zutqx6musk->>proc_6r3kiujsoj: dispatch
+  proc_6r3kiujsoj->>store_lsfwjprw56: mongo
+  proc_6r3kiujsoj-->>ext_3nnzcvcul3: response

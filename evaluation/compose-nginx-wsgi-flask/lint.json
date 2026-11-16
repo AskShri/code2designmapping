@@ -1,50 +1,50 @@
 [
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:6r36k4vpot",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /flask-health-check handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:2g7vzresto",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /cache-me handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:gawm6h2sol",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /info handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:2kjt4xf4fi",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET / handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:sgohinunbc",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:3jobndym6o",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /info handler"
   },
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:xdqb4dmjl6",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET /cache-me handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:wx3l25j74n",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /flask-health-check handler"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:lmwj2xg5yn",
-    "message": "process GET / handler has only inputs; a detector may be missing"
+    "id": "proc:5zmdsr4rb5",
+    "message": "process GET /flask-health-check handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:qhcg7tkijf",
+    "id": "proc:6erds2pkzv",
     "message": "process GET /cache-me handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:qizcssqkqn",
+    "id": "proc:ostlsfronr",
     "message": "process GET /info handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:z7nldm4k3e",
-    "message": "process GET /flask-health-check handler has only inputs; a detector may be missing"
+    "id": "proc:skicnyqa64",
+    "message": "process GET / handler has only inputs; a detector may be missing"
   }
 ]

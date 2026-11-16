@@ -1,0 +1,12 @@
+%% Control flow: POST /auth/reset_password/{token}
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_tmddzeuxim as GET/POST /auth/reset_password/{token} handler
+  participant proc_f7djmphacc as models
+  participant store_tvae56uepz as Postgres - User
+  ext_sga4qktkap->>proc_tmddzeuxim: POST /auth/reset_password/{token}
+  proc_tmddzeuxim->>proc_f7djmphacc: call
+  proc_f7djmphacc->>store_tvae56uepz: read
+  store_tvae56uepz-->>proc_f7djmphacc: sql - Postgres - User record (credential,pii)
+  proc_tmddzeuxim-->>ext_sga4qktkap: response

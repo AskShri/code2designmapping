@@ -1,0 +1,14 @@
+%% Control flow: POST /Manage/ChangePassword
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_as6hc2k7jc as [Authorize]
+  participant ctl_yifmzoblde as [ValidateAntiForgeryToken]
+  participant proc_jajlzitkqz as GET/POST /Manage/ChangePassword handler
+  ext_sga4qktkap->>ctl_as6hc2k7jc: POST /Manage/ChangePassword (authn)
+  opt authn fails
+    ctl_as6hc2k7jc-->>ext_sga4qktkap: rejected
+  end
+  ctl_as6hc2k7jc->>ctl_yifmzoblde: POST /Manage/ChangePassword (csrf)
+  ctl_yifmzoblde->>proc_jajlzitkqz: dispatch
+  proc_jajlzitkqz-->>ext_sga4qktkap: response

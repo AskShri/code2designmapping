@@ -1,0 +1,11 @@
+%% Control flow: GET /
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_bofldjotbk as GET / handler
+  participant store_uvgsvq5qlm as Redis
+  ext_sga4qktkap->>proc_bofldjotbk: GET /
+  proc_bofldjotbk->>store_uvgsvq5qlm: redis
+  proc_bofldjotbk->>store_uvgsvq5qlm: read
+  store_uvgsvq5qlm-->>proc_bofldjotbk: redis
+  proc_bofldjotbk-->>ext_sga4qktkap: response

@@ -1,17 +1,15 @@
-%% L1: node-express-mongodb
+%% L1 - node-express-mongodb
 flowchart LR
   subgraph bnd_fg4rasskqa["repository: node-express-mongodb"]
-    proc_2k4qri4gz2(["node-express-mongodb (+5)"])
-    proc_jtcosnfmpa(["routes (+7)"])
-    proc_m53v3pusca(["controllers (+1)"])
+    proc_jbsphjhpuh(["routes (+7)"])
+    proc_wb7f6knya7(["node-express-mongodb (+1)"])
   end
   ext_sga4qktkap["HTTP client"]
-  store_uujc2npyud[("MongoDB: tutorials")]
-  ext_sga4qktkap -->|"http"| proc_2k4qri4gz2
-  ext_sga4qktkap -->|"http"| proc_jtcosnfmpa
-  proc_jtcosnfmpa -->|"in_process"| proc_m53v3pusca
-  proc_jtcosnfmpa -->|"mongo"| store_uujc2npyud
-  store_uujc2npyud -->|"mongo"| proc_jtcosnfmpa
+  store_uujc2npyud[("MongoDB: tutorial")]
+  ext_sga4qktkap -->|"http<br/>http: request fields (create)<br/>http: request fields (findAll)"| proc_jbsphjhpuh
+  ext_sga4qktkap -->|"http"| proc_wb7f6knya7
+  proc_jbsphjhpuh -->|"mongo"| store_uujc2npyud
+  store_uujc2npyud -->|"mongo"| proc_jbsphjhpuh
   style bnd_fg4rasskqa stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

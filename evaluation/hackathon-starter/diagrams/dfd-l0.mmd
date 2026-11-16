@@ -1,7 +1,7 @@
-%% L0 context: hackathon-starter
+%% L0 context - hackathon-starter
 flowchart LR
   subgraph bnd_wsjnfagnyn["repository: hackathon-starter"]
-    proc_dsb5vsfubj(["hackathon-starter (+107)"])
+    proc_4taamv3qpg(["hackathon-starter (+6)"])
   end
   ext_bwroa5pgto["Steam Openid identity provider"]
   ext_gwedqcokmf["api.tumblr.com"]
@@ -16,43 +16,43 @@ flowchart LR
   ext_pbm532avbp["api.twitch.tv"]
   ext_pja6bq4qbq["graph.microsoft.com"]
   ext_q7bc76pjhv["Google Drive API"]
+  ext_qaajlcnhsd["api.steampowered.com"]
   ext_sga4qktkap["HTTP client"]
   ext_si4fnyazwf["Facebook identity provider"]
   ext_slqdx4hifp["Stripe API"]
-  ext_summary["other external services (+7)"]
+  ext_summary["other external services (+6)"]
   ext_tq5xvm2pwe["GitHub API"]
   ext_u6x5oiec77["pubchem.ncbi.nlm.nih.gov"]
   ext_uuhu7borqt["api.sandbox.paypal.com"]
   ext_yydkmj7yh6["Hugging Face Inference API"]
-  ext_z53v3sf3pz["Oauth2 Refresh identity provider"]
   store_3ufptbo5k3[("MongoDB (collection unresolved)")]
   store_x3kis6s6op[("MongoDB: User")]
-  ext_sga4qktkap -->|"http"| proc_dsb5vsfubj
-  proc_dsb5vsfubj -->|"https"| ext_bwroa5pgto
-  proc_dsb5vsfubj -->|"https"| ext_gwedqcokmf
-  proc_dsb5vsfubj -->|"https"| ext_iebd2bhb4m
-  proc_dsb5vsfubj -->|"https"| ext_jersuzximo
-  proc_dsb5vsfubj -->|"smtp"| ext_l2biskukaq
-  proc_dsb5vsfubj -->|"unknown"| ext_miziwfdicw
-  proc_dsb5vsfubj -->|"https"| ext_muqplzhwb7
-  proc_dsb5vsfubj -->|"https"| ext_nggth6fowo
-  proc_dsb5vsfubj -->|"https"| ext_nswlxsx7xw
-  proc_dsb5vsfubj -->|"https"| ext_oxze3tquf6
-  proc_dsb5vsfubj -->|"https"| ext_pbm532avbp
-  proc_dsb5vsfubj -->|"https"| ext_pja6bq4qbq
-  proc_dsb5vsfubj -->|"https"| ext_q7bc76pjhv
-  proc_dsb5vsfubj -->|"https"| ext_si4fnyazwf
-  proc_dsb5vsfubj -->|"https"| ext_slqdx4hifp
-  proc_dsb5vsfubj -->|"https"| ext_summary
-  proc_dsb5vsfubj -->|"https"| ext_tq5xvm2pwe
-  proc_dsb5vsfubj -->|"https"| ext_u6x5oiec77
-  proc_dsb5vsfubj -->|"https"| ext_uuhu7borqt
-  proc_dsb5vsfubj -->|"https"| ext_yydkmj7yh6
-  proc_dsb5vsfubj -->|"https"| ext_z53v3sf3pz
-  proc_dsb5vsfubj -->|"mongo"| store_3ufptbo5k3
-  proc_dsb5vsfubj -->|"mongo"| store_x3kis6s6op
-  store_3ufptbo5k3 -->|"mongo"| proc_dsb5vsfubj
-  store_x3kis6s6op -->|"mongo"| proc_dsb5vsfubj
+  ext_sga4qktkap -->|"http<br/>http: request fields (getGiphy)<br/>http: request fields (getWikipedia)<br/>..."| proc_4taamv3qpg
+  proc_4taamv3qpg -.->|"https"| ext_bwroa5pgto
+  proc_4taamv3qpg -->|"https"| ext_gwedqcokmf
+  proc_4taamv3qpg -->|"https"| ext_iebd2bhb4m
+  proc_4taamv3qpg -.->|"https"| ext_jersuzximo
+  proc_4taamv3qpg -->|"smtp<br/>smtp: from request fields (postContact) (+4) (credent...<br/>smtp: from request fields (postContact) (pii)<br/>..."| ext_l2biskukaq
+  proc_4taamv3qpg -->|"unknown<br/>unknown: from request fields (postContact) (pii)"| ext_miziwfdicw
+  proc_4taamv3qpg -.->|"https"| ext_muqplzhwb7
+  proc_4taamv3qpg -->|"https"| ext_nggth6fowo
+  proc_4taamv3qpg -->|"https"| ext_nswlxsx7xw
+  proc_4taamv3qpg -->|"https"| ext_oxze3tquf6
+  proc_4taamv3qpg -->|"https"| ext_pbm532avbp
+  proc_4taamv3qpg -->|"https"| ext_pja6bq4qbq
+  proc_4taamv3qpg -->|"https"| ext_q7bc76pjhv
+  proc_4taamv3qpg -->|"http"| ext_qaajlcnhsd
+  proc_4taamv3qpg -.->|"https"| ext_si4fnyazwf
+  proc_4taamv3qpg -->|"https: from request fields (postStripe) (credential,pii)"| ext_slqdx4hifp
+  proc_4taamv3qpg -->|"https"| ext_summary
+  proc_4taamv3qpg -.->|"https"| ext_tq5xvm2pwe
+  proc_4taamv3qpg -->|"https"| ext_u6x5oiec77
+  proc_4taamv3qpg -->|"https"| ext_uuhu7borqt
+  proc_4taamv3qpg -->|"https"| ext_yydkmj7yh6
+  proc_4taamv3qpg -->|"mongo"| store_3ufptbo5k3
+  proc_4taamv3qpg -->|"mongo<br/>mongo: from request fields (postForgot) (pii)<br/>mongo: from request fields (postLogin) (credential,pii)<br/>..."| store_x3kis6s6op
+  store_3ufptbo5k3 -->|"mongo"| proc_4taamv3qpg
+  store_x3kis6s6op -->|"mongo: MongoDB: User record (credential,pii)"| proc_4taamv3qpg
   style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

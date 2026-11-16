@@ -1,0 +1,32 @@
+%% L2 - auth
+flowchart LR
+  subgraph bnd_ycbot7mf4h["container: app"]
+    proc_5a4eh3dnlg(["GET/POST /auth/reset_password_request handler"])
+    proc_5f4hgke67p(["app (+30)"])
+    proc_62wc6ym3a2(["GET /auth/logout handler"])
+    proc_ibuknxentd(["forms (ibuk)"])
+    proc_kdqhqecot7(["GET/POST /auth/login handler"])
+    proc_tmddzeuxim(["GET/POST /auth/reset_password/{token} handler"])
+    proc_wttfugz7do(["GET/POST /auth/register handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_tvae56uepz[("Postgres: User")]
+  ext_sga4qktkap -->|"http: ResetPasswordRequestForm (pii)"| proc_5a4eh3dnlg
+  ext_sga4qktkap -->|"http"| proc_62wc6ym3a2
+  ext_sga4qktkap -->|"http: request fields (login) (+1) (credential,pii)"| proc_kdqhqecot7
+  ext_sga4qktkap -->|"http: ResetPasswordForm (credential)"| proc_tmddzeuxim
+  ext_sga4qktkap -->|"http: RegistrationForm (credential,pii)"| proc_wttfugz7do
+  proc_5a4eh3dnlg -->|"in_process"| proc_5f4hgke67p
+  proc_ibuknxentd -->|"in_process"| proc_5f4hgke67p
+  proc_tmddzeuxim -->|"in_process"| proc_5f4hgke67p
+  proc_wttfugz7do -->|"sql: from RegistrationForm (credential,pii)"| store_tvae56uepz
+  store_tvae56uepz -->|"sql: Postgres: User record (credential,pii)"| proc_5a4eh3dnlg
+  store_tvae56uepz -->|"sql: Postgres: User record (credential,pii)"| proc_ibuknxentd
+  store_tvae56uepz -->|"sql: Postgres: User record (credential,pii)"| proc_kdqhqecot7
+  style bnd_ycbot7mf4h stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

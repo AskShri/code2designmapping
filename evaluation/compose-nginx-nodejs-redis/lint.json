@@ -1,20 +1,26 @@
 [
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:pqlfcuinjs",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:mi4wgfqzkm",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET / handler"
   },
   {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:dipnt2gg67",
-    "message": "GET / handler -> Redis: numVisits:*: authentication=unknown, encryption=unknown"
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:6wfylqt4ec",
+    "message": "process GET / handler has only inputs; a detector may be missing"
   },
   {
-    "severity": "warning",
+    "severity": "info",
     "rule": "unknown-link-attributes",
-    "id": "flow:vznukz6q5u",
-    "message": "Redis: numVisits:* -> GET / handler: authentication=unknown, encryption=unknown"
+    "id": "flow:bjy7tjyigs",
+    "message": "Redis -> web: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:l6irbfy6dn",
+    "message": "web -> Redis: authentication=unknown, encryption=unknown"
   }
 ]

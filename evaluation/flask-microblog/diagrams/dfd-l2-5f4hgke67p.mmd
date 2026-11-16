@@ -1,0 +1,90 @@
+%% L2 - app
+flowchart LR
+  subgraph bnd_ycbot7mf4h["container: app"]
+    proc_3any4qmbna(["POST /translate handler"])
+    proc_3btxxcb5r6(["GET /explore handler"])
+    proc_3ic6ctnlx6(["auth (+6)"])
+    proc_3kmmg3ss4c(["search"])
+    proc_65litz2esg(["POST /api/tokens handler"])
+    proc_c7g5birsli(["translate"])
+    proc_cwad7bxdcw(["tasks"])
+    proc_d3ajgfblpv(["forms (d3aj)"])
+    proc_f5nzwppfqy(["PUT /api/users/{id} handler"])
+    proc_f7djmphacc(["models"])
+    proc_frabbzxoze(["GET /messages handler"])
+    proc_geju56vlnf(["POST /api/users handler"])
+    proc_glf662po6z(["DELETE /api/tokens handler"])
+    proc_hde24aij6h(["auth (hde2)"])
+    proc_hilllquw3w(["GET /search handler"])
+    proc_j4vovdvgdh(["GET /api/users/{id}/following handler"])
+    proc_jbnh3dbgms(["POST /unfollow/{username} handler"])
+    proc_jgjotdiqkf(["tests"])
+    proc_kwkwe332ps(["GET/POST /send_message/{recipient} handler"])
+    proc_kx2jmqahey(["GET /api/users/{id} handler"])
+    proc_ndd5zp7vcl(["GET /api/users/{id}/followers handler"])
+    proc_ntszm5v2bs(["app (ntsz)"])
+    proc_partny3sls(["GET /notifications handler"])
+    proc_pftv6kqvgt(["GET /api/users handler"])
+    proc_pqzdmld34n(["GET/POST /edit_profile handler"])
+    proc_qvq3aucaup(["GET / handler (+1 routes)"])
+    proc_qymwtsmjpp(["email"])
+    proc_s7ck5tklyv(["GET /user/{username}/popup handler"])
+    proc_tpexvbuvoj(["GET /user/{username} handler"])
+    proc_vuu4bwhao5(["POST /follow/{username} handler"])
+    proc_xg6qxbykjn(["GET /export_posts handler"])
+  end
+  ext_77pfc4anjp["api.cognitive.microsofttranslator.com"]
+  ext_l2biskukaq["SMTP mail relay"]
+  ext_sga4qktkap["HTTP client"]
+  store_ctwgzvsuvh[("Postgres (table unresolved)")]
+  store_ec5chz4iwz[("Postgres: Post")]
+  store_summary[("other data stores (+5)")]
+  store_tvae56uepz[("Postgres: User")]
+  %% 32 lower-weight edges omitted (edge budget 40)
+  ext_sga4qktkap -->|"http"| proc_3any4qmbna
+  ext_sga4qktkap -->|"http: request fields (explore)"| proc_3btxxcb5r6
+  ext_sga4qktkap -->|"http"| proc_65litz2esg
+  ext_sga4qktkap -->|"http"| proc_f5nzwppfqy
+  ext_sga4qktkap -->|"http: request fields (messages)"| proc_frabbzxoze
+  ext_sga4qktkap -->|"http"| proc_geju56vlnf
+  ext_sga4qktkap -->|"http"| proc_glf662po6z
+  ext_sga4qktkap -->|"http: request fields (search)"| proc_hilllquw3w
+  ext_sga4qktkap -->|"http: request fields (get_following)"| proc_j4vovdvgdh
+  ext_sga4qktkap -->|"http: EmptyForm"| proc_jbnh3dbgms
+  ext_sga4qktkap -->|"http: MessageForm"| proc_kwkwe332ps
+  ext_sga4qktkap -->|"http"| proc_kx2jmqahey
+  ext_sga4qktkap -->|"http: request fields (get_followers)"| proc_ndd5zp7vcl
+  ext_sga4qktkap -->|"http: request fields (notifications)"| proc_partny3sls
+  ext_sga4qktkap -->|"http: request fields (get_users)"| proc_pftv6kqvgt
+  ext_sga4qktkap -->|"http: EditProfileForm (pii)"| proc_pqzdmld34n
+  ext_sga4qktkap -->|"http: request fields (index) (+1)"| proc_qvq3aucaup
+  ext_sga4qktkap -->|"http: EmptyForm"| proc_s7ck5tklyv
+  ext_sga4qktkap -->|"http: request fields (user) (+1)"| proc_tpexvbuvoj
+  ext_sga4qktkap -->|"http: EmptyForm"| proc_vuu4bwhao5
+  ext_sga4qktkap -->|"http"| proc_xg6qxbykjn
+  proc_3any4qmbna -->|"in_process"| proc_c7g5birsli
+  proc_3ic6ctnlx6 -->|"in_process"| proc_f7djmphacc
+  proc_3ic6ctnlx6 -->|"in_process"| proc_ntszm5v2bs
+  proc_3ic6ctnlx6 -->|"in_process"| proc_qymwtsmjpp
+  proc_3kmmg3ss4c -->|"https"| store_summary
+  proc_c7g5birsli -->|"https"| ext_77pfc4anjp
+  proc_cwad7bxdcw -->|"in_process"| proc_f7djmphacc
+  proc_cwad7bxdcw -->|"in_process"| proc_ntszm5v2bs
+  proc_cwad7bxdcw -->|"in_process"| proc_qymwtsmjpp
+  proc_d3ajgfblpv -->|"in_process"| proc_f7djmphacc
+  proc_d3ajgfblpv -->|"in_process"| proc_ntszm5v2bs
+  proc_f7djmphacc -->|"in_process"| proc_3kmmg3ss4c
+  proc_f7djmphacc -->|"sql"| store_ctwgzvsuvh
+  proc_f7djmphacc -->|"redis<br/>sql"| store_summary
+  proc_geju56vlnf -->|"sql: Postgres: User record (credential,pii)"| store_tvae56uepz
+  proc_hde24aij6h -->|"in_process"| proc_f7djmphacc
+  proc_hde24aij6h -->|"in_process"| proc_ntszm5v2bs
+  proc_hilllquw3w -->|"in_process"| proc_3kmmg3ss4c
+  store_summary -->|"sql"| proc_f7djmphacc
+  style bnd_ycbot7mf4h stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

@@ -1,0 +1,386 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "code2design",
+          "version": "0.5.0",
+          "informationUri": "https://github.com/AskShri/code2designmapping",
+          "rules": [
+            {
+              "id": "c2d/permissive_cors",
+              "name": "PermissiveCors",
+              "shortDescription": {
+                "text": "Permissive cross-origin policy"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/942.html",
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-942",
+                  "STRIDE:I"
+                ],
+                "security-severity": "5.0"
+              }
+            },
+            {
+              "id": "c2d/plaintext_credentials",
+              "name": "PlaintextCredentials",
+              "shortDescription": {
+                "text": "Hard-coded or committed credentials"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/798.html",
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-798",
+                  "STRIDE:IE"
+                ],
+                "security-severity": "8.0"
+              }
+            },
+            {
+              "id": "c2d/unauthenticated_entry_point",
+              "name": "UnauthenticatedEntryPoint",
+              "shortDescription": {
+                "text": "Entry point without a detected authentication control (review)"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/306.html",
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-306",
+                  "STRIDE:SE"
+                ],
+                "security-severity": "1.0"
+              }
+            }
+          ]
+        }
+      },
+      "originalUriBaseIds": {
+        "SRCROOT": {
+          "uri": "file:///"
+        }
+      },
+      "results": [
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /v1/auth/refresh-tokens (CWE-306). Applies to: POST /v1/auth/refresh-tokens."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/routes/v1/auth.route.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 12,
+                  "endLine": 12
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:332ko6rgtt"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:y5abvcoacq"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/permissive_cors",
+          "ruleIndex": 0,
+          "level": "warning",
+          "message": {
+            "text": "cors() with default or wildcard origin (CWE-942). Applies to: node-app."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/app.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 41,
+                  "endLine": 41
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:c3upixif7u"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:onpehfcldi"
+            ],
+            "stride": [
+              "I"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /v1/auth/register (CWE-306). Applies to: POST /v1/auth/register."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/routes/v1/auth.route.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 9,
+                  "endLine": 9
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:g3dkvncg7e"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ccmuulecyb"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /v1/auth/logout (CWE-306). Applies to: POST /v1/auth/logout."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/routes/v1/auth.route.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 11,
+                  "endLine": 11
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:kuu7kondw5"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:lrpmcwkwic"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /v1/auth/forgot-password (CWE-306). Applies to: POST /v1/auth/forgot-password."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/routes/v1/auth.route.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 13,
+                  "endLine": 13
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:md4ycl7sti"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:jg7eprgebp"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/plaintext_credentials",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "hard-coded RESET_PASSWORD literal (CWE-798). Applies to: config."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/config/tokens.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 4,
+                  "endLine": 4
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:njbaap3rlq"
+          },
+          "properties": {
+            "dfdElements": [
+              "proc:f5s7zdyd53"
+            ],
+            "stride": [
+              "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /v1/auth/verify-email (CWE-306). Applies to: POST /v1/auth/verify-email."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/routes/v1/auth.route.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 16,
+                  "endLine": 16
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:qntermo6po"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:ffepfpupvw"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /v1/auth/login (CWE-306). Applies to: POST /v1/auth/login."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/routes/v1/auth.route.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 10,
+                  "endLine": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:sngvwl6dcl"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:q5pzai2jjc"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /v1/auth/reset-password (CWE-306). Applies to: POST /v1/auth/reset-password."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/routes/v1/auth.route.js",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 14,
+                  "endLine": 14
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:wfabwcpbon"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:b42kjwm45b"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

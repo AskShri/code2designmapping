@@ -1,0 +1,32 @@
+%% Control flow: PATCH /v1/users/{userId}
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_zr7vklouvq as morgan.successHandler (conditional)
+  participant ctl_r74myxsxbv as morgan.errorHandler (conditional)
+  participant ctl_zmlkrsmolk as helmet
+  participant ctl_jfkrjjsffy as xss
+  participant ctl_6tgt7475ww as mongoSanitize
+  participant ctl_djyghqkaci as cors
+  participant ctl_3vbu2e5he7 as auth
+  participant ctl_vipbkviikf as validate
+  participant proc_ysijrm3dve as PATCH /v1/users/{userId} handler
+  participant proc_pdhtew2ivt as user.service
+  participant store_x3kis6s6op as MongoDB - User
+  ext_sga4qktkap->>ctl_zr7vklouvq: PATCH /v1/users/{userId} (audit_log)
+  ctl_zr7vklouvq->>ctl_r74myxsxbv: PATCH /v1/users/{userId} (audit_log)
+  ctl_r74myxsxbv->>ctl_zmlkrsmolk: PATCH /v1/users/{userId} (security_headers)
+  ctl_zmlkrsmolk->>ctl_jfkrjjsffy: PATCH /v1/users/{userId} (input_validation)
+  ctl_jfkrjjsffy->>ctl_6tgt7475ww: PATCH /v1/users/{userId} (input_validation)
+  ctl_6tgt7475ww->>ctl_djyghqkaci: PATCH /v1/users/{userId} (cors)
+  ctl_djyghqkaci->>ctl_3vbu2e5he7: PATCH /v1/users/{userId} (authn)
+  opt authn fails
+    ctl_3vbu2e5he7-->>ext_sga4qktkap: rejected
+  end
+  ctl_3vbu2e5he7->>ctl_vipbkviikf: PATCH /v1/users/{userId} (input_validation)
+  ctl_vipbkviikf->>proc_ysijrm3dve: dispatch
+  proc_ysijrm3dve->>proc_pdhtew2ivt: call
+  proc_pdhtew2ivt->>store_x3kis6s6op: mongo - from register.body (credential,pii)
+  proc_pdhtew2ivt->>store_x3kis6s6op: read
+  store_x3kis6s6op-->>proc_pdhtew2ivt: mongo - MongoDB - User record (credential,pii)
+  proc_ysijrm3dve-->>ext_sga4qktkap: response

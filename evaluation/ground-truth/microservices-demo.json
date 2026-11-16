@@ -1,14 +1,182 @@
-{"entry_points": ["GET /", "GET /product/:param", "GET /cart", "POST /cart", "POST /cart/empty", "POST /setCurrency", "GET /logout", "POST /cart/checkout", "GET /assistant", "GET /product-meta/:param", "POST /bot",
-                  "grpc CartService", "grpc CheckoutService", "grpc ProductCatalogService", "grpc ShippingService", "grpc CurrencyService", "grpc PaymentService", "grpc EmailService", "grpc RecommendationService", "grpc AdService", "POST /"],
- "infrastructure": ["ANY /robots.txt", "ANY /_healthz", "grpc Health"],
- "stores": ["redis:*", "postgres:*"], "entities": ["Gemini", "OTLP", "Google Cloud"],
- "edges": [["GET /", "svc:productcatalogservice"], ["GET /", "svc:currencyservice"], ["GET /", "svc:cartservice"], ["GET /", "svc:adservice"],
-           ["GET /product/:param", "svc:productcatalogservice"], ["GET /product/:param", "svc:currencyservice"], ["GET /product/:param", "svc:cartservice"], ["GET /product/:param", "svc:recommendationservice"], ["GET /product/:param", "svc:adservice"],
-           ["GET /cart", "svc:cartservice"], ["GET /cart", "svc:currencyservice"], ["GET /cart", "svc:shippingservice"], ["GET /cart", "svc:recommendationservice"],
-           ["POST /cart", "svc:productcatalogservice"], ["POST /cart", "svc:cartservice"], ["POST /cart/empty", "svc:cartservice"],
-           ["POST /cart/checkout", "svc:checkoutservice"], ["POST /cart/checkout", "svc:recommendationservice"], ["POST /cart/checkout", "svc:currencyservice"],
-           ["POST /bot", "svc:shoppingassistantservice"], ["GET /assistant", "svc:currencyservice"], ["GET /cart", "svc:productcatalogservice"], ["GET /product-meta/:param", "svc:productcatalogservice"], ["POST /cart/checkout", "svc:productcatalogservice"],
-           ["grpc CheckoutService", "svc:cartservice"], ["grpc CheckoutService", "svc:productcatalogservice"], ["grpc CheckoutService", "svc:currencyservice"], ["grpc CheckoutService", "svc:shippingservice"], ["grpc CheckoutService", "svc:paymentservice"], ["grpc CheckoutService", "svc:emailservice"],
-           ["grpc RecommendationService", "svc:productcatalogservice"],
-           ["grpc CartService", "redis:*"], ["grpc ProductCatalogService", "postgres:*"],
-           ["POST /", "Gemini"], ["POST /", "postgres:*"]]}
+{
+ "entry_points": [
+  "GET /",
+  "GET /product/:param",
+  "GET /cart",
+  "POST /cart",
+  "POST /cart/empty",
+  "POST /setCurrency",
+  "GET /logout",
+  "POST /cart/checkout",
+  "GET /assistant",
+  "GET /product-meta/:param",
+  "POST /bot",
+  "grpc CartService",
+  "grpc CheckoutService",
+  "grpc ProductCatalogService",
+  "grpc ShippingService",
+  "grpc CurrencyService",
+  "grpc PaymentService",
+  "grpc EmailService",
+  "grpc RecommendationService",
+  "grpc AdService",
+  "POST /"
+ ],
+ "infrastructure": [
+  "ANY /robots.txt",
+  "ANY /_healthz",
+  "grpc Health"
+ ],
+ "stores": [
+  "redis:*",
+  "postgres:*"
+ ],
+ "entities": [
+  "Gemini",
+  "OTLP",
+  "Google Cloud"
+ ],
+ "edges": [
+  [
+   "GET /",
+   "svc:productcatalogservice"
+  ],
+  [
+   "GET /",
+   "svc:currencyservice"
+  ],
+  [
+   "GET /",
+   "svc:cartservice"
+  ],
+  [
+   "GET /",
+   "svc:adservice"
+  ],
+  [
+   "GET /product/:param",
+   "svc:productcatalogservice"
+  ],
+  [
+   "GET /product/:param",
+   "svc:currencyservice"
+  ],
+  [
+   "GET /product/:param",
+   "svc:cartservice"
+  ],
+  [
+   "GET /product/:param",
+   "svc:recommendationservice"
+  ],
+  [
+   "GET /product/:param",
+   "svc:adservice"
+  ],
+  [
+   "GET /cart",
+   "svc:cartservice"
+  ],
+  [
+   "GET /cart",
+   "svc:currencyservice"
+  ],
+  [
+   "GET /cart",
+   "svc:shippingservice"
+  ],
+  [
+   "GET /cart",
+   "svc:recommendationservice"
+  ],
+  [
+   "POST /cart",
+   "svc:productcatalogservice"
+  ],
+  [
+   "POST /cart",
+   "svc:cartservice"
+  ],
+  [
+   "POST /cart/empty",
+   "svc:cartservice"
+  ],
+  [
+   "POST /cart/checkout",
+   "svc:checkoutservice"
+  ],
+  [
+   "POST /cart/checkout",
+   "svc:recommendationservice"
+  ],
+  [
+   "POST /cart/checkout",
+   "svc:currencyservice"
+  ],
+  [
+   "POST /bot",
+   "svc:shoppingassistantservice"
+  ],
+  [
+   "GET /assistant",
+   "svc:currencyservice"
+  ],
+  [
+   "GET /cart",
+   "svc:productcatalogservice"
+  ],
+  [
+   "GET /product-meta/:param",
+   "svc:productcatalogservice"
+  ],
+  [
+   "POST /cart/checkout",
+   "svc:productcatalogservice"
+  ],
+  [
+   "grpc CheckoutService",
+   "svc:cartservice"
+  ],
+  [
+   "grpc CheckoutService",
+   "svc:productcatalogservice"
+  ],
+  [
+   "grpc CheckoutService",
+   "svc:currencyservice"
+  ],
+  [
+   "grpc CheckoutService",
+   "svc:shippingservice"
+  ],
+  [
+   "grpc CheckoutService",
+   "svc:paymentservice"
+  ],
+  [
+   "grpc CheckoutService",
+   "svc:emailservice"
+  ],
+  [
+   "grpc RecommendationService",
+   "svc:productcatalogservice"
+  ],
+  [
+   "grpc CartService",
+   "redis:*"
+  ],
+  [
+   "grpc ProductCatalogService",
+   "postgres:*"
+  ],
+  [
+   "POST /",
+   "Gemini"
+  ],
+  [
+   "POST /",
+   "postgres:*"
+  ]
+ ],
+ "authenticated": []
+}

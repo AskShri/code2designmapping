@@ -1,0 +1,12 @@
+%% Control flow: GET /api/tutorials/{id}
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_wivfkbrhwv as cors
+  participant proc_un4ex5movl as GET /api/tutorials/{id} handler
+  participant store_uujc2npyud as MongoDB - tutorial
+  ext_sga4qktkap->>ctl_wivfkbrhwv: GET /api/tutorials/{id} (cors)
+  ctl_wivfkbrhwv->>proc_un4ex5movl: dispatch
+  proc_un4ex5movl->>store_uujc2npyud: read
+  store_uujc2npyud-->>proc_un4ex5movl: mongo
+  proc_un4ex5movl-->>ext_sga4qktkap: response

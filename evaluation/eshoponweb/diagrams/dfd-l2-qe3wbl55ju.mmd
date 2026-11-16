@@ -1,0 +1,46 @@
+%% L2 - eshoppublicapi
+flowchart LR
+  subgraph bnd_y55hm2ynro["repository: eshoponweb"]
+    proc_64kq6r235y(["Web (+43)"])
+  end
+  subgraph bnd_agjyyz7jmo["container: sqlserver"]
+    store_4sxghcjkne[("SQL Server: Basket")]
+    store_fwdgr4gezx[("SQL Server: CatalogType")]
+    store_ghai53qfrs[("SQL Server: CatalogItem")]
+    store_s7pw5swiz2[("SQL Server: CatalogBrand")]
+    store_yhr5uxtyjy[("SQL Server: Order")]
+  end
+  subgraph bnd_wewlnfj6py["container: eshoppublicapi"]
+    proc_ihhrsmf3f7(["OrderService"])
+    proc_nk7e7fsrjt(["BasketService"])
+    proc_oelyvev3kd(["CustomAuthStateProvider"])
+    proc_qmad7n5535(["CatalogContextSeed"])
+    proc_ul5mpfv5b6(["CatalogLookupDataService"])
+    proc_wujdvvaiom(["HttpService"])
+  end
+  ext_miziwfdicw["Unresolved HTTP target"]
+  proc_64kq6r235y -->|"in_process"| proc_ihhrsmf3f7
+  proc_64kq6r235y -->|"in_process"| proc_nk7e7fsrjt
+  proc_ihhrsmf3f7 -->|"sql: SQL Server: Order record (pii)"| store_yhr5uxtyjy
+  proc_nk7e7fsrjt -->|"sql"| store_4sxghcjkne
+  proc_oelyvev3kd -->|"unknown"| ext_miziwfdicw
+  proc_qmad7n5535 -->|"sql"| store_fwdgr4gezx
+  proc_qmad7n5535 -->|"sql: SQL Server: CatalogItem record (financial)"| store_ghai53qfrs
+  proc_qmad7n5535 -->|"sql"| store_s7pw5swiz2
+  proc_ul5mpfv5b6 -->|"unknown"| ext_miziwfdicw
+  proc_wujdvvaiom -->|"unknown"| ext_miziwfdicw
+  store_4sxghcjkne -->|"sql"| proc_ihhrsmf3f7
+  store_4sxghcjkne -->|"sql"| proc_nk7e7fsrjt
+  store_fwdgr4gezx -->|"sql"| proc_qmad7n5535
+  store_ghai53qfrs -->|"sql: SQL Server: CatalogItem record (financial)"| proc_ihhrsmf3f7
+  store_ghai53qfrs -->|"sql: SQL Server: CatalogItem record (financial)"| proc_qmad7n5535
+  store_s7pw5swiz2 -->|"sql"| proc_qmad7n5535
+  style bnd_y55hm2ynro stroke-dasharray: 8 4,fill:none
+  style bnd_agjyyz7jmo stroke-dasharray: 8 4,fill:none
+  style bnd_wewlnfj6py stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

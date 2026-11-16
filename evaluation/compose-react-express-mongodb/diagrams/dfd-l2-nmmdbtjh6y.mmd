@@ -1,0 +1,21 @@
+%% L2 - backend
+flowchart LR
+  subgraph bnd_j3ktzp2k6o["container: backend"]
+    proc_6r3kiujsoj(["POST /api/todos handler"])
+    proc_tnoms7eleo(["GET /api handler"])
+  end
+  subgraph bnd_x2cs4alpd7["container: mongo"]
+    store_lsfwjprw56[("MongoDB: Todo")]
+  end
+  ext_3nnzcvcul3["Internal HTTP client"]
+  ext_3nnzcvcul3 -->|"http: request fields"| proc_6r3kiujsoj
+  proc_6r3kiujsoj -->|"mongo"| store_lsfwjprw56
+  store_lsfwjprw56 -->|"mongo"| proc_tnoms7eleo
+  style bnd_j3ktzp2k6o stroke-dasharray: 8 4,fill:none
+  style bnd_x2cs4alpd7 stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

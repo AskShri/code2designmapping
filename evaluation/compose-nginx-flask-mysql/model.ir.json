@@ -1,12 +1,13 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "provenance": {
-    "tool_version": "0.3.0-prototype",
+    "tool_version": "0.5.0",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-nginx-flask-mysql",
     "detectors": [
-      "config@0.3",
-      "py@0.3"
+      "config@0.5",
+      "py@0.5",
+      "synth@0.5.0"
     ],
     "scope": {
       "include": [
@@ -20,37 +21,16 @@
       "backend/Dockerfile": "sha256:f02b90fe6c7dbba8a76e9555bd4f80244447d85ed64bf4df3cb9026129434f72",
       "backend/hello.py": "sha256:5c5b6b8bc86fd563199ac9357a29051763264619bb51f946854b4ccc529b2cae",
       "backend/requirements.txt": "sha256:4e6023bfa6eeb0d3f64f674afab0df9585044bb71d7a9482c30c360732315afd",
-      "compose.yaml": "sha256:9243a613ba323bbe1994cb5a1d33a519c94affc261ad0d5d00c8afa0b5559cbe"
+      "compose.yaml": "sha256:9243a613ba323bbe1994cb5a1d33a519c94affc261ad0d5d00c8afa0b5559cbe",
+      "proxy/Dockerfile": "sha256:7d8d31ec1dc52c04263ebecfc3d0d5b33589e6b280cc33d26e2b7c8a7c60fa8c"
     }
   },
   "processes": [
     {
-      "id": "proc:dukamseyo3",
+      "id": "proc:jh7cg767gk",
       "identity": [
         "process",
-        "backend/hello.py",
-        "GET /"
-      ],
-      "origin": "observed",
-      "name": "GET / handler",
-      "level": 2,
-      "module": "backend/hello.py",
-      "evidence": [
-        {
-          "path": "backend/hello.py",
-          "start_line": 36,
-          "end_line": 37,
-          "detector": "py@0.3",
-          "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
-        }
-      ],
-      "parent": "proc:yss4bddki6"
-    },
-    {
-      "id": "proc:gmvk72kyzf",
-      "identity": [
-        "process",
-        ".",
+        "L0",
         "compose-nginx-flask-mysql"
       ],
       "origin": "observed",
@@ -62,37 +42,16 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:8eed707ee0bbf9ad20676103ba6e32e7a6c5d72c0c6478f6f300a11885ce65b1"
         }
       ]
     },
     {
-      "id": "proc:on4df6f6pv",
+      "id": "proc:nmmdbtjh6y",
       "identity": [
         "process",
-        "backend/hello.py",
-        "hello"
-      ],
-      "origin": "observed",
-      "name": "hello",
-      "level": 2,
-      "module": "backend/hello.py",
-      "evidence": [
-        {
-          "path": "backend/hello.py",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:de2abade832c8e350a1bdc98cfcdb1e202ac4749c5fc51a4a970d41736b6df5c"
-        }
-      ],
-      "parent": "proc:yss4bddki6"
-    },
-    {
-      "id": "proc:yss4bddki6",
-      "identity": [
-        "process",
+        "L1",
         "backend",
         "backend"
       ],
@@ -105,11 +64,56 @@
           "path": "backend/hello.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:de2abade832c8e350a1bdc98cfcdb1e202ac4749c5fc51a4a970d41736b6df5c"
         }
       ],
-      "parent": "proc:gmvk72kyzf"
+      "parent": "proc:jh7cg767gk"
+    },
+    {
+      "id": "proc:phmdwn56ah",
+      "identity": [
+        "process",
+        "module",
+        "backend/hello.py"
+      ],
+      "origin": "observed",
+      "name": "hello",
+      "level": 2,
+      "module": "backend/hello.py",
+      "evidence": [
+        {
+          "path": "backend/hello.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:de2abade832c8e350a1bdc98cfcdb1e202ac4749c5fc51a4a970d41736b6df5c"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:tpyw7yqypy",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "GET /"
+      ],
+      "origin": "observed",
+      "name": "GET / handler",
+      "level": 2,
+      "module": "backend/hello.py",
+      "evidence": [
+        {
+          "path": "backend/hello.py",
+          "start_line": 36,
+          "end_line": 37,
+          "detector": "py@0.5",
+          "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
     }
   ],
   "entities": [
@@ -128,7 +132,7 @@
           "path": "backend/hello.py",
           "start_line": 36,
           "end_line": 37,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
         }
       ]
@@ -151,82 +155,37 @@
       "evidence": [
         {
           "path": "backend/hello.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "py@0.5",
+          "content_hash": "sha256:6f43a3d7979b7c6c6a0d08722ee9c1b757242bf70902c67fa48582ba84bc2c00"
+        },
+        {
+          "path": "backend/hello.py",
           "start_line": 21,
           "end_line": 21,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:4bf0b75061ee3f3393424bb88039ba51748ce9cd796c2fa7864fdcf03076794b"
+        },
+        {
+          "path": "backend/hello.py",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b5717861522b2c983a0dc1acd03676d9a572ce6cd8c6f9415f47ef5eff535c53"
         },
         {
           "path": "backend/hello.py",
           "start_line": 26,
           "end_line": 26,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:2df15ec71edd90186165c944b325ea72c7e0f5d1338718433bf43fdefe27d5f6"
         },
         {
           "path": "compose.yaml",
           "start_line": 2,
           "end_line": 2,
-          "detector": "config@0.3",
-          "content_hash": "sha256:a25e926065ad4ffd672f73437f19748bcccf6cd8dc1a4b2517f7be3710ad9326"
-        }
-      ]
-    },
-    {
-      "id": "store:hxhbxcitka",
-      "identity": [
-        "store",
-        "mysql",
-        ""
-      ],
-      "origin": "observed",
-      "name": "MySQL (collection unresolved)",
-      "technology": "mysql",
-      "data_classes": [],
-      "encryption_at_rest": "unknown",
-      "evidence": [
-        {
-          "path": "backend/hello.py",
-          "start_line": 23,
-          "end_line": 23,
-          "detector": "py@0.3",
-          "content_hash": "sha256:1e315537fb880818a842a59c3b63f50006eba689d1aede87cf3e8b081073d40a"
-        },
-        {
-          "path": "compose.yaml",
-          "start_line": 2,
-          "end_line": 2,
-          "detector": "config@0.3",
-          "content_hash": "sha256:a25e926065ad4ffd672f73437f19748bcccf6cd8dc1a4b2517f7be3710ad9326"
-        }
-      ]
-    },
-    {
-      "id": "store:mj5mpprmqf",
-      "identity": [
-        "store",
-        "mysql",
-        "if"
-      ],
-      "origin": "observed",
-      "name": "MySQL: IF",
-      "technology": "mysql",
-      "logical_name": "IF",
-      "data_classes": [],
-      "encryption_at_rest": "unknown",
-      "evidence": [
-        {
-          "path": "backend/hello.py",
-          "start_line": 20,
-          "end_line": 20,
-          "detector": "py@0.3",
-          "content_hash": "sha256:6f43a3d7979b7c6c6a0d08722ee9c1b757242bf70902c67fa48582ba84bc2c00"
-        },
-        {
-          "path": "compose.yaml",
-          "start_line": 2,
-          "end_line": 2,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:a25e926065ad4ffd672f73437f19748bcccf6cd8dc1a4b2517f7be3710ad9326"
         }
       ]
@@ -244,16 +203,16 @@
       "name": "container: backend",
       "kind": "container",
       "contains": [
-        "proc:dukamseyo3",
-        "proc:on4df6f6pv",
-        "proc:yss4bddki6"
+        "proc:nmmdbtjh6y",
+        "proc:phmdwn56ah",
+        "proc:tpyw7yqypy"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 27,
           "end_line": 27,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:bb85cefe8491144f31476f0f6f1f729dcc935f1fcc95ba7a6f3100d30c28b2b1"
         }
       ]
@@ -269,16 +228,14 @@
       "name": "container: db",
       "kind": "container",
       "contains": [
-        "store:ahjjfkyans",
-        "store:hxhbxcitka",
-        "store:mj5mpprmqf"
+        "store:ahjjfkyans"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 2,
           "end_line": 2,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:a25e926065ad4ffd672f73437f19748bcccf6cd8dc1a4b2517f7be3710ad9326"
         }
       ]
@@ -292,18 +249,18 @@
       ],
       "origin": "inferred",
       "confidence": 0.5,
-      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "rationale": "no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary",
       "name": "repository: compose-nginx-flask-mysql",
       "kind": "repository",
       "contains": [
-        "proc:gmvk72kyzf"
+        "proc:jh7cg767gk"
       ],
       "evidence": [
         {
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:8eed707ee0bbf9ad20676103ba6e32e7a6c5d72c0c6478f6f300a11885ce65b1"
         }
       ]
@@ -311,80 +268,16 @@
   ],
   "flows": [
     {
-      "id": "flow:lahauk7m6l",
-      "identity": [
-        "flow",
-        "proc:on4df6f6pv",
-        "store:mj5mpprmqf",
-        "sql",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:on4df6f6pv",
-      "target": "store:mj5mpprmqf",
-      "protocol": "sql",
-      "direction": "one_way",
-      "authentication": "unknown",
-      "encryption": "unknown",
-      "purpose": "execute",
-      "crosses_boundary": [
-        "bnd:j3ktzp2k6o",
-        "bnd:li56z6okmf"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "backend/hello.py",
-          "start_line": 20,
-          "end_line": 20,
-          "detector": "py@0.3",
-          "content_hash": "sha256:6f43a3d7979b7c6c6a0d08722ee9c1b757242bf70902c67fa48582ba84bc2c00"
-        }
-      ]
-    },
-    {
-      "id": "flow:rxnuvgh5vi",
-      "identity": [
-        "flow",
-        "ext:sga4qktkap",
-        "proc:dukamseyo3",
-        "http",
-        ""
-      ],
-      "origin": "observed",
-      "source": "ext:sga4qktkap",
-      "target": "proc:dukamseyo3",
-      "protocol": "http",
-      "direction": "request_response",
-      "authentication": "none",
-      "encryption": "unknown",
-      "purpose": "GET /",
-      "crosses_boundary": [
-        "bnd:j3ktzp2k6o"
-      ],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "backend/hello.py",
-          "start_line": 36,
-          "end_line": 37,
-          "detector": "py@0.3",
-          "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
-        }
-      ]
-    },
-    {
-      "id": "flow:shboysxfuv",
+      "id": "flow:3c6awotpag",
       "identity": [
         "flow",
         "store:ahjjfkyans",
-        "proc:on4df6f6pv",
-        "sql",
-        ""
+        "proc:phmdwn56ah",
+        "sql"
       ],
       "origin": "observed",
       "source": "store:ahjjfkyans",
-      "target": "proc:on4df6f6pv",
+      "target": "proc:phmdwn56ah",
       "protocol": "sql",
       "direction": "one_way",
       "authentication": "unknown",
@@ -400,92 +293,51 @@
           "path": "backend/hello.py",
           "start_line": 26,
           "end_line": 26,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:2df15ec71edd90186165c944b325ea72c7e0f5d1338718433bf43fdefe27d5f6"
         }
       ]
     },
     {
-      "id": "flow:uk4ctqpfvw",
+      "id": "flow:nfeelwxs67",
       "identity": [
         "flow",
-        "proc:dukamseyo3",
-        "proc:on4df6f6pv",
-        "in_process",
-        ""
+        "ext:sga4qktkap",
+        "proc:tpyw7yqypy",
+        "http"
       ],
       "origin": "observed",
-      "source": "proc:dukamseyo3",
-      "target": "proc:on4df6f6pv",
-      "protocol": "in_process",
+      "source": "ext:sga4qktkap",
+      "target": "proc:tpyw7yqypy",
+      "protocol": "http",
       "direction": "request_response",
       "authentication": "none",
-      "encryption": "none",
-      "purpose": "calls populate_db",
-      "crosses_boundary": [],
-      "controls": [],
-      "evidence": [
-        {
-          "path": "backend/hello.py",
-          "start_line": 19,
-          "end_line": 19,
-          "detector": "callgraph@0.3",
-          "content_hash": "sha256:310d7115cd801d33ff44bf05bf119f1fc5e82a2378b5d1c49a3c69e84abde9ac",
-          "symbol": "backend/hello.py::populate_db"
-        },
-        {
-          "path": "backend/hello.py",
-          "start_line": 25,
-          "end_line": 25,
-          "detector": "callgraph@0.3",
-          "content_hash": "sha256:f02f7c9550c52151c1e13059027957e1464ade1056ea4031b7f6361951041d31",
-          "symbol": "backend/hello.py::query_titles"
-        }
-      ]
-    },
-    {
-      "id": "flow:upfr4ls7hx",
-      "identity": [
-        "flow",
-        "proc:on4df6f6pv",
-        "store:hxhbxcitka",
-        "sql",
-        ""
-      ],
-      "origin": "observed",
-      "source": "proc:on4df6f6pv",
-      "target": "store:hxhbxcitka",
-      "protocol": "sql",
-      "direction": "one_way",
-      "authentication": "unknown",
       "encryption": "unknown",
-      "purpose": "commit",
+      "purpose": "GET /",
       "crosses_boundary": [
-        "bnd:j3ktzp2k6o",
-        "bnd:li56z6okmf"
+        "bnd:j3ktzp2k6o"
       ],
       "controls": [],
       "evidence": [
         {
           "path": "backend/hello.py",
-          "start_line": 23,
-          "end_line": 23,
-          "detector": "py@0.3",
-          "content_hash": "sha256:1e315537fb880818a842a59c3b63f50006eba689d1aede87cf3e8b081073d40a"
+          "start_line": 36,
+          "end_line": 37,
+          "detector": "py@0.5",
+          "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
         }
       ]
     },
     {
-      "id": "flow:vzhqghvpil",
+      "id": "flow:o6muqemmae",
       "identity": [
         "flow",
-        "proc:on4df6f6pv",
+        "proc:phmdwn56ah",
         "store:ahjjfkyans",
-        "sql",
-        ""
+        "sql"
       ],
       "origin": "observed",
-      "source": "proc:on4df6f6pv",
+      "source": "proc:phmdwn56ah",
       "target": "store:ahjjfkyans",
       "protocol": "sql",
       "direction": "one_way",
@@ -500,95 +352,119 @@
       "evidence": [
         {
           "path": "backend/hello.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "py@0.5",
+          "content_hash": "sha256:6f43a3d7979b7c6c6a0d08722ee9c1b757242bf70902c67fa48582ba84bc2c00"
+        },
+        {
+          "path": "backend/hello.py",
           "start_line": 21,
           "end_line": 21,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:4bf0b75061ee3f3393424bb88039ba51748ce9cd796c2fa7864fdcf03076794b"
+        },
+        {
+          "path": "backend/hello.py",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b5717861522b2c983a0dc1acd03676d9a572ce6cd8c6f9415f47ef5eff535c53"
         }
       ]
     }
   ],
   "entry_points": [
     {
-      "id": "ep:hdrmss3qat",
+      "id": "ep:olb7e5a6fp",
       "identity": [
         "entry_point",
         "http",
         "GET",
         "/",
-        "backend/hello.py"
+        "backend"
       ],
       "origin": "observed",
-      "process": "proc:dukamseyo3",
+      "process": "proc:tpyw7yqypy",
       "protocol": "http",
       "method": "GET",
       "path": "/",
+      "exposure": "public",
       "controls": [],
       "call_chain": [
-        "proc:dukamseyo3",
-        "proc:on4df6f6pv"
+        "proc:tpyw7yqypy"
       ],
+      "reaches": [],
       "evidence": [
         {
           "path": "backend/hello.py",
           "start_line": 36,
           "end_line": 37,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
         }
-      ],
-      "reaches": [
-        "store:ahjjfkyans",
-        "store:hxhbxcitka",
-        "store:mj5mpprmqf"
       ]
     }
   ],
   "controls": [],
   "weaknesses": [
     {
-      "id": "wk:2memreiqwr",
-      "identity": [
-        "weakness",
-        "unauthenticated_entry_point",
-        "ep:hdrmss3qat"
-      ],
-      "origin": "observed",
-      "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on GET /",
-      "applies_to": [
-        "ep:hdrmss3qat"
-      ],
-      "evidence": [
-        {
-          "path": "backend/hello.py",
-          "start_line": 36,
-          "end_line": 37,
-          "detector": "py@0.3",
-          "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
-        }
-      ]
-    },
-    {
-      "id": "wk:5ejilm2mw7",
+      "id": "wk:ahcgvkrbcl",
       "identity": [
         "weakness",
         "plaintext_credentials",
-        "compose.yaml:22"
+        "compose.yaml",
+        "MYSQL_ROOT_PASSWORD_FILE set in compose service 'db'",
+        "1"
       ],
       "origin": "observed",
       "kind": "plaintext_credentials",
       "name": "MYSQL_ROOT_PASSWORD_FILE set in compose service 'db'",
+      "severity": "high",
+      "cwe": "CWE-798",
+      "stride": [
+        "I",
+        "E"
+      ],
       "applies_to": [
-        "proc:gmvk72kyzf"
+        "proc:jh7cg767gk"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 22,
           "end_line": 22,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:106bd8cc42f4841a8dda8814039be9230da88e3c5d6471c61f3f037413fbec0a"
+        }
+      ]
+    },
+    {
+      "id": "wk:lofhzc4mhu",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:olb7e5a6fp"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:olb7e5a6fp"
+      ],
+      "evidence": [
+        {
+          "path": "backend/hello.py",
+          "start_line": 36,
+          "end_line": 37,
+          "detector": "py@0.5",
+          "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
         }
       ]
     }
@@ -620,8 +496,15 @@
           "path": "backend/hello.py",
           "start_line": 21,
           "end_line": 21,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:4bf0b75061ee3f3393424bb88039ba51748ce9cd796c2fa7864fdcf03076794b"
+        },
+        {
+          "path": "backend/hello.py",
+          "start_line": 22,
+          "end_line": 22,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b5717861522b2c983a0dc1acd03676d9a572ce6cd8c6f9415f47ef5eff535c53"
         }
       ]
     }
@@ -642,8 +525,8 @@
       "access": "insider",
       "location": "bnd:j3ktzp2k6o",
       "entry": [
-        "proc:dukamseyo3",
-        "proc:on4df6f6pv"
+        "proc:phmdwn56ah",
+        "proc:tpyw7yqypy"
       ],
       "passes_controls": [
         "authn",
@@ -651,10 +534,12 @@
         "rate_limit",
         "input_validation",
         "csrf",
-        "cors"
+        "cors",
+        "security_headers",
+        "audit_log"
       ],
       "goals": [
-        "read stores directly",
+        "read data stores directly",
         "exfiltrate secrets"
       ],
       "evidence": [
@@ -662,7 +547,7 @@
           "path": "compose.yaml",
           "start_line": 27,
           "end_line": 27,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:bb85cefe8491144f31476f0f6f1f729dcc935f1fcc95ba7a6f3100d30c28b2b1"
         }
       ]
@@ -676,7 +561,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "1 http entry points, 1 without a detected authn control",
+      "rationale": "1 entry points are reachable from outside, 1 of them without a detected authentication control",
       "name": "Anonymous HTTP caller",
       "access": "anonymous",
       "entry": [
@@ -691,7 +576,7 @@
           "path": "backend/hello.py",
           "start_line": 36,
           "end_line": 37,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:9351c6a63b3724c61e21106e5054d9989ac4cf68fa6b3e037acb5d1e57a42b10"
         }
       ]
@@ -699,33 +584,15 @@
   ],
   "gaps": [
     {
-      "kind": "unresolved",
+      "kind": "unknown_attribute",
       "path": "backend/hello.py",
-      "line": 23,
-      "detail": "mysql access through a document or connection variable whose collection could not be resolved; shown as a separate store"
+      "detail": "Question: is TLS terminated in front of the HTTP listener of backend? Inbound flows are marked encryption=unknown until answered."
     },
     {
       "kind": "unknown_attribute",
       "path": "backend/hello.py",
-      "detail": "Question for the team: is TLS terminated in front of the HTTP listener? Inbound flows are marked encryption=unknown until answered."
-    },
-    {
-      "kind": "unknown_attribute",
-      "path": "backend/hello.py",
-      "line": 20,
-      "detail": "Question for the team: how is the link to MySQL: IF authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
-    },
-    {
-      "kind": "unknown_attribute",
-      "path": "backend/hello.py",
-      "line": 21,
-      "detail": "Question for the team: how is the link to MySQL: blog authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
-    },
-    {
-      "kind": "unknown_attribute",
-      "path": "backend/hello.py",
-      "line": 23,
-      "detail": "Question for the team: how is the link to MySQL (collection unresolved) authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)"
+      "line": 26,
+      "detail": "Question: what is the authentication and encryption of the link to MySQL: blog?"
     }
   ]
 }

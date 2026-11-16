@@ -1,0 +1,27 @@
+%% L2 - profile
+flowchart LR
+  subgraph bnd_klnakvm5ry["repository: nestjs-realworld"]
+    proc_3vqwiojos5(["GET /api/profiles/{username} handler"])
+    proc_4p3kc67ecf(["POST /api/profiles/{username}/follow handler"])
+    proc_ucrghxbvip(["profile.service"])
+    proc_z2bfpdkef3(["DELETE /api/profiles/{username}/follow handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_mftq653qte[("MySQL: user")]
+  store_vpkm3wcqot[("MySQL: follows")]
+  ext_sga4qktkap -->|"http"| proc_3vqwiojos5
+  ext_sga4qktkap -->|"http"| proc_4p3kc67ecf
+  ext_sga4qktkap -->|"http"| proc_z2bfpdkef3
+  proc_3vqwiojos5 -->|"in_process"| proc_ucrghxbvip
+  proc_4p3kc67ecf -->|"in_process"| proc_ucrghxbvip
+  proc_ucrghxbvip -->|"sql"| store_vpkm3wcqot
+  proc_z2bfpdkef3 -->|"in_process"| proc_ucrghxbvip
+  store_mftq653qte -->|"sql: MySQL: user record (credential,pii)"| proc_ucrghxbvip
+  store_vpkm3wcqot -->|"sql"| proc_ucrghxbvip
+  style bnd_klnakvm5ry stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

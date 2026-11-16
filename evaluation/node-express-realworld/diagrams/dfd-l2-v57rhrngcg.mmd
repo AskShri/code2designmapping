@@ -1,0 +1,80 @@
+%% L2 - routes
+flowchart LR
+  subgraph bnd_ycbot7mf4h["container: app"]
+    proc_37zxfdijta(["POST /api/articles handler"])
+    proc_3i7cnku67l(["DELETE /api/articles/{slug} handler"])
+    proc_4gksjimh3q(["POST /api/users/login handler"])
+    proc_4usp4pwiky(["POST /api/profiles/{username}/follow handler"])
+    proc_65meoqan5m(["GET /api/articles/{slug}/comments handler"])
+    proc_7q57zpfda6(["PUT /api/articles/{slug} handler"])
+    proc_cd5lj4tkq5(["GET /api/articles/{slug} handler"])
+    proc_davdvi5753(["GET /api/articles/feed handler"])
+    proc_eu3pi32yxd(["GET /api/tags handler"])
+    proc_geju56vlnf(["POST /api/users handler"])
+    proc_jrc37m6ovy(["POST /api/articles/{slug}/favorite handler"])
+    proc_kh6gnlmhwk(["auth.service"])
+    proc_llp2mcb47m(["DELETE /api/profiles/{username}/follow handler"])
+    proc_lyrmnuyccw(["article.service"])
+    proc_m6xi46rdew(["GET /api/profiles/{username} handler"])
+    proc_n3x6j47zi3(["DELETE /api/articles/{slug}/comments/{id} handler"])
+    proc_nfdype5o56(["GET /api/articles handler"])
+    proc_nmkq3tmhrb(["tag.service"])
+    proc_ohvxrjdlm7(["DELETE /api/articles/{slug}/favorite handler"])
+    proc_rqheny5vc2(["PUT /api/user handler"])
+    proc_smdog2lksh(["POST /api/articles/{slug}/comments handler"])
+    proc_wrq2oa5xlg(["GET /api/user handler"])
+    proc_yu3y5gygvc(["profile.service"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_rkhg3lsuir[("Postgres: Comment")]
+  store_summary[("other data stores (+1)")]
+  store_tvae56uepz[("Postgres: User")]
+  store_yhtoa6pgwu[("Postgres: Article")]
+  %% 7 lower-weight edges omitted (edge budget 40)
+  ext_sga4qktkap -->|"http: request fields"| proc_37zxfdijta
+  ext_sga4qktkap -->|"http"| proc_3i7cnku67l
+  ext_sga4qktkap -->|"http: request fields"| proc_4gksjimh3q
+  ext_sga4qktkap -->|"http"| proc_4usp4pwiky
+  ext_sga4qktkap -->|"http"| proc_65meoqan5m
+  ext_sga4qktkap -->|"http: request fields"| proc_7q57zpfda6
+  ext_sga4qktkap -->|"http"| proc_cd5lj4tkq5
+  ext_sga4qktkap -->|"http: request fields"| proc_davdvi5753
+  ext_sga4qktkap -->|"http"| proc_eu3pi32yxd
+  ext_sga4qktkap -->|"http: request fields"| proc_geju56vlnf
+  ext_sga4qktkap -->|"http"| proc_jrc37m6ovy
+  ext_sga4qktkap -->|"http"| proc_llp2mcb47m
+  ext_sga4qktkap -->|"http"| proc_m6xi46rdew
+  ext_sga4qktkap -->|"http"| proc_n3x6j47zi3
+  ext_sga4qktkap -->|"http"| proc_nfdype5o56
+  ext_sga4qktkap -->|"http"| proc_ohvxrjdlm7
+  ext_sga4qktkap -->|"http: request fields"| proc_rqheny5vc2
+  ext_sga4qktkap -->|"http: request fields"| proc_smdog2lksh
+  ext_sga4qktkap -->|"http"| proc_wrq2oa5xlg
+  proc_37zxfdijta -->|"in_process"| proc_lyrmnuyccw
+  proc_3i7cnku67l -->|"in_process"| proc_lyrmnuyccw
+  proc_4gksjimh3q -->|"in_process"| proc_kh6gnlmhwk
+  proc_4usp4pwiky -->|"in_process"| proc_yu3y5gygvc
+  proc_65meoqan5m -->|"in_process"| proc_lyrmnuyccw
+  proc_7q57zpfda6 -->|"in_process"| proc_lyrmnuyccw
+  proc_cd5lj4tkq5 -->|"in_process"| proc_lyrmnuyccw
+  proc_davdvi5753 -->|"in_process"| proc_lyrmnuyccw
+  proc_eu3pi32yxd -->|"in_process"| proc_nmkq3tmhrb
+  proc_geju56vlnf -->|"in_process"| proc_kh6gnlmhwk
+  proc_jrc37m6ovy -->|"in_process"| proc_lyrmnuyccw
+  proc_kh6gnlmhwk -->|"sql: Postgres: User record (credential,pii)"| store_tvae56uepz
+  proc_llp2mcb47m -->|"in_process"| proc_yu3y5gygvc
+  proc_lyrmnuyccw -->|"sql"| store_rkhg3lsuir
+  proc_lyrmnuyccw -->|"sql"| store_yhtoa6pgwu
+  proc_m6xi46rdew -->|"in_process"| proc_yu3y5gygvc
+  proc_n3x6j47zi3 -->|"in_process"| proc_lyrmnuyccw
+  proc_nfdype5o56 -->|"in_process"| proc_lyrmnuyccw
+  proc_ohvxrjdlm7 -->|"in_process"| proc_lyrmnuyccw
+  proc_rqheny5vc2 -->|"in_process"| proc_kh6gnlmhwk
+  proc_smdog2lksh -->|"in_process"| proc_lyrmnuyccw
+  style bnd_ycbot7mf4h stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

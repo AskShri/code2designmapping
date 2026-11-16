@@ -1,0 +1,17 @@
+%% Control flow: POST /cart/checkout
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_474wdeovjs as POST /cart/checkout handler
+  participant proc_rylwc2qydd as rpc
+  participant proc_zdsa5lfxqp as grpc gRPC CheckoutService handler (+1 routes)
+  participant proc_27az6tasqb as grpc gRPC CurrencyService handler (+1 routes)
+  participant proc_q4dl2j2ped as grpc gRPC Health handler (+1 routes) (q4dl)
+  participant proc_jhqdjluod7 as grpc gRPC Health handler (+1 routes) (jhqd)
+  ext_sga4qktkap->>proc_474wdeovjs: POST /cart/checkout
+  proc_474wdeovjs->>proc_rylwc2qydd: call
+  proc_474wdeovjs->>proc_zdsa5lfxqp: grpc
+  proc_rylwc2qydd->>proc_27az6tasqb: grpc
+  proc_rylwc2qydd->>proc_q4dl2j2ped: grpc
+  proc_rylwc2qydd->>proc_jhqdjluod7: grpc
+  proc_474wdeovjs-->>ext_sga4qktkap: response

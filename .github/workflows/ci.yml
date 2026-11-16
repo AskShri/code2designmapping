@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[dev]"
+      - run: python -m pytest -q
+      - name: Analyze the example and check the outputs
+        run: |
+          code2design analyze examples/orders-service/app --out /tmp/orders --name orders-service
+          python - <<'PY'
+          import json, jsonschema
+          schema = json.load(open("schema/dfd-ir.schema.json"))
+          jsonschema.Draft202012Validator(schema).validate(json.load(open("/tmp/orders/model.ir.json")))
+          PY
+          code2design verify /tmp/orders/model.ir.json --repo examples/orders-service/app
+
+  mermaid:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: pip install -e .
+      - run: npm install && npm install --no-save playwright@1.48.2 && npx playwright install --with-deps chromium
+      - run: code2design analyze examples/orders-service/app --out /tmp/orders --name orders-service
+      - run: node scripts/check-mermaid.js /tmp/orders/diagrams

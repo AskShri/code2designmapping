@@ -1,0 +1,52 @@
+%% L2 - routes
+flowchart LR
+  subgraph bnd_4tjp4yui4o["container: node-app"]
+    proc_4vuosdpvdb(["POST /v1/auth/logout handler"])
+    proc_c7gjpit5ou(["POST /v1/users handler"])
+    proc_ccicni3mpk(["GET /v1/users handler"])
+    proc_cu5mdymbrg(["POST /v1/auth/refresh-tokens handler"])
+    proc_fgezikvj6p(["services (+4)"])
+    proc_fopub6hfsu(["POST /v1/auth/login handler"])
+    proc_itsmrif4yx(["GET /v1/users/{userId} handler"])
+    proc_p2vm7qbu57(["POST /v1/auth/reset-password handler"])
+    proc_pymlkyz7zx(["POST /v1/auth/verify-email handler"])
+    proc_rix63imvv7(["POST /v1/auth/forgot-password handler"])
+    proc_szlyunb6m2(["POST /v1/auth/send-verification-email handler"])
+    proc_uqallcxfot(["POST /v1/auth/register handler"])
+    proc_wasku7jsd4(["DELETE /v1/users/{userId} handler"])
+    proc_ysijrm3dve(["PATCH /v1/users/{userId} handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http: request fields (logout) (+1) (credential)"| proc_4vuosdpvdb
+  ext_sga4qktkap -->|"http"| proc_c7gjpit5ou
+  ext_sga4qktkap -->|"http"| proc_ccicni3mpk
+  ext_sga4qktkap -->|"http: request fields (refreshTokens) (+1) (credential)"| proc_cu5mdymbrg
+  ext_sga4qktkap -->|"http: request fields (login) (+1) (credential,pii)"| proc_fopub6hfsu
+  ext_sga4qktkap -->|"http"| proc_itsmrif4yx
+  ext_sga4qktkap -->|"http: request fields (resetPassword) (+2) (credential)"| proc_p2vm7qbu57
+  ext_sga4qktkap -->|"http: request fields (verifyEmail) (+1) (credential)"| proc_pymlkyz7zx
+  ext_sga4qktkap -->|"http: request fields (forgotPassword) (+1) (pii)"| proc_rix63imvv7
+  ext_sga4qktkap -->|"http"| proc_szlyunb6m2
+  ext_sga4qktkap -->|"http: register.body (credential,pii)"| proc_uqallcxfot
+  ext_sga4qktkap -->|"http"| proc_wasku7jsd4
+  ext_sga4qktkap -->|"http"| proc_ysijrm3dve
+  proc_4vuosdpvdb -->|"in_process"| proc_fgezikvj6p
+  proc_c7gjpit5ou -->|"in_process"| proc_fgezikvj6p
+  proc_ccicni3mpk -->|"in_process"| proc_fgezikvj6p
+  proc_cu5mdymbrg -->|"in_process"| proc_fgezikvj6p
+  proc_fopub6hfsu -->|"in_process"| proc_fgezikvj6p
+  proc_itsmrif4yx -->|"in_process"| proc_fgezikvj6p
+  proc_p2vm7qbu57 -->|"in_process"| proc_fgezikvj6p
+  proc_pymlkyz7zx -->|"in_process"| proc_fgezikvj6p
+  proc_rix63imvv7 -->|"in_process"| proc_fgezikvj6p
+  proc_szlyunb6m2 -->|"in_process"| proc_fgezikvj6p
+  proc_uqallcxfot -->|"in_process"| proc_fgezikvj6p
+  proc_wasku7jsd4 -->|"in_process"| proc_fgezikvj6p
+  proc_ysijrm3dve -->|"in_process"| proc_fgezikvj6p
+  style bnd_4tjp4yui4o stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

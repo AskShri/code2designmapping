@@ -1,1 +1,17 @@
-{"entry_points": ["GET /"], "infrastructure": [], "stores": ["redis:*"], "entities": [], "edges": [["GET /", "redis:*"]]}
+{
+ "entry_points": [
+  "GET /"
+ ],
+ "infrastructure": [],
+ "stores": [
+  "redis:*"
+ ],
+ "entities": [],
+ "edges": [
+  [
+   "GET /",
+   "redis:*"
+  ]
+ ],
+ "authenticated": []
+}

@@ -6,3 +6,6 @@ __pycache__/
 **/.code2design/*
 !.code2design/overrides.yaml
 !**/.code2design/overrides.yaml
+.pytest_cache/
+*.egg-info/
+build/

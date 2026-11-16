@@ -1,0 +1,9 @@
+%% Control flow: GET /api
+sequenceDiagram
+  autonumber
+  participant ctl_zutqx6musk as cors
+  participant proc_tnoms7eleo as GET /api handler
+  participant store_lsfwjprw56 as MongoDB - Todo
+  ctl_zutqx6musk->>proc_tnoms7eleo: dispatch
+  proc_tnoms7eleo->>store_lsfwjprw56: read
+  store_lsfwjprw56-->>proc_tnoms7eleo: mongo

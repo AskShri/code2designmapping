@@ -1,0 +1,34 @@
+%% L2 - orders
+flowchart LR
+  subgraph bnd_uvq3irjstn["container: api"]
+    proc_e2i3iwzq2d(["payments (+1)"])
+    proc_qggsk7p5dd(["POST /orders handler"])
+    proc_vorpqjcpo4(["service"])
+    proc_wsslgxtmcv(["GET /orders/{id} handler"])
+  end
+  subgraph bnd_li56z6okmf["container: db"]
+    store_2whm26363j[("Postgres: orders")]
+  end
+  subgraph bnd_quz6xm3rfj["container: cache"]
+    store_ligqz7jge4[("Redis: order:*")]
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http: CreateOrderRequest (+1) (financial,pii)"| proc_qggsk7p5dd
+  ext_sga4qktkap -->|"http"| proc_wsslgxtmcv
+  proc_qggsk7p5dd -->|"in_process"| proc_e2i3iwzq2d
+  proc_qggsk7p5dd -->|"in_process"| proc_vorpqjcpo4
+  proc_vorpqjcpo4 -->|"in_process"| proc_e2i3iwzq2d
+  proc_vorpqjcpo4 -->|"sql: from CreateOrderRequest (financial,pii)"| store_2whm26363j
+  proc_vorpqjcpo4 -->|"redis: from CreateOrderRequest (financial,pii)"| store_ligqz7jge4
+  proc_wsslgxtmcv -->|"in_process"| proc_vorpqjcpo4
+  store_2whm26363j -->|"sql: Postgres: orders record (financial,pii)"| proc_vorpqjcpo4
+  store_ligqz7jge4 -->|"redis: Redis: order:* record (financial,pii)"| proc_vorpqjcpo4
+  style bnd_uvq3irjstn stroke-dasharray: 8 4,fill:none
+  style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none
+  style bnd_quz6xm3rfj stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

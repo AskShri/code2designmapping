@@ -1,0 +1,6105 @@
+{
+  "version": "0.2",
+  "provenance": {
+    "tool_version": "0.5.0",
+    "commit": "aabb90126964a164e02aff39e7c385bb0598236d",
+    "generated_from": "fastapi-full-stack",
+    "detectors": [
+      "config@0.5",
+      "js@0.5",
+      "py@0.5",
+      "synth@0.5.0"
+    ],
+    "scope": {
+      "include": [
+        "**"
+      ],
+      "exclude": [],
+      "depth": 2,
+      "out_of_scope_elements": []
+    },
+    "input_hashes": {
+      ".env": "sha256:4d23d87d64b8b2537539b374a1b88db3fc494da4c22bac793e991277f8f2d982",
+      "backend/Dockerfile": "sha256:f6399822e16d9bfa11d2d1879db88741d60eef69c682f779e1b2aa101d76e7ef",
+      "backend/app/api/deps.py": "sha256:84c30966b3b862c643009c14146d1924dec50be5b0efb9f56798e2fda5189daa",
+      "backend/app/api/main.py": "sha256:9e9d533bea7c8616a1d9dd3d7e7cdfefa36726fb221bb289fd102654b7e93b3f",
+      "backend/app/api/routes/items.py": "sha256:7f0fa55d1f7b02188c4abd4f88aa6db92fe03de38258b765ed050ec72032b410",
+      "backend/app/api/routes/login.py": "sha256:3c7f7c395b74cea54e505a16052679614b4fd92325d88b761385df8d952af642",
+      "backend/app/api/routes/private.py": "sha256:f5df74cc276f0d8d83337922fb8e05e69ecbc885d466d90d2e3de54ba5e4c8f4",
+      "backend/app/api/routes/users.py": "sha256:566f253330d75bdbf04f2fd59b380dd2c51041d931bd7af6b2064ee66ea96e6d",
+      "backend/app/api/routes/utils.py": "sha256:5e77b59fab0bfcb1cef581938dcc8a47afb7518664a497763d4c50711898e925",
+      "backend/app/core/config.py": "sha256:ef306f8b68c64f1864269891d353c23807d5685d62e514066598b33ee099ca08",
+      "backend/app/core/db.py": "sha256:22b8642606ae619a1ea07b5e3c3bee49c2fc0ded5d0e583e810fba6e7ffadfc9",
+      "backend/app/crud.py": "sha256:f69d79e858ee22cee7792494b0df0370afaed20439ed16bbf6f70767926254d1",
+      "backend/app/main.py": "sha256:e8b28b639d86c76dcf60348185c91125a789951ff085a5289d9f5add0854dfda",
+      "backend/app/models.py": "sha256:4696396c84832a50ca9d60337c2b6ba24e961f2ee5b5e660d8081fb929ebf459",
+      "backend/pyproject.toml": "sha256:a4fdc75ae9c47e77dd70c3460a4a3a83545def601650786df386976b49da892e",
+      "compose.yml": "sha256:1fd1f559a68a462fa5f72295b7dec6982279bb121cb75514a7933b4534dfefd1",
+      "frontend/Dockerfile.playwright": "sha256:17c1fb0c9db052205e7547b20d4324e2643a4433543daa7178e97f395359820e",
+      "frontend/package.json": "sha256:3b5bf6dabd72f3a0d555cc428823acb330918746f334ad5296e835b18f72f325",
+      "frontend/src/components/Admin/AddUser.tsx": "sha256:eea3774b590abffd8be0189d2239205eb7dd0fc8922d576ac6c4f6c9e0b290d9",
+      "frontend/src/components/Admin/EditUser.tsx": "sha256:38e1facd4c3701298d0323848a944b1822df34a4c152e6fbda2969e99773e374",
+      "frontend/src/components/Items/AddItem.tsx": "sha256:104d4f88e2eb2f6d14b0d689af54826bec054d87ca955fa3e6dcfd6f1b217dd5",
+      "frontend/src/components/Items/EditItem.tsx": "sha256:1f9254c7d626638bb9eee3e56bde164727c24e28946adeb4cc45cad2c119e2cf",
+      "frontend/src/components/UserSettings/ChangePassword.tsx": "sha256:0194b3ec2bdcd4325bf79a1dada189b0a9277f6f1a452b9c05662a4e308acca3",
+      "frontend/src/components/UserSettings/UserInformation.tsx": "sha256:e74b25691ce0916009da3b97cf421c41fb69edacfac4b9e82a219b547e431b39",
+      "frontend/src/routes/login.tsx": "sha256:534bbd1ba04d509fca7de74f6137a6e11af510701f15d02b5a20a58ba72b9ce0",
+      "frontend/src/routes/recover-password.tsx": "sha256:f0420b4c29e9b9fc60b0f795bb111e313df38071afce505cd5e88d1fe1987e3a",
+      "frontend/src/routes/reset-password.tsx": "sha256:bfc854382f5e39011c5d30609d7aec7d2c6d03d1feeb390379c155551f94020d",
+      "frontend/src/routes/signup.tsx": "sha256:109bfd36b9ca4b242e48cfdb5e92504e501d7f0e6e4f6271d202e145aca25aa5",
+      "package.json": "sha256:163147bc5eb115551352912b69fd5aff968c5a8792d8edaf53f870e45392e618",
+      "packages/react-email/package.json": "sha256:1ba4995b6efd0b64e70290722f28609a22c42fc9c0762db6302b9d4836bdbe61"
+    }
+  },
+  "processes": [
+    {
+      "id": "proc:3ufcibndhy",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/password-recovery/{email}"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/password-recovery/{email} handler",
+      "level": 2,
+      "module": "backend/app/api/routes/login.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 53,
+          "end_line": 54,
+          "detector": "py@0.5",
+          "content_hash": "sha256:a28ca8488270bc1e22ff9b87ef651199cdcc4ba23d50ec4253c87971d68da120"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:4y7we7leqs",
+      "identity": [
+        "process",
+        "L1",
+        "frontend",
+        "frontend"
+      ],
+      "origin": "observed",
+      "name": "frontend",
+      "level": 1,
+      "module": "frontend",
+      "evidence": [
+        {
+          "path": "frontend/openapi-ts.config.ts",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:3ec895826f54caf1103bf3501fb88f6f63a7913831111e5f4bcdeaeee15eadfc"
+        }
+      ],
+      "parent": "proc:phcojwwzyn"
+    },
+    {
+      "id": "proc:65puxryp3r",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "PATCH /api/v1/users/me"
+      ],
+      "origin": "observed",
+      "name": "PATCH /api/v1/users/me handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 81,
+          "end_line": 82,
+          "detector": "py@0.5",
+          "content_hash": "sha256:63189132423b00a2a340665e4e9277845ac3487cddb7b8ed337054e07befc9bf"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:7txtrj4dec",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "DELETE /api/v1/users/me"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/v1/users/me handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 132,
+          "end_line": 133,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7217ef38c6c647b4b61507a670f9d3493ac1795a3898be91f87603bd59ee9a8b"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:awp3fm5mfw",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/items"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/items handler",
+      "level": 2,
+      "module": "backend/app/api/routes/items.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 61,
+          "end_line": 62,
+          "detector": "py@0.5",
+          "content_hash": "sha256:c40174764cc101e84e024acf18b99752579813ec9a6d2d99571a3abfbca53b3b"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:brxcpeer5h",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/private/users"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/private/users handler",
+      "level": 2,
+      "module": "backend/app/api/routes/private.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/private.py",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "py@0.5",
+          "content_hash": "sha256:015316de02b9843cf29a4fd2436c67496f4fecd51510c027f1808e827ae3e49c"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:glq3za7d27",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/utils/test-email"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/utils/test-email handler",
+      "level": 2,
+      "module": "backend/app/api/routes/utils.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 11,
+          "end_line": 16,
+          "detector": "py@0.5",
+          "content_hash": "sha256:9e8461f33b905fddb135edcda3543e6339a0311246c4be8a751632804928dd3d"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:hjj64lxp23",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/login/access-token"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/login/access-token handler",
+      "level": 2,
+      "module": "backend/app/api/routes/login.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ea694e4921e73b92ac37eaa06a88ab9bb358281d7c907921c77661bcbc82e411"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:huclt4sjqf",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/users"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/users handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 54,
+          "end_line": 57,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f3e56dc19a6a3c839440bcb056d3b2091bf29ad0bcd18f102cafe7487ed7ac48"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:i2dswxf36e",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "DELETE /api/v1/users/{user_id}"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/v1/users/{user_id} handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 214,
+          "end_line": 215,
+          "detector": "py@0.5",
+          "content_hash": "sha256:4b34515613c1b612223e2b133d45c031ce543b60e68cd18c7d4d49ac5b3c279d"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:in3rs4wg2g",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "GET /api/v1/users/{user_id}"
+      ],
+      "origin": "observed",
+      "name": "GET /api/v1/users/{user_id} handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 162,
+          "end_line": 163,
+          "detector": "py@0.5",
+          "content_hash": "sha256:3a9c4fad9c7669839b0fb996ce9be65527ac60e628ecad2cd73a0a3d53259cac"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:iwtpiezg52",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "PATCH /api/v1/users/me/password"
+      ],
+      "origin": "observed",
+      "name": "PATCH /api/v1/users/me/password handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 103,
+          "end_line": 104,
+          "detector": "py@0.5",
+          "content_hash": "sha256:8e08c2b2855ede506f12193d73f43992ff62d59815dae8d5acca0f6d5ca725fc"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:iyfhysgzrh",
+      "identity": [
+        "process",
+        "L1",
+        "packages",
+        "packages"
+      ],
+      "origin": "observed",
+      "name": "packages",
+      "level": 1,
+      "module": "packages",
+      "evidence": [
+        {
+          "path": "packages/react-email/emails/new_account.tsx",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:6ae391da76d9da4f4753cfc3ee643586530b832974671ff48434ed904920ebe3"
+        }
+      ],
+      "parent": "proc:phcojwwzyn"
+    },
+    {
+      "id": "proc:jk6eiv3ld4",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/password-recovery-html-content/{email}"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/password-recovery-html-content/{email} handler",
+      "level": 2,
+      "module": "backend/app/api/routes/login.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 100,
+          "end_line": 105,
+          "detector": "py@0.5",
+          "content_hash": "sha256:2d64634c836d81a423b6ef5d2c9c104d4ea17c1314c0d043e4cb2ae427a67c48"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:klxpul7r3p",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "GET /api/v1/items/{id}"
+      ],
+      "origin": "observed",
+      "name": "GET /api/v1/items/{id} handler",
+      "level": 2,
+      "module": "backend/app/api/routes/items.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 48,
+          "end_line": 49,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fd069c6fd79b9e25ba78058d30baf4017005b9fc2f47ac63d74f9e61483b2a88"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:l4kz75vvqt",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/reset-password"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/reset-password handler",
+      "level": 2,
+      "module": "backend/app/api/routes/login.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 77,
+          "end_line": 78,
+          "detector": "py@0.5",
+          "content_hash": "sha256:954148ac92de58c893707b4b0663f40573012fe4f33bb8985334f754860951fd"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:lges2qcizj",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "GET /api/v1/utils/health-check"
+      ],
+      "origin": "observed",
+      "name": "GET /api/v1/utils/health-check handler",
+      "level": 2,
+      "module": "backend/app/api/routes/utils.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 29,
+          "end_line": 30,
+          "detector": "py@0.5",
+          "content_hash": "sha256:cd819565a0047fda5cf1183d830b769d4cee9e5ce99cee272afe743cb9311faa"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:mji73ecoay",
+      "identity": [
+        "process",
+        "module",
+        "backend/app/main.py"
+      ],
+      "origin": "observed",
+      "name": "app",
+      "level": 2,
+      "module": "backend/app/main.py",
+      "evidence": [
+        {
+          "path": "backend/app/main.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:6d69f2ac09017b8a49d050ab336e953b8fa02ae08c24396916ea7ea42418e627"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:nmmdbtjh6y",
+      "identity": [
+        "process",
+        "L1",
+        "backend",
+        "backend"
+      ],
+      "origin": "observed",
+      "name": "backend",
+      "level": 1,
+      "module": "backend",
+      "evidence": [
+        {
+          "path": "backend/app/__init__.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "parent": "proc:phcojwwzyn"
+    },
+    {
+      "id": "proc:phcojwwzyn",
+      "identity": [
+        "process",
+        "L0",
+        "fastapi-full-stack"
+      ],
+      "origin": "observed",
+      "name": "fastapi-full-stack",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": "package.json",
+          "start_line": 2,
+          "end_line": 2,
+          "detector": "config@0.5",
+          "content_hash": "sha256:c944882c65dfca83f2f3d02e37145667c4e434871496a9646462aee79a28fadb"
+        }
+      ]
+    },
+    {
+      "id": "proc:qo5ceqj6i5",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/login/test-token"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/login/test-token handler",
+      "level": 2,
+      "module": "backend/app/api/routes/login.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 45,
+          "end_line": 46,
+          "detector": "py@0.5",
+          "content_hash": "sha256:653a0a733e5654223a218a3cf012918b53354d4c17f25d62bfdde23588296730"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:qtaga45eam",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "GET /api/v1/users"
+      ],
+      "origin": "observed",
+      "name": "GET /api/v1/users handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 32,
+          "end_line": 37,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7dd562f2cf0f72eb0d8c643b5c0105010d7fd3a35c501529cf931e5df12f0834"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:ra35ds4pqd",
+      "identity": [
+        "process",
+        "L1",
+        "hooks",
+        "hooks"
+      ],
+      "origin": "observed",
+      "name": "hooks",
+      "level": 1,
+      "module": "hooks",
+      "evidence": [
+        {
+          "path": "hooks/post_gen_project.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:6d69f2ac09017b8a49d050ab336e953b8fa02ae08c24396916ea7ea42418e627"
+        }
+      ],
+      "parent": "proc:phcojwwzyn"
+    },
+    {
+      "id": "proc:rrqf6e5oau",
+      "identity": [
+        "process",
+        "module",
+        "backend/app/core/db.py"
+      ],
+      "origin": "observed",
+      "name": "db",
+      "level": 2,
+      "module": "backend/app/core/db.py",
+      "evidence": [
+        {
+          "path": "backend/app/core/db.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:7df6e53a537d4b4fb76462991e26d90a9a37d525ee282692ac3d93ef6be450ef"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:ssqnq624zo",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "POST /api/v1/users/signup"
+      ],
+      "origin": "observed",
+      "name": "POST /api/v1/users/signup handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 146,
+          "end_line": 147,
+          "detector": "py@0.5",
+          "content_hash": "sha256:336815c83c504c3e7c05989b97cf57750ec9c45d1a7ee9ed98017df692cecc93"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:t3qiqsmzm3",
+      "identity": [
+        "process",
+        "module",
+        "backend/app/crud.py"
+      ],
+      "origin": "observed",
+      "name": "crud",
+      "level": 2,
+      "module": "backend/app/crud.py",
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:8b76fbd04977ff1374e576968aa39b50c9624e0167d31c40d0e604e697d4216e"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:woidodah2j",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "DELETE /api/v1/items/{id}"
+      ],
+      "origin": "observed",
+      "name": "DELETE /api/v1/items/{id} handler",
+      "level": 2,
+      "module": "backend/app/api/routes/items.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 99,
+          "end_line": 100,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f93e559df19369d0611cf7b9dc43567d1f8a466cc59b1c4edc3e3a12800380fb"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:xhvrd6rsjz",
+      "identity": [
+        "process",
+        "L1",
+        "scripts",
+        "scripts"
+      ],
+      "origin": "observed",
+      "name": "scripts",
+      "level": 1,
+      "module": "scripts",
+      "evidence": [
+        {
+          "path": "scripts/add_latest_release_date.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:256aff64caab113f2196bfc9007feab17b8d492db9cae366d2992e1a09410252"
+        }
+      ],
+      "parent": "proc:phcojwwzyn"
+    },
+    {
+      "id": "proc:xldz7rtssg",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "PATCH /api/v1/users/{user_id}"
+      ],
+      "origin": "observed",
+      "name": "PATCH /api/v1/users/{user_id} handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 182,
+          "end_line": 187,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fe3e55cbcea5bc1c4cd0b8c2bf933a0219449bf2b41090630747a0f9e416dc67"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:xr7lxktrph",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "GET /api/v1/items"
+      ],
+      "origin": "observed",
+      "name": "GET /api/v1/items handler",
+      "level": 2,
+      "module": "backend/app/api/routes/items.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 13,
+          "end_line": 14,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b455b2b444fa5be69d0abd74d71b2a3cd563ef1e21381baf091b29b5e0b234fd"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:y2oca677vj",
+      "identity": [
+        "process",
+        "module",
+        "backend/app/api/deps.py"
+      ],
+      "origin": "observed",
+      "name": "deps",
+      "level": 2,
+      "module": "backend/app/api/deps.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:ce2d48e84c0b565234a52388d72afdb104093cfb8aa880d3b47e03f3aaa2009a"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:y6fun7klba",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "GET /api/v1/users/me"
+      ],
+      "origin": "observed",
+      "name": "GET /api/v1/users/me handler",
+      "level": 2,
+      "module": "backend/app/api/routes/users.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 124,
+          "end_line": 125,
+          "detector": "py@0.5",
+          "content_hash": "sha256:112bd3f4abd30f90bc4d9d4ffd8af86f9c8ecab8b6fabc41c1a50ea8657e05f2"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    },
+    {
+      "id": "proc:zeiy7nrq77",
+      "identity": [
+        "process",
+        "handler",
+        "backend",
+        "PUT /api/v1/items/{id}"
+      ],
+      "origin": "observed",
+      "name": "PUT /api/v1/items/{id} handler",
+      "level": 2,
+      "module": "backend/app/api/routes/items.py",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 75,
+          "end_line": 76,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b38b8ff24185484dc9b3673ac94ce12c821a1bb327ab89d48f6346294835bfb4"
+        }
+      ],
+      "parent": "proc:nmmdbtjh6y"
+    }
+  ],
+  "entities": [
+    {
+      "id": "ext:3nnzcvcul3",
+      "identity": [
+        "external",
+        "internal-http-client",
+        "inbound"
+      ],
+      "origin": "observed",
+      "name": "Internal HTTP client",
+      "kind": "system",
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 29,
+          "end_line": 30,
+          "detector": "py@0.5",
+          "content_hash": "sha256:cd819565a0047fda5cf1183d830b769d4cee9e5ce99cee272afe743cb9311faa"
+        },
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 11,
+          "end_line": 16,
+          "detector": "py@0.5",
+          "content_hash": "sha256:9e8461f33b905fddb135edcda3543e6339a0311246c4be8a751632804928dd3d"
+        },
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 45,
+          "end_line": 46,
+          "detector": "py@0.5",
+          "content_hash": "sha256:653a0a733e5654223a218a3cf012918b53354d4c17f25d62bfdde23588296730"
+        }
+      ]
+    },
+    {
+      "id": "ext:lhns7pymnw",
+      "identity": [
+        "external",
+        "Sentry",
+        "outbound"
+      ],
+      "origin": "observed",
+      "name": "Sentry",
+      "kind": "system",
+      "sdk_service": "Sentry",
+      "evidence": [
+        {
+          "path": "backend/app/main.py",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "py@0.5",
+          "content_hash": "sha256:d700f06ea85e3f377c750369ac68db3535331fdda6acb2e8d0d2f3915f8eacc1"
+        }
+      ]
+    }
+  ],
+  "stores": [
+    {
+      "id": "store:qxjued45lx",
+      "identity": [
+        "store",
+        "postgres",
+        "item"
+      ],
+      "origin": "observed",
+      "name": "Postgres: item",
+      "technology": "postgres",
+      "logical_name": "item",
+      "data_classes": [],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 87,
+          "end_line": 87,
+          "detector": "py@0.5",
+          "content_hash": "sha256:88c119865a848c801df700687f20fb56f398de61800df56929e7affecf601f0d"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 65,
+          "end_line": 65,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fdbe02f9cf3dce8b159e11ee4f493b1b39924b4f501b41eeda9836fb03101db6"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "py@0.5",
+          "content_hash": "sha256:03b2f346374736031f69fac73fdf4d8aa714d827c12e02ef922c20af8c7a5921"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 27,
+          "end_line": 27,
+          "detector": "py@0.5",
+          "content_hash": "sha256:59b55fc0a0d5e363b063d784fe4b25174d6cc46240677ef32898d6f34f6097b0"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "py@0.5",
+          "content_hash": "sha256:03b2f346374736031f69fac73fdf4d8aa714d827c12e02ef922c20af8c7a5921"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "py@0.5",
+          "content_hash": "sha256:59b55fc0a0d5e363b063d784fe4b25174d6cc46240677ef32898d6f34f6097b0"
+        }
+      ]
+    },
+    {
+      "id": "store:tvae56uepz",
+      "identity": [
+        "store",
+        "postgres",
+        "user"
+      ],
+      "origin": "observed",
+      "name": "Postgres: user",
+      "technology": "postgres",
+      "logical_name": "user",
+      "data_classes": [
+        "credential"
+      ],
+      "encryption_at_rest": "unknown",
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 51,
+          "end_line": 51,
+          "detector": "py@0.5",
+          "content_hash": "sha256:d406212ee5302c66f1b196e85520812f0dacf80e59bc04610465a7ac6093d9b7"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b80a3d93f033f750838adbcb61ef637ded9bc76ffa7207c6a8dfc640a9a7e5c8"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ac16ef4478d0a1a2d3aa7e282cac006c25476c325e61190331e34c1cf4887921"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f50ec45f620207f9b3df57f30fded305ce143df688686df3b32eb8f4723470c8"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 57,
+          "end_line": 57,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ac16ef4478d0a1a2d3aa7e282cac006c25476c325e61190331e34c1cf4887921"
+        },
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 41,
+          "end_line": 41,
+          "detector": "py@0.5",
+          "content_hash": "sha256:12e1ca5b457c3e708238d0cd793d398ae3c1c4b644a4fb820be2de4801018d64"
+        }
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "bnd:li56z6okmf",
+      "identity": [
+        "boundary",
+        "container",
+        "db"
+      ],
+      "origin": "observed",
+      "name": "container: db",
+      "kind": "container",
+      "contains": [
+        "store:qxjued45lx",
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "compose.yml",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "config@0.5",
+          "content_hash": "sha256:a25e926065ad4ffd672f73437f19748bcccf6cd8dc1a4b2517f7be3710ad9326"
+        }
+      ]
+    },
+    {
+      "id": "bnd:ufdlxvnxtg",
+      "identity": [
+        "boundary",
+        "repository",
+        "fastapi-full-stack"
+      ],
+      "origin": "inferred",
+      "confidence": 0.5,
+      "rationale": "no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "name": "repository: fastapi-full-stack",
+      "kind": "repository",
+      "contains": [
+        "proc:3ufcibndhy",
+        "proc:4y7we7leqs",
+        "proc:65puxryp3r",
+        "proc:7txtrj4dec",
+        "proc:awp3fm5mfw",
+        "proc:brxcpeer5h",
+        "proc:glq3za7d27",
+        "proc:hjj64lxp23",
+        "proc:huclt4sjqf",
+        "proc:i2dswxf36e",
+        "proc:in3rs4wg2g",
+        "proc:iwtpiezg52",
+        "proc:iyfhysgzrh",
+        "proc:jk6eiv3ld4",
+        "proc:klxpul7r3p",
+        "proc:l4kz75vvqt",
+        "proc:lges2qcizj",
+        "proc:mji73ecoay",
+        "proc:nmmdbtjh6y",
+        "proc:phcojwwzyn",
+        "proc:qo5ceqj6i5",
+        "proc:qtaga45eam",
+        "proc:ra35ds4pqd",
+        "proc:rrqf6e5oau",
+        "proc:ssqnq624zo",
+        "proc:t3qiqsmzm3",
+        "proc:woidodah2j",
+        "proc:xhvrd6rsjz",
+        "proc:xldz7rtssg",
+        "proc:xr7lxktrph",
+        "proc:y2oca677vj",
+        "proc:y6fun7klba",
+        "proc:zeiy7nrq77"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:5d9ec7c1b937aae0ec10f0476615248148b9334f609ba54dca0ef6b82ce5ddb1"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "flow:2lsina6wjo",
+      "identity": [
+        "flow",
+        "proc:zeiy7nrq77",
+        "store:qxjued45lx",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:zeiy7nrq77",
+      "target": "store:qxjued45lx",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "add",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 93,
+          "end_line": 93,
+          "detector": "py@0.5",
+          "content_hash": "sha256:1ffb9b7d5dede50dff30c0b4e13b3eb7d57d672c49194fec60d1375d23943d25"
+        }
+      ]
+    },
+    {
+      "id": "flow:4sbecne44h",
+      "identity": [
+        "flow",
+        "proc:i2dswxf36e",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:i2dswxf36e",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:4tdwut6alt",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:3ufcibndhy",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:3ufcibndhy",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/password-recovery/{email}",
+      "payload": {
+        "schema_ref": "sch:jmiwytnzub",
+        "name": "Message",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 53,
+          "end_line": 54,
+          "detector": "py@0.5",
+          "content_hash": "sha256:a28ca8488270bc1e22ff9b87ef651199cdcc4ba23d50ec4253c87971d68da120"
+        }
+      ]
+    },
+    {
+      "id": "flow:4ttoug4m3y",
+      "identity": [
+        "flow",
+        "store:tvae56uepz",
+        "proc:in3rs4wg2g",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:tvae56uepz",
+      "target": "proc:in3rs4wg2g",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 169,
+          "end_line": 169,
+          "detector": "py@0.5",
+          "content_hash": "sha256:bc32b5b1a64fb67ec2d7432aeb779a1e97eee52ace1f7926134f86593b322743"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:5nh5tpg44g",
+      "identity": [
+        "flow",
+        "proc:in3rs4wg2g",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:in3rs4wg2g",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:6qq4wpbrjk",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:glq3za7d27",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:glq3za7d27",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/utils/test-email",
+      "payload": {
+        "schema_ref": "sch:jmiwytnzub",
+        "name": "Message",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:yjtluncq5r"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 11,
+          "end_line": 16,
+          "detector": "py@0.5",
+          "content_hash": "sha256:9e8461f33b905fddb135edcda3543e6339a0311246c4be8a751632804928dd3d"
+        }
+      ]
+    },
+    {
+      "id": "flow:6utqlxowaw",
+      "identity": [
+        "flow",
+        "proc:7txtrj4dec",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:7txtrj4dec",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:7iftbzhlfx",
+      "identity": [
+        "flow",
+        "proc:65puxryp3r",
+        "store:tvae56uepz",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:65puxryp3r",
+      "target": "store:tvae56uepz",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "add",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 97,
+          "end_line": 97,
+          "detector": "py@0.5",
+          "content_hash": "sha256:3f2da12f144043c9219b01cad9644828b934523ae2ed968d79927084c08ac94b"
+        }
+      ],
+      "payload": {
+        "name": "from UserPublic",
+        "data_classes": [
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:7smtdajfla",
+      "identity": [
+        "flow",
+        "store:tvae56uepz",
+        "proc:rrqf6e5oau",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:tvae56uepz",
+      "target": "proc:rrqf6e5oau",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "exec",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/core/db.py",
+          "start_line": 24,
+          "end_line": 24,
+          "detector": "py@0.5",
+          "content_hash": "sha256:94397c05b94df4befe7068c04227e6fba83aaae7df291e96ecc83e9c7e6a4b42"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:az26xyzqg4",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:65puxryp3r",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:65puxryp3r",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PATCH /api/v1/users/me",
+      "payload": {
+        "schema_ref": "sch:k7mpafbwse",
+        "name": "UserPublic (+1)",
+        "data_classes": [
+          "pii"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 81,
+          "end_line": 82,
+          "detector": "py@0.5",
+          "content_hash": "sha256:63189132423b00a2a340665e4e9277845ac3487cddb7b8ed337054e07befc9bf"
+        }
+      ]
+    },
+    {
+      "id": "flow:c3mueay6cv",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:huclt4sjqf",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:huclt4sjqf",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/users",
+      "payload": {
+        "schema_ref": "sch:r2zw7cimrc",
+        "name": "UserCreate (+1)",
+        "data_classes": [
+          "credential"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:qptcdv3fwl"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 54,
+          "end_line": 57,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f3e56dc19a6a3c839440bcb056d3b2091bf29ad0bcd18f102cafe7487ed7ac48"
+        }
+      ]
+    },
+    {
+      "id": "flow:ccrin36jin",
+      "identity": [
+        "flow",
+        "store:tvae56uepz",
+        "proc:xldz7rtssg",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:tvae56uepz",
+      "target": "proc:xldz7rtssg",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 197,
+          "end_line": 197,
+          "detector": "py@0.5",
+          "content_hash": "sha256:22af5fde344f326504fd5965ca69c384b91773ef0c4d4813003f39e0fb6f1077"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:cjwv42npgv",
+      "identity": [
+        "flow",
+        "proc:rrqf6e5oau",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:rrqf6e5oau",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "uses crud",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/core/db.py",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:7df6e53a537d4b4fb76462991e26d90a9a37d525ee282692ac3d93ef6be450ef"
+        }
+      ]
+    },
+    {
+      "id": "flow:cvden4vh6g",
+      "identity": [
+        "flow",
+        "proc:hjj64lxp23",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:hjj64lxp23",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls authenticate",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 45,
+          "end_line": 45,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:3601c5fed5ec4002e8198d2ea8daa5a44302dd5df308ce6fdc8e85593758d203",
+          "symbol": "backend/app/crud.py::authenticate"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4ee607b47c69a7953b9e3b19cb24672436f2865e40113007c7ff5b723ec03b2b",
+          "symbol": "backend/app/crud.py::get_user_by_email"
+        }
+      ]
+    },
+    {
+      "id": "flow:dl7wiccko5",
+      "identity": [
+        "flow",
+        "store:qxjued45lx",
+        "proc:klxpul7r3p",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:qxjued45lx",
+      "target": "proc:klxpul7r3p",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 53,
+          "end_line": 53,
+          "detector": "py@0.5",
+          "content_hash": "sha256:76cc8195e178c1e774ab940d729a1e6302484b20f47aa9b401efa995ae26e362"
+        }
+      ]
+    },
+    {
+      "id": "flow:e4jls2qyk5",
+      "identity": [
+        "flow",
+        "proc:huclt4sjqf",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:huclt4sjqf",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:ecejuyvh3o",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:awp3fm5mfw",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:awp3fm5mfw",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/items",
+      "payload": {
+        "schema_ref": "sch:6uwf4xun6b",
+        "name": "ItemPublic",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:7iwajdwngb"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 61,
+          "end_line": 62,
+          "detector": "py@0.5",
+          "content_hash": "sha256:c40174764cc101e84e024acf18b99752579813ec9a6d2d99571a3abfbca53b3b"
+        }
+      ]
+    },
+    {
+      "id": "flow:ee5kowermg",
+      "identity": [
+        "flow",
+        "proc:7txtrj4dec",
+        "store:tvae56uepz",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:7txtrj4dec",
+      "target": "store:tvae56uepz",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "delete",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 141,
+          "end_line": 141,
+          "detector": "py@0.5",
+          "content_hash": "sha256:e92cfd8f6e6cc397848ddde91c9e8e1790e149b0bc933bee0acfe4bffb3f5837"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:emrycrb75z",
+      "identity": [
+        "flow",
+        "proc:glq3za7d27",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:glq3za7d27",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:enhfuyuhpd",
+      "identity": [
+        "flow",
+        "proc:xr7lxktrph",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:xr7lxktrph",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:eyh757lxb2",
+      "identity": [
+        "flow",
+        "store:qxjued45lx",
+        "proc:xr7lxktrph",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:qxjued45lx",
+      "target": "proc:xr7lxktrph",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "exec",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 23,
+          "end_line": 23,
+          "detector": "py@0.5",
+          "content_hash": "sha256:03b2f346374736031f69fac73fdf4d8aa714d827c12e02ef922c20af8c7a5921"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 27,
+          "end_line": 27,
+          "detector": "py@0.5",
+          "content_hash": "sha256:59b55fc0a0d5e363b063d784fe4b25174d6cc46240677ef32898d6f34f6097b0"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "py@0.5",
+          "content_hash": "sha256:03b2f346374736031f69fac73fdf4d8aa714d827c12e02ef922c20af8c7a5921"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 42,
+          "end_line": 42,
+          "detector": "py@0.5",
+          "content_hash": "sha256:59b55fc0a0d5e363b063d784fe4b25174d6cc46240677ef32898d6f34f6097b0"
+        }
+      ]
+    },
+    {
+      "id": "flow:fgov3r3its",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:brxcpeer5h",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:brxcpeer5h",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/private/users",
+      "payload": {
+        "schema_ref": "sch:aqrng7buzz",
+        "name": "PrivateUserCreate (+1)",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/private.py",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "py@0.5",
+          "content_hash": "sha256:015316de02b9843cf29a4fd2436c67496f4fecd51510c027f1808e827ae3e49c"
+        }
+      ]
+    },
+    {
+      "id": "flow:fs6doa27t5",
+      "identity": [
+        "flow",
+        "store:tvae56uepz",
+        "proc:i2dswxf36e",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:tvae56uepz",
+      "target": "proc:i2dswxf36e",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 221,
+          "end_line": 221,
+          "detector": "py@0.5",
+          "content_hash": "sha256:bc32b5b1a64fb67ec2d7432aeb779a1e97eee52ace1f7926134f86593b322743"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:g4347ebkvm",
+      "identity": [
+        "flow",
+        "proc:woidodah2j",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:woidodah2j",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:gglqrpdkvs",
+      "identity": [
+        "flow",
+        "proc:qo5ceqj6i5",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:qo5ceqj6i5",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:gqturi5sem",
+      "identity": [
+        "flow",
+        "proc:i2dswxf36e",
+        "store:qxjued45lx",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:i2dswxf36e",
+      "target": "store:qxjued45lx",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "exec",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 229,
+          "end_line": 229,
+          "detector": "py@0.5",
+          "content_hash": "sha256:d351fc9c4eca28f86a8ed2c05a0b29e3d27b144bcc884855b241b3be5101e8ea"
+        }
+      ]
+    },
+    {
+      "id": "flow:h4nudeooh6",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:qo5ceqj6i5",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:qo5ceqj6i5",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/login/test-token",
+      "payload": {
+        "schema_ref": "sch:k7mpafbwse",
+        "name": "UserPublic",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:pvxpcvruad"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 45,
+          "end_line": 46,
+          "detector": "py@0.5",
+          "content_hash": "sha256:653a0a733e5654223a218a3cf012918b53354d4c17f25d62bfdde23588296730"
+        }
+      ]
+    },
+    {
+      "id": "flow:hgqtggp6ak",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:l4kz75vvqt",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:l4kz75vvqt",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/reset-password",
+      "payload": {
+        "schema_ref": "sch:jmiwytnzub",
+        "name": "Message (+2)",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 77,
+          "end_line": 78,
+          "detector": "py@0.5",
+          "content_hash": "sha256:954148ac92de58c893707b4b0663f40573012fe4f33bb8985334f754860951fd"
+        }
+      ]
+    },
+    {
+      "id": "flow:hwsmxerkhq",
+      "identity": [
+        "flow",
+        "proc:iwtpiezg52",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:iwtpiezg52",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:imjni3bcrz",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:hjj64lxp23",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:hjj64lxp23",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/login/access-token",
+      "payload": {
+        "schema_ref": "sch:wk6h4dbmt2",
+        "name": "Token",
+        "data_classes": [
+          "credential"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ea694e4921e73b92ac37eaa06a88ab9bb358281d7c907921c77661bcbc82e411"
+        }
+      ]
+    },
+    {
+      "id": "flow:iz56squlz5",
+      "identity": [
+        "flow",
+        "proc:y6fun7klba",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:y6fun7klba",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:j4lspqoaf4",
+      "identity": [
+        "flow",
+        "proc:65puxryp3r",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:65puxryp3r",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_user_by_email",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4ee607b47c69a7953b9e3b19cb24672436f2865e40113007c7ff5b723ec03b2b",
+          "symbol": "backend/app/crud.py::get_user_by_email"
+        }
+      ]
+    },
+    {
+      "id": "flow:j5w5grprdi",
+      "identity": [
+        "flow",
+        "proc:xldz7rtssg",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:xldz7rtssg",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:j6hkklfy2m",
+      "identity": [
+        "flow",
+        "proc:i2dswxf36e",
+        "store:tvae56uepz",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:i2dswxf36e",
+      "target": "store:tvae56uepz",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "delete",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 230,
+          "end_line": 230,
+          "detector": "py@0.5",
+          "content_hash": "sha256:64e2cd639b6ddfffaa15b149f4f2af957922b5548c79be3d955f28452025ccd2"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:jjdmgxh45i",
+      "identity": [
+        "flow",
+        "store:qxjued45lx",
+        "proc:woidodah2j",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:qxjued45lx",
+      "target": "proc:woidodah2j",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 106,
+          "end_line": 106,
+          "detector": "py@0.5",
+          "content_hash": "sha256:76cc8195e178c1e774ab940d729a1e6302484b20f47aa9b401efa995ae26e362"
+        }
+      ]
+    },
+    {
+      "id": "flow:kruz2a44ry",
+      "identity": [
+        "flow",
+        "proc:jk6eiv3ld4",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:jk6eiv3ld4",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:ks5krgp64b",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:7txtrj4dec",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:7txtrj4dec",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "DELETE /api/v1/users/me",
+      "payload": {
+        "schema_ref": "sch:jmiwytnzub",
+        "name": "Message",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 132,
+          "end_line": 133,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7217ef38c6c647b4b61507a670f9d3493ac1795a3898be91f87603bd59ee9a8b"
+        }
+      ]
+    },
+    {
+      "id": "flow:m7cc27z3sy",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:lges2qcizj",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:lges2qcizj",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/v1/utils/health-check",
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 29,
+          "end_line": 30,
+          "detector": "py@0.5",
+          "content_hash": "sha256:cd819565a0047fda5cf1183d830b769d4cee9e5ce99cee272afe743cb9311faa"
+        }
+      ]
+    },
+    {
+      "id": "flow:mkmlewl4vy",
+      "identity": [
+        "flow",
+        "proc:iwtpiezg52",
+        "store:tvae56uepz",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:iwtpiezg52",
+      "target": "store:tvae56uepz",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "add",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 119,
+          "end_line": 119,
+          "detector": "py@0.5",
+          "content_hash": "sha256:3f2da12f144043c9219b01cad9644828b934523ae2ed968d79927084c08ac94b"
+        }
+      ],
+      "payload": {
+        "name": "from Message",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:n7mgmycsug",
+      "identity": [
+        "flow",
+        "proc:ssqnq624zo",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:ssqnq624zo",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls create_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:b6af99ac3e48913a73c14819c908c83b2d3b890bb7bf34e25772218fa9d663b6",
+          "symbol": "backend/app/crud.py::create_user"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4ee607b47c69a7953b9e3b19cb24672436f2865e40113007c7ff5b723ec03b2b",
+          "symbol": "backend/app/crud.py::get_user_by_email"
+        }
+      ]
+    },
+    {
+      "id": "flow:qj7otxfx6h",
+      "identity": [
+        "flow",
+        "store:tvae56uepz",
+        "proc:t3qiqsmzm3",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:tvae56uepz",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "exec",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 36,
+          "end_line": 36,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f50ec45f620207f9b3df57f30fded305ce143df688686df3b32eb8f4723470c8"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:qndq4zbmqm",
+      "identity": [
+        "flow",
+        "store:tvae56uepz",
+        "proc:qtaga45eam",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:tvae56uepz",
+      "target": "proc:qtaga45eam",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "exec",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 43,
+          "end_line": 43,
+          "detector": "py@0.5",
+          "content_hash": "sha256:03b2f346374736031f69fac73fdf4d8aa714d827c12e02ef922c20af8c7a5921"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 48,
+          "end_line": 48,
+          "detector": "py@0.5",
+          "content_hash": "sha256:2d8389690a7af95f67d1d957787e524b04293f163237750dd99626d6e2420b07"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:qrrlvbkgan",
+      "identity": [
+        "flow",
+        "proc:awp3fm5mfw",
+        "store:qxjued45lx",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:awp3fm5mfw",
+      "target": "store:qxjued45lx",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "add",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 69,
+          "end_line": 69,
+          "detector": "py@0.5",
+          "content_hash": "sha256:1ffb9b7d5dede50dff30c0b4e13b3eb7d57d672c49194fec60d1375d23943d25"
+        }
+      ]
+    },
+    {
+      "id": "flow:r6q2zrifvw",
+      "identity": [
+        "flow",
+        "proc:t3qiqsmzm3",
+        "store:qxjued45lx",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:t3qiqsmzm3",
+      "target": "store:qxjued45lx",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "add",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 65,
+          "end_line": 65,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fdbe02f9cf3dce8b159e11ee4f493b1b39924b4f501b41eeda9836fb03101db6"
+        }
+      ]
+    },
+    {
+      "id": "flow:rvmn7o73ui",
+      "identity": [
+        "flow",
+        "proc:65puxryp3r",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:65puxryp3r",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:safshg456k",
+      "identity": [
+        "flow",
+        "proc:awp3fm5mfw",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:awp3fm5mfw",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:sazfuv7o4z",
+      "identity": [
+        "flow",
+        "store:tvae56uepz",
+        "proc:y2oca677vj",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:tvae56uepz",
+      "target": "proc:y2oca677vj",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 41,
+          "end_line": 41,
+          "detector": "py@0.5",
+          "content_hash": "sha256:12e1ca5b457c3e708238d0cd793d398ae3c1c4b644a4fb820be2de4801018d64"
+        }
+      ],
+      "payload": {
+        "name": "Postgres: user record",
+        "data_classes": [
+          "credential"
+        ]
+      }
+    },
+    {
+      "id": "flow:tmn7lpr765",
+      "identity": [
+        "flow",
+        "proc:huclt4sjqf",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:huclt4sjqf",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls create_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 10,
+          "end_line": 10,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:b6af99ac3e48913a73c14819c908c83b2d3b890bb7bf34e25772218fa9d663b6",
+          "symbol": "backend/app/crud.py::create_user"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4ee607b47c69a7953b9e3b19cb24672436f2865e40113007c7ff5b723ec03b2b",
+          "symbol": "backend/app/crud.py::get_user_by_email"
+        }
+      ]
+    },
+    {
+      "id": "flow:udwuvbdoas",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:jk6eiv3ld4",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:jk6eiv3ld4",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/password-recovery-html-content/{email}",
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:l3lhcuwqwv"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 100,
+          "end_line": 105,
+          "detector": "py@0.5",
+          "content_hash": "sha256:2d64634c836d81a423b6ef5d2c9c104d4ea17c1314c0d043e4cb2ae427a67c48"
+        }
+      ]
+    },
+    {
+      "id": "flow:vjkems6khw",
+      "identity": [
+        "flow",
+        "proc:3ufcibndhy",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:3ufcibndhy",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_user_by_email",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4ee607b47c69a7953b9e3b19cb24672436f2865e40113007c7ff5b723ec03b2b",
+          "symbol": "backend/app/crud.py::get_user_by_email"
+        }
+      ]
+    },
+    {
+      "id": "flow:wfoagrdul2",
+      "identity": [
+        "flow",
+        "proc:klxpul7r3p",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:klxpul7r3p",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:wrkud5itfv",
+      "identity": [
+        "flow",
+        "proc:brxcpeer5h",
+        "store:tvae56uepz",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:brxcpeer5h",
+      "target": "store:tvae56uepz",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "add",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/private.py",
+          "start_line": 35,
+          "end_line": 35,
+          "detector": "py@0.5",
+          "content_hash": "sha256:3c25bb4745c3ea9dc5f2353f3e405c5787ba9cf59d5f2edb0ca1bb74b7822414"
+        }
+      ],
+      "payload": {
+        "name": "from PrivateUserCreate",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:wxktvtw727",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:ssqnq624zo",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:ssqnq624zo",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/v1/users/signup",
+      "payload": {
+        "schema_ref": "sch:r2zw7cimrc",
+        "name": "UserCreate (+2)",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 146,
+          "end_line": 147,
+          "detector": "py@0.5",
+          "content_hash": "sha256:336815c83c504c3e7c05989b97cf57750ec9c45d1a7ee9ed98017df692cecc93"
+        }
+      ]
+    },
+    {
+      "id": "flow:wybxi67y3p",
+      "identity": [
+        "flow",
+        "proc:woidodah2j",
+        "store:qxjued45lx",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:woidodah2j",
+      "target": "store:qxjued45lx",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "delete",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 111,
+          "end_line": 111,
+          "detector": "py@0.5",
+          "content_hash": "sha256:21f9659f534f02c69be3d5c68782208bacf232830600084c9cbfbdae6c1b127a"
+        }
+      ]
+    },
+    {
+      "id": "flow:wypf37mjmr",
+      "identity": [
+        "flow",
+        "proc:zeiy7nrq77",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:zeiy7nrq77",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:xbmaerqyjc",
+      "identity": [
+        "flow",
+        "proc:l4kz75vvqt",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:l4kz75vvqt",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_user_by_email",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4ee607b47c69a7953b9e3b19cb24672436f2865e40113007c7ff5b723ec03b2b",
+          "symbol": "backend/app/crud.py::get_user_by_email"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:d5aec0b1be6cbc2ef52804708a6e1f50d5fb4fbec2fc105142f65cd4dadea1bf",
+          "symbol": "backend/app/crud.py::update_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:xkiw6wx6zx",
+      "identity": [
+        "flow",
+        "proc:mji73ecoay",
+        "ext:lhns7pymnw",
+        "https"
+      ],
+      "origin": "observed",
+      "source": "proc:mji73ecoay",
+      "target": "ext:lhns7pymnw",
+      "protocol": "https",
+      "direction": "request_response",
+      "authentication": "unknown",
+      "encryption": "tls",
+      "purpose": "init",
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/main.py",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "py@0.5",
+          "content_hash": "sha256:d700f06ea85e3f377c750369ac68db3535331fdda6acb2e8d0d2f3915f8eacc1"
+        }
+      ]
+    },
+    {
+      "id": "flow:xz7vrmythy",
+      "identity": [
+        "flow",
+        "proc:xldz7rtssg",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:xldz7rtssg",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_user_by_email",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4ee607b47c69a7953b9e3b19cb24672436f2865e40113007c7ff5b723ec03b2b",
+          "symbol": "backend/app/crud.py::get_user_by_email"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 20,
+          "end_line": 20,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:d5aec0b1be6cbc2ef52804708a6e1f50d5fb4fbec2fc105142f65cd4dadea1bf",
+          "symbol": "backend/app/crud.py::update_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:ykufdi2r2a",
+      "identity": [
+        "flow",
+        "proc:qtaga45eam",
+        "proc:y2oca677vj",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:qtaga45eam",
+      "target": "proc:y2oca677vj",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_current_user",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/deps.py",
+          "start_line": 30,
+          "end_line": 30,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:393f735d0371a093f84a12d3b3e7d290ea52507ab5bf49dc6b65adde61b2a084",
+          "symbol": "backend/app/api/deps.py::get_current_user"
+        }
+      ]
+    },
+    {
+      "id": "flow:z2b3wrqror",
+      "identity": [
+        "flow",
+        "proc:jk6eiv3ld4",
+        "proc:t3qiqsmzm3",
+        "in_process"
+      ],
+      "origin": "observed",
+      "source": "proc:jk6eiv3ld4",
+      "target": "proc:t3qiqsmzm3",
+      "protocol": "in_process",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "none",
+      "purpose": "calls get_user_by_email",
+      "crosses_boundary": [],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 34,
+          "end_line": 34,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:4ee607b47c69a7953b9e3b19cb24672436f2865e40113007c7ff5b723ec03b2b",
+          "symbol": "backend/app/crud.py::get_user_by_email"
+        }
+      ]
+    },
+    {
+      "id": "flow:zcjmhrvjp2",
+      "identity": [
+        "flow",
+        "store:qxjued45lx",
+        "proc:zeiy7nrq77",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "store:qxjued45lx",
+      "target": "proc:zeiy7nrq77",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "get",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 86,
+          "end_line": 86,
+          "detector": "py@0.5",
+          "content_hash": "sha256:76cc8195e178c1e774ab940d729a1e6302484b20f47aa9b401efa995ae26e362"
+        }
+      ]
+    },
+    {
+      "id": "flow:zprurqnfvn",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:y6fun7klba",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:y6fun7klba",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "GET /api/v1/users/me",
+      "payload": {
+        "schema_ref": "sch:k7mpafbwse",
+        "name": "UserPublic",
+        "data_classes": [
+          "internal"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 124,
+          "end_line": 125,
+          "detector": "py@0.5",
+          "content_hash": "sha256:112bd3f4abd30f90bc4d9d4ffd8af86f9c8ecab8b6fabc41c1a50ea8657e05f2"
+        }
+      ]
+    },
+    {
+      "id": "flow:zszhvptfco",
+      "identity": [
+        "flow",
+        "proc:t3qiqsmzm3",
+        "store:tvae56uepz",
+        "sql"
+      ],
+      "origin": "observed",
+      "source": "proc:t3qiqsmzm3",
+      "target": "store:tvae56uepz",
+      "protocol": "sql",
+      "direction": "one_way",
+      "authentication": "unknown",
+      "encryption": "unknown",
+      "purpose": "add",
+      "crosses_boundary": [
+        "bnd:li56z6okmf",
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b80a3d93f033f750838adbcb61ef637ded9bc76ffa7207c6a8dfc640a9a7e5c8"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 28,
+          "end_line": 28,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ac16ef4478d0a1a2d3aa7e282cac006c25476c325e61190331e34c1cf4887921"
+        },
+        {
+          "path": "backend/app/crud.py",
+          "start_line": 57,
+          "end_line": 57,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ac16ef4478d0a1a2d3aa7e282cac006c25476c325e61190331e34c1cf4887921"
+        }
+      ],
+      "payload": {
+        "name": "from Message (+3)",
+        "data_classes": [
+          "credential",
+          "pii"
+        ]
+      }
+    },
+    {
+      "id": "flow:zvbw4dkqof",
+      "identity": [
+        "flow",
+        "ext:3nnzcvcul3",
+        "proc:iwtpiezg52",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:3nnzcvcul3",
+      "target": "proc:iwtpiezg52",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "credentials",
+      "encryption": "unknown",
+      "purpose": "PATCH /api/v1/users/me/password",
+      "payload": {
+        "schema_ref": "sch:jmiwytnzub",
+        "name": "Message (+1)",
+        "data_classes": [
+          "credential"
+        ]
+      },
+      "crosses_boundary": [
+        "bnd:ufdlxvnxtg"
+      ],
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 103,
+          "end_line": 104,
+          "detector": "py@0.5",
+          "content_hash": "sha256:8e08c2b2855ede506f12193d73f43992ff62d59815dae8d5acca0f6d5ca725fc"
+        }
+      ]
+    }
+  ],
+  "entry_points": [
+    {
+      "id": "ep:2iacv3jm6g",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/v1/utils/health-check",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:lges2qcizj",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/v1/utils/health-check",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "call_chain": [
+        "proc:lges2qcizj"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 29,
+          "end_line": 30,
+          "detector": "py@0.5",
+          "content_hash": "sha256:cd819565a0047fda5cf1183d830b769d4cee9e5ce99cee272afe743cb9311faa"
+        }
+      ],
+      "infrastructure": true
+    },
+    {
+      "id": "ep:2kez6lklmn",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/utils/test-email",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:glq3za7d27",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/utils/test-email",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:yjtluncq5r"
+      ],
+      "call_chain": [
+        "proc:glq3za7d27",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 11,
+          "end_line": 16,
+          "detector": "py@0.5",
+          "content_hash": "sha256:9e8461f33b905fddb135edcda3543e6339a0311246c4be8a751632804928dd3d"
+        }
+      ]
+    },
+    {
+      "id": "ep:4vhwj4kh6h",
+      "identity": [
+        "entry_point",
+        "http",
+        "PUT",
+        "/api/v1/items/{id}",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:zeiy7nrq77",
+      "protocol": "http",
+      "method": "PUT",
+      "path": "/api/v1/items/{id}",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:7iwajdwngb"
+      ],
+      "call_chain": [
+        "proc:zeiy7nrq77",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:qxjued45lx",
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 75,
+          "end_line": 76,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b38b8ff24185484dc9b3673ac94ce12c821a1bb327ab89d48f6346294835bfb4"
+        }
+      ]
+    },
+    {
+      "id": "ep:5krobf52d6",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/v1/items/{id}",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:woidodah2j",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/v1/items/{id}",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:7iwajdwngb"
+      ],
+      "call_chain": [
+        "proc:woidodah2j",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:qxjued45lx",
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 99,
+          "end_line": 100,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f93e559df19369d0611cf7b9dc43567d1f8a466cc59b1c4edc3e3a12800380fb"
+        }
+      ]
+    },
+    {
+      "id": "ep:5nefyiqzyl",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/login/test-token",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:qo5ceqj6i5",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/login/test-token",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:pvxpcvruad"
+      ],
+      "call_chain": [
+        "proc:qo5ceqj6i5",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 45,
+          "end_line": 46,
+          "detector": "py@0.5",
+          "content_hash": "sha256:653a0a733e5654223a218a3cf012918b53354d4c17f25d62bfdde23588296730"
+        }
+      ]
+    },
+    {
+      "id": "ep:64ye7k2sy6",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/v1/users/{user_id}",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:in3rs4wg2g",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/v1/users/{user_id}",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "call_chain": [
+        "proc:in3rs4wg2g",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 162,
+          "end_line": 163,
+          "detector": "py@0.5",
+          "content_hash": "sha256:3a9c4fad9c7669839b0fb996ce9be65527ac60e628ecad2cd73a0a3d53259cac"
+        }
+      ]
+    },
+    {
+      "id": "ep:6fdth4cx6w",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/v1/items/{id}",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:klxpul7r3p",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/v1/items/{id}",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:7iwajdwngb"
+      ],
+      "call_chain": [
+        "proc:klxpul7r3p",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:qxjued45lx",
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 48,
+          "end_line": 49,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fd069c6fd79b9e25ba78058d30baf4017005b9fc2f47ac63d74f9e61483b2a88"
+        }
+      ]
+    },
+    {
+      "id": "ep:6jspjmlphd",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/v1/items",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:xr7lxktrph",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/v1/items",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:7iwajdwngb"
+      ],
+      "call_chain": [
+        "proc:xr7lxktrph",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:qxjued45lx",
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 13,
+          "end_line": 14,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b455b2b444fa5be69d0abd74d71b2a3cd563ef1e21381baf091b29b5e0b234fd"
+        }
+      ]
+    },
+    {
+      "id": "ep:e5ktzmczhl",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/v1/users/me",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:7txtrj4dec",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/v1/users/me",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "call_chain": [
+        "proc:7txtrj4dec",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 132,
+          "end_line": 133,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7217ef38c6c647b4b61507a670f9d3493ac1795a3898be91f87603bd59ee9a8b"
+        }
+      ]
+    },
+    {
+      "id": "ep:fjgxgn5wsl",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/private/users",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:brxcpeer5h",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/private/users",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "call_chain": [
+        "proc:brxcpeer5h"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/private.py",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "py@0.5",
+          "content_hash": "sha256:015316de02b9843cf29a4fd2436c67496f4fecd51510c027f1808e827ae3e49c"
+        }
+      ]
+    },
+    {
+      "id": "ep:h5covuk3ut",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/v1/users/me",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:y6fun7klba",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/v1/users/me",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "call_chain": [
+        "proc:y6fun7klba",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 124,
+          "end_line": 125,
+          "detector": "py@0.5",
+          "content_hash": "sha256:112bd3f4abd30f90bc4d9d4ffd8af86f9c8ecab8b6fabc41c1a50ea8657e05f2"
+        }
+      ]
+    },
+    {
+      "id": "ep:kxkovuyqxz",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/v1/users",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:qtaga45eam",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/v1/users",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:qptcdv3fwl"
+      ],
+      "call_chain": [
+        "proc:qtaga45eam",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 32,
+          "end_line": 37,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7dd562f2cf0f72eb0d8c643b5c0105010d7fd3a35c501529cf931e5df12f0834"
+        }
+      ]
+    },
+    {
+      "id": "ep:mv7wg4ps7o",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/items",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:awp3fm5mfw",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/items",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:7iwajdwngb"
+      ],
+      "call_chain": [
+        "proc:awp3fm5mfw",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:qxjued45lx",
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 61,
+          "end_line": 62,
+          "detector": "py@0.5",
+          "content_hash": "sha256:c40174764cc101e84e024acf18b99752579813ec9a6d2d99571a3abfbca53b3b"
+        }
+      ]
+    },
+    {
+      "id": "ep:nqeetgs5qf",
+      "identity": [
+        "entry_point",
+        "http",
+        "DELETE",
+        "/api/v1/users/{user_id}",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:i2dswxf36e",
+      "protocol": "http",
+      "method": "DELETE",
+      "path": "/api/v1/users/{user_id}",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:qptcdv3fwl",
+        "ctl:mhbyrmguzs"
+      ],
+      "call_chain": [
+        "proc:i2dswxf36e",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:qxjued45lx",
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 214,
+          "end_line": 215,
+          "detector": "py@0.5",
+          "content_hash": "sha256:4b34515613c1b612223e2b133d45c031ce543b60e68cd18c7d4d49ac5b3c279d"
+        }
+      ]
+    },
+    {
+      "id": "ep:odul2iadwb",
+      "identity": [
+        "entry_point",
+        "http",
+        "PATCH",
+        "/api/v1/users/{user_id}",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:xldz7rtssg",
+      "protocol": "http",
+      "method": "PATCH",
+      "path": "/api/v1/users/{user_id}",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:qptcdv3fwl"
+      ],
+      "call_chain": [
+        "proc:xldz7rtssg",
+        "proc:t3qiqsmzm3",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 182,
+          "end_line": 187,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fe3e55cbcea5bc1c4cd0b8c2bf933a0219449bf2b41090630747a0f9e416dc67"
+        }
+      ]
+    },
+    {
+      "id": "ep:q2vqfjsfjj",
+      "identity": [
+        "entry_point",
+        "http",
+        "PATCH",
+        "/api/v1/users/me/password",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:iwtpiezg52",
+      "protocol": "http",
+      "method": "PATCH",
+      "path": "/api/v1/users/me/password",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "call_chain": [
+        "proc:iwtpiezg52",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 103,
+          "end_line": 104,
+          "detector": "py@0.5",
+          "content_hash": "sha256:8e08c2b2855ede506f12193d73f43992ff62d59815dae8d5acca0f6d5ca725fc"
+        }
+      ]
+    },
+    {
+      "id": "ep:s2g4fsb6is",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/users/signup",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:ssqnq624zo",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/users/signup",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "call_chain": [
+        "proc:ssqnq624zo",
+        "proc:t3qiqsmzm3"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 146,
+          "end_line": 147,
+          "detector": "py@0.5",
+          "content_hash": "sha256:336815c83c504c3e7c05989b97cf57750ec9c45d1a7ee9ed98017df692cecc93"
+        }
+      ]
+    },
+    {
+      "id": "ep:tt7z7txqki",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/reset-password",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:l4kz75vvqt",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/reset-password",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "call_chain": [
+        "proc:l4kz75vvqt",
+        "proc:t3qiqsmzm3"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 77,
+          "end_line": 78,
+          "detector": "py@0.5",
+          "content_hash": "sha256:954148ac92de58c893707b4b0663f40573012fe4f33bb8985334f754860951fd"
+        }
+      ]
+    },
+    {
+      "id": "ep:unv4bjvdid",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/password-recovery-html-content/{email}",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:jk6eiv3ld4",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/password-recovery-html-content/{email}",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:l3lhcuwqwv"
+      ],
+      "call_chain": [
+        "proc:jk6eiv3ld4",
+        "proc:t3qiqsmzm3",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 100,
+          "end_line": 105,
+          "detector": "py@0.5",
+          "content_hash": "sha256:2d64634c836d81a423b6ef5d2c9c104d4ea17c1314c0d043e4cb2ae427a67c48"
+        }
+      ]
+    },
+    {
+      "id": "ep:wozgt4ifba",
+      "identity": [
+        "entry_point",
+        "http",
+        "PATCH",
+        "/api/v1/users/me",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:65puxryp3r",
+      "protocol": "http",
+      "method": "PATCH",
+      "path": "/api/v1/users/me",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:mhbyrmguzs"
+      ],
+      "call_chain": [
+        "proc:65puxryp3r",
+        "proc:y2oca677vj",
+        "proc:t3qiqsmzm3"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 81,
+          "end_line": 82,
+          "detector": "py@0.5",
+          "content_hash": "sha256:63189132423b00a2a340665e4e9277845ac3487cddb7b8ed337054e07befc9bf"
+        }
+      ]
+    },
+    {
+      "id": "ep:ywp6i5miai",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/users",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:huclt4sjqf",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/users",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx",
+        "ctl:qptcdv3fwl"
+      ],
+      "call_chain": [
+        "proc:huclt4sjqf",
+        "proc:t3qiqsmzm3",
+        "proc:y2oca677vj"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 54,
+          "end_line": 57,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f3e56dc19a6a3c839440bcb056d3b2091bf29ad0bcd18f102cafe7487ed7ac48"
+        }
+      ]
+    },
+    {
+      "id": "ep:zhqgi6fae7",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/login/access-token",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:hjj64lxp23",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/login/access-token",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "call_chain": [
+        "proc:hjj64lxp23",
+        "proc:t3qiqsmzm3"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 23,
+          "end_line": 24,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ea694e4921e73b92ac37eaa06a88ab9bb358281d7c907921c77661bcbc82e411"
+        }
+      ]
+    },
+    {
+      "id": "ep:zvx6asexrs",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/v1/password-recovery/{email}",
+        "backend"
+      ],
+      "origin": "observed",
+      "process": "proc:3ufcibndhy",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/v1/password-recovery/{email}",
+      "exposure": "internal",
+      "controls": [
+        "ctl:wd5aciiryx"
+      ],
+      "call_chain": [
+        "proc:3ufcibndhy",
+        "proc:t3qiqsmzm3"
+      ],
+      "reaches": [
+        "store:tvae56uepz"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 53,
+          "end_line": 54,
+          "detector": "py@0.5",
+          "content_hash": "sha256:a28ca8488270bc1e22ff9b87ef651199cdcc4ba23d50ec4253c87971d68da120"
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "id": "ctl:7iwajdwngb",
+      "identity": [
+        "control",
+        "authn",
+        "backend/app/api/routes/items.py",
+        "Depends(get_current_user)"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "Depends(get_current_user)",
+      "scope": "handler",
+      "applies_to": [
+        "ep:4vhwj4kh6h",
+        "ep:5krobf52d6",
+        "ep:6fdth4cx6w",
+        "ep:6jspjmlphd",
+        "ep:mv7wg4ps7o"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 14,
+          "end_line": 14,
+          "detector": "py@0.5",
+          "content_hash": "sha256:195de0677583140ea90c87215fa11df0a8bdaf0b383dde1f5c57dd013ef406a0"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 49,
+          "end_line": 49,
+          "detector": "py@0.5",
+          "content_hash": "sha256:11c45b8b72bd4823a96c189f740b5f53be840472f042d5db885c85e40aff01d4"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 62,
+          "end_line": 62,
+          "detector": "py@0.5",
+          "content_hash": "sha256:facd096f373efaf430b6c559f72d58062d82be88b346e8b35ec64b80aa25149c"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 76,
+          "end_line": 76,
+          "detector": "py@0.5",
+          "content_hash": "sha256:a1d545495aff7086efbc18b1ca98bb0563e7d51be9240435ef084c99cff32964"
+        },
+        {
+          "path": "backend/app/api/routes/items.py",
+          "start_line": 100,
+          "end_line": 100,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7615fe3a6480ed7e6421a45fc69cf248599831766f1c34036fd4d6abf9fcaac8"
+        }
+      ]
+    },
+    {
+      "id": "ctl:l3lhcuwqwv",
+      "identity": [
+        "control",
+        "authz",
+        "backend/app/api/routes/login.py",
+        "Depends(get_current_active_superuser)"
+      ],
+      "origin": "observed",
+      "kind": "authz",
+      "name": "Depends(get_current_active_superuser)",
+      "scope": "route",
+      "applies_to": [
+        "ep:unv4bjvdid"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 100,
+          "end_line": 100,
+          "detector": "py@0.5",
+          "content_hash": "sha256:a718bf8095edf6ca75afecd2f846d9f7b2d5268a887f5f2f1498951d708e018b"
+        }
+      ]
+    },
+    {
+      "id": "ctl:mhbyrmguzs",
+      "identity": [
+        "control",
+        "authn",
+        "backend/app/api/routes/users.py",
+        "Depends(get_current_user)"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "Depends(get_current_user)",
+      "scope": "handler",
+      "applies_to": [
+        "ep:64ye7k2sy6",
+        "ep:e5ktzmczhl",
+        "ep:h5covuk3ut",
+        "ep:nqeetgs5qf",
+        "ep:q2vqfjsfjj",
+        "ep:wozgt4ifba"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 82,
+          "end_line": 82,
+          "detector": "py@0.5",
+          "content_hash": "sha256:01f3bc689e519292241917b93033b0ed65fb62da9bfbe73b77122d348ab9bc3b"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 104,
+          "end_line": 104,
+          "detector": "py@0.5",
+          "content_hash": "sha256:c895381f1c396da9e1063a356f4ffebcb83c703dad8199b6b341a92e2267e2fc"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 125,
+          "end_line": 125,
+          "detector": "py@0.5",
+          "content_hash": "sha256:147c6b6d20b31f990e60f4fb2bff44bb7580bb7ffe7f66dd7fe4a5d1c5992053"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 133,
+          "end_line": 133,
+          "detector": "py@0.5",
+          "content_hash": "sha256:00d622bcd40d6b60b79454b2bb08b2e18b5ce6aa41489b3abdf29514352cdfdf"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 163,
+          "end_line": 163,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fdbdb53ae82c32256b76124bfca70f77ee6224f01804f61db8356298561a2791"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 215,
+          "end_line": 215,
+          "detector": "py@0.5",
+          "content_hash": "sha256:966b4a915a9d8fd6c277dd0a1a1554daf217b6bb273ebca5e943ef442b39b999"
+        }
+      ]
+    },
+    {
+      "id": "ctl:pvxpcvruad",
+      "identity": [
+        "control",
+        "authn",
+        "backend/app/api/routes/login.py",
+        "Depends(get_current_user)"
+      ],
+      "origin": "observed",
+      "kind": "authn",
+      "name": "Depends(get_current_user)",
+      "scope": "handler",
+      "applies_to": [
+        "ep:5nefyiqzyl"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/login.py",
+          "start_line": 46,
+          "end_line": 46,
+          "detector": "py@0.5",
+          "content_hash": "sha256:cdb06a1f4f95e7924780b1a4395b6c002ac53567f5111a0880e17f69ad972593"
+        }
+      ]
+    },
+    {
+      "id": "ctl:qptcdv3fwl",
+      "identity": [
+        "control",
+        "authz",
+        "backend/app/api/routes/users.py",
+        "Depends(get_current_active_superuser)"
+      ],
+      "origin": "observed",
+      "kind": "authz",
+      "name": "Depends(get_current_active_superuser)",
+      "scope": "route",
+      "applies_to": [
+        "ep:kxkovuyqxz",
+        "ep:nqeetgs5qf",
+        "ep:odul2iadwb",
+        "ep:ywp6i5miai"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 32,
+          "end_line": 32,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7a277aff08dbfad528aa99fec18916f605cecb600f259cd002b25a0e2606d38e"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "py@0.5",
+          "content_hash": "sha256:a718bf8095edf6ca75afecd2f846d9f7b2d5268a887f5f2f1498951d708e018b"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 182,
+          "end_line": 182,
+          "detector": "py@0.5",
+          "content_hash": "sha256:661de7c18f1d731b6354f2b863295f028aaec80da5fec2a0511357d78e5a93b3"
+        },
+        {
+          "path": "backend/app/api/routes/users.py",
+          "start_line": 214,
+          "end_line": 214,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ea0a6655099cbd2ac550336f2bf769ff4e85d107a7290dc0d40d6e6f52537f3d"
+        }
+      ]
+    },
+    {
+      "id": "ctl:wd5aciiryx",
+      "identity": [
+        "control",
+        "cors",
+        "backend/app/main.py",
+        "CORSMiddleware"
+      ],
+      "origin": "observed",
+      "kind": "cors",
+      "name": "CORSMiddleware",
+      "scope": "router",
+      "applies_to": [
+        "ep:2iacv3jm6g",
+        "ep:2kez6lklmn",
+        "ep:4vhwj4kh6h",
+        "ep:5krobf52d6",
+        "ep:5nefyiqzyl",
+        "ep:64ye7k2sy6",
+        "ep:6fdth4cx6w",
+        "ep:6jspjmlphd",
+        "ep:e5ktzmczhl",
+        "ep:fjgxgn5wsl",
+        "ep:h5covuk3ut",
+        "ep:kxkovuyqxz",
+        "ep:mv7wg4ps7o",
+        "ep:nqeetgs5qf",
+        "ep:odul2iadwb",
+        "ep:q2vqfjsfjj",
+        "ep:s2g4fsb6is",
+        "ep:tt7z7txqki",
+        "ep:unv4bjvdid",
+        "ep:wozgt4ifba",
+        "ep:ywp6i5miai",
+        "ep:zhqgi6fae7",
+        "ep:zvx6asexrs"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/main.py",
+          "start_line": 27,
+          "end_line": 27,
+          "detector": "py@0.5",
+          "content_hash": "sha256:66b967263a8b8fb192678176af1a89dc6b9f0dd0a8bf50e052e40a80535a17f1"
+        }
+      ]
+    },
+    {
+      "id": "ctl:yjtluncq5r",
+      "identity": [
+        "control",
+        "authz",
+        "backend/app/api/routes/utils.py",
+        "Depends(get_current_active_superuser)"
+      ],
+      "origin": "observed",
+      "kind": "authz",
+      "name": "Depends(get_current_active_superuser)",
+      "scope": "route",
+      "applies_to": [
+        "ep:2kez6lklmn"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 11,
+          "end_line": 11,
+          "detector": "py@0.5",
+          "content_hash": "sha256:a718bf8095edf6ca75afecd2f846d9f7b2d5268a887f5f2f1498951d708e018b"
+        }
+      ]
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "wk:3bqz5b654s",
+      "identity": [
+        "weakness",
+        "plaintext_credentials",
+        ".env",
+        "POSTGRES_PASSWORD committed in .env",
+        "1"
+      ],
+      "origin": "observed",
+      "kind": "plaintext_credentials",
+      "name": "POSTGRES_PASSWORD committed in .env",
+      "severity": "high",
+      "cwe": "CWE-798",
+      "stride": [
+        "I",
+        "E"
+      ],
+      "applies_to": [
+        "proc:phcojwwzyn"
+      ],
+      "evidence": [
+        {
+          "path": ".env",
+          "start_line": 17,
+          "end_line": 17,
+          "detector": "config@0.5",
+          "content_hash": "sha256:2593651b9b09b4ab42de29a562bc06eb61a52a97529eb78c5b25b8d41a5227d8"
+        }
+      ]
+    },
+    {
+      "id": "wk:l7khc4cbyw",
+      "identity": [
+        "weakness",
+        "plaintext_credentials",
+        ".env",
+        "SECRET_KEY committed in .env",
+        "1"
+      ],
+      "origin": "observed",
+      "kind": "plaintext_credentials",
+      "name": "SECRET_KEY committed in .env",
+      "severity": "high",
+      "cwe": "CWE-798",
+      "stride": [
+        "I",
+        "E"
+      ],
+      "applies_to": [
+        "proc:phcojwwzyn"
+      ],
+      "evidence": [
+        {
+          "path": ".env",
+          "start_line": 6,
+          "end_line": 6,
+          "detector": "config@0.5",
+          "content_hash": "sha256:f9379f2e736f353ea4d94182e17304b340cb62f8f65ead13e9a99b55b54acff8"
+        }
+      ]
+    },
+    {
+      "id": "wk:vorlzimtdt",
+      "identity": [
+        "weakness",
+        "plaintext_credentials",
+        "backend/app/models.py",
+        "hard-coded token_type",
+        "1"
+      ],
+      "origin": "observed",
+      "kind": "plaintext_credentials",
+      "name": "hard-coded token_type",
+      "severity": "high",
+      "cwe": "CWE-798",
+      "stride": [
+        "I",
+        "E"
+      ],
+      "applies_to": [
+        "proc:nmmdbtjh6y"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 116,
+          "end_line": 116,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7d333aa4827d95aef229c9df5bc087661a40f9dc92b929519f8eeed84878fba8"
+        }
+      ]
+    },
+    {
+      "id": "wk:w3hgrwjhhp",
+      "identity": [
+        "weakness",
+        "plaintext_credentials",
+        ".env",
+        "FIRST_SUPERUSER_PASSWORD committed in .env",
+        "1"
+      ],
+      "origin": "observed",
+      "kind": "plaintext_credentials",
+      "name": "FIRST_SUPERUSER_PASSWORD committed in .env",
+      "severity": "high",
+      "cwe": "CWE-798",
+      "stride": [
+        "I",
+        "E"
+      ],
+      "applies_to": [
+        "proc:phcojwwzyn"
+      ],
+      "evidence": [
+        {
+          "path": ".env",
+          "start_line": 8,
+          "end_line": 8,
+          "detector": "config@0.5",
+          "content_hash": "sha256:9e9174fe4a398d3f73063666c194d52855c112552b5f9f8504f45a433a9b625a"
+        }
+      ]
+    }
+  ],
+  "schemas": [
+    {
+      "id": "sch:2igibxl4ge",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "UserBase"
+      ],
+      "origin": "observed",
+      "name": "UserBase",
+      "fields": [
+        {
+          "name": "email",
+          "type": "EmailStr",
+          "data_class": "pii"
+        },
+        {
+          "name": "is_active",
+          "type": "bool",
+          "data_class": "internal"
+        },
+        {
+          "name": "is_superuser",
+          "type": "bool",
+          "data_class": "internal"
+        },
+        {
+          "name": "full_name",
+          "type": "str | None",
+          "data_class": "pii"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 13,
+          "end_line": 17,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b35b6f71654b14bcd913dd4125efbcee3f686c231724df3f0767156abc296af5"
+        }
+      ]
+    },
+    {
+      "id": "sch:42c6rlsufk",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "ItemsPublic"
+      ],
+      "origin": "observed",
+      "name": "ItemsPublic",
+      "fields": [
+        {
+          "name": "data",
+          "type": "list[ItemPublic]",
+          "data_class": "internal"
+        },
+        {
+          "name": "count",
+          "type": "int",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 103,
+          "end_line": 105,
+          "detector": "py@0.5",
+          "content_hash": "sha256:aa0f5a26f2b8fb2a335ede967a7c3f79c4e0cde3ac7b5140a110de44adcf1a54"
+        }
+      ]
+    },
+    {
+      "id": "sch:6uwf4xun6b",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "ItemPublic"
+      ],
+      "origin": "observed",
+      "name": "ItemPublic",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid.UUID",
+          "data_class": "internal"
+        },
+        {
+          "name": "owner_id",
+          "type": "uuid.UUID",
+          "data_class": "internal"
+        },
+        {
+          "name": "created_at",
+          "type": "datetime | None",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 97,
+          "end_line": 100,
+          "detector": "py@0.5",
+          "content_hash": "sha256:81c4780cfbdc9268d2f025f47287d9f5a02bc5d19d320a8a3bb89fee8532406d"
+        }
+      ]
+    },
+    {
+      "id": "sch:7p6st4xgna",
+      "identity": [
+        "schema",
+        "frontend/src/routes/recover-password.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "email",
+          "type": "z.email",
+          "data_class": "pii"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/routes/recover-password.tsx",
+          "start_line": 27,
+          "end_line": 29,
+          "detector": "js@0.5",
+          "content_hash": "sha256:f5f781d1740f42a9d515d158a8fa53e9bf8c3aa99701ee8662db591d7294034f"
+        }
+      ]
+    },
+    {
+      "id": "sch:7xl5uehtux",
+      "identity": [
+        "schema",
+        "frontend/src/routes/reset-password.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "new_password",
+          "type": "z.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "confirm_password",
+          "type": "z.string",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/routes/reset-password.tsx",
+          "start_line": 32,
+          "end_line": 41,
+          "detector": "js@0.5",
+          "content_hash": "sha256:c0de9bb572fc9cd60bb8adbb382713cd00005bb4c01d41a27e960fdd7f899a83"
+        }
+      ]
+    },
+    {
+      "id": "sch:aqrng7buzz",
+      "identity": [
+        "schema",
+        "backend/app/api/routes/private.py",
+        "PrivateUserCreate"
+      ],
+      "origin": "observed",
+      "name": "PrivateUserCreate",
+      "fields": [
+        {
+          "name": "email",
+          "type": "str",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "str",
+          "data_class": "credential"
+        },
+        {
+          "name": "full_name",
+          "type": "str",
+          "data_class": "pii"
+        },
+        {
+          "name": "is_verified",
+          "type": "bool",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/private.py",
+          "start_line": 16,
+          "end_line": 20,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7426b33543ea7fb24c69f6d72e9b3244fc59f065eea56a486e20fcb58b9869f5"
+        }
+      ]
+    },
+    {
+      "id": "sch:bwud5mlguo",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "item"
+      ],
+      "origin": "observed",
+      "name": "item",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid.UUID",
+          "data_class": "internal"
+        },
+        {
+          "name": "created_at",
+          "type": "datetime | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "owner_id",
+          "type": "uuid.UUID",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 87,
+          "end_line": 93,
+          "detector": "py@0.5",
+          "content_hash": "sha256:efe568e12205c113a5cb021e1129922ac89925e324d2b58e158b383ec9591751"
+        }
+      ]
+    },
+    {
+      "id": "sch:fvwztcw6pm",
+      "identity": [
+        "schema",
+        "frontend/src/components/Admin/EditUser.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "email",
+          "type": "z.email",
+          "data_class": "pii"
+        },
+        {
+          "name": "full_name",
+          "type": "z.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "z.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "confirm_password",
+          "type": "z.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "is_superuser",
+          "type": "z.boolean",
+          "data_class": "internal"
+        },
+        {
+          "name": "is_active",
+          "type": "z.boolean",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/components/Admin/EditUser.tsx",
+          "start_line": 34,
+          "end_line": 46,
+          "detector": "js@0.5",
+          "content_hash": "sha256:14218bf3f0f7793fe5c9be0c13f939307c2d687b9cf23830441cefe2e1c1c34a"
+        }
+      ]
+    },
+    {
+      "id": "sch:jeezduq4st",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "ItemUpdate"
+      ],
+      "origin": "observed",
+      "name": "ItemUpdate",
+      "fields": [
+        {
+          "name": "title",
+          "type": "str | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "description",
+          "type": "str | None",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 81,
+          "end_line": 83,
+          "detector": "py@0.5",
+          "content_hash": "sha256:d7511a2d533f1133bd0c646438cbac0a42a9adba3788d23dd2515f0c7301ec85"
+        }
+      ]
+    },
+    {
+      "id": "sch:jmiwytnzub",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "Message"
+      ],
+      "origin": "observed",
+      "name": "Message",
+      "fields": [
+        {
+          "name": "message",
+          "type": "str",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 109,
+          "end_line": 110,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f7cc8f2f349d27a27146cbad0358fdcb9dfcc8bc0257b0e615aae986d2d483b3"
+        }
+      ]
+    },
+    {
+      "id": "sch:k7mpafbwse",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "UserPublic"
+      ],
+      "origin": "observed",
+      "name": "UserPublic",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid.UUID",
+          "data_class": "internal"
+        },
+        {
+          "name": "created_at",
+          "type": "datetime | None",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 59,
+          "end_line": 61,
+          "detector": "py@0.5",
+          "content_hash": "sha256:a9db61af3a9f1ce8d89ebf7f190181c3896fffbaa54bfc79c9f735c9ca0678dc"
+        }
+      ]
+    },
+    {
+      "id": "sch:lalmlpb6g2",
+      "identity": [
+        "schema",
+        "frontend/src/routes/login.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "username",
+          "type": "z.email",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "z.string",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/routes/login.tsx",
+          "start_line": 25,
+          "end_line": 31,
+          "detector": "js@0.5",
+          "content_hash": "sha256:fd48944954e6aad12cb673210bf860e9a22ce06f604279860775c3e56dc90f3e"
+        }
+      ]
+    },
+    {
+      "id": "sch:lpiufyo2ts",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "NewPassword"
+      ],
+      "origin": "observed",
+      "name": "NewPassword",
+      "fields": [
+        {
+          "name": "token",
+          "type": "str",
+          "data_class": "credential"
+        },
+        {
+          "name": "new_password",
+          "type": "str",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 124,
+          "end_line": 126,
+          "detector": "py@0.5",
+          "content_hash": "sha256:980e95dac3124ad1dc6ca6face0a1eef5a691cda5003e964a6dc19c6eb56b1a5"
+        }
+      ]
+    },
+    {
+      "id": "sch:lxfm6yyshs",
+      "identity": [
+        "schema",
+        "frontend/src/routes/signup.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "email",
+          "type": "z.email",
+          "data_class": "pii"
+        },
+        {
+          "name": "full_name",
+          "type": "z.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "z.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "confirm_password",
+          "type": "z.string",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/routes/signup.tsx",
+          "start_line": 23,
+          "end_line": 34,
+          "detector": "js@0.5",
+          "content_hash": "sha256:8952d9e76bee8ad87b20f81804a3e404ca1566c4e162417629d7d64b1af393f1"
+        }
+      ]
+    },
+    {
+      "id": "sch:ohfwgel3da",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "UsersPublic"
+      ],
+      "origin": "observed",
+      "name": "UsersPublic",
+      "fields": [
+        {
+          "name": "data",
+          "type": "list[UserPublic]",
+          "data_class": "internal"
+        },
+        {
+          "name": "count",
+          "type": "int",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 64,
+          "end_line": 66,
+          "detector": "py@0.5",
+          "content_hash": "sha256:51ceb87ceb7da06dc01262ce1dff2bb9ee60f26df2577894a1a6dc98256fe5a9"
+        }
+      ]
+    },
+    {
+      "id": "sch:r2zw7cimrc",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "UserCreate"
+      ],
+      "origin": "observed",
+      "name": "UserCreate",
+      "fields": [
+        {
+          "name": "password",
+          "type": "str",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 21,
+          "end_line": 22,
+          "detector": "py@0.5",
+          "content_hash": "sha256:6cdf6012fadde4ba4dccaa134b9ea5005bb90f1e33637ff9364b2118a19298bc"
+        }
+      ]
+    },
+    {
+      "id": "sch:rp2ygvoze3",
+      "identity": [
+        "schema",
+        "frontend/src/components/Items/AddItem.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "title",
+          "type": "z.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "description",
+          "type": "z.string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/components/Items/AddItem.tsx",
+          "start_line": 33,
+          "end_line": 36,
+          "detector": "js@0.5",
+          "content_hash": "sha256:fac4a58168b34c9d1056e09c8b2d2ba6fc8c0a66b4f7420037583bf5dff4bc46"
+        }
+      ]
+    },
+    {
+      "id": "sch:rxu6ni6flt",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "ItemBase"
+      ],
+      "origin": "observed",
+      "name": "ItemBase",
+      "fields": [
+        {
+          "name": "title",
+          "type": "str",
+          "data_class": "internal"
+        },
+        {
+          "name": "description",
+          "type": "str | None",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 70,
+          "end_line": 72,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fa15d6ddc5f28e8a5041bf9ec0a1c3aa955cb22ed6272c116ac007b070762058"
+        }
+      ]
+    },
+    {
+      "id": "sch:s3euignr2y",
+      "identity": [
+        "schema",
+        "backend/app/core/config.py",
+        "Settings"
+      ],
+      "origin": "observed",
+      "name": "Settings",
+      "fields": [
+        {
+          "name": "API_V1_STR",
+          "type": "str",
+          "data_class": "internal"
+        },
+        {
+          "name": "SECRET_KEY",
+          "type": "str",
+          "data_class": "credential"
+        },
+        {
+          "name": "ACCESS_TOKEN_EXPIRE_MINUTES",
+          "type": "int",
+          "data_class": "internal"
+        },
+        {
+          "name": "FRONTEND_HOST",
+          "type": "str",
+          "data_class": "internal"
+        },
+        {
+          "name": "FASTAPI_ENV",
+          "type": "Literal[\"development\"] | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "PROJECT_NAME",
+          "type": "str",
+          "data_class": "internal"
+        },
+        {
+          "name": "SENTRY_DSN",
+          "type": "HttpUrl | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "DATABASE_URL",
+          "type": "PostgresDsn",
+          "data_class": "internal"
+        },
+        {
+          "name": "SMTP_TLS",
+          "type": "bool",
+          "data_class": "internal"
+        },
+        {
+          "name": "SMTP_SSL",
+          "type": "bool",
+          "data_class": "internal"
+        },
+        {
+          "name": "SMTP_PORT",
+          "type": "int",
+          "data_class": "internal"
+        },
+        {
+          "name": "SMTP_HOST",
+          "type": "str | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "SMTP_USER",
+          "type": "str | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "SMTP_PASSWORD",
+          "type": "str | None",
+          "data_class": "credential"
+        },
+        {
+          "name": "EMAILS_FROM_EMAIL",
+          "type": "EmailStr | None",
+          "data_class": "pii"
+        },
+        {
+          "name": "EMAILS_FROM_NAME",
+          "type": "str | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "EMAIL_RESET_TOKEN_EXPIRE_HOURS",
+          "type": "int",
+          "data_class": "internal"
+        },
+        {
+          "name": "EMAIL_TEST_USER",
+          "type": "EmailStr",
+          "data_class": "pii"
+        },
+        {
+          "name": "FIRST_SUPERUSER",
+          "type": "EmailStr",
+          "data_class": "internal"
+        },
+        {
+          "name": "FIRST_SUPERUSER_PASSWORD",
+          "type": "str",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/core/config.py",
+          "start_line": 15,
+          "end_line": 88,
+          "detector": "py@0.5",
+          "content_hash": "sha256:ade1b6b4f885e83ea7068dec58daeb515cac36a564e34abc8832ec376c89abc8"
+        }
+      ]
+    },
+    {
+      "id": "sch:sjtuvxdism",
+      "identity": [
+        "schema",
+        "frontend/src/components/UserSettings/ChangePassword.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "current_password",
+          "type": "z.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "new_password",
+          "type": "z.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "confirm_password",
+          "type": "z.string",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/components/UserSettings/ChangePassword.tsx",
+          "start_line": 20,
+          "end_line": 33,
+          "detector": "js@0.5",
+          "content_hash": "sha256:c0151c808f62bbc9a5e23d6145418d2274d9edc423947eb0e9b45925f0048f93"
+        }
+      ]
+    },
+    {
+      "id": "sch:tamkzsxk37",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "user"
+      ],
+      "origin": "observed",
+      "name": "user",
+      "fields": [
+        {
+          "name": "id",
+          "type": "uuid.UUID",
+          "data_class": "internal"
+        },
+        {
+          "name": "hashed_password",
+          "type": "str",
+          "data_class": "credential"
+        },
+        {
+          "name": "created_at",
+          "type": "datetime | None",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 51,
+          "end_line": 55,
+          "detector": "py@0.5",
+          "content_hash": "sha256:4799f7adff282f8a0ebeba8aa011de5b82781308af49aa184a4f36ebd00ff80b"
+        }
+      ]
+    },
+    {
+      "id": "sch:u3ncdlfgmp",
+      "identity": [
+        "schema",
+        "frontend/src/components/Admin/AddUser.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "email",
+          "type": "z.email",
+          "data_class": "pii"
+        },
+        {
+          "name": "full_name",
+          "type": "z.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "z.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "confirm_password",
+          "type": "z.string",
+          "data_class": "credential"
+        },
+        {
+          "name": "is_superuser",
+          "type": "z.boolean",
+          "data_class": "internal"
+        },
+        {
+          "name": "is_active",
+          "type": "z.boolean",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/components/Admin/AddUser.tsx",
+          "start_line": 34,
+          "end_line": 47,
+          "detector": "js@0.5",
+          "content_hash": "sha256:4021b5683ee05470cb364dbef289d4f6882fd29baf1e3c0f0818462c75d0b320"
+        }
+      ]
+    },
+    {
+      "id": "sch:uc5bdrz6w4",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "UserRegister"
+      ],
+      "origin": "observed",
+      "name": "UserRegister",
+      "fields": [
+        {
+          "name": "email",
+          "type": "EmailStr",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "str",
+          "data_class": "credential"
+        },
+        {
+          "name": "full_name",
+          "type": "str | None",
+          "data_class": "pii"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 25,
+          "end_line": 28,
+          "detector": "py@0.5",
+          "content_hash": "sha256:6d79e6a22d69fe5da3a3d29301f02d5e0d8685ebed2507e00030e233448d46da"
+        }
+      ]
+    },
+    {
+      "id": "sch:uc5rnn454m",
+      "identity": [
+        "schema",
+        "frontend/src/components/UserSettings/UserInformation.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "full_name",
+          "type": "z.string",
+          "data_class": "pii"
+        },
+        {
+          "name": "email",
+          "type": "z.email",
+          "data_class": "pii"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/components/UserSettings/UserInformation.tsx",
+          "start_line": 24,
+          "end_line": 27,
+          "detector": "js@0.5",
+          "content_hash": "sha256:fbcd9a5d79b3b6d52f373ebf3166ac99c77ac16526111990db1bf2c84c091907"
+        }
+      ]
+    },
+    {
+      "id": "sch:vcohberaw5",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "UserUpdateMe"
+      ],
+      "origin": "observed",
+      "name": "UserUpdateMe",
+      "fields": [
+        {
+          "name": "full_name",
+          "type": "str | None",
+          "data_class": "pii"
+        },
+        {
+          "name": "email",
+          "type": "EmailStr | None",
+          "data_class": "pii"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 40,
+          "end_line": 42,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b8141461ad073e73ce4c94fd625c57f821609c18f564625ccaccf877fee3174d"
+        }
+      ]
+    },
+    {
+      "id": "sch:vqhfda7usr",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "TokenPayload"
+      ],
+      "origin": "observed",
+      "name": "TokenPayload",
+      "fields": [
+        {
+          "name": "sub",
+          "type": "str | None",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 120,
+          "end_line": 121,
+          "detector": "py@0.5",
+          "content_hash": "sha256:3154bb6c0f56e77fd7bc641c1367dfa55f7cd85ba6b010fe60c570eed67936cb"
+        }
+      ]
+    },
+    {
+      "id": "sch:wk6h4dbmt2",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "Token"
+      ],
+      "origin": "observed",
+      "name": "Token",
+      "fields": [
+        {
+          "name": "access_token",
+          "type": "str",
+          "data_class": "credential"
+        },
+        {
+          "name": "token_type",
+          "type": "str",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 114,
+          "end_line": 116,
+          "detector": "py@0.5",
+          "content_hash": "sha256:82c3b388906b4c2f9b3a97f8ee31d3f7a5d129bf5fd709c50df9ad05820c9cf4"
+        }
+      ]
+    },
+    {
+      "id": "sch:wxcnppbzyj",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "UpdatePassword"
+      ],
+      "origin": "observed",
+      "name": "UpdatePassword",
+      "fields": [
+        {
+          "name": "current_password",
+          "type": "str",
+          "data_class": "credential"
+        },
+        {
+          "name": "new_password",
+          "type": "str",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 45,
+          "end_line": 47,
+          "detector": "py@0.5",
+          "content_hash": "sha256:37fa517ef3b93b76298c7f13cfbe0c01b6f8f616f3cefa720414a3d591968e6a"
+        }
+      ]
+    },
+    {
+      "id": "sch:xklxwisd6c",
+      "identity": [
+        "schema",
+        "frontend/src/components/Items/EditItem.tsx",
+        "formSchema"
+      ],
+      "origin": "observed",
+      "name": "formSchema",
+      "fields": [
+        {
+          "name": "title",
+          "type": "z.string",
+          "data_class": "internal"
+        },
+        {
+          "name": "description",
+          "type": "z.string",
+          "data_class": "internal"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/components/Items/EditItem.tsx",
+          "start_line": 33,
+          "end_line": 36,
+          "detector": "js@0.5",
+          "content_hash": "sha256:fac4a58168b34c9d1056e09c8b2d2ba6fc8c0a66b4f7420037583bf5dff4bc46"
+        }
+      ]
+    },
+    {
+      "id": "sch:z677pdkk6o",
+      "identity": [
+        "schema",
+        "frontend/src/routes/reset-password.tsx",
+        "searchSchema"
+      ],
+      "origin": "observed",
+      "name": "searchSchema",
+      "fields": [
+        {
+          "name": "token",
+          "type": "z.string",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/routes/reset-password.tsx",
+          "start_line": 28,
+          "end_line": 30,
+          "detector": "js@0.5",
+          "content_hash": "sha256:ed36d4f25ef9a5e4e01c830344691295946fc070db8d89021df2c6ca22849010"
+        }
+      ]
+    },
+    {
+      "id": "sch:zaiwv3gqit",
+      "identity": [
+        "schema",
+        "backend/app/models.py",
+        "UserUpdate"
+      ],
+      "origin": "observed",
+      "name": "UserUpdate",
+      "fields": [
+        {
+          "name": "email",
+          "type": "EmailStr | None",
+          "data_class": "pii"
+        },
+        {
+          "name": "is_active",
+          "type": "bool | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "is_superuser",
+          "type": "bool | None",
+          "data_class": "internal"
+        },
+        {
+          "name": "full_name",
+          "type": "str | None",
+          "data_class": "pii"
+        },
+        {
+          "name": "password",
+          "type": "str | None",
+          "data_class": "credential"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 32,
+          "end_line": 37,
+          "detector": "py@0.5",
+          "content_hash": "sha256:bd2cb009d69401d1d2ef682cc4a77ea720aaa82815c092d71023c30a86ffb3f9"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "asset:6xy4ajsf3o",
+      "identity": [
+        "asset",
+        "credential",
+        "EMAIL_RESET_TOKEN_EXPIRE_HOURS"
+      ],
+      "origin": "observed",
+      "name": "Secret EMAIL_RESET_TOKEN_EXPIRE_HOURS",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "processed_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/core/config.py",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fb71991c3f83d3cc60990977661cbd8d3584dcad228d82afdab1df9aa3a488b0"
+        }
+      ]
+    },
+    {
+      "id": "asset:erqwkmdfbm",
+      "identity": [
+        "asset",
+        "credential",
+        "FIRST_SUPERUSER_PASSWORD"
+      ],
+      "origin": "observed",
+      "name": "Secret FIRST_SUPERUSER_PASSWORD",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "processed_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/core/config.py",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fb71991c3f83d3cc60990977661cbd8d3584dcad228d82afdab1df9aa3a488b0"
+        }
+      ]
+    },
+    {
+      "id": "asset:j6pqxeclkz",
+      "identity": [
+        "asset",
+        "credential",
+        "ACCESS_TOKEN_EXPIRE_MINUTES"
+      ],
+      "origin": "observed",
+      "name": "Secret ACCESS_TOKEN_EXPIRE_MINUTES",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "processed_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/core/config.py",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fb71991c3f83d3cc60990977661cbd8d3584dcad228d82afdab1df9aa3a488b0"
+        }
+      ]
+    },
+    {
+      "id": "asset:jz4nahgsoa",
+      "identity": [
+        "asset",
+        "data",
+        "pii"
+      ],
+      "origin": "observed",
+      "name": "Personal data (PII)",
+      "kind": "data",
+      "data_classes": [
+        "pii"
+      ],
+      "held_by": [],
+      "processed_by": [
+        "proc:65puxryp3r",
+        "proc:brxcpeer5h",
+        "proc:l4kz75vvqt",
+        "proc:ssqnq624zo",
+        "proc:t3qiqsmzm3"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/models.py",
+          "start_line": 13,
+          "end_line": 17,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b35b6f71654b14bcd913dd4125efbcee3f686c231724df3f0767156abc296af5"
+        },
+        {
+          "path": "frontend/src/routes/recover-password.tsx",
+          "start_line": 27,
+          "end_line": 29,
+          "detector": "js@0.5",
+          "content_hash": "sha256:f5f781d1740f42a9d515d158a8fa53e9bf8c3aa99701ee8662db591d7294034f"
+        },
+        {
+          "path": "backend/app/api/routes/private.py",
+          "start_line": 16,
+          "end_line": 20,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7426b33543ea7fb24c69f6d72e9b3244fc59f065eea56a486e20fcb58b9869f5"
+        }
+      ]
+    },
+    {
+      "id": "asset:lfkdrxj2a2",
+      "identity": [
+        "asset",
+        "data",
+        "credential"
+      ],
+      "origin": "observed",
+      "name": "User credentials",
+      "kind": "data",
+      "data_classes": [
+        "credential"
+      ],
+      "held_by": [
+        "store:tvae56uepz"
+      ],
+      "processed_by": [
+        "proc:7txtrj4dec",
+        "proc:brxcpeer5h",
+        "proc:hjj64lxp23",
+        "proc:huclt4sjqf",
+        "proc:i2dswxf36e",
+        "proc:in3rs4wg2g",
+        "proc:iwtpiezg52",
+        "proc:l4kz75vvqt",
+        "proc:qtaga45eam",
+        "proc:rrqf6e5oau",
+        "proc:ssqnq624zo",
+        "proc:t3qiqsmzm3",
+        "proc:xldz7rtssg",
+        "proc:y2oca677vj"
+      ],
+      "evidence": [
+        {
+          "path": "frontend/src/routes/reset-password.tsx",
+          "start_line": 32,
+          "end_line": 41,
+          "detector": "js@0.5",
+          "content_hash": "sha256:c0de9bb572fc9cd60bb8adbb382713cd00005bb4c01d41a27e960fdd7f899a83"
+        },
+        {
+          "path": "backend/app/api/routes/private.py",
+          "start_line": 16,
+          "end_line": 20,
+          "detector": "py@0.5",
+          "content_hash": "sha256:7426b33543ea7fb24c69f6d72e9b3244fc59f065eea56a486e20fcb58b9869f5"
+        },
+        {
+          "path": "frontend/src/components/Admin/EditUser.tsx",
+          "start_line": 34,
+          "end_line": 46,
+          "detector": "js@0.5",
+          "content_hash": "sha256:14218bf3f0f7793fe5c9be0c13f939307c2d687b9cf23830441cefe2e1c1c34a"
+        }
+      ]
+    },
+    {
+      "id": "asset:n5dy22ioah",
+      "identity": [
+        "asset",
+        "credential",
+        "SENTRY_DSN"
+      ],
+      "origin": "observed",
+      "name": "Secret SENTRY_DSN",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "processed_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/core/config.py",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fb71991c3f83d3cc60990977661cbd8d3584dcad228d82afdab1df9aa3a488b0"
+        }
+      ]
+    },
+    {
+      "id": "asset:nmrovxfrbo",
+      "identity": [
+        "asset",
+        "credential",
+        "SMTP_PASSWORD"
+      ],
+      "origin": "observed",
+      "name": "Secret SMTP_PASSWORD",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "processed_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/core/config.py",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fb71991c3f83d3cc60990977661cbd8d3584dcad228d82afdab1df9aa3a488b0"
+        }
+      ]
+    },
+    {
+      "id": "asset:wdyjrkas36",
+      "identity": [
+        "asset",
+        "credential",
+        "SECRET_KEY"
+      ],
+      "origin": "observed",
+      "name": "Secret SECRET_KEY",
+      "kind": "credential",
+      "data_classes": [
+        "secret"
+      ],
+      "held_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "processed_by": [
+        "proc:nmmdbtjh6y"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/core/config.py",
+          "start_line": 15,
+          "end_line": 15,
+          "detector": "py@0.5",
+          "content_hash": "sha256:fb71991c3f83d3cc60990977661cbd8d3584dcad228d82afdab1df9aa3a488b0"
+        }
+      ]
+    }
+  ],
+  "threat_agents": [
+    {
+      "id": "agent:2othu56gpm",
+      "identity": [
+        "agent",
+        "third_party",
+        "outbound"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "each of the 1 outbound dependencies is a potentially hostile responder",
+      "name": "Compromised external service",
+      "access": "third_party",
+      "entry": [
+        "ext:lhns7pymnw"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "return malicious responses",
+        "harvest data sent to it"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/main.py",
+          "start_line": 19,
+          "end_line": 19,
+          "detector": "py@0.5",
+          "content_hash": "sha256:d700f06ea85e3f377c750369ac68db3535331fdda6acb2e8d0d2f3915f8eacc1"
+        }
+      ]
+    },
+    {
+      "id": "agent:6vhdqdbxr6",
+      "identity": [
+        "agent",
+        "insider",
+        "bnd:ufdlxvnxtg"
+      ],
+      "origin": "inferred",
+      "confidence": 0.8,
+      "rationale": "one insider agent per trust boundary, placed inside it",
+      "name": "Insider with access to repository: fastapi-full-stack",
+      "access": "insider",
+      "location": "bnd:ufdlxvnxtg",
+      "entry": [
+        "proc:3ufcibndhy",
+        "proc:65puxryp3r",
+        "proc:7txtrj4dec",
+        "proc:awp3fm5mfw",
+        "proc:brxcpeer5h",
+        "proc:glq3za7d27",
+        "proc:hjj64lxp23",
+        "proc:huclt4sjqf",
+        "proc:i2dswxf36e",
+        "proc:in3rs4wg2g",
+        "proc:iwtpiezg52",
+        "proc:jk6eiv3ld4",
+        "proc:klxpul7r3p",
+        "proc:l4kz75vvqt",
+        "proc:lges2qcizj",
+        "proc:mji73ecoay",
+        "proc:qo5ceqj6i5",
+        "proc:qtaga45eam",
+        "proc:rrqf6e5oau",
+        "proc:ssqnq624zo",
+        "proc:t3qiqsmzm3",
+        "proc:woidodah2j",
+        "proc:xldz7rtssg",
+        "proc:xr7lxktrph",
+        "proc:y2oca677vj"
+      ],
+      "passes_controls": [
+        "authn",
+        "authz",
+        "rate_limit",
+        "input_validation",
+        "csrf",
+        "cors",
+        "security_headers",
+        "audit_log"
+      ],
+      "goals": [
+        "read data stores directly",
+        "exfiltrate secrets"
+      ],
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:5d9ec7c1b937aae0ec10f0476615248148b9334f609ba54dca0ef6b82ce5ddb1"
+        }
+      ]
+    },
+    {
+      "id": "agent:erxijrppxh",
+      "identity": [
+        "agent",
+        "insider",
+        "internal-http-client"
+      ],
+      "origin": "inferred",
+      "confidence": 0.7,
+      "rationale": "these entry points are not published outside the deployment; a caller must already be inside it",
+      "name": "Workload inside the deployment calling HTTP client endpoints",
+      "access": "insider",
+      "entry": [
+        "ext:3nnzcvcul3"
+      ],
+      "passes_controls": [],
+      "goals": [
+        "call internal services directly"
+      ],
+      "evidence": [
+        {
+          "path": "backend/app/api/routes/utils.py",
+          "start_line": 29,
+          "end_line": 30,
+          "detector": "py@0.5",
+          "content_hash": "sha256:cd819565a0047fda5cf1183d830b769d4cee9e5ce99cee272afe743cb9311faa"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "kind": "unknown_attribute",
+      "path": "backend/app/api/routes/utils.py",
+      "detail": "Question: is TLS terminated in front of the HTTP listener of backend? Inbound flows are marked encryption=unknown until answered."
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "backend/app/api/routes/items.py",
+      "line": 93,
+      "detail": "Question: what is the authentication and encryption of the link to Postgres: item?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "backend/app/api/routes/users.py",
+      "line": 169,
+      "detail": "Question: what is the authentication and encryption of the link to Postgres: user?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "backend/app/main.py",
+      "line": 19,
+      "detail": "Question: what is the authentication of the link to Sentry?"
+    },
+    {
+      "kind": "unknown_attribute",
+      "path": "backend/app/models.py",
+      "line": 51,
+      "detail": "Question: is Postgres: user encrypted at rest? It holds credential."
+    }
+  ]
+}

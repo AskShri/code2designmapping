@@ -1,0 +1,169 @@
+{
+ "entry_points": [
+  "POST /api/v1/login/access-token",
+  "POST /api/v1/password-recovery/:param",
+  "POST /api/v1/reset-password",
+  "POST /api/v1/users/signup",
+  "POST /api/v1/private/users",
+  "POST /api/v1/login/test-token",
+  "POST /api/v1/password-recovery-html-content/:param",
+  "GET /api/v1/users",
+  "POST /api/v1/users",
+  "PATCH /api/v1/users/me",
+  "PATCH /api/v1/users/me/password",
+  "GET /api/v1/users/me",
+  "DELETE /api/v1/users/me",
+  "GET /api/v1/users/:param",
+  "PATCH /api/v1/users/:param",
+  "DELETE /api/v1/users/:param",
+  "POST /api/v1/utils/test-email",
+  "GET /api/v1/items",
+  "GET /api/v1/items/:param",
+  "POST /api/v1/items",
+  "PUT /api/v1/items/:param",
+  "DELETE /api/v1/items/:param"
+ ],
+ "infrastructure": [
+  "GET /api/v1/utils/health-check"
+ ],
+ "authenticated": [
+  "POST /api/v1/login/test-token",
+  "POST /api/v1/password-recovery-html-content/:param",
+  "GET /api/v1/users",
+  "POST /api/v1/users",
+  "PATCH /api/v1/users/me",
+  "PATCH /api/v1/users/me/password",
+  "GET /api/v1/users/me",
+  "DELETE /api/v1/users/me",
+  "GET /api/v1/users/:param",
+  "PATCH /api/v1/users/:param",
+  "DELETE /api/v1/users/:param",
+  "POST /api/v1/utils/test-email",
+  "GET /api/v1/items",
+  "GET /api/v1/items/:param",
+  "POST /api/v1/items",
+  "PUT /api/v1/items/:param",
+  "DELETE /api/v1/items/:param"
+ ],
+ "stores": [
+  "postgres:user",
+  "postgres:item"
+ ],
+ "entities": [
+  "Sentry"
+ ],
+ "edges": [
+  [
+   "POST /api/v1/login/access-token",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/password-recovery/:param",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/reset-password",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/users/signup",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/private/users",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/login/test-token",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/password-recovery-html-content/:param",
+   "postgres:user"
+  ],
+  [
+   "GET /api/v1/users",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/users",
+   "postgres:user"
+  ],
+  [
+   "PATCH /api/v1/users/me",
+   "postgres:user"
+  ],
+  [
+   "PATCH /api/v1/users/me/password",
+   "postgres:user"
+  ],
+  [
+   "GET /api/v1/users/me",
+   "postgres:user"
+  ],
+  [
+   "DELETE /api/v1/users/me",
+   "postgres:user"
+  ],
+  [
+   "GET /api/v1/users/:param",
+   "postgres:user"
+  ],
+  [
+   "PATCH /api/v1/users/:param",
+   "postgres:user"
+  ],
+  [
+   "DELETE /api/v1/users/:param",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/utils/test-email",
+   "postgres:user"
+  ],
+  [
+   "GET /api/v1/items",
+   "postgres:user"
+  ],
+  [
+   "GET /api/v1/items/:param",
+   "postgres:user"
+  ],
+  [
+   "POST /api/v1/items",
+   "postgres:user"
+  ],
+  [
+   "PUT /api/v1/items/:param",
+   "postgres:user"
+  ],
+  [
+   "DELETE /api/v1/items/:param",
+   "postgres:user"
+  ],
+  [
+   "GET /api/v1/items",
+   "postgres:item"
+  ],
+  [
+   "GET /api/v1/items/:param",
+   "postgres:item"
+  ],
+  [
+   "POST /api/v1/items",
+   "postgres:item"
+  ],
+  [
+   "PUT /api/v1/items/:param",
+   "postgres:item"
+  ],
+  [
+   "DELETE /api/v1/items/:param",
+   "postgres:item"
+  ],
+  [
+   "DELETE /api/v1/users/:param",
+   "postgres:item"
+  ]
+ ]
+}

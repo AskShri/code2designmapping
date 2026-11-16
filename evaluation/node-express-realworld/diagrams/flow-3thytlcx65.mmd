@@ -1,0 +1,15 @@
+%% Control flow: POST /api/users/login
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_jsdy26yudp as cors
+  participant proc_4gksjimh3q as POST /api/users/login handler
+  participant proc_kh6gnlmhwk as auth.service
+  participant store_tvae56uepz as Postgres - User
+  ext_sga4qktkap->>ctl_jsdy26yudp: POST /api/users/login (cors)
+  ctl_jsdy26yudp->>proc_4gksjimh3q: dispatch
+  proc_4gksjimh3q->>proc_kh6gnlmhwk: call
+  proc_kh6gnlmhwk->>store_tvae56uepz: read
+  store_tvae56uepz-->>proc_kh6gnlmhwk: sql - Postgres - User record (credential,pii)
+  proc_kh6gnlmhwk->>store_tvae56uepz: sql - Postgres - User record (credential,pii)
+  proc_4gksjimh3q-->>ext_sga4qktkap: response

@@ -1,0 +1,31 @@
+%% L2 - user
+flowchart LR
+  subgraph bnd_klnakvm5ry["repository: nestjs-realworld"]
+    proc_274uz234ct(["POST /api/users handler"])
+    proc_7ctbhcloth(["GET /api/user handler"])
+    proc_bp6x3dio6k(["user.service"])
+    proc_nntkwcxf3z(["DELETE /api/users/{slug} handler"])
+    proc_p55gkwk4rc(["PUT /api/user handler"])
+    proc_ulm3aku6ld(["POST /api/users/login handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_mftq653qte[("MySQL: user")]
+  ext_sga4qktkap -->|"http"| proc_274uz234ct
+  ext_sga4qktkap -->|"http"| proc_7ctbhcloth
+  ext_sga4qktkap -->|"http"| proc_nntkwcxf3z
+  ext_sga4qktkap -->|"http"| proc_p55gkwk4rc
+  ext_sga4qktkap -->|"http"| proc_ulm3aku6ld
+  proc_274uz234ct -->|"in_process"| proc_bp6x3dio6k
+  proc_7ctbhcloth -->|"in_process"| proc_bp6x3dio6k
+  proc_bp6x3dio6k -->|"sql: MySQL: user record (credential,pii)"| store_mftq653qte
+  proc_nntkwcxf3z -->|"in_process"| proc_bp6x3dio6k
+  proc_p55gkwk4rc -->|"in_process"| proc_bp6x3dio6k
+  proc_ulm3aku6ld -->|"in_process"| proc_bp6x3dio6k
+  store_mftq653qte -->|"sql: MySQL: user record (credential,pii)"| proc_bp6x3dio6k
+  style bnd_klnakvm5ry stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

@@ -1,0 +1,164 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:eitev4ew25",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles/{slug} handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:j3h5fdq5yq",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/ping handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:jrpnrsfzj6",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:ka7dco672g",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/users handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:kxutm3i4m7",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles/{slug}/comments handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:pmazle4dlv",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/profiles/{username} handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:ukmfm7j3tw",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/users/login handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:y5bvwaswmk",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/tags handler"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:bm46nln6rq",
+    "message": "process GET /api/user handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:hmg6lls77t",
+    "message": "process middlewares has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:tf6wqdimc7",
+    "message": "process GET /api/ping handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3dbviuw7yr",
+    "message": "SQLite: UserModel -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3yledu5xag",
+    "message": "SQLite: CommentModel -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:65o57eofms",
+    "message": "models -> SQLite: FollowModel: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:73aub4aykq",
+    "message": "models -> SQLite: TagModel: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:biqqgccnr7",
+    "message": "SQLite: UserModel -> middlewares: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:fcgoeemz6s",
+    "message": "SQLite: ArticleUserModel -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:fgdi7byct4",
+    "message": "models -> SQLite (table unresolved): authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:jf7bk6m63j",
+    "message": "models -> SQLite: FavoriteModel: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:krnbziqdz6",
+    "message": "SQLite: FollowModel -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:lfttwscnel",
+    "message": "SQLite: ArticleModel -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:llz4zrxiya",
+    "message": "models -> SQLite: ArticleModel: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:pzxkaj537f",
+    "message": "SQLite: UserModel -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:qdm32kqxgs",
+    "message": "models -> SQLite: CommentModel: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:x467ufiord",
+    "message": "SQLite: FavoriteModel -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ybmea2dxec",
+    "message": "models -> SQLite (table unresolved): authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ypzyqdwjuf",
+    "message": "SQLite: TagModel -> models: authentication=unknown, encryption=unknown"
+  }
+]

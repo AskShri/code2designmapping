@@ -1,0 +1,15 @@
+%% Control flow: GET /api/profiles/{username}
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_jsdy26yudp as cors
+  participant proc_m6xi46rdew as GET /api/profiles/{username} handler
+  participant proc_yu3y5gygvc as profile.service
+  participant store_tvae56uepz as Postgres - User
+  ext_sga4qktkap->>ctl_jsdy26yudp: GET /api/profiles/{username} (cors)
+  ctl_jsdy26yudp->>proc_m6xi46rdew: dispatch
+  proc_m6xi46rdew->>proc_yu3y5gygvc: call
+  proc_yu3y5gygvc->>store_tvae56uepz: read
+  store_tvae56uepz-->>proc_yu3y5gygvc: sql - Postgres - User record (credential,pii)
+  proc_yu3y5gygvc->>store_tvae56uepz: sql - Postgres - User record (credential,pii)
+  proc_m6xi46rdew-->>ext_sga4qktkap: response

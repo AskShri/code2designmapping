@@ -1,0 +1,85 @@
+%% L2 - backend
+flowchart LR
+  subgraph bnd_ufdlxvnxtg["repository: fastapi-full-stack"]
+    proc_3ufcibndhy(["POST /api/v1/password-recovery/{email} handler"])
+    proc_65puxryp3r(["PATCH /api/v1/users/me handler"])
+    proc_7txtrj4dec(["DELETE /api/v1/users/me handler"])
+    proc_awp3fm5mfw(["POST /api/v1/items handler"])
+    proc_brxcpeer5h(["POST /api/v1/private/users handler"])
+    proc_glq3za7d27(["POST /api/v1/utils/test-email handler"])
+    proc_hjj64lxp23(["POST /api/v1/login/access-token handler"])
+    proc_huclt4sjqf(["POST /api/v1/users handler"])
+    proc_i2dswxf36e(["DELETE /api/v1/users/{user_id} handler"])
+    proc_in3rs4wg2g(["GET /api/v1/users/{user_id} handler"])
+    proc_iwtpiezg52(["PATCH /api/v1/users/me/password handler"])
+    proc_jk6eiv3ld4(["POST /api/v1/password-recovery-html-content/{email} handler"])
+    proc_klxpul7r3p(["GET /api/v1/items/{id} handler"])
+    proc_l4kz75vvqt(["POST /api/v1/reset-password handler"])
+    proc_mji73ecoay(["app"])
+    proc_qo5ceqj6i5(["POST /api/v1/login/test-token handler"])
+    proc_qtaga45eam(["GET /api/v1/users handler"])
+    proc_rrqf6e5oau(["db"])
+    proc_ssqnq624zo(["POST /api/v1/users/signup handler"])
+    proc_t3qiqsmzm3(["crud"])
+    proc_woidodah2j(["DELETE /api/v1/items/{id} handler"])
+    proc_xldz7rtssg(["PATCH /api/v1/users/{user_id} handler"])
+    proc_xr7lxktrph(["GET /api/v1/items handler"])
+    proc_y2oca677vj(["deps"])
+    proc_y6fun7klba(["GET /api/v1/users/me handler"])
+    proc_zeiy7nrq77(["PUT /api/v1/items/{id} handler"])
+  end
+  subgraph bnd_li56z6okmf["container: db"]
+    store_qxjued45lx[("Postgres: item")]
+    store_tvae56uepz[("Postgres: user")]
+  end
+  ext_3nnzcvcul3["Internal HTTP client"]
+  ext_lhns7pymnw["Sentry"]
+  %% 23 lower-weight edges omitted (edge budget 40)
+  ext_3nnzcvcul3 -->|"http: Message"| proc_3ufcibndhy
+  ext_3nnzcvcul3 -->|"http: UserPublic (+1) (pii)"| proc_65puxryp3r
+  ext_3nnzcvcul3 -->|"http: Message"| proc_7txtrj4dec
+  ext_3nnzcvcul3 -->|"http: ItemPublic"| proc_awp3fm5mfw
+  ext_3nnzcvcul3 -->|"http: PrivateUserCreate (+1) (credential,pii)"| proc_brxcpeer5h
+  ext_3nnzcvcul3 -->|"http: Message"| proc_glq3za7d27
+  ext_3nnzcvcul3 -->|"http: Token (credential)"| proc_hjj64lxp23
+  ext_3nnzcvcul3 -->|"http: UserCreate (+1) (credential)"| proc_huclt4sjqf
+  ext_3nnzcvcul3 -->|"http: Message (+1) (credential)"| proc_iwtpiezg52
+  ext_3nnzcvcul3 -->|"http"| proc_jk6eiv3ld4
+  ext_3nnzcvcul3 -->|"http: Message (+2) (credential,pii)"| proc_l4kz75vvqt
+  ext_3nnzcvcul3 -->|"http: UserPublic"| proc_qo5ceqj6i5
+  ext_3nnzcvcul3 -->|"http: UserCreate (+2) (credential,pii)"| proc_ssqnq624zo
+  ext_3nnzcvcul3 -->|"http: UserPublic"| proc_y6fun7klba
+  proc_3ufcibndhy -->|"in_process"| proc_t3qiqsmzm3
+  proc_65puxryp3r -->|"in_process"| proc_t3qiqsmzm3
+  proc_65puxryp3r -->|"in_process"| proc_y2oca677vj
+  proc_65puxryp3r -->|"sql: from UserPublic (pii)"| store_tvae56uepz
+  proc_7txtrj4dec -->|"in_process"| proc_y2oca677vj
+  proc_7txtrj4dec -->|"sql: Postgres: user record (credential)"| store_tvae56uepz
+  proc_awp3fm5mfw -->|"in_process"| proc_y2oca677vj
+  proc_awp3fm5mfw -->|"sql"| store_qxjued45lx
+  proc_brxcpeer5h -->|"sql: from PrivateUserCreate (credential,pii)"| store_tvae56uepz
+  proc_glq3za7d27 -->|"in_process"| proc_y2oca677vj
+  proc_hjj64lxp23 -->|"in_process"| proc_t3qiqsmzm3
+  proc_huclt4sjqf -->|"in_process"| proc_t3qiqsmzm3
+  proc_huclt4sjqf -->|"in_process"| proc_y2oca677vj
+  proc_i2dswxf36e -->|"in_process"| proc_y2oca677vj
+  proc_i2dswxf36e -->|"sql"| store_qxjued45lx
+  proc_i2dswxf36e -->|"sql: Postgres: user record (credential)"| store_tvae56uepz
+  proc_in3rs4wg2g -->|"in_process"| proc_y2oca677vj
+  proc_iwtpiezg52 -->|"in_process"| proc_y2oca677vj
+  proc_iwtpiezg52 -->|"sql: from Message (credential)"| store_tvae56uepz
+  proc_jk6eiv3ld4 -->|"in_process"| proc_t3qiqsmzm3
+  proc_jk6eiv3ld4 -->|"in_process"| proc_y2oca677vj
+  proc_klxpul7r3p -->|"in_process"| proc_y2oca677vj
+  proc_l4kz75vvqt -->|"in_process"| proc_t3qiqsmzm3
+  proc_mji73ecoay -->|"https"| ext_lhns7pymnw
+  proc_qo5ceqj6i5 -->|"in_process"| proc_y2oca677vj
+  proc_qtaga45eam -->|"in_process"| proc_y2oca677vj
+  style bnd_ufdlxvnxtg stroke-dasharray: 8 4,fill:none
+  style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

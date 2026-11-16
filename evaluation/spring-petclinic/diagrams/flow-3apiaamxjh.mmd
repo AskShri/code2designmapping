@@ -1,0 +1,16 @@
+%% Control flow: GET /owners/{ownerId}/pets/{petId}/edit
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_mymnedzovt as GET /owners/{ownerId}/pets/{petId}/edit handler
+  participant proc_tvrjdixkww as PetController
+  participant store_yykhterqb4 as SQL database - types
+  participant store_mezdmiqbdo as SQL database - owners
+  ext_sga4qktkap->>proc_mymnedzovt: GET /owners/{ownerId}/pets/{petId}/edit
+  proc_mymnedzovt->>proc_tvrjdixkww: call
+  proc_tvrjdixkww->>store_yykhterqb4: read
+  store_yykhterqb4-->>proc_tvrjdixkww: sql
+  proc_tvrjdixkww->>store_mezdmiqbdo: read
+  store_mezdmiqbdo-->>proc_tvrjdixkww: sql - SQL database - owners record (pii)
+  proc_tvrjdixkww->>store_mezdmiqbdo: sql - from pets (pii)
+  proc_mymnedzovt-->>ext_sga4qktkap: response

@@ -1,0 +1,218 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:4tdwut6alt",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/password-recovery/{email} handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:fgov3r3its",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/private/users handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:hgqtggp6ak",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/reset-password handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:imjni3bcrz",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/login/access-token handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:m7cc27z3sy",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> GET /api/v1/utils/health-check handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:wxktvtw727",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/users/signup handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:3bqz5b654s",
+    "message": "CWE-798 POSTGRES_PASSWORD committed in .env (.env:17)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:l7khc4cbyw",
+    "message": "CWE-798 SECRET_KEY committed in .env (.env:6)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:vorlzimtdt",
+    "message": "CWE-798 hard-coded token_type (backend/app/models.py:116)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:w3hgrwjhhp",
+    "message": "CWE-798 FIRST_SUPERUSER_PASSWORD committed in .env (.env:8)"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:lges2qcizj",
+    "message": "process GET /api/v1/utils/health-check handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:mji73ecoay",
+    "message": "process app has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:y2oca677vj",
+    "message": "process deps has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:2lsina6wjo",
+    "message": "PUT /api/v1/items/{id} handler -> Postgres: item: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:4ttoug4m3y",
+    "message": "Postgres: user -> GET /api/v1/users/{user_id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7iftbzhlfx",
+    "message": "PATCH /api/v1/users/me handler -> Postgres: user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7smtdajfla",
+    "message": "Postgres: user -> db: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ccrin36jin",
+    "message": "Postgres: user -> PATCH /api/v1/users/{user_id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:dl7wiccko5",
+    "message": "Postgres: item -> GET /api/v1/items/{id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ee5kowermg",
+    "message": "DELETE /api/v1/users/me handler -> Postgres: user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:eyh757lxb2",
+    "message": "Postgres: item -> GET /api/v1/items handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:fs6doa27t5",
+    "message": "Postgres: user -> DELETE /api/v1/users/{user_id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:gqturi5sem",
+    "message": "DELETE /api/v1/users/{user_id} handler -> Postgres: item: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:j6hkklfy2m",
+    "message": "DELETE /api/v1/users/{user_id} handler -> Postgres: user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:jjdmgxh45i",
+    "message": "Postgres: item -> DELETE /api/v1/items/{id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:mkmlewl4vy",
+    "message": "PATCH /api/v1/users/me/password handler -> Postgres: user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:qj7otxfx6h",
+    "message": "Postgres: user -> crud: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:qndq4zbmqm",
+    "message": "Postgres: user -> GET /api/v1/users handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:qrrlvbkgan",
+    "message": "POST /api/v1/items handler -> Postgres: item: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:r6q2zrifvw",
+    "message": "crud -> Postgres: item: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:sazfuv7o4z",
+    "message": "Postgres: user -> deps: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wrkud5itfv",
+    "message": "POST /api/v1/private/users handler -> Postgres: user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wybxi67y3p",
+    "message": "DELETE /api/v1/items/{id} handler -> Postgres: item: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xkiw6wx6zx",
+    "message": "app -> Sentry: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zcjmhrvjp2",
+    "message": "Postgres: item -> PUT /api/v1/items/{id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zszhvptfco",
+    "message": "crud -> Postgres: user: authentication=unknown, encryption=unknown"
+  }
+]

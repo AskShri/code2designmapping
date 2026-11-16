@@ -1,0 +1,16 @@
+%% L2 - payments
+flowchart LR
+  subgraph bnd_uvq3irjstn["container: api"]
+    proc_dzwfe2zjxf(["stripe"])
+    proc_okfd4mheog(["orders (+3)"])
+  end
+  ext_slqdx4hifp["Stripe Payments API"]
+  proc_dzwfe2zjxf -->|"https: from CreateOrderRequest (financial,pii)"| ext_slqdx4hifp
+  proc_okfd4mheog -->|"in_process"| proc_dzwfe2zjxf
+  style bnd_uvq3irjstn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

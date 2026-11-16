@@ -1,0 +1,254 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:4x35zqhznq",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /vets.html handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:awmmjeusdj",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /owners/{ownerId}/edit handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:bfgzevpaxb",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /oups handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:cb2gnl6lsf",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /owners/{ownerId}/pets/new handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:dxbdqlirdy",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /owners/{ownerId}/pets/new handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:fruc2k62ed",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /owners/{ownerId}/pets/{petId}/edit handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:hcsj7piefu",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /owners/{ownerId}/pets/{petId}/visits/new handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:i7zvlzcyq7",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /owners/{ownerId}/pets/{petId}/edit handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:ifdpdc4lre",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /owners/find handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:iidgcwjc6l",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /owners/{ownerId}/edit handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:izo6o3sl76",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /vets handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:nq3d4jdclv",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:vbmbunyls5",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /owners/new handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:vkm5nrdsmu",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /owners handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:vztpqb2pol",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /owners/new handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:wycaqy4xrl",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /owners/{ownerId} handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:yutrwhnee2",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /owners/{ownerId}/pets/{petId}/visits/new handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:ehszyymq63",
+    "message": "CWE-798 POSTGRES_PASSWORD set in compose service 'postgres' (docker-compose.yml:19)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:wmrktarvdc",
+    "message": "CWE-798 MYSQL_PASSWORD set in compose service 'mysql' (docker-compose.yml:10)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:xzelkxr6wy",
+    "message": "CWE-798 MYSQL_ALLOW_EMPTY_PASSWORD set in compose service 'mysql' (docker-compose.yml:8)"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:6fivqoal26",
+    "message": "process GET /oups handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:7azukv4cl6",
+    "message": "process GET /owners/new handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:cn6mpowjht",
+    "message": "process VetController has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:gxm54vw6hz",
+    "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:kfba2lmkw6",
+    "message": "process VisitController has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:mjuh55taha",
+    "message": "process GET /owners/find handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:n53k2eqdqs",
+    "message": "process GET /vets handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:oqvewco2xc",
+    "message": "process PetTypeFormatter has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:otci6abcxf",
+    "message": "process OwnerController has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:4oa3puuiwv",
+    "message": "SQL database: types -> PetController: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5teuh2i33v",
+    "message": "POST /owners/{ownerId}/pets/{petId}/visits/new handler -> SQL database: owners: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7aled3te67",
+    "message": "SQL database: owners -> OwnerController: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7nmt6xafcq",
+    "message": "SQL database: vets -> VetController: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:b4ca7hfd4y",
+    "message": "SQL database: owners -> VisitController: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ccbqklokrd",
+    "message": "POST /owners/{ownerId}/edit handler -> SQL database: owners: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:i5wyei2td2",
+    "message": "SQL database: owners -> PetController: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ncoskygyfc",
+    "message": "SQL database: owners -> GET /owners/{ownerId} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:p33lmjvyi6",
+    "message": "PetController -> SQL database: owners: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:teuxziu33y",
+    "message": "SQL database: types -> PetTypeFormatter: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:thd4bz3y7h",
+    "message": "POST /owners/new handler -> SQL database: owners: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xjktncrjoh",
+    "message": "SQL database: vets -> GET /vets handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ymxirvoe6e",
+    "message": "POST /owners/{ownerId}/pets/new handler -> SQL database: owners: authentication=unknown, encryption=unknown"
+  }
+]

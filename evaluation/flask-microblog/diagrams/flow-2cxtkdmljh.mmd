@@ -1,0 +1,11 @@
+%% Control flow: POST /api/users
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_geju56vlnf as POST /api/users handler
+  participant store_tvae56uepz as Postgres - User
+  ext_sga4qktkap->>proc_geju56vlnf: POST /api/users
+  proc_geju56vlnf->>store_tvae56uepz: read
+  store_tvae56uepz-->>proc_geju56vlnf: sql - Postgres - User record (credential,pii)
+  proc_geju56vlnf->>store_tvae56uepz: sql - Postgres - User record (credential,pii)
+  proc_geju56vlnf-->>ext_sga4qktkap: response

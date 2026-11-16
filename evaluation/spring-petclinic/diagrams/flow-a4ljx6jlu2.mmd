@@ -1,0 +1,14 @@
+%% Control flow: GET /owners/{ownerId}
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_tyreptkzlk as GET /owners/{ownerId} handler
+  participant proc_otci6abcxf as OwnerController
+  participant store_mezdmiqbdo as SQL database - owners
+  ext_sga4qktkap->>proc_tyreptkzlk: GET /owners/{ownerId}
+  proc_tyreptkzlk->>proc_otci6abcxf: call
+  proc_tyreptkzlk->>store_mezdmiqbdo: read
+  store_mezdmiqbdo-->>proc_tyreptkzlk: sql - SQL database - owners record (pii)
+  proc_otci6abcxf->>store_mezdmiqbdo: read
+  store_mezdmiqbdo-->>proc_otci6abcxf: sql - SQL database - owners record (pii)
+  proc_tyreptkzlk-->>ext_sga4qktkap: response

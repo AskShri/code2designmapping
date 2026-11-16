@@ -1,0 +1,39 @@
+%% L1 - golang-gin-realworld
+flowchart LR
+  subgraph bnd_5hcgh6kyzs["repository: golang-gin-realworld"]
+    proc_2xkv2bej2e(["articles (+13)"])
+    proc_rfrkaynqwq(["users (+9)"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_bsregusle5[("SQLite: FollowModel")]
+  store_cck43qyjgx[("SQLite: UserModel")]
+  store_dvzg2wjtrx[("SQLite: ArticleModel")]
+  store_iav35ozifz[("SQLite: ArticleUserModel")]
+  store_jnxnsdv5hq[("SQLite: TagModel")]
+  store_oq4q2ydfq6[("SQLite: FavoriteModel")]
+  store_rie7k6es2q[("SQLite: CommentModel")]
+  store_zud464dxbb[("SQLite (table unresolved)")]
+  ext_sga4qktkap -->|"http"| proc_2xkv2bej2e
+  ext_sga4qktkap -->|"http"| proc_rfrkaynqwq
+  proc_2xkv2bej2e -->|"sql"| store_dvzg2wjtrx
+  proc_2xkv2bej2e -->|"sql"| store_jnxnsdv5hq
+  proc_2xkv2bej2e -->|"sql"| store_oq4q2ydfq6
+  proc_2xkv2bej2e -->|"sql"| store_rie7k6es2q
+  proc_2xkv2bej2e -->|"sql"| store_zud464dxbb
+  proc_rfrkaynqwq -->|"sql"| store_bsregusle5
+  proc_rfrkaynqwq -->|"sql"| store_zud464dxbb
+  store_bsregusle5 -->|"sql"| proc_rfrkaynqwq
+  store_cck43qyjgx -->|"sql: SQLite: UserModel record (credential,pii)"| proc_2xkv2bej2e
+  store_cck43qyjgx -->|"sql: SQLite: UserModel record (credential,pii)"| proc_rfrkaynqwq
+  store_dvzg2wjtrx -->|"sql"| proc_2xkv2bej2e
+  store_iav35ozifz -->|"sql"| proc_2xkv2bej2e
+  store_jnxnsdv5hq -->|"sql"| proc_2xkv2bej2e
+  store_oq4q2ydfq6 -->|"sql"| proc_2xkv2bej2e
+  store_rie7k6es2q -->|"sql"| proc_2xkv2bej2e
+  style bnd_5hcgh6kyzs stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

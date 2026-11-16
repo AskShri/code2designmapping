@@ -1,0 +1,57 @@
+%% L2 - article
+flowchart LR
+  subgraph bnd_klnakvm5ry["repository: nestjs-realworld"]
+    proc_4dk53nntn6(["POST /api/articles handler"])
+    proc_4oj6hd33bm(["PUT /api/articles/{slug} handler"])
+    proc_5rxebzp7ng(["GET /api/articles/{slug}/comments handler"])
+    proc_7q46tblfmx(["DELETE /api/articles/{slug}/comments/{id} handler"])
+    proc_7vcvcbilz6(["article.service"])
+    proc_dnjbg7ptf6(["GET /api/articles/{slug} handler"])
+    proc_ggwixwjbb4(["DELETE /api/articles/{slug} handler"])
+    proc_grqjpzytqv(["DELETE /api/articles/{slug}/favorite handler"])
+    proc_hdeh5gymne(["GET /api/articles/feed handler"])
+    proc_jjh2ysb46c(["GET /api/articles handler"])
+    proc_nbpqhh64jt(["POST /api/articles/{slug}/favorite handler"])
+    proc_qa3lxvnr55(["POST /api/articles/{slug}/comments handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_fl5io5fd7z[("MySQL: Comment")]
+  store_mftq653qte[("MySQL: user")]
+  store_ta2srbelhd[("MySQL: article")]
+  store_vpkm3wcqot[("MySQL: follows")]
+  ext_sga4qktkap -->|"http"| proc_4dk53nntn6
+  ext_sga4qktkap -->|"http"| proc_4oj6hd33bm
+  ext_sga4qktkap -->|"http"| proc_5rxebzp7ng
+  ext_sga4qktkap -->|"http"| proc_7q46tblfmx
+  ext_sga4qktkap -->|"http"| proc_dnjbg7ptf6
+  ext_sga4qktkap -->|"http"| proc_ggwixwjbb4
+  ext_sga4qktkap -->|"http"| proc_grqjpzytqv
+  ext_sga4qktkap -->|"http"| proc_hdeh5gymne
+  ext_sga4qktkap -->|"http"| proc_jjh2ysb46c
+  ext_sga4qktkap -->|"http"| proc_nbpqhh64jt
+  ext_sga4qktkap -->|"http"| proc_qa3lxvnr55
+  proc_4dk53nntn6 -->|"in_process"| proc_7vcvcbilz6
+  proc_4oj6hd33bm -->|"in_process"| proc_7vcvcbilz6
+  proc_5rxebzp7ng -->|"in_process"| proc_7vcvcbilz6
+  proc_7q46tblfmx -->|"in_process"| proc_7vcvcbilz6
+  proc_7vcvcbilz6 -->|"sql"| store_fl5io5fd7z
+  proc_7vcvcbilz6 -->|"sql: MySQL: user record (credential,pii)"| store_mftq653qte
+  proc_7vcvcbilz6 -->|"sql"| store_ta2srbelhd
+  proc_dnjbg7ptf6 -->|"in_process"| proc_7vcvcbilz6
+  proc_ggwixwjbb4 -->|"in_process"| proc_7vcvcbilz6
+  proc_grqjpzytqv -->|"in_process"| proc_7vcvcbilz6
+  proc_hdeh5gymne -->|"in_process"| proc_7vcvcbilz6
+  proc_jjh2ysb46c -->|"in_process"| proc_7vcvcbilz6
+  proc_nbpqhh64jt -->|"in_process"| proc_7vcvcbilz6
+  proc_qa3lxvnr55 -->|"in_process"| proc_7vcvcbilz6
+  store_fl5io5fd7z -->|"sql"| proc_7vcvcbilz6
+  store_mftq653qte -->|"sql: MySQL: user record (credential,pii)"| proc_7vcvcbilz6
+  store_ta2srbelhd -->|"sql"| proc_7vcvcbilz6
+  store_vpkm3wcqot -->|"sql"| proc_7vcvcbilz6
+  style bnd_klnakvm5ry stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

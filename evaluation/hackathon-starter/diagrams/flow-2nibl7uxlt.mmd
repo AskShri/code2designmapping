@@ -1,0 +1,15 @@
+%% Control flow: POST /ai/rag/ingest
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_iwvfpmtyc6 as morganLogger
+  participant ctl_yjrquqjv4q as limiter
+  participant ctl_u2ny7jn3of as lusca.xframe
+  participant ctl_5lleffjdvl as lusca.xssProtection
+  participant proc_k6ma5ddfed as POST /ai/rag/ingest handler
+  ext_sga4qktkap->>ctl_iwvfpmtyc6: POST /ai/rag/ingest (audit_log)
+  ctl_iwvfpmtyc6->>ctl_yjrquqjv4q: POST /ai/rag/ingest (rate_limit)
+  ctl_yjrquqjv4q->>ctl_u2ny7jn3of: POST /ai/rag/ingest (security_headers)
+  ctl_u2ny7jn3of->>ctl_5lleffjdvl: POST /ai/rag/ingest (security_headers)
+  ctl_5lleffjdvl->>proc_k6ma5ddfed: dispatch
+  proc_k6ma5ddfed-->>ext_sga4qktkap: response

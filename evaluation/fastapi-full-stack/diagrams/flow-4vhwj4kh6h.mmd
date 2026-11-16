@@ -1,0 +1,17 @@
+%% Control flow: PUT /api/v1/items/{id}
+sequenceDiagram
+  autonumber
+  participant ctl_wd5aciiryx as CORSMiddleware
+  participant ctl_7iwajdwngb as Depends(get_current_user)
+  participant proc_zeiy7nrq77 as PUT /api/v1/items/{id} handler
+  participant proc_y2oca677vj as deps
+  participant store_qxjued45lx as Postgres - item
+  participant store_tvae56uepz as Postgres - user
+  ctl_wd5aciiryx->>ctl_7iwajdwngb: PUT /api/v1/items/{id} (authn)
+  ctl_7iwajdwngb->>proc_zeiy7nrq77: dispatch
+  proc_zeiy7nrq77->>proc_y2oca677vj: call
+  proc_zeiy7nrq77->>store_qxjued45lx: read
+  store_qxjued45lx-->>proc_zeiy7nrq77: sql
+  proc_zeiy7nrq77->>store_qxjued45lx: sql
+  proc_y2oca677vj->>store_tvae56uepz: read
+  store_tvae56uepz-->>proc_y2oca677vj: sql - Postgres - user record (credential)

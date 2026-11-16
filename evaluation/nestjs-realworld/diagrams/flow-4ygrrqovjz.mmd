@@ -1,0 +1,22 @@
+%% Control flow: POST /api/articles/{slug}/comments
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_rf7yoqwjdl as AuthMiddleware
+  participant proc_qa3lxvnr55 as POST /api/articles/{slug}/comments handler
+  participant proc_7vcvcbilz6 as article.service
+  participant store_ta2srbelhd as MySQL - article
+  participant store_fl5io5fd7z as MySQL - Comment
+  ext_sga4qktkap->>ctl_rf7yoqwjdl: POST /api/articles/{slug}/comments (authn)
+  opt authn fails
+    ctl_rf7yoqwjdl-->>ext_sga4qktkap: rejected
+  end
+  ctl_rf7yoqwjdl->>proc_qa3lxvnr55: dispatch
+  proc_qa3lxvnr55->>proc_7vcvcbilz6: call
+  proc_7vcvcbilz6->>store_ta2srbelhd: read
+  store_ta2srbelhd-->>proc_7vcvcbilz6: sql
+  proc_7vcvcbilz6->>store_fl5io5fd7z: sql
+  proc_7vcvcbilz6->>store_ta2srbelhd: sql
+  proc_7vcvcbilz6->>store_fl5io5fd7z: read
+  store_fl5io5fd7z-->>proc_7vcvcbilz6: sql
+  proc_qa3lxvnr55-->>ext_sga4qktkap: response

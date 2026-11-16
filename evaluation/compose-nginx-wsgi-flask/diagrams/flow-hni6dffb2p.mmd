@@ -1,0 +1,7 @@
+%% Control flow: GET /cache-me
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_6erds2pkzv as GET /cache-me handler
+  ext_sga4qktkap->>proc_6erds2pkzv: GET /cache-me
+  proc_6erds2pkzv-->>ext_sga4qktkap: response

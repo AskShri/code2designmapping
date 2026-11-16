@@ -1,0 +1,15 @@
+%% Control flow: POST /api/users/login
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_ishmbv7w5w as POST /api/users/login handler
+  participant proc_hmg6lls77t as middlewares
+  participant proc_3dfhhpmn7b as models (3dfh)
+  participant store_cck43qyjgx as SQLite - UserModel
+  ext_sga4qktkap->>proc_ishmbv7w5w: POST /api/users/login
+  proc_ishmbv7w5w->>proc_hmg6lls77t: call
+  proc_hmg6lls77t->>store_cck43qyjgx: read
+  store_cck43qyjgx-->>proc_hmg6lls77t: sql - SQLite - UserModel record (credential,pii)
+  proc_3dfhhpmn7b->>store_cck43qyjgx: read
+  store_cck43qyjgx-->>proc_3dfhhpmn7b: sql - SQLite - UserModel record (credential,pii)
+  proc_ishmbv7w5w-->>ext_sga4qktkap: response

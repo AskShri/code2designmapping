@@ -1,0 +1,9 @@
+%% Control flow: GET /healthz
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_twu6bjniwq as morgan
+  participant proc_m5tc4o4g36 as GET /healthz handler
+  ext_sga4qktkap->>ctl_twu6bjniwq: GET /healthz (audit_log)
+  ctl_twu6bjniwq->>proc_m5tc4o4g36: dispatch
+  proc_m5tc4o4g36-->>ext_sga4qktkap: response

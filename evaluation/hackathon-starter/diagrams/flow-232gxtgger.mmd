@@ -1,0 +1,18 @@
+%% Control flow: GET /api/nyt
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_iwvfpmtyc6 as morganLogger
+  participant ctl_yjrquqjv4q as limiter
+  participant ctl_u2ny7jn3of as lusca.xframe
+  participant ctl_5lleffjdvl as lusca.xssProtection
+  participant proc_ivqtl6zlee as GET /api/nyt handler
+  participant ext_bk3ogn32rp as www.alphavantage.co
+  ext_sga4qktkap->>ctl_iwvfpmtyc6: GET /api/nyt (audit_log)
+  ctl_iwvfpmtyc6->>ctl_yjrquqjv4q: GET /api/nyt (rate_limit)
+  ctl_yjrquqjv4q->>ctl_u2ny7jn3of: GET /api/nyt (security_headers)
+  ctl_u2ny7jn3of->>ctl_5lleffjdvl: GET /api/nyt (security_headers)
+  ctl_5lleffjdvl->>proc_ivqtl6zlee: dispatch
+  proc_ivqtl6zlee->>ext_bk3ogn32rp: https
+  ext_bk3ogn32rp-->>proc_ivqtl6zlee: response
+  proc_ivqtl6zlee-->>ext_sga4qktkap: response

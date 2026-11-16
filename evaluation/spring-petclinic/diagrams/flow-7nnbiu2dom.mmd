@@ -1,0 +1,10 @@
+%% Control flow: GET /vets
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_n53k2eqdqs as GET /vets handler
+  participant store_pk2xklcstq as SQL database - vets
+  ext_sga4qktkap->>proc_n53k2eqdqs: GET /vets
+  proc_n53k2eqdqs->>store_pk2xklcstq: read
+  store_pk2xklcstq-->>proc_n53k2eqdqs: sql
+  proc_n53k2eqdqs-->>ext_sga4qktkap: response

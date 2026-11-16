@@ -1,0 +1,34 @@
+%% L0 context - eshoponweb
+flowchart LR
+  subgraph bnd_y55hm2ynro["repository: eshoponweb"]
+    proc_a75sldmpza(["eshoponweb (+3)"])
+  end
+  subgraph bnd_agjyyz7jmo["container: sqlserver"]
+    store_4sxghcjkne[("SQL Server: Basket")]
+    store_fwdgr4gezx[("SQL Server: CatalogType")]
+    store_ghai53qfrs[("SQL Server: CatalogItem")]
+    store_s7pw5swiz2[("SQL Server: CatalogBrand")]
+    store_yhr5uxtyjy[("SQL Server: Order")]
+  end
+  ext_miziwfdicw["Unresolved HTTP target"]
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"https"| proc_a75sldmpza
+  proc_a75sldmpza -->|"unknown"| ext_miziwfdicw
+  proc_a75sldmpza -->|"sql"| store_4sxghcjkne
+  proc_a75sldmpza -->|"sql"| store_fwdgr4gezx
+  proc_a75sldmpza -->|"sql: SQL Server: CatalogItem record (financial)"| store_ghai53qfrs
+  proc_a75sldmpza -->|"sql"| store_s7pw5swiz2
+  proc_a75sldmpza -->|"sql: SQL Server: Order record (pii)"| store_yhr5uxtyjy
+  store_4sxghcjkne -->|"sql"| proc_a75sldmpza
+  store_fwdgr4gezx -->|"sql"| proc_a75sldmpza
+  store_ghai53qfrs -->|"sql: SQL Server: CatalogItem record (financial)"| proc_a75sldmpza
+  store_s7pw5swiz2 -->|"sql"| proc_a75sldmpza
+  store_yhr5uxtyjy -->|"sql: SQL Server: Order record (pii)"| proc_a75sldmpza
+  style bnd_y55hm2ynro stroke-dasharray: 8 4,fill:none
+  style bnd_agjyyz7jmo stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

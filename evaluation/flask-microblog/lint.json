@@ -1,0 +1,392 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:54br5jzky6",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET|POST /auth/login handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:a2vensgboy",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET|POST /auth/register handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:dhlcmfpdcz",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET|POST /auth/reset_password_request handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:fncxprlar4",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/users handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:wn6sjzpagr",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /auth/logout handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:xnokzfdtvu",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET|POST /auth/reset_password/{token} handler"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:3btxxcb5r6",
+    "message": "process GET /explore handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:62wc6ym3a2",
+    "message": "process GET /auth/logout handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:65litz2esg",
+    "message": "process POST /api/tokens handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:f5nzwppfqy",
+    "message": "process PUT /api/users/{id} handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:frabbzxoze",
+    "message": "process GET /messages handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:glf662po6z",
+    "message": "process DELETE /api/tokens handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:j4vovdvgdh",
+    "message": "process GET /api/users/{id}/following handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jbnh3dbgms",
+    "message": "process POST /unfollow/{username} handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:kdqhqecot7",
+    "message": "process GET|POST /auth/login handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:kx2jmqahey",
+    "message": "process GET /api/users/{id} handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ndd5zp7vcl",
+    "message": "process GET /api/users/{id}/followers handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:partny3sls",
+    "message": "process GET /notifications handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:pftv6kqvgt",
+    "message": "process GET /api/users handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:pqzdmld34n",
+    "message": "process GET|POST /edit_profile handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:s7ck5tklyv",
+    "message": "process GET /user/{username}/popup handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:tpexvbuvoj",
+    "message": "process GET /user/{username} handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:vuu4bwhao5",
+    "message": "process POST /follow/{username} handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:xg6qxbykjn",
+    "message": "process GET /export_posts handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:2qoztg67te",
+    "message": "app -> SMTP mail relay: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:32msbi33ml",
+    "message": "GET / handler (+1 routes) -> Postgres: Post: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3ijgxqfux6",
+    "message": "GET|POST /send_message/{recipient} handler -> Postgres: Message: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3k6r5ks2ib",
+    "message": "models -> Postgres: Notification: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:442mw66bxu",
+    "message": "Postgres: Post -> GET /search handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:54yyezaxgp",
+    "message": "Postgres: User -> GET /api/users/{id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5qqjdonzdm",
+    "message": "email -> SMTP mail relay: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:63dbl7ui7m",
+    "message": "Postgres: User -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:6cey47hbwg",
+    "message": "tests -> Postgres: Post: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7jdethir64",
+    "message": "Postgres: User -> GET /api/users/{id}/following handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7tqersxmew",
+    "message": "Postgres: User -> POST /api/users handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:7tqvhmryqm",
+    "message": "models -> Redis: rq:*: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:agv4ic3azp",
+    "message": "translate -> api.cognitive.microsofttranslator.com: authentication=unknown, encryption=tls"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ajo4h5lurb",
+    "message": "Postgres: User -> forms: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:b5jnjonhkd",
+    "message": "Postgres: User -> GET|POST /auth/reset_password_request handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:cbgb6c4bc2",
+    "message": "Postgres: User -> tasks: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ddg74qelpj",
+    "message": "Postgres: User -> GET /api/users/{id}/followers handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:eqp7wk5mqi",
+    "message": "Postgres: User -> GET /user/{username} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:f74lq4gfrg",
+    "message": "Elasticsearch -> search: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hxpd4cymkl",
+    "message": "Postgres: User -> GET|POST /send_message/{recipient} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:i2s2ryfmvu",
+    "message": "Postgres: Post -> tasks: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:jqqjuc4mqm",
+    "message": "Postgres: Task -> tasks: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ki7hfkjjpx",
+    "message": "Postgres: Notification -> GET /notifications handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kmrbq5kjp6",
+    "message": "Postgres: User -> forms: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kvxoic4grz",
+    "message": "Postgres: Message -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:lbzcw3eoog",
+    "message": "Postgres: User -> PUT /api/users/{id} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:mehhx4qm57",
+    "message": "Postgres: User -> tests: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:mlpzxvk36q",
+    "message": "tests -> Postgres: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:nny2ea65eh",
+    "message": "Postgres (table unresolved) -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:oe6txkwdqz",
+    "message": "Postgres: User -> GET /user/{username}/popup handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:osziy2ofd5",
+    "message": "GET|POST /auth/register handler -> Postgres: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:p5armpwd7a",
+    "message": "models -> Postgres (table unresolved): authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:pjmfcw5tpy",
+    "message": "search -> Elasticsearch: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:qm75eysprz",
+    "message": "Postgres: User -> POST /unfollow/{username} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:saaf7nykmr",
+    "message": "Postgres: Task -> models: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:sdnm2ac3yj",
+    "message": "Postgres: User -> GET|POST /auth/login handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:v2jm5r6btc",
+    "message": "Postgres: User -> POST /follow/{username} handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vkzlbqeh24",
+    "message": "POST /api/users handler -> Postgres: User: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wtlz4ytpoq",
+    "message": "Postgres: User -> auth: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xhops7luhe",
+    "message": "Postgres (table unresolved) -> tasks: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xtlp4bnuoy",
+    "message": "models -> Postgres: Task: authentication=unknown, encryption=unknown"
+  }
+]

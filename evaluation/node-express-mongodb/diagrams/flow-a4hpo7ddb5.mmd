@@ -1,0 +1,9 @@
+%% Control flow: DELETE /api/tutorials/{id}
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_wivfkbrhwv as cors
+  participant proc_dgbuvoysko as DELETE /api/tutorials/{id} handler
+  ext_sga4qktkap->>ctl_wivfkbrhwv: DELETE /api/tutorials/{id} (cors)
+  ctl_wivfkbrhwv->>proc_dgbuvoysko: dispatch
+  proc_dgbuvoysko-->>ext_sga4qktkap: response

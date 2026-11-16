@@ -1,0 +1,12 @@
+%% Control flow: GET /api/users
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_f3sntuc3yq as token_auth.login_required
+  participant proc_pftv6kqvgt as GET /api/users handler
+  ext_sga4qktkap->>ctl_f3sntuc3yq: GET /api/users (authn)
+  opt authn fails
+    ctl_f3sntuc3yq-->>ext_sga4qktkap: rejected
+  end
+  ctl_f3sntuc3yq->>proc_pftv6kqvgt: dispatch
+  proc_pftv6kqvgt-->>ext_sga4qktkap: response

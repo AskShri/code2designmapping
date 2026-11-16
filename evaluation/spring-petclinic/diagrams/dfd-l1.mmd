@@ -1,0 +1,21 @@
+%% L1 - spring-petclinic
+flowchart LR
+  subgraph bnd_ca2tpnqqbg["repository: spring-petclinic"]
+    proc_wyjh4ca7po(["petclinic (samples/petclinic) (+22)"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_mezdmiqbdo[("SQL database: owners")]
+  store_pk2xklcstq[("SQL database: vets")]
+  store_yykhterqb4[("SQL database: types")]
+  ext_sga4qktkap -->|"http<br/>http: owners (+1) (pii)<br/>http: owners (pii)<br/>..."| proc_wyjh4ca7po
+  proc_wyjh4ca7po -->|"sql: from owners (pii)<br/>sql: from pets (pii)"| store_mezdmiqbdo
+  store_mezdmiqbdo -->|"sql: SQL database: owners record (pii)"| proc_wyjh4ca7po
+  store_pk2xklcstq -->|"sql"| proc_wyjh4ca7po
+  store_yykhterqb4 -->|"sql"| proc_wyjh4ca7po
+  style bnd_ca2tpnqqbg stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

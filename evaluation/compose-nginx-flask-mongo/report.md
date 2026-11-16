@@ -1,27 +1,27 @@
 # code2design report: compose-nginx-flask-mongo
 
-Commit `30f4b7f6a6c3`, tool 0.3.0-prototype, 0.0s.
+Commit `30f4b7f6a6c3`, code2design 0.5.0, IR 0.2.
 
 ## Coverage
 
 | Language | Files parsed |
 |---|---|
 | python | 1 |
-| (test files skipped) | 0 |
+| (test files, not modelled) | 0 |
 
-Detectors that ran: config@0.3, py@0.3
+Detectors: config@0.5, py@0.5, synth@0.5.0
 
-Facts: app_entry 2, boundary_hint 3, dependencies 1, entry_point 1, listener 1, store_access 2
+Facts: app 1, boundary_hint 4, declared_link 1, dependencies 1, entry_point 1, listener 1, router 1, store_access 2, weakness 1
 
 ## Model
 
 | Collection | Count |
 |---|---|
-| processes | 3 |
+| processes | 4 |
 | entities | 1 |
 | stores | 1 |
 | boundaries | 3 |
-| flows | 1 |
+| flows | 2 |
 | entry_points | 1 |
 | controls | 0 |
 | weaknesses | 1 |
@@ -32,43 +32,54 @@ Facts: app_entry 2, boundary_hint 3, dependencies 1, entry_point 1, listener 1, 
 
 ## Attack surface
 
-Entry points are where a threat agent first touches the system; exit points are where data leaves it; dependencies are code the team did not write (Black Duck's dependency analysis).
+Entry points are where a threat agent first touches the system; exit points are where data leaves it; dependencies are code the team did not write.
 
-- **http**: 1 entry points, 1 without a detected authn control
-- **listeners**: flask/server.py port (host='0.0.0.0', port=os.environ.get("FL
+- **http**: 1 entry points, 1 without a detected authentication control (0 of them published outside the deployment)
+- **listeners**: flask/server.py port os.environ.get("FLASK_SERVER_PORT", 9090
 - **exit points carrying sensitive data**: none detected
-- **third-party dependencies**: 2 declared in flask/requirements.txt; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodeled attack surface
+- **third-party dependencies**: 2 declared in flask/requirements.txt; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodelled attack surface
+- **weaknesses**: 1 medium (see stride-table.md and findings.sarif)
 
 ### Entry points
 
-| Entry point | Controls |
-|---|---|
-| GET / | none |
+| Entry point | Exposure | Controls (registration order) | Reaches |
+|---|---|---|---|
+| GET / | internal | none | - |
+
+### Weaknesses
+
+| Severity | CWE | Weakness | Location |
+|---|---|---|---|
+| medium | CWE-489 | debug=True on the application server | flask/server.py:21 |
 
 ### External entities
 
 | Entity | Kind | Host |
 |---|---|---|
-| HTTP client | system | - |
+| Internal HTTP client | system | - |
 
 ### Data stores
 
-| Store | Technology | Data classes | Boundary |
-|---|---|---|---|
-| MongoDB | mongodb | - | container: mongo |
+| Store | Technology | Data classes | Encryption at rest | Boundary |
+|---|---|---|---|---|
+| MongoDB | mongodb | - | unknown | container: mongo |
 
 ## Lint
 
-- **warning** `uncontrolled-crossing` inbound flow crosses a boundary with no control: HTTP client -> GET / handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: Internal HTTP client -> GET / handler
+- **warning** `weakness-debug-mode-enabled` CWE-489 debug=True on the application server (flask/server.py:21)
+- **info** `black-hole-or-miracle` process flask has only outputs; a detector may be missing
 - **info** `black-hole-or-miracle` process GET / handler has only inputs; a detector may be missing
+- **info** `unknown-link-attributes` flask -> MongoDB: authentication=unknown, encryption=unknown
 
 ## Inferred elements (dashed in diagrams)
 
-- repository: compose-nginx-flask-mongo (confidence 0.5): No container or IaC boundary covers these processes; the repository itself is used as the trust boundary
+- repository: compose-nginx-flask-mongo (confidence 0.5): no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary
+- flask -> MongoDB (confidence 0.6): the mongodb client library is imported in flask/server.py but no call site could be resolved
 - Insider with access to container: backend (confidence 0.8): one insider agent per trust boundary, placed inside it
-- Anonymous HTTP caller (confidence 0.9): 1 http entry points, 1 without a detected authn control
+- Workload inside the deployment calling HTTP client endpoints (confidence 0.7): these entry points are not published outside the deployment; a caller must already be inside it
 
 ## Gaps and questions
 
-- `unresolved` compose.yaml:28: MongoDB is declared but no code access to it was detected (unsupported language, dynamic client, or a missing recognizer)
-- `unknown_attribute` flask/server.py: Question for the team: is TLS terminated in front of the HTTP listener on port (host='0.0.0.0', port=os.environ.get("FL? Inbound flows are marked encryption=unknown until answered.
+- `unknown_attribute` flask/server.py: Question: is TLS terminated in front of the HTTP listener of backend? Inbound flows are marked encryption=unknown until answered.
+- `unknown_attribute` flask/server.py:5: Question: what is the authentication and encryption of the link to MongoDB?

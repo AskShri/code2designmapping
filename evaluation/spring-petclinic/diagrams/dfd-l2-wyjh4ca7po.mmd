@@ -1,0 +1,78 @@
+%% L2 - petclinic (samples/petclinic)
+flowchart LR
+  subgraph bnd_ca2tpnqqbg["repository: spring-petclinic"]
+    proc_6fivqoal26(["GET /oups handler"])
+    proc_6i7kmpdwk7(["GET /owners/{ownerId}/pets/{petId}/visits/new handler"])
+    proc_6pg6m6yhtp(["GET /owners/{ownerId}/pets/new handler"])
+    proc_7azukv4cl6(["GET /owners/new handler"])
+    proc_a4d4mwowzi(["GET /owners/{ownerId}/edit handler"])
+    proc_cn6mpowjht(["VetController"])
+    proc_gxm54vw6hz(["GET / handler"])
+    proc_kfba2lmkw6(["VisitController"])
+    proc_lapkmj5inx(["POST /owners/new handler"])
+    proc_mjuh55taha(["GET /owners/find handler"])
+    proc_mymnedzovt(["GET /owners/{ownerId}/pets/{petId}/edit handler"])
+    proc_n53k2eqdqs(["GET /vets handler"])
+    proc_oqvewco2xc(["PetTypeFormatter"])
+    proc_otci6abcxf(["OwnerController"])
+    proc_ou5m2usn5a(["POST /owners/{ownerId}/edit handler"])
+    proc_pxqxv5mtnf(["GET /vets.html handler"])
+    proc_rym3fpb43g(["POST /owners/{ownerId}/pets/{petId}/visits/new handler"])
+    proc_rzja4g67mh(["POST /owners/{ownerId}/pets/new handler"])
+    proc_sgmczr2atq(["POST /owners/{ownerId}/pets/{petId}/edit handler"])
+    proc_tvrjdixkww(["PetController"])
+    proc_tyreptkzlk(["GET /owners/{ownerId} handler"])
+    proc_uxjq4vpn6r(["GET /owners handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_mezdmiqbdo[("SQL database: owners")]
+  store_pk2xklcstq[("SQL database: vets")]
+  store_yykhterqb4[("SQL database: types")]
+  %% 1 lower-weight edges omitted (edge budget 40)
+  ext_sga4qktkap -->|"http"| proc_6fivqoal26
+  ext_sga4qktkap -->|"http"| proc_6i7kmpdwk7
+  ext_sga4qktkap -->|"http"| proc_6pg6m6yhtp
+  ext_sga4qktkap -->|"http"| proc_7azukv4cl6
+  ext_sga4qktkap -->|"http"| proc_a4d4mwowzi
+  ext_sga4qktkap -->|"http"| proc_gxm54vw6hz
+  ext_sga4qktkap -->|"http: owners (pii)"| proc_lapkmj5inx
+  ext_sga4qktkap -->|"http"| proc_mjuh55taha
+  ext_sga4qktkap -->|"http"| proc_mymnedzovt
+  ext_sga4qktkap -->|"http"| proc_n53k2eqdqs
+  ext_sga4qktkap -->|"http: owners (pii)"| proc_ou5m2usn5a
+  ext_sga4qktkap -->|"http"| proc_pxqxv5mtnf
+  ext_sga4qktkap -->|"http: owners (+1) (pii)"| proc_rym3fpb43g
+  ext_sga4qktkap -->|"http: pets (pii)"| proc_rzja4g67mh
+  ext_sga4qktkap -->|"http: pets (pii)"| proc_sgmczr2atq
+  ext_sga4qktkap -->|"http"| proc_tyreptkzlk
+  ext_sga4qktkap -->|"http"| proc_uxjq4vpn6r
+  proc_6i7kmpdwk7 -->|"in_process"| proc_kfba2lmkw6
+  proc_6pg6m6yhtp -->|"in_process"| proc_tvrjdixkww
+  proc_a4d4mwowzi -->|"in_process"| proc_otci6abcxf
+  proc_lapkmj5inx -->|"sql: from owners (pii)"| store_mezdmiqbdo
+  proc_mymnedzovt -->|"in_process"| proc_tvrjdixkww
+  proc_ou5m2usn5a -->|"in_process"| proc_otci6abcxf
+  proc_ou5m2usn5a -->|"sql: from owners (pii)"| store_mezdmiqbdo
+  proc_pxqxv5mtnf -->|"in_process"| proc_cn6mpowjht
+  proc_rym3fpb43g -->|"in_process"| proc_kfba2lmkw6
+  proc_rym3fpb43g -->|"sql: from owners (pii)"| store_mezdmiqbdo
+  proc_rzja4g67mh -->|"in_process"| proc_tvrjdixkww
+  proc_rzja4g67mh -->|"sql: from pets (pii)"| store_mezdmiqbdo
+  proc_sgmczr2atq -->|"in_process"| proc_tvrjdixkww
+  proc_tvrjdixkww -->|"sql: from pets (pii)"| store_mezdmiqbdo
+  proc_tyreptkzlk -->|"in_process"| proc_otci6abcxf
+  proc_uxjq4vpn6r -->|"in_process"| proc_otci6abcxf
+  store_mezdmiqbdo -->|"sql: SQL database: owners record (pii)"| proc_kfba2lmkw6
+  store_mezdmiqbdo -->|"sql: SQL database: owners record (pii)"| proc_otci6abcxf
+  store_mezdmiqbdo -->|"sql: SQL database: owners record (pii)"| proc_tvrjdixkww
+  store_mezdmiqbdo -->|"sql: SQL database: owners record (pii)"| proc_tyreptkzlk
+  store_pk2xklcstq -->|"sql"| proc_cn6mpowjht
+  store_pk2xklcstq -->|"sql"| proc_n53k2eqdqs
+  store_yykhterqb4 -->|"sql"| proc_oqvewco2xc
+  style bnd_ca2tpnqqbg stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

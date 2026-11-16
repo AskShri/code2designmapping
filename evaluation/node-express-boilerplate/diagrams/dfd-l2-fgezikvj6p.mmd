@@ -1,0 +1,35 @@
+%% L2 - services
+flowchart LR
+  subgraph bnd_4tjp4yui4o["container: node-app"]
+    proc_2luhvtdfn2(["auth.service"])
+    proc_otosc4pvai(["routes (+13)"])
+    proc_oze5wwgneu(["email.service"])
+    proc_pdhtew2ivt(["user.service"])
+    proc_yisafo5ptd(["token.service"])
+  end
+  subgraph bnd_3bw6z3ysco["container: mongodb"]
+    store_x3kis6s6op[("MongoDB: User")]
+    store_yc7brpyrnt[("MongoDB: Token")]
+  end
+  ext_l2biskukaq["SMTP mail relay"]
+  proc_2luhvtdfn2 -->|"in_process"| proc_pdhtew2ivt
+  proc_2luhvtdfn2 -->|"in_process"| proc_yisafo5ptd
+  proc_2luhvtdfn2 -->|"mongo: from request fields (logout) (+3) (credential)"| store_yc7brpyrnt
+  proc_otosc4pvai -->|"in_process"| proc_2luhvtdfn2
+  proc_otosc4pvai -->|"in_process"| proc_oze5wwgneu
+  proc_otosc4pvai -->|"in_process"| proc_pdhtew2ivt
+  proc_otosc4pvai -->|"in_process"| proc_yisafo5ptd
+  proc_oze5wwgneu -->|"smtp: from request fields (forgotPassword) (pii)"| ext_l2biskukaq
+  proc_pdhtew2ivt -->|"mongo: from register.body (credential,pii)"| store_x3kis6s6op
+  proc_yisafo5ptd -->|"mongo: from register.body (+3) (credential,pii)"| store_yc7brpyrnt
+  store_x3kis6s6op -->|"mongo: MongoDB: User record (credential,pii)"| proc_pdhtew2ivt
+  store_yc7brpyrnt -->|"mongo: MongoDB: Token record (credential,pii)"| proc_2luhvtdfn2
+  store_yc7brpyrnt -->|"mongo: MongoDB: Token record (credential,pii)"| proc_yisafo5ptd
+  style bnd_4tjp4yui4o stroke-dasharray: 8 4,fill:none
+  style bnd_3bw6z3ysco stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

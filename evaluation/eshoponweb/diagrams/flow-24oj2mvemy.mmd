@@ -1,0 +1,14 @@
+%% Control flow: POST /Manage/Disable2fa
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_as6hc2k7jc as [Authorize]
+  participant ctl_yifmzoblde as [ValidateAntiForgeryToken]
+  participant proc_4iyqgtpwqb as POST /Manage/Disable2fa handler
+  ext_sga4qktkap->>ctl_as6hc2k7jc: POST /Manage/Disable2fa (authn)
+  opt authn fails
+    ctl_as6hc2k7jc-->>ext_sga4qktkap: rejected
+  end
+  ctl_as6hc2k7jc->>ctl_yifmzoblde: POST /Manage/Disable2fa (csrf)
+  ctl_yifmzoblde->>proc_4iyqgtpwqb: dispatch
+  proc_4iyqgtpwqb-->>ext_sga4qktkap: response

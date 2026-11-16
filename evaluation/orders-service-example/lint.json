@@ -1,26 +1,26 @@
 [
   {
-    "severity": "warning",
+    "severity": "info",
     "rule": "unknown-link-attributes",
-    "id": "flow:ozu4sf52to",
+    "id": "flow:2xbmww7i3y",
+    "message": "service -> Redis: order:*: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:iexfyfl6hv",
     "message": "Postgres: orders -> service: authentication=unknown, encryption=unknown"
   },
   {
-    "severity": "warning",
+    "severity": "info",
     "rule": "unknown-link-attributes",
-    "id": "flow:rck5l72j2y",
-    "message": "Redis: order:* -> service: authentication=unknown, encryption=unknown"
-  },
-  {
-    "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:w7ffnsf2ia",
+    "id": "flow:px3jg3xspu",
     "message": "service -> Postgres: orders: authentication=unknown, encryption=unknown"
   },
   {
-    "severity": "warning",
+    "severity": "info",
     "rule": "unknown-link-attributes",
-    "id": "flow:yz3bvbv3i5",
-    "message": "service -> Redis: order:*: authentication=unknown, encryption=unknown"
+    "id": "flow:sko3a6mnph",
+    "message": "Redis: order:* -> service: authentication=unknown, encryption=unknown"
   }
 ]

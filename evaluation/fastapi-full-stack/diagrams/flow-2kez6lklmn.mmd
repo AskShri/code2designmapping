@@ -1,0 +1,19 @@
+%% Control flow: POST /api/v1/utils/test-email
+sequenceDiagram
+  autonumber
+  actor ext_3nnzcvcul3 as Internal HTTP client
+  participant ctl_wd5aciiryx as CORSMiddleware
+  participant ctl_yjtluncq5r as Depends(get_current_active_superuser)
+  participant proc_glq3za7d27 as POST /api/v1/utils/test-email handler
+  participant proc_y2oca677vj as deps
+  participant store_tvae56uepz as Postgres - user
+  ext_3nnzcvcul3->>ctl_wd5aciiryx: POST /api/v1/utils/test-email (cors)
+  ctl_wd5aciiryx->>ctl_yjtluncq5r: POST /api/v1/utils/test-email (authz)
+  opt authz fails
+    ctl_yjtluncq5r-->>ext_3nnzcvcul3: rejected
+  end
+  ctl_yjtluncq5r->>proc_glq3za7d27: dispatch
+  proc_glq3za7d27->>proc_y2oca677vj: call
+  proc_y2oca677vj->>store_tvae56uepz: read
+  store_tvae56uepz-->>proc_y2oca677vj: sql - Postgres - user record (credential)
+  proc_glq3za7d27-->>ext_3nnzcvcul3: response

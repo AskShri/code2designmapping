@@ -1,0 +1,7 @@
+%% Control flow: GET /logout
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_iectgk6ksw as GET /logout handler
+  ext_sga4qktkap->>proc_iectgk6ksw: GET /logout
+  proc_iectgk6ksw-->>ext_sga4qktkap: response

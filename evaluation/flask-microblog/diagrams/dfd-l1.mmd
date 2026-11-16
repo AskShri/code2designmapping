@@ -1,0 +1,46 @@
+%% L1 - flask-microblog
+flowchart LR
+  subgraph bnd_ycbot7mf4h["container: app"]
+    proc_3ic6ctnlx6(["auth (+6)"])
+    proc_5f4hgke67p(["app (+30)"])
+  end
+  ext_77pfc4anjp["api.cognitive.microsofttranslator.com"]
+  ext_l2biskukaq["SMTP mail relay"]
+  ext_sga4qktkap["HTTP client"]
+  store_5tztetcxc7[("Postgres: Task")]
+  store_ctwgzvsuvh[("Postgres (table unresolved)")]
+  store_ec5chz4iwz[("Postgres: Post")]
+  store_fngxh5bbyu[("Redis: rq:*")]
+  store_i7jsjm575z[("Elasticsearch")]
+  store_kuwedioo2t[("Postgres: Notification")]
+  store_tvae56uepz[("Postgres: User")]
+  store_ywqpbbusfu[("Postgres: Message")]
+  ext_sga4qktkap -->|"http<br/>http: RegistrationForm (credential,pii)<br/>http: ResetPasswordForm (credential)<br/>..."| proc_3ic6ctnlx6
+  ext_sga4qktkap -->|"http<br/>http: EditProfileForm (pii)<br/>http: EmptyForm<br/>..."| proc_5f4hgke67p
+  proc_3ic6ctnlx6 -->|"in_process"| proc_5f4hgke67p
+  proc_3ic6ctnlx6 -->|"sql: from RegistrationForm (credential,pii)"| store_tvae56uepz
+  proc_5f4hgke67p -->|"https"| ext_77pfc4anjp
+  proc_5f4hgke67p -->|"smtp<br/>smtp: from ResetPasswordRequestForm (pii)"| ext_l2biskukaq
+  proc_5f4hgke67p -->|"sql"| store_5tztetcxc7
+  proc_5f4hgke67p -->|"sql"| store_ctwgzvsuvh
+  proc_5f4hgke67p -->|"sql"| store_ec5chz4iwz
+  proc_5f4hgke67p -->|"redis"| store_fngxh5bbyu
+  proc_5f4hgke67p -->|"https"| store_i7jsjm575z
+  proc_5f4hgke67p -->|"sql"| store_kuwedioo2t
+  proc_5f4hgke67p -->|"sql: Postgres: User record (credential,pii)"| store_tvae56uepz
+  proc_5f4hgke67p -->|"sql"| store_ywqpbbusfu
+  store_5tztetcxc7 -->|"sql"| proc_5f4hgke67p
+  store_ctwgzvsuvh -->|"sql"| proc_5f4hgke67p
+  store_ec5chz4iwz -->|"sql"| proc_5f4hgke67p
+  store_i7jsjm575z -->|"https"| proc_5f4hgke67p
+  store_kuwedioo2t -->|"sql"| proc_5f4hgke67p
+  store_tvae56uepz -->|"sql: Postgres: User record (credential,pii)"| proc_3ic6ctnlx6
+  store_tvae56uepz -->|"sql: Postgres: User record (credential,pii)"| proc_5f4hgke67p
+  store_ywqpbbusfu -->|"sql"| proc_5f4hgke67p
+  style bnd_ycbot7mf4h stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

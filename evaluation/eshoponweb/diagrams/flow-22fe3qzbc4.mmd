@@ -1,0 +1,12 @@
+%% Control flow: GET /api/catalog-brands
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_bu6wofeonj as GET /api/catalog-brands handler
+  participant proc_c5u2lto5z4 as CatalogBrandListEndpoint
+  participant store_s7pw5swiz2 as SQL Server - CatalogBrand
+  ext_sga4qktkap->>proc_bu6wofeonj: GET /api/catalog-brands
+  proc_bu6wofeonj->>proc_c5u2lto5z4: call
+  proc_c5u2lto5z4->>store_s7pw5swiz2: read
+  store_s7pw5swiz2-->>proc_c5u2lto5z4: sql
+  proc_bu6wofeonj-->>ext_sga4qktkap: response

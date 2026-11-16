@@ -1,0 +1,16 @@
+%% L2 - client
+flowchart LR
+  subgraph bnd_fwz6ntc2oh["repository: stripe-checkout-sample"]
+    proc_nrgzproyie(["Success"])
+    proc_rslnhmt56l(["success"])
+  end
+  ext_miziwfdicw["Unresolved HTTP target"]
+  proc_nrgzproyie -->|"unknown"| ext_miziwfdicw
+  proc_rslnhmt56l -->|"unknown"| ext_miziwfdicw
+  style bnd_fwz6ntc2oh stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

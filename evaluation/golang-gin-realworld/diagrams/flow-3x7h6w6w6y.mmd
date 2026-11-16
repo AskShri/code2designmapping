@@ -1,0 +1,17 @@
+%% Control flow: GET /api/articles/{slug}/comments
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_didw4s4eis as GET /api/articles/{slug}/comments handler
+  participant proc_k4l4axmopg as models (k4l4)
+  participant store_oq4q2ydfq6 as SQLite - FavoriteModel
+  participant store_dvzg2wjtrx as SQLite - ArticleModel
+  ext_sga4qktkap->>proc_didw4s4eis: GET /api/articles/{slug}/comments
+  proc_didw4s4eis->>proc_k4l4axmopg: call
+  proc_k4l4axmopg->>store_oq4q2ydfq6: read
+  store_oq4q2ydfq6-->>proc_k4l4axmopg: sql
+  proc_k4l4axmopg->>store_oq4q2ydfq6: sql
+  proc_k4l4axmopg->>store_dvzg2wjtrx: read
+  store_dvzg2wjtrx-->>proc_k4l4axmopg: sql
+  proc_k4l4axmopg->>store_dvzg2wjtrx: sql
+  proc_didw4s4eis-->>ext_sga4qktkap: response

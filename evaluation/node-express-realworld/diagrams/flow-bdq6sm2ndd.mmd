@@ -1,0 +1,20 @@
+%% Control flow: POST /api/articles/{slug}/favorite
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_jsdy26yudp as cors
+  participant ctl_m6fiqw75iv as auth.required
+  participant proc_jrc37m6ovy as POST /api/articles/{slug}/favorite handler
+  participant proc_lyrmnuyccw as article.service
+  participant store_yhtoa6pgwu as Postgres - Article
+  ext_sga4qktkap->>ctl_jsdy26yudp: POST /api/articles/{slug}/favorite (cors)
+  ctl_jsdy26yudp->>ctl_m6fiqw75iv: POST /api/articles/{slug}/favorite (authn)
+  opt authn fails
+    ctl_m6fiqw75iv-->>ext_sga4qktkap: rejected
+  end
+  ctl_m6fiqw75iv->>proc_jrc37m6ovy: dispatch
+  proc_jrc37m6ovy->>proc_lyrmnuyccw: call
+  proc_lyrmnuyccw->>store_yhtoa6pgwu: read
+  store_yhtoa6pgwu-->>proc_lyrmnuyccw: sql
+  proc_lyrmnuyccw->>store_yhtoa6pgwu: sql
+  proc_jrc37m6ovy-->>ext_sga4qktkap: response

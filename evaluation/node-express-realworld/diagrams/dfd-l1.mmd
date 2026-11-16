@@ -1,24 +1,24 @@
-%% L1: node-express-realworld
+%% L1 - node-express-realworld
 flowchart LR
-  subgraph bnd_uphokatav4["repository: @api/source"]
-    proc_drnrheu66o(["routes (+23)"])
-    proc_eirytrktcb(["node-express-realworld (+1)"])
+  subgraph bnd_ycbot7mf4h["container: app"]
+    proc_5f4hgke67p(["app (+1)"])
+    proc_v57rhrngcg(["routes (+23)"])
   end
   ext_sga4qktkap["HTTP client"]
   store_rkhg3lsuir[("Postgres: Comment")]
   store_th364fo75v[("Postgres: Tag")]
   store_tvae56uepz[("Postgres: User")]
   store_yhtoa6pgwu[("Postgres: Article")]
-  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_drnrheu66o
-  ext_sga4qktkap -->|"http"| proc_eirytrktcb
-  proc_drnrheu66o -->|"unknown"| store_rkhg3lsuir
-  proc_drnrheu66o -->|"unknown"| store_tvae56uepz
-  proc_drnrheu66o -->|"unknown"| store_yhtoa6pgwu
-  store_rkhg3lsuir -->|"unknown"| proc_drnrheu66o
-  store_th364fo75v -->|"unknown"| proc_drnrheu66o
-  store_tvae56uepz -->|"unknown"| proc_drnrheu66o
-  store_yhtoa6pgwu -->|"unknown"| proc_drnrheu66o
-  style bnd_uphokatav4 stroke-dasharray: 8 4,fill:none
+  ext_sga4qktkap -->|"http"| proc_5f4hgke67p
+  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_v57rhrngcg
+  proc_v57rhrngcg -->|"sql"| store_rkhg3lsuir
+  proc_v57rhrngcg -->|"sql: Postgres: User record (credential,pii)"| store_tvae56uepz
+  proc_v57rhrngcg -->|"sql"| store_yhtoa6pgwu
+  store_rkhg3lsuir -->|"sql"| proc_v57rhrngcg
+  store_th364fo75v -->|"sql"| proc_v57rhrngcg
+  store_tvae56uepz -->|"sql: Postgres: User record (credential,pii)"| proc_v57rhrngcg
+  store_yhtoa6pgwu -->|"sql"| proc_v57rhrngcg
+  style bnd_ycbot7mf4h stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]
     lg_p(["Process"])

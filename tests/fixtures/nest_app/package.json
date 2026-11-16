@@ -1,0 +1,1 @@
+{"name": "cats-api", "dependencies": {"@nestjs/core": "10.0.0", "@nestjs/common": "10.0.0", "@nestjs/typeorm": "10.0.0", "typeorm": "0.3.17", "pg": "8.11.0"}}

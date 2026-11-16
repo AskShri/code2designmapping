@@ -1,0 +1,44 @@
+%% L2 - users
+flowchart LR
+  subgraph bnd_5hcgh6kyzs["repository: golang-gin-realworld"]
+    proc_2kk6rjmjyy(["PUT /api/user handler"])
+    proc_3dfhhpmn7b(["models (3dfh)"])
+    proc_7erakdlmvd(["POST /api/profiles/{username}/follow handler"])
+    proc_aypqrlhjxw(["POST /api/users handler"])
+    proc_bm46nln6rq(["GET /api/user handler"])
+    proc_g4bpx6hkiz(["DELETE /api/profiles/{username}/follow handler"])
+    proc_hmg6lls77t(["middlewares"])
+    proc_ishmbv7w5w(["POST /api/users/login handler"])
+    proc_somsvcjk2r(["GET /api/profiles/{username} handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  store_bsregusle5[("SQLite: FollowModel")]
+  store_cck43qyjgx[("SQLite: UserModel")]
+  store_zud464dxbb[("SQLite (table unresolved)")]
+  ext_sga4qktkap -->|"http"| proc_2kk6rjmjyy
+  ext_sga4qktkap -->|"http"| proc_7erakdlmvd
+  ext_sga4qktkap -->|"http"| proc_aypqrlhjxw
+  ext_sga4qktkap -->|"http"| proc_bm46nln6rq
+  ext_sga4qktkap -->|"http"| proc_g4bpx6hkiz
+  ext_sga4qktkap -->|"http"| proc_ishmbv7w5w
+  ext_sga4qktkap -->|"http"| proc_somsvcjk2r
+  proc_2kk6rjmjyy -->|"in_process"| proc_3dfhhpmn7b
+  proc_2kk6rjmjyy -->|"in_process"| proc_hmg6lls77t
+  proc_3dfhhpmn7b -->|"sql"| store_bsregusle5
+  proc_3dfhhpmn7b -->|"sql"| store_zud464dxbb
+  proc_7erakdlmvd -->|"in_process"| proc_3dfhhpmn7b
+  proc_aypqrlhjxw -->|"in_process"| proc_3dfhhpmn7b
+  proc_g4bpx6hkiz -->|"in_process"| proc_3dfhhpmn7b
+  proc_ishmbv7w5w -->|"in_process"| proc_3dfhhpmn7b
+  proc_ishmbv7w5w -->|"in_process"| proc_hmg6lls77t
+  proc_somsvcjk2r -->|"in_process"| proc_3dfhhpmn7b
+  store_bsregusle5 -->|"sql"| proc_3dfhhpmn7b
+  store_cck43qyjgx -->|"sql: SQLite: UserModel record (credential,pii)"| proc_3dfhhpmn7b
+  store_cck43qyjgx -->|"sql: SQLite: UserModel record (credential,pii)"| proc_hmg6lls77t
+  style bnd_5hcgh6kyzs stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

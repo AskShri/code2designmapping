@@ -1,0 +1,102 @@
+{
+ "entry_points": [
+  "GET /",
+  "GET /oups",
+  "GET /vets.html",
+  "GET /vets",
+  "GET /owners/new",
+  "POST /owners/new",
+  "GET /owners/find",
+  "GET /owners",
+  "GET /owners/:param/edit",
+  "POST /owners/:param/edit",
+  "GET /owners/:param",
+  "GET /owners/:param/pets/new",
+  "POST /owners/:param/pets/new",
+  "GET /owners/:param/pets/:param/edit",
+  "POST /owners/:param/pets/:param/edit",
+  "GET /owners/:param/pets/:param/visits/new",
+  "POST /owners/:param/pets/:param/visits/new"
+ ],
+ "infrastructure": [],
+ "authenticated": [],
+ "stores": [
+  "*:owners",
+  "*:pets",
+  "*:visits",
+  "*:types",
+  "*:vets",
+  "*:specialties"
+ ],
+ "entities": [],
+ "edges": [
+  [
+   "POST /owners/new",
+   "*:owners"
+  ],
+  [
+   "GET /owners",
+   "*:owners"
+  ],
+  [
+   "GET /owners/:param/edit",
+   "*:owners"
+  ],
+  [
+   "POST /owners/:param/edit",
+   "*:owners"
+  ],
+  [
+   "GET /owners/:param",
+   "*:owners"
+  ],
+  [
+   "GET /owners/:param/pets/new",
+   "*:owners"
+  ],
+  [
+   "POST /owners/:param/pets/new",
+   "*:owners"
+  ],
+  [
+   "GET /owners/:param/pets/:param/edit",
+   "*:owners"
+  ],
+  [
+   "POST /owners/:param/pets/:param/edit",
+   "*:owners"
+  ],
+  [
+   "GET /owners/:param/pets/:param/visits/new",
+   "*:owners"
+  ],
+  [
+   "POST /owners/:param/pets/:param/visits/new",
+   "*:owners"
+  ],
+  [
+   "GET /owners/:param/pets/new",
+   "*:types"
+  ],
+  [
+   "POST /owners/:param/pets/new",
+   "*:types"
+  ],
+  [
+   "GET /owners/:param/pets/:param/edit",
+   "*:types"
+  ],
+  [
+   "POST /owners/:param/pets/:param/edit",
+   "*:types"
+  ],
+  [
+   "GET /vets.html",
+   "*:vets"
+  ],
+  [
+   "GET /vets",
+   "*:vets"
+  ]
+ ]
+}

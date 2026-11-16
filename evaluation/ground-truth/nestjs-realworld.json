@@ -1,0 +1,170 @@
+{
+ "entry_points": [
+  "GET /api",
+  "POST /api/users",
+  "DELETE /api/users/:param",
+  "POST /api/users/login",
+  "GET /api/profiles/:param",
+  "GET /api/articles",
+  "GET /api/articles/:param",
+  "GET /api/articles/:param/comments",
+  "GET /api/tags",
+  "GET /api/user",
+  "PUT /api/user",
+  "POST /api/profiles/:param/follow",
+  "DELETE /api/profiles/:param/follow",
+  "GET /api/articles/feed",
+  "POST /api/articles",
+  "PUT /api/articles/:param",
+  "DELETE /api/articles/:param",
+  "POST /api/articles/:param/comments",
+  "DELETE /api/articles/:param/comments/:param",
+  "POST /api/articles/:param/favorite",
+  "DELETE /api/articles/:param/favorite"
+ ],
+ "infrastructure": [],
+ "authenticated": [
+  "GET /api/user",
+  "PUT /api/user",
+  "POST /api/profiles/:param/follow",
+  "DELETE /api/profiles/:param/follow",
+  "GET /api/articles/feed",
+  "POST /api/articles",
+  "PUT /api/articles/:param",
+  "DELETE /api/articles/:param",
+  "POST /api/articles/:param/comments",
+  "DELETE /api/articles/:param/comments/:param",
+  "POST /api/articles/:param/favorite",
+  "DELETE /api/articles/:param/favorite"
+ ],
+ "stores": [
+  "*:user",
+  "*:follows",
+  "*:article",
+  "*:comment",
+  "*:tag"
+ ],
+ "entities": [],
+ "edges": [
+  [
+   "GET /api/articles",
+   "*:article"
+  ],
+  [
+   "GET /api/articles",
+   "*:user"
+  ],
+  [
+   "GET /api/articles/feed",
+   "*:follows"
+  ],
+  [
+   "GET /api/articles/feed",
+   "*:article"
+  ],
+  [
+   "GET /api/articles/:param",
+   "*:article"
+  ],
+  [
+   "GET /api/articles/:param/comments",
+   "*:article"
+  ],
+  [
+   "POST /api/articles",
+   "*:article"
+  ],
+  [
+   "POST /api/articles",
+   "*:user"
+  ],
+  [
+   "PUT /api/articles/:param",
+   "*:article"
+  ],
+  [
+   "DELETE /api/articles/:param",
+   "*:article"
+  ],
+  [
+   "POST /api/articles/:param/comments",
+   "*:article"
+  ],
+  [
+   "POST /api/articles/:param/comments",
+   "*:comment"
+  ],
+  [
+   "DELETE /api/articles/:param/comments/:param",
+   "*:article"
+  ],
+  [
+   "DELETE /api/articles/:param/comments/:param",
+   "*:comment"
+  ],
+  [
+   "POST /api/articles/:param/favorite",
+   "*:article"
+  ],
+  [
+   "POST /api/articles/:param/favorite",
+   "*:user"
+  ],
+  [
+   "DELETE /api/articles/:param/favorite",
+   "*:article"
+  ],
+  [
+   "DELETE /api/articles/:param/favorite",
+   "*:user"
+  ],
+  [
+   "GET /api/user",
+   "*:user"
+  ],
+  [
+   "PUT /api/user",
+   "*:user"
+  ],
+  [
+   "POST /api/users",
+   "*:user"
+  ],
+  [
+   "DELETE /api/users/:param",
+   "*:user"
+  ],
+  [
+   "POST /api/users/login",
+   "*:user"
+  ],
+  [
+   "GET /api/profiles/:param",
+   "*:user"
+  ],
+  [
+   "GET /api/profiles/:param",
+   "*:follows"
+  ],
+  [
+   "POST /api/profiles/:param/follow",
+   "*:user"
+  ],
+  [
+   "POST /api/profiles/:param/follow",
+   "*:follows"
+  ],
+  [
+   "DELETE /api/profiles/:param/follow",
+   "*:user"
+  ],
+  [
+   "DELETE /api/profiles/:param/follow",
+   "*:follows"
+  ],
+  [
+   "GET /api/tags",
+   "*:tag"
+  ]
+ ]
+}

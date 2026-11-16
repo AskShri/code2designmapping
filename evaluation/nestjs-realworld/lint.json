@@ -1,0 +1,146 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:5pgcies6uw",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles/{slug}/comments handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:bkwywm3vwn",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/tags handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:henmqavcvp",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles/{slug} handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:lfzbevdcij",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:rtclmsbf6p",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/users/login handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:uq7n75wn6i",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> DELETE /api/users/{slug} handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:yqihmijzzo",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/profiles/{username} handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:yv73ccpyyx",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/articles handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:z2qb7oob5z",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/users handler"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:aa22qid4vo",
+    "message": "process GET /api handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:xpdjhhzc7h",
+    "message": "process tag.service has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3dv5fzszxp",
+    "message": "user.service -> MySQL: user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:faaaxdq77t",
+    "message": "MySQL: tag -> tag.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hlusvgl4hg",
+    "message": "MySQL: user -> user.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hzldftvkmh",
+    "message": "MySQL: Comment -> article.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:jnopejixbh",
+    "message": "MySQL: follows -> article.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:k4knmcrkzs",
+    "message": "MySQL: article -> article.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kfotuwowec",
+    "message": "profile.service -> MySQL: follows: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:mhrqha3jjw",
+    "message": "MySQL: user -> article.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:pfihdqxfbi",
+    "message": "article.service -> MySQL: Comment: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:rkvkttd23c",
+    "message": "article.service -> MySQL: article: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:v3ihbukm24",
+    "message": "MySQL: follows -> profile.service: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vz57h3xf2i",
+    "message": "article.service -> MySQL: user: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:wcbmoy3oio",
+    "message": "MySQL: user -> profile.service: authentication=unknown, encryption=unknown"
+  }
+]

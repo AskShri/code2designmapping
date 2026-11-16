@@ -1,0 +1,54 @@
+%% L2 - controllers
+flowchart LR
+  subgraph bnd_wsjnfagnyn["repository: hackathon-starter"]
+    proc_3pfwtt2b6n(["hackathon-starter (+91)"])
+    proc_di3cbnkvfd(["api"])
+    proc_ec2qr3py3g(["contact"])
+    proc_eu3nhtauzq(["ai"])
+    proc_vgs5xo3hqu(["ai-agent"])
+    proc_zck3oit7c2(["config (+3)"])
+    proc_znu4rpcnmn(["user"])
+  end
+  ext_2x56m65xpx["Google Sheets API"]
+  ext_bk3ogn32rp["www.alphavantage.co"]
+  ext_iebd2bhb4m["Last.fm API"]
+  ext_l2biskukaq["SMTP mail relay"]
+  ext_miziwfdicw["Unresolved HTTP target"]
+  ext_nggth6fowo["Groq API"]
+  ext_pbm532avbp["api.twitch.tv"]
+  ext_q7bc76pjhv["Google Drive API"]
+  ext_tq5xvm2pwe["GitHub API"]
+  ext_uuhu7borqt["api.sandbox.paypal.com"]
+  ext_yydkmj7yh6["Hugging Face Inference API"]
+  store_3ufptbo5k3[("MongoDB (collection unresolved)")]
+  store_x3kis6s6op[("MongoDB: User")]
+  proc_3pfwtt2b6n -->|"in_process"| proc_di3cbnkvfd
+  proc_3pfwtt2b6n -->|"in_process"| proc_ec2qr3py3g
+  proc_3pfwtt2b6n -->|"in_process"| proc_eu3nhtauzq
+  proc_3pfwtt2b6n -->|"in_process"| proc_vgs5xo3hqu
+  proc_3pfwtt2b6n -->|"in_process"| proc_znu4rpcnmn
+  proc_di3cbnkvfd -->|"https"| ext_2x56m65xpx
+  proc_di3cbnkvfd -->|"https"| ext_bk3ogn32rp
+  proc_di3cbnkvfd -->|"https"| ext_iebd2bhb4m
+  proc_di3cbnkvfd -->|"unknown"| ext_miziwfdicw
+  proc_di3cbnkvfd -->|"https"| ext_pbm532avbp
+  proc_di3cbnkvfd -->|"https"| ext_q7bc76pjhv
+  proc_di3cbnkvfd -.->|"https"| ext_tq5xvm2pwe
+  proc_di3cbnkvfd -->|"https"| ext_uuhu7borqt
+  proc_ec2qr3py3g -->|"smtp: from request fields (postContact) (pii)"| ext_l2biskukaq
+  proc_ec2qr3py3g -->|"unknown: from request fields (postContact) (pii)"| ext_miziwfdicw
+  proc_ec2qr3py3g -->|"in_process"| proc_zck3oit7c2
+  proc_eu3nhtauzq -->|"https"| ext_nggth6fowo
+  proc_eu3nhtauzq -->|"https"| ext_yydkmj7yh6
+  proc_znu4rpcnmn -->|"smtp: from request fields (postSignup) (credential,pii)"| ext_l2biskukaq
+  proc_znu4rpcnmn -->|"in_process"| proc_zck3oit7c2
+  proc_znu4rpcnmn -->|"mongo: from request fields (postSignup) (credential,pii)"| store_x3kis6s6op
+  store_3ufptbo5k3 -->|"mongo"| proc_eu3nhtauzq
+  store_3ufptbo5k3 -->|"mongo"| proc_vgs5xo3hqu
+  style bnd_wsjnfagnyn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

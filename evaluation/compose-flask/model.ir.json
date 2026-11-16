@@ -1,12 +1,13 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "provenance": {
-    "tool_version": "0.3.0-prototype",
+    "tool_version": "0.5.0",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-flask",
     "detectors": [
-      "config@0.3",
-      "py@0.3"
+      "config@0.5",
+      "py@0.5",
+      "synth@0.5.0"
     ],
     "scope": {
       "include": [
@@ -17,6 +18,7 @@
       "out_of_scope_elements": []
     },
     "input_hashes": {
+      "app/Dockerfile": "sha256:da6a8a361f6b08992536f359c7ca7e4de0e00c031ca253b8cb36f7c57e04ac04",
       "app/app.py": "sha256:9f1f837182dcaae5eaeaa143f50d279368c02840d1a0d32fc312b3ae52836076",
       "app/requirements.txt": "sha256:76f8bae45e807865955344c1a58882d38c8ceb4f855f58091642b7d48290af97",
       "compose.yaml": "sha256:fde394cc26eaf6fe5eced283ffae125c2b6fb587ee5f3562fce7fe89f44bf68d"
@@ -24,31 +26,11 @@
   },
   "processes": [
     {
-      "id": "proc:4ux4ivxi4t",
+      "id": "proc:bofldjotbk",
       "identity": [
         "process",
-        ".",
-        "compose-flask"
-      ],
-      "origin": "observed",
-      "name": "compose-flask",
-      "level": 0,
-      "module": ".",
-      "evidence": [
-        {
-          "path": ".",
-          "start_line": 1,
-          "end_line": 1,
-          "detector": "synth@0.3",
-          "content_hash": "sha256:a92bb249ab5fdffa5a7ca33ea228f47d92d217a57b42654b8e67af76c587db0b"
-        }
-      ]
-    },
-    {
-      "id": "proc:n7h7nmdaxg",
-      "identity": [
-        "process",
-        "app/app.py",
+        "handler",
+        "web",
         "GET /"
       ],
       "origin": "observed",
@@ -60,16 +42,17 @@
           "path": "app/app.py",
           "start_line": 4,
           "end_line": 5,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
       ],
-      "parent": "proc:oysktcjkmj"
+      "parent": "proc:ikxst4ohgy"
     },
     {
-      "id": "proc:oysktcjkmj",
+      "id": "proc:ikxst4ohgy",
       "identity": [
         "process",
+        "L1",
         "app",
         "web"
       ],
@@ -82,11 +65,32 @@
           "path": "app/app.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:9f925aab96267e07ca503b9da858ca38ccdc5b69bf7a1545bf166b7cf3ebd2c5"
         }
       ],
-      "parent": "proc:4ux4ivxi4t"
+      "parent": "proc:yg5arsbnzv"
+    },
+    {
+      "id": "proc:yg5arsbnzv",
+      "identity": [
+        "process",
+        "L0",
+        "compose-flask"
+      ],
+      "origin": "observed",
+      "name": "compose-flask",
+      "level": 0,
+      "module": ".",
+      "evidence": [
+        {
+          "path": ".",
+          "start_line": 1,
+          "end_line": 1,
+          "detector": "synth@0.5.0",
+          "content_hash": "sha256:a92bb249ab5fdffa5a7ca33ea228f47d92d217a57b42654b8e67af76c587db0b"
+        }
+      ]
     }
   ],
   "entities": [
@@ -105,7 +109,7 @@
           "path": "app/app.py",
           "start_line": 4,
           "end_line": 5,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
       ]
@@ -124,15 +128,15 @@
       "name": "container: web",
       "kind": "container",
       "contains": [
-        "proc:n7h7nmdaxg",
-        "proc:oysktcjkmj"
+        "proc:bofldjotbk",
+        "proc:ikxst4ohgy"
       ],
       "evidence": [
         {
           "path": "compose.yaml",
           "start_line": 2,
           "end_line": 2,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
         }
       ]
@@ -146,18 +150,18 @@
       ],
       "origin": "inferred",
       "confidence": 0.5,
-      "rationale": "No container or IaC boundary covers these processes; the repository itself is used as the trust boundary",
+      "rationale": "no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary",
       "name": "repository: compose-flask",
       "kind": "repository",
       "contains": [
-        "proc:4ux4ivxi4t"
+        "proc:yg5arsbnzv"
       ],
       "evidence": [
         {
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.3",
+          "detector": "synth@0.5.0",
           "content_hash": "sha256:a92bb249ab5fdffa5a7ca33ea228f47d92d217a57b42654b8e67af76c587db0b"
         }
       ]
@@ -165,17 +169,16 @@
   ],
   "flows": [
     {
-      "id": "flow:xbinuwe32a",
+      "id": "flow:lszkz4zfv7",
       "identity": [
         "flow",
         "ext:sga4qktkap",
-        "proc:n7h7nmdaxg",
-        "http",
-        ""
+        "proc:bofldjotbk",
+        "http"
       ],
       "origin": "observed",
       "source": "ext:sga4qktkap",
-      "target": "proc:n7h7nmdaxg",
+      "target": "proc:bofldjotbk",
       "protocol": "http",
       "direction": "request_response",
       "authentication": "none",
@@ -190,7 +193,7 @@
           "path": "app/app.py",
           "start_line": 4,
           "end_line": 5,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
       ]
@@ -198,56 +201,63 @@
   ],
   "entry_points": [
     {
-      "id": "ep:up6isnlgt5",
+      "id": "ep:ihu4cujw3c",
       "identity": [
         "entry_point",
         "http",
         "GET",
         "/",
-        "app/app.py"
+        "web"
       ],
       "origin": "observed",
-      "process": "proc:n7h7nmdaxg",
+      "process": "proc:bofldjotbk",
       "protocol": "http",
       "method": "GET",
       "path": "/",
+      "exposure": "public",
       "controls": [],
       "call_chain": [
-        "proc:n7h7nmdaxg"
+        "proc:bofldjotbk"
       ],
+      "reaches": [],
       "evidence": [
         {
           "path": "app/app.py",
           "start_line": 4,
           "end_line": 5,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
-      ],
-      "reaches": []
+      ]
     }
   ],
   "controls": [],
   "weaknesses": [
     {
-      "id": "wk:cmoeq7dw7n",
+      "id": "wk:brjex7mmr2",
       "identity": [
         "weakness",
         "unauthenticated_entry_point",
-        "ep:up6isnlgt5"
+        "ep:ihu4cujw3c"
       ],
       "origin": "observed",
       "kind": "unauthenticated_entry_point",
-      "name": "no authn control detected on GET /",
+      "name": "no authentication control detected on GET /",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
       "applies_to": [
-        "ep:up6isnlgt5"
+        "ep:ihu4cujw3c"
       ],
       "evidence": [
         {
           "path": "app/app.py",
           "start_line": 4,
           "end_line": 5,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
       ]
@@ -270,7 +280,7 @@
       "access": "insider",
       "location": "bnd:u5rsisolmh",
       "entry": [
-        "proc:n7h7nmdaxg"
+        "proc:bofldjotbk"
       ],
       "passes_controls": [
         "authn",
@@ -278,10 +288,12 @@
         "rate_limit",
         "input_validation",
         "csrf",
-        "cors"
+        "cors",
+        "security_headers",
+        "audit_log"
       ],
       "goals": [
-        "read stores directly",
+        "read data stores directly",
         "exfiltrate secrets"
       ],
       "evidence": [
@@ -289,7 +301,7 @@
           "path": "compose.yaml",
           "start_line": 2,
           "end_line": 2,
-          "detector": "config@0.3",
+          "detector": "config@0.5",
           "content_hash": "sha256:b6c89748ac042d122e362548aef0dd4dea7e3b69db7d5b850b1e9dc833fdd119"
         }
       ]
@@ -303,7 +315,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "1 http entry points, 1 without a detected authn control",
+      "rationale": "1 entry points are reachable from outside, 1 of them without a detected authentication control",
       "name": "Anonymous HTTP caller",
       "access": "anonymous",
       "entry": [
@@ -318,7 +330,7 @@
           "path": "app/app.py",
           "start_line": 4,
           "end_line": 5,
-          "detector": "py@0.3",
+          "detector": "py@0.5",
           "content_hash": "sha256:f9fe549604af4306b1f5fe2d75acfa0bc9a1f372c2011c7e3e71bed9516d1a94"
         }
       ]
@@ -328,7 +340,7 @@
     {
       "kind": "unknown_attribute",
       "path": "app/app.py",
-      "detail": "Question for the team: is TLS terminated in front of the HTTP listener on port (host='0.0.0.0', port=8000)? Inbound flows are marked encryption=unknown until answered."
+      "detail": "Question: is TLS terminated in front of the HTTP listener of web? Inbound flows are marked encryption=unknown until answered."
     }
   ]
 }

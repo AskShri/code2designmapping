@@ -1,0 +1,21 @@
+%% Control flow: GET /api/articles/feed
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_rf7yoqwjdl as AuthMiddleware
+  participant proc_hdeh5gymne as GET /api/articles/feed handler
+  participant proc_7vcvcbilz6 as article.service
+  participant store_ta2srbelhd as MySQL - article
+  participant store_vpkm3wcqot as MySQL - follows
+  ext_sga4qktkap->>ctl_rf7yoqwjdl: GET /api/articles/feed (authn)
+  opt authn fails
+    ctl_rf7yoqwjdl-->>ext_sga4qktkap: rejected
+  end
+  ctl_rf7yoqwjdl->>proc_hdeh5gymne: dispatch
+  proc_hdeh5gymne->>proc_7vcvcbilz6: call
+  proc_7vcvcbilz6->>store_ta2srbelhd: read
+  store_ta2srbelhd-->>proc_7vcvcbilz6: sql
+  proc_7vcvcbilz6->>store_vpkm3wcqot: read
+  store_vpkm3wcqot-->>proc_7vcvcbilz6: sql
+  proc_7vcvcbilz6->>store_ta2srbelhd: sql
+  proc_hdeh5gymne-->>ext_sga4qktkap: response

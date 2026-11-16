@@ -1,10 +1,10 @@
-%% L1: compose-nginx-wsgi-flask
+%% L1 - compose-nginx-wsgi-flask
 flowchart LR
   subgraph bnd_3i6o6p3j5w["container: flask-app"]
-    proc_dmcbizapmv(["flask-app (+4)"])
+    proc_m66cahthjo(["flask-app (+4)"])
   end
   ext_sga4qktkap["HTTP client"]
-  ext_sga4qktkap -->|"http"| proc_dmcbizapmv
+  ext_sga4qktkap -->|"http"| proc_m66cahthjo
   style bnd_3i6o6p3j5w stroke-dasharray: 8 4,fill:none
   subgraph legend["Legend"]
     lg_e["External entity"]

@@ -1,0 +1,11 @@
+%% Control flow: DELETE /api/tutorials
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_wivfkbrhwv as cors
+  participant proc_gh6kceac37 as DELETE /api/tutorials handler
+  participant store_uujc2npyud as MongoDB - tutorial
+  ext_sga4qktkap->>ctl_wivfkbrhwv: DELETE /api/tutorials (cors)
+  ctl_wivfkbrhwv->>proc_gh6kceac37: dispatch
+  proc_gh6kceac37->>store_uujc2npyud: mongo
+  proc_gh6kceac37-->>ext_sga4qktkap: response

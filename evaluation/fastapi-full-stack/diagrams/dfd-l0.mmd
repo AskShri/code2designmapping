@@ -1,0 +1,25 @@
+%% L0 context - fastapi-full-stack
+flowchart LR
+  subgraph bnd_ufdlxvnxtg["repository: fastapi-full-stack"]
+    proc_phcojwwzyn(["fastapi-full-stack (+5)"])
+  end
+  subgraph bnd_li56z6okmf["container: db"]
+    store_qxjued45lx[("Postgres: item")]
+    store_tvae56uepz[("Postgres: user")]
+  end
+  ext_3nnzcvcul3["Internal HTTP client"]
+  ext_lhns7pymnw["Sentry"]
+  ext_3nnzcvcul3 -->|"http<br/>http: ItemPublic<br/>http: Message<br/>..."| proc_phcojwwzyn
+  proc_phcojwwzyn -->|"https"| ext_lhns7pymnw
+  proc_phcojwwzyn -->|"sql"| store_qxjued45lx
+  proc_phcojwwzyn -->|"sql: Postgres: user record (credential)<br/>sql: from Message (+3) (credential,pii)<br/>sql: from Message (credential)<br/>..."| store_tvae56uepz
+  store_qxjued45lx -->|"sql"| proc_phcojwwzyn
+  store_tvae56uepz -->|"sql: Postgres: user record (credential)"| proc_phcojwwzyn
+  style bnd_ufdlxvnxtg stroke-dasharray: 8 4,fill:none
+  style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

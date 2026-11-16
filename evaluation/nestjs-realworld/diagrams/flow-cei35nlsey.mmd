@@ -1,0 +1,16 @@
+%% Control flow: GET /api/profiles/{username}
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant proc_3vqwiojos5 as GET /api/profiles/{username} handler
+  participant proc_ucrghxbvip as profile.service
+  participant store_mftq653qte as MySQL - user
+  participant store_vpkm3wcqot as MySQL - follows
+  ext_sga4qktkap->>proc_3vqwiojos5: GET /api/profiles/{username}
+  proc_3vqwiojos5->>proc_ucrghxbvip: call
+  proc_ucrghxbvip->>store_mftq653qte: read
+  store_mftq653qte-->>proc_ucrghxbvip: sql - MySQL - user record (credential,pii)
+  proc_ucrghxbvip->>store_vpkm3wcqot: read
+  store_vpkm3wcqot-->>proc_ucrghxbvip: sql
+  proc_ucrghxbvip->>store_vpkm3wcqot: sql
+  proc_3vqwiojos5-->>ext_sga4qktkap: response

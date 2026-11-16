@@ -1,0 +1,3 @@
+[project]
+name = "items-api"
+dependencies = ["fastapi", "sqlmodel", "psycopg"]

@@ -1,38 +1,56 @@
 [
   {
     "severity": "warning",
-    "rule": "unknown-link-attributes",
-    "id": "flow:w7wj2wt3j7",
-    "message": "healthcheck -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:63jvjyxtzn",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /healthz handler"
   },
   {
     "severity": "warning",
-    "rule": "weakness",
-    "id": "wk:fymhbh2k6r",
-    "message": "plaintext_credentials: MYSQL_ROOT_PASSWORD_FILE set in compose service 'db' (compose.yaml:46)"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:nfeelwxs67",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET / handler"
   },
   {
     "severity": "warning",
-    "rule": "weakness",
-    "id": "wk:rcfc5seyhh",
-    "message": "plaintext_credentials: DATABASE_PASSWORD set in compose service 'backend' (compose.yaml:12)"
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:ahcgvkrbcl",
+    "message": "CWE-798 MYSQL_ROOT_PASSWORD_FILE set in compose service 'db' (compose.yaml:46)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:wxk473ikbk",
+    "message": "CWE-798 DATABASE_PASSWORD set in compose service 'backend' (compose.yaml:12)"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:achqengmr6",
+    "id": "proc:elzvu7g7ze",
     "message": "process healthcheck has only outputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:acpcyekf6e",
+    "id": "proc:m5tc4o4g36",
     "message": "process GET /healthz handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:jnzaqgvgi5",
+    "id": "proc:tpyw7yqypy",
     "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:d5vyeunley",
+    "message": "healthcheck -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vfjepiqbxv",
+    "message": "backend -> MySQL: authentication=unknown, encryption=unknown"
   }
 ]

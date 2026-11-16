@@ -1,0 +1,596 @@
+[
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:5ifmitqyd6",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /Error handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:abj4qcroco",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /Account/Login handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:ao7rq6a7zx",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /User/Logout handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:g5r6l7whay",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /Account/Register handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:iutgptj6to",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/catalog-items handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:ja23s5jh35",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/catalog-items/{catalogItemId} handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:jnfsznyene",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /Account/Logout handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:kaf4fztnyp",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /Basket handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:nxjw4ln6za",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /Account/Login handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:qdutr65mdb",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/catalog-brands handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:r7va6rzwc7",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /User handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:rcazgucj2b",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/catalog-types handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:tmbmlsrnf7",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /Basket handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:ttkw4z2k77",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:uyrz2upne3",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /Privacy handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:xjlgmge5q5",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /Account/Register handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:z4vyxti25a",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /Account/Logout handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:zwkv4a6xx2",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /Account/ConfirmEmail handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:4fsyo67qkq",
+    "message": "CWE-798 hard-coded DEFAULT_PASSWORD (src/ApplicationCore/Constants/AuthorizationConstants.cs:8)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:ddjh3wmclj",
+    "message": "CWE-798 SA_PASSWORD set in compose service 'sqlserver' (docker-compose.yml:23)"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-plaintext-credentials",
+    "id": "wk:hp6qyowhox",
+    "message": "CWE-798 hard-coded JWT_SECRET_KEY (src/ApplicationCore/Constants/AuthorizationConstants.cs:11)"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:2euezgev2n",
+    "message": "process POST /Manage/ResetAuthenticator handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:3365wkr4ao",
+    "message": "process GET|POST /Manage/SetPassword handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:3dbq7utb7i",
+    "message": "process GET /Privacy handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:4iyqgtpwqb",
+    "message": "process POST /Manage/Disable2fa handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:4qz3bnxvre",
+    "message": "process POST /Manage/LinkLogin handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:57nvqznxd4",
+    "message": "process POST /User/Logout handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:5m7s6vhuap",
+    "message": "process GET /Admin/EditCatalogItem handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:5tdzqla4kc",
+    "message": "process GET /Basket/Success handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:74uuqb5ioo",
+    "message": "process GET /Manage/Disable2faWarning handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:bisjbn4afj",
+    "message": "process POST /Account/Register handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:c5u2lto5z4",
+    "message": "process CatalogBrandListEndpoint has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ckkglnhocd",
+    "message": "process GET|POST /Manage/MyAccount handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:cmt6ayqtzg",
+    "message": "process GET /Account/ConfirmEmail handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ctmj6oukyf",
+    "message": "process GET /Account/Logout handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:eplq2vns3b",
+    "message": "process CatalogItemGetByIdEndpoint has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ex75xkllj3",
+    "message": "process GET /Manage/ExternalLogins handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jajlzitkqz",
+    "message": "process GET|POST /Manage/ChangePassword handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jh4eoegecy",
+    "message": "process GET /Manage/TwoFactorAuthentication handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jqgxp7chg3",
+    "message": "process POST /Manage/SendVerificationEmail handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:jrx7ospf2z",
+    "message": "process POST /Account/Login handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:mjjlglmn4k",
+    "message": "process GET /Manage/GenerateRecoveryCodesWarning handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:mnaobzic7c",
+    "message": "process GetMyOrdersHandler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ms2wbneyyd",
+    "message": "process GET|POST /Manage/EnableAuthenticator handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:o4sfq7ckd4",
+    "message": "process POST /Manage/GenerateRecoveryCodes handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:oelyvev3kd",
+    "message": "process CustomAuthStateProvider has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:pwvfyyhmrd",
+    "message": "process CatalogItemListPagedEndpoint has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:pxnfjy6hrz",
+    "message": "process GetOrderDetailsHandler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qeuvlfui4m",
+    "message": "process POST /Manage/RemoveLogin handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qg3vnc3stn",
+    "message": "process GET /Order/Detail/{orderId} handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qzrzkgbgeg",
+    "message": "process POST /Account/Logout handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:slik53vlat",
+    "message": "process GET /Error handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:t4tvyosc2i",
+    "message": "process GET /Account/Login handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ubz67uh5sg",
+    "message": "process POST /Admin/EditCatalogItem handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ul5mpfv5b6",
+    "message": "process CatalogLookupDataService has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:uv3bfqa5lq",
+    "message": "process GET /Account/Register handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:vauvrvxnje",
+    "message": "process GET /Manage/ResetAuthenticatorWarning handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:wujdvvaiom",
+    "message": "process HttpService has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:xhe7j23uej",
+    "message": "process CatalogViewModelService has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:xuuxeekazw",
+    "message": "process GET /User handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:y4cumg3gxd",
+    "message": "process GET /Order/MyOrders handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ymranbqcbw",
+    "message": "process GET /Manage/LinkLoginCallback handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:z3zfkfhxp6",
+    "message": "process CatalogTypeListEndpoint has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:ziboti45t6",
+    "message": "process GET /Manage/ShowRecoveryCodes handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:2hodps25vi",
+    "message": "SQL Server: CatalogType -> CatalogContextSeed: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:2s47fico2a",
+    "message": "SQL Server: Basket -> BasketViewModelService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:2yezwlltok",
+    "message": "CustomAuthStateProvider -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:2zqun6dwqe",
+    "message": "SQL Server: CatalogItem -> UpdateCatalogItemEndpoint: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:3r3l43pyzk",
+    "message": "SQL Server: CatalogType -> CatalogTypeListEndpoint: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:4wdvysvgfb",
+    "message": "SQL Server: CatalogBrand -> CatalogBrandListEndpoint: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:5h35bhlha5",
+    "message": "SQL Server: Order -> GetMyOrdersHandler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:63zncfywne",
+    "message": "HttpService -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:b454n2ttkx",
+    "message": "SQL Server: CatalogItem -> CatalogItemViewModelService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:bsjkmhiosl",
+    "message": "SQL Server: CatalogBrand -> CatalogContextSeed: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:ctvffshmyq",
+    "message": "SQL Server: Basket -> BasketService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:egopr3ryww",
+    "message": "SQL Server: CatalogItem -> CreateCatalogItemEndpoint: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:elnorlqteh",
+    "message": "CatalogContextSeed -> SQL Server: CatalogBrand: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:fwbonygwaf",
+    "message": "SQL Server: CatalogType -> CatalogViewModelService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:gumjl5tzzh",
+    "message": "SQL Server: CatalogBrand -> CatalogViewModelService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:hik5w6y4et",
+    "message": "OrderService -> SQL Server: Order: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:k3sg4prbua",
+    "message": "CreateCatalogItemEndpoint -> SQL Server: CatalogItem: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kfbqsxyiks",
+    "message": "SQL Server: CatalogItem -> CatalogItemGetByIdEndpoint: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:kzv6b35n24",
+    "message": "SQL Server: Basket -> OrderService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:niyjhkdmo2",
+    "message": "SQL Server: CatalogItem -> OrderService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:qfdh2pou7g",
+    "message": "UpdateCatalogItemEndpoint -> SQL Server: CatalogItem: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:qonfahvt76",
+    "message": "BasketViewModelService -> SQL Server: Basket: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:rsmmbwtmnc",
+    "message": "CatalogContextSeed -> SQL Server: CatalogItem: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:rxy2kbzfr5",
+    "message": "SQL Server: Order -> GetOrderDetailsHandler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:s4hhexruls",
+    "message": "SQL Server: CatalogItem -> CatalogItemListPagedEndpoint: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:sgggvevtug",
+    "message": "CatalogContextSeed -> SQL Server: CatalogType: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:swje3ojeib",
+    "message": "SQL Server: CatalogItem -> CatalogViewModelService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:uwltmrlayj",
+    "message": "SQL Server: CatalogItem -> DeleteCatalogItemEndpoint: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:vjp2gutjyd",
+    "message": "BasketService -> SQL Server: Basket: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:w2jlfauuup",
+    "message": "SQL Server: CatalogItem -> POST /Basket handler: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:x5k44ycjcr",
+    "message": "CatalogLookupDataService -> Unresolved HTTP target: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xaejwr44g6",
+    "message": "SQL Server: CatalogItem -> CatalogContextSeed: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:z2ywi577up",
+    "message": "CatalogItemViewModelService -> SQL Server: CatalogItem: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:z7d5u3edgr",
+    "message": "SQL Server: CatalogItem -> BasketViewModelService: authentication=unknown, encryption=unknown"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:zwnjumekym",
+    "message": "DeleteCatalogItemEndpoint -> SQL Server: CatalogItem: authentication=unknown, encryption=unknown"
+  }
+]

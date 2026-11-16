@@ -1,0 +1,14 @@
+%% L2 - app
+flowchart LR
+  subgraph bnd_ycbot7mf4h["container: app"]
+    proc_qvq3aucaup(["GET / handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_qvq3aucaup
+  style bnd_ycbot7mf4h stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

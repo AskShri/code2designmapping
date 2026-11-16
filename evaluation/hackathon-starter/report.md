@@ -1,109 +1,198 @@
 # code2design report: hackathon-starter
 
-Commit `fb53b17c28c9`, tool 0.3.0-prototype, 1.3s.
+Commit `fb53b17c28c9`, code2design 0.5.0, IR 0.2.
 
 ## Coverage
 
 | Language | Files parsed |
 |---|---|
 | javascript | 56 |
-| (test files skipped) | 36 |
+| (test files, not modelled) | 36 |
 
-Detectors that ran: config@0.3, js@0.3
+Detectors: config@0.5, js@0.5, synth@0.5.0
 
-Facts: app_entry 1, config_value 34, control 69, dependencies 1, entry_point 101, listener 1, module 1, outbound_call 88, schema 67, store_access 87
+Facts: app 1, config_value 24, control 63, dependencies 1, entry_point 90, listener 1, module 1, outbound_call 84, router 1, schema 65, store_access 70, weakness 7
 
 ## Model
 
 | Collection | Count |
 |---|---|
-| processes | 118 |
-| entities | 28 |
-| stores | 2 |
+| processes | 107 |
+| entities | 27 |
+| stores | 3 |
 | boundaries | 1 |
-| flows | 262 |
-| entry_points | 101 |
+| flows | 213 |
+| entry_points | 90 |
 | controls | 12 |
-| weaknesses | 88 |
-| schemas | 10 |
-| assets | 21 |
-| threat_agents | 30 |
-| gaps | 24 |
+| weaknesses | 63 |
+| schemas | 28 |
+| assets | 23 |
+| threat_agents | 4 |
+| gaps | 21 |
 
 ## Attack surface
 
-Entry points are where a threat agent first touches the system; exit points are where data leaves it; dependencies are code the team did not write (Black Duck's dependency analysis).
+Entry points are where a threat agent first touches the system; exit points are where data leaves it; dependencies are code the team did not write.
 
-- **http**: 101 entry points, 70 without a detected authn control
+- **http**: 90 entry points, 56 without a detected authentication control (0 of them published outside the deployment)
 - **listeners**: app.js port app.get('port')
-- **exit points carrying sensitive data**: none detected
-- **third-party dependencies**: 62 declared in package.json; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodeled attack surface
+- **exit points carrying sensitive data**: SMTP mail relay, Stripe API, Unresolved HTTP target
+- **third-party dependencies**: 62 declared in package.json; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodelled attack surface
+- **weaknesses**: 6 high, 1 medium, 56 info (see stride-table.md and findings.sarif)
 
 ### Entry points
 
-| Entry point | Controls |
-|---|---|
-| POST /ai/ai-agent/reset | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /ai/llm-camera | limiter, lusca, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/github | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/google/callback | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger |
-| GET /api/lob | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/giphy | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/google-maps | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /ai/ai-agent/chat | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/here-maps | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/github/callback | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger |
-| POST /reset/:token | limiter, lusca.xframe, loginLimiter, lusca.xssProtection, morganLogger |
-| POST /login | limiter, lusca.xframe, loginLimiter, lusca.xssProtection, morganLogger |
-| POST /signup | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /login/webauthn-start | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/x | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /signup | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/discord | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /login/webauthn-verify | limiter, lusca.xframe, loginLimiter, lusca.xssProtection, morganLogger |
-| POST /forgot | limiter, lusca.xframe, strictLimiter, lusca.xssProtection, morganLogger |
-| GET /logout | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/steam | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/nyt | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/github | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /login/webauthn-start | limiter, lusca.xframe, loginLimiter, lusca.xssProtection, morganLogger |
-| GET /login | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/quickbooks | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/foursquare | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/discord/callback | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger |
-| GET /account/unlink/:provider | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /account/2fa/email/remove | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /account/2fa/totp/setup | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/microsoft | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /account/webauthn/register | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /account/verify | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /account/logout-everywhere | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/paypal/cancel | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /contact | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/failure | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /ai/rag | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /ai/rag/ask | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/scraping | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/twitch | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/facebook/callback | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger |
-| GET /api/facebook | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /account/webauthn/remove | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/quickbooks | passportConfig.isAuthenticated, passportConfig.isAuthorized, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/twitch | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /ai/ai-agent | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /login/2fa | login2FALimiter, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /login/2fa/totp | login2FALimiter, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/chart | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/linkedin | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/twilio | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /auth/linkedin/callback | limiter, lusca.xframe, passport.authenticate, lusca.xssProtection, morganLogger |
-| GET /auth/tumblr/callback | limiter, lusca.xframe, lusca.xssProtection, passport.authorize, morganLogger |
-| POST /login/2fa | login2FALimiter, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /account/2fa/totp/setup | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| POST /account/delete | passportConfig.isAuthenticated, limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| GET /api/wikipedia | limiter, lusca.xframe, lusca.xssProtection, morganLogger |
-| ... 41 more | |
+| Entry point | Exposure | Controls (registration order) | Reaches |
+|---|---|---|---|
+| POST /login | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, loginLimiter | SMTP mail relay, MongoDB: User |
+| GET /api/nyt | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | www.alphavantage.co |
+| POST /account/2fa/email/enable | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | MongoDB: User |
+| POST /ai/rag/ingest | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| POST /ai/ai-agent/reset | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /auth/discord/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authenticate | - |
+| POST /login/2fa/totp | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, login2FALimiter | MongoDB: User |
+| POST /account/profile | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | MongoDB: User |
+| POST /forgot | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, strictLimiter | SMTP mail relay, MongoDB: User |
+| GET /api/wikipedia | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | www.alphavantage.co |
+| GET /auth/twitch/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authenticate | - |
+| GET /ai/llm-classifier | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| POST /account/password | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | MongoDB: User |
+| GET /forgot | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| POST /ai/llm-classifier | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | Groq API |
+| GET /auth/github/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authenticate | - |
+| GET /logout | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /account/webauthn/register | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| POST /signup | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | SMTP mail relay, MongoDB: User |
+| GET /api/paypal/success | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | api.sandbox.paypal.com |
+| GET /api/quickbooks | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated, passportConfig.isAuthorized | www.alphavantage.co |
+| GET /auth/x/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authenticate | - |
+| POST /reset/{token} | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, loginLimiter | SMTP mail relay, MongoDB: User |
+| GET /api/facebook | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated, passportConfig.isAuthorized | graph.facebook.com |
+| GET /api/chart | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | www.alphavantage.co |
+| POST /api/upload | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, strictLimiter, lusca | - |
+| POST /account/2fa/totp/setup | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | MongoDB: User |
+| POST /account/2fa/email/remove | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | MongoDB: User |
+| POST /account/logout-everywhere | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | - |
+| GET /api/paypal/cancel | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /auth/tumblr/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authorize | - |
+| POST /login/2fa | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, login2FALimiter | MongoDB: User |
+| GET /api/foursquare | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | www.alphavantage.co |
+| POST /login/webauthn-verify | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, loginLimiter | MongoDB: User |
+| GET /auth/microsoft/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authenticate | - |
+| GET /contact | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, strictLimiter | - |
+| GET /api/tumblr | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated, passportConfig.isAuthorized | api.tumblr.com, Unresolved HTTP target |
+| GET /api/twilio | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /api/pubchem | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | pubchem.ncbi.nlm.nih.gov |
+| GET /api/scraping | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | news.ycombinator.com |
+| GET / | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| POST /account/webauthn/verify | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | - |
+| GET /api/upload | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, lusca | - |
+| GET /ai | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /auth/linkedin/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authenticate | - |
+| GET /api/google/sheets | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated, passportConfig.isAuthorized | Google Sheets API, Google Drive API |
+| GET /login/verify/{token} | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, loginLimiter | MongoDB: User |
+| GET /api/twitch | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated, passportConfig.isAuthorized | api.twitch.tv |
+| GET /signup | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /account | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | - |
+| GET /account/2fa/totp/setup | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | MongoDB: User |
+| GET /ai/llm-camera | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, lusca | - |
+| GET /auth/failure | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /account/verify/{token} | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | - |
+| POST /contact | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | SMTP mail relay, Unresolved HTTP target |
+| GET /ai/ai-agent | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| POST /ai/llm-camera | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, strictLimiter, lusca | Groq API |
+| GET /api/steam | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated, passportConfig.isAuthorized | www.alphavantage.co, Unresolved HTTP target |
+| GET /login/2fa | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, login2FALimiter | SMTP mail relay, MongoDB: User |
+| POST /account/webauthn/remove | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | - |
+| GET /api/google-maps | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| POST /api/stripe | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | Stripe API |
+| POST /login/2fa/resend | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, strictLimiter | SMTP mail relay, MongoDB: User |
+| GET /api/lastfm | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /api/lob | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | Lob API, Unresolved HTTP target |
+| GET /api/google/drive | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated, passportConfig.isAuthorized | Google Drive API |
+| GET /login/webauthn-start | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| POST /ai/ai-agent/chat | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /api/paypal | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | api.sandbox.paypal.com |
+| GET /auth/steam/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authorize | - |
+| GET /reset/{token} | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | MongoDB: User |
+| GET /api | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /api/giphy | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | www.alphavantage.co |
+| GET /auth/facebook/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authenticate | - |
+| POST /ai/rag/ask | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | Groq API, MongoDB (collection unresolved) |
+| GET /api/stripe | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /account/unlink/{provider} | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passportConfig.isAuthenticated | Unresolved HTTP target, MongoDB: User |
+| GET /api/here-maps | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection | - |
+| GET /auth/quickbooks/callback | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, passport.authorize | - |
+| GET /login/2fa/totp | unknown | morganLogger, limiter, lusca.xframe, lusca.xssProtection, login2FALimiter | MongoDB: User |
+| ... 10 more | | | |
+
+### Weaknesses
+
+| Severity | CWE | Weakness | Location |
+|---|---|---|---|
+| high | CWE-798 | hard-coded tokenURL literal | config/passport.js:703 |
+| high | CWE-798 | hard-coded tokenURL literal | config/passport.js:730 |
+| high | CWE-798 | hard-coded accessTokenURL literal | config/passport.js:582 |
+| high | CWE-798 | hard-coded requestTokenURL literal | config/passport.js:581 |
+| high | CWE-798 | hard-coded tokenURL literal | config/passport.js:487 |
+| high | CWE-798 | hard-coded tokenURL literal | config/passport.js:434 |
+| medium | CWE-319 | plain http:// to api.steampowered.com | config/passport.js:663 |
+| info | CWE-306 | no authentication control detected on GET /auth/failure | app.js:345 |
+| info | CWE-306 | no authentication control detected on POST /forgot | app.js:265 |
+| info | CWE-306 | no authentication control detected on GET /login | app.js:252 |
+| info | CWE-306 | no authentication control detected on GET /forgot | app.js:264 |
+| info | CWE-306 | no authentication control detected on POST /ai/llm-classifier | app.js:328 |
+| info | CWE-306 | no authentication control detected on GET /api/nyt | app.js:295 |
+| info | CWE-306 | no authentication control detected on GET /api/lastfm | app.js:294 |
+| info | CWE-306 | no authentication control detected on GET /login/webauthn-start | app.js:261 |
+| info | CWE-306 | no authentication control detected on GET /signup | app.js:268 |
+| info | CWE-306 | no authentication control detected on POST /reset/{token} | app.js:267 |
+| info | CWE-306 | no authentication control detected on GET /api/lob | app.js:310 |
+| info | CWE-306 | no authentication control detected on POST /login/2fa/totp | app.js:259 |
+| info | CWE-306 | no authentication control detected on POST /contact | app.js:271 |
+| info | CWE-306 | no authentication control detected on POST /ai/rag/ingest | app.js:332 |
+| info | CWE-306 | no authentication control detected on GET /ai | app.js:326 |
+| info | CWE-306 | no authentication control detected on GET /ai/llm-classifier | app.js:327 |
+| info | CWE-306 | no authentication control detected on GET /api/google-maps | app.js:314 |
+| info | CWE-306 | no authentication control detected on GET /api/paypal/cancel | app.js:309 |
+| info | CWE-306 | no authentication control detected on GET /contact | app.js:270 |
+| info | CWE-306 | no authentication control detected on GET /api/twilio | app.js:300 |
+| info | CWE-306 | no authentication control detected on GET /login/2fa | app.js:255 |
+| info | CWE-306 | no authentication control detected on GET /api/paypal | app.js:307 |
+| info | CWE-306 | no authentication control detected on POST /api/upload | app.js:312 |
+| info | CWE-306 | no authentication control detected on GET / | app.js:251 |
+| info | CWE-306 | no authentication control detected on GET /api/giphy | app.js:321 |
+| info | CWE-306 | no authentication control detected on POST /login/webauthn-verify | app.js:262 |
+| info | CWE-306 | no authentication control detected on GET /api | app.js:293 |
+| info | CWE-306 | no authentication control detected on GET /logout | app.js:263 |
+| info | CWE-306 | no authentication control detected on GET /ai/ai-agent | app.js:334 |
+| info | CWE-306 | no authentication control detected on POST /signup | app.js:269 |
+| info | CWE-306 | no authentication control detected on GET /ai/llm-camera | app.js:329 |
+| info | CWE-306 | no authentication control detected on GET /api/pubchem | app.js:319 |
+| info | CWE-306 | no authentication control detected on GET /api/foursquare | app.js:302 |
+| info | CWE-306 | no authentication control detected on POST /login | app.js:253 |
+| info | CWE-306 | no authentication control detected on POST /ai/llm-camera | app.js:330 |
+| info | CWE-306 | no authentication control detected on GET /api/scraping | app.js:299 |
+| info | CWE-306 | no authentication control detected on GET /reset/{token} | app.js:266 |
+| info | CWE-306 | no authentication control detected on POST /api/stripe | app.js:298 |
+| info | CWE-306 | no authentication control detected on GET /login/2fa/totp | app.js:258 |
+| info | CWE-306 | no authentication control detected on GET /account/webauthn/register | app.js:286 |
+| info | CWE-306 | no authentication control detected on GET /ai/rag | app.js:331 |
+| info | CWE-306 | no authentication control detected on GET /api/upload | app.js:311 |
+| info | CWE-306 | no authentication control detected on GET /api/stripe | app.js:297 |
+| info | CWE-306 | no authentication control detected on GET /api/here-maps | app.js:313 |
+| info | CWE-306 | no authentication control detected on POST /ai/rag/ask | app.js:333 |
+| info | CWE-306 | no authentication control detected on GET /api/wikipedia | app.js:320 |
+| info | CWE-306 | no authentication control detected on GET /api/paypal/success | app.js:308 |
+| info | CWE-306 | no authentication control detected on POST /api/twilio | app.js:301 |
+| info | CWE-306 | no authentication control detected on GET /login/verify/{token} | app.js:254 |
+| info | CWE-306 | no authentication control detected on POST /login/2fa | app.js:256 |
+| info | CWE-306 | no authentication control detected on GET /api/chart | app.js:316 |
+| info | CWE-306 | no authentication control detected on POST /ai/ai-agent/chat | app.js:335 |
+| info | CWE-306 | no authentication control detected on POST /login/2fa/resend | app.js:257 |
+| info | CWE-306 | no authentication control detected on POST /ai/ai-agent/reset | app.js:336 |
+| info | CWE-306 | no authentication control detected on POST /login/webauthn-start | app.js:260 |
+| info | CWE-306 | no authentication control detected on GET /api/github | app.js:305 |
 
 ### External entities
 
@@ -111,11 +200,10 @@ Entry points are where a threat agent first touches the system; exit points are 
 |---|---|---|
 | Google Sheets API | system | sheets.googleapis.com |
 | Lob API | system | api.lob.com |
-| Oauth1 identity provider | system | - |
 | news.ycombinator.com | system | news.ycombinator.com |
 | api.linkedin.com | system | api.linkedin.com |
-| api.groq.com | system | api.groq.com |
 | graph.facebook.com | system | graph.facebook.com |
+| www.alphavantage.co | system | www.alphavantage.co |
 | Steam Openid identity provider | system | - |
 | api.tumblr.com | system | api.tumblr.com |
 | Last.fm API | system | - |
@@ -129,6 +217,7 @@ Entry points are where a threat agent first touches the system; exit points are 
 | api.twitch.tv | system | api.twitch.tv |
 | graph.microsoft.com | system | graph.microsoft.com |
 | Google Drive API | system | www.googleapis.com |
+| api.steampowered.com | system | api.steampowered.com |
 | HTTP client | system | - |
 | Facebook identity provider | system | - |
 | Stripe API | system | api.stripe.com |
@@ -136,156 +225,132 @@ Entry points are where a threat agent first touches the system; exit points are 
 | pubchem.ncbi.nlm.nih.gov | system | pubchem.ncbi.nlm.nih.gov |
 | api.sandbox.paypal.com | system | api.sandbox.paypal.com |
 | Hugging Face Inference API | llm_api | api-inference.huggingface.co |
-| Oauth2 Refresh identity provider | system | - |
 
 ### Data stores
 
-| Store | Technology | Data classes | Boundary |
-|---|---|---|---|
-| MongoDB (collection unresolved) | mongodb | - | - |
-| MongoDB: User | mongodb | - | - |
+| Store | Technology | Data classes | Encryption at rest | Boundary |
+|---|---|---|---|---|
+| MongoDB (collection unresolved) | mongodb | - | unknown | - |
+| MongoDB: Session | mongodb | - | unknown | - |
+| MongoDB: User | mongodb | credential, pii | unknown | - |
 
 ## Lint
 
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /reset/:token handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /login/2fa/resend handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /reset/:token handler -> SMTP mail relay: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /account/password handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /login/2fa handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /login/webauthn-verify handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /login/webauthn-verify handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/pubchem handler -> pubchem.ncbi.nlm.nih.gov: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` ai -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /account/delete handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> GET /login/verify/:token handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/nyt handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/tumblr handler -> api.tumblr.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` ai-agent -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` api -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /account/2fa/totp/setup handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/2fa/email/remove handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` contact -> SMTP mail relay: authentication=credentials, encryption=unknown
-- **warning** `unknown-link-attributes` POST /login handler -> SMTP mail relay: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> webauthn: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/profile handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /account/profile handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /forgot handler -> SMTP mail relay: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /forgot handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/2fa/totp/remove handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` passport -> api.linkedin.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` token-revocation -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /signup handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` contact -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /login/2fa/totp handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/quickbooks handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` passport -> graph.microsoft.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` MongoDB: User -> GET /reset/:token handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` app -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB (collection unresolved) -> ai: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/lob handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/2fa/totp/setup handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /signup handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/tumblr handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> GET /account/2fa/totp/setup handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> GET /login/2fa handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` passport -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB (collection unresolved) -> User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` user -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /account/2fa/email/enable handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/paypal/success handler -> api.sandbox.paypal.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` MongoDB: User -> user: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> GET /login/2fa/totp handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/password handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` api -> api.sandbox.paypal.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` POST /login/2fa handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /account/verify handler -> SMTP mail relay: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> passport: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` nodemailer -> SMTP mail relay: authentication=credentials, encryption=unknown
-- **warning** `unknown-link-attributes` POST /account/webauthn/register handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` passport -> discord.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` GET /account/unlink/:provider handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` passport -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` user -> SMTP mail relay: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /login handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /reset/:token handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /login/2fa handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /ai/rag handler -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /account/2fa/totp/remove handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> GET /account/unlink/:provider handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/scraping handler -> news.ycombinator.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` POST /account/2fa/email/remove handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /login/verify/:token handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/chart handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /account/2fa/email/enable handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` api -> api.twitch.tv: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` ai -> api.groq.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` MongoDB (collection unresolved) -> ai-agent: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` POST /forgot handler -> MongoDB: User: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/paypal handler -> api.sandbox.paypal.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /login/2fa/resend handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/giphy handler -> Unresolved HTTP target: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` MongoDB: User -> POST /login handler: authentication=unknown, encryption=unknown
-- **warning** `unknown-link-attributes` GET /api/facebook handler -> graph.facebook.com: authentication=unknown, encryption=tls
-- **warning** `unknown-link-attributes` POST /ai/rag/ingest handler -> MongoDB (collection unresolved): authentication=unknown, encryption=unknown
-- ... 34 more
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/lob handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/here-maps handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /contact handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/giphy handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/stripe handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /login/2fa/totp handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /ai/llm-classifier handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/paypal handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/google-maps handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /login/webauthn-start handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /login/verify/{token} handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /ai/llm-classifier handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/chart handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/foursquare handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/twilio handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET / handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /login/2fa handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/paypal/cancel handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /reset/{token} handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /ai/llm-camera handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /api/upload handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /ai/llm-camera handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /login/2fa/resend handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /forgot handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /signup handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /contact handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /auth/failure handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /api/twilio handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/github handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /signup handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/paypal/success handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/lastfm handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /login/webauthn-verify handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /ai/rag/ingest handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /ai/rag handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /reset/{token} handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /forgot handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/pubchem handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/nyt handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/upload handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /ai/rag/ask handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /ai handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /account/webauthn/register handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /login/2fa/totp handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /login/2fa handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/wikipedia handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /api/stripe handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /ai/ai-agent handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /login handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /login/webauthn-start handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /ai/ai-agent/chat handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /logout handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/scraping handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /login handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /ai/ai-agent/reset handler
+- **warning** `weakness-plaintext-credentials` CWE-798 hard-coded tokenURL literal (config/passport.js:703)
+- **warning** `weakness-plaintext-credentials` CWE-798 hard-coded tokenURL literal (config/passport.js:730)
+- **warning** `weakness-plaintext-credentials` CWE-798 hard-coded accessTokenURL literal (config/passport.js:582)
+- **warning** `weakness-plaintext-credentials` CWE-798 hard-coded requestTokenURL literal (config/passport.js:581)
+- **warning** `weakness-plaintext-credentials` CWE-798 hard-coded tokenURL literal (config/passport.js:487)
+- **warning** `weakness-plaintext-credentials` CWE-798 hard-coded tokenURL literal (config/passport.js:434)
+- **warning** `weakness-unencrypted-transport` CWE-319 plain http:// to api.steampowered.com (config/passport.js:663)
+- **info** `black-hole-or-miracle` process GET /api/google-maps handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /api handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /account/verify/{token} handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /logout handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /auth/tumblr/callback handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /api/stripe handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /api/github handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /login handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process POST /login/2fa/totp handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process app has only outputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /account handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /ai/ai-agent handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /ai/llm-camera handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /auth/microsoft/callback handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /auth/linkedin/callback handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /ai handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /api/lastfm handler has only inputs; a detector may be missing
+- ... 109 more
 
 ## Inferred elements (dashed in diagrams)
 
-- repository: hackathon-starter (confidence 0.5): No container or IaC boundary covers these processes; the repository itself is used as the trust boundary
-- Compromised third party: Oauth2 Refresh identity provider (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: discord.com (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Oauth1 identity provider (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: GitHub API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Twilio API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Last.fm API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: pubchem.ncbi.nlm.nih.gov (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Groq API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Google Oauth identity provider (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: news.ycombinator.com (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: api.sandbox.paypal.com (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Google Sheets API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: api.groq.com (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: graph.microsoft.com (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: api.tumblr.com (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Anonymous HTTP caller (confidence 0.9): 101 http entry points, 70 without a detected authn control
-- Compromised third party: Steam Openid identity provider (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: api.linkedin.com (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Lob API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Unresolved HTTP target (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Facebook identity provider (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Stripe API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Google Drive API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Authenticated HTTP caller (confidence 0.9): authn controls exist on some entry points; a valid credential holder is a distinct agent
+- repository: hackathon-starter (confidence 0.5): no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary
+- passport -> Facebook identity provider (confidence 0.6): the Facebook identity provider SDK is imported in config/passport.js but no call site could be resolved
+- passport -> Google Oauth identity provider (confidence 0.6): the Google Oauth identity provider SDK is imported in config/passport.js but no call site could be resolved
+- api -> GitHub API (confidence 0.6): the GitHub API SDK is imported in controllers/api.js but no call site could be resolved
+- passport -> Github2 identity provider (confidence 0.6): the Github2 identity provider SDK is imported in config/passport.js but no call site could be resolved
+- passport -> Steam Openid identity provider (confidence 0.6): the Steam Openid identity provider SDK is imported in config/passport.js but no call site could be resolved
+- Compromised external service (confidence 0.7): each of the 26 outbound dependencies is a potentially hostile responder
+- Anonymous HTTP caller (confidence 0.9): 90 entry points are reachable from outside, 56 of them without a detected authentication control
+- Authenticated HTTP caller (confidence 0.9): 34 entry points require authentication; a holder of valid credentials is a distinct agent
 - Insider with access to repository: hackathon-starter (confidence 0.8): one insider agent per trust boundary, placed inside it
-- Compromised third party: graph.facebook.com (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Github2 identity provider (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: SMTP mail relay (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: api.twitch.tv (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
-- Compromised third party: Hugging Face Inference API (confidence 0.7): every outbound dependency is modeled as a potentially hostile responder
 
 ## Gaps and questions
 
-- `unresolved` config/passport.js:603: outbound call target is a variable:userInfoURL expression; host not resolvable statically
-- `unresolved` config/passport.js:663: outbound call target is a variable:profileURL expression; host not resolvable statically
-- `unresolved` config/token-revocation.js:110: outbound call target is a variable:finalURL expression; host not resolvable statically
-- `unresolved` controllers/api.js:41: outbound call target is a variable:url expression; host not resolvable statically
-- `unresolved` controllers/api.js:384: outbound call target is a variable:recentGamesURL expression; host not resolvable statically
-- `unresolved` controllers/api.js:399: outbound call target is a variable:achievementsURL expression; host not resolvable statically
-- `unresolved` controllers/api.js:1090: outbound call target is a variable:urlToCheck expression; host not resolvable statically
-- `unresolved` app.js:150: mongodb access through a document or connection variable whose collection could not be resolved; shown as a separate store
-- `no_boundary_info` : No compose, Dockerfile or Kubernetes manifests found; the repository is the only trust boundary.
-- `unknown_attribute` app.js: Question for the team: is TLS terminated in front of the HTTP listener on port app.get('port')? Inbound flows are marked encryption=unknown until answered.
-- `unknown_attribute` app.js:150: Question for the team: how is the link to MongoDB (collection unresolved) authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
-- `unknown_attribute` config/passport.js:23: Question for the team: how is the link to MongoDB: User authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
-- `unknown_attribute` config/nodemailer.js:17: Question for the team: how is the link to SMTP mail relay authenticated and is it encrypted in transit? (authentication=credentials, encryption=unknown)
-- `unknown_attribute` config/passport.js:446: Question for the team: how is the link to api.linkedin.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` config/passport.js:501: Question for the team: how is the link to graph.microsoft.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` config/passport.js:603: Question for the team: how is the link to Unresolved HTTP target authenticated and is it encrypted in transit? (authentication=unknown, encryption=unknown)
-- `unknown_attribute` config/passport.js:742: Question for the team: how is the link to discord.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` controllers/ai.js:654: Question for the team: how is the link to api.groq.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` controllers/api.js:97: Question for the team: how is the link to api.tumblr.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` controllers/api.js:121: Question for the team: how is the link to graph.facebook.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` controllers/api.js:142: Question for the team: how is the link to news.ycombinator.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` controllers/api.js:589: Question for the team: how is the link to api.twitch.tv authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` controllers/api.js:913: Question for the team: how is the link to api.sandbox.paypal.com authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
-- `unknown_attribute` controllers/api.js:1243: Question for the team: how is the link to pubchem.ncbi.nlm.nih.gov authenticated and is it encrypted in transit? (authentication=unknown, encryption=tls)
+- `unresolved` app.js:150: a mongodb access could not be traced to a collection; it is shown as a separate store
+- `unresolved` config/passport.js:603: the target of an outbound call is built from a variable; the host is not resolvable statically
+- `no_boundary_info` : no docker compose, Dockerfile, Kubernetes or Terraform descriptors were found; the repository is the only trust boundary
+- `unresolved` models/Session.js:33: MongoDB: Session is declared but no code access to it was detected (unsupported language, dynamic client, or a missing recognizer)
+- `unknown_attribute` app.js: Question: is TLS terminated in front of the HTTP listener of hackathon-starter? Inbound flows are marked encryption=unknown until answered.
+- `unknown_attribute` controllers/user.js:725: Question: what is the authentication and encryption of the link to MongoDB: User?
+- `unknown_attribute` controllers/api.js:88: Question: what is the authentication and encryption of the link to Unresolved HTTP target?
+- `unknown_attribute` config/nodemailer.js:17: Question: what is the encryption of the link to SMTP mail relay?
+- `unknown_attribute` controllers/ai-agent.js:184: Question: what is the authentication and encryption of the link to MongoDB (collection unresolved)?
+- `unknown_attribute` config/passport.js:742: Question: what is the authentication of the link to discord.com?
+- `unknown_attribute` controllers/api.js:241: Question: what is the authentication of the link to www.alphavantage.co?
+- `unknown_attribute` controllers/api.js:956: Question: what is the authentication of the link to api.sandbox.paypal.com?
+- `unknown_attribute` config/passport.js:501: Question: what is the authentication of the link to graph.microsoft.com?
+- `unknown_attribute` config/passport.js:663: Question: what is the authentication of the link to api.steampowered.com?
+- `unknown_attribute` controllers/api.js:142: Question: what is the authentication of the link to news.ycombinator.com?
+- `unknown_attribute` controllers/api.js:121: Question: what is the authentication of the link to graph.facebook.com?
+- `unknown_attribute` controllers/api.js:589: Question: what is the authentication of the link to api.twitch.tv?
+- `unknown_attribute` controllers/api.js:1243: Question: what is the authentication of the link to pubchem.ncbi.nlm.nih.gov?
+- `unknown_attribute` config/passport.js:446: Question: what is the authentication of the link to api.linkedin.com?
+- `unknown_attribute` controllers/api.js:97: Question: what is the authentication of the link to api.tumblr.com?
+- `unknown_attribute` models/User.js:287: Question: is MongoDB: User encrypted at rest? It holds credential, pii.

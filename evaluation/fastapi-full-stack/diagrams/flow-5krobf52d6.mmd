@@ -1,0 +1,17 @@
+%% Control flow: DELETE /api/v1/items/{id}
+sequenceDiagram
+  autonumber
+  participant ctl_wd5aciiryx as CORSMiddleware
+  participant ctl_7iwajdwngb as Depends(get_current_user)
+  participant proc_woidodah2j as DELETE /api/v1/items/{id} handler
+  participant proc_y2oca677vj as deps
+  participant store_qxjued45lx as Postgres - item
+  participant store_tvae56uepz as Postgres - user
+  ctl_wd5aciiryx->>ctl_7iwajdwngb: DELETE /api/v1/items/{id} (authn)
+  ctl_7iwajdwngb->>proc_woidodah2j: dispatch
+  proc_woidodah2j->>proc_y2oca677vj: call
+  proc_woidodah2j->>store_qxjued45lx: read
+  store_qxjued45lx-->>proc_woidodah2j: sql
+  proc_woidodah2j->>store_qxjued45lx: sql
+  proc_y2oca677vj->>store_tvae56uepz: read
+  store_tvae56uepz-->>proc_y2oca677vj: sql - Postgres - user record (credential)

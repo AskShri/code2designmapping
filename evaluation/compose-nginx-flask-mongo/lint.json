@@ -1,14 +1,32 @@
 [
   {
     "severity": "warning",
-    "rule": "uncontrolled-crossing",
-    "id": "flow:33b7fzoxuw",
-    "message": "inbound flow crosses a boundary with no control: HTTP client -> GET / handler"
+    "rule": "unauthenticated-crossing",
+    "id": "flow:7dq5gzijom",
+    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> GET / handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "weakness-debug-mode-enabled",
+    "id": "wk:vup3gdoru6",
+    "message": "CWE-489 debug=True on the application server (flask/server.py:21)"
   },
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
-    "id": "proc:kvemttgubl",
+    "id": "proc:7zzk7vgnym",
+    "message": "process flask has only outputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:tpyw7yqypy",
     "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "unknown-link-attributes",
+    "id": "flow:xz7wddc2cz",
+    "message": "flask -> MongoDB: authentication=unknown, encryption=unknown"
   }
 ]

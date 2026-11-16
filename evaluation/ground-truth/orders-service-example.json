@@ -1,3 +1,40 @@
-{"entry_points": ["POST /orders", "GET /orders/:param"], "infrastructure": [],
- "stores": ["postgres:orders", "redis:order:*"], "entities": ["Stripe"],
- "edges": [["POST /orders", "postgres:orders"], ["POST /orders", "redis:order:*"], ["POST /orders", "Stripe"], ["GET /orders/:param", "postgres:orders"], ["GET /orders/:param", "redis:order:*"]]}
+{
+ "entry_points": [
+  "POST /orders",
+  "GET /orders/:param"
+ ],
+ "infrastructure": [],
+ "stores": [
+  "postgres:orders",
+  "redis:order:*"
+ ],
+ "entities": [
+  "Stripe"
+ ],
+ "edges": [
+  [
+   "POST /orders",
+   "postgres:orders"
+  ],
+  [
+   "POST /orders",
+   "redis:order:*"
+  ],
+  [
+   "POST /orders",
+   "Stripe"
+  ],
+  [
+   "GET /orders/:param",
+   "postgres:orders"
+  ],
+  [
+   "GET /orders/:param",
+   "redis:order:*"
+  ]
+ ],
+ "authenticated": [
+  "POST /orders",
+  "GET /orders/:param"
+ ]
+}

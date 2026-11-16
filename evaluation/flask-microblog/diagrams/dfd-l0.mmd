@@ -1,0 +1,41 @@
+%% L0 context - flask-microblog
+flowchart LR
+  subgraph bnd_ycbot7mf4h["container: app"]
+    proc_kunndnkw5q(["flask-microblog (+3)"])
+  end
+  ext_77pfc4anjp["api.cognitive.microsofttranslator.com"]
+  ext_l2biskukaq["SMTP mail relay"]
+  ext_sga4qktkap["HTTP client"]
+  store_5tztetcxc7[("Postgres: Task")]
+  store_ctwgzvsuvh[("Postgres (table unresolved)")]
+  store_ec5chz4iwz[("Postgres: Post")]
+  store_fngxh5bbyu[("Redis: rq:*")]
+  store_i7jsjm575z[("Elasticsearch")]
+  store_kuwedioo2t[("Postgres: Notification")]
+  store_tvae56uepz[("Postgres: User")]
+  store_ywqpbbusfu[("Postgres: Message")]
+  ext_sga4qktkap -->|"http<br/>http: EditProfileForm (pii)<br/>http: EmptyForm<br/>..."| proc_kunndnkw5q
+  proc_kunndnkw5q -->|"https"| ext_77pfc4anjp
+  proc_kunndnkw5q -->|"smtp<br/>smtp: from ResetPasswordRequestForm (pii)"| ext_l2biskukaq
+  proc_kunndnkw5q -->|"sql"| store_5tztetcxc7
+  proc_kunndnkw5q -->|"sql"| store_ctwgzvsuvh
+  proc_kunndnkw5q -->|"sql"| store_ec5chz4iwz
+  proc_kunndnkw5q -->|"redis"| store_fngxh5bbyu
+  proc_kunndnkw5q -->|"https"| store_i7jsjm575z
+  proc_kunndnkw5q -->|"sql"| store_kuwedioo2t
+  proc_kunndnkw5q -->|"sql: Postgres: User record (credential,pii)<br/>sql: from RegistrationForm (credential,pii)"| store_tvae56uepz
+  proc_kunndnkw5q -->|"sql"| store_ywqpbbusfu
+  store_5tztetcxc7 -->|"sql"| proc_kunndnkw5q
+  store_ctwgzvsuvh -->|"sql"| proc_kunndnkw5q
+  store_ec5chz4iwz -->|"sql"| proc_kunndnkw5q
+  store_i7jsjm575z -->|"https"| proc_kunndnkw5q
+  store_kuwedioo2t -->|"sql"| proc_kunndnkw5q
+  store_tvae56uepz -->|"sql: Postgres: User record (credential,pii)"| proc_kunndnkw5q
+  store_ywqpbbusfu -->|"sql"| proc_kunndnkw5q
+  style bnd_ycbot7mf4h stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

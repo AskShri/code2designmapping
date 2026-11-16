@@ -1,0 +1,19 @@
+%% Control flow: GET /v1/docs
+sequenceDiagram
+  autonumber
+  actor ext_sga4qktkap as HTTP client
+  participant ctl_zr7vklouvq as morgan.successHandler (conditional)
+  participant ctl_r74myxsxbv as morgan.errorHandler (conditional)
+  participant ctl_zmlkrsmolk as helmet
+  participant ctl_jfkrjjsffy as xss
+  participant ctl_6tgt7475ww as mongoSanitize
+  participant ctl_djyghqkaci as cors
+  participant proc_kdg4sbikti as GET /v1/docs handler
+  ext_sga4qktkap->>ctl_zr7vklouvq: GET /v1/docs (audit_log)
+  ctl_zr7vklouvq->>ctl_r74myxsxbv: GET /v1/docs (audit_log)
+  ctl_r74myxsxbv->>ctl_zmlkrsmolk: GET /v1/docs (security_headers)
+  ctl_zmlkrsmolk->>ctl_jfkrjjsffy: GET /v1/docs (input_validation)
+  ctl_jfkrjjsffy->>ctl_6tgt7475ww: GET /v1/docs (input_validation)
+  ctl_6tgt7475ww->>ctl_djyghqkaci: GET /v1/docs (cors)
+  ctl_djyghqkaci->>proc_kdg4sbikti: dispatch
+  proc_kdg4sbikti-->>ext_sga4qktkap: response

@@ -1,105 +1,85 @@
 # Worked example: orders-service
 
-A small Express service in `app/` with one router, a Postgres table, a Redis cache, and an outbound call to Stripe. The `output/` directory is what the tool would write to `.code2design/` for this repository. `generate.py` is a hand-driven stand-in for the detectors, but its ID scheme, roll-up, lint and renderers follow `docs/design.md` exactly, and it validates the IR against `schema/dfd-ir.schema.json`.
-
-Reproduce:
+A small Express service in `app/` with one router, a Postgres table, a Redis cache and an outbound call to Stripe. `output/` is exactly what the tool writes for it (except `facts.jsonl`, which is left out to keep the example short):
 
 ```bash
-python3 examples/orders-service/generate.py .
+code2design analyze examples/orders-service/app --out examples/orders-service/output --name orders-service
+node scripts/check-mermaid.js examples/orders-service/output/diagrams      # every diagram parses and renders
+code2design verify examples/orders-service/output/model.ir.json --repo examples/orders-service/app
 ```
 
-Check that every diagram parses and renders:
+## 1. Source and what the detectors see
 
-```bash
-node scripts/check-mermaid.js examples/orders-service/output
-```
-
-## 1. Source
-
-| File | What the detectors see |
+| File | Facts |
 |---|---|
-| `app/src/index.ts` | App-level middleware order (JWT at line 8, rate limit at line 9), router mount at `/orders` (line 10). |
-| `app/src/infra/auth.ts` | `requireJwt` authn control. `JWT_PUBLIC_KEY` comes from env; recorded as a gap because its source is not knowable statically. |
-| `app/src/infra/db.ts`, `app/src/infra/cache.ts` | `pg` pool and `ioredis` client construction, keyed by `DATABASE_URL` and `REDIS_URL`. |
-| `app/src/orders/routes.ts` | Two entry points (`POST /`, `GET /:id`), a zod request schema with `customerEmail`, `shippingAddress`, `cardToken`, and the validation call at line 15. |
-| `app/src/orders/service.ts` | `INSERT INTO orders ...` (write), `SELECT * FROM orders` (read), `redis.set`/`redis.get` on `order:*`, and the call to `chargeCard`. The SQL literal also yields the `orders` row schema. |
-| `app/src/payments/stripe.ts` | Stripe SDK `charges.create` outbound call, `STRIPE_SECRET_KEY` from env. |
-| `app/docker-compose.yml` | Three containers (`api`, `db`, `cache`), used as trust boundaries. |
+| `app/src/index.ts` | The app, `requireJwt` (authn) and `rateLimit` (rate_limit) registered in that order, the orders router mounted at `/orders`, the listener on port 8080 |
+| `app/src/orders/routes.ts` | Two routes; the zod schema `CreateOrderRequest` (`customerEmail`, `shippingAddress`, `items`, `cardToken`); `CreateOrderRequest.parse(req.body)` inside the POST handler, an in-handler `input_validation` control |
+| `app/src/orders/service.ts` | `INSERT` and `SELECT` on `orders` (the SQL also yields the `orders` row schema), `redis.set`/`redis.get` on `order:*`, the call to `chargeCard` |
+| `app/src/payments/stripe.ts` | Stripe SDK `charges.create`; `STRIPE_SECRET_KEY` from the environment (a credential asset) |
+| `app/docker-compose.yml` | Three services (`api`, `db`, `cache`), the published port of `api` (so its entry points are `public`), and `DATABASE_URL`/`REDIS_URL` naming the `db` and `cache` hosts |
+| `app/.code2design/overrides.yaml` | Human input: Postgres declared encrypted at rest (with an expiry), Stripe renamed, a "rogue merchant operator" threat agent, and one deliberately stale entry |
 
-## 2. Facts (`output/facts.jsonl`)
-
-26 flat facts, one per line, each with an evidence span and the detector that produced it. Example:
-
-```json
-{"id": "fact_005", "kind": "entry_point", "protocol": "http", "method": "POST", "path": "/orders", "symbol": "src/orders/routes.ts::ordersRouter.post#/", "evidence": {"path": "src/orders/routes.ts", "start_line": 14, "end_line": 18, "detector": "express-routes@1.2"}}
-```
-
-## 3. IR (`output/model.ir.json`)
+## 2. Model (`output/model.ir.json`)
 
 | Collection | Count | Notes |
 |---|---|---|
-| processes | 8 | L0 root, L1 `orders` and `payments`, L2 handlers and service functions. |
-| entities | 2 | Inbound API client; Stripe API. |
-| stores | 2 | `Postgres: orders`, `Redis: order:*`. |
-| boundaries | 3 | One per compose service. |
-| flows | 10 | Stored at the finest level (L2); L1 and L0 views roll them up to ancestors. |
-| entry_points | 2 | With ordered `controls` and `call_chain`. |
-| controls | 3 | authn, rate_limit, input_validation. |
-| weaknesses | 1 | `STRIPE_SECRET_KEY` read at module import (a provable negative finding). |
-| schemas | 3 | Request body, `orders` row, Stripe charge request. Fields carry data classes. |
-| assets | 3 | Customer PII, payment data, the Stripe secret key. |
-| threat_agents | 4 | Derived defaults: anonymous caller, authenticated caller, insider in the api container, hostile Stripe responder. |
-| gaps | 4 | No ingress IaC; JWT key source unresolved; two `unknown_attribute` questions for the team (TLS and encryption at rest on the Postgres and Redis links). |
+| processes | 9 | L0 root; L1 `orders` and `payments`; L2 one process per handler function plus the `service` and `stripe` modules |
+| entities | 2 | The inbound HTTP client; Stripe (renamed by the override, `code_name` kept) |
+| stores | 2 | `Postgres: orders` (pii, financial; encryption at rest declared), `Redis: order:*` (pii, financial) |
+| boundaries | 3 | One per compose service |
+| flows | 11 | Inbound requests, handler-to-module calls, reads and writes with direction, the Stripe call |
+| entry_points | 2 | Full paths with `{id}` parameters, `exposure: public`, controls in execution order, `call_chain`, `reaches` |
+| controls | 3 | `requireJwt`, `rateLimit`, `CreateOrderRequest.parse` |
+| schemas | 3 | The request body, its `items` element, and the `orders` row; fields carry data classes |
+| assets | 3 | PII, financial data, the Stripe secret |
+| threat_agents | 5 | Anonymous and authenticated callers, an insider in the api container, a compromised Stripe, and the declared rogue operator |
+| gaps | 5 | The TLS question for the listener, the two store-link questions, Redis encryption at rest, and the stale override. The Postgres encryption question is gone because the override answered it |
 
-IDs are `kind:base32(sha256(identity tuple))[:10]`, and the identity tuple is kept in the clear. Every evidence span carries a `content_hash` of its text, and `provenance.input_hashes` records every file that produced a fact. Flows carry `authentication` and `encryption` (Threagile-compatible values, `unknown` when not derivable from code); stores carry `encryption_at_rest`. The `create order` process carries `origin: inferred` because its description came from the enrichment stage; it renders dashed.
+`POST /orders` reaches `Postgres: orders`, `Redis: order:*` and `Stripe Payments API` through `service.createOrder` and `stripe.chargeCard`; `GET /orders/{id}` reaches only the two stores. Each request flow into a store is labelled with the request schema whose data reaches it (`from CreateOrderRequest`).
 
-## 4. Diagrams
+## 3. Diagrams (`output/diagrams/`)
 
-* `output/dfd-l0.mmd`: context diagram, one process.
-* `output/dfd-l1.mmd`: `orders` and `payments` inside the `api` container, stores in their own containers, Stripe and the client outside.
-* `output/dfd-l2-orders.mmd`: handlers and service functions.
-* `output/flow-post-orders.mmd`, `output/flow-get-order.mmd`: control flow per entry point as a sequence diagram. Middleware appears in registration order, and calls appear in source order (charge, insert, cache), which is what makes the diagram match the code rather than the discovery order.
-
-L1:
+`dfd-l0.mmd` (context), `dfd-l1.mmd` (below), one `dfd-l2-*.mmd` per L1 process, and one `flow-*.mmd` sequence diagram per entry point: caller, controls in execution order with the rejection path of the authentication check, handler, called modules, and the stores and services it reaches.
 
 ```mermaid
+%% L1 - orders-service
 flowchart LR
+  subgraph bnd_uvq3irjstn["container: api"]
+    proc_e2i3iwzq2d(["payments (+1)"])
+    proc_okfd4mheog(["orders (+3)"])
+  end
   subgraph bnd_li56z6okmf["container: db"]
-    store_pljbgfzdky[("Postgres: orders")]
+    store_2whm26363j[("Postgres: orders")]
   end
   subgraph bnd_quz6xm3rfj["container: cache"]
     store_ligqz7jge4[("Redis: order:*")]
   end
-  subgraph bnd_uvq3irjstn["container: api"]
-    proc_7hcvlzq6va(["payments"])
-    proc_tv5mzaefoi(["orders"])
-  end
-  ext_plsra3tach["Stripe API"]
-  ext_sga4qktkap["API client (JWT bearer)"]
-  ext_sga4qktkap -->|"https: CreateOrderRequest [pii,financial]<br/>https: order id"| proc_tv5mzaefoi
-  proc_7hcvlzq6va -->|"https: StripeChargeRequest [financial]"| ext_plsra3tach
-  proc_tv5mzaefoi -->|"in_process: card token, amount [financial]"| proc_7hcvlzq6va
-  proc_tv5mzaefoi -->|"redis: orders (row) [pii,financial]"| store_ligqz7jge4
-  proc_tv5mzaefoi -->|"sql: orders (row) [pii,financial]"| store_pljbgfzdky
-  store_ligqz7jge4 -->|"redis: orders (row) [pii,financial]"| proc_tv5mzaefoi
-  store_pljbgfzdky -->|"sql: orders (row) [pii,financial]"| proc_tv5mzaefoi
+  ext_sga4qktkap["HTTP client"]
+  ext_slqdx4hifp["Stripe Payments API"]
+  ext_sga4qktkap -->|"http<br/>http: CreateOrderRequest (+1) (financial,pii)"| proc_okfd4mheog
+  proc_e2i3iwzq2d -->|"https: from CreateOrderRequest (financial,pii)"| ext_slqdx4hifp
+  proc_okfd4mheog -->|"in_process"| proc_e2i3iwzq2d
+  proc_okfd4mheog -->|"sql: from CreateOrderRequest (financial,pii)"| store_2whm26363j
+  proc_okfd4mheog -->|"redis: from CreateOrderRequest (financial,pii)"| store_ligqz7jge4
+  store_2whm26363j -->|"sql: Postgres: orders record (financial,pii)"| proc_okfd4mheog
+  store_ligqz7jge4 -->|"redis: Redis: order:* record (financial,pii)"| proc_okfd4mheog
+  style bnd_uvq3irjstn stroke-dasharray: 8 4,fill:none
   style bnd_li56z6okmf stroke-dasharray: 8 4,fill:none
   style bnd_quz6xm3rfj stroke-dasharray: 8 4,fill:none
-  style bnd_uvq3irjstn stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none
 ```
 
-## 5. Threat model export (`output/stride-table.md`)
+## 4. Threat-model views
 
-One row per element with the applicable STRIDE categories, data classes, boundary crossings and existing controls. Rows with a priority hint come first: the Stripe call is an *exit point* (financial data leaves the system), the secret-at-import weakness, and the store links whose authentication and encryption are `unknown` and therefore listed as questions for the team. A data-asset table at the end answers "where is PII processed, stored, and where does it leave" without reading the diagram.
+* `stride-table.md`: STRIDE per element, weaknesses first, then the exit point (financial and personal data leaving for Stripe) and the open questions on boundary-crossing links, then the rest; a data-asset table says where each data class is processed, stored and where it leaves.
+* `traceability-matrix.md`: for each threat agent and asset, the route that crosses the fewest blocking controls. The authenticated caller reaches PII with authentication but no authorization check on the path, which is flagged for object-level access review; the anonymous caller is blocked by `requireJwt`, with the unanswered link attributes named.
+* `model.otm.json` (OTM 0.2.0) and `findings.sarif` (SARIF 2.1.0) for threat modeling tools and code scanning.
 
-## 6. Overrides (`app/.code2design/overrides.yaml`)
+## 5. What a pull request would show
 
-The example ships an overrides file: it declares the Postgres volume as encrypted at rest (with an author and an expiry date), renames the Stripe entity, adds a "rogue merchant operator" threat agent, and contains one deliberately stale entry whose target no longer exists. Running the prototype on `app/` applies the valid entries (origin `declared`) and reports the stale one as an `override_target_missing` gap.
-
-## 7. Traceability matrix (`output/traceability-matrix.md`)
-
-For every threat agent and asset: the shortest path through the flows, the controls crossed, the controls that are effective against that agent, and a verdict, worst first. This is the "traceability matrix of missing or weak security controls" from Black Duck's threat modeling guidance, computed from the IR rather than filled in by hand.
-
-## 8. What a PR would show
-
-If a later PR added an SMS notification via Twilio in `createOrder`, the design delta would list one new external entity, one new flow from `create order` to it carrying `pii` (the phone number) across the `api` boundary with no control, and nothing else. The 10 existing flows keep their IDs because their identity tuples are unchanged.
+If a PR added an SMS notification through Twilio in `createOrder`, `code2design diff` would list one new external entity, one new flow from `service` to it carrying `pii` across the `api` boundary, and `POST /orders` gaining a new `reaches` entry, security-relevant changes first. Every existing element keeps its ID, because identities contain no line numbers.

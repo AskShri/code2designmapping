@@ -1,113 +1,138 @@
 """Write docs/evaluation.md from evaluation/results.json (run after scripts/evaluate.py)."""
-import json, os, datetime
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-r = json.load(open(os.path.join(ROOT, "evaluation", "results.json")))
-samples = {s["name"]: s for s in json.load(open(os.path.join(ROOT, "evaluation", "samples.json")))}
+import datetime, json, os
 
-tot = lambda k: sum(x["counts"][k] for x in r)
-head = f"""# Evaluation of the prototype on 17 sample applications
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+r = [x for x in json.load(open(os.path.join(ROOT, "evaluation", "results.json"))) if not x.get("error")]
+errors = [x for x in json.load(open(os.path.join(ROOT, "evaluation", "results.json"))) if x.get("error")]
+
+
+def tot(k):
+    return sum(x["counts"][k] for x in r)
+
+
+def yn(b):
+    return "yes" if b else "NO"
+
+
+gt = [x for x in r if x.get("ground_truth")]
+head = f"""# Evaluation on {len(r)} sample applications
 
 **Date:** {datetime.date.today().isoformat()}
-**Tool:** `code2design/` prototype (see `design.md` section 3.4 for what it implements)
+**Tool:** code2design 0.5.0 (IR 0.2)
 **Reproduce:** `python3 scripts/evaluate.py evaluation/samples.json && python3 scripts/write_evaluation_doc.py`
-(the sample repositories are expected at the paths in `evaluation/samples.json`; all are public GitHub repositories, shallow-cloned at the commits recorded in each sample's `report.md`).
+(the sample repositories are public GitHub repositories, shallow-cloned at the paths in `evaluation/samples.json`; each sample's `report.md` records the commit analyzed).
 
-## What was tested
+## What is checked
 
-Each sample is analyzed twice from scratch and the following is checked:
+Each sample is analyzed twice, in separate processes with different `PYTHONHASHSEED` values, and:
 
 | Check | Meaning |
 |---|---|
-| Deterministic | Every output file is byte-identical across the two runs (the report's commit line excluded). |
-| Schema | `model.ir.json` validates against `schema/dfd-ir.schema.json`. |
-| Lint errors | Structural rules that veto the run: unevidenced elements, dangling flows, store-to-store or entity-to-entity flows, inferred elements without confidence, broken references. |
-| Mermaid | Every generated diagram (L0, L1, one L2 per L1 process, one sequence diagram per entry point) parses and renders in headless Chromium. |
-| Expectations | Hand-written expectations per sample (from reading each repository's dependencies and routes): named external entities, stores, controls, and a minimum entry-point count. |
+| Deterministic | Every output file (IR, OTM, SARIF, diagrams, tables, report, lint) is byte-identical across the two processes. |
+| Schema | `model.ir.json` validates against `schema/dfd-ir.schema.json` (JSON Schema 2020-12). |
+| OTM | `model.otm.json` validates against the official Open Threat Model 0.2.0 schema. |
+| SARIF | `findings.sarif` is SARIF 2.1.0 with a rule and a location for every result. |
+| Lint errors | Structural rules: unevidenced elements, dangling references of any kind, store-to-store or entity-to-entity flows, level-order violations, inferred elements without confidence. |
+| Diagrams | Every generated Mermaid diagram (L0, L1, one L2 per L1 process, one sequence diagram per entry point) parses and renders in headless Chromium. |
+| Expectations | Named elements expected from reading each repository (entities, stores, controls, a minimum entry-point count). |
+| Ground truth | For {len(gt)} samples, hand-written lists of entry points, infrastructure endpoints, authenticated entry points, stores, external entities and route-to-target reachability edges (`evaluation/ground-truth/`), scored for precision and recall. |
 
-The samples span single-service Express apps (JavaScript and TypeScript), a large Express app with 100+ routes and ~30 external APIs, Flask/FastAPI/Django apps from docker/awesome-compose, a polyglot Stripe sample, and Google's Online Boutique microservices (Go, C#, Java, Python, Node with Kubernetes manifests).
+The samples cover Express (JavaScript and TypeScript, Prisma, mongoose), NestJS with TypeORM, Flask with Flask-SQLAlchemy, FastAPI with SQLModel, Django, Spring MVC with Spring Data JPA, Gin with GORM, ASP.NET Core (MVC, Razor Pages, minimal APIs, EF Core), a polyglot Stripe sample, Google's Online Boutique microservices (Go, C#, Java, Python, Node, Kubernetes), and the docker/awesome-compose stacks.
 
 ## Results
 
-Totals: {len(r)} samples, {tot('entry_points')} entry points, {tot('flows')} flows, {tot('entities')} external entities, {tot('stores')} data stores, {sum(x['mermaid_files'] for x in r)} diagrams rendered, {sum(len(x['mermaid_failures']) for x in r)} render failures, {sum(x['lint_errors'] for x in r)} lint errors, {sum(len(x['expect_misses']) for x in r)} expectation misses, all runs deterministic: {'yes' if all(x['deterministic'] for x in r) else 'NO'}.
+Totals: {len(r)} samples, {tot('entry_points')} entry points, {tot('flows')} flows, {tot('entities')} external entities, {tot('stores')} data stores, {tot('weaknesses')} weaknesses, {sum(x['mermaid_files'] for x in r)} diagrams rendered with {sum(len(x['mermaid_failures']) for x in r)} failures, {sum(x['lint_errors'] for x in r)} lint errors, {sum(len(x['expect_misses']) for x in r)} expectation misses. Deterministic: {sum(1 for x in r if x['deterministic'])}/{len(r)}. Schema-valid: {sum(1 for x in r if x['schema_ok'])}/{len(r)}. OTM-valid: {sum(1 for x in r if x['otm_schema_ok'])}/{len(r)}. SARIF-valid: {sum(1 for x in r if x['sarif_ok'])}/{len(r)}.{(' Runs that failed: ' + ', '.join(e['name'] for e in errors) + '.') if errors else ''}
 
-| Sample | Processes | Entities | Stores | Boundaries | Flows | Entry points | Controls | Weaknesses | Assets | Agents | Gaps | Deterministic | Schema | Lint errors | Diagrams | Expectations | Time (s) |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Sample | Processes | Entities | Stores | Boundaries | Flows | Entry points | Controls | Weaknesses | Assets | Agents | Gaps | Deterministic | Schema | OTM | SARIF | Lint errors | Diagrams | Expectations | Time (s) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 """
 rows = []
 for x in r:
     c = x["counts"]
-    rows.append(f"| [{x['name']}](../evaluation/{x['name']}/report.md) | {c['processes']} | {c['entities']} | {c['stores']} | {c['boundaries']} | {c['flows']} | {c['entry_points']} | {c['controls']} | {c['weaknesses']} | {c['assets']} | {c['threat_agents']} | {c['gaps']} | {'yes' if x['deterministic'] else 'NO'} | {'ok' if x['schema_ok'] else 'FAIL'} | {x['lint_errors']} | {x['mermaid_files']} ok / {len(x['mermaid_failures'])} fail | {len(x['expect_hits'])}/{len(x['expect_hits']) + len(x['expect_misses'])}{(' (miss: ' + ', '.join(x['expect_misses']) + ')') if x['expect_misses'] else ''} | {x['elapsed']} |")
+    exp = f"{len(x['expect_hits'])}/{len(x['expect_hits']) + len(x['expect_misses'])}" + ((" (miss: " + ", ".join(x["expect_misses"]) + ")") if x["expect_misses"] else "")
+    rows.append(f"| [{x['name']}](../evaluation/{x['name']}/report.md) | {c['processes']} | {c['entities']} | {c['stores']} | {c['boundaries']} | {c['flows']} | {c['entry_points']} | {c['controls']} | {c['weaknesses']} | {c['assets']} | {c['threat_agents']} | {c['gaps']} | "
+                f"{yn(x['deterministic'])} | {'ok' if x['schema_ok'] else 'FAIL'} | {'ok' if x['otm_schema_ok'] else ('n/a' if x['otm_schema_ok'] is None else 'FAIL')} | {'ok' if x['sarif_ok'] else 'FAIL'} | {x['lint_errors']} | "
+                f"{x['mermaid_files']} ok / {len(x['mermaid_failures'])} fail | {exp} | {x['elapsed']} |")
 body = "\n".join(rows)
 
-gt_rows = ["", "## Precision and recall against hand-written ground truth", "", "Ground truth (`evaluation/ground-truth/`) was written by reading the source of five samples. Edges are *reachability* edges: the handler of an entry point reaches a store, an external entity or another service through its own call graph. P = precision, R = recall.", "",
-           "| Sample | Entry points P/R | Infrastructure P/R | Stores P/R | Entities P/R | Reachability edges P/R | Missed edges (first few) | Spurious (first few) |", "|---|---|---|---|---|---|---|---|"]
-for x in r:
-    g = x.get("ground_truth")
-    if not g:
-        continue
-    def pr(k):
-        v = g[k]
-        if v["truth"] == 0 and v["predicted"] == 0: return "n/a"
-        return f"{v['precision'] if v['precision'] is not None else 'n/a'} / {v['recall'] if v['recall'] is not None else 'n/a'} ({v['predicted']} pred, {v['truth']} true)"
-    miss = "; ".join(f"{a} -> {b}" for a, b in g["edges"]["missed"][:4]) or "-"
-    spur = "; ".join(f"{a} -> {b}" for a, b in g["edges"]["spurious"][:4]) or "-"
-    gt_rows.append(f"| {x['name']} | {pr('entry_points')} | {pr('infrastructure')} | {pr('stores')} | {pr('entities')} | {pr('edges')} | {miss} | {spur} |")
+
+def pr(g, k):
+    v = g.get(k)
+    if not v or (v["truth"] == 0 and v["predicted"] == 0):
+        return "n/a"
+    p = v["precision"] if v["precision"] is not None else "n/a"
+    rc = v["recall"] if v["recall"] is not None else "n/a"
+    return f"{p} / {rc} ({v['predicted']}/{v['truth']})"
+
+
+gt_rows = ["", "## Precision and recall against ground truth", "",
+           "P / R (predicted/true). Edges are reachability edges: the handler of an entry point reaches a store, an external entity or another service through its own call graph, which is the question a threat model asks (\"does this route reach the users table?\"). `authenticated` scores the entry points the tool credits with an unconditional authentication or authorization control.", "",
+           "| Sample | Entry points | Infrastructure | Authenticated | Stores | Entities | Reachability edges | Remaining differences |", "|---|---|---|---|---|---|---|---|"]
+for x in gt:
+    g = x["ground_truth"]
+    diffs = []
+    for k, v in g.items():
+        for m in v["missed"][:3]:
+            diffs.append(f"missed {k}: {m}")
+        for s_ in v["spurious"][:3]:
+            diffs.append(f"extra {k}: {s_}")
+    gt_rows.append(f"| {x['name']} | {pr(g, 'entry_points')} | {pr(g, 'infrastructure')} | {pr(g, 'authenticated')} | {pr(g, 'stores')} | {pr(g, 'entities')} | {pr(g, 'edges')} | {'; '.join(diffs) or '-'} |")
 body += "\n" + "\n".join(gt_rows)
+
+base_path = os.path.join(ROOT, "evaluation", "v0.4-baseline-scores.json")
+if os.path.exists(base_path):
+    base = json.load(open(base_path))
+
+    def rec(g, k):
+        v = (g or {}).get(k)
+        if not v or not v["truth"]:
+            return "n/a"
+        return f"{v['recall']}"
+    cmp_rows = ["", "### Before and after", "",
+                "Recall per collection for the v0.4 code (commit `24d7ae3`, run from git on the same clones and scored by the same scorer; `evaluation/v0.4-baseline-scores.json`) against v0.5.", "",
+                "| Sample | Entry points | Authenticated | Stores | Reachability edges |", "|---|---|---|---|---|"]
+    now = {x["name"]: x["ground_truth"] for x in gt}
+    for name in sorted(base, key=lambda n: list(now).index(n) if n in now else 99):
+        if name not in now:
+            continue
+        cells = [f"{rec(base[name], k)} -> {rec(now[name], k)}" if rec(base[name], k) != rec(now[name], k) else rec(now[name], k) for k in ("entry_points", "authenticated", "stores", "edges")]
+        cmp_rows.append(f"| {name} | " + " | ".join(cells) + " |")
+    body += "\n" + "\n".join(cmp_rows)
 
 notes = """
 
-Per-sample outputs are committed under `evaluation/<sample>/` (model, report, STRIDE table, traceability matrix, L0/L1/L2 diagrams and the first five sequence diagrams).
+Per-sample outputs are committed under `evaluation/<sample>/` (model, OTM, SARIF, report, STRIDE table, traceability matrix, L0/L1/L2 diagrams and the first five sequence diagrams by priority).
 
-## What the outputs look like on real code
+### The remaining differences
 
-* **node-express-boilerplate.** Fifteen entry points (auth, users, docs and the CORS preflight `OPTIONS *`) with their full `/v1/...` paths, resolved through the boilerplate's `{ path, route }` mount table. Every route carries the app-level controls in registration order (helmet, xss-clean, mongo-sanitize, cors) plus the route-level ones (`validate`, `auth`, and `authLimiter` on `/v1/auth/*` only). `passport.initialize` is deliberately not counted as an authn control, so the attack-surface section reports which routes lack the route-level `auth` guard. Stores: `MongoDB: User`, `MongoDB: Token` from the mongoose models. External: SMTP relay via nodemailer.
-* **node-express-realworld (TypeScript, Prisma).** Twenty routes under `/api` resolved through chained anonymous routers (`Router().use(a).use(b)` mounted at `/api`), `auth.required` and `auth.optional` as route-level controls, four Postgres stores from the Prisma schema (User, Article, Comment, Tag) merged with the `prisma.<model>` client calls.
-* **hackathon-starter.** 101 routes on a root `app.js`, 28 external entities (OAuth identity providers, SMTP, Stripe, Twilio, GitHub, Last.fm, Google APIs, LLM APIs via LangChain), lusca CSRF, per-route rate limiters (`loginLimiter`, `strictLimiter`), 18 weaknesses (mostly client secrets read at import in `config/passport.js`). The L1 view collapses the 9 lowest-degree externals under the 25-node budget; the handler-to-controller flows went from 750 (every handler to every controller) to 236 once controller references were resolved to their file.
-* **microservices-demo (Online Boutique).** The Kubernetes manifests give one trust boundary per service and the service hosts. The Python recommendation service's gRPC client address, held in a variable read from `PRODUCT_CATALOG_SERVICE_ADDR`, resolves through the manifest's env to `productcatalogservice`, which appears as a named service entity because its Go source is not analyzable. Redis for the cart service comes from the manifests. The shopping-assistant service's Gemini and AlloyDB clients are recognized. Go, C# and Java files (40) are listed as unanalyzed, so the matrix has no rows: no schemas, no assets.
-* **compose samples.** Each compose service becomes a boundary; databases declared in compose appear as stores even when the client code is not recognized, with a gap saying no code access was detected. Plaintext credentials in compose `environment` blocks become weaknesses.
-* **Design delta across 60 commits of node-express-boilerplate** (`evaluation/node-express-boilerplate/design-delta.md`): two new entry points (`POST /v1/auth/send-verification-email`, `POST /v1/auth/verify-email`), a new route-level `auth` control, their inbound flows, and the boundary and threat-agent membership changes. No removals. This is the PR-comment shape from the design, produced by diffing two IRs by stable ID.
+* **microservices-demo, extra entity "Unresolved grpc target".** The product catalog service dials its tracing collector through a helper that receives the address as a parameter (`mustConnGRPC(ctx, &conn, addr)`), and the Java ad service ships a standalone client. Both are real outbound connections whose target is not knowable from the call site, so the tool reports them as unresolved targets with a gap rather than guessing. The ground truth lists only the application's own services.
+* **flask-microblog, extra store "Postgres (table unresolved)".** `PaginatedAPIMixin.to_collection_dict` runs `db.paginate(query)` on a query passed in by its callers. The access is real; its table depends on the caller, which the tool does not trace across call boundaries. It is shown as a separate store with a gap.
 
-## Issues found by the larger sample, and what was done
+## What changed in v0.5, and why
 
-| # | Issue | Found in | Fix |
-|---|---|---|---|
-| 1 | Database clients aliased across files (`const Tutorial = db.tutorials`, `const pool = new Pool()`, `cur = conn.cursor()`, `self.cursor`) were not tied to their store | node-express-mongodb, flask samples | Alias pass run twice, cross-file resolution of imported locals to the store package in the target file, attribute-aware Python aliases |
-| 2 | Any imported identifier in `app.use('/prefix', x)` was treated as a router mount, so `authLimiter` became a mount and `authRoutes` could become a control | node-express-boilerplate, realworld | Mount only when the target file looks like a router; router-likeness takes precedence over control-name matching |
-| 3 | Dynamic mount tables (`defaultRoutes.forEach(r => router.use(r.path, r.route))`) hid the `/v1` prefixes | node-express-boilerplate | Recognize `{ path, route }` object literals as mounts |
-| 4 | Chained anonymous routers (`export default Router().use('/api', api)`) were not followed | realworld | Chained-call callee parsing and composition of same-file router chains |
-| 5 | Handlers given as controller references (`app.get('/x', userController.getLogin)`) produced a flow from every handler to every imported module | hackathon-starter (750 flows) | Resolve the reference's module and link only to it (236 flows) |
-| 6 | Databases declared in compose/Kubernetes with no recognized client code were invisible | compose and k8s samples | Declared stores are emitted with a gap, and merged with code-level stores of the same technology |
-| 7 | ORM clients with no technology (knex, Prisma client) duplicated the schema's store | react-express-mysql, realworld | Unknown technology adopts the single declared database; logical names are normalized (case, plural) |
-| 8 | gRPC client addresses held in variables or env vars were unresolved; IPv6 loopback `[::]:8080` became a host named "[" | microservices-demo | Variables traced to env reads, env names resolved through Kubernetes manifests, loopback targets dropped |
-| 9 | Multi-line inline middleware and config objects became control names and broke 60 sequence diagrams | hackathon-starter, realworld | Inline functions are never controls; names are single-line; sequence-diagram text is sanitized |
-| 10 | The "unknown TLS" question repeated on every inbound route | all Express samples | One question per listener |
-| 11 | The Mermaid render check silently reported 0 files when the mermaid module was missing | harness | Pinned `mermaid` dev dependency in `package.json` |
-| 12 | `passport.initialize`, `express-session` and body parsers were credited as authentication | node-express-boilerplate, hackathon-starter | Plumbing names are excluded from control classification |
+The six samples added in this round (Spring PetClinic, Gin RealWorld, NestJS RealWorld, the FastAPI full-stack template, Flask Microblog, eShopOnWeb) and an independent review of v0.4 (40 findings, `review-findings.md`) showed that framework-specific patches were not converging. v0.5 restructured the pipeline instead:
 
-## Limitations addressed since the first run
+| Area | Before | v0.5 |
+|---|---|---|
+| Detector output | Ad hoc dictionaries per detector | 19 registered fact kinds with required fields, validated on every `add` (`facts.md`) |
+| Routes and controls | Per-framework prefix and control logic in synthesis | One routing model: routers, mounts, global prefixes; controls scoped to route, router (ordered, path-scoped), service (with Nest `forRoutes` selection) or handler |
+| Call graph | Name-based, JavaScript and Python | Class-aware for six languages: typed fields, DI constructors, generics, interface implementations, re-exports, Go import paths, extra edges for `Depends` and `@ModelAttribute` |
+| Stores | Driver-level (`Postgres`) | Table-level through ORMs: SQLAlchemy, SQLModel, Django, mongoose, Prisma, TypeORM, Spring Data, GORM, EF Core; engine from code, configuration or manifest drivers; `candidate_engines` when a profile selects it |
+| Handlers | One process per entry point | One process per handler function, so multi-method routes share it and cannot leak reach into each other |
+| Weaknesses | Kind and name | Kind, CWE, severity and STRIDE; identity without line numbers; exported as OTM threats and SARIF results |
+| Traceability matrix | Shortest path, any control counted | Path with the fewest blocking controls; authentication-only paths flagged for authorization review; conditional controls not counted |
+| Determinism check | Same process twice | Separate processes with different hash seeds; elapsed time removed from the report; model name independent of the checkout directory |
 
-| Limitation (first run) | What changed |
-|---|---|
-| Control attribution was path-based and credited plumbing | App-level middleware now applies only to routers mounted (or routes defined) after its registration line; session and parser plumbing is excluded; controls registered inside a condition are marked `conditional`; classification uses the callee name only, so `validate(authValidation.register)` is validation, not authentication |
-| Store and outbound calls were attributed at file level with depth-3 propagation along imports | A function-level call graph (JavaScript/TypeScript, Python, Go, Java, C#) with re-export following attributes every access to the function that performs it; handlers own the facts in their own function (inline or referenced controller), reach other modules through real call edges, and each entry point carries a `reaches` list of the stores, entities and services its handler reaches |
-| Go, Java and C# were invisible | Recognizers for net/http, gorilla, gin, chi, gRPC servers and clients (`pb.NewXClient` with env-mapped addresses), database/sql, GORM, go-redis, Mongo, Spring MVC and Security, JPA entities, grpc-java, ASP.NET attributes and minimal APIs, `MapGrpcService`, EF Core and StackExchange.Redis |
-| No schemas meant no assets | Request fields read in handlers (`req.body.email`, `request.json['x']`) become request schemas; the overrides file can declare assets, threat agents, boundaries, attributes and renames, with author and expiry |
-| Infrastructure entry points polluted views and counts | Health, readiness, metrics, docs, robots and CORS preflight routes are tagged `infrastructure`, hidden from L1/L2 views and counted separately |
-| Hosts held in variables were unresolved | Variables and template strings traced to env reads and `axios.create({ baseURL })`; env names resolved through Kubernetes manifests; the service's own listen address and loopbacks are dropped |
-| No precision or edge-level recall measurement | Ground truth for five samples and a scorer for entry points, stores, entities and reachability edges (table above) |
-| Design items not implemented: overrides, verify, OTM export | `--overrides` (default `.code2design/overrides.yaml`), `verify` (content-hash re-check of every evidence span), `export --format otm` |
+The "Before and after" table above shows the effect: the samples v0.4 already handled keep their scores (microservices-demo edge precision rises from 0.95 to 1.0), and the five new ground-truth samples, on which v0.4 found few or none of the routes, now score 1.0 recall on entry points, authentication, stores and edges.
 
-## Known limitations observed
+## Known limitations
 
-* **Module-level DFD, function-level reach.** The diagram still draws flows between modules (a module process to a store), because that is the readable level; the per-entry-point `reaches` list and the traceability matrix are where function-level precision shows. A module shared by several handlers therefore appears connected to every store any of them reaches.
-* **gRPC service reach is package-level.** For a gRPC server registered in a Go, Java or C# package, every function in the package counts as reachable from that service; for Node and Python, every function in the registering file. This is right at service granularity and coarse within a service.
-* **Ruby, PHP, Kotlin and Rust** are still reported as unanalyzed files.
-* **Conditional middleware** is counted as applying and flagged; the condition itself is not evaluated.
-* **Ground truth is small.** Five samples, written by one reader of the code; the microservices edges cover the frontend, checkout, recommendation, cart and assistant services only.
-
-## How this relates to the design's targets
-
-The design's evaluation plan (section 10) asks for precision and recall against hand-made ground truth and a determinism rate. This run establishes determinism (17/17), schema validity (17/17), structural soundness (0 lint errors), rendering (all diagrams), and named-element recall against the expectations above (all hit after the fixes). It does not yet measure precision or edge-level recall against full ground-truth IRs; building those (starting from microSecEnD for Java once a Java recognizer exists, and from hand-made IRs for three of the samples here) is the next step.
+* **Per-call-site table resolution.** A query built in one function and executed in another (a pagination helper, a repository base class with a generic `T`) is attributed to an unresolved table.
+* **Same-named tables in different services merge.** Store identity is technology plus table name. Services that share a database are modelled correctly; separate databases that both have a `users` table become one store.
+* **gRPC service scope.** A gRPC service implemented by a class is scoped to that class; one registered from a Go package starts from that package's receiver methods; Node and Python servers are scoped to the registering file.
+* **Conditional middleware** is shown and flagged but its condition is not evaluated; it does not count as blocking in the matrix.
+* **Unanalyzed languages.** Ruby, PHP, Kotlin and Rust files are listed as gaps.
+* **Ground truth is small and single-author.** Ten samples, written by reading the code; the microservices edges cover the services whose code is analyzable.
 """
 open(os.path.join(ROOT, "docs", "evaluation.md"), "w").write(head + body + notes)
 print("wrote docs/evaluation.md")
