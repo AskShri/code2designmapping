@@ -1,6 +1,6 @@
 # code2design report: node-express-boilerplate
 
-Commit `179ae84efec6`, code2design 0.5.1, IR 0.2.
+Commit `179ae84efec6`, code2design 0.5.2, IR 0.2.
 
 ## Coverage
 
@@ -9,9 +9,9 @@ Commit `179ae84efec6`, code2design 0.5.1, IR 0.2.
 | javascript | 49 |
 | (test files, not modelled) | 10 |
 
-Detectors: config@0.5, js@0.5, synth@0.5.1
+Detectors: config@0.5, js@0.5, synth@0.5.2
 
-Facts: app 1, boundary_hint 6, control 25, declared_link 1, dependencies 1, entry_point 15, module 1, outbound_call 6, router 5, router_mount 4, schema 22, store_access 19, weakness 2
+Facts: app 1, boundary_hint 6, control 25, declared_link 1, dependencies 1, entry_point 15, listener 1, module 1, outbound_call 6, router 5, router_mount 4, schema 22, store_access 19, weakness 2
 
 ## Model
 
@@ -35,6 +35,7 @@ Facts: app 1, boundary_hint 6, control 25, declared_link 1, dependencies 1, entr
 Entry points are where a threat agent first touches the system; exit points are where data leaves it; dependencies are code the team did not write.
 
 - **http**: 13 entry points, 7 without a detected authentication control (7 of them published outside the deployment), 13 guarded by conditionally registered middleware; 2 infrastructure entry points (health, preflight, docs) not counted
+- **listeners**: src/index.js port config.port
 - **exit points carrying sensitive data**: SMTP mail relay
 - **third-party dependencies**: 24 declared in package.json; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodelled attack surface
 - **weaknesses**: 1 high, 1 medium, 7 info (see stride-table.md and findings.sarif)
@@ -121,7 +122,7 @@ Entry points are where a threat agent first touches the system; exit points are 
 
 ## Gaps and questions
 
-- `unknown_attribute` src/routes/v1/auth.route.js: Question: is TLS terminated in front of the HTTP listener of node-app? Inbound flows are marked encryption=unknown until answered.
+- `unknown_attribute` src/index.js: Question: is TLS terminated in front of the HTTP listener of node-app? Inbound flows are marked encryption=unknown until answered.
 - `unknown_attribute` src/services/user.service.js:27: Question: what is the authentication and encryption of the link to MongoDB: User?
 - `unknown_attribute` src/services/token.service.js:56: Question: what is the authentication and encryption of the link to MongoDB: Token?
 - `unknown_attribute` src/services/email.service.js:5: Question: what is the authentication and encryption of the link to SMTP mail relay?

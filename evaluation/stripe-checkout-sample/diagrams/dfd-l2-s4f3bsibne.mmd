@@ -1,0 +1,20 @@
+%% L2 - nextjs
+flowchart LR
+  subgraph bnd_fwz6ntc2oh["repository: stripe-checkout-sample"]
+    proc_mcfudxklrr(["POST /api/webhook handler"])
+    proc_qdwmk566xy(["GET /api/config handler"])
+    proc_rqbztumcx5(["POST /api/create-checkout-session handler"])
+    proc_z46jn422q7(["GET /api/checkout-session handler"])
+  end
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http"| proc_mcfudxklrr
+  ext_sga4qktkap -->|"http"| proc_qdwmk566xy
+  ext_sga4qktkap -->|"http"| proc_rqbztumcx5
+  ext_sga4qktkap -->|"http"| proc_z46jn422q7
+  style bnd_fwz6ntc2oh stroke-dasharray: 8 4,fill:none
+  subgraph legend["Legend"]
+    lg_e["External entity"]
+    lg_p(["Process"])
+    lg_s[("Data store")]
+  end
+  style legend stroke-dasharray: 8 4,fill:none

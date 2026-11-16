@@ -72,4 +72,24 @@ A second review (eight reviewers by area, findings reproduced on fixtures and ne
 | `analyze` deleted hand-written `.mmd` files in the output directory | fixed (only tool-named files) | none yet |
 | Malformed override entries crashed `analyze` | fixed (reported as gaps) | `test_malformed_overrides_do_not_crash` |
 
-Open, reproduced but not yet fixed: Next.js file-system routes; Fastify plugins and hooks; Koa; Django REST Framework ViewSets, routers and default permission classes; Django nested `urls.py` prefixes; Flask-RESTful resources; chi `r.Route`/`r.With` and closures; Go wrapper middleware and calls through struct fields; Spring Security matcher rules; ASP.NET `MapGroup` multi-statement authorization and inherited `[Authorize]`; outbound clients named `api`/`server` read as routers; per-function scoping of JS model instances; same route in two apps of one repository merging; `compose.override.yml` and Traefik labels; services sharing a build context; OTM default trust zone for unplaced elements; IR version check in `lint`/`diff`/`export`; schema strictness for hand-edited IRs.
+## Round 3 (v0.5.2): open items from round 2
+
+| Finding | Status | Test |
+|---|---|---|
+| Django REST Framework ViewSets, routers, `@action`, class-based views per method, `permission_classes`, `DEFAULT_PERMISSION_CLASSES` | fixed | `test_drf_viewsets_views_and_permissions` |
+| Django nested `urls.py` treated as root, dropping `include()` prefixes | fixed (root from `ROOT_URLCONF`) | same |
+| Next.js `pages/api/**` and App Router `route.ts` files | fixed (route groups and dynamic segments handled) | `test_nextjs_file_system_routes` |
+| Fastify plugin modules, `register(require(...), {prefix})`, `addHook`, route `preHandler` | fixed | `test_fastify_plugin_routes_and_prehandler` |
+| Imported HTTP clients named `api`/`server` read as routers | fixed (an imported object is a router only if its file builds one) | `test_imported_http_client_named_api_is_not_a_router` |
+| chi `r.Route`/`r.Group` closures and `r.With(...)` | fixed (closure scopes; middleware no longer leaks) | `test_chi_route_group_closures_and_with` |
+| Go wrapper middleware `requireAuth(http.HandlerFunc(h))` | fixed | `test_go_wrapper_middleware` |
+| Go calls through struct fields (`h.users.Get()`) | fixed (receiver struct field types) | `test_go_calls_through_struct_fields` |
+| Spring Security `requestMatchers(...).permitAll()/hasRole()/anyRequest().authenticated()` | fixed (per-rule controls, first match wins) | `test_spring_security_rules_first_match_wins` |
+| ASP.NET `MapGroup` authorization on a following line or statement; inherited `[Authorize]` | fixed | `test_minimal_api_group_authorization_across_statements` |
+| Same route in two apps of one repository merged | fixed (split by package) | none |
+| `compose.override.yml` ignored | fixed | none |
+| OTM placed every unbounded element in the Internet zone | fixed (a "deployment" zone; only external entities on the Internet) | none |
+| `lint`/`diff`/`export` accepted IRs of another version | fixed (version check) | none |
+| Schema-valid IRs could crash consumers | fixed (asset and threat-agent fields required) | schema validation |
+
+Still open: Koa routers; Flask-RESTful resources; JavaScript model instances tracked per file rather than per function; compose services that share one build context with different Dockerfiles.

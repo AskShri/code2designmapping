@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-react-express-mysql",
     "detectors": [
       "config@0.5",
       "js@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -26,7 +26,8 @@
       "backend/src/server.js": "sha256:b1536bfa63e06c73ee5a93f84bcaf621252a2ae867a73f45b2847b915ab0ce9b",
       "compose.yaml": "sha256:c18155224235f7124b7b6744bf13f6e28bc49ba106f14ead500847b370fe42b3",
       "frontend/Dockerfile": "sha256:1cdf25c13aaf0c0b7c7d29a770db6e0619626e871ea412fcde082cbd921b072c",
-      "frontend/package.json": "sha256:bd09fe50e640dab279e9f874b17c93ae68d8d3112b86d855f0adda91988fbc48"
+      "frontend/package.json": "sha256:bd09fe50e640dab279e9f874b17c93ae68d8d3112b86d855f0adda91988fbc48",
+      "frontend/src/setupProxy.js": "sha256:f8aad7d8e431e5884466cfe28780e79f68aba6f6fb0196eefbe2bf943a75a7de"
     }
   },
   "processes": [
@@ -47,7 +48,7 @@
           "path": "frontend/src/App.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:195c97e22ca18e0c760abab7baed962741405ae3b6cf9a587c8402a32f9511ff"
         }
       ],
@@ -69,7 +70,7 @@
           "path": "backend/healthcheck.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f84b276480283baa4678b61582e5995cb80093d12f421a04d806686fb6d9b44a"
         }
       ],
@@ -91,7 +92,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:45c83d540469bbf353f7fd1d4d9eb5c3e235b7b5c22bb21b1189bb720af480db"
         }
       ]
@@ -136,7 +137,7 @@
           "path": "backend/healthcheck.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f84b276480283baa4678b61582e5995cb80093d12f421a04d806686fb6d9b44a"
         }
       ],
@@ -262,7 +263,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:45c83d540469bbf353f7fd1d4d9eb5c3e235b7b5c22bb21b1189bb720af480db"
         }
       ]

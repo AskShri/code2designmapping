@@ -1,9 +1,9 @@
 %% Control flow: GET /api/v1/utils/health-check
 sequenceDiagram
   autonumber
-  actor ext_3nnzcvcul3 as Internal HTTP client
+  actor ext_sga4qktkap as HTTP client
   participant ctl_wd5aciiryx as CORSMiddleware
   participant proc_lges2qcizj as GET /api/v1/utils/health-check handler
-  ext_3nnzcvcul3->>ctl_wd5aciiryx: GET /api/v1/utils/health-check (cors)
+  ext_sga4qktkap->>ctl_wd5aciiryx: GET /api/v1/utils/health-check (cors)
   ctl_wd5aciiryx->>proc_lges2qcizj: dispatch
-  proc_lges2qcizj-->>ext_3nnzcvcul3: response
+  proc_lges2qcizj-->>ext_sga4qktkap: response

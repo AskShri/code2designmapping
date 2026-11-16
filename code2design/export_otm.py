@@ -37,6 +37,11 @@ def to_otm(ir, repo_url=None):
         for x in b["contains"]:
             bnd_of.setdefault(x, b["id"])
     zones.append(OrderedDict(id="tz-internet", name="Internet", type="public-cloud", risk=OrderedDict(trustRating=1)))
+    zones.append(OrderedDict(id="tz-unplaced", name="Deployment (no declared boundary)", type="private-secured", risk=OrderedDict(trustRating=50)))
+    outside = {e["id"] for e in ir["entities"]}           # only external entities live on the Internet
+    for x in [p["id"] for p in ir["processes"]] + [s["id"] for s in ir["stores"]]:
+        if x not in bnd_of and x not in outside:
+            bnd_of[x] = "tz-unplaced"
     otm["trustZones"] = sorted(zones, key=lambda z: z["id"])
     threats_on = {}
     proc_of_ep = {e["id"]: e["process"] for e in ir["entry_points"]}

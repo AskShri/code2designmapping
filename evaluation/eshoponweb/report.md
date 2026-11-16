@@ -1,6 +1,6 @@
 # code2design report: eshoponweb
 
-Commit `4da8212117e8`, code2design 0.5.1, IR 0.2.
+Commit `4da8212117e8`, code2design 0.5.2, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `4da8212117e8`, code2design 0.5.1, IR 0.2.
 | c_sharp | 244 |
 | (test files, not modelled) | 45 |
 
-Detectors: config@0.5, csharp@0.5, synth@0.5.1
+Detectors: config@0.5, csharp@0.5, synth@0.5.2
 
 Facts: app 2, boundary_hint 7, config_value 4, control 21, entry_point 50, listener 2, outbound_call 6, router 23, schema 7, store_access 53, weakness 3
 

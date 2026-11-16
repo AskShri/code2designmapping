@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-react-express-mongodb",
     "detectors": [
       "config@0.5",
       "js@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -46,7 +46,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4f6235b0dd6d021f238108ad49b1797e0d4f923fd580f1b50769f2ac4417c3e7"
         }
       ]
@@ -68,7 +68,7 @@
           "path": "frontend/src/App.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:9abf3e6700d98954fe8bbe11cbda048f525400b21632402972b47c423c1be127"
         }
       ],
@@ -114,7 +114,7 @@
           "path": "backend/config/config.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:316f839286cf59a73e86fd225045cc6c1ddf0991b94d827b63d22b4659364fad"
         }
       ],
@@ -233,7 +233,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4f6235b0dd6d021f238108ad49b1797e0d4f923fd580f1b50769f2ac4417c3e7"
         }
       ]

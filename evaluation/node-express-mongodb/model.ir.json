@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "30851145f343ca374dd1bd69998e63c740fea428",
     "generated_from": "node-express-mongodb",
     "detectors": [
       "config@0.5",
       "js@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -157,7 +157,7 @@
           "path": "app/config/db.config.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c95f6bedc3093e156a34529d8c92c2513166e0530a89d780212869a7102f9c29"
         }
       ],
@@ -203,7 +203,7 @@
           "path": "app/routes/turorial.routes.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5ecc0d21dee7f2afd4e1321569d9a15a28349105dd1ae1cd7b727ec45cb00cb1"
         }
       ],
@@ -226,7 +226,7 @@
           "path": "app/models/index.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:7e336090e242190a5e28846c4f31857d45ce2cfa513ae0fc7d696b6c2c476bbb"
         }
       ],
@@ -318,7 +318,7 @@
           "path": "server.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a114ba8585270b16d29ba0c0b190e3d07ada2f860167b912383d4c8ff56b8cc6"
         }
       ],
@@ -341,7 +341,7 @@
           "path": "app/controllers/tutorial.controller.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c04dc5d7015ad80caa442751969d01f26591c8ead8e6761e40bc6038d49af1be"
         }
       ],
@@ -478,7 +478,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:52a8e7c09a6a9909e7a9494f98044f66b89a2b7386017a40e7c619748605e3ad"
         }
       ]
@@ -1634,7 +1634,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:52a8e7c09a6a9909e7a9494f98044f66b89a2b7386017a40e7c619748605e3ad"
         }
       ]

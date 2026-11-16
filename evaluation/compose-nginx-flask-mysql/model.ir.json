@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-nginx-flask-mysql",
     "detectors": [
       "config@0.5",
       "py@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -42,7 +42,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8eed707ee0bbf9ad20676103ba6e32e7a6c5d72c0c6478f6f300a11885ce65b1"
         }
       ]
@@ -64,7 +64,7 @@
           "path": "backend/hello.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:de2abade832c8e350a1bdc98cfcdb1e202ac4749c5fc51a4a970d41736b6df5c"
         }
       ],
@@ -86,7 +86,7 @@
           "path": "backend/hello.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:de2abade832c8e350a1bdc98cfcdb1e202ac4749c5fc51a4a970d41736b6df5c"
         }
       ],
@@ -260,7 +260,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8eed707ee0bbf9ad20676103ba6e32e7a6c5d72c0c6478f6f300a11885ce65b1"
         }
       ]

@@ -1,6 +1,6 @@
 # code2design report: compose-nginx-flask-mysql
 
-Commit `30f4b7f6a6c3`, code2design 0.5.1, IR 0.2.
+Commit `30f4b7f6a6c3`, code2design 0.5.2, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `30f4b7f6a6c3`, code2design 0.5.1, IR 0.2.
 | python | 1 |
 | (test files, not modelled) | 0 |
 
-Detectors: config@0.5, py@0.5, synth@0.5.1
+Detectors: config@0.5, py@0.5, synth@0.5.2
 
 Facts: app 1, boundary_hint 5, dependencies 1, entry_point 1, listener 1, router 1, schema 2, store_access 6, weakness 1
 

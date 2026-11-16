@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "c834ba3ae155bd77a6aeb5879b58edd6a944af00",
     "generated_from": "stripe-checkout-sample",
     "detectors": [
@@ -11,7 +11,7 @@
       "java@0.5",
       "js@0.5",
       "py@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -30,6 +30,9 @@
       "server/go/server.go": "sha256:0db21c06e08c4d773116e645220b33d157b7d815f27569fc2737372acb0af0d7",
       "server/java/pom.xml": "sha256:11b76a5282ed2ad3e62cfa5431b6bb2dfaa2e2485b677e5471c91fde44924e14",
       "server/java/src/main/java/com/stripe/sample/Server.java": "sha256:ec36c32401ca8680019cf134a046d3aa851fb3f65c4682a2c55d7c786e6c36c0",
+      "server/nextjs/app/api/checkout-session/route.ts": "sha256:b1baaa1c412a5c84d8ff344430c578188d0e977b9c06e22cf39014ac2e2419cc",
+      "server/nextjs/app/api/config/route.ts": "sha256:833ac6ccaab91b946503c13ceeed05237b582c12b32a2928dc6bddfc0562a695",
+      "server/nextjs/app/api/create-checkout-session/route.ts": "sha256:4f59f0931132f3c4ec7ff9c009d7fb51a81f8ce9d564ace1cd43b7ad185d0067",
       "server/nextjs/app/api/webhook/route.ts": "sha256:d231026693a9623ef2813a82b6052747051708079de29aacaf0b32be245809bf",
       "server/nextjs/lib/stripe.ts": "sha256:56e6c7e082757a03519ea46cb9ef3599d6921128ef0908fbe6cda8bf2eeb3006",
       "server/nextjs/package.json": "sha256:05985360d84f013e733d0a83733fadb934501e24f67a031e9b651cc46e425655",
@@ -80,7 +83,7 @@
           "path": "server/java/src/main/java/com/stripe/sample/Server.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4d8cdf9a3b98b2e084a8842c1c9e9299716a4b2ff1034488037bee484d58e558"
         }
       ],
@@ -103,7 +106,7 @@
           "path": "client/html/index.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:d25ee383ffc9224deac2a492255f6c876329cfbef94a9516cf3849c59d5fdb09"
         }
       ],
@@ -195,7 +198,7 @@
           "path": "server/go/server.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:512843855fcc92a51c810b1b58e0731c01eac9a6a23c157bfa02aad71edffbe7"
         }
       ],
@@ -248,6 +251,29 @@
       "parent": "proc:soybbcbxpt"
     },
     {
+      "id": "proc:mcfudxklrr",
+      "identity": [
+        "process",
+        "handler",
+        "stripe-checkout-sample",
+        "POST /api/webhook"
+      ],
+      "origin": "observed",
+      "name": "POST /api/webhook handler",
+      "level": 2,
+      "module": "server/nextjs/app/api/webhook/route.ts",
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/webhook/route.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "js@0.5",
+          "content_hash": "sha256:1d21dac6dae9733a9c06f428c8f1e3ec891d7d9d6b245a03d60a7cbbe85e023d"
+        }
+      ],
+      "parent": "proc:s4f3bsibne"
+    },
+    {
       "id": "proc:mo57kcgmo7",
       "identity": [
         "process",
@@ -264,7 +290,7 @@
           "path": "server/dotnet/Configuration/StripeOptions.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:ac4d149636fbcc5888b127eb9ddd94b2956a8b491d1af2b65bb44fc7a8c81611"
         }
       ],
@@ -286,7 +312,7 @@
           "path": "client/react-cra/src/components/Success.jsx",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:abe52a508d8934e9015bd5fdd8d0c3671e1efdd2133ecfa03f1ff100345d09a9"
         }
       ],
@@ -316,6 +342,52 @@
       "parent": "proc:soybbcbxpt"
     },
     {
+      "id": "proc:qdwmk566xy",
+      "identity": [
+        "process",
+        "handler",
+        "stripe-checkout-sample",
+        "GET /api/config"
+      ],
+      "origin": "observed",
+      "name": "GET /api/config handler",
+      "level": 2,
+      "module": "server/nextjs/app/api/config/route.ts",
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/config/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:670c3f118e9cb1dd926029a3d8f90cf7346a3705dc8a6d4c2c2096db5a8721e5"
+        }
+      ],
+      "parent": "proc:s4f3bsibne"
+    },
+    {
+      "id": "proc:rqbztumcx5",
+      "identity": [
+        "process",
+        "handler",
+        "stripe-checkout-sample",
+        "POST /api/create-checkout-session"
+      ],
+      "origin": "observed",
+      "name": "POST /api/create-checkout-session handler",
+      "level": 2,
+      "module": "server/nextjs/app/api/create-checkout-session/route.ts",
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/create-checkout-session/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:1d21dac6dae9733a9c06f428c8f1e3ec891d7d9d6b245a03d60a7cbbe85e023d"
+        }
+      ],
+      "parent": "proc:s4f3bsibne"
+    },
+    {
       "id": "proc:rslnhmt56l",
       "identity": [
         "process",
@@ -331,7 +403,7 @@
           "path": "client/html/success.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:9e9a296a3868318ecb46bb2d1d9fc689c7c6607d8a89bfaeb1795853f3da82e1"
         }
       ],
@@ -354,7 +426,7 @@
           "path": "server/nextjs/app/api/checkout-session/route.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:6f00a6afe6bb6d64cac6fbfe093704a68f316c842f3dba03065690bccf3a0f55"
         }
       ],
@@ -377,7 +449,7 @@
           "path": "server/python/server.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:df2a910024a0051cfca99e5dc2cd42f42f075cfe3c1b9b847adbe83f5d1929ed"
         }
       ],
@@ -400,7 +472,7 @@
           "path": "server/node/server.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e065a49059e493d4d1f938d91ecf94649080e5ade71de72a4958e3edbe7cf0c4"
         }
       ],
@@ -422,7 +494,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:d975067bd6c7adf2b0d28896b79f00a0d86eff958d7c162f6c95dd3e40442acc"
         }
       ]
@@ -467,7 +539,7 @@
           "path": "server/php/public/script.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:d25ee383ffc9224deac2a492255f6c876329cfbef94a9516cf3849c59d5fdb09"
         }
       ],
@@ -495,6 +567,29 @@
         }
       ],
       "parent": "proc:g7k75kgupi"
+    },
+    {
+      "id": "proc:z46jn422q7",
+      "identity": [
+        "process",
+        "handler",
+        "stripe-checkout-sample",
+        "GET /api/checkout-session"
+      ],
+      "origin": "observed",
+      "name": "GET /api/checkout-session handler",
+      "level": 2,
+      "module": "server/nextjs/app/api/checkout-session/route.ts",
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/checkout-session/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:b3c0218c0f467556109abd69c8a937ff2ef8563e13d50569022146a50b3348e4"
+        }
+      ],
+      "parent": "proc:s4f3bsibne"
     },
     {
       "id": "proc:zp4dqjile6",
@@ -535,7 +630,7 @@
           "path": "server/python/server.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:df2a910024a0051cfca99e5dc2cd42f42f075cfe3c1b9b847adbe83f5d1929ed"
         }
       ],
@@ -583,25 +678,25 @@
       "kind": "system",
       "evidence": [
         {
+          "path": "server/nextjs/app/api/config/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:670c3f118e9cb1dd926029a3d8f90cf7346a3705dc8a6d4c2c2096db5a8721e5"
+        },
+        {
+          "path": "server/python/server.py",
+          "start_line": 58,
+          "end_line": 59,
+          "detector": "py@0.5",
+          "content_hash": "sha256:8b568646d460cf23da02c57ba588171114ffcce7e78e83890d3b21bf233ac110"
+        },
+        {
           "path": "server/go/server.go",
           "start_line": 45,
           "end_line": 45,
           "detector": "go@0.5",
           "content_hash": "sha256:b02a77cfe284608d2b10bcd7e890b7c87dc237a4a448ab94aa4967dc80be3fb8"
-        },
-        {
-          "path": "server/node/server.js",
-          "start_line": 43,
-          "end_line": 51,
-          "detector": "js@0.5",
-          "content_hash": "sha256:73964c3d25145578eefd0c472b74bc20132395f45b1e58b47665b1860d72a66e"
-        },
-        {
-          "path": "server/node/server.js",
-          "start_line": 60,
-          "end_line": 86,
-          "detector": "js@0.5",
-          "content_hash": "sha256:901207f81d5f309276bc5ad1595ff8c0bc8d2df02fc71e9073272e7f4f2a9b7e"
         }
       ]
     },
@@ -687,9 +782,12 @@
         "proc:g7k75kgupi",
         "proc:k37fgafluo",
         "proc:ljqehrmdee",
+        "proc:mcfudxklrr",
         "proc:mo57kcgmo7",
         "proc:nrgzproyie",
         "proc:o7z5jjiyu5",
+        "proc:qdwmk566xy",
+        "proc:rqbztumcx5",
         "proc:rslnhmt56l",
         "proc:s4f3bsibne",
         "proc:sl2bkzstjr",
@@ -698,6 +796,7 @@
         "proc:vnpbfsymp7",
         "proc:wltqvzvbr2",
         "proc:yjaegvvtka",
+        "proc:z46jn422q7",
         "proc:zp4dqjile6",
         "proc:zyjthuvdu6"
       ],
@@ -706,7 +805,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:d975067bd6c7adf2b0d28896b79f00a0d86eff958d7c162f6c95dd3e40442acc"
         }
       ]
@@ -728,7 +827,7 @@
       "direction": "request_response",
       "authentication": "credentials",
       "encryption": "tls",
-      "purpose": "prices.retrieve",
+      "purpose": "Price.retrieve",
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
@@ -740,6 +839,13 @@
           "end_line": 44,
           "detector": "js@0.5",
           "content_hash": "sha256:cb4bcc50041ef7147ba59370e0e554303c2a720773e790791e86f3c956d87985"
+        },
+        {
+          "path": "server/python/server.py",
+          "start_line": 43,
+          "end_line": 43,
+          "detector": "py@0.5",
+          "content_hash": "sha256:f48ac2e7b05455fb1bf5c6609be7774dc7860d5957869c9959001ef64aa30d70"
         }
       ]
     },
@@ -774,6 +880,36 @@
       ]
     },
     {
+      "id": "flow:65vm2wpkby",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:rqbztumcx5",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:rqbztumcx5",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/create-checkout-session",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/create-checkout-session/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:1d21dac6dae9733a9c06f428c8f1e3ec891d7d9d6b245a03d60a7cbbe85e023d"
+        }
+      ]
+    },
+    {
       "id": "flow:bk5phqjdxf",
       "identity": [
         "flow",
@@ -802,18 +938,18 @@
           "content_hash": "sha256:73964c3d25145578eefd0c472b74bc20132395f45b1e58b47665b1860d72a66e"
         },
         {
-          "path": "server/python/server.py",
-          "start_line": 41,
-          "end_line": 42,
-          "detector": "py@0.5",
-          "content_hash": "sha256:572390578eee5e704d5578fa833226194e764d8d825ec95a19c7f2963682f51c"
-        },
-        {
           "path": "server/dotnet/Program.cs",
           "start_line": 48,
           "end_line": 59,
           "detector": "csharp@0.5",
           "content_hash": "sha256:4b320452a0166ad979aab097daa5d4ce8c178cece1814d0ec2bc9904a785d198"
+        },
+        {
+          "path": "server/python/server.py",
+          "start_line": 41,
+          "end_line": 42,
+          "detector": "py@0.5",
+          "content_hash": "sha256:572390578eee5e704d5578fa833226194e764d8d825ec95a19c7f2963682f51c"
         }
       ]
     },
@@ -862,7 +998,7 @@
       "direction": "request_response",
       "authentication": "credentials",
       "encryption": "tls",
-      "purpose": "checkout.sessions.retrieve",
+      "purpose": "checkout.Session.retrieve",
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
@@ -874,6 +1010,13 @@
           "end_line": 56,
           "detector": "js@0.5",
           "content_hash": "sha256:f05fbe4df902fbcb71f66ed4b080395d65f25b7f6a2703e17c4e2fa37acee9da"
+        },
+        {
+          "path": "server/python/server.py",
+          "start_line": 54,
+          "end_line": 54,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b72a179f780d3ca426f73343ee5a8e4737f4bf6b5312abbcfb325568bd33b913"
         }
       ]
     },
@@ -954,8 +1097,8 @@
       "encryption": "unknown",
       "purpose": "POST /create-checkout-session",
       "payload": {
-        "schema_ref": "sch:qpkg6nqfzw",
-        "name": "request fields",
+        "schema_ref": "sch:4aix57kfsd",
+        "name": "request fields (create_checkout_session)",
         "data_classes": [
           "internal"
         ]
@@ -966,18 +1109,18 @@
       "controls": [],
       "evidence": [
         {
-          "path": "server/node/server.js",
-          "start_line": 60,
-          "end_line": 86,
-          "detector": "js@0.5",
-          "content_hash": "sha256:901207f81d5f309276bc5ad1595ff8c0bc8d2df02fc71e9073272e7f4f2a9b7e"
-        },
-        {
           "path": "server/python/server.py",
           "start_line": 58,
           "end_line": 59,
           "detector": "py@0.5",
           "content_hash": "sha256:8b568646d460cf23da02c57ba588171114ffcce7e78e83890d3b21bf233ac110"
+        },
+        {
+          "path": "server/node/server.js",
+          "start_line": 60,
+          "end_line": 86,
+          "detector": "js@0.5",
+          "content_hash": "sha256:901207f81d5f309276bc5ad1595ff8c0bc8d2df02fc71e9073272e7f4f2a9b7e"
         },
         {
           "path": "server/dotnet/Program.cs",
@@ -1003,7 +1146,7 @@
       "direction": "request_response",
       "authentication": "credentials",
       "encryption": "tls",
-      "purpose": "checkout.sessions.create",
+      "purpose": "checkout.Session.create",
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
@@ -1015,6 +1158,43 @@
           "end_line": 72,
           "detector": "js@0.5",
           "content_hash": "sha256:8eb24602863e095fc4397d8161bee92314dcf7977a339cbf8ebb9f5b5741b22f"
+        },
+        {
+          "path": "server/python/server.py",
+          "start_line": 74,
+          "end_line": 74,
+          "detector": "py@0.5",
+          "content_hash": "sha256:5cd036276b1ea0ad27b9090d64c5363c87db063e1ed91a8197a27970534c662c"
+        }
+      ]
+    },
+    {
+      "id": "flow:n6exiwh2nh",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:z46jn422q7",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:z46jn422q7",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/checkout-session",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/checkout-session/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:b3c0218c0f467556109abd69c8a937ff2ef8563e13d50569022146a50b3348e4"
         }
       ]
     },
@@ -1033,7 +1213,7 @@
       "direction": "request_response",
       "authentication": "credentials",
       "encryption": "tls",
-      "purpose": "webhooks.constructEvent",
+      "purpose": "Webhook.construct_event",
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
@@ -1045,6 +1225,13 @@
           "end_line": 99,
           "detector": "js@0.5",
           "content_hash": "sha256:2fa7497aaebc1357db95337c070b78b3fc513e1f58063ce65e28adf03ea1cf20"
+        },
+        {
+          "path": "server/python/server.py",
+          "start_line": 99,
+          "end_line": 99,
+          "detector": "py@0.5",
+          "content_hash": "sha256:885bceea9f41cc2322a070e5c7def1f3a4b6165274869c69c472f03e4dff100e"
         }
       ]
     },
@@ -1075,6 +1262,66 @@
           "end_line": 45,
           "detector": "go@0.5",
           "content_hash": "sha256:b02a77cfe284608d2b10bcd7e890b7c87dc237a4a448ab94aa4967dc80be3fb8"
+        }
+      ]
+    },
+    {
+      "id": "flow:pe7q2dracq",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:mcfudxklrr",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:mcfudxklrr",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "POST /api/webhook",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/webhook/route.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "js@0.5",
+          "content_hash": "sha256:1d21dac6dae9733a9c06f428c8f1e3ec891d7d9d6b245a03d60a7cbbe85e023d"
+        }
+      ]
+    },
+    {
+      "id": "flow:puxdgwcq5t",
+      "identity": [
+        "flow",
+        "ext:sga4qktkap",
+        "proc:qdwmk566xy",
+        "http"
+      ],
+      "origin": "observed",
+      "source": "ext:sga4qktkap",
+      "target": "proc:qdwmk566xy",
+      "protocol": "http",
+      "direction": "request_response",
+      "authentication": "none",
+      "encryption": "unknown",
+      "purpose": "GET /api/config",
+      "crosses_boundary": [
+        "bnd:fwz6ntc2oh"
+      ],
+      "controls": [],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/config/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:670c3f118e9cb1dd926029a3d8f90cf7346a3705dc8a6d4c2c2096db5a8721e5"
         }
       ]
     },
@@ -1211,7 +1458,7 @@
       "direction": "request_response",
       "authentication": "credentials",
       "encryption": "tls",
-      "purpose": "Price.retrieve",
+      "purpose": "set_app_info",
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
@@ -1223,34 +1470,6 @@
           "end_line": 18,
           "detector": "py@0.5",
           "content_hash": "sha256:0c25b12cd0b3bb4740c90c982f38f30e38600f9c9ec82fa971ffefdd13e79e9f"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 43,
-          "end_line": 43,
-          "detector": "py@0.5",
-          "content_hash": "sha256:f48ac2e7b05455fb1bf5c6609be7774dc7860d5957869c9959001ef64aa30d70"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 54,
-          "end_line": 54,
-          "detector": "py@0.5",
-          "content_hash": "sha256:b72a179f780d3ca426f73343ee5a8e4737f4bf6b5312abbcfb325568bd33b913"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 74,
-          "end_line": 74,
-          "detector": "py@0.5",
-          "content_hash": "sha256:5cd036276b1ea0ad27b9090d64c5363c87db063e1ed91a8197a27970534c662c"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 99,
-          "end_line": 99,
-          "detector": "py@0.5",
-          "content_hash": "sha256:885bceea9f41cc2322a070e5c7def1f3a4b6165274869c69c472f03e4dff100e"
         }
       ]
     },
@@ -1270,25 +1489,11 @@
       "authentication": "none",
       "encryption": "unknown",
       "purpose": "POST /webhook",
-      "payload": {
-        "schema_ref": "sch:qpkg6nqfzw",
-        "name": "request fields",
-        "data_classes": [
-          "internal"
-        ]
-      },
       "crosses_boundary": [
         "bnd:fwz6ntc2oh"
       ],
       "controls": [],
       "evidence": [
-        {
-          "path": "server/node/server.js",
-          "start_line": 89,
-          "end_line": 123,
-          "detector": "js@0.5",
-          "content_hash": "sha256:f5ec60bac369dd2e41907c55befeb52073cb3e4a78b83fa4d9973c610134d519"
-        },
         {
           "path": "server/python/server.py",
           "start_line": 88,
@@ -1297,13 +1502,27 @@
           "content_hash": "sha256:b21447d2a137e9b311897ea1b8321784c8c325447580fa2e3e13ed5b351d58de"
         },
         {
+          "path": "server/node/server.js",
+          "start_line": 89,
+          "end_line": 123,
+          "detector": "js@0.5",
+          "content_hash": "sha256:f5ec60bac369dd2e41907c55befeb52073cb3e4a78b83fa4d9973c610134d519"
+        },
+        {
           "path": "server/dotnet/Program.cs",
           "start_line": 90,
           "end_line": 118,
           "detector": "csharp@0.5",
           "content_hash": "sha256:08f2b02924d5ad71c24bb364e83f2d93393679ad6b78f2e11837cfe19fd2d287"
         }
-      ]
+      ],
+      "payload": {
+        "schema_ref": "sch:qpkg6nqfzw",
+        "name": "request fields",
+        "data_classes": [
+          "internal"
+        ]
+      }
     },
     {
       "id": "flow:x2p46aducw",
@@ -1337,6 +1556,69 @@
     }
   ],
   "entry_points": [
+    {
+      "id": "ep:2b4tl2eqlm",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/config",
+        "stripe-checkout-sample"
+      ],
+      "origin": "observed",
+      "process": "proc:qdwmk566xy",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/config",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:qdwmk566xy"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/config/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:670c3f118e9cb1dd926029a3d8f90cf7346a3705dc8a6d4c2c2096db5a8721e5"
+        }
+      ]
+    },
+    {
+      "id": "ep:2qpvx7mzf4",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/create-checkout-session",
+        "stripe-checkout-sample",
+        "server/python"
+      ],
+      "origin": "observed",
+      "process": "proc:k37fgafluo",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/create-checkout-session",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:k37fgafluo"
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
+      ],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 58,
+          "end_line": 59,
+          "detector": "py@0.5",
+          "content_hash": "sha256:8b568646d460cf23da02c57ba588171114ffcce7e78e83890d3b21bf233ac110"
+        }
+      ]
+    },
     {
       "id": "ep:2t2seq4rhy",
       "identity": [
@@ -1396,20 +1678,69 @@
           "end_line": 51,
           "detector": "js@0.5",
           "content_hash": "sha256:73964c3d25145578eefd0c472b74bc20132395f45b1e58b47665b1860d72a66e"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 41,
-          "end_line": 42,
-          "detector": "py@0.5",
-          "content_hash": "sha256:572390578eee5e704d5578fa833226194e764d8d825ec95a19c7f2963682f51c"
-        },
+        }
+      ]
+    },
+    {
+      "id": "ep:4uwpdplqm2",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/config",
+        "stripe-checkout-sample",
+        "server/dotnet"
+      ],
+      "origin": "observed",
+      "process": "proc:ljqehrmdee",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/config",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:ljqehrmdee"
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
+      ],
+      "evidence": [
         {
           "path": "server/dotnet/Program.cs",
           "start_line": 48,
           "end_line": 59,
           "detector": "csharp@0.5",
           "content_hash": "sha256:4b320452a0166ad979aab097daa5d4ce8c178cece1814d0ec2bc9904a785d198"
+        }
+      ]
+    },
+    {
+      "id": "ep:52dxkcgccp",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/api/checkout-session",
+        "stripe-checkout-sample"
+      ],
+      "origin": "observed",
+      "process": "proc:z46jn422q7",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/api/checkout-session",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:z46jn422q7"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/checkout-session/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:b3c0218c0f467556109abd69c8a937ff2ef8563e13d50569022146a50b3348e4"
         }
       ]
     },
@@ -1442,20 +1773,36 @@
           "end_line": 86,
           "detector": "js@0.5",
           "content_hash": "sha256:901207f81d5f309276bc5ad1595ff8c0bc8d2df02fc71e9073272e7f4f2a9b7e"
-        },
+        }
+      ]
+    },
+    {
+      "id": "ep:6ge3v6hc7t",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/create-checkout-session",
+        "stripe-checkout-sample"
+      ],
+      "origin": "observed",
+      "process": "proc:rqbztumcx5",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/create-checkout-session",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:rqbztumcx5"
+      ],
+      "reaches": [],
+      "evidence": [
         {
-          "path": "server/python/server.py",
-          "start_line": 58,
-          "end_line": 59,
-          "detector": "py@0.5",
-          "content_hash": "sha256:8b568646d460cf23da02c57ba588171114ffcce7e78e83890d3b21bf233ac110"
-        },
-        {
-          "path": "server/dotnet/Program.cs",
-          "start_line": 68,
-          "end_line": 88,
-          "detector": "csharp@0.5",
-          "content_hash": "sha256:ed11ab0b5548483a85d0eb0b7c20b52301bcf0d0377afd3d8a87acadabd238bd"
+          "path": "server/nextjs/app/api/create-checkout-session/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:1d21dac6dae9733a9c06f428c8f1e3ec891d7d9d6b245a03d60a7cbbe85e023d"
         }
       ]
     },
@@ -1516,13 +1863,6 @@
           "end_line": 41,
           "detector": "js@0.5",
           "content_hash": "sha256:43e8c590ad647e6821e5326bd064e0716db69cb4f304ed9a1106194e8a11f0e6"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 36,
-          "end_line": 37,
-          "detector": "py@0.5",
-          "content_hash": "sha256:37fe7f30efe30d761f278a93c8b1b9375e0407fd912facae7e0260e7ac29e398"
         }
       ]
     },
@@ -1557,6 +1897,72 @@
       ]
     },
     {
+      "id": "ep:hbiriyj4dn",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/create-checkout-session",
+        "stripe-checkout-sample",
+        "server/dotnet"
+      ],
+      "origin": "observed",
+      "process": "proc:k37fgafluo",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/create-checkout-session",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:k37fgafluo"
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 68,
+          "end_line": 88,
+          "detector": "csharp@0.5",
+          "content_hash": "sha256:ed11ab0b5548483a85d0eb0b7c20b52301bcf0d0377afd3d8a87acadabd238bd"
+        }
+      ]
+    },
+    {
+      "id": "ep:hzzyxcbamr",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/webhook",
+        "stripe-checkout-sample",
+        "server/python"
+      ],
+      "origin": "observed",
+      "process": "proc:zp4dqjile6",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/webhook",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:zp4dqjile6"
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
+      ],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 88,
+          "end_line": 89,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b21447d2a137e9b311897ea1b8321784c8c325447580fa2e3e13ed5b351d58de"
+        }
+      ]
+    },
+    {
       "id": "ep:irrtw4xj3x",
       "identity": [
         "entry_point",
@@ -1585,20 +1991,69 @@
           "end_line": 58,
           "detector": "js@0.5",
           "content_hash": "sha256:f198e84473539bbbc41dc2999a31f44ae8ff53e11fd8bd1de694406b95f16241"
-        },
+        }
+      ]
+    },
+    {
+      "id": "ep:l6cstcfzhl",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/api/webhook",
+        "stripe-checkout-sample"
+      ],
+      "origin": "observed",
+      "process": "proc:mcfudxklrr",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/api/webhook",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:mcfudxklrr"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/webhook/route.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "js@0.5",
+          "content_hash": "sha256:1d21dac6dae9733a9c06f428c8f1e3ec891d7d9d6b245a03d60a7cbbe85e023d"
+        }
+      ]
+    },
+    {
+      "id": "ep:qkbefz5ogv",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/checkout-session",
+        "stripe-checkout-sample",
+        "server/python"
+      ],
+      "origin": "observed",
+      "process": "proc:22shyhimaf",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/checkout-session",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:22shyhimaf"
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
+      ],
+      "evidence": [
         {
           "path": "server/python/server.py",
           "start_line": 51,
           "end_line": 52,
           "detector": "py@0.5",
           "content_hash": "sha256:51bdaf191ac5b8707d3eaf44a97e7133b20507a0d91f7c16756f88293a89e689"
-        },
-        {
-          "path": "server/dotnet/Program.cs",
-          "start_line": 61,
-          "end_line": 66,
-          "detector": "csharp@0.5",
-          "content_hash": "sha256:44bd767f8bfc7f754c15664a64dfa4f1ece22cf4ac7225523d25f1746caf9ce2"
         }
       ]
     },
@@ -1629,6 +2084,39 @@
           "end_line": 42,
           "detector": "go@0.5",
           "content_hash": "sha256:7685033822f06ad5cb5f9084e28190de4c2a030cfeeaad841aa06803b9ee04f5"
+        }
+      ]
+    },
+    {
+      "id": "ep:rtgzeo3ghj",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/checkout-session",
+        "stripe-checkout-sample",
+        "server/dotnet"
+      ],
+      "origin": "observed",
+      "process": "proc:22shyhimaf",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/checkout-session",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:22shyhimaf"
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 61,
+          "end_line": 66,
+          "detector": "csharp@0.5",
+          "content_hash": "sha256:44bd767f8bfc7f754c15664a64dfa4f1ece22cf4ac7225523d25f1746caf9ce2"
         }
       ]
     },
@@ -1691,14 +2179,66 @@
           "end_line": 123,
           "detector": "js@0.5",
           "content_hash": "sha256:f5ec60bac369dd2e41907c55befeb52073cb3e4a78b83fa4d9973c610134d519"
-        },
+        }
+      ]
+    },
+    {
+      "id": "ep:wvzd2padch",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/config",
+        "stripe-checkout-sample",
+        "server/python"
+      ],
+      "origin": "observed",
+      "process": "proc:ljqehrmdee",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/config",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:ljqehrmdee"
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
+      ],
+      "evidence": [
         {
           "path": "server/python/server.py",
-          "start_line": 88,
-          "end_line": 89,
+          "start_line": 41,
+          "end_line": 42,
           "detector": "py@0.5",
-          "content_hash": "sha256:b21447d2a137e9b311897ea1b8321784c8c325447580fa2e3e13ed5b351d58de"
-        },
+          "content_hash": "sha256:572390578eee5e704d5578fa833226194e764d8d825ec95a19c7f2963682f51c"
+        }
+      ]
+    },
+    {
+      "id": "ep:xfvcok5qfo",
+      "identity": [
+        "entry_point",
+        "http",
+        "POST",
+        "/webhook",
+        "stripe-checkout-sample",
+        "server/dotnet"
+      ],
+      "origin": "observed",
+      "process": "proc:zp4dqjile6",
+      "protocol": "http",
+      "method": "POST",
+      "path": "/webhook",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:zp4dqjile6"
+      ],
+      "reaches": [
+        "ext:slqdx4hifp"
+      ],
+      "evidence": [
         {
           "path": "server/dotnet/Program.cs",
           "start_line": 90,
@@ -1707,10 +2247,70 @@
           "content_hash": "sha256:08f2b02924d5ad71c24bb364e83f2d93393679ad6b78f2e11837cfe19fd2d287"
         }
       ]
+    },
+    {
+      "id": "ep:xv3r6ysawx",
+      "identity": [
+        "entry_point",
+        "http",
+        "GET",
+        "/",
+        "stripe-checkout-sample",
+        "server/python"
+      ],
+      "origin": "observed",
+      "process": "proc:o7z5jjiyu5",
+      "protocol": "http",
+      "method": "GET",
+      "path": "/",
+      "exposure": "unknown",
+      "controls": [],
+      "call_chain": [
+        "proc:o7z5jjiyu5"
+      ],
+      "reaches": [],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 36,
+          "end_line": 37,
+          "detector": "py@0.5",
+          "content_hash": "sha256:37fe7f30efe30d761f278a93c8b1b9375e0407fd912facae7e0260e7ac29e398"
+        }
+      ]
     }
   ],
   "controls": [],
   "weaknesses": [
+    {
+      "id": "wk:27oxm4yixs",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:2qpvx7mzf4"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /create-checkout-session",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:2qpvx7mzf4"
+      ],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 58,
+          "end_line": 59,
+          "detector": "py@0.5",
+          "content_hash": "sha256:8b568646d460cf23da02c57ba588171114ffcce7e78e83890d3b21bf233ac110"
+        }
+      ]
+    },
     {
       "id": "wk:4eppmwhymp",
       "identity": [
@@ -1737,20 +2337,6 @@
           "end_line": 86,
           "detector": "js@0.5",
           "content_hash": "sha256:901207f81d5f309276bc5ad1595ff8c0bc8d2df02fc71e9073272e7f4f2a9b7e"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 58,
-          "end_line": 59,
-          "detector": "py@0.5",
-          "content_hash": "sha256:8b568646d460cf23da02c57ba588171114ffcce7e78e83890d3b21bf233ac110"
-        },
-        {
-          "path": "server/dotnet/Program.cs",
-          "start_line": 68,
-          "end_line": 88,
-          "detector": "csharp@0.5",
-          "content_hash": "sha256:ed11ab0b5548483a85d0eb0b7c20b52301bcf0d0377afd3d8a87acadabd238bd"
         }
       ]
     },
@@ -1786,6 +2372,64 @@
       ]
     },
     {
+      "id": "wk:57l2zoczyl",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:hzzyxcbamr"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /webhook",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:hzzyxcbamr"
+      ],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 88,
+          "end_line": 89,
+          "detector": "py@0.5",
+          "content_hash": "sha256:b21447d2a137e9b311897ea1b8321784c8c325447580fa2e3e13ed5b351d58de"
+        }
+      ]
+    },
+    {
+      "id": "wk:5bspdy6xu3",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:wvzd2padch"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /config",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:wvzd2padch"
+      ],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 41,
+          "end_line": 42,
+          "detector": "py@0.5",
+          "content_hash": "sha256:572390578eee5e704d5578fa833226194e764d8d825ec95a19c7f2963682f51c"
+        }
+      ]
+    },
+    {
       "id": "wk:a6wfzg4ci3",
       "identity": [
         "weakness",
@@ -1811,13 +2455,6 @@
           "end_line": 41,
           "detector": "js@0.5",
           "content_hash": "sha256:43e8c590ad647e6821e5326bd064e0716db69cb4f304ed9a1106194e8a11f0e6"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 36,
-          "end_line": 37,
-          "detector": "py@0.5",
-          "content_hash": "sha256:37fe7f30efe30d761f278a93c8b1b9375e0407fd912facae7e0260e7ac29e398"
         }
       ]
     },
@@ -1847,20 +2484,6 @@
           "end_line": 58,
           "detector": "js@0.5",
           "content_hash": "sha256:f198e84473539bbbc41dc2999a31f44ae8ff53e11fd8bd1de694406b95f16241"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 51,
-          "end_line": 52,
-          "detector": "py@0.5",
-          "content_hash": "sha256:51bdaf191ac5b8707d3eaf44a97e7133b20507a0d91f7c16756f88293a89e689"
-        },
-        {
-          "path": "server/dotnet/Program.cs",
-          "start_line": 61,
-          "end_line": 66,
-          "detector": "csharp@0.5",
-          "content_hash": "sha256:44bd767f8bfc7f754c15664a64dfa4f1ece22cf4ac7225523d25f1746caf9ce2"
         }
       ]
     },
@@ -1894,6 +2517,35 @@
       ]
     },
     {
+      "id": "wk:deunnlzqxu",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:qkbefz5ogv"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /checkout-session",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:qkbefz5ogv"
+      ],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 51,
+          "end_line": 52,
+          "detector": "py@0.5",
+          "content_hash": "sha256:51bdaf191ac5b8707d3eaf44a97e7133b20507a0d91f7c16756f88293a89e689"
+        }
+      ]
+    },
+    {
       "id": "wk:e6jbtd7gqr",
       "identity": [
         "weakness",
@@ -1919,20 +2571,6 @@
           "end_line": 123,
           "detector": "js@0.5",
           "content_hash": "sha256:f5ec60bac369dd2e41907c55befeb52073cb3e4a78b83fa4d9973c610134d519"
-        },
-        {
-          "path": "server/python/server.py",
-          "start_line": 88,
-          "end_line": 89,
-          "detector": "py@0.5",
-          "content_hash": "sha256:b21447d2a137e9b311897ea1b8321784c8c325447580fa2e3e13ed5b351d58de"
-        },
-        {
-          "path": "server/dotnet/Program.cs",
-          "start_line": 90,
-          "end_line": 118,
-          "detector": "csharp@0.5",
-          "content_hash": "sha256:08f2b02924d5ad71c24bb364e83f2d93393679ad6b78f2e11837cfe19fd2d287"
         }
       ]
     },
@@ -1966,6 +2604,122 @@
       ]
     },
     {
+      "id": "wk:mbgdpjkuii",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:rtgzeo3ghj"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /checkout-session",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:rtgzeo3ghj"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 61,
+          "end_line": 66,
+          "detector": "csharp@0.5",
+          "content_hash": "sha256:44bd767f8bfc7f754c15664a64dfa4f1ece22cf4ac7225523d25f1746caf9ce2"
+        }
+      ]
+    },
+    {
+      "id": "wk:mqhpyfqibg",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:xv3r6ysawx"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:xv3r6ysawx"
+      ],
+      "evidence": [
+        {
+          "path": "server/python/server.py",
+          "start_line": 36,
+          "end_line": 37,
+          "detector": "py@0.5",
+          "content_hash": "sha256:37fe7f30efe30d761f278a93c8b1b9375e0407fd912facae7e0260e7ac29e398"
+        }
+      ]
+    },
+    {
+      "id": "wk:nb5izsnvvx",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:xfvcok5qfo"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /webhook",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:xfvcok5qfo"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 90,
+          "end_line": 118,
+          "detector": "csharp@0.5",
+          "content_hash": "sha256:08f2b02924d5ad71c24bb364e83f2d93393679ad6b78f2e11837cfe19fd2d287"
+        }
+      ]
+    },
+    {
+      "id": "wk:pq7244ztdp",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:l6cstcfzhl"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /api/webhook",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:l6cstcfzhl"
+      ],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/webhook/route.ts",
+          "start_line": 5,
+          "end_line": 5,
+          "detector": "js@0.5",
+          "content_hash": "sha256:1d21dac6dae9733a9c06f428c8f1e3ec891d7d9d6b245a03d60a7cbbe85e023d"
+        }
+      ]
+    },
+    {
       "id": "wk:q2vaug4dwx",
       "identity": [
         "weakness",
@@ -1991,20 +2745,35 @@
           "end_line": 51,
           "detector": "js@0.5",
           "content_hash": "sha256:73964c3d25145578eefd0c472b74bc20132395f45b1e58b47665b1860d72a66e"
-        },
+        }
+      ]
+    },
+    {
+      "id": "wk:qnvrell7hr",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:52dxkcgccp"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/checkout-session",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:52dxkcgccp"
+      ],
+      "evidence": [
         {
-          "path": "server/python/server.py",
-          "start_line": 41,
-          "end_line": 42,
-          "detector": "py@0.5",
-          "content_hash": "sha256:572390578eee5e704d5578fa833226194e764d8d825ec95a19c7f2963682f51c"
-        },
-        {
-          "path": "server/dotnet/Program.cs",
-          "start_line": 48,
-          "end_line": 59,
-          "detector": "csharp@0.5",
-          "content_hash": "sha256:4b320452a0166ad979aab097daa5d4ce8c178cece1814d0ec2bc9904a785d198"
+          "path": "server/nextjs/app/api/checkout-session/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:b3c0218c0f467556109abd69c8a937ff2ef8563e13d50569022146a50b3348e4"
         }
       ]
     },
@@ -2034,6 +2803,122 @@
           "end_line": 45,
           "detector": "go@0.5",
           "content_hash": "sha256:b02a77cfe284608d2b10bcd7e890b7c87dc237a4a448ab94aa4967dc80be3fb8"
+        }
+      ]
+    },
+    {
+      "id": "wk:usekut2yqi",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:4uwpdplqm2"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /config",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:4uwpdplqm2"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 48,
+          "end_line": 59,
+          "detector": "csharp@0.5",
+          "content_hash": "sha256:4b320452a0166ad979aab097daa5d4ce8c178cece1814d0ec2bc9904a785d198"
+        }
+      ]
+    },
+    {
+      "id": "wk:wi42235o7i",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:6ge3v6hc7t"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /api/create-checkout-session",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:6ge3v6hc7t"
+      ],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/create-checkout-session/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:1d21dac6dae9733a9c06f428c8f1e3ec891d7d9d6b245a03d60a7cbbe85e023d"
+        }
+      ]
+    },
+    {
+      "id": "wk:x2z4fqgphx",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:2b4tl2eqlm"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on GET /api/config",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:2b4tl2eqlm"
+      ],
+      "evidence": [
+        {
+          "path": "server/nextjs/app/api/config/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:670c3f118e9cb1dd926029a3d8f90cf7346a3705dc8a6d4c2c2096db5a8721e5"
+        }
+      ]
+    },
+    {
+      "id": "wk:x3qus46jyy",
+      "identity": [
+        "weakness",
+        "unauthenticated_entry_point",
+        "ep:hbiriyj4dn"
+      ],
+      "origin": "observed",
+      "kind": "unauthenticated_entry_point",
+      "name": "no authentication control detected on POST /create-checkout-session",
+      "severity": "info",
+      "cwe": "CWE-306",
+      "stride": [
+        "S",
+        "E"
+      ],
+      "applies_to": [
+        "ep:hbiriyj4dn"
+      ],
+      "evidence": [
+        {
+          "path": "server/dotnet/Program.cs",
+          "start_line": 68,
+          "end_line": 88,
+          "detector": "csharp@0.5",
+          "content_hash": "sha256:ed11ab0b5548483a85d0eb0b7c20b52301bcf0d0377afd3d8a87acadabd238bd"
         }
       ]
     },
@@ -2395,7 +3280,7 @@
       ],
       "origin": "inferred",
       "confidence": 0.9,
-      "rationale": "10 entry points are reachable from outside, 10 of them without a detected authentication control",
+      "rationale": "23 entry points are reachable from outside, 23 of them without a detected authentication control",
       "name": "Anonymous HTTP caller",
       "access": "anonymous",
       "entry": [
@@ -2407,11 +3292,11 @@
       ],
       "evidence": [
         {
-          "path": "server/go/server.go",
-          "start_line": 45,
-          "end_line": 45,
-          "detector": "go@0.5",
-          "content_hash": "sha256:b02a77cfe284608d2b10bcd7e890b7c87dc237a4a448ab94aa4967dc80be3fb8"
+          "path": "server/nextjs/app/api/config/route.ts",
+          "start_line": 4,
+          "end_line": 4,
+          "detector": "js@0.5",
+          "content_hash": "sha256:670c3f118e9cb1dd926029a3d8f90cf7346a3705dc8a6d4c2c2096db5a8721e5"
         }
       ]
     },
@@ -2435,11 +3320,15 @@
         "proc:g7hngw7crr",
         "proc:k37fgafluo",
         "proc:ljqehrmdee",
+        "proc:mcfudxklrr",
         "proc:nrgzproyie",
         "proc:o7z5jjiyu5",
+        "proc:qdwmk566xy",
+        "proc:rqbztumcx5",
         "proc:rslnhmt56l",
         "proc:vnpbfsymp7",
         "proc:yjaegvvtka",
+        "proc:z46jn422q7",
         "proc:zp4dqjile6",
         "proc:zyjthuvdu6"
       ],
@@ -2462,7 +3351,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:d975067bd6c7adf2b0d28896b79f00a0d86eff958d7c162f6c95dd3e40442acc"
         }
       ]

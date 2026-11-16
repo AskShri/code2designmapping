@@ -306,6 +306,10 @@ class Synth:
             ctls = list(dict.fromkeys(self._control_id(c) for c in ordered))
             ident = ("entry_point", proto, ep["method"], full, svc_label)
             eid = sid("ep", *ident)
+            if eid in self.ep_facts and self.l1_of_file[self.ep_facts[eid]["file"]] != self.l1_of_file[f] and \
+                    self.service_of(self.ep_facts[eid]["file"]) == self.service_of(f) and len(self.svcs) <= 1:
+                ident = ident + (self.l1_of_file[f][1],)     # two apps in one repository both serve this route
+                eid = sid("ep", *ident)
             if eid in self.entry_points:       # the same route declared twice ("" and "/" variants)
                 node = self.entry_points[eid]
                 self._add_ev(node, ep["evidence"])
@@ -685,7 +689,7 @@ class Synth:
                 hit = fl["source"] == hpid or fl["target"] == hpid or any(self.owner_of.get(x) in keyset for x in backing)
                 if not hit:
                     continue
-                ends = [fl["target"]] if fl["target"] != hpid else []
+                ends = [fl["target"]] if fl["target"] != hpid and not (fl["source"] in self.stores and fl["target"] in self.processes) else []
                 if fl["source"] in self.stores:
                     ends.append(fl["source"])
                 for end in ends:

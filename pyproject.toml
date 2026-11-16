@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "code2design"
-version = "0.5.1"
+version = "0.5.2"
 description = "Code to evidence-backed data-flow design: DFDs, STRIDE per element, control-path traceability, OTM and SARIF."
 readme = "README.md"
 requires-python = ">=3.10"

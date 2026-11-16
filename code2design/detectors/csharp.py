@@ -25,6 +25,20 @@ def _ev(sf, s, e=None, symbol=None):
     return evidence(sf, s, e, DET, symbol)
 
 
+def _inherits_authorize(C, idx, info, depth=0):
+    """[Authorize] on a base controller applies to every derived controller."""
+    if depth > 4:
+        return False
+    for b, _g in info["bases"]:
+        for (f, c), binfo in C.classes.items():
+            if c == b.split(".")[-1] and idx.files[f].lang == "c_sharp":
+                lines = idx.files[f].lines
+                decl = next((j for j in range(binfo["start"], min(binfo["end"], binfo["start"] + 40) + 1) if re.search(r"\bclass\s+" + re.escape(c) + r"\b", lines[j - 1])), binfo["start"])
+                if re.search(r"\[Authorize\b", "\n".join(lines[max(0, binfo["start"] - 8):decl])) or _inherits_authorize(C, idx, binfo, depth + 1):
+                    return True
+    return False
+
+
 class _Repo:
     def __init__(self, idx):
         self.idx = idx
@@ -93,7 +107,7 @@ def _file(idx, sf, facts, repo):
             own = rm[-1].replace("[controller]", token) if rm else ""
             facts.add("router", DET, _ev(sf, start), file=sf.path, local=cls, own_prefix=own.replace("/[action]", "").replace("[action]", ""), root=True)
             action_in_prefix = "[action]" in own
-            if re.search(r"\[Authorize\b", pre):
+            if re.search(r"\[Authorize\b", pre) or _inherits_authorize(C, idx, info):
                 facts.add("control", DET, _ev(sf, start), file=sf.path, control_kind="authn", name="[Authorize]", scope="router", router=cls, ordered=False)
             i = start
             while i <= end:
@@ -148,13 +162,20 @@ def _file(idx, sf, facts, repo):
         s = l.strip()
         if s.startswith("//"):
             continue
-        m = re.search(r"\b(?:var\s+)?(\w+)\s*=\s*(\w+)\.MapGroup\(\s*\"([^\"]*)\"\s*\)", l)
+        m = re.search(r"\b(?:var\s+)?(\w+)\s*=\s*(\w+)\.MapGroup\(\s*\"([^\"]*)\"\s*\)", l)  # noqa
         if m:
             groups.add(m.group(1))
             facts.add("router", DET, _ev(sf, i), file=sf.path, local=m.group(1), own_prefix="", root=False)
             facts.add("router_mount", DET, _ev(sf, i), file=sf.path, parent=m.group(2), prefix=m.group(3), child_file=sf.path, child_local=m.group(1))
-            if ".RequireAuthorization(" in l:
+            stmt = l
+            j = i
+            while ";" not in stmt and j < min(len(lines), i + 8):     # the statement may continue on the next lines
+                stmt += " " + lines[j].strip(); j += 1
+            if ".RequireAuthorization(" in stmt.split(";")[0]:
                 facts.add("control", DET, _ev(sf, i), file=sf.path, control_kind="authn", name="RequireAuthorization", scope="router", router=m.group(1), ordered=False)
+        gm = re.match(r"\s*(\w+)\.RequireAuthorization\(", l)
+        if gm and gm.group(1) in groups:                                  # group.RequireAuthorization(); as its own statement
+            facts.add("control", DET, _ev(sf, i), file=sf.path, control_kind="authn", name="RequireAuthorization", scope="router", router=gm.group(1), ordered=False)
         m = MAP_RX.search(l)
         if m:
             recv = m.group(1)

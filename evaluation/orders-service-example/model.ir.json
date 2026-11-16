@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "24d7ae35ccecc0bde64c1abbe95a71387e100d8b",
     "generated_from": "orders-service-example",
     "detectors": [
       "config@0.5",
       "js@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -48,7 +48,7 @@
           "path": "src/infra/auth.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8a52fb1f4927eef8a929d902293f1d606281c2dbc4454448dd9e3aa5bac57e15"
         }
       ],
@@ -70,7 +70,7 @@
           "path": "src/payments/stripe.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e1e927ab6836b2ed724edd0c498bc025f61ca8b2f27be58f4511021624bafb72"
         }
       ],
@@ -93,7 +93,7 @@
           "path": "src/payments/stripe.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e1e927ab6836b2ed724edd0c498bc025f61ca8b2f27be58f4511021624bafb72"
         }
       ],
@@ -116,7 +116,7 @@
           "path": "src/orders/routes.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:34db5ae6a60631dd902ab4705ad4d37adaf678bcdf81192d3aba9d0340dcf1e3"
         }
       ],
@@ -183,7 +183,7 @@
           "path": "src/index.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c7f355c68a917a777056e780cc5f5e6e50b376af5d66e20ee18dc834e99f608d"
         }
       ],
@@ -205,7 +205,7 @@
           "path": "src/orders/service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:bbfe059be2e3cc771a6f56ba404be118ed33443cc2b2112e9b58d2217a5e518a"
         }
       ],
@@ -561,7 +561,7 @@
           "path": "src/orders/service.ts",
           "start_line": 21,
           "end_line": 21,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:29f2e0810eb483e728e3a1140ce312bca04f8e1837bcfa6a51fc444c38e2b3ce",
           "symbol": "src/orders/service.ts::getOrder"
         }
@@ -623,7 +623,7 @@
           "path": "src/payments/stripe.ts",
           "start_line": 5,
           "end_line": 5,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:b0611038cf69ecbc3ec5ea25d3cea6193f8e4049e5b2752a5c72a64f5f9dec0a",
           "symbol": "src/payments/stripe.ts::chargeCard"
         }
@@ -690,7 +690,7 @@
           "path": "src/orders/service.ts",
           "start_line": 5,
           "end_line": 5,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1abc8043809bd7f0c49fa45a487dcb81ae0833940bafa93c46bda8663bbeb8b6",
           "symbol": "src/orders/service.ts::createOrder"
         }
@@ -837,7 +837,7 @@
           "path": "src/payments/stripe.ts",
           "start_line": 5,
           "end_line": 5,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:b0611038cf69ecbc3ec5ea25d3cea6193f8e4049e5b2752a5c72a64f5f9dec0a",
           "symbol": "src/payments/stripe.ts::chargeCard"
         }

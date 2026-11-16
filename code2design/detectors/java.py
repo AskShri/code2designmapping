@@ -22,6 +22,10 @@ SDK_IMPORTS = [("com.stripe", ("Stripe API", "api.stripe.com", "system")), ("com
 JDBC_TECH = [("postgresql", "postgres"), ("mysql", "mysql"), ("mariadb", "mysql"), ("sqlserver", "mssql"), ("sqlite", "sqlite"), ("oracle", "sql"), ("h2", "sql"), ("hsqldb", "sql"), ("mongodb", "mongodb")]
 
 
+SEC_RULE_RX = (r"\.(?:requestMatchers|antMatchers|mvcMatchers|pathMatchers|regexMatchers)\(((?:[^()]|\([^()]*\))*)\)\s*\.(permitAll|authenticated|fullyAuthenticated|hasRole|hasAnyRole|hasAuthority|hasAnyAuthority|access|denyAll|anonymous)\b"
+               r"|\.(?:anyRequest|anyExchange)\(\)\s*\.(\w+)")
+
+
 def _ev(sf, s, e=None, symbol=None):
     return evidence(sf, s, e, DET, symbol)
 
@@ -125,7 +129,24 @@ def _file(idx, sf, facts, repo):
     # ---- Spring Security filter chain: a service-wide, path-conditional control
     if "org.springframework.security" in text and re.search(r"(authorizeHttpRequests|authorizeRequests|authorizeExchange)", text):
         ln = sf.line_of_offset(re.search(r"(authorizeHttpRequests|authorizeRequests|authorizeExchange)", text).start())
-        if re.search(r"\.authenticated\(\)|hasRole|hasAuthority|hasAnyRole", text):
+        rules = list(re.finditer(SEC_RULE_RX, text))
+        if rules:
+            earlier = []
+            for r in rules:                       # first matching rule wins, as in Spring Security
+                if r.group(3) is None:
+                    args = r.group(1)
+                    meth = re.match(r"\s*HttpMethod\.(\w+)", args)
+                    pats = re.findall(r"\"([^\"]*)\"", args) or ["/**"]
+                    routes = [(meth.group(1) if meth else "ANY", pt) for pt in pats]
+                    verdict = r.group(2)
+                else:
+                    routes, verdict = [("ANY", "/**")], r.group(3)
+                kind = "authn" if verdict in ("authenticated", "fullyAuthenticated") else "authz" if verdict in ("hasRole", "hasAnyRole", "hasAuthority", "hasAnyAuthority", "access", "denyAll") else None
+                if kind:
+                    facts.add("control", DET, _ev(sf, sf.line_of_offset(r.start())), file=sf.path, control_kind=kind, scope="service",
+                              name=f"Spring Security {verdict}({', '.join(p for _m, p in routes)})"[:60], routes=routes, except_routes=list(earlier))
+                earlier += routes
+        elif re.search(r"\.authenticated\(\)|hasRole|hasAuthority|hasAnyRole", text):
             facts.add("control", DET, _ev(sf, ln), file=sf.path, control_kind="authn", name="Spring Security filter chain", scope="service", conditional=bool(re.search(r"permitAll\(\)", text)))
     for m in re.finditer(r"csrf\(\)\s*\.disable\(\)|\.csrf\(\s*\w+\s*->\s*\w+\.disable\(\)\s*\)|csrf\(AbstractHttpConfigurer::disable\)", text):
         facts.add("weakness", DET, _ev(sf, sf.line_of_offset(m.start())), file=sf.path, weakness_kind="csrf_disabled", name="Spring Security CSRF protection disabled")

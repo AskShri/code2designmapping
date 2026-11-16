@@ -2,7 +2,7 @@
   {
     "name": "orders-service-example",
     "path": "/home/user/code2designmapping/examples/orders-service/app",
-    "elapsed": 0.12,
+    "elapsed": 0.13,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -92,7 +92,7 @@
   {
     "name": "node-express-boilerplate",
     "path": "/home/user/hagopj13/node-express-boilerplate",
-    "elapsed": 0.43,
+    "elapsed": 0.3,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -220,7 +220,7 @@
   {
     "name": "node-express-mongodb",
     "path": "/home/user/bezkoder/node-express-mongodb",
-    "elapsed": 0.16,
+    "elapsed": 0.15,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -257,7 +257,7 @@
   {
     "name": "hackathon-starter",
     "path": "/home/user/sahat/hackathon-starter",
-    "elapsed": 1.37,
+    "elapsed": 1.1,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -311,18 +311,18 @@
     "otm_schema_ok": true,
     "sarif_ok": true,
     "lint_errors": 0,
-    "lint_warnings": 11,
-    "mermaid_files": 16,
+    "lint_warnings": 15,
+    "mermaid_files": 30,
     "mermaid_failures": [],
     "counts": {
-      "processes": 22,
+      "processes": 26,
       "entities": 3,
       "stores": 0,
       "boundaries": 1,
-      "flows": 17,
-      "entry_points": 10,
+      "flows": 21,
+      "entry_points": 23,
       "controls": 0,
-      "weaknesses": 11,
+      "weaknesses": 24,
       "schemas": 3,
       "assets": 2,
       "threat_agents": 3,
@@ -334,7 +334,7 @@
     ],
     "expect_hits": [
       "entitie:Stripe",
-      "entry_points>=3 (got 10)"
+      "entry_points>=3 (got 23)"
     ],
     "expect_misses": [],
     "notes": "Polyglot sample: server/node and server/python are analyzable; go, java, dotnet, php, ruby servers must appear as unsupported gaps."
@@ -342,7 +342,7 @@
   {
     "name": "microservices-demo",
     "path": "/home/user/googlecloudplatform/microservices-demo",
-    "elapsed": 1.13,
+    "elapsed": 1.11,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -430,7 +430,7 @@
   {
     "name": "compose-react-express-mongodb",
     "path": "/home/user/docker/awesome-compose/react-express-mongodb",
-    "elapsed": 0.17,
+    "elapsed": 0.13,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -516,7 +516,7 @@
   {
     "name": "compose-react-express-mysql",
     "path": "/home/user/docker/awesome-compose/react-express-mysql",
-    "elapsed": 0.12,
+    "elapsed": 0.13,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -553,7 +553,7 @@
   {
     "name": "compose-nginx-nodejs-redis",
     "path": "/home/user/docker/awesome-compose/nginx-nodejs-redis",
-    "elapsed": 0.1,
+    "elapsed": 0.11,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -590,7 +590,7 @@
   {
     "name": "compose-flask",
     "path": "/home/user/docker/awesome-compose/flask",
-    "elapsed": 0.1,
+    "elapsed": 0.13,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -626,7 +626,7 @@
   {
     "name": "compose-flask-redis",
     "path": "/home/user/docker/awesome-compose/flask-redis",
-    "elapsed": 0.14,
+    "elapsed": 0.1,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -712,7 +712,7 @@
   {
     "name": "compose-nginx-flask-mongo",
     "path": "/home/user/docker/awesome-compose/nginx-flask-mongo",
-    "elapsed": 0.11,
+    "elapsed": 0.12,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -749,7 +749,7 @@
   {
     "name": "compose-nginx-flask-mysql",
     "path": "/home/user/docker/awesome-compose/nginx-flask-mysql",
-    "elapsed": 0.24,
+    "elapsed": 0.14,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -786,7 +786,7 @@
   {
     "name": "compose-fastapi",
     "path": "/home/user/docker/awesome-compose/fastapi",
-    "elapsed": 0.12,
+    "elapsed": 0.14,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -822,7 +822,7 @@
   {
     "name": "compose-django",
     "path": "/home/user/docker/awesome-compose/django",
-    "elapsed": 0.12,
+    "elapsed": 0.16,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -858,7 +858,7 @@
   {
     "name": "compose-nginx-wsgi-flask",
     "path": "/home/user/docker/awesome-compose/nginx-wsgi-flask",
-    "elapsed": 0.12,
+    "elapsed": 0.16,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -894,7 +894,7 @@
   {
     "name": "spring-petclinic",
     "path": "/home/user/spring-projects/spring-petclinic",
-    "elapsed": 0.24,
+    "elapsed": 0.34,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -979,7 +979,7 @@
   {
     "name": "golang-gin-realworld",
     "path": "/home/user/gothinkster/golang-gin-realworld-example-app",
-    "elapsed": 0.32,
+    "elapsed": 0.39,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -1026,7 +1026,7 @@
       "edges": {
         "precision": 1.0,
         "recall": 1.0,
-        "predicted": 36,
+        "predicted": 38,
         "truth": 18,
         "missed": [],
         "spurious": []
@@ -1065,7 +1065,7 @@
   {
     "name": "nestjs-realworld",
     "path": "/home/user/lujakob/nestjs-realworld-example-app",
-    "elapsed": 0.2,
+    "elapsed": 0.3,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -1151,7 +1151,7 @@
   {
     "name": "fastapi-full-stack",
     "path": "/home/user/fastapi/full-stack-fastapi-template",
-    "elapsed": 0.79,
+    "elapsed": 0.94,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -1217,13 +1217,13 @@
       "entities": 2,
       "stores": 2,
       "boundaries": 2,
-      "flows": 64,
+      "flows": 72,
       "entry_points": 23,
       "controls": 7,
-      "weaknesses": 4,
+      "weaknesses": 9,
       "schemas": 31,
       "assets": 8,
-      "threat_agents": 3,
+      "threat_agents": 4,
       "gaps": 5
     },
     "unsupported": [],
@@ -1317,7 +1317,7 @@
   {
     "name": "eshoponweb",
     "path": "/home/user/dotnet-architecture/eshoponweb",
-    "elapsed": 0.68,
+    "elapsed": 0.62,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,

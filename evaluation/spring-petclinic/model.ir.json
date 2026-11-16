@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "500158f732419217507c7656904b8e6aa1bcc0d6",
     "generated_from": "spring-petclinic",
     "detectors": [
       "config@0.5",
       "java@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -170,7 +170,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -236,7 +236,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -350,7 +350,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -372,7 +372,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -510,7 +510,7 @@
           "path": "src/test/java/org/springframework/samples/petclinic/MySqlIntegrationTests.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -532,7 +532,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -601,7 +601,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -1025,7 +1025,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:9984946f8d460aa07c591811b75e9f5cf46c17ba8891296a6b78da2c7a44d2c4"
         }
       ]
@@ -1055,7 +1055,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
           "start_line": 64,
           "end_line": 64,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:214633fff26f02b62421e683113f4d0b1618eeaa202ae05c5c3dda2ad65ccdb7",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java::OwnerController.findOwner"
         }
@@ -1084,7 +1084,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 67,
           "end_line": 67,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:214633fff26f02b62421e683113f4d0b1618eeaa202ae05c5c3dda2ad65ccdb7",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.findOwner"
         },
@@ -1092,7 +1092,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 75,
           "end_line": 75,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:87864e86425396cf2fcbbaddcd2acf79c106c2e256c10911f973a555ad16a15b",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.findPet"
         },
@@ -1100,7 +1100,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 62,
           "end_line": 62,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:616f6b7600a036c31b000cd6af38c552b8de8f03c368ed8766f38b513a9f025c",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.populatePetTypes"
         },
@@ -1108,7 +1108,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 186,
           "end_line": 186,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:730b98e201e8c90d8c611028d3c24939e8cc4d17c14289ff4f9f27aa5fed0faf",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.updatePetDetails"
         }
@@ -1233,7 +1233,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
           "start_line": 63,
           "end_line": 63,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c29543e21821bbadada4a4bd380e3935489afce23811fa948c308f0eef641e88",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java::VisitController.loadPetWithVisit"
         }
@@ -1335,7 +1335,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
           "start_line": 141,
           "end_line": 141,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:2fc9ef60d70a50c9e4df719419c1d3dc69c5de79c5f756ad086fe69cb938aefb",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java::OwnerController.findPaginatedForOwnersLastName"
         }
@@ -1364,7 +1364,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
           "start_line": 64,
           "end_line": 64,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:214633fff26f02b62421e683113f4d0b1618eeaa202ae05c5c3dda2ad65ccdb7",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java::OwnerController.findOwner"
         }
@@ -1564,7 +1564,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
           "start_line": 63,
           "end_line": 63,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c29543e21821bbadada4a4bd380e3935489afce23811fa948c308f0eef641e88",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java::VisitController.loadPetWithVisit"
         }
@@ -1701,7 +1701,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
           "start_line": 65,
           "end_line": 65,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1691a7727b4838f1d9707df66932c27b075cb6f116d1a112d7ae63c6450f1b64",
           "symbol": "src/main/java/org/springframework/samples/petclinic/vet/VetController.java::VetController.findPaginated"
         }
@@ -1902,7 +1902,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 67,
           "end_line": 67,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:214633fff26f02b62421e683113f4d0b1618eeaa202ae05c5c3dda2ad65ccdb7",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.findOwner"
         },
@@ -1910,7 +1910,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 75,
           "end_line": 75,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:87864e86425396cf2fcbbaddcd2acf79c106c2e256c10911f973a555ad16a15b",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.findPet"
         },
@@ -1918,7 +1918,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 62,
           "end_line": 62,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:616f6b7600a036c31b000cd6af38c552b8de8f03c368ed8766f38b513a9f025c",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.populatePetTypes"
         }
@@ -2013,7 +2013,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 67,
           "end_line": 67,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:214633fff26f02b62421e683113f4d0b1618eeaa202ae05c5c3dda2ad65ccdb7",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.findOwner"
         },
@@ -2021,7 +2021,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 75,
           "end_line": 75,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:87864e86425396cf2fcbbaddcd2acf79c106c2e256c10911f973a555ad16a15b",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.findPet"
         },
@@ -2029,7 +2029,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 62,
           "end_line": 62,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:616f6b7600a036c31b000cd6af38c552b8de8f03c368ed8766f38b513a9f025c",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.populatePetTypes"
         }
@@ -2319,7 +2319,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
           "start_line": 64,
           "end_line": 64,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:214633fff26f02b62421e683113f4d0b1618eeaa202ae05c5c3dda2ad65ccdb7",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java::OwnerController.findOwner"
         }
@@ -2384,7 +2384,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 67,
           "end_line": 67,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:214633fff26f02b62421e683113f4d0b1618eeaa202ae05c5c3dda2ad65ccdb7",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.findOwner"
         },
@@ -2392,7 +2392,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 75,
           "end_line": 75,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:87864e86425396cf2fcbbaddcd2acf79c106c2e256c10911f973a555ad16a15b",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.findPet"
         },
@@ -2400,7 +2400,7 @@
           "path": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
           "start_line": 62,
           "end_line": 62,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:616f6b7600a036c31b000cd6af38c552b8de8f03c368ed8766f38b513a9f025c",
           "symbol": "src/main/java/org/springframework/samples/petclinic/owner/PetController.java::PetController.populatePetTypes"
         }
@@ -3921,7 +3921,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:9984946f8d460aa07c591811b75e9f5cf46c17ba8891296a6b78da2c7a44d2c4"
         }
       ]

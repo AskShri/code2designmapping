@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "4da8212117e87d808d4bbc7da6286fd2147ce606",
     "generated_from": "eshoponweb",
     "detectors": [
       "config@0.5",
       "csharp@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -255,7 +255,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/DeleteCatalogItemEndpoint.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:76c29bef96e26fb1884c89e8e2b6d4b9058b59d769b6b022d5692700a7ab192c"
         }
       ],
@@ -278,7 +278,7 @@
           "path": "src/PublicApi/AuthEndpoints/AuthenticateEndpoint.AuthenticateRequest.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:817828b86e01f3bfecd4aed7d915a78370d93064e56061a705349208c74bc9d9"
         }
       ],
@@ -347,7 +347,7 @@
           "path": "src/Web/Areas/Identity/IdentityHostingStartup.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:613d59e0f940274ad333bfc20e09a8efa72550a6f4e7c8a011e26a0ccebb765b"
         }
       ],
@@ -392,7 +392,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e39f959d7f7103dbe2c35d97c4fc980fa78d3c16550ae4600ca750aae991f7c5"
         }
       ]
@@ -459,7 +459,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/UpdateCatalogItemEndpoint.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:76c29bef96e26fb1884c89e8e2b6d4b9058b59d769b6b022d5692700a7ab192c"
         }
       ],
@@ -481,7 +481,7 @@
           "path": "src/PublicApi/CatalogBrandEndpoints/CatalogBrandListEndpoint.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:ebd579c8efa4217fe81fcf99397e41b3d47f16b5418f917e04de4fd799e21618"
         }
       ],
@@ -579,7 +579,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/CatalogItemGetByIdEndpoint.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:76c29bef96e26fb1884c89e8e2b6d4b9058b59d769b6b022d5692700a7ab192c"
         }
       ],
@@ -624,7 +624,7 @@
           "path": "src/Web/Services/CatalogItemViewModelService.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:01883a852a33da1f1e4dd940df5811fa8be96bbf8652852675771c889d29054e"
         }
       ],
@@ -692,7 +692,7 @@
           "path": "src/ApplicationCore/Services/OrderService.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:ebd579c8efa4217fe81fcf99397e41b3d47f16b5418f917e04de4fd799e21618"
         }
       ],
@@ -836,7 +836,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/CreateCatalogItemEndpoint.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:76c29bef96e26fb1884c89e8e2b6d4b9058b59d769b6b022d5692700a7ab192c"
         }
       ],
@@ -881,7 +881,7 @@
           "path": "src/Web/Features/MyOrders/GetMyOrdersHandler.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:55708e6bbe56b420734c250d246ff92bc3acf935dbdd46cdc7a726772922528e"
         }
       ],
@@ -933,7 +933,7 @@
           "path": "src/ApplicationCore/Services/BasketService.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4088fbba6d666171f38a28b89a03d9d4304e80f903cc21c71557ac450832ba7c"
         }
       ],
@@ -978,7 +978,7 @@
           "path": "src/BlazorAdmin/CustomAuthStateProvider.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a169563c55e6f9dbead9fbc339d072c84b1e367200274724187dc268397b25f7"
         }
       ],
@@ -1000,7 +1000,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/CatalogItemListPagedEndpoint.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a169563c55e6f9dbead9fbc339d072c84b1e367200274724187dc268397b25f7"
         }
       ],
@@ -1022,7 +1022,7 @@
           "path": "src/Web/Features/OrderDetails/GetOrderDetailsHandler.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:55708e6bbe56b420734c250d246ff92bc3acf935dbdd46cdc7a726772922528e"
         }
       ],
@@ -1045,7 +1045,7 @@
           "path": "src/ApplicationCore/CatalogSettings.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:590f7a7fcbd45a033cf1c734eaf119ceedf7825f79b42f0f86a410bb0895f311"
         }
       ],
@@ -1113,7 +1113,7 @@
           "path": "src/Infrastructure/Data/CatalogContextSeed.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a169563c55e6f9dbead9fbc339d072c84b1e367200274724187dc268397b25f7"
         }
       ],
@@ -1319,7 +1319,7 @@
           "path": "src/BlazorAdmin/Services/CatalogLookupDataService.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4088fbba6d666171f38a28b89a03d9d4304e80f903cc21c71557ac450832ba7c"
         }
       ],
@@ -1410,7 +1410,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f9fb74e204b3e516ac8b3a29b8b9c8ee1cc73c7213d94b71ee145d9363e50144"
         }
       ],
@@ -1432,7 +1432,7 @@
           "path": "src/BlazorAdmin/Services/HttpService.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:2254b62ad56c25661be64b948ccb7f98807bb405899f41f7c6b64e0baeeb585e"
         }
       ],
@@ -1477,7 +1477,7 @@
           "path": "src/Web/Services/CatalogViewModelService.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a169563c55e6f9dbead9fbc339d072c84b1e367200274724187dc268397b25f7"
         }
       ],
@@ -1568,7 +1568,7 @@
           "path": "src/PublicApi/CatalogTypeEndpoints/CatalogTypeListEndpoint.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:ebd579c8efa4217fe81fcf99397e41b3d47f16b5418f917e04de4fd799e21618"
         }
       ],
@@ -2204,7 +2204,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e39f959d7f7103dbe2c35d97c4fc980fa78d3c16550ae4600ca750aae991f7c5"
         }
       ]
@@ -2332,7 +2332,7 @@
           "path": "src/ApplicationCore/Services/OrderService.cs",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:7d329adb889aefbcc37011d8a24662d8b301f4e9e1b5849eeb9b062866e97628",
           "symbol": "src/ApplicationCore/Services/OrderService.cs::OrderService.CreateOrderAsync"
         }
@@ -2737,7 +2737,7 @@
           "path": "src/Web/Services/CatalogViewModelService.cs",
           "start_line": 40,
           "end_line": 40,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:96e6dc5a000ce76a80ddd2339fda9d6528f134c84dc03f39f0f1bbf5156b43b8",
           "symbol": "src/Web/Services/CatalogViewModelService.cs::CatalogViewModelService.GetCatalogItems"
         },
@@ -2745,7 +2745,7 @@
           "path": "src/Web/Services/CatalogViewModelService.cs",
           "start_line": 80,
           "end_line": 80,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8fc047b49d04ed9b3458fc713445945a5fda29b5c10e4b6e8dce7e168f17e0bc",
           "symbol": "src/Web/Services/CatalogViewModelService.cs::CatalogViewModelService.GetBrands"
         },
@@ -2753,7 +2753,7 @@
           "path": "src/Web/Services/CatalogViewModelService.cs",
           "start_line": 96,
           "end_line": 96,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a29586dd0c177e9f870052c424febb6dc4499b458e1867146fc47a4e7ed437d8",
           "symbol": "src/Web/Services/CatalogViewModelService.cs::CatalogViewModelService.GetTypes"
         }
@@ -3341,7 +3341,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/UpdateCatalogItemEndpoint.cs",
           "start_line": 37,
           "end_line": 37,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:ef3c214830ba3cd19a16b6fabbc8a56fc940549d30c414a327ffb8bbf09e1e9c",
           "symbol": "src/PublicApi/CatalogItemEndpoints/UpdateCatalogItemEndpoint.cs::UpdateCatalogItemEndpoint.HandleAsync"
         }
@@ -3435,7 +3435,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 53,
           "end_line": 53,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:aaaadb35459b9c640787a2c9426a191b01bc75b2ebbbec93e77afaebfa3b3cf0",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.GetBasketItems"
         }
@@ -3525,7 +3525,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 28,
           "end_line": 28,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:cecace599b7ff2112c885556b3db62797d6380d35f6c47d482079e376db3b8b4",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.GetOrCreateBasketForUser"
         },
@@ -3533,7 +3533,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 41,
           "end_line": 41,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:30ce2d6e3b47c5b2ce9065e543ce094d06a4d0a8319e8158ff0ffdfa62ec32f9",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.CreateBasketForUser"
         },
@@ -3541,7 +3541,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 53,
           "end_line": 53,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:aaaadb35459b9c640787a2c9426a191b01bc75b2ebbbec93e77afaebfa3b3cf0",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.GetBasketItems"
         }
@@ -3733,7 +3733,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/CatalogItemGetByIdEndpoint.cs",
           "start_line": 34,
           "end_line": 34,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:099c90f9095e3daaffc265b0175495c78febb3e5438c7cd4e2f4d7cc42cdda6a",
           "symbol": "src/PublicApi/CatalogItemEndpoints/CatalogItemGetByIdEndpoint.cs::CatalogItemGetByIdEndpoint.HandleAsync"
         }
@@ -3901,7 +3901,7 @@
           "path": "src/ApplicationCore/Services/BasketService.cs",
           "start_line": 23,
           "end_line": 23,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:17348cfd0e66216c39377a7c49858327b3a29d5c7e9436f0045005dc4ec2e6f1",
           "symbol": "src/ApplicationCore/Services/BasketService.cs::BasketService.AddItemToBasket"
         }
@@ -3997,7 +3997,7 @@
           "path": "src/PublicApi/CatalogTypeEndpoints/CatalogTypeListEndpoint.cs",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:14d89b4703109147589169ba790ac28617d8d75fab5aef81f7ef9c880d1c02bb",
           "symbol": "src/PublicApi/CatalogTypeEndpoints/CatalogTypeListEndpoint.cs::CatalogTypeListEndpoint.HandleAsync"
         }
@@ -4129,7 +4129,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/CreateCatalogItemEndpoint.cs",
           "start_line": 39,
           "end_line": 39,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f2fa25c4b4f9fbc5e70c7bf1f2dbf6acdd93b7ef622f60c5eb8d2f6796e319f1",
           "symbol": "src/PublicApi/CatalogItemEndpoints/CreateCatalogItemEndpoint.cs::CreateCatalogItemEndpoint.HandleAsync"
         }
@@ -4227,7 +4227,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 28,
           "end_line": 28,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:cecace599b7ff2112c885556b3db62797d6380d35f6c47d482079e376db3b8b4",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.GetOrCreateBasketForUser"
         },
@@ -4235,7 +4235,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 41,
           "end_line": 41,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:30ce2d6e3b47c5b2ce9065e543ce094d06a4d0a8319e8158ff0ffdfa62ec32f9",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.CreateBasketForUser"
         },
@@ -4243,7 +4243,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 53,
           "end_line": 53,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:aaaadb35459b9c640787a2c9426a191b01bc75b2ebbbec93e77afaebfa3b3cf0",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.GetBasketItems"
         }
@@ -4334,7 +4334,7 @@
           "path": "src/PublicApi/CatalogBrandEndpoints/CatalogBrandListEndpoint.cs",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a09a404aed1c8656449475bc80fd54a8a2b2f349b1dfe20bb354b75a2023527c",
           "symbol": "src/PublicApi/CatalogBrandEndpoints/CatalogBrandListEndpoint.cs::CatalogBrandListEndpoint.HandleAsync"
         }
@@ -4561,7 +4561,7 @@
           "path": "src/ApplicationCore/Services/BasketService.cs",
           "start_line": 40,
           "end_line": 40,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f70515f38f2d901568510fd6ac7f25d80691d6b5c14e28575669bca7ec497c75",
           "symbol": "src/ApplicationCore/Services/BasketService.cs::BasketService.DeleteBasketAsync"
         },
@@ -4569,7 +4569,7 @@
           "path": "src/ApplicationCore/Services/BasketService.cs",
           "start_line": 47,
           "end_line": 47,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:6e3be7ec5ec73fc191fe96d202eb2c5e962630a67e5e2bad5274863788ec1924",
           "symbol": "src/ApplicationCore/Services/BasketService.cs::BasketService.SetQuantities"
         }
@@ -4710,7 +4710,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 28,
           "end_line": 28,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:cecace599b7ff2112c885556b3db62797d6380d35f6c47d482079e376db3b8b4",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.GetOrCreateBasketForUser"
         },
@@ -4718,7 +4718,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 41,
           "end_line": 41,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:30ce2d6e3b47c5b2ce9065e543ce094d06a4d0a8319e8158ff0ffdfa62ec32f9",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.CreateBasketForUser"
         },
@@ -4726,7 +4726,7 @@
           "path": "src/Web/Services/BasketViewModelService.cs",
           "start_line": 53,
           "end_line": 53,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:aaaadb35459b9c640787a2c9426a191b01bc75b2ebbbec93e77afaebfa3b3cf0",
           "symbol": "src/Web/Services/BasketViewModelService.cs::BasketViewModelService.GetBasketItems"
         }
@@ -4998,7 +4998,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/DeleteCatalogItemEndpoint.cs",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:6c0882fdf638faad923e6b3be604b2807212a1e853a552bbb88d2a482d663230",
           "symbol": "src/PublicApi/CatalogItemEndpoints/DeleteCatalogItemEndpoint.cs::DeleteCatalogItemEndpoint.HandleAsync"
         }
@@ -5130,7 +5130,7 @@
           "path": "src/PublicApi/CatalogItemEndpoints/CatalogItemListPagedEndpoint.cs",
           "start_line": 40,
           "end_line": 40,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:2b535b9bf9686318233c4e0c32b7f9855d9876f6372b5c415fa7effc844073c5",
           "symbol": "src/PublicApi/CatalogItemEndpoints/CatalogItemListPagedEndpoint.cs::CatalogItemListPagedEndpoint.HandleAsync"
         }
@@ -8570,7 +8570,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e39f959d7f7103dbe2c35d97c4fc980fa78d3c16550ae4600ca750aae991f7c5"
         }
       ]

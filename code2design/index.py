@@ -24,7 +24,7 @@ TEST_RX = re.compile(r"(^|/)(serviceWorker|registerServiceWorker|reportWebVitals
                      r"|(^|/)(tests?|__tests__|spec|specs|e2e|fixtures?|mocks?|__mocks__|testdata|UnitTests|IntegrationTests|FunctionalTests)(/|$)"
                      r"|\.(test|spec|e2e-spec)\.[jt]sx?$|_test\.py$|(^|/)test_[^/]*\.py$|(^|/)conftest\.py$|_test\.go$|Tests?\.(java|cs)$"
                      r"|\.pb\.go$|_pb2(_grpc)?\.py$|\.g\.cs$|\.Designer\.cs$|\.min\.js$|\.bundle\.js$|(^|/)[^/]*Tests/")
-CONFIG_PREFIXES = ("docker-compose", "compose.yaml", "compose.yml", "Dockerfile", "package.json", "schema.prisma", "serverless.yml", "requirements", "pyproject.toml", "go.mod", "pom.xml", "build.gradle",
+CONFIG_PREFIXES = ("docker-compose", "compose.", "Dockerfile", "package.json", "schema.prisma", "serverless.yml", "requirements", "pyproject.toml", "go.mod", "pom.xml", "build.gradle",
                    "application.properties", "application.yml", "application.yaml", "appsettings.json", "ormconfig")
 _parsers = {k: tree_sitter.Parser(v) for k, v in LANGS.items()}
 

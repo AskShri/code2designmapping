@@ -5,7 +5,7 @@ Class/decorator frameworks (NestJS, TypeORM repositories) are handled in nest.py
 Coverage statement: literal route paths only; routers built in loops over non-literal tables are
 reported as unresolved by synthesis.
 """
-import re
+import json, os, re
 from ..model import classify_control, is_secret_name, evidence
 from ..index import walk, JS_LANGS
 from .common import sql_operation, sql_table, sql_schema, host_of_url, is_local, looks_like_secret_literal, grpc_service_name
@@ -136,6 +136,22 @@ def _env_host(text):
     return None
 
 
+def _repo_has_server(idx):
+    if not hasattr(idx, "_js_server_dep"):
+        idx._js_server_dep = False
+        for f in idx.config_files:
+            if f.endswith("package.json"):
+                try:
+                    with open(os.path.join(idx.root, f), encoding="utf-8", errors="replace") as fh:
+                        deps = json.load(fh)
+                except Exception:  # noqa: BLE001
+                    continue
+                if isinstance(deps, dict) and any(isinstance(deps.get(k), dict) and any(p in SERVER_PKGS for p in deps[k]) for k in ("dependencies", "devDependencies")):
+                    idx._js_server_dep = True
+                    break
+    return idx._js_server_dep
+
+
 class _JsFile:
     def __init__(self, idx, sf, facts):
         self.idx, self.sf, self.facts = idx, sf, facts
@@ -148,6 +164,8 @@ class _JsFile:
         self.instance_locals = {}   # local -> (logical name, technology) for model instances (doc.save())
         self.app_locals, self.router_locals = set(), set()
         self.has_server = any(spec in SERVER_PKGS for spec in b.values())
+        if not self.has_server and _repo_has_server(idx) and re.search(r"(?:async\s+)?(?:function\s*\w*\s*)?\(\s*(fastify|app|router|server|instance)\b[^)]*\)\s*(?:=>|\{)", sf.text):
+            self.has_server = True        # a plugin or route module that receives the server instance as a parameter
         self.env_of_var, self.base_url_of = {}, {}
         self.calls = [n for n in walk(sf.tree.root_node) if n.type == "call_expression"]
         self.declarators = [n for n in walk(sf.tree.root_node) if n.type == "variable_declarator"]
@@ -170,6 +188,7 @@ class _JsFile:
         self._aliases(); self._aliases()
         self._env_and_clients()
         self._routers()
+        self._nextjs_routes()
         self._request_fields()
         self._secrets_and_literals()
         for n in self.calls:
@@ -379,6 +398,49 @@ class _JsFile:
             return "__default__"
         return root
 
+    NEXT_PAGES_RX = re.compile(r"(?:^|/)pages/(api/.*)\.(?:js|jsx|ts|tsx|mjs)$")
+    NEXT_APP_RX = re.compile(r"(?:^|/)app/(.*?)/?route\.(?:js|ts|mjs)$")
+
+    @staticmethod
+    def _next_path(rel):
+        segs = []
+        for seg in rel.split("/"):
+            if not seg or (seg.startswith("(") and seg.endswith(")")) or seg.startswith("@"):
+                continue                                    # route groups and parallel-route slots are not URL segments
+            m = re.fullmatch(r"\[{1,2}(?:\.\.\.)?(\w+)\]{1,2}", seg)
+            segs.append("{" + m.group(1) + "}" if m else seg)
+        if segs and segs[-1] == "index":
+            segs.pop()
+        return "/" + "/".join(segs)
+
+    def _nextjs_routes(self):
+        """Next.js file-system routing: pages/api/** default exports and app/**/route.ts method exports."""
+        sf, idx = self.sf, self.idx
+        if not getattr(idx, "_is_next", None):
+            idx._is_next = any(f.endswith("package.json") and re.search(r'"next"\s*:', open(os.path.join(idx.root, f), encoding="utf-8", errors="replace").read())
+                               for f in idx.config_files) or any(re.search(r"(^|/)next\.config\.(js|mjs|ts)$", f) for f in idx.files) or "no"
+        if idx._is_next == "no":
+            return
+        mp, ma = self.NEXT_PAGES_RX.search(sf.path), self.NEXT_APP_RX.search(sf.path)
+        if not (mp or ma):
+            return
+        path = self._next_path(mp.group(1) if mp else ma.group(1))
+        self.facts.add("router", DET, self.ev(1), file=sf.path, local="<next>", own_prefix="", root=True)
+        for n in walk(sf.tree.root_node):
+            if n.type != "export_statement":
+                continue
+            text = sf.node_text(n)
+            decl = n.child_by_field_name("declaration")
+            if mp and text.startswith("export default"):
+                val = n.child_by_field_name("value") or decl
+                h = dict(handler_span=(sf.line(n), sf.end_line(n))) if val is None or val.type != "identifier" else dict(handler_ref=sf.node_text(val))
+                self.facts.add("entry_point", DET, self.ev(n), file=sf.path, protocol="http", method="ANY", path=path, router="<next>", route_controls=[], **h)
+            elif ma:
+                m = re.match(r"export\s+(?:async\s+)?(?:function\s+|const\s+)(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\b", text)
+                if m:
+                    self.facts.add("entry_point", DET, self.ev(n), file=sf.path, protocol="http", method=m.group(1), path=path, router="<next>", route_controls=[],
+                                   handler_span=(sf.line(n), sf.end_line(n)))
+
     def _routers(self):
         sf, facts = self.sf, self.facts
         declared = {}
@@ -438,7 +500,15 @@ class _JsFile:
     def _is_routerish(self, root):
         if root in self.app_locals or root in self.router_locals or root in ("Router",):
             return True
-        return self.has_server and root in ROUTERISH and root not in self.client_locals and root not in self.store_locals and root not in self.sdk_locals
+        if not (self.has_server and root in ROUTERISH and root not in self.client_locals and root not in self.store_locals and root not in self.sdk_locals):
+            return False
+        spec = self.sf.bindings.get(root)
+        if spec is None:
+            return True
+        if not spec.startswith("."):
+            return spec.split("/")[0] in SERVER_PKGS            # `import api from "axios"` is a client
+        tgt = self.idx.resolve(self.sf, spec)               # an imported object is a router only if its file builds one
+        return bool(tgt and re.search(r"\b(express|Router|fastify|Koa|new\s+Hono|restify\.createServer)\s*\(", self.idx.files[tgt].text))
 
     def _file_is_router(self, target):
         return bool(target and ROUTER_FILE_RX.search(self.idx.files[target].text))
@@ -485,7 +555,13 @@ class _JsFile:
             return
         # fastify.register(plugin, { prefix }) and routesFn(app) / require('./routes')(app)
         if verb == "register" and root in self.app_locals | self.router_locals and nargs:
-            target = self.resolve_local(sf.node_text(nargs[0]))
+            a0 = nargs[0]
+            if a0.type == "call_expression" and _txt(sf, a0.child_by_field_name("function")) == "require":   # register(require('./x'), ...)
+                ra = a0.child_by_field_name("arguments")
+                spec = _str(sf, ra.named_children[0]) if ra is not None and ra.named_child_count else None
+                target = self.idx.resolve(sf, spec) if spec else None
+            else:
+                target = self.resolve_local(sf.node_text(a0))
             prefix = ""
             if len(nargs) > 1 and nargs[1].type == "object":
                 pv = _object_pairs(sf, nargs[1]).get("prefix"); prefix = _str(sf, pv) or ""
@@ -496,6 +572,12 @@ class _JsFile:
             return
         if not members[:-1] and nargs and all(a.type == "identifier" and sf.node_text(a) in self.app_locals | self.router_locals for a in nargs[:1]) and verb == root:
             pass
+        if verb == "addHook" and len(nargs) >= 2 and _str(sf, nargs[0]) in ("onRequest", "preHandler", "preValidation", "preParsing"):
+            owner = self._chain_owner(n, root)
+            if owner not in self._declared_routers:
+                self._ensure_router(owner, n)
+            self._control(n, sf.node_text(nargs[1]).split("\n")[0][:80], "router", router=owner)   # fastify.addHook('onRequest', fastify.authenticate)
+            return
         if verb not in HTTP_VERBS and verb not in ("use", "route"):
             # routesFn(app): a function imported from a project file receives the app or a router
             return
@@ -555,6 +637,10 @@ class _JsFile:
         mids = []
         for a in handlers[:-1]:
             mids += list(a.named_children) if a.type == "array" else [a]
+        for a in [x for x in mids if x.type == "object"]:          # fastify route options: { preHandler: [auth], onRequest: auth }
+            for k, v in _object_pairs(sf, a).items():
+                if k in ("preHandler", "onRequest", "preValidation"):
+                    mids += list(v.named_children) if v.type == "array" else [v]
         controls = [c for c in (self._control(a, sf.node_text(a), "route") for a in mids if a.type in ("identifier", "member_expression", "call_expression")) if c]
         attrs = self._handler(handlers[-1])
         if not attrs and verb == "options" and handlers[-1].type == "call_expression":

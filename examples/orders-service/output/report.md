@@ -1,6 +1,6 @@
 # code2design report: orders-service
 
-Commit `24d7ae35ccec`, code2design 0.5.1, IR 0.2.
+Commit `24d7ae35ccec`, code2design 0.5.2, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `24d7ae35ccec`, code2design 0.5.1, IR 0.2.
 | typescript | 8 |
 | (test files, not modelled) | 0 |
 
-Detectors: config@0.5, js@0.5, synth@0.5.1
+Detectors: config@0.5, js@0.5, synth@0.5.2
 
 Facts: app 1, boundary_hint 4, config_value 1, control 3, declared_link 2, dependencies 1, entry_point 2, listener 1, module 1, outbound_call 2, router 2, router_mount 1, schema 3, store_access 8
 

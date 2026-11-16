@@ -157,7 +157,7 @@ def apply(ir, overrides, rel_path, today=None):
         kind = e.get("kind", "data")
         aid = sid("asset", "asset", kind, e["name"])
         ir["assets"] = [a for a in ir["assets"] if a["id"] != aid]
-        ir["assets"].append(OrderedDict(id=aid, identity=["asset", kind, e["name"]], origin="declared", name=e["name"], kind=kind, data_classes=list(e.get("data_classes", ["internal"])), held_by=held, processed_by=proc, evidence=[ev(e)]))
+        ir["assets"].append(OrderedDict(id=aid, identity=["asset", kind, e["name"]], origin="declared", name=e["name"], kind=kind, data_classes=[str(c) for c in (e.get("data_classes") if isinstance(e.get("data_classes"), list) else [])] or ["internal"], held_by=held, processed_by=proc, evidence=[ev(e)]))
     for e in ops("add_threat_agent"):
         check(e, "add_threat_agent")
         entry = sorted({n["id"] for t in e.get("entry", []) for _k, n in resolve(t)})

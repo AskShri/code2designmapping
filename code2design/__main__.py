@@ -108,6 +108,14 @@ def verify(args):
     return 1 if (changed or missing) else 0
 
 
+def _load_ir(path):
+    from . import IR_VERSION
+    ir = json.load(open(path))
+    if not isinstance(ir, dict) or ir.get("version") != IR_VERSION:
+        sys.exit(f"code2design: {path} is IR version {ir.get('version') if isinstance(ir, dict) else '?'}; this tool reads IR {IR_VERSION}. Re-run analyze.")
+    return ir
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="code2design", description="Code to evidence-backed data-flow design (DFD, STRIDE, OTM, SARIF).")
     ap.add_argument("--version", action="version", version=f"code2design {__version__}")
@@ -128,12 +136,12 @@ def main(argv=None):
         return analyze(args)
     if args.cmd == "diff":
         from .diff import markdown
-        print(markdown(json.load(open(args.base)), json.load(open(args.head)), args.title), end="")
+        print(markdown(_load_ir(args.base), _load_ir(args.head), args.title), end="")
         return 0
     if args.cmd == "verify":
         return verify(args)
     if args.cmd == "export":
-        ir = json.load(open(args.ir))
+        ir = _load_ir(args.ir)
         if args.format == "otm":
             from .export_otm import to_otm
             print(json.dumps(to_otm(ir, args.repo_url), indent=2))
@@ -143,7 +151,7 @@ def main(argv=None):
         return 0
     if args.cmd == "lint":
         from .lint import lint
-        rows = lint(json.load(open(args.ir)))
+        rows = lint(_load_ir(args.ir))
         for s, r, i, m in rows:
             print(f"{s:8} {r:32} {i:18} {m}")
         return 1 if any(s == "error" for s, *_ in rows) else 0

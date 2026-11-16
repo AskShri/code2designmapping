@@ -5,7 +5,7 @@ go-redis, MongoDB, outbound HTTP, secrets and weaknesses. Line-oriented with fun
 Coverage statement: literal paths; a GORM call whose model type cannot be traced reports an unresolved table."""
 import os, re
 from ..model import classify_control, is_secret_name, evidence
-from .common import sql_operation, sql_table, host_of_url, is_local, grpc_service_name
+from .common import manifest_engine, sql_operation, sql_table, host_of_url, is_local, grpc_service_name
 
 DET = "go@0.5"
 STORE_IMPORTS = [("github.com/go-redis/redis", "redis"), ("github.com/redis/go-redis", "redis"), ("github.com/gomodule/redigo", "redis"), ("go.mongodb.org/mongo-driver", "mongodb"), ("github.com/jackc/pgx", "postgres"),
@@ -52,7 +52,7 @@ class _Repo:
         self.pkg_text = {d: "\n".join(t) for d, t in self.pkg_text.items()}
         all_text = "\n".join(self.pkg_text.values())
         techs = sorted({t for imp, t in STORE_IMPORTS if ('"' + imp) in all_text and t in ("postgres", "mysql", "sqlite", "mssql")})
-        self.sql_tech = techs[0] if len(techs) == 1 else "sql"
+        self.sql_tech = techs[0] if len(techs) == 1 else ("sql" if techs else (manifest_engine(idx) or "sql"))
         # functions that take a router: (dir, func) -> (file, param)
         self.router_funcs = {}
         self.models = {}     # struct name -> (file, line)
@@ -92,6 +92,17 @@ def _func_scopes(sf):
             i += 1
         params = {pm.group(1) for pm in re.finditer(r"(\w+)\s+(\*?[\w.]+)", m.group(3)) if ROUTER_TYPES.fullmatch(pm.group(2))}
         out.append((start, sf.line_of_offset(i), m.group(2), params, m.group(3)))
+    # chi closures: r.Route("/p", func(r chi.Router) {...}) and r.Group(func(r chi.Router) {...}) open a sub-router scope
+    for m in re.finditer(r"\b(\w+)\.(Route|Group)\(\s*(?:\"([^\"]*)\"\s*,\s*)?func\(\s*(\w+)\s+chi\.Router\s*\)\s*\{", sf.text):
+        start = sf.line_of_offset(m.start())
+        depth = 0; i = m.end() - 1
+        while i < len(sf.text):
+            c = sf.text[i]
+            depth += c == "{"; depth -= c == "}"
+            if depth == 0:
+                break
+            i += 1
+        out.append((start, sf.line_of_offset(i), f"chi{start}", {m.group(4)}, "", m.group(1), m.group(3) or ""))
     return out
 
 
@@ -104,8 +115,9 @@ def _file(idx, sf, facts, repo):
     uses_gorm = "gorm" in pkg_text
     routers = set()
 
-    def scope_of(line):
-        return next((s for s in scopes if s[0] <= line <= s[1]), None)
+    def scope_of(line, exclude_start=False):
+        inner = [s for s in scopes if s[0] <= line <= s[1] and not (exclude_start and s[0] == line and len(s) > 5)]
+        return min(inner, key=lambda s: (s[1] - s[0], -s[0])) if inner else None
 
     def local(name, line):
         s = scope_of(line)
@@ -115,6 +127,11 @@ def _file(idx, sf, facts, repo):
         for p in sorted(s[3]):
             facts.add("router", DET, _ev(sf, s[0]), file=sf.path, local=f"{s[2]}:{p}", own_prefix="", root=False)
             routers.add(f"{s[2]}:{p}")
+    for s in scopes:
+        if len(s) > 5:                      # chi closure: mount it on the router it was opened from
+            outer = scope_of(s[0], exclude_start=True)
+            parent = f"{outer[2]}:{s[5]}" if outer and s[5] in outer[3] else s[5]
+            facts.add("router_mount", DET, _ev(sf, s[0]), file=sf.path, parent=parent, prefix=s[6], child_file=sf.path, child_local=f"{s[2]}:{next(iter(s[3]))}")
     # join method-chain continuation lines into statements: (first line, text)
     stmts = []
     i = 0
@@ -214,6 +231,11 @@ def _file(idx, sf, facts, repo):
                 if kind:
                     facts.add("control", DET, _ev(sf, i), file=sf.path, control_kind=kind, name=mw[0][:60], scope="router", router=local(m.group(1), i), ordered=True)
         # ---- routes
+        with_mw = []
+        wm = re.search(r"\b(\w+)\.With\(((?:[^()]|\([^()]*\))*)\)\.", l)
+        if wm:                                   # chi r.With(mw...).Get(...): route-level middleware
+            with_mw = [a.strip() for a in re.split(r",\s*(?![^()]*\))", wm.group(2)) if a.strip()]
+            l = l[:wm.start()] + wm.group(1) + "." + l[wm.end():]
         m = ROUTE_RX.search(l)
         if m and is_web and (local(m.group(1), i) in routers or m.group(1) in ("http", "r", "router", "mux", "e", "app", "g")):
             recv, verb, path, rest = m.groups()
@@ -235,8 +257,20 @@ def _file(idx, sf, facts, repo):
             hpart = re.sub(r"\)\s*\.Methods\(.*$", "", rest).rstrip(") ")
             args = [a.strip() for a in re.split(r",\s*(?![^()]*\))", hpart) if a.strip()]
             handler = args[-1] if args else ""
+            handler += ")" * max(0, handler.count("(") - handler.count(")"))     # the call's own ")" was stripped with the rest
+            while True:                          # requireAuth(http.HandlerFunc(h)): wrappers around the handler
+                wm2 = re.match(r"^([\w.]+)\((.*)\)$", handler.strip())
+                if not wm2 or not wm2.group(2) or wm2.group(2).startswith("func"):
+                    break
+                outer = wm2.group(1)
+                if outer in ("http.HandlerFunc", "http.Handler") or classify_control(outer.split(".")[-1]):
+                    if outer not in ("http.HandlerFunc", "http.Handler"):
+                        with_mw.append(outer)
+                    handler = re.split(r",\s*(?![^()]*\))", wm2.group(2))[0]
+                else:
+                    break
             controls = []
-            for a in args[:-1]:
+            for a in with_mw + args[:-1]:
                 nm = a.split("(")[0]
                 kind = classify_control(nm.split(".")[-1], a[len(nm):].strip("()"))
                 if kind:

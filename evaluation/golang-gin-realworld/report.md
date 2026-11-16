@@ -1,6 +1,6 @@
 # code2design report: golang-gin-realworld
 
-Commit `a41289b2a495`, code2design 0.5.1, IR 0.2.
+Commit `a41289b2a495`, code2design 0.5.2, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `a41289b2a495`, code2design 0.5.1, IR 0.2.
 | go | 21 |
 | (test files, not modelled) | 4 |
 
-Detectors: config@0.5, go@0.5, synth@0.5.1
+Detectors: config@0.5, go@0.5, synth@0.5.2
 
 Facts: app 1, control 1, dependencies 1, entry_point 27, listener 1, module 1, router 10, router_mount 9, schema 7, store_access 38
 
@@ -49,7 +49,7 @@ Entry points are where a threat agent first touches the system; exit points are 
 | GET /api/profiles/{username} | unknown | none | SQLite: UserModel |
 | GET /api/articles | unknown | none | SQLite: FavoriteModel |
 | POST /api/users | unknown | none | SQLite: UserModel, SQLite (table unresolved) |
-| POST /api/articles | unknown | users.AuthMiddleware | SQLite: ArticleModel, SQLite: FavoriteModel, SQLite (table unresolved) |
+| POST /api/articles | unknown | users.AuthMiddleware | SQLite: ArticleModel, SQLite: TagModel, SQLite: FavoriteModel, SQLite (table unresolved) |
 | DELETE /api/articles/{slug}/comments/{id} | unknown | users.AuthMiddleware | SQLite: ArticleModel, SQLite: CommentModel |
 | GET /api/ping (infrastructure) | unknown | none | - |
 | DELETE /api/articles/{slug}/favorite | unknown | users.AuthMiddleware | SQLite: ArticleModel, SQLite: FavoriteModel |
@@ -60,7 +60,7 @@ Entry points are where a threat agent first touches the system; exit points are 
 | GET /api/tags | unknown | none | SQLite: TagModel, SQLite: FavoriteModel |
 | POST /api/articles/{slug}/favorite | unknown | users.AuthMiddleware | SQLite: ArticleModel, SQLite: FavoriteModel |
 | POST /api/profiles/{username}/follow | unknown | users.AuthMiddleware | SQLite: FollowModel, SQLite: UserModel |
-| POST /api/articles/{slug}/comments | unknown | users.AuthMiddleware | SQLite: ArticleModel, SQLite: FavoriteModel, SQLite (table unresolved) |
+| POST /api/articles/{slug}/comments | unknown | users.AuthMiddleware | SQLite: ArticleModel, SQLite: TagModel, SQLite: FavoriteModel, SQLite (table unresolved) |
 | DELETE /api/articles/{slug} | unknown | users.AuthMiddleware | SQLite: ArticleModel |
 | GET /api/articles/feed | unknown | users.AuthMiddleware | SQLite: ArticleModel, SQLite: ArticleUserModel, SQLite: FavoriteModel |
 | GET /api/user | unknown | users.AuthMiddleware | - |

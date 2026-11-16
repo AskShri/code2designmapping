@@ -7,9 +7,9 @@ flowchart LR
     store_qxjued45lx[("Postgres: item")]
     store_tvae56uepz[("Postgres: user")]
   end
-  ext_3nnzcvcul3["Internal HTTP client"]
   ext_lhns7pymnw["Sentry"]
-  ext_3nnzcvcul3 -->|"http<br/>http: ItemPublic<br/>http: Message<br/>..."| proc_nmmdbtjh6y
+  ext_sga4qktkap["HTTP client"]
+  ext_sga4qktkap -->|"http<br/>http: ItemPublic<br/>http: ItemPublic (+1)<br/>..."| proc_nmmdbtjh6y
   proc_nmmdbtjh6y -->|"https"| ext_lhns7pymnw
   proc_nmmdbtjh6y -->|"sql"| store_qxjued45lx
   proc_nmmdbtjh6y -->|"sql: Postgres: user record (credential)<br/>sql: from Message (+3) (credential,pii)<br/>sql: from Message (credential)<br/>..."| store_tvae56uepz

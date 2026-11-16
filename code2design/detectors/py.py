@@ -447,12 +447,159 @@ class _PyFile:
         for line, fields in sorted(by_line.items()):
             self.facts.add("schema", DET, _ev(sf, line), file=sf.path, name="request fields", fields=[{"name": f, "type": "request"} for f in sorted(fields)], schema_kind="request")
 
+    def _root_urlconf(self):
+        for f in self.repo.files:
+            m = re.search(r"^ROOT_URLCONF\s*=\s*['\"]([\w.]+)['\"]", f.text, re.M)
+            if m:
+                return self.idx._py_module(f, m.group(1))
+        return None
+
+    def _view_class(self, ref):
+        """(file, class, info) for a view reference: a local class or an imported one."""
+        sf, C = self.sf, self.idx.classes
+        head, name = ref.split(".")[0], ref.split(".")[-1]
+        cands = []
+        if (sf.path, name) in C.classes:
+            cands.append(sf.path)
+        if head in sf.bindings:
+            f, sym = self.idx.resolve_symbol(sf, sf.bindings[head])
+            if f:
+                cands.append(f)
+        for f in cands:
+            if (f, name) in C.classes:
+                return f, name, C.classes[(f, name)]
+        return None
+
+    def _class_methods(self, f, cls, info):
+        lines = self.idx.files[f].lines[info["start"] - 1:info["end"]]
+        return {m.group(1): info["start"] + i for i, l in enumerate(lines) for m in [re.match(r"\s+(?:async\s+)?def\s+(\w+)\s*\(", l)] if m}
+
+    def _bases_closure(self, f, cls, depth=0):
+        """Base class names, following bases declared in the repository."""
+        info = self.idx.classes.classes.get((f, cls))
+        if not info or depth > 5:
+            return []
+        out = []
+        for b, _g in info["bases"]:
+            out.append(b.split(".")[-1])
+            hit = next(((bf, bc) for (bf, bc) in self.idx.classes.classes if bc == b.split(".")[-1] and self.idx.files[bf].lang == "python"), None)
+            if hit:
+                out += self._bases_closure(hit[0], hit[1], depth + 1)
+        return out
+
+    def _view_controls(self, f, cls, info, node):
+        """permission_classes / authentication_classes / decorators on a class-based view."""
+        body = "\n".join(self.idx.files[f].lines[info["start"] - 1:info["end"]])
+        ctl, anonymous = [], False
+        m = re.search(r"^\s+permission_classes\s*=\s*[\[(]([^\])]*)[\])]", body, re.M)
+        if m:
+            names = [x.strip().split(".")[-1] for x in m.group(1).split(",") if x.strip()]
+            if names and all(n == "AllowAny" for n in names):
+                anonymous = True
+            for n in names:
+                kind = "authz" if re.search(r"Admin|Owner|Permission|Staff|Role|DjangoModel", n) else ("authn" if re.search(r"IsAuthenticated|Authenticated", n) else classify_control(n))
+                if kind and n != "AllowAny":
+                    ctl.append(self.facts.add("control", DET, self.ev(node), file=self.sf.path, control_kind=kind, name=n, scope="route"))
+        if re.search(r"LoginRequiredMixin|PermissionRequiredMixin|UserPassesTestMixin", " ".join(b for b, _ in info["bases"])):
+            ctl.append(self.facts.add("control", DET, self.ev(node), file=self.sf.path, control_kind="authn", name="LoginRequiredMixin", scope="route"))
+        return ctl, anonymous
+
+    GENERIC_METHODS = [("ListCreate", ("GET", "POST")), ("RetrieveUpdateDestroy", ("GET", "PUT", "PATCH", "DELETE")), ("RetrieveUpdate", ("GET", "PUT", "PATCH")),
+                       ("RetrieveDestroy", ("GET", "DELETE")), ("List", ("GET",)), ("Create", ("POST",)), ("Retrieve", ("GET",)), ("Update", ("PUT", "PATCH")), ("Destroy", ("DELETE",)),
+                       ("TemplateView", ("GET",)), ("ListView", ("GET",)), ("DetailView", ("GET",)), ("CreateView", ("GET", "POST")), ("UpdateView", ("GET", "POST")),
+                       ("DeleteView", ("GET", "POST")), ("FormView", ("GET", "POST")), ("RedirectView", ("GET",))]
+    VERB_METHODS = {"get": "GET", "post": "POST", "put": "PUT", "patch": "PATCH", "delete": "DELETE", "head": "HEAD"}
+
+    def _emit_view(self, node, route, ref, prefix_router="urlpatterns"):
+        """One entry point per HTTP method a view handles; function views stay ANY."""
+        hit = self._view_class(ref)
+        if not hit:
+            self.facts.add("entry_point", DET, self.ev(node), file=self.sf.path, protocol="http", method="ANY", path=route, router=prefix_router, route_controls=[], handler_ref=ref[:120])
+            return
+        f, cls, info = hit
+        methods = self._class_methods(f, cls, info)
+        bases = self._bases_closure(f, cls)
+        ctl, anon = self._view_controls(f, cls, info, node)
+        out = [(v, f"{cls}.{m}") for m, v in self.VERB_METHODS.items() if m in methods]
+        if not out:
+            for key, verbs in self.GENERIC_METHODS:
+                if any(b.startswith(key) or b.endswith(key) for b in bases):
+                    out = [(v, f"{cls}.dispatch") for v in verbs]
+                    break
+        for v, sym in out or [("ANY", f"{cls}.dispatch")]:
+            attrs = dict(handler_file=f, handler_symbol=sym) if sym.split(".")[-1] in methods else dict(handler_scope="class", handler_file=f, handler_class=cls)
+            self.facts.add("entry_point", DET, self.ev(node), file=self.sf.path, protocol="http", method=v, path=route, router=prefix_router, route_controls=ctl,
+                           **attrs, **({"anonymous": True} if anon else {}))
+
+    VIEWSET_ACTIONS = [("list", "GET", False), ("create", "POST", False), ("retrieve", "GET", True), ("update", "PUT", True), ("partial_update", "PATCH", True), ("destroy", "DELETE", True)]
+
+    def _emit_viewset(self, node, prefix, ref):
+        hit = self._view_class(ref)
+        if not hit:
+            return
+        f, cls, info = hit
+        methods = self._class_methods(f, cls, info)
+        bases = " ".join(self._bases_closure(f, cls))
+        ctl, anon = self._view_controls(f, cls, info, node)
+        if "ModelViewSet" in bases and "ReadOnly" not in bases:
+            acts = {a for a, _v, _d in self.VIEWSET_ACTIONS}
+        elif "ReadOnlyModelViewSet" in bases:
+            acts = {"list", "retrieve"}
+        else:
+            acts = {a for a, mix in (("list", "ListModelMixin"), ("create", "CreateModelMixin"), ("retrieve", "RetrieveModelMixin"), ("update", "UpdateModelMixin"),
+                                     ("partial_update", "UpdateModelMixin"), ("destroy", "DestroyModelMixin")) if mix in bases}
+        acts |= {a for a, _v, _d in self.VIEWSET_ACTIONS if a in methods}
+        base = prefix.strip("/")
+        for a, verb, detail in self.VIEWSET_ACTIONS:
+            if a in acts:
+                path = f"/{base}/{{pk}}" if detail else f"/{base}"
+                h = dict(handler_file=f, handler_symbol=f"{cls}.{a}") if a in methods else dict(handler_scope="class", handler_file=f, handler_class=cls)
+                self.facts.add("entry_point", DET, self.ev(node), file=self.sf.path, protocol="http", method=verb, path=path, router="urlpatterns",
+                               route_controls=ctl, **h, **({"anonymous": True} if anon else {}))
+        text = self.idx.files[f].lines
+        for i in range(info["start"] - 1, info["end"]):
+            m = re.match(r"\s*@action\((.*)\)\s*$", text[i])
+            if not m:
+                continue
+            dm = re.search(r"\bdef\s+(\w+)", " ".join(text[i + 1:i + 4]))
+            if not dm:
+                continue
+            detail = re.search(r"detail\s*=\s*True", m.group(1)) is not None
+            verbs = re.findall(r"['\"](get|post|put|patch|delete)['\"]", m.group(1).lower()) or ["get"]
+            up = re.search(r"url_path\s*=\s*['\"]([^'\"]+)['\"]", m.group(1))
+            seg = up.group(1) if up else dm.group(1)
+            path = f"/{base}/{{pk}}/{seg}" if detail else f"/{base}/{seg}"
+            for v in verbs:
+                self.facts.add("entry_point", DET, self.ev(node), file=self.sf.path, protocol="http", method=v.upper(), path=path, router="urlpatterns",
+                               route_controls=ctl, handler_file=f, handler_symbol=f"{cls}.{dm.group(1)}", **({"anonymous": True} if anon else {}))
+
+    def _drf_defaults(self):
+        """REST_FRAMEWORK['DEFAULT_PERMISSION_CLASSES'] in settings: a service-wide control."""
+        sf = self.sf
+        if not sf.path.endswith("settings.py") and "/settings/" not in sf.path:
+            return
+        m = re.search(r"['\"]DEFAULT_PERMISSION_CLASSES['\"]\s*:\s*[\[(]([^\])]*)[\])]", sf.text)
+        if not m:
+            return
+        names = [x.strip().strip("'\"").split(".")[-1] for x in m.group(1).split(",") if x.strip()]
+        for n in names:
+            if n == "AllowAny":
+                continue
+            kind = "authz" if re.search(r"Admin|Owner|Permission|Staff|Role|DjangoModel", n) and "Authenticated" not in n else "authn"
+            self.facts.add("control", DET, _ev(sf, sf.line_of_offset(m.start())), file=sf.path, control_kind=kind, name=f"DEFAULT_PERMISSION_CLASSES:{n}", scope="service")
+
     def _django_urls(self):
         sf, facts = self.sf, self.facts
+        self._drf_defaults()
         if not re.search(r"^urlpatterns\s*(\+)?=", sf.text, re.M):
             return
-        is_root = "admin.site.urls" in sf.text or os.path.dirname(sf.path).count("/") == 0 or re.search(r"ROOT_URLCONF", " ".join(f.text for f in self.repo.files if f.path.endswith("settings.py")) or "") is None
+        root_conf = self._root_urlconf()
+        is_root = sf.path == root_conf if root_conf else ("admin.site.urls" in sf.text or os.path.dirname(sf.path).count("/") == 0)
         facts.add("router", DET, _ev(sf, 1), file=sf.path, local="urlpatterns", own_prefix="", root=bool(is_root))
+        registered = {}
+        for m in re.finditer(r"^(\w+)\.register\(\s*r?['\"]([^'\"]*)['\"]\s*,\s*([\w.]+)", sf.text, re.M):
+            registered.setdefault(m.group(1), []).append((m.group(2), m.group(3), sf.line_of_offset(m.start())))
+        used_routers = set()
         for n in walk(sf.tree.root_node):
             if n.type != "call":
                 continue
@@ -464,6 +611,12 @@ class _PyFile:
                 continue
             route = re.sub(r"^\^|\$$", "", route)
             target = sf.node_text(args.named_children[1])
+            rinc = re.match(r"include\(\s*(\w+)\.urls\s*\)", target)
+            if rinc and rinc.group(1) in registered:
+                used_routers.add(rinc.group(1))
+                for prefix, ref, _line in registered[rinc.group(1)]:
+                    self._emit_viewset(n, route.rstrip("/") + "/" + prefix if route else prefix, ref)
+                continue
             inc = re.match(r"include\(\s*(?:\(\s*)?['\"]([\w.]+)['\"]", target)
             if inc:
                 tfile = self.idx._py_module(sf, inc.group(1))
@@ -473,7 +626,17 @@ class _PyFile:
             if "include(" in target or "admin.site" in target:
                 continue
             ref = re.sub(r"\.as_view\(.*$", "", target, flags=re.S)
-            facts.add("entry_point", DET, self.ev(n), file=sf.path, protocol="http", method="ANY", path=route, router="urlpatterns", route_controls=[], handler_ref=ref[:120])
+            self._emit_view(n, route, ref)
+        for rv, regs in sorted(registered.items()):        # urlpatterns += router.urls
+            if rv not in used_routers and re.search(r"\b" + re.escape(rv) + r"\.urls\b", sf.text):
+                for prefix, ref, line in regs:
+                    self._emit_viewset(self._node_at_line(line), prefix, ref)
+
+    def _node_at_line(self, line):
+        for n in walk(self.sf.tree.root_node):
+            if n.type == "call" and self.sf.line(n) == line:
+                return n
+        return self.sf.tree.root_node
 
     # ------------------------------------------------------------------ calls
     def _enclosing(self, node):

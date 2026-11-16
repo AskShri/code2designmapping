@@ -83,6 +83,8 @@ class Routing:
     def _selected(c, ep, full, gp):
         """Middleware bound to a route list (Nest forRoutes): by controller class, or by method and path
         pattern relative to the global prefix; '*' segments match anything."""
+        if c.get("except_routes") and Routing._selected({"routes": c["except_routes"]}, ep, full, gp):
+            return False                           # an earlier rule (e.g. permitAll) already decided these paths
         if ep["router"] in (c.get("router_names") or ()):
             return True
         for method, pattern in c.get("routes") or ():

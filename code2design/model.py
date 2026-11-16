@@ -146,7 +146,7 @@ _CONTROL_RULES = [
     (re.compile(r"(helmet|hsts|x_?frame|xframe|xss_?protection|nosniff|content_?security|referrer_?policy|lusca\.(?!csrf)\w+|secure_?headers|talisman)", re.I), "security_headers"),
     (re.compile(r"(csrf|csurf|xsrf|^lusca$|antiforgery)", re.I), "csrf"),
     (re.compile(r"(^cors$|cors\b|CORSMiddleware|flask_cors|CrossOrigin|UseCors)", re.I), "cors"),
-    (re.compile(r"(authori[sz]|permission|role|can_|is_?admin|acl|rbac|scope|grant|has_?access|owner_?only|superuser|PreAuthorize|Secured|RolesAllowed)", re.I), "authz"),
+    (re.compile(r"(authori[sz]|permission|role|can_|is_?admin|admin_?only|require_?admin|admin_?required|acl|rbac|scope|grant|has_?access|owner_?only|superuser|PreAuthorize|Secured|RolesAllowed)", re.I), "authz"),
     (re.compile(r"(auth|jwt|passport|login_?required|require_?user|protect|verify_?token|is_?authenticated|bearer|oauth|current_?user|get_?user|authenticate|ensure_?logged|guard)", re.I), "authn"),
     (re.compile(r"(validat|joi|zod|yup|celebrate|schema|sanitiz|hpp|xss|mongo_?sanitize|Valid\b|express_?validator|check_?schema)", re.I), "input_validation"),
     (re.compile(r"(audit|morgan|winston|pino|log_?request)", re.I), "audit_log"),

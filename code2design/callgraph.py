@@ -330,6 +330,22 @@ class CallGraph:
                 out += self.type_method(sf, b, method)
         return sorted(set(out))
 
+    def _go_field_type(self, d, typ, field):
+        """Type name of `field` in Go struct `typ` declared in package directory d (pointer and package stripped)."""
+        if not hasattr(self, "_go_structs"):
+            self._go_structs = {}
+            for path, gsf in self.idx.files.items():
+                if gsf.lang != "go":
+                    continue
+                for m in re.finditer(r"^type\s+(\w+)\s+struct\s*\{(.*?)^\}", gsf.text, re.M | re.S):
+                    fields = {}
+                    for fm in re.finditer(r"^\s*(\w+(?:\s*,\s*\w+)*)\s+\*?(?:\[\])?(?:\w+\.)?(\w+)", m.group(2), re.M):
+                        for name in re.split(r"\s*,\s*", fm.group(1)):
+                            fields[name] = fm.group(2)
+                    self._go_structs[(os.path.dirname(path), m.group(1))] = fields
+            self.files_lang = {p: x.lang for p, x in self.idx.files.items()}
+        return self._go_structs.get((d, typ), {}).get(field)
+
     def _resolve(self, sf, cls, parts):
         f = sf.path
         root, members = parts[0], parts[1:]
@@ -355,6 +371,14 @@ class CallGraph:
                 return []                      # external package
             cands = self._by_dir.get((os.path.dirname(f), members[-1] if members else root), [])
             if members:
+                if len(members) == 2 and cls:   # h.store.List(): a field of the receiver's struct type
+                    ftype = self._go_field_type(os.path.dirname(f), cls, members[0])
+                    if ftype:
+                        exact = sorted(k for k in self.functions if k[1] == f"{ftype}.{members[1]}")
+                        if exact:
+                            return exact[:3]
+                        impl = sorted(k for k in self.functions if k[1].endswith("." + members[1]) and self.files_lang.get(k[0]) == "go")
+                        return impl[:3] if len(impl) <= 3 else []     # an interface field: its implementations
                 if len(members) > 1:
                     return []                  # a.b.c(): a field of another type, not a package-local method
                 return [k for k in cands if "." in k[1]][:3]
@@ -433,7 +457,10 @@ class CallGraph:
                 continue
             line = sf.line(n)
             caller = self.enclosing(sf.path, line)
-            for target in self._resolve(sf, self.classes.class_at(sf.path, line), parts):
+            cls = self.classes.class_at(sf.path, line)
+            if sf.lang == "go" and "." in caller[1]:
+                cls = caller[1].split(".")[0]            # Go: the receiver type of the enclosing method
+            for target in self._resolve(sf, cls, parts):
                 if target and target != caller:
                     self.calls.setdefault(caller, set()).add(target)
 

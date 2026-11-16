@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-flask-redis",
     "detectors": [
       "config@0.5",
       "py@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -41,7 +41,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b420f2bb1ec42fcc13ea204a08b08a83d9a382fa2cfa08302c3ac7b46386cd5"
         }
       ]
@@ -86,7 +86,7 @@
           "path": "app.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:9f925aab96267e07ca503b9da858ca38ccdc5b69bf7a1545bf166b7cf3ebd2c5"
         }
       ],

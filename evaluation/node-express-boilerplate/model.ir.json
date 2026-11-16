@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "179ae84efec61b14206d0305d941daed6c6d07f9",
     "generated_from": "node-express-boilerplate",
     "detectors": [
       "config@0.5",
       "js@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -63,7 +63,7 @@
           "path": "src/docs/swaggerDef.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:2ab9437375334d40d1000b573fa13fcdd2ef5cb4fc90cdc4e7e1d31c842096af"
         }
       ],
@@ -85,7 +85,7 @@
           "path": "src/services/auth.service.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8151ac44da5022a4079a47a8bffef94eeea2833aafb607c2089c131ecf75d398"
         }
       ],
@@ -131,7 +131,7 @@
           "path": "tests/fixtures/token.fixture.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:100f126a8189e240207a546dc31d9fc3d8990963d72e15a52eef7edb010a9b64"
         }
       ],
@@ -200,7 +200,7 @@
           "path": "src/models/index.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:ff6a0a7796addb22f12415852dc4c462720344d1ab33e40cd507d042a77604ca"
         }
       ],
@@ -246,7 +246,7 @@
           "path": "src/config/config.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:838f35cb113b638e0695bae09ab7cbf57d0ce0678e947091ada3605eeff7bfa4"
         }
       ],
@@ -269,7 +269,7 @@
           "path": "src/services/auth.service.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8151ac44da5022a4079a47a8bffef94eeea2833aafb607c2089c131ecf75d398"
         }
       ],
@@ -314,7 +314,7 @@
           "path": "src/config/passport.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:3c9a2f9a0ec4640ea718d5b837aa3c6bf794f494ddc908656f269e70999d5154"
         }
       ],
@@ -383,7 +383,7 @@
           "path": "jest.config.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c95f6bedc3093e156a34529d8c92c2513166e0530a89d780212869a7102f9c29"
         }
       ],
@@ -406,7 +406,7 @@
           "path": "src/routes/v1/auth.route.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e065a49059e493d4d1f938d91ecf94649080e5ade71de72a4958e3edbe7cf0c4"
         }
       ],
@@ -428,7 +428,7 @@
           "path": "src/services/email.service.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e5d886976f6e9726ff6360f84860e923e08f60d3b9f338692f078119ed6de80b"
         }
       ],
@@ -473,7 +473,7 @@
           "path": "src/services/user.service.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8151ac44da5022a4079a47a8bffef94eeea2833aafb607c2089c131ecf75d398"
         }
       ],
@@ -496,7 +496,7 @@
           "path": "src/utils/ApiError.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:3034ed1a3760cc9224ac10f0aaf4edb5e5146f9cbabd693903c53037d64c8ec4"
         }
       ],
@@ -519,7 +519,7 @@
           "path": "src/validations/auth.validation.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:dc3aaa8ae9d1b1ea7405a7ede6e5ecb2476f13c0d9aa4201585cf699669adef7"
         }
       ],
@@ -609,7 +609,7 @@
           "path": "src/controllers/auth.controller.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8151ac44da5022a4079a47a8bffef94eeea2833aafb607c2089c131ecf75d398"
         }
       ],
@@ -655,7 +655,7 @@
           "path": "src/middlewares/auth.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e8a6eb62841fcd76eea141bcfe4529b061cc4d2a3bcb18c23a1ce6c1480fb14a"
         }
       ],
@@ -746,7 +746,7 @@
           "path": "src/services/token.service.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a2c6cd25e9aeed857cf98ca6e23572e37dd4f455d747594e689b2f8fa2ab3cff"
         }
       ],
@@ -1075,7 +1075,7 @@
           "path": "src/services/email.service.js",
           "start_line": 21,
           "end_line": 21,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8635d35ac51774ef19664b14b388d1a48b2dacb0e4418f42914ca9c8f7c5b658",
           "symbol": "src/services/email.service.js::sendEmail"
         }
@@ -1194,7 +1194,7 @@
           "path": "src/services/token.service.js",
           "start_line": 37,
           "end_line": 37,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
           "symbol": "src/services/token.service.js::saveToken"
         }
@@ -1260,7 +1260,7 @@
           "path": "src/services/user.service.js",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
           "symbol": "src/services/user.service.js::getUserById"
         }
@@ -1327,7 +1327,7 @@
           "path": "src/services/user.service.js",
           "start_line": 10,
           "end_line": 10,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c9060271de59cbcb5c5e6bcc73a9afc1bedc2cb796eb498db261054dedd78108",
           "symbol": "src/services/user.service.js::createUser"
         }
@@ -1356,7 +1356,7 @@
           "path": "src/services/token.service.js",
           "start_line": 54,
           "end_line": 54,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4e75ca12c0220a0f7628ad01602b7df2e999974413a1eaae3d87069097b48ae7",
           "symbol": "src/services/token.service.js::verifyToken"
         }
@@ -1431,7 +1431,7 @@
           "path": "src/services/user.service.js",
           "start_line": 26,
           "end_line": 26,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8f86863cb17a8fcc951b42c68442c43f162dbf7b6044d3bd82f2570700d78d8c",
           "symbol": "src/services/user.service.js::queryUsers"
         }
@@ -1720,7 +1720,7 @@
           "path": "src/services/token.service.js",
           "start_line": 54,
           "end_line": 54,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4e75ca12c0220a0f7628ad01602b7df2e999974413a1eaae3d87069097b48ae7",
           "symbol": "src/services/token.service.js::verifyToken"
         },
@@ -1728,7 +1728,7 @@
           "path": "src/services/token.service.js",
           "start_line": 37,
           "end_line": 37,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
           "symbol": "src/services/token.service.js::saveToken"
         }
@@ -1757,7 +1757,7 @@
           "path": "src/services/auth.service.js",
           "start_line": 27,
           "end_line": 27,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1a15084eee8f21b2b90beeb44813d6e47601f9965cec999d9d4267819ceb2753",
           "symbol": "src/services/auth.service.js::logout"
         }
@@ -1786,7 +1786,7 @@
           "path": "src/services/user.service.js",
           "start_line": 10,
           "end_line": 10,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c9060271de59cbcb5c5e6bcc73a9afc1bedc2cb796eb498db261054dedd78108",
           "symbol": "src/services/user.service.js::createUser"
         }
@@ -1899,7 +1899,7 @@
           "path": "src/services/user.service.js",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
           "symbol": "src/services/user.service.js::getUserById"
         }
@@ -1975,7 +1975,7 @@
           "path": "src/services/token.service.js",
           "start_line": 54,
           "end_line": 54,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4e75ca12c0220a0f7628ad01602b7df2e999974413a1eaae3d87069097b48ae7",
           "symbol": "src/services/token.service.js::verifyToken"
         }
@@ -2004,7 +2004,7 @@
           "path": "src/services/user.service.js",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
           "symbol": "src/services/user.service.js::getUserById"
         }
@@ -2071,7 +2071,7 @@
           "path": "src/services/token.service.js",
           "start_line": 37,
           "end_line": 37,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
           "symbol": "src/services/token.service.js::saveToken"
         }
@@ -2139,7 +2139,7 @@
           "path": "src/services/user.service.js",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
           "symbol": "src/services/user.service.js::getUserById"
         }
@@ -2168,7 +2168,7 @@
           "path": "src/services/user.service.js",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
           "symbol": "src/services/user.service.js::getUserById"
         }
@@ -2243,7 +2243,7 @@
           "path": "src/services/user.service.js",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
           "symbol": "src/services/user.service.js::getUserById"
         }
@@ -2395,7 +2395,7 @@
           "path": "src/services/user.service.js",
           "start_line": 45,
           "end_line": 45,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:da7adc864f4817190d3237c2a95d84186bd3422d23200f1ff6314e57ad533971",
           "symbol": "src/services/user.service.js::getUserByEmail"
         }
@@ -2424,7 +2424,7 @@
           "path": "src/services/token.service.js",
           "start_line": 54,
           "end_line": 54,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4e75ca12c0220a0f7628ad01602b7df2e999974413a1eaae3d87069097b48ae7",
           "symbol": "src/services/token.service.js::verifyToken"
         }
@@ -2453,7 +2453,7 @@
           "path": "src/services/token.service.js",
           "start_line": 37,
           "end_line": 37,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
           "symbol": "src/services/token.service.js::saveToken"
         }
@@ -2482,7 +2482,7 @@
           "path": "src/services/user.service.js",
           "start_line": 36,
           "end_line": 36,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a5a650c5a33cdd609d1f130a0e6034e0ca2f632d7307625366782c2f3bb00461",
           "symbol": "src/services/user.service.js::getUserById"
         }
@@ -2561,7 +2561,7 @@
           "path": "src/services/auth.service.js",
           "start_line": 40,
           "end_line": 40,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:6799cb4aba34d983cb02e543c55ea91a8d9a7cdbd46ed123055164d9bd7f5cdd",
           "symbol": "src/services/auth.service.js::refreshAuth"
         }
@@ -2637,7 +2637,7 @@
           "path": "src/services/user.service.js",
           "start_line": 45,
           "end_line": 45,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:da7adc864f4817190d3237c2a95d84186bd3422d23200f1ff6314e57ad533971",
           "symbol": "src/services/user.service.js::getUserByEmail"
         }
@@ -2666,7 +2666,7 @@
           "path": "src/services/token.service.js",
           "start_line": 37,
           "end_line": 37,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:bb0d64b7a61808f78903cc35e2b4c5c32859c9d6461d393926a7f1170998c3a5",
           "symbol": "src/services/token.service.js::saveToken"
         }
@@ -2695,7 +2695,7 @@
           "path": "src/services/auth.service.js",
           "start_line": 60,
           "end_line": 60,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f5cfa2f8d73b9beffb4f95d58f073f8c15eebd689c4a46d46935245f91e9da21",
           "symbol": "src/services/auth.service.js::resetPassword"
         }
@@ -2724,7 +2724,7 @@
           "path": "src/services/auth.service.js",
           "start_line": 79,
           "end_line": 79,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:0abd43213691a94a8077cbbc809ebe880fb9615f2c182ceef8fb964c0c5c721d",
           "symbol": "src/services/auth.service.js::verifyEmail"
         }
@@ -2753,7 +2753,7 @@
           "path": "src/services/email.service.js",
           "start_line": 21,
           "end_line": 21,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8635d35ac51774ef19664b14b388d1a48b2dacb0e4418f42914ca9c8f7c5b658",
           "symbol": "src/services/email.service.js::sendEmail"
         }
@@ -5134,7 +5134,7 @@
   "gaps": [
     {
       "kind": "unknown_attribute",
-      "path": "src/routes/v1/auth.route.js",
+      "path": "src/index.js",
       "detail": "Question: is TLS terminated in front of the HTTP listener of node-app? Inbound flows are marked encryption=unknown until answered."
     },
     {

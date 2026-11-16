@@ -1,14 +1,14 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "c1c2cc4e448b279ff083272df1ac50d20c3304fa",
     "generated_from": "nestjs-realworld",
     "detectors": [
       "config@0.5",
       "js@0.5",
       "nest@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -105,7 +105,7 @@
           "path": "src/profile/follows.entity.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8830e0535f9426b233367dab041f3e711d4001c1d8f0a2b5c64a3074d94dd61c"
         }
       ],
@@ -265,7 +265,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:3d027b01774e7dc5a09479e60f7d35443bf0fe142748c3e2083ffdd8b7ca7056"
         }
       ],
@@ -310,7 +310,7 @@
           "path": "src/user/user.service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:3d027b01774e7dc5a09479e60f7d35443bf0fe142748c3e2083ffdd8b7ca7056"
         }
       ],
@@ -333,7 +333,7 @@
           "path": "src/tag/tag.controller.spec.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4e2f71107ded0b6bd525678adee13621c414e2e4afcce282b91d1944c6da68bd"
         }
       ],
@@ -356,7 +356,7 @@
           "path": "src/article/article.controller.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8d2727e9c61c6d5af5573557c752aac9df25d7f94b9252225a86b1210eb9dd70"
         }
       ],
@@ -425,7 +425,7 @@
           "path": "src/user/auth.middleware.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f0a1f4b8920d1339b63072e68ff9af119e02e513f8ba5430d83b5e3ca6d2bcc8"
         }
       ],
@@ -517,7 +517,7 @@
           "path": "src/shared/base.controller.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:ff5cb578df47057adbf11d35ee9b2a0c71c4357847f9d5d30429d5a8f6b76449"
         }
       ],
@@ -540,7 +540,7 @@
           "path": "index.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:cd160cbe3322dacc184bca707e2a67730a1a32f48708c7773d1bb88769ed015a"
         }
       ],
@@ -698,7 +698,7 @@
           "path": "src/profile/profile.service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:34e679ddb6da86a448ae3d9e3768417cb16378ddc25abe019aa290a835047227"
         }
       ],
@@ -743,7 +743,7 @@
           "path": "src/tag/tag.service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:78eeae7c229f976c9f498e3121017b4d6d1109194d1782040f0a64d5dbe728a6"
         }
       ],
@@ -1114,7 +1114,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8ee087dd70e7fe3e2941d4864a257bbbf773d397ac036ba203784edea7e7c2da"
         }
       ]
@@ -1176,7 +1176,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 114,
           "end_line": 114,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c6750d21b320544a917cba5ca2dea3779ef41316eccaf36eb0a1f2da4635518a",
           "symbol": "src/article/article.service.ts::ArticleService.deleteComment"
         }
@@ -1256,7 +1256,7 @@
           "path": "src/user/user.service.ts",
           "start_line": 38,
           "end_line": 38,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8816d6e462c87fa7f7ea5a70cefa82a800fb77c70541c60ab83f1258315c2169",
           "symbol": "src/user/user.service.ts::UserService.create"
         }
@@ -1285,7 +1285,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 66,
           "end_line": 66,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:92b54d63e4c841209b2b5f0442be6e8f98738dd114a3932386820a3f40ddb08d",
           "symbol": "src/article/article.service.ts::ArticleService.findFeed"
         }
@@ -1344,7 +1344,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 197,
           "end_line": 197,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:2cc55c7db713c4b5f0ff3899fb5bae342aecaba456abb7c57118d384c010ef5f",
           "symbol": "src/article/article.service.ts::ArticleService.delete"
         }
@@ -1373,7 +1373,7 @@
           "path": "src/profile/profile.service.ts",
           "start_line": 81,
           "end_line": 81,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f15fe3014fc9ca7e5ebe7282733bf0d04d92654692e30d9cff6f78a61f421a8a",
           "symbol": "src/profile/profile.service.ts::ProfileService.unFollow"
         }
@@ -1402,7 +1402,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 165,
           "end_line": 165,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:d548310a8bcdeaebe3f99eec7e979b9277682a6f15778b0675a7fb7b39a73979",
           "symbol": "src/article/article.service.ts::ArticleService.findComments"
         }
@@ -1463,7 +1463,7 @@
           "path": "src/profile/profile.service.ts",
           "start_line": 50,
           "end_line": 50,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f98ed5e6425af777ae3a15ae92410fbf84c4c796fa0106617e10990da9ba76f6",
           "symbol": "src/profile/profile.service.ts::ProfileService.follow"
         }
@@ -1554,7 +1554,7 @@
           "path": "src/profile/profile.service.ts",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:be0fd4c198bc28692dbb74afac0a910caabf86d938c3467cd1f0ab099ea6cf8d",
           "symbol": "src/profile/profile.service.ts::ProfileService.findProfile"
         }
@@ -1615,7 +1615,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 101,
           "end_line": 101,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:b13b167bd35c2d5d66dc9e508e0d956ab62410e15d71907c7c4c898b1e89ef4f",
           "symbol": "src/article/article.service.ts::ArticleService.addComment"
         }
@@ -1644,7 +1644,7 @@
           "path": "src/user/user.service.ts",
           "start_line": 74,
           "end_line": 74,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:2266a3e871ec6c0a8a076544db8d1526976f5d9a9689ea993d67a403ee2c31b8",
           "symbol": "src/user/user.service.ts::UserService.update"
         }
@@ -1703,7 +1703,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 131,
           "end_line": 131,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:0dfc35b22ffe7ba1e0213aa7f12c9b7e55211cde7ec2eb835f9ad4287b3944a0",
           "symbol": "src/article/article.service.ts::ArticleService.favorite"
         }
@@ -1732,7 +1732,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 147,
           "end_line": 147,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:94644ec5a10c2d7f50b657d724b791a53fdac4919fa4b0dfd4a15dc6aefa321e",
           "symbol": "src/article/article.service.ts::ArticleService.unFavorite"
         }
@@ -2215,7 +2215,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 96,
           "end_line": 96,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:2c78a13b852911c03f6a8b0f53e963e6c11ca54faba2ee86970fb32f591b93f9",
           "symbol": "src/article/article.service.ts::ArticleService.findOne"
         }
@@ -2309,7 +2309,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 26,
           "end_line": 26,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:bf898d4217c184213eb046e21230fd37724eb50b09518af4c7d7bcb07cfd8fee",
           "symbol": "src/article/article.service.ts::ArticleService.findAll"
         }
@@ -2370,7 +2370,7 @@
           "path": "src/user/user.service.ts",
           "start_line": 98,
           "end_line": 98,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:a435d6887f41a1595dc63d95424e8367a7f3623421776716cb378cfe1e521568",
           "symbol": "src/user/user.service.ts::UserService.findByEmail"
         }
@@ -2399,7 +2399,7 @@
           "path": "src/user/user.service.ts",
           "start_line": 25,
           "end_line": 25,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:cc5063a5543de70451212d16d0c95a64e377b26d367d91ff56f968a1ebd137ba",
           "symbol": "src/user/user.service.ts::UserService.findOne"
         }
@@ -2465,7 +2465,7 @@
           "path": "src/tag/tag.service.ts",
           "start_line": 13,
           "end_line": 13,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:0fb45bfd38cf22c807c60ce62d6242b95798db05db019cf5cfc431a2b61533a2",
           "symbol": "src/tag/tag.service.ts::TagService.findAll"
         }
@@ -2494,7 +2494,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 190,
           "end_line": 190,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:c158e6db14d9ff2f87d5d714de3561d57a81ade38c0f555d72594b58cd09d050",
           "symbol": "src/article/article.service.ts::ArticleService.update"
         }
@@ -2840,7 +2840,7 @@
           "path": "src/user/user.service.ts",
           "start_line": 83,
           "end_line": 83,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:6f754c73cfd0456e5ebace6751cec091c5830f5b4364a6c32c0c843f9a3e3c58",
           "symbol": "src/user/user.service.ts::UserService.delete"
         }
@@ -2869,7 +2869,7 @@
           "path": "src/article/article.service.ts",
           "start_line": 170,
           "end_line": 170,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:491085287cb8f4bf1f5b248516f22693b6a1db915a25bf6a639753a7d2652943",
           "symbol": "src/article/article.service.ts::ArticleService.create"
         }
@@ -4465,7 +4465,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8ee087dd70e7fe3e2941d4864a257bbbf773d397ac036ba203784edea7e7c2da"
         }
       ]

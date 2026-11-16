@@ -2,38 +2,38 @@
   {
     "severity": "warning",
     "rule": "unauthenticated-crossing",
-    "id": "flow:4tdwut6alt",
-    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/password-recovery/{email} handler"
+    "id": "flow:24ncpwxxuz",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/v1/users/signup handler"
   },
   {
     "severity": "warning",
     "rule": "unauthenticated-crossing",
-    "id": "flow:fgov3r3its",
-    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/private/users handler"
+    "id": "flow:5z6svpow62",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/v1/private/users handler"
   },
   {
     "severity": "warning",
     "rule": "unauthenticated-crossing",
-    "id": "flow:hgqtggp6ak",
-    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/reset-password handler"
+    "id": "flow:d3mwvmqkl5",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/v1/reset-password handler"
   },
   {
     "severity": "warning",
     "rule": "unauthenticated-crossing",
-    "id": "flow:imjni3bcrz",
-    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/login/access-token handler"
+    "id": "flow:mzgx6zmd2d",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/v1/password-recovery/{email} handler"
   },
   {
     "severity": "warning",
     "rule": "unauthenticated-crossing",
-    "id": "flow:m7cc27z3sy",
-    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> GET /api/v1/utils/health-check handler"
+    "id": "flow:voc5pf6nfa",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/v1/login/access-token handler"
   },
   {
     "severity": "warning",
     "rule": "unauthenticated-crossing",
-    "id": "flow:wxktvtw727",
-    "message": "inbound flow crosses a boundary without authentication: Internal HTTP client -> POST /api/v1/users/signup handler"
+    "id": "flow:zwna2vuz3i",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/v1/utils/health-check handler"
   },
   {
     "severity": "warning",

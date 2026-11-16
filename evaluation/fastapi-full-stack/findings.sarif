@@ -6,7 +6,7 @@
       "tool": {
         "driver": {
           "name": "code2design",
-          "version": "0.5.1",
+          "version": "0.5.2",
           "informationUri": "https://github.com/AskShri/code2designmapping",
           "rules": [
             {
@@ -27,6 +27,25 @@
                 ],
                 "security-severity": "8.0"
               }
+            },
+            {
+              "id": "c2d/unauthenticated_entry_point",
+              "name": "UnauthenticatedEntryPoint",
+              "shortDescription": {
+                "text": "Entry point without a detected authentication control (review)"
+              },
+              "helpUri": "https://cwe.mitre.org/data/definitions/306.html",
+              "defaultConfiguration": {
+                "level": "note"
+              },
+              "properties": {
+                "tags": [
+                  "security",
+                  "CWE-306",
+                  "STRIDE:SE"
+                ],
+                "security-severity": "1.0"
+              }
             }
           ]
         }
@@ -37,6 +56,40 @@
         }
       },
       "results": [
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/v1/password-recovery/{email} (CWE-306). Applies to: POST /api/v1/password-recovery/{email}."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/app/api/routes/login.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 53,
+                  "endLine": 54
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:2z7rtm2tqy"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:zvx6asexrs"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
         {
           "ruleId": "c2d/plaintext_credentials",
           "ruleIndex": 0,
@@ -72,6 +125,74 @@
           }
         },
         {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/v1/reset-password (CWE-306). Applies to: POST /api/v1/reset-password."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/app/api/routes/login.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 77,
+                  "endLine": 78
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:h2reymqc3j"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:tt7z7txqki"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/v1/private/users (CWE-306). Applies to: POST /api/v1/private/users."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/app/api/routes/private.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 23,
+                  "endLine": 24
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:h574y2hmp2"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:fjgxgn5wsl"
+            ],
+            "stride": [
+              "S",
+              "E"
+            ]
+          }
+        },
+        {
           "ruleId": "c2d/plaintext_credentials",
           "ruleIndex": 0,
           "level": "error",
@@ -101,6 +222,40 @@
             ],
             "stride": [
               "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/v1/users/signup (CWE-306). Applies to: POST /api/v1/users/signup."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/app/api/routes/users.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 146,
+                  "endLine": 147
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:sxukjuons7"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:s2g4fsb6is"
+            ],
+            "stride": [
+              "S",
               "E"
             ]
           }
@@ -169,6 +324,40 @@
             ],
             "stride": [
               "I",
+              "E"
+            ]
+          }
+        },
+        {
+          "ruleId": "c2d/unauthenticated_entry_point",
+          "ruleIndex": 1,
+          "level": "note",
+          "message": {
+            "text": "no authentication control detected on POST /api/v1/login/access-token (CWE-306). Applies to: POST /api/v1/login/access-token."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "backend/app/api/routes/login.py",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 23,
+                  "endLine": 24
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "c2dWeaknessId": "wk:w7bvmrd6kl"
+          },
+          "properties": {
+            "dfdElements": [
+              "ep:zhqgi6fae7"
+            ],
+            "stride": [
+              "S",
               "E"
             ]
           }

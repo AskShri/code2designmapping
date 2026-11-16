@@ -17,7 +17,7 @@ One row per (threat agent, asset) pair. The path is the route from where the age
 |---|---|---|---|---|---|---|
 | Compromised external service | third_party | outside all boundaries | Unresolved HTTP target, Stripe API | - | return malicious responses; harvest data sent to it | inferred |
 | Anonymous HTTP caller | anonymous | outside all boundaries | HTTP client | - | reach data or functions without authenticating | inferred |
-| Insider with access to repository: stripe-checkout-sample | insider | repository: stripe-checkout-sample | GET /checkout-session handler, ANY / handler, ANY /create-checkout-session handler, ANY /config handler, POST /create-checkout-session handler (+8) | authn, authz, rate_limit, input_validation, csrf, cors, security_headers, audit_log | read data stores directly; exfiltrate secrets | inferred |
+| Insider with access to repository: stripe-checkout-sample | insider | repository: stripe-checkout-sample | GET /checkout-session handler, ANY / handler, ANY /create-checkout-session handler, ANY /config handler, POST /create-checkout-session handler (+12) | authn, authz, rate_limit, input_validation, csrf, cors, security_headers, audit_log | read data stores directly; exfiltrate secrets | inferred |
 
 ## Assets
 

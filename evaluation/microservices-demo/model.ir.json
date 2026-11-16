@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "c7cb6d5bfd6ea3aed768634ebbcb98cb7a523712",
     "generated_from": "microservices-demo",
     "detectors": [
@@ -11,7 +11,7 @@
       "java@0.5",
       "js@0.5",
       "py@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -165,7 +165,7 @@
           "path": "src/checkoutservice/main.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
         }
       ],
@@ -257,7 +257,7 @@
           "path": "src/productcatalogservice/catalog_loader.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:b6e5416388241de549730a12e15eb81d4ad89d64c2760af04f8a2ddae80053d5"
         }
       ],
@@ -310,7 +310,7 @@
           "path": "kustomize/components/shopping-assistant/scripts/generate_sql_from_products.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4cb32a252dc89644f8bf45e45be123e8cf6461c5448f5a73a63ec12fea79f521"
         }
       ],
@@ -424,7 +424,7 @@
           "path": "src/cartservice/src/cartstore/RedisCartStore.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
         }
       ],
@@ -446,7 +446,7 @@
           "path": "src/productcatalogservice/server.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
         }
       ],
@@ -492,7 +492,7 @@
           "path": "src/checkoutservice/genproto/demo.pb.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f87ba3be63973c32bf8c0561fb5838b777c1c483cfc621c22f1cd7b3e9c81694"
         }
       ],
@@ -515,7 +515,7 @@
           "path": "src/shippingservice/genproto/demo.pb.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f87ba3be63973c32bf8c0561fb5838b777c1c483cfc621c22f1cd7b3e9c81694"
         }
       ],
@@ -537,7 +537,7 @@
           "path": "src/recommendationservice/client.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
         }
       ],
@@ -560,7 +560,7 @@
           "path": "src/cartservice/src/Program.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f87ba3be63973c32bf8c0561fb5838b777c1c483cfc621c22f1cd7b3e9c81694"
         }
       ],
@@ -583,7 +583,7 @@
           "path": "src/currencyservice/client.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -652,7 +652,7 @@
           "path": "src/shoppingassistantservice/shoppingassistantservice.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
         }
       ],
@@ -705,7 +705,7 @@
           "path": "src/recommendationservice/client.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
         }
       ],
@@ -758,7 +758,7 @@
           "path": "src/loadgenerator/locustfile.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
         }
       ],
@@ -780,7 +780,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:87a4637f66afb7d2032a5e730493b15609394fedb229e653bcdb5eb7dab279fa"
         }
       ]
@@ -825,7 +825,7 @@
           "path": "src/emailservice/demo_pb2.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
         }
       ],
@@ -870,7 +870,7 @@
           "path": "src/shoppingassistantservice/shoppingassistantservice.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
         }
       ],
@@ -893,7 +893,7 @@
           "path": "src/adservice/src/main/java/hipstershop/AdService.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -915,7 +915,7 @@
           "path": "src/recommendationservice/recommendation_server.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
         }
       ],
@@ -960,7 +960,7 @@
           "path": "src/productcatalogservice/catalog_loader.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:b6e5416388241de549730a12e15eb81d4ad89d64c2760af04f8a2ddae80053d5"
         }
       ],
@@ -1105,7 +1105,7 @@
           "path": "src/paymentservice/charge.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
         }
       ],
@@ -1127,7 +1127,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
         }
       ],
@@ -1149,7 +1149,7 @@
           "path": "src/frontend/main.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
         }
       ],
@@ -1172,7 +1172,7 @@
           "path": "src/frontend/deployment_details.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:512843855fcc92a51c810b1b58e0731c01eac9a6a23c157bfa02aad71edffbe7"
         }
       ],
@@ -1194,7 +1194,7 @@
           "path": "src/adservice/src/main/java/hipstershop/AdServiceClient.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -1216,7 +1216,7 @@
           "path": "src/shippingservice/main.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:e44bcd8dd7cda2c283280ab7473978f68bb4203271dedeaf3c16bcb08a5f2ce6"
         }
       ],
@@ -1238,7 +1238,7 @@
           "path": "src/emailservice/email_server.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1b6588094fd98799ff9c1db7101ca7af7d7cd0131fbbe5073be21eace9c98118"
         }
       ],
@@ -1751,7 +1751,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:87a4637f66afb7d2032a5e730493b15609394fedb229e653bcdb5eb7dab279fa"
         }
       ]
@@ -2580,7 +2580,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 77,
           "end_line": 77,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8fad6235a3d62b8a10738a0f1b0921b14895478804213867918a0140fb2d9fa3",
           "symbol": "src/frontend/rpc.go::frontendServer.convertCurrency"
         },
@@ -2588,7 +2588,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 57,
           "end_line": 57,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5fb91a4d5851c6feff353bf667030fbe2d0cf8428ed6c2a37836b3454ac91b9d",
           "symbol": "src/frontend/rpc.go::frontendServer.getCart"
         },
@@ -2596,7 +2596,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
           "symbol": "src/frontend/rpc.go::frontendServer.getCurrencies"
         },
@@ -2604,7 +2604,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 45,
           "end_line": 45,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:ba5b37c8b953b207b421eb87b6fd10f831f6019cc1209a5d7b31bb40c9814b31",
           "symbol": "src/frontend/rpc.go::frontendServer.getProducts"
         },
@@ -2612,7 +2612,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 119,
           "end_line": 119,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:430ed346e16350322d88675bcc4c332ef5600bc824ad82dfbaa2552a8dbc0597",
           "symbol": "src/frontend/rpc.go::frontendServer.getAd"
         }
@@ -3038,7 +3038,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 77,
           "end_line": 77,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8fad6235a3d62b8a10738a0f1b0921b14895478804213867918a0140fb2d9fa3",
           "symbol": "src/frontend/rpc.go::frontendServer.convertCurrency"
         },
@@ -3046,7 +3046,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 57,
           "end_line": 57,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5fb91a4d5851c6feff353bf667030fbe2d0cf8428ed6c2a37836b3454ac91b9d",
           "symbol": "src/frontend/rpc.go::frontendServer.getCart"
         },
@@ -3054,7 +3054,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
           "symbol": "src/frontend/rpc.go::frontendServer.getCurrencies"
         },
@@ -3062,7 +3062,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 51,
           "end_line": 51,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
           "symbol": "src/frontend/rpc.go::frontendServer.getProduct"
         },
@@ -3070,7 +3070,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 99,
           "end_line": 99,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f68d1352bb25a3ad613ddeb1bdac77a108bd41a40b9aa7f514d6323f88978faf",
           "symbol": "src/frontend/rpc.go::frontendServer.getRecommendations"
         },
@@ -3078,7 +3078,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 119,
           "end_line": 119,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:430ed346e16350322d88675bcc4c332ef5600bc824ad82dfbaa2552a8dbc0597",
           "symbol": "src/frontend/rpc.go::frontendServer.getAd"
         }
@@ -3175,7 +3175,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 51,
           "end_line": 51,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
           "symbol": "src/frontend/rpc.go::frontendServer.getProduct"
         }
@@ -3327,7 +3327,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 77,
           "end_line": 77,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:8fad6235a3d62b8a10738a0f1b0921b14895478804213867918a0140fb2d9fa3",
           "symbol": "src/frontend/rpc.go::frontendServer.convertCurrency"
         },
@@ -3335,7 +3335,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 57,
           "end_line": 57,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5fb91a4d5851c6feff353bf667030fbe2d0cf8428ed6c2a37836b3454ac91b9d",
           "symbol": "src/frontend/rpc.go::frontendServer.getCart"
         },
@@ -3343,7 +3343,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
           "symbol": "src/frontend/rpc.go::frontendServer.getCurrencies"
         },
@@ -3351,7 +3351,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 51,
           "end_line": 51,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
           "symbol": "src/frontend/rpc.go::frontendServer.getProduct"
         },
@@ -3359,7 +3359,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 99,
           "end_line": 99,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f68d1352bb25a3ad613ddeb1bdac77a108bd41a40b9aa7f514d6323f88978faf",
           "symbol": "src/frontend/rpc.go::frontendServer.getRecommendations"
         },
@@ -3367,7 +3367,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 87,
           "end_line": 87,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:7889f5f1a21e7e20bd269c72e0c9cb26cf609a14eafa7c939e1df6c888b31fc7",
           "symbol": "src/frontend/rpc.go::frontendServer.getShippingQuote"
         }
@@ -3619,7 +3619,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 62,
           "end_line": 62,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:870763dc2c51176fa108e125eed83cfef4927bf4ccecce9dc700c8ad5368151a",
           "symbol": "src/frontend/rpc.go::frontendServer.emptyCart"
         }
@@ -3679,7 +3679,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
           "symbol": "src/frontend/rpc.go::frontendServer.getCurrencies"
         }
@@ -3708,7 +3708,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:1be209e489586338d99662d0ba354319c075c7a907ecababc12b50414edb938b",
           "symbol": "src/frontend/rpc.go::frontendServer.getCurrencies"
         },
@@ -3716,7 +3716,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 99,
           "end_line": 99,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:f68d1352bb25a3ad613ddeb1bdac77a108bd41a40b9aa7f514d6323f88978faf",
           "symbol": "src/frontend/rpc.go::frontendServer.getRecommendations"
         },
@@ -3724,7 +3724,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 51,
           "end_line": 51,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
           "symbol": "src/frontend/rpc.go::frontendServer.getProduct"
         }
@@ -4075,7 +4075,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 51,
           "end_line": 51,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:5ad5b75c0854efc5cdfef5cc84638a72f0dee6549b10be09820957b7b74dfe9e",
           "symbol": "src/frontend/rpc.go::frontendServer.getProduct"
         },
@@ -4083,7 +4083,7 @@
           "path": "src/frontend/rpc.go",
           "start_line": 67,
           "end_line": 67,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:6ee983f1a358b97e5ffe83c4b63a686a3c9d328b6dbf0e994be4dc18f99b1e8c",
           "symbol": "src/frontend/rpc.go::frontendServer.insertCart"
         }
@@ -6025,7 +6025,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:87a4637f66afb7d2032a5e730493b15609394fedb229e653bcdb5eb7dab279fa"
         }
       ]

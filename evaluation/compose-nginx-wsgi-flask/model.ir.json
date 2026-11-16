@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.1",
+    "tool_version": "0.5.2",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-nginx-wsgi-flask",
     "detectors": [
       "config@0.5",
       "py@0.5",
-      "synth@0.5.1"
+      "synth@0.5.2"
     ],
     "scope": {
       "include": [
@@ -89,7 +89,7 @@
           "path": "flask/app.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:4d819486d4f1b7e16ab7005cc12290108c4fb5f29bbcb74100b0241770b18b0f"
         }
       ],
@@ -134,7 +134,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:54d95d78bff66fd1ecf5ce139624c26834adbea5847ee611dc054bc5aa854b13"
         }
       ]
@@ -248,7 +248,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.1",
+          "detector": "synth@0.5.2",
           "content_hash": "sha256:54d95d78bff66fd1ecf5ce139624c26834adbea5847ee611dc054bc5aa854b13"
         }
       ]

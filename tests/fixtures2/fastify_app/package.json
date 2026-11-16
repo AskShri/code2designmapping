@@ -1,0 +1,1 @@
+{"name":"fx","dependencies":{"fastify":"4","@fastify/jwt":"7","pg":"8"}}

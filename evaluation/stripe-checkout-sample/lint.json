@@ -8,6 +8,12 @@
   {
     "severity": "warning",
     "rule": "unauthenticated-crossing",
+    "id": "flow:65vm2wpkby",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/create-checkout-session handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
     "id": "flow:bk5phqjdxf",
     "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /config handler"
   },
@@ -32,8 +38,26 @@
   {
     "severity": "warning",
     "rule": "unauthenticated-crossing",
+    "id": "flow:n6exiwh2nh",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/checkout-session handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
     "id": "flow:osdsx6n7k3",
     "message": "inbound flow crosses a boundary without authentication: HTTP client -> ANY /create-checkout-session handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:pe7q2dracq",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> POST /api/webhook handler"
+  },
+  {
+    "severity": "warning",
+    "rule": "unauthenticated-crossing",
+    "id": "flow:puxdgwcq5t",
+    "message": "inbound flow crosses a boundary without authentication: HTTP client -> GET /api/config handler"
   },
   {
     "severity": "warning",
@@ -86,6 +110,12 @@
   {
     "severity": "info",
     "rule": "black-hole-or-miracle",
+    "id": "proc:mcfudxklrr",
+    "message": "process POST /api/webhook handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
     "id": "proc:nrgzproyie",
     "message": "process Success has only outputs; a detector may be missing"
   },
@@ -94,6 +124,18 @@
     "rule": "black-hole-or-miracle",
     "id": "proc:o7z5jjiyu5",
     "message": "process GET / handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:qdwmk566xy",
+    "message": "process GET /api/config handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:rqbztumcx5",
+    "message": "process POST /api/create-checkout-session handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",
@@ -112,6 +154,12 @@
     "rule": "black-hole-or-miracle",
     "id": "proc:yjaegvvtka",
     "message": "process ANY /checkout-session handler has only inputs; a detector may be missing"
+  },
+  {
+    "severity": "info",
+    "rule": "black-hole-or-miracle",
+    "id": "proc:z46jn422q7",
+    "message": "process GET /api/checkout-session handler has only inputs; a detector may be missing"
   },
   {
     "severity": "info",

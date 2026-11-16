@@ -3,6 +3,7 @@ flowchart LR
   subgraph bnd_fwz6ntc2oh["repository: stripe-checkout-sample"]
     proc_6z5hg6t3h4(["client (+2)"])
     proc_g7k75kgupi(["go (+5)"])
+    proc_s4f3bsibne(["nextjs (+4)"])
     proc_sl2bkzstjr(["python (+1)"])
     proc_soybbcbxpt(["node (+5)"])
   end
@@ -10,7 +11,8 @@ flowchart LR
   ext_sga4qktkap["HTTP client"]
   ext_slqdx4hifp["Stripe API"]
   ext_sga4qktkap -->|"http"| proc_g7k75kgupi
-  ext_sga4qktkap -->|"http<br/>http: request fields"| proc_soybbcbxpt
+  ext_sga4qktkap -->|"http"| proc_s4f3bsibne
+  ext_sga4qktkap -->|"http<br/>http: request fields<br/>http: request fields (create_checkout_session)"| proc_soybbcbxpt
   proc_6z5hg6t3h4 -->|"unknown"| ext_miziwfdicw
   proc_sl2bkzstjr -->|"https"| ext_slqdx4hifp
   proc_soybbcbxpt -->|"https"| ext_slqdx4hifp

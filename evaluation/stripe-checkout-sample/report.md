@@ -1,6 +1,6 @@
 # code2design report: stripe-checkout-sample
 
-Commit `c834ba3ae155`, code2design 0.5.1, IR 0.2.
+Commit `c834ba3ae155`, code2design 0.5.2, IR 0.2.
 
 ## Coverage
 
@@ -17,22 +17,22 @@ Commit `c834ba3ae155`, code2design 0.5.1, IR 0.2.
 | no recognizer for .php | 4 (not analyzed) |
 | no recognizer for .rb | 5 (not analyzed) |
 
-Detectors: config@0.5, csharp@0.5, go@0.5, java@0.5, js@0.5, py@0.5, synth@0.5.1
+Detectors: config@0.5, csharp@0.5, go@0.5, java@0.5, js@0.5, py@0.5, synth@0.5.2
 
-Facts: app 3, config_value 12, dependencies 6, entry_point 19, listener 4, module 5, outbound_call 29, router 4, schema 6, weakness 1
+Facts: app 3, config_value 12, dependencies 6, entry_point 23, listener 4, module 5, outbound_call 29, router 8, schema 6, weakness 1
 
 ## Model
 
 | Collection | Count |
 |---|---|
-| processes | 22 |
+| processes | 26 |
 | entities | 3 |
 | stores | 0 |
 | boundaries | 1 |
-| flows | 17 |
-| entry_points | 10 |
+| flows | 21 |
+| entry_points | 23 |
 | controls | 0 |
-| weaknesses | 11 |
+| weaknesses | 24 |
 | schemas | 3 |
 | assets | 2 |
 | threat_agents | 3 |
@@ -42,40 +42,66 @@ Facts: app 3, config_value 12, dependencies 6, entry_point 19, listener 4, modul
 
 Entry points are where a threat agent first touches the system; exit points are where data leaves it; dependencies are code the team did not write.
 
-- **http**: 10 entry points, 10 without a detected authentication control (0 of them published outside the deployment)
+- **http**: 23 entry points, 23 without a detected authentication control (0 of them published outside the deployment)
 - **listeners**: server/dotnet/Program.cs port ?, server/go/server.go port "0.0.0.0:4242", server/node/server.js port 4242, server/python/server.py port 4242
 - **exit points carrying sensitive data**: none detected
 - **third-party dependencies**: 23 declared in client/react-cra/package.json, server/go/go.mod, server/java/pom.xml, server/nextjs/package.json, server/node/package.json, server/python/requirements.txt; those recognized as stores, SDKs or auth middleware appear in the model, the rest are unmodelled attack surface
-- **weaknesses**: 1 medium, 10 info (see stride-table.md and findings.sarif)
+- **weaknesses**: 1 medium, 23 info (see stride-table.md and findings.sarif)
 
 ### Entry points
 
 | Entry point | Exposure | Controls (registration order) | Reaches |
 |---|---|---|---|
+| GET /api/config | unknown | none | - |
+| POST /create-checkout-session | unknown | none | Stripe API |
 | ANY /create-checkout-session | unknown | none | - |
 | GET /config | unknown | none | Stripe API |
+| GET /config | unknown | none | Stripe API |
+| GET /api/checkout-session | unknown | none | - |
 | POST /create-checkout-session | unknown | none | Stripe API |
+| POST /api/create-checkout-session | unknown | none | - |
 | ANY /webhook | unknown | none | - |
 | GET / | unknown | none | - |
 | ANY /config | unknown | none | - |
+| POST /create-checkout-session | unknown | none | Stripe API |
+| POST /webhook | unknown | none | Stripe API |
+| GET /checkout-session | unknown | none | Stripe API |
+| POST /api/webhook | unknown | none | - |
 | GET /checkout-session | unknown | none | Stripe API |
 | ANY / | unknown | none | - |
+| GET /checkout-session | unknown | none | Stripe API |
 | ANY /checkout-session | unknown | none | - |
 | POST /webhook | unknown | none | Stripe API |
+| GET /config | unknown | none | Stripe API |
+| POST /webhook | unknown | none | Stripe API |
+| GET / | unknown | none | - |
 
 ### Weaknesses
 
 | Severity | CWE | Weakness | Location |
 |---|---|---|---|
 | medium | CWE-489 | debug=True on the application server | server/python/server.py:119 |
+| info | CWE-306 | no authentication control detected on POST /create-checkout-session | server/python/server.py:58 |
 | info | CWE-306 | no authentication control detected on POST /create-checkout-session | server/node/server.js:60 |
+| info | CWE-306 | no authentication control detected on POST /webhook | server/python/server.py:88 |
+| info | CWE-306 | no authentication control detected on GET /config | server/python/server.py:41 |
 | info | CWE-306 | no authentication control detected on GET / | server/node/server.js:38 |
 | info | CWE-306 | no authentication control detected on GET /checkout-session | server/node/server.js:54 |
 | info | CWE-306 | no authentication control detected on ANY /checkout-session | server/go/server.go:44 |
+| info | CWE-306 | no authentication control detected on GET /checkout-session | server/python/server.py:51 |
 | info | CWE-306 | no authentication control detected on POST /webhook | server/node/server.js:89 |
 | info | CWE-306 | no authentication control detected on ANY / | server/go/server.go:42 |
+| info | CWE-306 | no authentication control detected on GET /checkout-session | server/dotnet/Program.cs:61 |
+| info | CWE-306 | no authentication control detected on GET / | server/python/server.py:36 |
+| info | CWE-306 | no authentication control detected on POST /webhook | server/dotnet/Program.cs:90 |
+| info | CWE-306 | no authentication control detected on POST /api/webhook | server/nextjs/app/api/webhook/route.ts:5 |
 | info | CWE-306 | no authentication control detected on GET /config | server/node/server.js:43 |
+| info | CWE-306 | no authentication control detected on GET /api/checkout-session | server/nextjs/app/api/checkout-session/route.ts:4 |
 | info | CWE-306 | no authentication control detected on ANY /create-checkout-session | server/go/server.go:45 |
+| info | CWE-306 | no authentication control detected on GET /config | server/dotnet/Program.cs:48 |
+| info | CWE-306 | no authentication control detected on POST /api/create-checkout-session | server/nextjs/app/api/create-checkout-session/route.ts:4 |
+| info | CWE-306 | no authentication control detected on GET /api/config | server/nextjs/app/api/config/route.ts:4 |
+| info | CWE-306 | no authentication control detected on POST /create-checkout-session | server/dotnet/Program.cs:68 |
 | info | CWE-306 | no authentication control detected on ANY /config | server/go/server.go:43 |
 | info | CWE-306 | no authentication control detected on ANY /webhook | server/go/server.go:46 |
 
@@ -95,11 +121,15 @@ Entry points are where a threat agent first touches the system; exit points are 
 ## Lint
 
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY /webhook handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /api/create-checkout-session handler
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /config handler
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY /config handler
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY / handler
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /create-checkout-session handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/checkout-session handler
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> ANY /create-checkout-session handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /api/webhook handler
+- **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /api/config handler
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET / handler
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> GET /checkout-session handler
 - **warning** `unauthenticated-crossing` inbound flow crosses a boundary without authentication: HTTP client -> POST /webhook handler
@@ -108,11 +138,15 @@ Entry points are where a threat agent first touches the system; exit points are 
 - **info** `black-hole-or-miracle` process ANY / handler has only inputs; a detector may be missing
 - **info** `black-hole-or-miracle` process ANY /create-checkout-session handler has only inputs; a detector may be missing
 - **info** `black-hole-or-miracle` process ANY /config handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process POST /api/webhook handler has only inputs; a detector may be missing
 - **info** `black-hole-or-miracle` process Success has only outputs; a detector may be missing
 - **info** `black-hole-or-miracle` process GET / handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /api/config handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process POST /api/create-checkout-session handler has only inputs; a detector may be missing
 - **info** `black-hole-or-miracle` process success has only outputs; a detector may be missing
 - **info** `black-hole-or-miracle` process ANY /webhook handler has only inputs; a detector may be missing
 - **info** `black-hole-or-miracle` process ANY /checkout-session handler has only inputs; a detector may be missing
+- **info** `black-hole-or-miracle` process GET /api/checkout-session handler has only inputs; a detector may be missing
 - **info** `black-hole-or-miracle` process python has only outputs; a detector may be missing
 - **info** `unknown-link-attributes` Success -> Unresolved HTTP target: authentication=unknown, encryption=unknown
 - **info** `unknown-link-attributes` success -> Unresolved HTTP target: authentication=unknown, encryption=unknown
@@ -121,7 +155,7 @@ Entry points are where a threat agent first touches the system; exit points are 
 
 - repository: stripe-checkout-sample (confidence 0.5): no container, Kubernetes or IaC boundary covers these processes; the repository itself is used as the trust boundary
 - Compromised external service (confidence 0.7): each of the 2 outbound dependencies is a potentially hostile responder
-- Anonymous HTTP caller (confidence 0.9): 10 entry points are reachable from outside, 10 of them without a detected authentication control
+- Anonymous HTTP caller (confidence 0.9): 23 entry points are reachable from outside, 23 of them without a detected authentication control
 - Insider with access to repository: stripe-checkout-sample (confidence 0.8): one insider agent per trust boundary, placed inside it
 
 ## Gaps and questions
