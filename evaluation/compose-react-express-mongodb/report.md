@@ -1,6 +1,6 @@
 # code2design report: compose-react-express-mongodb
 
-Commit `30f4b7f6a6c3`, code2design 0.5.0, IR 0.2.
+Commit `30f4b7f6a6c3`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `30f4b7f6a6c3`, code2design 0.5.0, IR 0.2.
 | javascript | 14 |
 | (test files, not modelled) | 2 |
 
-Detectors: config@0.5, js@0.5, synth@0.5.0
+Detectors: config@0.5, js@0.5, synth@0.5.1
 
 Facts: app 1, boundary_hint 5, control 1, dependencies 2, entry_point 2, listener 1, module 2, router 3, router_mount 2, schema 1, store_access 6, weakness 1
 

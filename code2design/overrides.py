@@ -63,6 +63,8 @@ def apply(ir, overrides, rel_path, today=None):
         return OrderedDict(path=rel_path, start_line=line, end_line=line, detector=DET, content_hash=span_hash(lines[line - 1:line] or [""]))
 
     def resolve(target):
+        if not isinstance(target, (str, int)):
+            return []
         if target in index:
             return [index[target]]
         return by_name.get(str(target).lower(), [])
@@ -73,7 +75,7 @@ def apply(ir, overrides, rel_path, today=None):
         exp = entry.get("expires")
         if exp:
             try:
-                exp_d = exp if isinstance(exp, datetime.date) else datetime.date.fromisoformat(str(exp))
+                exp_d = exp.date() if isinstance(exp, datetime.datetime) else exp if isinstance(exp, datetime.date) else datetime.date.fromisoformat(str(exp))
             except ValueError:
                 gaps.append(OrderedDict(kind="unresolved", path=rel_path, detail=f"{op} override has an unreadable expiry '{exp}'"))
                 return
@@ -90,7 +92,10 @@ def apply(ir, overrides, rel_path, today=None):
 
     def ops(name):
         v = doc.get(name) or []
-        return v if isinstance(v, list) else []
+        good = [e for e in v if isinstance(e, dict)] if isinstance(v, list) else []
+        if not isinstance(v, list) or len(good) != len(v):
+            gaps.append(OrderedDict(kind="unresolved", path=rel_path, detail=f"{name}: entries must be mappings; malformed entries were ignored"))
+        return good
 
     for e in ops("rename"):
         check(e, "rename")

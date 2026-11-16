@@ -1,6 +1,6 @@
 # code2design report: compose-nginx-wsgi-flask
 
-Commit `30f4b7f6a6c3`, code2design 0.5.0, IR 0.2.
+Commit `30f4b7f6a6c3`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `30f4b7f6a6c3`, code2design 0.5.0, IR 0.2.
 | python | 2 |
 | (test files, not modelled) | 0 |
 
-Detectors: config@0.5, py@0.5, synth@0.5.0
+Detectors: config@0.5, py@0.5, synth@0.5.1
 
 Facts: app 1, boundary_hint 4, declared_link 1, dependencies 1, entry_point 4, router 1
 

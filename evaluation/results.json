@@ -2,7 +2,7 @@
   {
     "name": "orders-service-example",
     "path": "/home/user/code2designmapping/examples/orders-service/app",
-    "elapsed": 0.13,
+    "elapsed": 0.12,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -92,7 +92,7 @@
   {
     "name": "node-express-boilerplate",
     "path": "/home/user/hagopj13/node-express-boilerplate",
-    "elapsed": 0.26,
+    "elapsed": 0.43,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -220,7 +220,7 @@
   {
     "name": "node-express-mongodb",
     "path": "/home/user/bezkoder/node-express-mongodb",
-    "elapsed": 0.12,
+    "elapsed": 0.16,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -257,7 +257,7 @@
   {
     "name": "hackathon-starter",
     "path": "/home/user/sahat/hackathon-starter",
-    "elapsed": 1.09,
+    "elapsed": 1.37,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -302,7 +302,7 @@
   {
     "name": "stripe-checkout-sample",
     "path": "/home/user/stripe-samples/checkout-one-time-payments",
-    "elapsed": 0.26,
+    "elapsed": 0.2,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -342,7 +342,7 @@
   {
     "name": "microservices-demo",
     "path": "/home/user/googlecloudplatform/microservices-demo",
-    "elapsed": 1.14,
+    "elapsed": 1.13,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -430,7 +430,7 @@
   {
     "name": "compose-react-express-mongodb",
     "path": "/home/user/docker/awesome-compose/react-express-mongodb",
-    "elapsed": 0.13,
+    "elapsed": 0.17,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -516,7 +516,7 @@
   {
     "name": "compose-react-express-mysql",
     "path": "/home/user/docker/awesome-compose/react-express-mysql",
-    "elapsed": 0.18,
+    "elapsed": 0.12,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -553,7 +553,7 @@
   {
     "name": "compose-nginx-nodejs-redis",
     "path": "/home/user/docker/awesome-compose/nginx-nodejs-redis",
-    "elapsed": 0.14,
+    "elapsed": 0.1,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -590,7 +590,7 @@
   {
     "name": "compose-flask",
     "path": "/home/user/docker/awesome-compose/flask",
-    "elapsed": 0.11,
+    "elapsed": 0.1,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -626,7 +626,7 @@
   {
     "name": "compose-flask-redis",
     "path": "/home/user/docker/awesome-compose/flask-redis",
-    "elapsed": 0.13,
+    "elapsed": 0.14,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -712,7 +712,7 @@
   {
     "name": "compose-nginx-flask-mongo",
     "path": "/home/user/docker/awesome-compose/nginx-flask-mongo",
-    "elapsed": 0.15,
+    "elapsed": 0.11,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -749,7 +749,7 @@
   {
     "name": "compose-nginx-flask-mysql",
     "path": "/home/user/docker/awesome-compose/nginx-flask-mysql",
-    "elapsed": 0.14,
+    "elapsed": 0.24,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -822,7 +822,7 @@
   {
     "name": "compose-django",
     "path": "/home/user/docker/awesome-compose/django",
-    "elapsed": 0.11,
+    "elapsed": 0.12,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,
@@ -894,7 +894,7 @@
   {
     "name": "spring-petclinic",
     "path": "/home/user/spring-projects/spring-petclinic",
-    "elapsed": 0.26,
+    "elapsed": 0.24,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -979,7 +979,7 @@
   {
     "name": "golang-gin-realworld",
     "path": "/home/user/gothinkster/golang-gin-realworld-example-app",
-    "elapsed": 0.39,
+    "elapsed": 0.32,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -1065,7 +1065,7 @@
   {
     "name": "nestjs-realworld",
     "path": "/home/user/lujakob/nestjs-realworld-example-app",
-    "elapsed": 0.23,
+    "elapsed": 0.2,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -1151,7 +1151,7 @@
   {
     "name": "fastapi-full-stack",
     "path": "/home/user/fastapi/full-stack-fastapi-template",
-    "elapsed": 0.98,
+    "elapsed": 0.79,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": {
@@ -1317,7 +1317,7 @@
   {
     "name": "eshoponweb",
     "path": "/home/user/dotnet-architecture/eshoponweb",
-    "elapsed": 0.55,
+    "elapsed": 0.68,
     "deterministic": true,
     "nondeterministic_files": [],
     "ground_truth": null,

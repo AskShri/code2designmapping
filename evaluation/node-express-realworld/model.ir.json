@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.0",
+    "tool_version": "0.5.1",
     "commit": "30b68e1e881462b2f4164ea09ab4c4f5699c7b0b",
     "generated_from": "node-express-realworld",
     "detectors": [
       "config@0.5",
       "js@0.5",
-      "synth@0.5.0"
+      "synth@0.5.1"
     ],
     "scope": {
       "include": [
@@ -168,7 +168,7 @@
           "path": "jest.config.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:b6724011d8407b3547852cb469a642c2b0ab2f5f5c971d90641bab18c20174f4"
         }
       ],
@@ -237,7 +237,7 @@
           "path": "src/prisma/prisma-client.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:731f1ad1cc636a04c11a82cb10b6ae19778e19d7ac16980bf654b7d6ddaa787f"
         }
       ],
@@ -260,7 +260,7 @@
           "path": "src/app/models/http-exception.model.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:c9e2fea7ab254d533e0baa2656925681d9c061d270d4b6a405b19aaeed575575"
         }
       ],
@@ -397,7 +397,7 @@
           "path": "src/app/routes/auth/auth.service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:d12dc4635633a894670c24a79e8570646ec4e8462e53851adbf58a6c67ec8784"
         }
       ],
@@ -442,7 +442,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:644371c8f738e3af0d7f2c8a675455bc2e43e83367baff72b081ad965af01e0f"
         }
       ],
@@ -488,7 +488,7 @@
           "path": "src/tests/prisma-mock.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ff30a6a416ff9b799d9dfb9d19870ac1f192744a7e00cffcb5387ed4e890c91a"
         }
       ],
@@ -557,7 +557,7 @@
           "path": "e2e/jest.config.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:b6724011d8407b3547852cb469a642c2b0ab2f5f5c971d90641bab18c20174f4"
         }
       ],
@@ -579,7 +579,7 @@
           "path": "src/app/routes/tag/tag.service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:c390dca964a60359621e4d4da6e0b4a6602dca5b023b267082df992da6a28df0"
         }
       ],
@@ -694,7 +694,7 @@
           "path": "src/app/routes/article/article.controller.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:759fbf77b207b7a8a1973b0c5fdd2234acc9a829d1fbdbacf1d404fbf4c9aeb2"
         }
       ],
@@ -739,7 +739,7 @@
           "path": "src/app/routes/profile/profile.service.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:c390dca964a60359621e4d4da6e0b4a6602dca5b023b267082df992da6a28df0"
         }
       ],
@@ -1056,7 +1056,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 527,
           "end_line": 527,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:952416fdc7c857d9b77d8bde4ac249f4dccd00c249d55e94de2e9746fcfff9e1",
           "symbol": "src/app/routes/article/article.service.ts::deleteComment"
         }
@@ -1085,7 +1085,7 @@
           "path": "src/app/routes/auth/auth.service.ts",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a4b524520717fedb55d9f3bae018161abc17fe973fbb4112dccb1d6f8d9b492",
           "symbol": "src/app/routes/auth/auth.service.ts::updateUser"
         }
@@ -1179,7 +1179,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 241,
           "end_line": 241,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:9459d8169371f3661e1d514b0dd96910b0f2933e2622f38c4f1379b66bcab3cd",
           "symbol": "src/app/routes/article/article.service.ts::getArticle"
         }
@@ -1278,7 +1278,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 562,
           "end_line": 562,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:4d55a0f0b89b3330a8498d7ed3fdb711ae589b57e0ae12d3337303f28b4c3e17",
           "symbol": "src/app/routes/article/article.service.ts::favoriteArticle"
         }
@@ -1307,7 +1307,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 162,
           "end_line": 162,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:47583e69be15479bcb341d00546ee72fb6cefac481792d78103730fcc76dcd25",
           "symbol": "src/app/routes/article/article.service.ts::createArticle"
         }
@@ -1336,7 +1336,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:eb63fe79c1e87ceb9fc004214e29bfdabc334fb06da6fe607221241cce6ac959",
           "symbol": "src/app/routes/article/article.service.ts::getFeed"
         }
@@ -1486,7 +1486,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 416,
           "end_line": 416,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:5c15e2493a390308ea50fa5eb5fcf8814105a9f915e2579f4989ac65fb03b51e",
           "symbol": "src/app/routes/article/article.service.ts::getCommentsByArticle"
         }
@@ -1620,7 +1620,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 608,
           "end_line": 608,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8323e76e905f3889fb4f0c89fcbbccac9748cba7bbd61edf1bbff18d226de6f1",
           "symbol": "src/app/routes/article/article.service.ts::unfavoriteArticle"
         }
@@ -1759,7 +1759,7 @@
           "path": "src/app/routes/auth/auth.service.ts",
           "start_line": 38,
           "end_line": 38,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:1cdd6e2f80751fe3431c35fedf1f1e7c8863f659580b2ee255fd4cdb0dacd227",
           "symbol": "src/app/routes/auth/auth.service.ts::createUser"
         },
@@ -1767,7 +1767,7 @@
           "path": "src/app/routes/auth/auth.service.ts",
           "start_line": 9,
           "end_line": 9,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ced217e0a9cee6aef990a6c0a6045fcf321c40bf3fb548256c2c4a6530b34ee7",
           "symbol": "src/app/routes/auth/auth.service.ts::checkUserUniqueness"
         }
@@ -1894,7 +1894,7 @@
           "path": "src/app/routes/tag/tag.service.ts",
           "start_line": 4,
           "end_line": 4,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:5a9454ed2bfc56c600a2330f8f52303ef734aa724d08273d08b5b1b69eb55de7",
           "symbol": "src/app/routes/tag/tag.service.ts::getTags"
         }
@@ -2039,7 +2039,7 @@
           "path": "src/app/routes/profile/profile.service.ts",
           "start_line": 5,
           "end_line": 5,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:c4540bed7eee07195edd7d0d7ab84a9ecf7a5491ecde4a7b4a10cc148f83ab56",
           "symbol": "src/app/routes/profile/profile.service.ts::getProfile"
         }
@@ -2100,7 +2100,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 69,
           "end_line": 69,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:7d2914f12f3522d14674ec3ede4dfcb6c9680b1b2da26ba04135fbe4c5ba6417",
           "symbol": "src/app/routes/article/article.service.ts::getArticles"
         }
@@ -2129,7 +2129,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 385,
           "end_line": 385,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:3fb2208afbaefadb6739ac0943af32e6ea5e451f75ecc5e9f6af2b5a07e224db",
           "symbol": "src/app/routes/article/article.service.ts::deleteArticle"
         }
@@ -2231,7 +2231,7 @@
           "path": "src/app/routes/profile/profile.service.ts",
           "start_line": 42,
           "end_line": 42,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:a50ba3d6b8113803dfb3310fe45d3a042776d001236be2b4cb152173302cba02",
           "symbol": "src/app/routes/profile/profile.service.ts::unfollowUser"
         }
@@ -2290,7 +2290,7 @@
           "path": "src/app/routes/profile/profile.service.ts",
           "start_line": 22,
           "end_line": 22,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:4caab8c333cdbdef4abf1038208fc312c17ccbd2955d24b6f5370b3a4d80767c",
           "symbol": "src/app/routes/profile/profile.service.ts::followUser"
         }
@@ -2383,7 +2383,7 @@
           "path": "src/app/routes/auth/auth.service.ts",
           "start_line": 84,
           "end_line": 84,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:c7889117ba5b2539e33b16d6af2dcef35e581c1bdd8ba51a7cc0858a9bf614c6",
           "symbol": "src/app/routes/auth/auth.service.ts::login"
         }
@@ -2470,7 +2470,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 289,
           "end_line": 289,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b414e3c803ec587687dacc59f5a35a05473efefa552ea3ecdbbb07acc23c6e",
           "symbol": "src/app/routes/article/article.service.ts::updateArticle"
         },
@@ -2478,7 +2478,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 276,
           "end_line": 276,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:81b64f8c90b8ff5405de9e7bbf7dc656e49074864ee0df7beef9e0d6479f683b",
           "symbol": "src/app/routes/article/article.service.ts::disconnectArticlesTags"
         }
@@ -2637,7 +2637,7 @@
           "path": "src/app/routes/auth/auth.service.ts",
           "start_line": 131,
           "end_line": 131,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:51e7df2e935b0ebcaca070002f4fa42155a5a11a8b7ed22d8ea9e8a04123edc8",
           "symbol": "src/app/routes/auth/auth.service.ts::getCurrentUser"
         }
@@ -2705,7 +2705,7 @@
           "path": "src/app/routes/article/article.service.ts",
           "start_line": 473,
           "end_line": 473,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:09e8badcc341e550a2c73ecd7a9f541c8bf5291da61223d3243f788f64323665",
           "symbol": "src/app/routes/article/article.service.ts::addComment"
         }

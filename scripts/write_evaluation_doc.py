@@ -18,7 +18,7 @@ gt = [x for x in r if x.get("ground_truth")]
 head = f"""# Evaluation on {len(r)} sample applications
 
 **Date:** {datetime.date.today().isoformat()}
-**Tool:** code2design 0.5.0 (IR 0.2)
+**Tool:** code2design 0.5.1 (IR 0.2)
 **Reproduce:** `python3 scripts/evaluate.py evaluation/samples.json && python3 scripts/write_evaluation_doc.py`
 (the sample repositories are public GitHub repositories, shallow-cloned at the paths in `evaluation/samples.json`; each sample's `report.md` records the commit analyzed).
 

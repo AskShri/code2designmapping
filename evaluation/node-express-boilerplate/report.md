@@ -1,6 +1,6 @@
 # code2design report: node-express-boilerplate
 
-Commit `179ae84efec6`, code2design 0.5.0, IR 0.2.
+Commit `179ae84efec6`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `179ae84efec6`, code2design 0.5.0, IR 0.2.
 | javascript | 49 |
 | (test files, not modelled) | 10 |
 
-Detectors: config@0.5, js@0.5, synth@0.5.0
+Detectors: config@0.5, js@0.5, synth@0.5.1
 
 Facts: app 1, boundary_hint 6, control 25, declared_link 1, dependencies 1, entry_point 15, module 1, outbound_call 6, router 5, router_mount 4, schema 22, store_access 19, weakness 2
 

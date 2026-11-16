@@ -190,6 +190,13 @@ def _file(idx, sf, facts, repo):
             routers.add(child)
             facts.add("router", DET, _ev(sf, i), file=sf.path, local=child, own_prefix="", root=False)
             facts.add("router_mount", DET, _ev(sf, i), file=sf.path, parent=parent, prefix=m.group(3) or m.group(4) or m.group(5) or "", child_file=sf.path, child_local=child)
+            gm = re.search(r"\.Group\(\s*\"[^\"]*\"\s*,\s*(.+)\)\s*$", l)
+            for a in (re.split(r",\s*(?![^()]*\))", gm.group(1)) if gm else []):
+                nm = a.strip().split("(")[0]
+                last = nm.split(".")[-1]
+                kind = classify_control(nm.split(".")[-2] if last in ("New", "Middleware", "Handler") and "." in nm else last, a[len(nm):].strip("()")) or (classify_control(nm) if "." in nm else None)
+                if kind:
+                    facts.add("control", DET, _ev(sf, i), file=sf.path, control_kind=kind, name=nm[:60], scope="router", router=child, ordered=False)
         for m in re.finditer(r"(?:\b(\w+)\.)?\b(\w+)\(\s*(\w+)(?:\.Group\(\s*\"([^\"]*)\"\s*\))?\s*[,)]", l):
             pkg, fn, arg, grp = m.groups()
             argl = local(arg, i)

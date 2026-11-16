@@ -1,6 +1,6 @@
 # code2design report: microservices-demo
 
-Commit `c7cb6d5bfd6e`, code2design 0.5.0, IR 0.2.
+Commit `c7cb6d5bfd6e`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -13,7 +13,7 @@ Commit `c7cb6d5bfd6e`, code2design 0.5.0, IR 0.2.
 | python | 13 |
 | (test files, not modelled) | 18 |
 
-Detectors: config@0.5, csharp@0.5, go@0.5, java@0.5, js@0.5, py@0.5, synth@0.5.0
+Detectors: config@0.5, csharp@0.5, go@0.5, java@0.5, js@0.5, py@0.5, synth@0.5.1
 
 Facts: app 5, boundary_hint 52, config_value 2, declared_link 18, dependencies 10, entry_point 33, listener 11, module 6, outbound_call 42, router 3, schema 2, service_host 39, store_access 17, weakness 8
 

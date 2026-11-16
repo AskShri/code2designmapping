@@ -16,6 +16,9 @@ SQL_TYPE_RX = re.compile(r"\btype\s*:\s*['\"](postgres|mysql|mariadb|sqlite|bett
 TYPE_TECH = {"postgres": "postgres", "cockroachdb": "postgres", "mysql": "mysql", "mariadb": "mysql", "sqlite": "sqlite", "better-sqlite3": "sqlite", "mssql": "mssql", "mongodb": "mongodb"}
 
 
+GUARDS_RX = r"@UseGuards\(((?:[^()]|\((?:[^()]|\([^()]*\))*\))*)\)"
+
+
 def _ev(sf, start, end=None, symbol=None):
     return evidence(sf, start, end, DET, symbol)
 
@@ -107,8 +110,8 @@ def _file(idx, sf, facts, tech, entities):
         cline = sf.line_of_offset(m.start())
         facts.add("router", DET, _ev(sf, cline), file=sf.path, local=cls, own_prefix=prefix, root=True)
         pre = text[max(0, m.start() - 300):m.start()]
-        class_decos = m.group(3) + " ".join(re.findall(r"@UseGuards\([^)]*(?:\([^)]*\)[^)]*)*\)", pre.split("}")[-1]))
-        for g in re.finditer(r"@UseGuards\(([^)]*(?:\([^)]*\)[^)]*)*)\)", class_decos):
+        class_decos = m.group(3) + " ".join([x.group(0) for x in re.finditer(GUARDS_RX, pre.split("}")[-1])])
+        for g in re.finditer(GUARDS_RX, class_decos):
             for guard in re.findall(r"\b([A-Z]\w*)\b", g.group(1)):
                 kind = classify_control(guard)
                 if kind:
@@ -131,7 +134,7 @@ def _file(idx, sf, facts, tech, entities):
             sig = METHOD_SIG_RX.match(lines[j - 1]) if j <= cend else None
             block = "\n".join(lines[top - 1:j - 1])
             controls = []
-            for g in re.finditer(r"@UseGuards\(([^)]*(?:\([^)]*\)[^)]*)*)\)|@(Roles|Auth|Public|Throttle|UsePipes)\(", block):
+            for g in re.finditer(GUARDS_RX + r"|@(Roles|Auth|Throttle|UsePipes)\(", block):
                 names = re.findall(r"\b([A-Z]\w*)\b", g.group(1)) if g.group(1) else [g.group(2)]
                 for guard in names:
                     kind = classify_control(guard) or ("authz" if guard == "Roles" else None)
@@ -139,7 +142,8 @@ def _file(idx, sf, facts, tech, entities):
                         controls.append(facts.add("control", DET, _ev(sf, i), file=sf.path, control_kind=kind, name=guard, scope="route"))
             if sig:
                 facts.add("entry_point", DET, _ev(sf, i, j), file=sf.path, protocol="http", method=rm.group(1).upper().replace("ALL", "ANY"), path=rm.group(2) or "", router=cls,
-                          route_controls=controls, handler_file=sf.path, handler_symbol=f"{cls}.{sig.group(1)}")
+                          route_controls=controls, handler_file=sf.path, handler_symbol=f"{cls}.{sig.group(1)}",
+                          **({"anonymous": True} if re.search(r"@(Public|SkipAuth|AllowAnonymous|IsPublic|NoAuth)\(", block) else {}))
             i = j + 1
     # ---- gRPC / message handlers in Nest microservices
     for m in re.finditer(r"@GrpcMethod\(\s*['\"`](\w+)['\"`]", text):

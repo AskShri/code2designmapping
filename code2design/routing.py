@@ -63,7 +63,7 @@ class Routing:
         out = []
         for rkey, before, rbase in ctx:
             for c in self.router_controls.get(rkey, ()):
-                if c.get("ordered", True) and c["evidence"][0]["start_line"] >= before:
+                if c.get("ordered", True) and c["evidence"][0]["start_line"] > before:
                     continue
                 if c.get("path_prefix"):
                     want = norm_path(join_path(rbase, c["path_prefix"]))

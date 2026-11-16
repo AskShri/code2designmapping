@@ -155,7 +155,7 @@ _CONTROL_RULES = [
 _PLUMBING_RX = re.compile(r"^(passport\.initialize|passport\.session|session|express_?session|cookie_?session|cookie_?parser|body_?parser(\.\w+)?|express\.json|express\.urlencoded|express\.static|compression|flash|errorhandler|methodOverride|favicon|serve_?static|"
                           r"UseAuthentication|AddAuthentication|AddJwtBearer|UseAuthorization|AddAuthorization|UseRouting|UseStaticFiles)$", re.I)
 # optional authentication attaches identity when present but lets anonymous requests through
-_OPTIONAL_RX = re.compile(r"(optional|maybe|try_?auth|soft_?auth|anonymous|allow_?anon|PermitAll|AllowAnonymous)", re.I)
+_OPTIONAL_RX = re.compile(r"(csrf_?exempt|exempt|skip_?auth|optional|maybe|try_?auth|soft_?auth|anonymous|allow_?anon|PermitAll|AllowAnonymous)", re.I)
 
 
 def classify_control(name, args=""):

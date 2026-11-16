@@ -1,6 +1,6 @@
 # code2design report: flask-microblog
 
-Commit `a975ef648643`, code2design 0.5.0, IR 0.2.
+Commit `a975ef648643`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `a975ef648643`, code2design 0.5.0, IR 0.2.
 | python | 24 |
 | (test files, not modelled) | 0 |
 
-Detectors: config@0.5, py@0.5, synth@0.5.0
+Detectors: config@0.5, py@0.5, synth@0.5.1
 
 Facts: app 1, boundary_hint 1, config_value 2, control 24, dependencies 1, entry_point 35, outbound_call 7, router 6, router_mount 5, schema 27, store_access 77
 

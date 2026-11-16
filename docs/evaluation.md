@@ -1,7 +1,7 @@
 # Evaluation on 23 sample applications
 
 **Date:** 2026-11-16
-**Tool:** code2design 0.5.0 (IR 0.2)
+**Tool:** code2design 0.5.1 (IR 0.2)
 **Reproduce:** `python3 scripts/evaluate.py evaluation/samples.json && python3 scripts/write_evaluation_doc.py`
 (the sample repositories are public GitHub repositories, shallow-cloned at the paths in `evaluation/samples.json`; each sample's `report.md` records the commit analyzed).
 
@@ -28,29 +28,29 @@ Totals: 23 samples, 357 entry points, 830 flows, 64 external entities, 56 data s
 
 | Sample | Processes | Entities | Stores | Boundaries | Flows | Entry points | Controls | Weaknesses | Assets | Agents | Gaps | Deterministic | Schema | OTM | SARIF | Lint errors | Diagrams | Expectations | Time (s) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| [orders-service-example](../evaluation/orders-service-example/report.md) | 9 | 2 | 2 | 3 | 11 | 2 | 3 | 0 | 3 | 5 | 5 | yes | ok | ok | ok | 0 | 6 ok / 0 fail | 6/6 | 0.13 |
-| [node-express-boilerplate](../evaluation/node-express-boilerplate/report.md) | 32 | 2 | 2 | 2 | 49 | 15 | 11 | 9 | 2 | 4 | 6 | yes | ok | ok | ok | 0 | 21 ok / 0 fail | 6/6 | 0.26 |
+| [orders-service-example](../evaluation/orders-service-example/report.md) | 9 | 2 | 2 | 3 | 11 | 2 | 3 | 0 | 3 | 5 | 5 | yes | ok | ok | ok | 0 | 6 ok / 0 fail | 6/6 | 0.12 |
+| [node-express-boilerplate](../evaluation/node-express-boilerplate/report.md) | 32 | 2 | 2 | 2 | 49 | 15 | 11 | 9 | 2 | 4 | 6 | yes | ok | ok | ok | 0 | 21 ok / 0 fail | 6/6 | 0.43 |
 | [node-express-realworld](../evaluation/node-express-realworld/report.md) | 31 | 1 | 4 | 1 | 48 | 20 | 4 | 9 | 3 | 3 | 6 | yes | ok | ok | ok | 0 | 24 ok / 0 fail | 3/3 | 0.21 |
-| [node-express-mongodb](../evaluation/node-express-mongodb/report.md) | 14 | 1 | 1 | 1 | 14 | 8 | 1 | 8 | 0 | 2 | 3 | yes | ok | ok | ok | 0 | 12 ok / 0 fail | 2/2 | 0.12 |
-| [hackathon-starter](../evaluation/hackathon-starter/report.md) | 107 | 27 | 3 | 1 | 213 | 90 | 12 | 63 | 23 | 4 | 21 | yes | ok | ok | ok | 0 | 46 ok / 0 fail | 10/10 | 1.09 |
-| [stripe-checkout-sample](../evaluation/stripe-checkout-sample/report.md) | 22 | 3 | 0 | 1 | 17 | 10 | 0 | 11 | 2 | 3 | 6 | yes | ok | ok | ok | 0 | 16 ok / 0 fail | 2/2 | 0.26 |
-| [microservices-demo](../evaluation/microservices-demo/report.md) | 52 | 8 | 2 | 14 | 59 | 33 | 0 | 19 | 2 | 17 | 11 | yes | ok | ok | ok | 0 | 46 ok / 0 fail | 2/2 | 1.14 |
-| [compose-react-express-mongodb](../evaluation/compose-react-express-mongodb/report.md) | 5 | 1 | 1 | 4 | 3 | 2 | 1 | 1 | 0 | 3 | 2 | yes | ok | ok | ok | 0 | 5 ok / 0 fail | 2/2 | 0.13 |
-| [compose-react-express-mysql](../evaluation/compose-react-express-mysql/report.md) | 6 | 2 | 1 | 4 | 4 | 2 | 1 | 3 | 1 | 4 | 4 | yes | ok | ok | ok | 0 | 5 ok / 0 fail | 2/2 | 0.18 |
-| [compose-nginx-nodejs-redis](../evaluation/compose-nginx-nodejs-redis/report.md) | 4 | 1 | 1 | 2 | 3 | 1 | 0 | 1 | 0 | 2 | 2 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 2/2 | 0.14 |
-| [compose-flask](../evaluation/compose-flask/report.md) | 3 | 1 | 0 | 2 | 1 | 1 | 0 | 1 | 0 | 2 | 1 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 1/1 | 0.11 |
-| [compose-flask-redis](../evaluation/compose-flask-redis/report.md) | 3 | 1 | 1 | 1 | 3 | 1 | 0 | 2 | 0 | 2 | 2 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 2/2 | 0.13 |
-| [compose-nginx-flask-mongo](../evaluation/compose-nginx-flask-mongo/report.md) | 4 | 1 | 1 | 3 | 2 | 1 | 0 | 1 | 0 | 2 | 2 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 2/2 | 0.15 |
-| [compose-nginx-flask-mysql](../evaluation/compose-nginx-flask-mysql/report.md) | 4 | 1 | 1 | 3 | 3 | 1 | 0 | 2 | 0 | 2 | 2 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 2/2 | 0.14 |
+| [node-express-mongodb](../evaluation/node-express-mongodb/report.md) | 14 | 1 | 1 | 1 | 14 | 8 | 1 | 8 | 0 | 2 | 3 | yes | ok | ok | ok | 0 | 12 ok / 0 fail | 2/2 | 0.16 |
+| [hackathon-starter](../evaluation/hackathon-starter/report.md) | 107 | 27 | 3 | 1 | 213 | 90 | 12 | 63 | 23 | 4 | 21 | yes | ok | ok | ok | 0 | 46 ok / 0 fail | 10/10 | 1.37 |
+| [stripe-checkout-sample](../evaluation/stripe-checkout-sample/report.md) | 22 | 3 | 0 | 1 | 17 | 10 | 0 | 11 | 2 | 3 | 6 | yes | ok | ok | ok | 0 | 16 ok / 0 fail | 2/2 | 0.2 |
+| [microservices-demo](../evaluation/microservices-demo/report.md) | 52 | 8 | 2 | 14 | 59 | 33 | 0 | 19 | 2 | 17 | 11 | yes | ok | ok | ok | 0 | 46 ok / 0 fail | 2/2 | 1.13 |
+| [compose-react-express-mongodb](../evaluation/compose-react-express-mongodb/report.md) | 5 | 1 | 1 | 4 | 3 | 2 | 1 | 1 | 0 | 3 | 2 | yes | ok | ok | ok | 0 | 5 ok / 0 fail | 2/2 | 0.17 |
+| [compose-react-express-mysql](../evaluation/compose-react-express-mysql/report.md) | 6 | 2 | 1 | 4 | 4 | 2 | 1 | 3 | 1 | 4 | 4 | yes | ok | ok | ok | 0 | 5 ok / 0 fail | 2/2 | 0.12 |
+| [compose-nginx-nodejs-redis](../evaluation/compose-nginx-nodejs-redis/report.md) | 4 | 1 | 1 | 2 | 3 | 1 | 0 | 1 | 0 | 2 | 2 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 2/2 | 0.1 |
+| [compose-flask](../evaluation/compose-flask/report.md) | 3 | 1 | 0 | 2 | 1 | 1 | 0 | 1 | 0 | 2 | 1 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 1/1 | 0.1 |
+| [compose-flask-redis](../evaluation/compose-flask-redis/report.md) | 3 | 1 | 1 | 1 | 3 | 1 | 0 | 2 | 0 | 2 | 2 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 2/2 | 0.14 |
+| [compose-nginx-flask-mongo](../evaluation/compose-nginx-flask-mongo/report.md) | 4 | 1 | 1 | 3 | 2 | 1 | 0 | 1 | 0 | 2 | 2 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 2/2 | 0.11 |
+| [compose-nginx-flask-mysql](../evaluation/compose-nginx-flask-mysql/report.md) | 4 | 1 | 1 | 3 | 3 | 1 | 0 | 2 | 0 | 2 | 2 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 2/2 | 0.24 |
 | [compose-fastapi](../evaluation/compose-fastapi/report.md) | 3 | 1 | 0 | 1 | 1 | 1 | 0 | 1 | 0 | 2 | 1 | yes | ok | ok | ok | 0 | 4 ok / 0 fail | 1/1 | 0.12 |
-| [compose-django](../evaluation/compose-django/report.md) | 3 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | yes | ok | ok | ok | 0 | 2 ok / 0 fail | 1/1 | 0.11 |
+| [compose-django](../evaluation/compose-django/report.md) | 3 | 0 | 0 | 2 | 0 | 0 | 0 | 0 | 1 | 1 | 0 | yes | ok | ok | ok | 0 | 2 ok / 0 fail | 1/1 | 0.12 |
 | [compose-nginx-wsgi-flask](../evaluation/compose-nginx-wsgi-flask/report.md) | 6 | 1 | 0 | 2 | 4 | 4 | 0 | 4 | 0 | 2 | 1 | yes | ok | ok | ok | 0 | 7 ok / 0 fail | 1/1 | 0.12 |
-| [spring-petclinic](../evaluation/spring-petclinic/report.md) | 25 | 1 | 6 | 1 | 41 | 17 | 3 | 20 | 1 | 2 | 9 | yes | ok | ok | ok | 0 | 20 ok / 0 fail | 1/1 | 0.26 |
-| [golang-gin-realworld](../evaluation/golang-gin-realworld/report.md) | 28 | 1 | 8 | 1 | 56 | 20 | 1 | 7 | 2 | 3 | 12 | yes | ok | ok | ok | 0 | 25 ok / 0 fail | 2/2 | 0.39 |
-| [nestjs-realworld](../evaluation/nestjs-realworld/report.md) | 32 | 1 | 5 | 1 | 54 | 21 | 3 | 9 | 2 | 3 | 8 | yes | ok | ok | ok | 0 | 28 ok / 0 fail | 2/2 | 0.23 |
-| [fastapi-full-stack](../evaluation/fastapi-full-stack/report.md) | 33 | 2 | 2 | 2 | 64 | 23 | 7 | 4 | 8 | 3 | 5 | yes | ok | ok | ok | 0 | 26 ok / 0 fail | 2/2 | 0.98 |
+| [spring-petclinic](../evaluation/spring-petclinic/report.md) | 25 | 1 | 6 | 1 | 41 | 17 | 3 | 20 | 1 | 2 | 9 | yes | ok | ok | ok | 0 | 20 ok / 0 fail | 1/1 | 0.24 |
+| [golang-gin-realworld](../evaluation/golang-gin-realworld/report.md) | 28 | 1 | 8 | 1 | 56 | 20 | 1 | 7 | 2 | 3 | 12 | yes | ok | ok | ok | 0 | 25 ok / 0 fail | 2/2 | 0.32 |
+| [nestjs-realworld](../evaluation/nestjs-realworld/report.md) | 32 | 1 | 5 | 1 | 54 | 21 | 3 | 9 | 2 | 3 | 8 | yes | ok | ok | ok | 0 | 28 ok / 0 fail | 2/2 | 0.2 |
+| [fastapi-full-stack](../evaluation/fastapi-full-stack/report.md) | 33 | 2 | 2 | 2 | 64 | 23 | 7 | 4 | 8 | 3 | 5 | yes | ok | ok | ok | 0 | 26 ok / 0 fail | 2/2 | 0.79 |
 | [flask-microblog](../evaluation/flask-microblog/report.md) | 40 | 3 | 8 | 1 | 85 | 35 | 4 | 10 | 4 | 4 | 13 | yes | ok | ok | ok | 0 | 39 ok / 0 fail | 2/2 | 0.25 |
-| [eshoponweb](../evaluation/eshoponweb/report.md) | 67 | 2 | 7 | 3 | 95 | 49 | 9 | 21 | 6 | 5 | 13 | yes | ok | ok | ok | 0 | 45 ok / 0 fail | 1/1 | 0.55 |
+| [eshoponweb](../evaluation/eshoponweb/report.md) | 67 | 2 | 7 | 3 | 95 | 49 | 9 | 21 | 6 | 5 | 13 | yes | ok | ok | ok | 0 | 45 ok / 0 fail | 1/1 | 0.68 |
 
 ## Precision and recall against ground truth
 

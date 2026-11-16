@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.0",
+    "tool_version": "0.5.1",
     "commit": "a975ef64864354867c88e0ed3a17ba7d17dca752",
     "generated_from": "flask-microblog",
     "detectors": [
       "config@0.5",
       "py@0.5",
-      "synth@0.5.0"
+      "synth@0.5.1"
     ],
     "scope": {
       "include": [
@@ -106,7 +106,7 @@
           "path": "app/auth/__init__.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:991623857d17d76bc1565f3e0d2398104540b6b4f404d799797f04ef3622b1d9"
         }
       ],
@@ -128,7 +128,7 @@
           "path": "app/search.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:a5509a55d91cd07db555769a75f3e23604bbf65ab9be6c5c4d6e7401fc77206f"
         }
       ],
@@ -174,7 +174,7 @@
           "path": "app/__init__.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:27dced094c9514184c1983402a02c05d10c904156f13318d12650d0243454e60"
         }
       ],
@@ -243,7 +243,7 @@
           "path": "app/errors/__init__.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:991623857d17d76bc1565f3e0d2398104540b6b4f404d799797f04ef3622b1d9"
         }
       ],
@@ -265,7 +265,7 @@
           "path": "app/translate.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:06185522e4085460db5f973d6987f2c5f42519fccd56836e5e5ed9842962de8d"
         }
       ],
@@ -287,7 +287,7 @@
           "path": "app/tasks.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ff3e4d4dcf7250cae8d622d77c9a6d69aefcf4ab04ef9920218fafe93c0f1991"
         }
       ],
@@ -309,7 +309,7 @@
           "path": "app/main/forms.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a32b643971a18a33ce05a2da930a7daa974a573a2ea3ab5b410e7ae02386c9c"
         }
       ],
@@ -354,7 +354,7 @@
           "path": "app/models.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:76b29c53bafaf3c6145036603e882ab30cff1853f47dcbae087023f92c2f3bdf"
         }
       ],
@@ -445,7 +445,7 @@
           "path": "app/api/auth.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:be294fb94460207478ab4d75a71e3da043c93012db4de0d131084b9145618d4d"
         }
       ],
@@ -490,7 +490,7 @@
           "path": "app/auth/forms.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:51ce59464e0f32df304d84d49b8dfeeeca3d73623135f5a1ca442d03da6b4fcb"
         }
       ],
@@ -558,7 +558,7 @@
           "path": "tests.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:76ef2f289986e89e0d7b3370a0a13cb37b395b6d047b76858e6c310cbc49c458"
         }
       ],
@@ -603,7 +603,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:9a773aa9eecd66313491c0542bb1f9e025c79ab372f991b2af4a4c1275efeb1c"
         }
       ]
@@ -693,7 +693,7 @@
           "path": "app/__init__.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:27dced094c9514184c1983402a02c05d10c904156f13318d12650d0243454e60"
         }
       ],
@@ -814,7 +814,7 @@
           "path": "app/email.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:45987b900823377bf44d1cbf1f94e1da4d1d30afa10a563d814eaeab8ebe9a4b"
         }
       ],
@@ -1779,7 +1779,7 @@
           "path": "app/main/forms.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a32b643971a18a33ce05a2da930a7daa974a573a2ea3ab5b410e7ae02386c9c"
         }
       ]
@@ -2023,7 +2023,7 @@
           "path": "app/tasks.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ff3e4d4dcf7250cae8d622d77c9a6d69aefcf4ab04ef9920218fafe93c0f1991"
         }
       ]
@@ -2239,7 +2239,7 @@
           "path": "app/email.py",
           "start_line": 12,
           "end_line": 12,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:dd12da72fd8aaeb25b5a848809d344f7ad1c3c61ccb43fbfe576df01549c67fd",
           "symbol": "app/email.py::send_email"
         }
@@ -2607,7 +2607,7 @@
           "path": "app/auth/forms.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:51ce59464e0f32df304d84d49b8dfeeeca3d73623135f5a1ca442d03da6b4fcb"
         }
       ]
@@ -2635,7 +2635,7 @@
           "path": "app/api/auth.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:be294fb94460207478ab4d75a71e3da043c93012db4de0d131084b9145618d4d"
         }
       ]
@@ -2760,7 +2760,7 @@
           "path": "app/tasks.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ff3e4d4dcf7250cae8d622d77c9a6d69aefcf4ab04ef9920218fafe93c0f1991"
         }
       ]
@@ -2859,7 +2859,7 @@
           "path": "app/__init__.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:27dced094c9514184c1983402a02c05d10c904156f13318d12650d0243454e60"
         }
       ]
@@ -3326,7 +3326,7 @@
           "path": "app/search.py",
           "start_line": 19,
           "end_line": 19,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0df8ba50acc26c81f743043139941abb0bc8cff714c300f45fc290bbea7766a6",
           "symbol": "app/search.py::query_index"
         }
@@ -3355,7 +3355,7 @@
           "path": "app/auth/forms.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:51ce59464e0f32df304d84d49b8dfeeeca3d73623135f5a1ca442d03da6b4fcb"
         }
       ]
@@ -3448,7 +3448,7 @@
           "path": "app/main/forms.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a32b643971a18a33ce05a2da930a7daa974a573a2ea3ab5b410e7ae02386c9c"
         }
       ]
@@ -3550,7 +3550,7 @@
           "path": "tests.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:76ef2f289986e89e0d7b3370a0a13cb37b395b6d047b76858e6c310cbc49c458"
         }
       ]
@@ -3682,7 +3682,7 @@
           "path": "app/api/auth.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:be294fb94460207478ab4d75a71e3da043c93012db4de0d131084b9145618d4d"
         }
       ]
@@ -3710,7 +3710,7 @@
           "path": "app/models.py",
           "start_line": 187,
           "end_line": 187,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:6b261ee142b7401dcd3de6e624799cd5cf862f020c26d808bf56fe396372d9cd",
           "symbol": "app/models.py::User.verify_reset_password_token"
         }
@@ -3845,7 +3845,7 @@
           "path": "app/tasks.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ff3e4d4dcf7250cae8d622d77c9a6d69aefcf4ab04ef9920218fafe93c0f1991"
         }
       ]
@@ -3990,7 +3990,7 @@
           "path": "app/search.py",
           "start_line": 19,
           "end_line": 19,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0df8ba50acc26c81f743043139941abb0bc8cff714c300f45fc290bbea7766a6",
           "symbol": "app/search.py::query_index"
         }
@@ -4019,7 +4019,7 @@
           "path": "tests.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:76ef2f289986e89e0d7b3370a0a13cb37b395b6d047b76858e6c310cbc49c458"
         }
       ]
@@ -4409,7 +4409,7 @@
           "path": "app/translate.py",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:449bd4e9529413b84771a7c1c85599327541d271e13dd1688ff3b37b2b967286",
           "symbol": "app/translate.py::translate"
         }
@@ -4502,7 +4502,7 @@
           "path": "app/models.py",
           "start_line": 21,
           "end_line": 21,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:1b2af9cd27d11cf848ee367106eecf68dbdd583949752d7ed950e33350f31894",
           "symbol": "app/models.py::SearchableMixin.search"
         }

@@ -1,6 +1,6 @@
 # code2design report: fastapi-full-stack
 
-Commit `aabb90126964`, code2design 0.5.0, IR 0.2.
+Commit `aabb90126964`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -11,7 +11,7 @@ Commit `aabb90126964`, code2design 0.5.0, IR 0.2.
 | typescript | 38 |
 | (test files, not modelled) | 27 |
 
-Detectors: config@0.5, js@0.5, py@0.5, synth@0.5.0
+Detectors: config@0.5, js@0.5, py@0.5, synth@0.5.1
 
 Facts: app 1, boundary_hint 6, call_edge 40, config_value 6, control 24, declared_link 1, dependencies 2, entry_point 23, module 4, outbound_call 2, router 7, router_mount 6, schema 31, store_access 31, weakness 4
 

@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.0",
+    "tool_version": "0.5.1",
     "commit": "fb53b17c28c99e6fbcd78106930c6e9b403eb9ec",
     "generated_from": "hackathon-starter",
     "detectors": [
       "config@0.5",
       "js@0.5",
-      "synth@0.5.0"
+      "synth@0.5.1"
     ],
     "scope": {
       "include": [
@@ -74,7 +74,7 @@
           "path": "test/app-links.test.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8da3c87796890f13449192ed97667c9f1533dbe644d8ff7485e44b4178a3a7f4"
         }
       ],
@@ -235,7 +235,7 @@
           "path": "app.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8d64a30d9de151b649006a1d9871037ac5649ab6162ea5d7fd77c54fed07b155"
         }
       ],
@@ -370,7 +370,7 @@
           "path": "config/token-revocation.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:43fba56f3a0b16ea2bc3973ec775c49a8789c581405730b74c64891e3d1b23a5"
         }
       ],
@@ -622,7 +622,7 @@
           "path": "app.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8d64a30d9de151b649006a1d9871037ac5649ab6162ea5d7fd77c54fed07b155"
         }
       ],
@@ -851,7 +851,7 @@
           "path": "controllers/api.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:43fba56f3a0b16ea2bc3973ec775c49a8789c581405730b74c64891e3d1b23a5"
         }
       ],
@@ -988,7 +988,7 @@
           "path": "controllers/contact.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:61e2367c5ce2ecce14c447fc677ca1c25b7b6857633cd1cade5bff46ffd85c9d"
         }
       ],
@@ -1033,7 +1033,7 @@
           "path": "controllers/ai.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:43fba56f3a0b16ea2bc3973ec775c49a8789c581405730b74c64891e3d1b23a5"
         }
       ],
@@ -1700,7 +1700,7 @@
           "path": "controllers/ai-agent.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:61e2367c5ce2ecce14c447fc677ca1c25b7b6857633cd1cade5bff46ffd85c9d"
         }
       ],
@@ -1791,7 +1791,7 @@
           "path": "config/passport.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:e8a6eb62841fcd76eea141bcfe4529b061cc4d2a3bcb18c23a1ce6c1480fb14a"
         }
       ],
@@ -1928,7 +1928,7 @@
           "path": "models/User.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:43fba56f3a0b16ea2bc3973ec775c49a8789c581405730b74c64891e3d1b23a5"
         }
       ],
@@ -1996,7 +1996,7 @@
           "path": "controllers/ai-agent.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:61e2367c5ce2ecce14c447fc677ca1c25b7b6857633cd1cade5bff46ffd85c9d"
         }
       ],
@@ -2180,7 +2180,7 @@
           "path": "public/js/cookieconsent-bundle.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f3581242bb4da90c72dcb78bb7063b88ab08a4ddfab6cc75fb571f1b8e1f37ef"
         }
       ],
@@ -2202,7 +2202,7 @@
           "path": "config/nodemailer.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:e5d886976f6e9726ff6360f84860e923e08f60d3b9f338692f078119ed6de80b"
         }
       ],
@@ -2294,7 +2294,7 @@
           "path": "models/Session.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:1442d118354b63373fd12bdd6d67a44b6ad5495095546e493664596c14e442ea"
         }
       ],
@@ -2363,7 +2363,7 @@
           "path": "config/cacheBust.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:a41665cd680f1679433e591636e348dc2cc6330722a52e3384a5dbefd9a4ddd6"
         }
       ],
@@ -2408,7 +2408,7 @@
           "path": "controllers/user.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:43fba56f3a0b16ea2bc3973ec775c49a8789c581405730b74c64891e3d1b23a5"
         }
       ],
@@ -3568,7 +3568,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ebf3eb75c313d4d26ceeed4180114fce4395d4340fa3d90b54264cf9d60f7b3e"
         }
       ]
@@ -3669,7 +3669,7 @@
           "path": "controllers/api.js",
           "start_line": 40,
           "end_line": 40,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:b7b8bb0e8c0e829cc1d270f2875ad4c2fec97d48c9589745b2d0f3e9a39a93ca",
           "symbol": "controllers/api.js::fetchJson"
         }
@@ -4101,7 +4101,7 @@
           "path": "controllers/ai.js",
           "start_line": 336,
           "end_line": 336,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:5caccf4d4470be76ee10c76c085ca7cb2879a7b081345113e392334af92fa422",
           "symbol": "controllers/ai.js::configureVectorIndex"
         }
@@ -4411,7 +4411,7 @@
           "path": "controllers/user.js",
           "start_line": 788,
           "end_line": 788,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:4a4fb79fc63cc07b5cab3394f0770e96bdc7dc786fb84d2122f71ec8fa7120c9",
           "symbol": "controllers/user.js::sendTwoFactorEmail"
         }
@@ -4440,7 +4440,7 @@
           "path": "controllers/ai.js",
           "start_line": 653,
           "end_line": 653,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:86017b5c4ea845d374e013814415de48752992b41c3d42e552b2e8ffb34c6f9f",
           "symbol": "controllers/ai.js::callGroqApi"
         }
@@ -4757,7 +4757,7 @@
           "path": "controllers/user.js",
           "start_line": 788,
           "end_line": 788,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:4a4fb79fc63cc07b5cab3394f0770e96bdc7dc786fb84d2122f71ec8fa7120c9",
           "symbol": "controllers/user.js::sendTwoFactorEmail"
         }
@@ -4934,7 +4934,7 @@
           "path": "controllers/contact.js",
           "start_line": 90,
           "end_line": 90,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:51a4bb55ff63936e32775458c513cfa20b551d4dc7a4ff7bf1b1fe679a442dc8",
           "symbol": "controllers/contact.js::sendContactEmail"
         },
@@ -4942,7 +4942,7 @@
           "path": "controllers/contact.js",
           "start_line": 4,
           "end_line": 4,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:887dc008307abb13e195e60b9b2d52e32aaf428f2bf0392b284de04bc8562589",
           "symbol": "controllers/contact.js::validateReCAPTCHA"
         }
@@ -5001,7 +5001,7 @@
           "path": "controllers/api.js",
           "start_line": 601,
           "end_line": 601,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:9e8e44c887fcae98e3ecc1a082bc66456735e270c1956e9570ecf8e9ee4dc5c0",
           "symbol": "controllers/api.js::getFollowers"
         },
@@ -5009,7 +5009,7 @@
           "path": "controllers/api.js",
           "start_line": 614,
           "end_line": 614,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:e3044bef5bbe297572d52f5a828cc651455f4498d7120c8cbfae634925d0967b",
           "symbol": "controllers/api.js::getStreams"
         },
@@ -5017,7 +5017,7 @@
           "path": "controllers/api.js",
           "start_line": 588,
           "end_line": 588,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0f9327c3489322c44e6ad490d61f841cd61e1b92b137c63a52ce194701f7461c",
           "symbol": "controllers/api.js::getUser"
         },
@@ -5025,7 +5025,7 @@
           "path": "controllers/api.js",
           "start_line": 628,
           "end_line": 628,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:31e90c38f6e3b7ae23ba2e73172ca046388cf1fc272e4fcb8c36bf71cbdc3931",
           "symbol": "controllers/api.js::getUserByLogin"
         }
@@ -5161,7 +5161,7 @@
           "path": "controllers/api.js",
           "start_line": 911,
           "end_line": 911,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0c1015b4eeed07ea9d6121d9873d5bbedb300920b0b7e79bade1a94a3d2be7da",
           "symbol": "controllers/api.js::getPayPalAccessToken"
         }
@@ -5720,7 +5720,7 @@
           "path": "app.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8d64a30d9de151b649006a1d9871037ac5649ab6162ea5d7fd77c54fed07b155"
         }
       ]
@@ -5748,7 +5748,7 @@
           "path": "config/token-revocation.js",
           "start_line": 42,
           "end_line": 42,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:5803e0560f0252dd926a27386ea3c43b62f294ebdd6b8230ea1c3d7ce8d2d0b3",
           "symbol": "config/token-revocation.js::revokeToken"
         }
@@ -5898,7 +5898,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -6408,7 +6408,7 @@
           "path": "config/passport.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:e8a6eb62841fcd76eea141bcfe4529b061cc4d2a3bcb18c23a1ce6c1480fb14a"
         }
       ]
@@ -6846,7 +6846,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -6955,7 +6955,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -7295,7 +7295,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -7471,7 +7471,7 @@
           "path": "controllers/ai.js",
           "start_line": 653,
           "end_line": 653,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:86017b5c4ea845d374e013814415de48752992b41c3d42e552b2e8ffb34c6f9f",
           "symbol": "controllers/ai.js::callGroqApi"
         }
@@ -7740,7 +7740,7 @@
           "path": "app.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8d64a30d9de151b649006a1d9871037ac5649ab6162ea5d7fd77c54fed07b155"
         }
       ]
@@ -7918,7 +7918,7 @@
           "path": "app.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8d64a30d9de151b649006a1d9871037ac5649ab6162ea5d7fd77c54fed07b155"
         }
       ]
@@ -7946,7 +7946,7 @@
           "path": "app.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8d64a30d9de151b649006a1d9871037ac5649ab6162ea5d7fd77c54fed07b155"
         }
       ]
@@ -8823,7 +8823,7 @@
           "path": "controllers/api.js",
           "start_line": 911,
           "end_line": 911,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0c1015b4eeed07ea9d6121d9873d5bbedb300920b0b7e79bade1a94a3d2be7da",
           "symbol": "controllers/api.js::getPayPalAccessToken"
         }
@@ -10036,7 +10036,7 @@
           "path": "controllers/api.js",
           "start_line": 437,
           "end_line": 437,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:26f6209a97db25e655eb81dc44d8a4db01895caab85a7a830481718eeb1854a2",
           "symbol": "controllers/api.js::getOwnedGames"
         },
@@ -10044,7 +10044,7 @@
           "path": "controllers/api.js",
           "start_line": 381,
           "end_line": 381,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:25316c8a8e3b330d3c682c5ac6d2e55c6d9a150e9404c93e769b31b61ea22010",
           "symbol": "controllers/api.js::getPlayerAchievements"
         },
@@ -10052,7 +10052,7 @@
           "path": "controllers/api.js",
           "start_line": 420,
           "end_line": 420,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:c29d415a0d15f1d9cc413190a170c10db23010fec8d78c0bf3b06cb39f2e280c",
           "symbol": "controllers/api.js::getPlayerSummaries"
         }
@@ -10118,7 +10118,7 @@
           "path": "app.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8d64a30d9de151b649006a1d9871037ac5649ab6162ea5d7fd77c54fed07b155"
         }
       ]
@@ -10146,7 +10146,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -10175,7 +10175,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -10492,7 +10492,7 @@
           "path": "controllers/user.js",
           "start_line": 166,
           "end_line": 166,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:294756e1e38e50806e6b6ae0547690b921794750f68e160cbe624309023e0205",
           "symbol": "controllers/user.js::sendPasswordlessLoginLinkIfUserExists"
         },
@@ -10500,7 +10500,7 @@
           "path": "controllers/user.js",
           "start_line": 202,
           "end_line": 202,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:e44b1a6d80638237870c26ba551865fbc7dc0d0fccafce992bba3bce077d1b3c",
           "symbol": "controllers/user.js::sendPasswordlessSignupLink"
         }
@@ -10565,7 +10565,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -10672,7 +10672,7 @@
           "path": "controllers/api.js",
           "start_line": 1389,
           "end_line": 1389,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ee44d49d7d4390f82d3f3bce37cf87b7487bc17dc9b3e316f92d45d75c2745aa",
           "symbol": "controllers/api.js::getPageExtract"
         },
@@ -10680,7 +10680,7 @@
           "path": "controllers/api.js",
           "start_line": 1405,
           "end_line": 1405,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:9974e3d0a4272a4e48ce5d2aca72535bdd3f6b0e64dbddf7439c0b9c946ff212",
           "symbol": "controllers/api.js::getPageImage"
         },
@@ -10688,7 +10688,7 @@
           "path": "controllers/api.js",
           "start_line": 1374,
           "end_line": 1374,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:43df791dfc6a4dbdc39fe503e4b6c557533fdf6ad708281a5f12fa24e5336dc4",
           "symbol": "controllers/api.js::getPageSections"
         },
@@ -10696,7 +10696,7 @@
           "path": "controllers/api.js",
           "start_line": 1356,
           "end_line": 1356,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:22997c5f77731d4e3addeb153dbac6b0023b9eb1074e51a2156d908121472aca",
           "symbol": "controllers/api.js::searchWikipedia"
         }
@@ -10926,7 +10926,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -10992,7 +10992,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -11093,7 +11093,7 @@
           "path": "config/nodemailer.js",
           "start_line": 6,
           "end_line": 6,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f202ea15e11dc6c091677ec50515f749612beedba9e512182f67db1d9544ce9f",
           "symbol": "config/nodemailer.js::sendMail"
         }
@@ -11122,7 +11122,7 @@
           "path": "app.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8d64a30d9de151b649006a1d9871037ac5649ab6162ea5d7fd77c54fed07b155"
         }
       ]
@@ -19258,7 +19258,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ebf3eb75c313d4d26ceeed4180114fce4395d4340fa3d90b54264cf9d60f7b3e"
         }
       ]

@@ -1,6 +1,6 @@
 # code2design report: node-express-realworld
 
-Commit `30b68e1e8814`, code2design 0.5.0, IR 0.2.
+Commit `30b68e1e8814`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -10,7 +10,7 @@ Commit `30b68e1e8814`, code2design 0.5.0, IR 0.2.
 | typescript | 37 |
 | (test files, not modelled) | 11 |
 
-Detectors: config@0.5, js@0.5, synth@0.5.0
+Detectors: config@0.5, js@0.5, synth@0.5.1
 
 Facts: app 1, boundary_hint 1, config_value 2, control 13, dependencies 1, entry_point 20, listener 1, module 1, router 7, router_mount 6, schema 12, store_access 36, weakness 1
 

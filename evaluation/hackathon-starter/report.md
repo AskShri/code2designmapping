@@ -1,6 +1,6 @@
 # code2design report: hackathon-starter
 
-Commit `fb53b17c28c9`, code2design 0.5.0, IR 0.2.
+Commit `fb53b17c28c9`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `fb53b17c28c9`, code2design 0.5.0, IR 0.2.
 | javascript | 56 |
 | (test files, not modelled) | 36 |
 
-Detectors: config@0.5, js@0.5, synth@0.5.0
+Detectors: config@0.5, js@0.5, synth@0.5.1
 
 Facts: app 1, config_value 24, control 63, dependencies 1, entry_point 90, listener 1, module 1, outbound_call 84, router 1, schema 65, store_access 70, weakness 7
 

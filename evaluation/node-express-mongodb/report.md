@@ -1,6 +1,6 @@
 # code2design report: node-express-mongodb
 
-Commit `30851145f343`, code2design 0.5.0, IR 0.2.
+Commit `30851145f343`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `30851145f343`, code2design 0.5.0, IR 0.2.
 | javascript | 6 |
 | (test files, not modelled) | 0 |
 
-Detectors: config@0.5, js@0.5, synth@0.5.0
+Detectors: config@0.5, js@0.5, synth@0.5.1
 
 Facts: app 1, control 1, dependencies 1, entry_point 8, listener 1, module 1, router 3, router_mount 2, schema 5, store_access 8
 

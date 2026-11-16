@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.0",
+    "tool_version": "0.5.1",
     "commit": "30f4b7f6a6c3b0c0ecf4d4efb0de203c48d11562",
     "generated_from": "compose-nginx-nodejs-redis",
     "detectors": [
       "config@0.5",
       "js@0.5",
-      "synth@0.5.0"
+      "synth@0.5.1"
     ],
     "scope": {
       "include": [
@@ -65,7 +65,7 @@
           "path": "web/server.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:5aa319000a1c36539610e190f71b6a5a1d42bb9565301e48e271cb7cb5c312db"
         }
       ],
@@ -87,7 +87,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:31921adbfe68f1d91192389837727a606fdb5b02b2f78506cc474eaf1d884943"
         }
       ]
@@ -109,7 +109,7 @@
           "path": "web/server.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:5aa319000a1c36539610e190f71b6a5a1d42bb9565301e48e271cb7cb5c312db"
         }
       ],
@@ -215,7 +215,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:31921adbfe68f1d91192389837727a606fdb5b02b2f78506cc474eaf1d884943"
         }
       ]

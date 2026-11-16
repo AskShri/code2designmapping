@@ -1,6 +1,6 @@
 # code2design report: golang-gin-realworld
 
-Commit `a41289b2a495`, code2design 0.5.0, IR 0.2.
+Commit `a41289b2a495`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `a41289b2a495`, code2design 0.5.0, IR 0.2.
 | go | 21 |
 | (test files, not modelled) | 4 |
 
-Detectors: config@0.5, go@0.5, synth@0.5.0
+Detectors: config@0.5, go@0.5, synth@0.5.1
 
 Facts: app 1, control 1, dependencies 1, entry_point 27, listener 1, module 1, router 10, router_mount 9, schema 7, store_access 38
 

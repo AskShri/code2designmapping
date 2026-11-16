@@ -1,6 +1,6 @@
 # code2design report: stripe-checkout-sample
 
-Commit `c834ba3ae155`, code2design 0.5.0, IR 0.2.
+Commit `c834ba3ae155`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -17,7 +17,7 @@ Commit `c834ba3ae155`, code2design 0.5.0, IR 0.2.
 | no recognizer for .php | 4 (not analyzed) |
 | no recognizer for .rb | 5 (not analyzed) |
 
-Detectors: config@0.5, csharp@0.5, go@0.5, java@0.5, js@0.5, py@0.5, synth@0.5.0
+Detectors: config@0.5, csharp@0.5, go@0.5, java@0.5, js@0.5, py@0.5, synth@0.5.1
 
 Facts: app 3, config_value 12, dependencies 6, entry_point 19, listener 4, module 5, outbound_call 29, router 4, schema 6, weakness 1
 

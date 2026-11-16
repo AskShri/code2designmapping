@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.0",
+    "tool_version": "0.5.1",
     "commit": "c834ba3ae155bd77a6aeb5879b58edd6a944af00",
     "generated_from": "stripe-checkout-sample",
     "detectors": [
@@ -11,7 +11,7 @@
       "java@0.5",
       "js@0.5",
       "py@0.5",
-      "synth@0.5.0"
+      "synth@0.5.1"
     ],
     "scope": {
       "include": [
@@ -80,7 +80,7 @@
           "path": "server/java/src/main/java/com/stripe/sample/Server.java",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:4d8cdf9a3b98b2e084a8842c1c9e9299716a4b2ff1034488037bee484d58e558"
         }
       ],
@@ -103,7 +103,7 @@
           "path": "client/html/index.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:d25ee383ffc9224deac2a492255f6c876329cfbef94a9516cf3849c59d5fdb09"
         }
       ],
@@ -195,7 +195,7 @@
           "path": "server/go/server.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:512843855fcc92a51c810b1b58e0731c01eac9a6a23c157bfa02aad71edffbe7"
         }
       ],
@@ -264,7 +264,7 @@
           "path": "server/dotnet/Configuration/StripeOptions.cs",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ac4d149636fbcc5888b127eb9ddd94b2956a8b491d1af2b65bb44fc7a8c81611"
         }
       ],
@@ -286,7 +286,7 @@
           "path": "client/react-cra/src/components/Success.jsx",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:abe52a508d8934e9015bd5fdd8d0c3671e1efdd2133ecfa03f1ff100345d09a9"
         }
       ],
@@ -331,7 +331,7 @@
           "path": "client/html/success.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:9e9a296a3868318ecb46bb2d1d9fc689c7c6607d8a89bfaeb1795853f3da82e1"
         }
       ],
@@ -354,7 +354,7 @@
           "path": "server/nextjs/app/api/checkout-session/route.ts",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:6f00a6afe6bb6d64cac6fbfe093704a68f316c842f3dba03065690bccf3a0f55"
         }
       ],
@@ -377,7 +377,7 @@
           "path": "server/python/server.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:df2a910024a0051cfca99e5dc2cd42f42f075cfe3c1b9b847adbe83f5d1929ed"
         }
       ],
@@ -400,7 +400,7 @@
           "path": "server/node/server.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:e065a49059e493d4d1f938d91ecf94649080e5ade71de72a4958e3edbe7cf0c4"
         }
       ],
@@ -422,7 +422,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:d975067bd6c7adf2b0d28896b79f00a0d86eff958d7c162f6c95dd3e40442acc"
         }
       ]
@@ -467,7 +467,7 @@
           "path": "server/php/public/script.js",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:d25ee383ffc9224deac2a492255f6c876329cfbef94a9516cf3849c59d5fdb09"
         }
       ],
@@ -535,7 +535,7 @@
           "path": "server/python/server.py",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:df2a910024a0051cfca99e5dc2cd42f42f075cfe3c1b9b847adbe83f5d1929ed"
         }
       ],
@@ -706,7 +706,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:d975067bd6c7adf2b0d28896b79f00a0d86eff958d7c162f6c95dd3e40442acc"
         }
       ]
@@ -2462,7 +2462,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:d975067bd6c7adf2b0d28896b79f00a0d86eff958d7c162f6c95dd3e40442acc"
         }
       ]

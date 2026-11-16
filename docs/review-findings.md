@@ -54,3 +54,22 @@ Status values: **fixed** (the defect is gone and covered), **redesigned** (the c
 | 40g | An Ingress hint overwrote a same-named Deployment in host resolution | fixed | Only container hints resolve hosts | evaluation (microservices-demo) |
 | 40h | Dead statements | fixed | The modules containing them were rewritten | none |
 | - | Fact kinds and fields emitted but never read | redesigned | `FactStore.add` validates every fact against a registry of kinds and required fields (`model.FACT_KINDS`); synthesis reads each kind it registers; documented in `docs/facts.md` | `FactStore` raises on unknown kinds or missing fields |
+
+## Round 2 (v0.5.1)
+
+A second review (eight reviewers by area, findings reproduced on fixtures and new repositories) was stopped early to limit cost. The highest-impact reproduced findings were fixed; the rest are listed as open.
+
+| Finding | Status | Test |
+|---|---|---|
+| Express middleware passed in the same `app.use('/p', auth, router)` call as a mount was dropped | fixed (`routing.py`) | `test_express_middleware_in_mount_call_guards_the_router` |
+| A middleware file containing `req.get('...')` was read as a router, so `app.use(auth)` lost its control | fixed (stricter router-file test) | same |
+| gin/echo/fiber `Group(prefix, mw...)` middleware ignored | fixed | `test_gin_group_middleware` |
+| `@csrf_exempt` modelled as a CSRF control | fixed | `test_flask_before_request_guard_and_csrf_exempt` |
+| Flask `before_request` / `before_app_request` auth guards not modelled | fixed | same |
+| FastAPI `include_router(..., dependencies=[...])` controls did not reach the included routes | fixed | ground truth |
+| Nest `@UseGuards` with nested or multi-line arguments lost guards; `@Public()` ignored | fixed | ground truth |
+| `@FeignClient` interfaces became entry points | fixed | none yet |
+| `analyze` deleted hand-written `.mmd` files in the output directory | fixed (only tool-named files) | none yet |
+| Malformed override entries crashed `analyze` | fixed (reported as gaps) | `test_malformed_overrides_do_not_crash` |
+
+Open, reproduced but not yet fixed: Next.js file-system routes; Fastify plugins and hooks; Koa; Django REST Framework ViewSets, routers and default permission classes; Django nested `urls.py` prefixes; Flask-RESTful resources; chi `r.Route`/`r.With` and closures; Go wrapper middleware and calls through struct fields; Spring Security matcher rules; ASP.NET `MapGroup` multi-statement authorization and inherited `[Authorize]`; outbound clients named `api`/`server` read as routers; per-function scoping of JS model instances; same route in two apps of one repository merging; `compose.override.yml` and Traefik labels; services sharing a build context; OTM default trust zone for unplaced elements; IR version check in `lint`/`diff`/`export`; schema strictness for hand-edited IRs.

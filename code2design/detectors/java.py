@@ -155,7 +155,9 @@ def _file(idx, sf, facts, repo):
             mm = MAPPING_RX.search(btxt)
             if mm and mm.group(1) == "Request":
                 class_prefix[cls] = _paths(mm.group(2))[0]
-            if re.search(r"@(Rest)?Controller\b", btxt) or mm:
+            if "@FeignClient" in btxt:
+                class_prefix.pop(cls, None)
+            elif re.search(r"@(Rest)?Controller\b", btxt) or mm:
                 class_prefix.setdefault(cls, "")
             for am in re.finditer(r"@(PreAuthorize|Secured|RolesAllowed|CrossOrigin)\b", btxt):
                 kind = classify_control(am.group(1))

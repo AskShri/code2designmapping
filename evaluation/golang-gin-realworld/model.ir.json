@@ -1,13 +1,13 @@
 {
   "version": "0.2",
   "provenance": {
-    "tool_version": "0.5.0",
+    "tool_version": "0.5.1",
     "commit": "a41289b2a4951e7cc09066f86742a27f85121c9b",
     "generated_from": "golang-gin-realworld",
     "detectors": [
       "config@0.5",
       "go@0.5",
-      "synth@0.5.0"
+      "synth@0.5.1"
     ],
     "scope": {
       "include": [
@@ -92,7 +92,7 @@
           "path": "articles/doc.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -114,7 +114,7 @@
           "path": "users/models.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8c4c84501343a08885b94596322c180ca8fae8794dc5d7316113e45f31bac410"
         }
       ],
@@ -367,7 +367,7 @@
           "path": "common/database.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:4acf02e60bc3b223de7ffdf48babacb31a05d2109018540e6df7a43846a8cd19"
         }
       ],
@@ -412,7 +412,7 @@
           "path": "users/middlewares.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8c4c84501343a08885b94596322c180ca8fae8794dc5d7316113e45f31bac410"
         }
       ],
@@ -457,7 +457,7 @@
           "path": "articles/models.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:ace58d29999e71e366c8c985ce71cbe9bf37f19a6eb96221e2f167f0772234d7"
         }
       ],
@@ -503,7 +503,7 @@
           "path": "doc.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -526,7 +526,7 @@
           "path": "users/doc.go",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:766e0153d3f7ec95c97e755b1ea7b1681566923b9299365fdc8399443ca20c1d"
         }
       ],
@@ -1130,7 +1130,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:5ab8f198786f81a1a515d5eddba881b511d787b6226984d9882add31072bfffe"
         }
       ]
@@ -1160,7 +1160,7 @@
           "path": "users/models.go",
           "start_line": 83,
           "end_line": 83,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
           "symbol": "users/models.go::FindOneUser"
         },
@@ -1168,7 +1168,7 @@
           "path": "users/models.go",
           "start_line": 102,
           "end_line": 102,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:8dc7c472bcb577c2778af72d34b29fbf9d09e8b0022828e22662c1fbc0875256",
           "symbol": "users/models.go::UserModel.following"
         }
@@ -1264,7 +1264,7 @@
           "path": "users/middlewares.go",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:49217a932f193420bfd7a9ce06a705073c9c5f3102e490bc05d4eb76d7d9929a",
           "symbol": "users/middlewares.go::UpdateContextUserModel"
         }
@@ -1293,7 +1293,7 @@
           "path": "users/models.go",
           "start_line": 83,
           "end_line": 83,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
           "symbol": "users/models.go::FindOneUser"
         }
@@ -1359,7 +1359,7 @@
           "path": "articles/models.go",
           "start_line": 252,
           "end_line": 252,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:9ee1b3d5ecccf424b8fd913682c534b4b26271beaed33e40e6557d8573fc16d4",
           "symbol": "articles/models.go::ArticleUserModel.GetArticleFeed"
         },
@@ -1367,7 +1367,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -1490,7 +1490,7 @@
           "path": "articles/models.go",
           "start_line": 171,
           "end_line": 171,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:9a70609ca005dfaa37eb2c232ce9fb6a034a35b0407fa73a10650347af40369b",
           "symbol": "articles/models.go::getAllTags"
         },
@@ -1498,7 +1498,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -1564,7 +1564,7 @@
           "path": "articles/models.go",
           "start_line": 165,
           "end_line": 165,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:947217b06bd01f0253381c90e53e172823d977d55e1da259adcbfde5613daa64",
           "symbol": "articles/models.go::ArticleModel.getComments"
         },
@@ -1572,7 +1572,7 @@
           "path": "articles/models.go",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
           "symbol": "articles/models.go::FindOneArticle"
         },
@@ -1580,7 +1580,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -1609,7 +1609,7 @@
           "path": "articles/models.go",
           "start_line": 129,
           "end_line": 129,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:6050fcd69049f6e2525ca823db88cb09d6c7a87a1ae238b984a70ca78678b855",
           "symbol": "articles/models.go::ArticleModel.favoriteBy"
         },
@@ -1617,7 +1617,7 @@
           "path": "articles/models.go",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
           "symbol": "articles/models.go::FindOneArticle"
         },
@@ -1625,7 +1625,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -1868,7 +1868,7 @@
           "path": "users/models.go",
           "start_line": 83,
           "end_line": 83,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
           "symbol": "users/models.go::FindOneUser"
         }
@@ -1897,7 +1897,7 @@
           "path": "articles/models.go",
           "start_line": 139,
           "end_line": 139,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:4b78adb93b62f8bd49b0b57a262b2d66d70a0eb02f0989fc9212f6649f8e4f2b",
           "symbol": "articles/models.go::ArticleModel.unFavoriteBy"
         },
@@ -1905,7 +1905,7 @@
           "path": "articles/models.go",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
           "symbol": "articles/models.go::FindOneArticle"
         },
@@ -1913,7 +1913,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -1942,7 +1942,7 @@
           "path": "articles/models.go",
           "start_line": 145,
           "end_line": 145,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:26b05fd4cf2fe16e68386f46a5986402bcf9849ac88754a6a35b14d705fa44ed",
           "symbol": "articles/models.go::SaveOne"
         },
@@ -1950,7 +1950,7 @@
           "path": "articles/models.go",
           "start_line": 299,
           "end_line": 299,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:d13eba87a3b29a628c5c93912cfa725be188a3f37055f174a4eaef6cf0960b0e",
           "symbol": "articles/models.go::makeUniqueSlug"
         },
@@ -1958,7 +1958,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -2017,7 +2017,7 @@
           "path": "users/models.go",
           "start_line": 93,
           "end_line": 93,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:26b05fd4cf2fe16e68386f46a5986402bcf9849ac88754a6a35b14d705fa44ed",
           "symbol": "users/models.go::SaveOne"
         }
@@ -2376,7 +2376,7 @@
           "path": "users/middlewares.go",
           "start_line": 30,
           "end_line": 30,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:49217a932f193420bfd7a9ce06a705073c9c5f3102e490bc05d4eb76d7d9929a",
           "symbol": "users/middlewares.go::UpdateContextUserModel"
         }
@@ -2405,7 +2405,7 @@
           "path": "users/models.go",
           "start_line": 83,
           "end_line": 83,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
           "symbol": "users/models.go::FindOneUser"
         },
@@ -2413,7 +2413,7 @@
           "path": "users/models.go",
           "start_line": 93,
           "end_line": 93,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:26b05fd4cf2fe16e68386f46a5986402bcf9849ac88754a6a35b14d705fa44ed",
           "symbol": "users/models.go::SaveOne"
         }
@@ -2442,7 +2442,7 @@
           "path": "users/models.go",
           "start_line": 83,
           "end_line": 83,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0a24bb6b958a7c4c764ed2badf7ba5d5e97c570863fa8103c6633cea80445a12",
           "symbol": "users/models.go::FindOneUser"
         },
@@ -2450,7 +2450,7 @@
           "path": "users/models.go",
           "start_line": 128,
           "end_line": 128,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:562a134ae5fbbc349aa36ce07477b81f13693839d3f01a4fbe6d09570212e66d",
           "symbol": "users/models.go::UserModel.unFollowing"
         }
@@ -2686,7 +2686,7 @@
           "path": "articles/models.go",
           "start_line": 388,
           "end_line": 388,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:56f334a05961f49cab417bcaef72fd53d1a4e8ca8ccca77737b08e690f56b1be",
           "symbol": "articles/models.go::DeleteCommentModel"
         },
@@ -2694,7 +2694,7 @@
           "path": "articles/models.go",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
           "symbol": "articles/models.go::FindOneArticle"
         },
@@ -2702,7 +2702,7 @@
           "path": "articles/models.go",
           "start_line": 158,
           "end_line": 158,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:299ea25621c38b13316f2b476942276985430dd00386809855605db787a22e2c",
           "symbol": "articles/models.go::FindOneComment"
         }
@@ -2731,7 +2731,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -2760,7 +2760,7 @@
           "path": "articles/models.go",
           "start_line": 314,
           "end_line": 314,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f24be39a149f2dd07d7b7a16aec9f41ebbee88abc6eb82e913829547c85d517a",
           "symbol": "articles/models.go::ArticleModel.ReplaceTags"
         },
@@ -2768,7 +2768,7 @@
           "path": "articles/models.go",
           "start_line": 376,
           "end_line": 376,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:fca3ea98990493ba75a759df5db504295b4dfc203844119abcf7fe8ac5fb228f",
           "symbol": "articles/models.go::ArticleModel.Update"
         },
@@ -2776,7 +2776,7 @@
           "path": "articles/models.go",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
           "symbol": "articles/models.go::FindOneArticle"
         },
@@ -2784,7 +2784,7 @@
           "path": "articles/models.go",
           "start_line": 299,
           "end_line": 299,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:d13eba87a3b29a628c5c93912cfa725be188a3f37055f174a4eaef6cf0960b0e",
           "symbol": "articles/models.go::makeUniqueSlug"
         },
@@ -2792,7 +2792,7 @@
           "path": "articles/models.go",
           "start_line": 336,
           "end_line": 336,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:2c1dbe1ad73eeefec28f6742b013905a1c6b863c4d8b9f6fdbcd4cd0446f6dda",
           "symbol": "articles/models.go::buildTagModels"
         },
@@ -2800,7 +2800,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -2829,7 +2829,7 @@
           "path": "articles/models.go",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
           "symbol": "articles/models.go::FindOneArticle"
         },
@@ -2837,7 +2837,7 @@
           "path": "articles/models.go",
           "start_line": 145,
           "end_line": 145,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:26b05fd4cf2fe16e68386f46a5986402bcf9849ac88754a6a35b14d705fa44ed",
           "symbol": "articles/models.go::SaveOne"
         },
@@ -2845,7 +2845,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -2943,7 +2943,7 @@
           "path": "articles/models.go",
           "start_line": 382,
           "end_line": 382,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:0890c5cd88b34ef1747639319f72a386574cf4b53fd48c533a8cd2a0dc1c5305",
           "symbol": "articles/models.go::DeleteArticleModel"
         },
@@ -2951,7 +2951,7 @@
           "path": "articles/models.go",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
           "symbol": "articles/models.go::FindOneArticle"
         }
@@ -3128,7 +3128,7 @@
           "path": "articles/models.go",
           "start_line": 151,
           "end_line": 151,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:f5b629c0baeaa47b9cb4d1dc2672e604d1669967972b23febc52c77c000c4060",
           "symbol": "articles/models.go::FindOneArticle"
         },
@@ -3136,7 +3136,7 @@
           "path": "articles/models.go",
           "start_line": 113,
           "end_line": 113,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:cc77d63a39bd41d94dba0e5ba654ee2974e357c0b744c4ef2fd9631a88134b56",
           "symbol": "articles/models.go::BatchGetFavoriteStatus"
         }
@@ -4661,7 +4661,7 @@
           "path": ".",
           "start_line": 1,
           "end_line": 1,
-          "detector": "synth@0.5.0",
+          "detector": "synth@0.5.1",
           "content_hash": "sha256:5ab8f198786f81a1a515d5eddba881b511d787b6226984d9882add31072bfffe"
         }
       ]

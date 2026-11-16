@@ -1,6 +1,6 @@
 # code2design report: nestjs-realworld
 
-Commit `c1c2cc4e448b`, code2design 0.5.0, IR 0.2.
+Commit `c1c2cc4e448b`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -10,7 +10,7 @@ Commit `c1c2cc4e448b`, code2design 0.5.0, IR 0.2.
 | typescript | 35 |
 | (test files, not modelled) | 1 |
 
-Detectors: config@0.5, js@0.5, nest@0.5, synth@0.5.0
+Detectors: config@0.5, js@0.5, nest@0.5, synth@0.5.1
 
 Facts: app 1, control 3, dependencies 1, entry_point 21, global_prefix 1, listener 1, module 1, router 5, schema 5, store_access 63
 

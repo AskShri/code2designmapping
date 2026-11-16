@@ -1,6 +1,6 @@
 # code2design report: spring-petclinic
 
-Commit `500158f73241`, code2design 0.5.0, IR 0.2.
+Commit `500158f73241`, code2design 0.5.1, IR 0.2.
 
 ## Coverage
 
@@ -9,7 +9,7 @@ Commit `500158f73241`, code2design 0.5.0, IR 0.2.
 | java | 50 |
 | (test files, not modelled) | 20 |
 
-Detectors: config@0.5, java@0.5, synth@0.5.0
+Detectors: config@0.5, java@0.5, synth@0.5.1
 
 Facts: app 1, boundary_hint 4, call_edge 19, control 5, dependencies 1, entry_point 17, module 1, router 6, schema 4, service_host 2, store_access 24, weakness 3
 

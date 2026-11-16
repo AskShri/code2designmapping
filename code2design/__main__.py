@@ -6,7 +6,7 @@
   python -m code2design export <ir.json> --format otm|sarif [--repo-url URL]
   python -m code2design lint <ir.json>
 """
-import argparse, json, os, sys
+import argparse, json, os, re, sys
 from collections import OrderedDict
 from . import __version__
 
@@ -31,7 +31,7 @@ def write_outputs(out, idx, facts, ir, rows, repo_url=None):
     diag = os.path.join(out, "diagrams")
     os.makedirs(diag, exist_ok=True)
     for fn in os.listdir(diag):                       # a re-run must not leave diagrams of deleted elements
-        if fn.endswith(".mmd"):
+        if re.fullmatch(r"(dfd-l[01]|dfd-l2-[a-z2-7]{10}|flow-[a-z2-7]{10})\.mmd", fn):
             os.remove(os.path.join(diag, fn))
     with open(os.path.join(out, "facts.jsonl"), "w", encoding="utf-8") as fh:
         for f in facts.facts:

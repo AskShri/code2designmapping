@@ -6,7 +6,7 @@
       "tool": {
         "driver": {
           "name": "code2design",
-          "version": "0.5.0",
+          "version": "0.5.1",
           "informationUri": "https://github.com/AskShri/code2designmapping",
           "rules": []
         }

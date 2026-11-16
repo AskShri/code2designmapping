@@ -225,8 +225,26 @@ class _PyFile:
         return self.sf.path, local
 
     # ------------------------------------------------------------------ driver
+    def _before_request_guards(self):
+        """@bp.before_request / @app.before_request functions that enforce authentication guard every
+        route of that blueprint (before_app_request: of the whole app)."""
+        sf = self.sf
+        for m in re.finditer(r"^@(\w+)\.before_(app_)?request\s*\n((?:@[^\n]+\n)*)\s*(?:async\s+)?def\s+(\w+)\([^)]*\)[^:]*:\n((?:[ \t]+[^\n]*\n|\n)*)", sf.text, re.M):
+            decos = [d.strip().lstrip("@").split("(")[0] for d in m.group(3).splitlines() if d.strip()]
+            kind = next((k for k in (classify_control(d.split(".")[-1]) for d in decos) if k in ("authn", "authz")), None)
+            if not kind and re.search(r"abort\(\s*40[13]\b|\b40[13]\b\s*$|Unauthorized|login_manager\.unauthorized|verify_jwt_in_request", m.group(5), re.M):
+                kind = "authn"
+            if kind:
+                rf, rl = self.router_key(m.group(1))
+                attrs = dict(file=sf.path, control_kind=kind, name=f"before_request:{m.group(4)}"[:60])
+                if m.group(2):
+                    self.facts.add("control", DET, _ev(sf, sf.line_of_offset(m.start())), scope="service", **attrs)
+                else:
+                    self.facts.add("control", DET, _ev(sf, sf.line_of_offset(m.start())), scope="router", router=rl, router_file=rf, ordered=False, **attrs)
+
     def run(self):
         sf, facts = self.sf, self.facts
+        self._before_request_guards()
         for spec, line, names in sf.imports:
             base = spec.split(":")[0]
             hit = next(((s, t) for s, t in sorted(STORE_PKGS.items(), key=lambda kv: -len(kv[0])) if base == s or base.startswith(s + ".")), None)
@@ -307,7 +325,8 @@ class _PyFile:
         if kind:
             attrs = dict(file=sf.path, control_kind=kind, name=f"Depends({name})", scope=scope)
             if scope == "router":
-                attrs.update(router=router, ordered=False)
+                rf, rl = self.router_key(router)
+                attrs.update(router=rl, router_file=rf, ordered=False)
             out.append(self.facts.add("control", DET, self.ev(node), **attrs))
         tfile, sym = (None, None)
         if fn.split(".")[0] in sf.bindings:
@@ -540,7 +559,7 @@ class _PyFile:
             return
         if op == "include_router" and nargs:
             self._mount(n, recv.split(".")[-1], sf.node_text(nargs[0]), repo.const(_kwarg(argtext, "prefix")) or "")
-            self._deps_controls(n, argtext, "router", self.router_key(sf.node_text(nargs[0]).split(".")[-1] if "." not in sf.node_text(nargs[0]) else sf.node_text(nargs[0]))[1])
+            self._deps_controls(n, argtext, "router", sf.node_text(nargs[0]).split(".")[0] if sf.node_text(nargs[0]).split(".")[0] in sf.bindings else sf.node_text(nargs[0]).split(".")[-1])
             return
         if op == "add_middleware" and nargs:
             mw = sf.node_text(nargs[0])

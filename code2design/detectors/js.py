@@ -53,7 +53,7 @@ APP_FACTORIES = ("express", "fastify", "Fastify", "polka", "restify.createServer
 FUNC_NODES = ("arrow_function", "function_expression", "function")
 ROUTERISH = ("app", "router", "server", "api", "routes", "fastify", "r")
 SERVER_PKGS = ("express", "fastify", "koa", "@koa/router", "koa-router", "hono", "restify", "@hapi/hapi", "polka", "json-server")
-ROUTER_FILE_RX = re.compile(r"(Router\(|\.route\(|\.(get|post|put|patch|delete)\(\s*['\"`/])")
+ROUTER_FILE_RX = re.compile(r"(Router\(|\.route\(|\b(\w*[rR]oute[rs]?\w*|app|server|api|fastify)\.(get|post|put|patch|delete)\(\s*['\"`/])")
 
 
 def run(idx, facts):
